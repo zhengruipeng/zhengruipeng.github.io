@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="./css/main.css">
+    <!--build in object extend-->
+    <script type="text/javascript">
+        Math.cot = function (x){
+            return 1/Math.tan(x);
+        };
+    </script>
+</head>
+<body>
+<div id="backgroundImage" ></div>
+<canvas id="webgl"></canvas>
+<div id="notice" class="notice notice_hid">这是有关实验楼的信息</div>
+<div id="details" class="notice"></div>
+<nav class="nav" style="top:100px;left:0;height:30px;" id="buildingSummary"> 实验楼简介：</nav>
+<nav class="nav" style="top:160px;left:0;"> 清晰度更改：<br /><input type="range" id="canvasClarity" max="10" min="1" value="10" /></nav>
+<nav class="nav" style="top:240px;left:0;" id="downwardCompatibility"> 向下兼容模式</nav>
+
+<!--global var-->
+<script type="text/javascript">
+    window.globalVar = {};
+    window.globalVar.FH = 5;
+    window.globalVar.threeD = {};
+    window.globalVar.threeD.perspectiveCamera = null;
+    window.globalVar.threeD.geometry = {};      //[TypeArray vertices,normals,colors,texture,indices]
+    window.globalVar.threeD.shaders = [];      //[vertex,fragment]
+    window.globalVar.threeD.data = {};      //{vertexArray,vertices,normals,colors,texture,indices}
+    window.globalVar.threeD.camera = {
+        position:[],
+        lookAt:[],
+    }       //the information of camera
+    window.globalVar.threeD.frameBufferColor = {
+        building1:[.2,0,0,],
+        building2:[.4,0,0,],
+        building4:[.6,0,0,],
+        building6:[.8,0,0,],
+        building10:[1,0,0,],
+        building12:[0,.2,0,],
+        corridor:[0,.4,0,],
+    };      //the color rendered in frame buffer
+    window.globalVar.threeD.webgl = window.document.getElementById("webgl");
+    window.globalVar.threeD.gl = null;
+    window.globalVar.threeD.initShader = function (vertex,frag){
+        let gl = globalVar.threeD.gl;
+        let loadShader = function (text,type){
+            let shader = gl.createShader(type);
+            gl.shaderSource(shader,text);
+            gl.compileShader(shader);
+            return shader;
+        };
+        vertex = loadShader(vertex,gl.VERTEX_SHADER);
+        frag = loadShader(frag,gl.FRAGMENT_SHADER);
+        let program = gl.createProgram();
+        gl.attachShader(program,vertex);
+        gl.attachShader(program,frag);
+        gl.linkProgram(program);
+        return program;
+
+    };
+    window.globalVar.threeD.initBuffer = function (name,value,shader){
+        let gl = globalVar.threeD.gl;
+
+        let attribute = gl.getAttribLocation(shader,name);
+        let buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,value,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(attribute)
+    };
+    window.globalVar.threeD.initUniform = function (name,value,type,shader){
+        let gl = globalVar.threeD.gl;
+
+        let uniform = gl.getUniformLocation(shader,name);
+        type.slice(0,1) === "M"?gl['uniform'+type](uniform,false,value):gl['uniform'+type](uniform,...value);
+
+    };
+    window.globalVar.threeD.initArrayBuffer = function (b){
+        let gl = globalVar.threeD.gl;
+
+        let buf = gl.createBuffer();
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,b,gl.STATIC_DRAW);
+    };
+    window.globalVar.notify;        //notify function
+</script>
+<!--modify webgl canvas size-->
+<script type="text/javascript">
+    //motify the canvas clarity with given data
+    if(window.localStorage.getItem("canvasClarity")){
+        let c = window.localStorage.getItem("canvasClarity")/10;
+        window.globalVar.threeD.webgl.width = document.documentElement.clientWidth*c;
+        window.globalVar.threeD.webgl.height = document.documentElement.clientHeight*c;
+        window.globalVar.threeD.webgl.style.height = "95%";
+        window.globalVar.threeD.webgl.style.width = "95%";
+        window.globalVar.threeD.gl = window.globalVar.threeD.webgl.getContext("webgl2");
+    }else{
+        window.globalVar.threeD.webgl.width = document.documentElement.clientWidth-10;
+        window.globalVar.threeD.webgl.height = document.documentElement.clientHeight-10;
+        window.globalVar.threeD.gl = window.globalVar.threeD.webgl.getContext("webgl2");
+    }
+</script>
+<!--<script type="text/javascript" src="./scripts/webgl-getShaders.js"></script>-->
+<!--controls-->
+<script type="text/javascript" src="./libs/cuon-matrix.js"></script>
+<!--shaders-->
+<script type="text/javascript" src="./shader/vertex-shader1.js"></script>
+<script type="text/javascript" src="./shader/fragment-shader1.js"></script>
+<script type="text/javascript" src="./shader/vertex-shader2.js"></script>
+<script type="text/javascript" src="./shader/fragment-shader2.js"></script>
+
+<script type="text/javascript" src="./scripts/webgl-perspective-camera.js"></script>
+<!--geometry data-->
+<script type="text/javascript" src="./geometryData/sphere.js"></script>
+<script type="text/javascript" src="./geometryData/cube.js"></script>
+<script type="text/javascript" src="./geometryData/building1.js"></script>
+<script type="text/javascript" src="./geometryData/building2.js"></script>
+<script type="text/javascript" src="./geometryData/corridor.js"></script>
+<script type="text/javascript" src="./geometryData/building4-center.js"></script>
+<script type="text/javascript" src="./geometryData/building6-left.js"></script>
+<script type="text/javascript" src="./geometryData/building10.js"></script>
+<script type="text/javascript" src="./geometryData/building12.js"></script>
+<!--config shader data-->
+<script type="text/javascript" src="./scripts/webgl-shader1-config.js"></script>
+<script type="text/javascript" src="./scripts/webgl-shader2-config.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building2-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-corridor-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building4-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building6-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building10-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building12-moudle.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const notice = document.getElementById("notice");
+        const details = document.getElementById("details");
+        const webgl = globalVar.threeD.webgl;
+        const gl = globalVar.threeD.gl;
+        if(gl == null){
+            alert("请使用最新版浏览器");
+            globalVar.threeD.gl = null;
+            return false;
+        }
+        const initUniform = globalVar.threeD.initUniform;
+        const initBuffer = globalVar.threeD.initBuffer;
+        const initArrayBuffer = globalVar.threeD.initArrayBuffer;
+        const initShader = globalVar.threeD.initShader;
+        const matrix = {
+            rotation:{},
+            scale:{},
+            translate:{},
+        };
+        let introduce = {
+            building1:"主楼，共五层，南北朝向约41m，东西朝向约36m",
+            building2:"二号楼，分为两块，一个四层，南北朝向约7.39m，东西朝向约18.2m",
+            corridor:"走廊，分为两块，一个1层，南北朝向约4.92m，东西朝向约3.71m",
+            building4:"最大的四号楼，分为两块，一个五层，南北朝向约17.1m，东西朝向约95m",
+            building6:"六号楼区，分为四块，一个四层，南北朝向约30m，东西朝向约16m",
+            building10:"十号楼区，分为两块，一个1层，南北朝向约17.26m，东西朝向约12.52m",
+            building12:"十二号楼区，分为两块，一个1层，南北朝向约8.03m，东西朝向约16.5m",
+        };
+        let notifications = false;
+        let notification_timer = 0;
+
+        //request for notification API
+        Notification.requestPermission().then(res => {
+            if(res === "granted"){
+                notifications = true;
+            }
+
+        });
+
+        gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,0);
+
+        //init building matrix
+        let theta = .7;
+        matrix.global = new Matrix4();
+        matrix.global.setRotate(0,0,1,0);
+        matrix.globalInverse = new Matrix4();
+
+        matrix.building1 = new Matrix4();
+        matrix.building2 = new Matrix4();
+        matrix.building3 = new Matrix4();
+        matrix.corridor = new Matrix4();
+        matrix.corridor2 = new Matrix4();
+        matrix.building4Center = new Matrix4();
+        matrix.building5Center = new Matrix4();
+        matrix.building6Left = new Matrix4();
+        matrix.building7Left = new Matrix4();
+        matrix.building8Right = new Matrix4();
+        matrix.building9Right = new Matrix4();
+        matrix.building10 = new Matrix4();
+        matrix.building11 = new Matrix4();
+        matrix.building12 = new Matrix4();
+        matrix.building13 = new Matrix4();
+
+        matrix.building1Inverse = new Matrix4();
+        matrix.building2Inverse = new Matrix4();
+        matrix.building3Inverse = new Matrix4();
+        matrix.corridorInverse = new Matrix4();
+        matrix.corridor2Inverse = new Matrix4();
+        matrix.building4CenterInverse = new Matrix4();
+        matrix.building5CenterInverse = new Matrix4();
+        matrix.building6LeftInverse = new Matrix4();
+        matrix.building7LeftInverse = new Matrix4();
+        matrix.building8RightInverse = new Matrix4();
+        matrix.building9RightInverse = new Matrix4();
+        matrix.building10Inverse = new Matrix4();
+        matrix.building11Inverse = new Matrix4();
+        matrix.building12Inverse = new Matrix4();
+        matrix.building13Inverse = new Matrix4();
+
+        let notify = function (msg){
+            notice.innerText = msg;
+            notice.classList.add("notice_show");
+            notice.classList.remove("notice_hid");
+            clearTimeout(notification_timer);
+
+            if(notifications){
+                new Notification("来自实验楼预览页面",{
+                    body: msg,
+                    lang:"ch-ZH",
+                    dir:"ltr",
+                    vibrate:[200,100,200],
+                    renotify:true,
+                    tag:"tag"
+                });
+            }
+
+
+            notification_timer = setTimeout(() => {
+                notice.classList.add("notice_hid");
+                notice.classList.remove("notice_show");
+            },2000);
+        };
+        let drawFramebuffer = function (vertexArray,vertices,/*vec3[]*/colors,indices,matrix){
+            gl.bindVertexArray(vertexArray);
+            initUniform("u_change",matrix,"Matrix4fv",gl.SHADER_PROGRAM1);
+            initUniform("a_color",colors.concat([1]),"4f",gl.SHADER_PROGRAM1);
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
+        };
+
+        let drawGeometry = function (vertexArray,matrix,inverseM,indices){
+            gl.bindVertexArray(vertexArray);
+            initUniform("u_change",matrix,"Matrix4fv",gl.SHADER_PROGRAM0);
+            initUniform("u_trans",inverseM,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,indices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building2.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building2Vertices,globalVar.threeD.frameBufferColor.building2,building2TriangleIndices,matrix.building2.elements);
+
+        };
+
+        let showDetails = function (msg,left,top){
+            details.innerText = msg;
+            details.style.display = "block";
+            details.style.opacity = "1";
+            if(document.documentElement.clientWidth-left<200){
+                details.style.left = left-200+"px";
+            }else{
+                details.style.left = left+"px";
+            }
+            if(document.documentElement.clientHeight-top<200){
+                details.style.top = top-200+"px";
+            }else{
+                details.style.top = top+"px";
+            }
+        };
+        let hidDetails = function (){
+            details.style.display = "none";
+
+        };
+        let RotationAnime = function (max){
+            if(this === window)return false;
+            this.stopAnimeIntervalTimer;
+            this.startAnimeIntervalTimer;
+            this.stopAnimeTimer;
+            this.startAnimeTimer;
+            this.max = max||0.7;
+            this.omiga = this.max;
+        };
+        RotationAnime.prototype = {
+            play(time){
+                let delta = this.max/time;
+
+                this.omiga = this.max;
+
+            },
+            pause(time){
+                let delta = this.max/time;
+                this.omiga = 0;
+
+            },
+
+        };
+
+        let renderer = function (){
+
+            gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+            gl.bindRenderbuffer(gl.RENDERBUFFER,null);
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+            matrix.global.rotate(rotationAnime.omiga,0,1,0);
+            matrix.globalInverse.setInverseOf(matrix.global);
+            matrix.globalInverse.transpose();
+            initUniform("u_global_change",matrix.global.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            initUniform("u_global_trans",matrix.globalInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+
+            drawGeometry(globalVar.threeD.data.building1.vertexArray,matrix.building1.elements,matrix.building1Inverse.elements,building1Indices);
+            drawGeometry(globalVar.threeD.data.building2.vertexArray,matrix.building2.elements,matrix.building2Inverse.elements,building2Indices);
+            drawGeometry(globalVar.threeD.data.building2.vertexArray,matrix.building3.elements,matrix.building3Inverse.elements,building2Indices);
+            drawGeometry(globalVar.threeD.data.corridor.vertexArray,matrix.corridor.elements,matrix.corridorInverse.elements,corridorIndices);
+            drawGeometry(globalVar.threeD.data.corridor.vertexArray,matrix.corridor2.elements,matrix.corridor2Inverse.elements,corridorIndices);
+            drawGeometry(globalVar.threeD.data.building4Center.vertexArray,matrix.building4Center.elements,matrix.building4CenterInverse.elements,building4CenterIndices);
+            drawGeometry(globalVar.threeD.data.building4Center.vertexArray,matrix.building5Center.elements,matrix.building5CenterInverse.elements,building4CenterIndices);
+            drawGeometry(globalVar.threeD.data.building6Left.vertexArray,matrix.building6Left.elements,matrix.building6LeftInverse.elements,building6LeftIndices);
+            drawGeometry(globalVar.threeD.data.building6Left.vertexArray,matrix.building7Left.elements,matrix.building7LeftInverse.elements,building6LeftIndices);
+            drawGeometry(globalVar.threeD.data.building6Left.vertexArray,matrix.building8Right.elements,matrix.building8RightInverse.elements,building6LeftIndices);
+            drawGeometry(globalVar.threeD.data.building6Left.vertexArray,matrix.building9Right.elements,matrix.building9RightInverse.elements,building6LeftIndices);
+            drawGeometry(globalVar.threeD.data.building10.vertexArray,matrix.building10.elements,matrix.building10Inverse.elements,building10Indices);
+            drawGeometry(globalVar.threeD.data.building10.vertexArray,matrix.building11.elements,matrix.building11Inverse.elements,building10Indices);
+            drawGeometry(globalVar.threeD.data.building12.vertexArray,matrix.building12.elements,matrix.building12Inverse.elements,building12Indices);
+            drawGeometry(globalVar.threeD.data.building12.vertexArray,matrix.building13.elements,matrix.building13Inverse.elements,building12Indices);
+            gl.useProgram(gl.SHADER_PROGRAM1);
+            gl.bindFramebuffer(gl.FRAMEBUFFER,frameBuffer);
+            gl.bindRenderbuffer(gl.RENDERBUFFER,renderBuffer);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            initUniform("u_global_change",matrix.global.elements,"Matrix4fv",gl.SHADER_PROGRAM1);
+
+
+            let arr = gl.createVertexArray();
+            gl.bindVertexArray(arr);
+
+            drawFramebuffer(frameBufferArr.building1,building1Vertices,globalVar.threeD.frameBufferColor.building1,building1TriangleIndices,matrix.building1.elements);
+            drawFramebuffer(frameBufferArr.building2,building2Vertices,globalVar.threeD.frameBufferColor.building2,building2TriangleIndices,matrix.building2.elements);
+            drawFramebuffer(frameBufferArr.building2,building2Vertices,globalVar.threeD.frameBufferColor.building2,building2TriangleIndices,matrix.building3.elements);
+            drawFramebuffer(frameBufferArr.building4,building4CenterVertices,globalVar.threeD.frameBufferColor.building4,building4CenterTriangleIndices,matrix.building4Center.elements);
+            drawFramebuffer(frameBufferArr.building4,building4CenterVertices,globalVar.threeD.frameBufferColor.building4,building4CenterTriangleIndices,matrix.building5Center.elements);
+            drawFramebuffer(frameBufferArr.building6,building6LeftVertices,globalVar.threeD.frameBufferColor.building6,building6LeftTriangleIndices,matrix.building6Left.elements);
+            drawFramebuffer(frameBufferArr.building6,building6LeftVertices,globalVar.threeD.frameBufferColor.building6,building6LeftTriangleIndices,matrix.building7Left.elements);
+            drawFramebuffer(frameBufferArr.building6,building6LeftVertices,globalVar.threeD.frameBufferColor.building6,building6LeftTriangleIndices,matrix.building8Right.elements);
+            drawFramebuffer(frameBufferArr.building6,building6LeftVertices,globalVar.threeD.frameBufferColor.building6,building6LeftTriangleIndices,matrix.building9Right.elements);
+            drawFramebuffer(frameBufferArr.building10,building10Vertices,globalVar.threeD.frameBufferColor.building10,building10TriangleIndices,matrix.building10.elements);
+            drawFramebuffer(frameBufferArr.building10,building10Vertices,globalVar.threeD.frameBufferColor.building10,building10TriangleIndices,matrix.building11.elements);
+            drawFramebuffer(frameBufferArr.building12,building12Vertices,globalVar.threeD.frameBufferColor.building12,building12TriangleIndices,matrix.building12.elements);
+            drawFramebuffer(frameBufferArr.building12,building12Vertices,globalVar.threeD.frameBufferColor.building12,building12TriangleIndices,matrix.building13.elements);
+            drawFramebuffer(frameBufferArr.corridor,corridorVertices,globalVar.threeD.frameBufferColor.corridor,corridorTriangleIndices,matrix.corridor.elements);
+            drawFramebuffer(frameBufferArr.corridor,corridorVertices,globalVar.threeD.frameBufferColor.corridor,corridorTriangleIndices,matrix.corridor2.elements);
+            requestAnimationFrame(renderer);
+        };
+
+        let building1Vertices = globalVar.threeD.data.building1.vertices;
+        let building2Vertices = globalVar.threeD.data.building2.vertices;
+        let corridorVertices = globalVar.threeD.data.corridor.vertices;
+        let building4CenterVertices = globalVar.threeD.data.building4Center.vertices;
+        let building6LeftVertices = globalVar.threeD.data.building6Left.vertices;
+        let building10Vertices = globalVar.threeD.data.building10.vertices;
+        let building12Vertices = globalVar.threeD.data.building12.vertices;
+
+        let building1Indices = globalVar.threeD.data.building1.indices;
+        let building2Indices = globalVar.threeD.data.building2.indices;
+        let corridorIndices = globalVar.threeD.data.corridor.indices;
+        let building4CenterIndices = globalVar.threeD.data.building4Center.indices;
+        let building6LeftIndices = globalVar.threeD.data.building6Left.indices;
+        let building10Indices = globalVar.threeD.data.building10.indices;
+        let building12Indices = globalVar.threeD.data.building12.indices;
+
+        let building1TriangleIndices = globalVar.threeD.data.building1.triangleIndices;
+        let building2TriangleIndices = globalVar.threeD.data.building2.triangleIndices;
+        let corridorTriangleIndices = globalVar.threeD.data.corridor.triangleIndices;
+        let building4CenterTriangleIndices = globalVar.threeD.data.building4Center.triangleIndices;
+        let building6LeftTriangleIndices = globalVar.threeD.data.building6Left.triangleIndices;
+        let building10TriangleIndices = globalVar.threeD.data.building10.triangleIndices;
+        let building12TriangleIndices = globalVar.threeD.data.building12.triangleIndices;
+
+        matrix.building1Inverse.setInverseOf(matrix.building1);
+        matrix.building1Inverse.transpose();
+        matrix.building2 = new Matrix4(new Float32Array(matrix.building1.elements));
+        matrix.building2.translate(0,0,28);
+        matrix.building2Inverse.setInverseOf(matrix.building2);
+        matrix.building2Inverse.transpose();
+        matrix.building3 = new Matrix4(new Float32Array(matrix.building1.elements));
+        matrix.building3.translate(0,0,-28);
+        matrix.building3Inverse.setInverseOf(matrix.building3);
+        matrix.building3Inverse.transpose();
+        matrix.corridor = new Matrix4(new Float32Array(matrix.building1.elements));
+        matrix.corridor.translate(0,0,33.97);
+        matrix.corridorInverse.setInverseOf(matrix.corridor);
+        matrix.corridorInverse.transpose();
+        matrix.corridor2 = new Matrix4(new Float32Array(matrix.building1.elements));
+        matrix.corridor2.translate(0,0,-33.97);
+        matrix.corridor2Inverse.setInverseOf(matrix.corridor);
+        matrix.corridor2Inverse.transpose();
+        matrix.building4Center = new Matrix4(new Float32Array(matrix.building1.elements));
+        matrix.building4Center.translate(0,0,44.98);
+        matrix.building4CenterInverse.setInverseOf(matrix.building4Center);
+        matrix.building4CenterInverse.transpose();
+        matrix.building5Center = new Matrix4(new Float32Array(matrix.building1.elements));
+        matrix.building5Center.translate(0,0,-44.98);
+        matrix.building5CenterInverse.setInverseOf(matrix.building4Center);
+        matrix.building5CenterInverse.transpose();
+        matrix.building6Left = new Matrix4(new Float32Array(matrix.building4Center.elements));
+        matrix.building6Left.translate(-47.33,0,-33);
+        matrix.building6LeftInverse.setInverseOf(matrix.building6Left);
+        matrix.building6LeftInverse.transpose();
+        matrix.building7Left = new Matrix4(new Float32Array(matrix.building5Center.elements));
+        matrix.building7Left.translate(-47.33,0,33);
+        matrix.building7LeftInverse.setInverseOf(matrix.building7Left);
+        matrix.building7LeftInverse.transpose();
+        matrix.building8Right = new Matrix4(new Float32Array(matrix.building5Center.elements));
+        matrix.building8Right.rotate(180,0,1,0);
+        matrix.building8Right.translate(-47.33,0,-33);
+        matrix.building8RightInverse.setInverseOf(matrix.building8Right);
+        matrix.building8RightInverse.transpose();
+        matrix.building9Right = new Matrix4(new Float32Array(matrix.building5Center.elements));
+        matrix.building9Right.rotate(180,0,1,0);
+        matrix.building9Right.translate(-47.33,0,33);
+        matrix.building9RightInverse.setInverseOf(matrix.building9Right);
+        matrix.building9RightInverse.transpose();
+        matrix.building10 = new Matrix4(new Float32Array(matrix.building5Center.elements));
+        matrix.building10.translate(-41.07,0,20);
+        matrix.building10Inverse.setInverseOf(matrix.building10);
+        matrix.building10Inverse.transpose();
+        matrix.building11 = new Matrix4(new Float32Array(matrix.building5Center.elements));
+        matrix.building11.translate(-41.07,0,-20);
+        matrix.building11Inverse.setInverseOf(matrix.building11);
+        matrix.building11Inverse.transpose();
+        matrix.building12 = new Matrix4(new Float32Array(matrix.building5Center.elements));
+        matrix.building12.translate(39.07,0,20);
+        matrix.building12Inverse.setInverseOf(matrix.building12);
+        matrix.building12Inverse.transpose();
+        matrix.building13 = new Matrix4(new Float32Array(matrix.building5Center.elements));
+        matrix.building13.translate(39.07,0,-20);
+        matrix.building13Inverse.setInverseOf(matrix.building13);
+        matrix.building13Inverse.transpose();
+
+        let texture = gl.createTexture();
+        let frameBuffer = gl.createFramebuffer();
+        let renderBuffer = gl.createRenderbuffer();
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D,texture);
+        gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,webgl.width,webgl.height,0,gl.RGB,gl.UNSIGNED_BYTE,null);
+        gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+        gl.bindFramebuffer(gl.FRAMEBUFFER,frameBuffer);
+        gl.bindRenderbuffer(gl.RENDERBUFFER,renderBuffer);
+        gl.renderbufferStorage(gl.RENDERBUFFER,gl.DEPTH_COMPONENT16,webgl.width,webgl.height);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,texture,0);
+        gl.framebufferRenderbuffer(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.RENDERBUFFER,renderBuffer);
+        let status = gl.checkFramebufferStatus(gl.FRAMEBUFFER);
+        if(status !== gl.FRAMEBUFFER_COMPLETE){
+            notify("帧缓存开启失败，请使用最新的浏览器");
+        }else{
+            notify("您现在可以和3D模型开始互交");
+        }
+        gl.viewport(0,0,webgl.width,webgl.height);
+        gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,0);
+
+        gl.useProgram(gl.SHADER_PROGRAM1);
+        initUniform("u_perspective",(new globalVar.threeD.perspectiveCamera(
+            ...globalVar.threeD.camera.position,...globalVar.threeD.camera.lookAt,
+            0,1,0,20,webgl.width/webgl.height,.1,1000)).matrix,
+            "Matrix4fv",gl.SHADER_PROGRAM1);
+
+        gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+        gl.bindRenderbuffer(gl.RENDERBUFFER,null);
+
+        let frameBufferArr = {
+            building1:gl.createVertexArray(),
+            building2:gl.createVertexArray(),
+            building4:gl.createVertexArray(),
+            building6:gl.createVertexArray(),
+            building10:gl.createVertexArray(),
+            building12:gl.createVertexArray(),
+            corridor:gl.createVertexArray(),
+        };
+
+
+        gl.bindVertexArray(frameBufferArr.building1);
+        initBuffer("a_position",building1Vertices,gl.SHADER_PROGRAM1);
+        initArrayBuffer(building1TriangleIndices);
+        gl.bindVertexArray(frameBufferArr.building2);
+        initBuffer("a_position",building2Vertices,gl.SHADER_PROGRAM1);
+        initArrayBuffer(building2TriangleIndices);
+        gl.bindVertexArray(frameBufferArr.building4);
+        initBuffer("a_position",building4CenterVertices,gl.SHADER_PROGRAM1);
+        initArrayBuffer(building4CenterTriangleIndices);
+        gl.bindVertexArray(frameBufferArr.building6);
+        initBuffer("a_position",building6LeftVertices,gl.SHADER_PROGRAM1);
+        initArrayBuffer(building6LeftTriangleIndices);
+        gl.bindVertexArray(frameBufferArr.building10);
+        initBuffer("a_position",building10Vertices,gl.SHADER_PROGRAM1);
+        initArrayBuffer(building10TriangleIndices);
+        gl.bindVertexArray(frameBufferArr.building12);
+        initBuffer("a_position",building12Vertices,gl.SHADER_PROGRAM1);
+        initArrayBuffer(building12TriangleIndices);
+        gl.bindVertexArray(frameBufferArr.corridor);
+        initBuffer("a_position",corridorVertices,gl.SHADER_PROGRAM1);
+        initArrayBuffer(corridorTriangleIndices);
+
+
+        gl.useProgram(gl.SHADER_PROGRAM0);
+        let rotationAnime = new RotationAnime();
+
+        renderer();
+
+        notice.onmouseover = function (){
+            clearTimeout(notification_timer);
+        };
+        notice.onmouseout = function (){
+            notification_timer = setTimeout(() => {
+                notice.classList.add("notice_hid");
+                notice.classList.remove("notice_show");
+            },2000);
+        };
+        webgl.onmousemove = function (e){
+
+            let y = 0,
+                x = 0;
+            if(window.localStorage.getItem("canvasClarity")){
+                x = e.clientX;
+                y = document.documentElement.clientHeight*0.95 - e.clientY;
+
+                x*=(window.localStorage.getItem("canvasClarity")/10);
+                y*=(window.localStorage.getItem("canvasClarity")/10);
+
+                //x+=100;
+            }else{
+                x = e.clientX;
+                y = webgl.height - e.clientY;
+            }
+
+            let data = new Uint8Array(4);
+            gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,data);
+            let colors =  globalVar.threeD.frameBufferColor;
+            gl.bindFramebuffer(gl.FRAMEBUFFER,frameBuffer);
+            gl.bindRenderbuffer(gl.RENDERBUFFER,renderBuffer);
+            switch(data.join(",")){
+                case colors.building1.map(v => v*255).concat([255]).join(","):
+                    webgl.style.cursor = "pointer";
+                    rotationAnime.pause(1000);
+                    break;
+                case colors.building2.map(v => v*255).concat([255]).join(","):
+                    webgl.style.cursor = "pointer";
+                    rotationAnime.pause(1000);
+                    break;
+                case colors.building4.map(v => v*255).concat([255]).join(","):
+                    webgl.style.cursor = "pointer";
+                    rotationAnime.pause(1000);
+                    break;
+                case colors.building6.map(v => v*255).concat([255]).join(","):
+                    webgl.style.cursor = "pointer";
+                    rotationAnime.pause(1000);
+                    break;
+                case colors.building10.map(v => v*255).concat([255]).join(","):
+                    webgl.style.cursor = "pointer";
+                    rotationAnime.pause(1000);
+                    break;
+                case colors.building12.map(v => v*255).concat([255]).join(","):
+                    webgl.style.cursor = "pointer";
+                    rotationAnime.pause(1000);
+                    break;
+                case colors.corridor.map(v => v*255).concat([255]).join(","):
+                    webgl.style.cursor = "pointer";
+                    rotationAnime.pause(1000);
+                    break;
+                default:
+                    webgl.style.cursor = "default";
+                    rotationAnime.play(1000);
+                    hidDetails();
+            }
+        };
+        webgl.oncontextmenu = function (e){
+            e.preventDefault();
+        };
+        webgl.onclick = function (e){
+            let y = 0,
+                x = 0;
+            if(window.localStorage.getItem("canvasClarity")){
+                x = e.clientX;
+                y = document.documentElement.clientHeight*0.95 - e.clientY;
+
+                x*=(window.localStorage.getItem("canvasClarity")/10);
+                y*=(window.localStorage.getItem("canvasClarity")/10);
+
+            }else{
+                x = e.clientX;
+                y = webgl.height - e.clientY;
+            }
+            let w = document.documentElement.clientWidth;
+            let h = document.documentElement.clientHeight;
+            let data = new Uint8Array(4);
+            gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,data);
+            let colors =  globalVar.threeD.frameBufferColor;
+            gl.bindFramebuffer(gl.FRAMEBUFFER,frameBuffer);
+            gl.bindRenderbuffer(gl.RENDERBUFFER,renderBuffer);
+            switch(data.join(",")){
+                case colors.building1.map(v => v*255).concat([255]).join(","):
+                    showDetails(introduce.building1,e.x,e.y);
+                    break;
+                case colors.building2.map(v => v*255).concat([255]).join(","):
+                    showDetails(introduce.building2,e.x,e.y);
+                    break;
+                case colors.building4.map(v => v*255).concat([255]).join(","):
+                    showDetails(introduce.building4,e.x,e.y);
+                    break;
+                case colors.building6.map(v => v*255).concat([255]).join(","):
+                    showDetails(introduce.building6,e.x,e.y);
+                    break;
+                case colors.building10.map(v => v*255).concat([255]).join(","):
+                    showDetails(introduce.building10,e.x,e.y);
+                    break;
+                case colors.building12.map(v => v*255).concat([255]).join(","):
+                    showDetails(introduce.building12,e.x,e.y);
+                    break;
+                case colors.corridor.map(v => v*255).concat([255]).join(","):
+                    showDetails(introduce.corridor,e.x,e.y);
+                    break;
+                default:
+
+            }
+        };
+        window.globalVar.notify = notify;
+})
+</script>
+<script type="text/javascript" src="./scripts/buildingSummary.js"></script>
+<script type="text/javascript" src="./scripts/modifyClarity.js"></script>
+<script type="text/javascript" src="./scripts/videoScript.js"></script>
+<script type="text/javascript" src="./scripts/downwardCompatibility.js"></script>
+</body>
+</html>
