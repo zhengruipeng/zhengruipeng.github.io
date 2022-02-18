@@ -19,7 +19,7 @@
 <nav class="nav" style="top:100px;left:0;height:30px;" id="buildingSummary"> 实验楼简介：</nav>
 <nav class="nav" style="top:160px;left:0;"> 清晰度更改：<br /><input type="range" id="canvasClarity" max="10" min="1" value="10" /></nav>
 <nav class="nav" style="top:240px;left:0;" id="downwardCompatibility"> 向下兼容模式</nav>
-
+<nav class="nav" style="top:320px;left:0;" id="viewInWebGL1"> 切换至WebGL1</nav>
 <!--global var-->
 <script type="text/javascript">
     window.globalVar = {};
@@ -296,7 +296,6 @@
             },
 
         };
-
         let renderer = function (){
 
             gl.bindFramebuffer(gl.FRAMEBUFFER,null);
@@ -304,7 +303,7 @@
             gl.useProgram(gl.SHADER_PROGRAM0);
             gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-            matrix.global.rotate(rotationAnime.omiga,0,1,0);
+            matrix.global.rotate(rotationAnime.omiga*2/3,0,1,0);
             matrix.globalInverse.setInverseOf(matrix.global);
             matrix.globalInverse.transpose();
             initUniform("u_global_change",matrix.global.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
@@ -352,7 +351,7 @@
             drawFramebuffer(frameBufferArr.corridor,corridorVertices,globalVar.threeD.frameBufferColor.corridor,corridorTriangleIndices,matrix.corridor2.elements);
             requestAnimationFrame(renderer);
         };
-
+        notify("本案例采用WebGL2，属于测试技术，如果屏幕无显示请按切换至WebGL1");
         let building1Vertices = globalVar.threeD.data.building1.vertices;
         let building2Vertices = globalVar.threeD.data.building2.vertices;
         let corridorVertices = globalVar.threeD.data.corridor.vertices;
@@ -631,5 +630,6 @@
 <script type="text/javascript" src="./scripts/modifyClarity.js"></script>
 <script type="text/javascript" src="./scripts/videoScript.js"></script>
 <script type="text/javascript" src="./scripts/downwardCompatibility.js"></script>
+<script type="text/javascript" src="./scripts/viewInWebGL1.js"></script>
 </body>
 </html>
