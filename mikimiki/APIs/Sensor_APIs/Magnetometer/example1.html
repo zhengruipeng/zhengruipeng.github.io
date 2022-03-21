@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let magSensor = new Magnetometer({frequency: 10});
+        let write = function (...str){
+            str.forEach(v => {
+                document.body.appendChild(document.createTextNode(v));
+                document.body.appendChild(document.createElement("br"));
+            })
+        }
+        navigator.permissions.query({ name: 'magnetometer' })
+            .then(result => {
+                if (result.state === 'denied') {
+                    console.log('Permission to use accelerometer sensor is denied.');
+                    return;
+                }
+                magSensor.addEventListener('reading', e => {
+                    write("Magnetic field along the X-axis " + magSensor.x);
+                    write("Magnetic field along the Y-axis " + magSensor.y);
+                    write("Magnetic field along the Z-axis " + magSensor.z);
+                })
+                magSensor.addEventListener('error', event => {
+                    write(event.error.name, event.error.message);
+                })
+                magSensor.start();
+                // Use the sensor.
+            });
+
+
+
+    })
+</script>
+</body>
+</html>
