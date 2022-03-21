@@ -30,7 +30,7 @@
                 })
                 magSensor.start();
                 // Use the sensor.
-            });
+            }).catch(err => write(err.name,err.message));
 
 
 
