@@ -1,0 +1,88 @@
+@keyframes shadow {
+    from{
+        box-shadow:0 0 5px #00AAFF;
+    }
+    to{
+        box-shadow:0 0 30px #00AAFF;
+    }
+}
+body{
+    margin:0;
+}
+.notice{
+
+    position:fixed;
+    text-align: center;
+    padding-top:20px;
+    color:white;
+    font-family: 微软雅黑;
+    font-size:18px;
+}
+#notice{
+    top:0;
+    left:35%;
+    height:30%;
+    width:30%;
+    transition: .5s;
+    /*cursor: default;*/
+    animation-delay: 0s;
+    animation-direction: alternate-reverse;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-name: shadow;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    border:#00AAFF solid 1px;
+    border-radius:10px;
+}
+#details{
+    height: auto;
+    width:200px;
+    /*box-shadow:0 0 30px #00AAFF;*/
+    box-shadow:0 0 30px #00AAFF,
+                0 0 15px #ffffff inset;
+    border:white solid 1px;
+    border-radius:15px;
+    padding:10px;
+    transition:.5s;
+}
+.notice_show{
+    top:0 !important;
+}
+.notice_hid{
+    top:-40% !important;
+}
+#backgroundImage{
+    background-image: linear-gradient(to top,#000,#0E3460);
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index:-2;
+}
+.nav{
+    height:auto;
+    border-radius: 15px;
+    width:200px;
+    box-shadow:0 0 30px #00AAFF,
+    0 0 15px #ffffff inset;
+    border:white solid 1px;
+    padding:10px;
+    transition:.5s;
+    text-align: center;
+    color:white;
+    font-family: 微软雅黑;
+    font-size:18px;
+    position: fixed;
+    cursor: pointer;
+    overflow: hidden;
+
+    animation-delay: 0s;
+    animation-direction: alternate-reverse;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-name: shadow;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+}
