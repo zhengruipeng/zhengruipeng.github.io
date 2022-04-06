@@ -70,6 +70,7 @@ if ('OTPCredential' in window) {
         otp: { transport:['sms'] },
         signal: ac.signal
       }).then(otp => {
+        alert(otp.code);
         input.value = otp.code;
         if (form) form.submit();
       }).catch(err => {
