@@ -7,11 +7,9 @@
   <style>div {font-family: sans-serif;}</style>
 </head>
 <body>
-<h1>
-  The simplest Web OTP API demo
-</h1>
 <div>
-  Send an SMS that includes <pre><code>@web-otp.glitch.me #12345</code></pre> at the last line to this phone.
+  用一个设备发送一个以<pre><code>@zhengruipeng.github.io #12345</code></pre>结尾的短信，可自动获取验证码，
+  @后面固定的域名，没端口没协议，#后固定验证码首位以数字开头，4-10位
 </div>
 <div style="border:1px solid; padding: 5px 10px; margin: 10px 0;">
   <form method="post" action="./ac.php">
@@ -56,7 +54,7 @@ if ('OTPCredential' in window) {
 <script>
   if ('OTPCredential' in window) {
     window.addEventListener('DOMContentLoaded', e => {
-      alert("get OTPCredential v=1.1");
+      alert("get OTPCredential");
       const input = document.querySelector('input[autocomplete="one-time-code"]');
       if (!input) return;
       const ac = new AbortController();
@@ -74,7 +72,7 @@ if ('OTPCredential' in window) {
         input.value = otp.code;
         if (form) form.submit();
       }).catch(err => {
-        console.log(err);
+        alert(err.message);
       });
     });
   }
