@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            padding:0;
+            margin:0;
+            --main-color:#f2a5aa;
+            --font-size:1.5rem;
+        }
+        table{
+            border-collapse: collapse;
+            border:1px  solid var(--main-color);
+            text-align:center;
+            font-size:var(--font-size);
+            margin: auto;
+            width:60vw;
+        }
+        table>caption{
+            font-size:1rem;
+        }
+        td,th{
+            border:1px  solid var(--main-color);
+        }
+        fieldset{
+            border-radius: 3vh;
+            margin:30px;
+            text-align: center;
+        }
+        #arr-input {
+            width: 80vw;
+            text-align: center;
+            margin: 20px auto;
+            display: block;
+        }
+        fieldset>input[type='button']{
+            margin:10px 20px;
+        }
+        </style>
+</head>
+<body>
+<form>
+    <fieldset >
+        <legend>生成随机数设定</legend>
+        <label for="random-num-len">生成随机数位数：</label><input type="text" id="random-num-len" value="30" />
+        <input type="button" id="init-random-number" value="自动生成测试随机数" /><br />
+    </fieldset>
+    <fieldset >
+        <legend>节点概率设定</legend>
+        <input type="text" id="arr-input"  />
+        <input type="button" id="haffman-code" value="用叶子节点哈夫曼编码更新表格" />
+        <input type="button" id="haffman-code-with-origin" value="用所有节点哈夫曼编码更新图像和表格" />
+    </fieldset>
+    <fieldset>
+        <legend>画布宽度设定</legend>
+        <label for="modify-canvas-width">自动调节画布宽度：</label><input type="checkbox" id="modify-canvas-width" />
+        <p style="color:#f2a5aa;margin:auto">红色代表霍夫曼编码后添加的二叉树</p>
+    </fieldset>
+</form>
+
+<svg id="svg" >
+
+</svg>
+<table>
+    <caption></caption>
+        <thead>
+            <tr>
+                <th>value</th>
+                <th>path</th>
+            </tr>
+        </thead>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+<!--script global scope-->
+<script type="module">
+    window.haffman = {
+        Tree:class extends Object{},
+        haffman:() => {},
+        haffmanCodeWithOrigin:() => {},
+        updateData:(data) => {},
+        updateGraphics:function (data){},
+        DoublePrecisionEPSILON:class extends Object{},
+    }
+</script>
+<!--Remove the double precision error-->
+<script type="module">
+    window.haffman.DoublePrecisionEPSILON = function (){
+
+    }
+    window.haffman.DoublePrecisionEPSILON.prototype = {};
+    window.haffman.DoublePrecisionEPSILON.prototype.constructor = window.haffman.DoublePrecisionEPSILON;
+    window.haffman.DoublePrecisionEPSILON.times10n = function (x,n){
+        let strX = x+'';
+        if(strX.indexOf(".") !== -1){
+            let pos = strX.indexOf(".");
+            strX = strX.split('.').join("");
+            if(pos+n<strX.length){
+                strX = strX.substring(0,pos+n)+"."+strX.substring(pos+n);
+            }else{
+                let zeroN = pos+n-strX.length;
+                strX = strX+(new Array(zeroN).fill('0').join(""));
+            }
+        }else{
+            strX = strX + (new Array(n).fill('0').join(""));
+        }
+        strX -= 0;
+        return strX;
+    }
+    //change the number of array into int form
+    window.haffman.DoublePrecisionEPSILON.toIntForm = function (arr){
+        //clone the array and
+        // init the var aimed to the max length of the number decimals
+        let elements = Array.from(arr);
+        let maxLen = 0;
+        //statistics the max length of the number decimals
+        elements.forEach(v => {
+            if((v+'').indexOf('.') !== -1){
+                maxLen = Math.max(maxLen,(v+'').substring((v+'').indexOf('.')).length-1)
+            }
+        } );
+        //the double float`s max length is 16
+        if(maxLen>16){
+            maxLen = 16;
+            elements = elements.map(v => (v+'').substring(0,16)-0);
+        }
+        //make all of the number to integer
+        //because the number times 10 will cause error probably ,
+        //so we use the array instead of 10**maxLen
+        elements = elements.map(v => {
+            // return v*(10**maxLen);
+            let arr = new Array(maxLen+1).fill("0");
+            arr[0] = '1';
+            // return v*(arr.join("")-0);
+            return window.haffman.DoublePrecisionEPSILON.times10n(v,maxLen)
+            //some number times 10 will cause error such as:4.27,5.1
+            //we may define the function used to times 10 in string to repair this bug
+        });
+        let pointPos = maxLen;
+        return {elements,pointPos};
+    };
+    window.haffman.DoublePrecisionEPSILON.add = function (...arr){
+        //change all of the float into integer
+        let {elements,pointPos} = window.haffman.DoublePrecisionEPSILON.toIntForm(arr);
+
+        //calculate the sum of the elements
+        let calcRes = elements.reduce((pv,cv,i,a) => {
+            return pv+cv;
+        })
+
+        //according to the record of the decimal point position
+        //we insert the point at the incorrect position
+        //and then ,change it into float number
+        let resStr = calcRes+'';
+        resStr = resStr.substring(0,resStr.length-pointPos)+"."+resStr.substring(resStr.length-pointPos);
+        let res = Number.parseFloat(resStr);
+        return res;
+    };
+    window.haffman.DoublePrecisionEPSILON.minus = function (...arr){
+        let {elements,pointPos} = window.haffman.DoublePrecisionEPSILON.toIntForm(arr);
+        let calcRes = elements.reduce((pv,cv,i,a) => {
+            return pv-cv;
+        })
+        let resStr = calcRes+'';
+        resStr = resStr.substring(0,resStr.length-pointPos)+"."+resStr.substring(resStr.length-pointPos);
+        let res = Number.parseFloat(resStr);
+        return res;
+        // return calcRes/(10**pointPos);
+    };
+</script>
+<!--UI-->
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const tbody = this.querySelector("#tbody");
+        const caption = this.querySelector("table>caption");
+        window.haffman.updateData = function (arr){
+            tbody.innerHTML = "";
+            arr.forEach(entries => {
+                console.log(entries[0].value,entries[1]);
+                let tr = document.createElement("tr");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                td1.innerHTML = entries[0].value;
+                td2.innerHTML = entries[1].join('=>');
+                td2.innerHTML += "  code: "+entries[1].map(v => v === "左"?0:1).join("")+"";
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tbody.appendChild(tr);
+                if(!entries[0].isTrust){
+                    tr.style.color = "#f2a5aa";
+                }
+            });
+        };
+    });
+</script>
+<!--graphic-->
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const svg = this.querySelector("#svg");
+        const modifyCanvasWidth = this.querySelector("#modify-canvas-width");
+        window.haffman.updateGraphics = function (data){
+            svg.innerHTML = "";
+            //at first ,change the position of element sort by the path length
+            data = data.sort((pv,cv) => {
+                if(pv[1].length<cv[1].length)return -1;
+                else if(pv[1].length===cv[1].length) {
+                    if(pv[1][pv[1].length-1] === "左")return -1;
+                    if(pv[1][pv[1].length-1] === "右")return 1;
+                }
+                else return 1;
+            });
+
+            //we can see that the last one of the list has the biggest path length
+            let maxFloor = data[data.length-1][1].length;
+
+            //design the height and width of svg element
+            // with the path length which we have just calculated
+            //and if the button of modifyCanvasWidth was checkek
+            //we can modify the width of svg element big and big as possible
+            //so that ,it can contain all of the child node in it
+            //set the css attribute
+            svg.style.height = maxFloor*150+100+"px";
+            if(modifyCanvasWidth.checked) svg.style.width = (2**(maxFloor))*100+"px";//Math.sqrt(Math.abs((2**4)*100-(2**(maxFloor-1))*100))*2**(maxFloor-1)*5+"px";
+            else svg.style.width = document.documentElement.clientWidth-3+"px";
+            svg.style.border = "#f2a5aa solid 1px";
+
+            //build a map that mapping from tree node to SvgCircleElement
+            //and then we can use the treeNode to visit the relevant Svg element
+            //create a fragment node use to storage node temp.
+            let line;
+            let treeSvgMap = new Map();
+            let fragment = document.createDocumentFragment();
+
+            //start to loop the data and separate the tree node and the path
+            //calc the x-aris position with path
+            //Ideally, it`s going to get 1/2 as close as It did last time
+            //when the distance less than 60px
+            //it will be locked
+            for(let i = 0;i<data.length;i++){
+                let treeNode = data[i][0];      //Tree
+                let path = data[i][1];      //Array
+                //   <circle transform="translate(200,0)" x="0" y="0" r="50" style="fill: none; stroke: #f2a5aa;"></circle>
+                let width = Number.parseFloat(svg.style.width);
+                let x = width/2;
+                path.forEach((v,i,a) => {
+                    if(v === "左"){
+                        x -= Math.max(width/2**(i+2),60);
+                    }else if(v === "右"){
+                        x += Math.max(width/2**(i+2),60);
+                    }
+                });
+
+                //if the value of x big than the width of screen ,x will be the screen`s width minus 20
+                //if the value of x less than 0 ,x will be 20
+                x = Math.min(x,Number.parseFloat(svg.style.width)-20);
+                x = Math.max(x,20);
+
+                //design the y-aris position with the node`s deep information
+                let y = (path.length)*150+50;
+
+                //create SVGCircleElement and set its attribute value
+                let circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+                circle.setAttribute("transform",`translate(${x},${y})`);
+                circle.setAttribute("x",x);
+                circle.setAttribute("y",y);
+                circle.setAttribute("r",50);
+                circle.style.cssText = "fill:none;stroke:#f2a5aa";
+                //    <text x="100" y="100" text-anchor="middle">我是字</text>
+                //create SVGTextElement
+                let text = document.createElementNS("http://www.w3.org/2000/svg","text");
+                text.setAttribute("x",x);
+                text.setAttribute("y",y);
+                text.setAttribute("text-anchor","middle");
+
+                //if  the tree node is created by computer, it will show in pink color
+                if(!treeNode.isTrust)text.style.cssText = "fill:#f2a5aa";
+                text.appendChild(document.createTextNode(treeNode.value));
+
+                //append to temp node
+                fragment.appendChild(circle);
+                fragment.appendChild(text);
+
+                //set the mapping relation with tree noe and svg element
+                treeSvgMap.set(treeNode,circle);
+            }
+
+            //begin to create line element
+            for(let i = 0;i<data.length;i++){
+                //we can also get the tree node and children in the node
+                let treeNode = data[i][0];      //Tree
+                let lChild = treeNode.lChild;
+                let rChild = treeNode.rChild;
+
+                //get the svg element with tree node in the map
+                //and get the x,y in the svg element to record them
+                //create line and set the attribute value in x,y
+                //at last,put them into temp
+                if(treeSvgMap.get(lChild)){
+                    let x2 = treeSvgMap.get(lChild).getAttribute("x");
+                    let y2 = treeSvgMap.get(lChild).getAttribute("y");
+                    let x1 = treeSvgMap.get(treeNode).getAttribute("x");
+                    let y1 = treeSvgMap.get(treeNode).getAttribute("y");
+                    line = document.createElementNS("http://www.w3.org/2000/svg","line");
+                    line.setAttribute("x1",x1);
+                    line.setAttribute("y1",y1-0+50);
+                    line.setAttribute("x2",x2);
+                    line.setAttribute("y2",y2-50);
+                    line.style.cssText = "fill:none;stroke:#f2a5aa";
+
+                    let text = document.createElementNS("http://www.w3.org/2000/svg","text");
+                    text.setAttribute("x",x1*0.5+x2*0.5);
+                    text.setAttribute("y",y1*0.5+y2*0.5);
+                    text.setAttribute("text-anchor","middle");
+
+                    //if  the tree node is created by computer, it will show in pink color
+                    if(!treeNode.isTrust)text.style.cssText = "fill:#f2a5aa";
+                    text.appendChild(document.createTextNode("0"));
+
+                    //append to temp node
+                    fragment.appendChild(line);
+                    fragment.appendChild(text);
+
+                }
+
+                //use the same method to add the right one`s
+                if(treeSvgMap.get(rChild)){
+                    let x2 = treeSvgMap.get(rChild).getAttribute("x");
+                    let y2 = treeSvgMap.get(rChild).getAttribute("y");
+                    let x1 = treeSvgMap.get(treeNode).getAttribute("x");
+                    let y1 = treeSvgMap.get(treeNode).getAttribute("y");
+                    line = document.createElementNS("http://www.w3.org/2000/svg","line");
+                    line.setAttribute("x1",x1);
+                    line.setAttribute("y1",y1-0+50);
+                    line.setAttribute("x2",x2);
+                    line.setAttribute("y2",y2-50);
+                    line.style.cssText = "fill:none;stroke:#f2a5aa";
+
+
+                    let text = document.createElementNS("http://www.w3.org/2000/svg","text");
+                    text.setAttribute("x",x1*0.5+x2*0.5);
+                    text.setAttribute("y",y1*0.5+y2*0.5);
+                    text.setAttribute("text-anchor","middle");
+
+                    //if  the tree node is created by computer, it will show in pink color
+                    if(!treeNode.isTrust)text.style.cssText = "fill:#f2a5aa";
+                    text.appendChild(document.createTextNode("1"));
+
+                    //append to temp node
+                    fragment.appendChild(line);
+                    fragment.appendChild(text);
+                    // fragment.appendChild(line);
+                }
+            }
+            svg.appendChild(fragment);
+        }
+    })
+</script>
+<!--haffman code main logic-->
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const tbody = this.querySelector("#tbody");
+        const arrInput = this.querySelector("#arr-input");
+        const caption = this.querySelector("caption");
+        const randomNumLen = this.querySelector("#random-num-len");
+
+        window.haffman.Tree = function (value,lChild,rChild){
+            this.isTrust = true;
+            this.value = value;
+            this.lChild = lChild;
+            this.rChild = rChild;
+        };
+        window.haffman.Tree.prototype = {};
+        window.haffman.Tree.prototype.constructor = window.haffman.Tree;
+        window.haffman.haffmanCodeWithOrigin = function (arr){
+            if(!(arr instanceof Array))return undefined;
+            //code after sort with small to big
+            let sortNodes = function (){
+                arr = arr.sort((pv,cv) => {
+                    if(pv.value<cv.value)return -1;
+                    else if(pv.value===cv.value)return 0;
+                    else return 1;
+                });
+            };
+            //call the leafNodesPath function with a tree node as root
+            //and iterate the root with recursion function .
+            let leafNodesPath = function (root){
+                if(!(root instanceof window.haffman.Tree))throw new TypeError("the type of arguments[0] is valid in leafNodesPath function")
+                let res = [];       //[[node,path],[node,path],[node,path]...]
+                let path = [];      //a track to follow the sequence of function calls.
+                let recursion = function (treeNode){
+                    if(treeNode.lChild){
+                        path.push("左")
+                        recursion(treeNode.lChild);
+                    }
+                    if(treeNode.rChild){
+                        path.push("右")
+                        recursion(treeNode.rChild);
+                    }
+                    //drop to there when the treeNode has not left Child and right Child
+                    res.push([treeNode,Array.from(path)]);
+                    path.pop();
+                }
+                recursion(root);
+                return res;
+            };
+            //let each elements of arr become Tree Node
+            arr = arr.map((v,i) => {
+                if(Number.parseFloat(v) !== Number.parseFloat(v)){
+                    console.warn("NaN was found during modify the type of array element,value: "+v+",index: "+i);
+                    return 0;
+                }else{
+                    return new window.haffman.Tree(Number.parseFloat(v),null,null)
+                }
+            });
+            //construct the tree node
+            while(arr.length>1){
+                sortNodes();
+                let t1 = new window.haffman.Tree(window.haffman.DoublePrecisionEPSILON.add(arr[1].value,arr[0].value),arr[0],arr[1]);
+                t1.isTrust = false;
+                arr.shift();
+                arr.shift();
+                arr.unshift(t1);
+            }
+            return leafNodesPath(arr[0]);
+        };
+        window.haffman.haffman = function (arr){
+            if(!(arr instanceof Array))return undefined;
+
+            //code after sort with small to big
+            let sortNodes = function (){
+                arr = arr.sort((pv,cv) => {
+                    if(pv.value<cv.value)return -1;
+                    else if(pv.value===cv.value)return 0;
+                    else return 1;
+                });
+            };
+            //call the leafNodesPath function with a tree node as root
+            //and iterate the root with recursion function .
+            let leafNodesPath = function (root){
+                if(!(root instanceof window.haffman.Tree))throw new TypeError("the type of arguments[0] is valid in leafNodesPath function")
+                let res = [];       //[[node,path],[node,path],[node,path]...]
+                let path = [];      //a track to follow the sequence of function calls.
+                let recursion = function (treeNode){
+                    if(treeNode.lChild){
+                        path.push("左")
+                        recursion(treeNode.lChild);
+                    }
+                    if(treeNode.rChild){
+                        path.push("右")
+                        recursion(treeNode.rChild);
+                    }
+                    //drop to there when the treeNode has not left Child and right Child
+                    res.push([treeNode,Array.from(path)]);
+                    path.pop();
+                }
+                recursion(root);
+                return res;
+            };
+            //give an array and put the invalid value into a new array
+            let fillEmptySlotInArr = function (arr){
+                let res = [];
+                arr.forEach(v => {
+                    if(v)res.push(v);
+                });
+                return res;
+            }
+            //let each elements of arr become Tree Node
+            arr = arr.map((v,i) => {
+                if(Number.parseFloat(v) !== Number.parseFloat(v)){
+                    console.warn("NaN was found during modify the type of array element,value: "+v+",index: "+i);
+                    return 0;
+                }else{
+                        //0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9
+                    let str = Number.parseFloat(v)+"";
+                    return new window.haffman.Tree(Number.parseFloat(v),null,null)
+
+                }
+            });
+            //construct the tree node
+            while(arr.length>1){
+                sortNodes();
+                let t1 = new window.haffman.Tree(window.haffman.DoublePrecisionEPSILON.add(arr[1].value,arr[0].value),arr[0],arr[1]);
+                t1.isTrust = false;
+                arr.shift();
+                arr.shift();
+                arr.unshift(t1);
+            }
+            console.log("before change: ",arr[0])
+            //after call the function leafNodesPath,
+            // it will return a array in forms of entries of node and path array
+            //which contains all of the tree nodes our defined and create during calc.
+            let treePathEntries = leafNodesPath(arr[0]);
+            //remove all of the item which are not leaf node
+            //because we just have interest in leaf node
+            treePathEntries.forEach((entries,i,a) => {
+                    if(entries[0].lChild || entries[0].rChild){
+                        a[i] = null;
+                    }
+                });
+            //fill the empty slot with next element in array
+            treePathEntries = fillEmptySlotInArr(treePathEntries);
+            return treePathEntries;
+        };
+        //we assume that this number is also the probability of emergence
+        let target = [];
+        for(let i = 0;i<randomNumLen.value;i++){
+            target.push(Math.floor(Math.random()*100)/10);
+            // target.push(Math.floor(Math.random()*10000))
+        }
+        let afterModify = window.haffman.haffmanCodeWithOrigin(target);
+        window.haffman.updateGraphics(window.haffman.haffmanCodeWithOrigin(target));
+        window.haffman.updateData(afterModify);
+        caption.innerHTML = "要改变的数组:[ "+target.join()+"]";
+        arrInput.value = target.join()
+    });
+</script>
+<!--event-->
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const caption = this.querySelector("caption");
+
+        const arrInput = this.querySelector("#arr-input");
+        const haffmanCode = this.querySelector("#haffman-code");
+        const haffmanCodeWithOrigin = this.querySelector("#haffman-code-with-origin");
+        const initRandomNumber = this.querySelector("#init-random-number");
+        const randomNumLen = this.querySelector("#random-num-len");
+
+        haffmanCode.onclick = function (){
+            let arr = arrInput.value.trim().split(",");
+            let afterModify = window.haffman.haffman(arr);
+            window.haffman.updateData(afterModify);
+            caption.innerHTML = "要改变的数组:[ "+arr.join()+"]";
+            caption.scrollIntoView({behavior:"smooth"})
+        };
+        haffmanCodeWithOrigin.onclick = function (){
+            let arr = arrInput.value.trim().split(",");
+            let afterModify = window.haffman.haffmanCodeWithOrigin(arr);
+            window.haffman.updateGraphics(afterModify);
+            window.haffman.updateData(afterModify);
+            caption.innerHTML = "要改变的数组:[ "+arr.join()+"]";
+        };
+        initRandomNumber.onclick = function (){
+            arrInput.value = "";
+            for(let i = 0;i<randomNumLen.value;i++){
+                arrInput.value += Math.floor(Math.random()*1000)/100+",";
+            }
+            arrInput.value = arrInput.value.substring(0,arrInput.value.length-1);
+        }
+
+    })
+</script>
+
+</body>
+</html>
