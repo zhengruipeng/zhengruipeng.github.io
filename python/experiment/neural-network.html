@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        svg{
+            display: block;
+        }
+        svg>circle{
+            fill:none;
+            stroke:red;
+        }
+        svg>line{
+            fill:none;
+            stroke:red;
+        }
+    </style>
+</head>
+<body>
+<svg></svg>
+<!--<img src="1.png" />-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        /*  webIDL
+        *  class SetSource extends Object {
+        *       public Set<LayerNode> sourceSet;
+        *       public void add(... LayerNode nodeWeightArr)
+        *       public void remove(... LayerNode nodeWeightArr)
+        *   };
+        *
+        *   class SetTarget extends Object {
+        *       public Set<LayerNode> targetSet;
+        *       public void add(... LayerNode nodeWeightArr)
+        *       public void remove(... LayerNode nodeWeightArr)
+        *   };
+        *
+        *   class LayerNode extends Object{
+        *       public double bias = 0;
+        *       private LayerNode[]  __source = new Set();
+        *       private LayerNode[] __target = new Set();
+        *       public class setSource = new SetSource(this.__source);
+        *       public class setTarget = new SetTarget(this.__target);
+        *       public LayerNode[] getSource = function (){return this.__source};
+        *       public LayerNode[] getTarget = function (){return this.__target};
+        *   };
+        *
+        *  class NodeWeight extends LayerNode{
+        *       public double weight = 0;
+        *   };
+        *
+        *   class Line extends Object{
+        *       public LayerNode fromNode = null;
+        *       public LayerNode toNode = null;
+        *       public NodeWeight nodeWeight = null;
+        *   };
+        *
+        *   class Sigmoid extends LayerNode{
+        *       public double summation()
+        *       public double activateFunction(x)
+        *   };
+        *   class Tanh extends LayerNode{
+        *       public double summation()
+        *       public double activateFunction(x)
+        *   };
+        *   class ReLU extends LayerNode{
+        *       public double summation()
+        *       public double activateFunction(x)
+        *   };
+        *
+        *   class NodeGraphic extends Object{
+        *       public Array nodes = [];
+        *       public Array lines = [];
+        *       public void createNode(...nodes)
+        *       public Line createLine(fromNode,toNode,weight)
+        *   };
+        * */
+        /*
+        * create a data set to storage all of the node aimed to current node
+        * */
+        let SetSource = class extends Object {
+            sourceSet;
+            constructor(sourceSet) {
+                super();
+                this.sourceSet = sourceSet;
+            }
+            add(.../*LayerNode*/nodeArr){
+                //nodesWeightArr[]
+                //[[LayerNode1,weight1],
+                // [LayerNode2,weight2],
+                // [LayerNode3,weight3],...]
+                nodeArr.forEach(node => this.sourceSet.push(node))
+            }
+            remove(.../*LayerNode*/ nodeArr){
+                // nodeArr.forEach(node => this.sourceSet.delete(node))
+                nodeArr.forEach(node => {
+                    if(this.sourceSet.indexOf(node) !== -1){
+                        this.sourceSet.splice(this.sourceSet.indexOf(node),1);
+                    }else{
+                        console.warn("remove method in SetSource :the node has not exist");
+                    }
+                })
+
+            }
+        };
+        /*
+        * create a data set to storage all of the node that current node aimed to
+        * */
+        let SetTarget = class extends Object {
+            targetSet;
+            constructor(targetSet) {
+                super();
+                this.targetSet = targetSet;
+            }
+            add(.../*LayerNode*/nodeArr){
+                //nodesWeightArr[]
+                //[[LayerNode1,weight1],
+                // [LayerNode2,weight2],
+                // [LayerNode3,weight3],...]
+                nodeArr.forEach(node => this.targetSet.push(node))
+            }
+            remove(.../*LayerNode*/ nodeArr){
+
+                // nodeArr.forEach(node => this.targetSet.delete(node))
+                nodeArr.forEach(node => {
+                    if(this.targetSet.indexOf(node) !== -1){
+                        this.targetSet.splice(this.targetSet.indexOf(node),1);
+                    }else{
+                        console.warn("remove method in SetTarget :the node has not exist");
+                    }
+                })
+            }
+        };
+
+        /*
+        * base class of the node
+        * have a bias property to storage current data value
+        * and some methods and interfaces to operate the data set
+        * which is used to storage source nodes and target nodes*/
+        let LayerNode = class extends Object{
+            bias = 0;
+            // /*private LayerNode[] */__source = new Set();
+            // /*private LayerNode[]*/__target = new Set();
+            /*private LayerNode[] */__source = [];
+            /*private LayerNode[]*/__target = [];
+            /*public class */setSource = new SetSource(this.__source);
+            /*public class */setTarget = new SetTarget(this.__target);
+            getSource = function (){return this.__source};
+            getTarget = function (){return this.__target};
+            constructor(bias) {
+                super();
+                this.bias = bias;
+            }
+        };
+
+        /*
+        * a class mains a abstract line between node and node
+        * it have no limit of the tow point of the line
+        * weight property is the weight of the relation*/
+        let NodeWeight = class extends Object{
+            weight = 0;
+            fromNode = null;
+            toNode = null;
+            constructor(fromNode,toNode,weight){
+                super();
+                this.weight = weight;
+                this.fromNode = fromNode;
+                this.toNode = toNode;
+            };
+        };
+
+        /*
+        * a class mains a line in the NodeGraphic class abstractly.
+        * have property to storage two point of the line
+        * and the weight of the line*/
+        let Line = class extends Object{
+            fromNode = null;
+            toNode = null;
+            nodeWeight = null;
+            constructor(fromNode,toNode,weight) {
+                super();
+                this.fromNode = fromNode;
+                this.toNode = toNode;
+                this.nodeWeight = weight;
+            }
+        };
+
+        /*different algorithm of the activate function .
+        * use weight times bias as input and  map to target node value*/
+        let Sigmoid = class extends LayerNode{
+            summation(){
+                let sources = this.getSource();
+                let res = 0;
+                sources.forEach(nodeweight => {
+                    if(!nodeweight.nodeWeight){
+                        console.warn("value have not weight property value ,auto modify to 0    ");
+                        nodeweight.nodeWeight = 0;
+                    }
+                    res += nodeweight.nodeWeight * nodeweight.fromNode.bias;
+                });
+                return res;
+            }
+            activateFunction(x){
+                return 1/(1+Math.E ** -x);
+            };
+            constructor(bias) {
+                super(bias);
+            }
+        };
+        let Tanh = class extends LayerNode{
+            summation(){
+                let sources = this.getSource();
+                let res = 0;
+                sources.forEach(nodeweight => {
+                    if(!nodeweight.nodeWeight){
+                        console.warn("value have not weight property value ,auto modify to 0    ");
+                        nodeweight.nodeWeight = 0;
+                    }
+                    res += nodeweight.nodeWeight * nodeweight.fromNode.bias;
+                });
+                return res;
+            }
+            activateFunction(x){
+                const e = Math.E;
+                return (e**x - e**-x)/(e**x + e**-x);
+            };
+            constructor(bias) {
+                super(bias);
+            }
+        };
+        let ReLU = class extends LayerNode{
+            summation(){
+                let sources = this.getSource();
+                let res = 0;
+                sources.forEach(nodeweight => {
+                    if(!nodeweight.nodeWeight){
+                        console.warn("value have not weight property value ,auto modify to 0    ");
+                        nodeweight.nodeWeight = 0;
+                    }
+                    res += nodeweight.nodeWeight * nodeweight.fromNode.bias;
+                });
+                return res;
+            }
+            activateFunction(x){
+                return Math.max(0,x);
+            };
+            constructor(bias) {
+                super(bias);
+            }
+        };
+
+        /*the graphic class of nodes ,
+        * used to make the operation of the node easily
+        * and create a line which is more easier to understand for people
+        * it also has many of property to storage all of the graphic nodes*/
+        let NodeGraphic = class extends Object{
+            nodes = [];
+            lines = [];
+            layers = {input:[],hidden:[[]],output:[]};
+            layersName = {"INPUT":"input",'HIDDEN':"hidden",'OUTPUT':"output"};
+            createNode(...nodes){
+                nodes.forEach(value => {if(!(value instanceof LayerNode))console.warn(value,"graphic node is not instance of LayerNode")});
+                this.nodes.push(...nodes);
+                return nodes[0];
+            };
+            createLine(fromNode,toNode,weight){
+                let line = new Line(fromNode,toNode,weight);
+                fromNode.setTarget.add(line);
+                toNode.setSource.add(line);
+                this.lines.push(line);
+                this.calcWithCurrentValue();
+                return line;
+            };
+            classifyInto(nodes,layersName,floor){
+                if(layersName !== "hidden") this.layers[layersName].push(...nodes);
+                else this.layers[layersName][floor].push(...nodes);
+            }
+            calcWithCurrentValue(){
+                this.lines.forEach(function (line){
+                    let toNode = line.toNode;
+                    toNode.bias =  toNode.activateFunction(toNode.summation());
+                    // toNode.bias =  toNode.summation();
+                    // console.log(toNode)
+                })
+            }
+        };
+        window.graphic = new NodeGraphic();
+        graphic.createNode(new Tanh(1));
+        graphic.createNode(new Tanh(2*Math.random()-1));
+        graphic.createNode(new Tanh(2*Math.random()-1));
+        graphic.classifyInto(
+            [graphic.nodes[0],
+                graphic.nodes[1],
+                graphic.nodes[2]],graphic.layersName.INPUT);
+
+        graphic.createNode(new Tanh(1));
+        graphic.createNode(new Tanh(2*Math.random()-1));
+        graphic.createNode(new Tanh(2*Math.random()-1));
+        graphic.classifyInto(
+            [graphic.nodes[3],
+                graphic.nodes[4],
+                graphic.nodes[5]],graphic.layersName.HIDDEN,0);
+
+        graphic.createNode(new Tanh(0));
+        graphic.createNode(new Tanh(0));
+        graphic.classifyInto(
+            [graphic.nodes[6],
+                graphic.nodes[7]],graphic.layersName.OUTPUT);
+
+        graphic.createLine(graphic.nodes[0],graphic.nodes[4],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[0],graphic.nodes[5],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[1],graphic.nodes[4],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[1],graphic.nodes[5],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[2],graphic.nodes[4],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[2],graphic.nodes[5],(2*Math.random()-1)/100);
+
+        graphic.createLine(graphic.nodes[3],graphic.nodes[6],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[3],graphic.nodes[7],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[4],graphic.nodes[6],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[4],graphic.nodes[7],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[5],graphic.nodes[6],(2*Math.random()-1)/100);
+        graphic.createLine(graphic.nodes[5],graphic.nodes[7],(2*Math.random()-1)/100);
+        // console.log(graphic);
+        let trainingData = [
+            [63,67,1],
+            [12,75,0],
+            [61,89,1],
+            [45,56,0],
+            [50,90,0],
+        ];
+
+        //training
+        for (let i = 0;i<trainingData.length;i++){
+            let [x,y,eres] = trainingData[i];
+            eres = eres?[1,0]:[0,1];
+            graphic.nodes[1].bias = x;
+            graphic.nodes[2].bias = y;
+            graphic.calcWithCurrentValue();
+            let ares = [];
+            ares[0] = graphic.nodes[6].bias;
+            ares[1] = graphic.nodes[7].bias;
+            let delta = [eres[0] - ares[0],eres[1] - ares[1]];
+            graphic.layers.hidden[0].forEach(function (node,nodeIndex){
+                node.getTarget().forEach(function (line,lineIndex,lineArr){
+                    let Ei = 1/2 * (delta[lineIndex] ** 2);
+                    let Wi = line.nodeWeight;
+                    let EdW = Ei/Wi;
+                    let alpha = .01;
+                    line.nodeWeight = line.nodeWeight - alpha * EdW;
+                });
+
+            });
+            graphic.calcWithCurrentValue();
+
+        }
+
+        //test
+        console.log(graphic);
+        let correctNum = 0;
+        for (let i = 0;i<trainingData.length;i++){
+            graphic.layers.input[1].bias = trainingData[i][0];
+            graphic.layers.input[2].bias = trainingData[i][1];
+            graphic.calcWithCurrentValue();
+            // console.log(graphic.layers.output[0]);
+            // console.log(graphic.layers.output[1]);
+            if((graphic.layers.output[0]>graphic.layers.output[1]) === !!trainingData[i][2]){
+                correctNum++;
+            }
+        };
+        let correctPro = correctNum/trainingData.length;
+        console.log(correctPro);
+
+        //into function
+        let f = function  (x1,x2){
+            graphic.layers.input[1].bias = x1;
+            graphic.layers.input[2].bias = x2;
+            graphic.calcWithCurrentValue();
+            console.log(`输入${graphic.layers.input[1].bias}和${graphic.layers.input[2].bias}，判断结果是${graphic.layers.output[0].bias>graphic.layers.output[1].bias?"及格":"不及格"}`);
+        };
+        f(75,75);
+        f(80,75);
+        f(75,80);
+        f(80,80);
+
+
+    })
+
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let graphic = window.graphic;
+        const svg = this.querySelector("svg");
+        svg.setAttribute("height",Math.max(graphic.layers.input.length,graphic.layers.output.length)*120+40);
+        svg.setAttribute("width",400*(1+graphic.layers.hidden.length)+150);
+        svg.style.height = Math.max(graphic.layers.input.length,graphic.layers.output.length)*120+40;
+        svg.style.width = 400*(1+graphic.layers.hidden.length)+150;
+        let fragment = document.createDocumentFragment();
+        let nodeEleMap = new Map();
+
+        let text = document.createElementNS("http://www.w3.org/2000/svg","text");
+        text.setAttribute("x",50);
+        text.setAttribute("y",20);
+        text.setAttribute("text-anchor","middle");
+        text.appendChild(document.createTextNode("input layers"));
+        fragment.appendChild(text);
+
+        graphic.layers.input.forEach((node,index) => {
+            const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+            circle.setAttribute("cy",index*120+90);
+            circle.setAttribute("cx",50);
+            circle.setAttribute("r",50);
+            const text = document.createElementNS("http://www.w3.org/2000/svg","text");
+            text.setAttribute("x",50);
+            text.setAttribute("y",index*120+90);
+            text.setAttribute("text-anchor","middle");
+            text.appendChild(document.createTextNode(node.bias));
+
+            //append to temp node
+            fragment.appendChild(circle);
+            fragment.appendChild(text);
+            nodeEleMap.set(node,circle);
+
+        });
+
+        text = document.createElementNS("http://www.w3.org/2000/svg","text");
+        text.setAttribute("x",450);
+        text.setAttribute("y",20);
+        text.setAttribute("text-anchor","middle");
+        text.appendChild(document.createTextNode("hidden layers"));
+        fragment.appendChild(text);
+
+        graphic.layers.hidden.forEach((layer,layerIndex) => {
+            layer.forEach((node,nodeIndex) => {
+                const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+                circle.setAttribute("cy",nodeIndex*120+90);
+                circle.setAttribute("cx",450+layerIndex*400);
+                circle.setAttribute("r",50);
+                const text = document.createElementNS("http://www.w3.org/2000/svg","text");
+                text.setAttribute("x",450+layerIndex*400);
+                text.setAttribute("y",nodeIndex*120+90);
+                text.setAttribute("text-anchor","middle");
+                text.appendChild(document.createTextNode(node.bias));
+
+                //append to temp node
+                fragment.appendChild(circle);
+                fragment.appendChild(text);
+                nodeEleMap.set(node,circle);
+
+            });
+
+        });
+
+        text = document.createElementNS("http://www.w3.org/2000/svg","text");
+        text.setAttribute("x",450+graphic.layers.hidden.length*400);
+        text.setAttribute("y",20);
+        text.setAttribute("text-anchor","middle");
+        text.appendChild(document.createTextNode("output layers"));
+        fragment.appendChild(text);
+
+        graphic.layers.output.forEach((node,index) => {
+            const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+            circle.setAttribute("cy",index*120+90);
+            circle.setAttribute("cx",450+graphic.layers.hidden.length*400);
+            circle.setAttribute("r",50);
+            const text = document.createElementNS("http://www.w3.org/2000/svg","text");
+            text.setAttribute("x",450+graphic.layers.hidden.length*400);
+            text.setAttribute("y",index*120+90);
+            text.setAttribute("text-anchor","middle");
+            text.appendChild(document.createTextNode(node.bias));
+
+            //append to temp node
+            fragment.appendChild(circle);
+            fragment.appendChild(text);
+            nodeEleMap.set(node,circle);
+
+        });
+        graphic.lines.forEach(line => {
+            let fromNode = line.fromNode;
+            let toNode = line.toNode;
+            let fromEle = nodeEleMap.get(fromNode);
+            let toEle = nodeEleMap.get(toNode);
+            let [fromX,fromY] = [fromEle.getAttribute("cx"),fromEle.getAttribute("cy")];
+            let [toX,toY] = [toEle.getAttribute("cx"),toEle.getAttribute("cy")];
+
+            let lineEle = document.createElementNS("http://www.w3.org/2000/svg","line");
+            lineEle.setAttribute("x1",fromX-0+50);
+            lineEle.setAttribute("y1",fromY);
+            lineEle.setAttribute("x2",toX-50);
+            lineEle.setAttribute("y2",toY);
+            let text = document.createElementNS("http://www.w3.org/2000/svg","text");
+            text.setAttribute("x",fromX*0.7+toX*0.3);
+            text.setAttribute("y",fromY*0.7+toY*0.3);
+            text.setAttribute("text-anchor","middle");
+
+            text.appendChild(document.createTextNode(line.nodeWeight.toFixed(3)));
+
+            fragment.appendChild(lineEle);
+            fragment.appendChild(text);
+        })
+        svg.appendChild(fragment);
+    })
+</script>
+</body>
+</html>
