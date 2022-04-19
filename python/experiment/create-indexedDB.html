@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let indexDBReq = indexedDB.open("testDB",4);
+        let db;
+        let store;
+        indexDBReq.onsuccess = function (){
+            console.log("onsuccess");
+            db = this.result;
+            let IDBTransaction = db.transaction("foo","readwrite");
+            let IDBObjectStore = IDBTransaction.objectStore("foo");
+            IDBObjectStore.add({id:1,data:"first"});
+            let req = IDBObjectStore.get(1);
+            req.onsuccess = function (ev){
+                console.log(this.result);
+            }
+        };
+        indexDBReq.onerror = function (){
+            document.write("database open request error")
+        }
+        indexDBReq.onupgradeneeded = function (){
+            db = this.result;
+            store = db.createObjectStore("foo",{keyPath:"id"});
+            console.log("onupgradeneeded");
+        };
+
+        // indexedDB.deleteDatabase("testDB");
+        // let worker = new Worker("worker.js");
+    });
+    window.onunload = function (){
+        indexedDB.deleteDatabase("testDB");
+    };
+    </script>
+</body>
+</html>
