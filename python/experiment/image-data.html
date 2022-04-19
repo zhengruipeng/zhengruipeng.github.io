@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const image = new Image();
+        image.src = "test.png";
+        image.onload = function (){
+            const offscreenCanvas = new OffscreenCanvas(this.width,this.height);
+            const ctx2d = offscreenCanvas.getContext('2d');
+            ctx2d.drawImage(this,0,0);
+            let imageData = ctx2d.getImageData(0,0,this.width,this.height);
+            console.log(imageData.data);
+            
+        }
+    })
+</script>
+</body>
+</html>
