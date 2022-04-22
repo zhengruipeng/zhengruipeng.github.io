@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+模拟上传文件<input type="file" /><br />
+<details>
+    <summary>摄像头检测模拟</summary>
+    摄像头录像<br />
+    <video id="video" controls autoplay muted></video><br />
+    随机拍照结果<br />
+    <canvas id="canvas"></canvas><br />
+</details>
+<details>
+    <summary>桌面录像检测模拟</summary>
+    桌面录像<br />
+    <video id="video2" controls autoplay muted height="512"></video><br />
+    电脑桌面截屏结果<br />
+    <canvas id="canvas2"></canvas><br />
+
+</details>
+<script type="text/javascript">
+    window.onblur = function (){
+        const p = document.createElement("p");
+        p.appendChild(document.createTextNode("检测到切屏"));
+        document.body.appendChild(p);
+    }
+    document.addEventListener("DOMContentLoaded",function () {
+        const video = this.querySelector("video");
+        const canvas = this.querySelector("canvas");
+        const video2 = this.querySelector("#video2");
+        const canvas2 = this.querySelector("#canvas2");
+        navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(mediaStream => {
+            video.srcObject = mediaStream;
+
+            let setting = mediaStream.getVideoTracks()[0].getSettings();
+
+            canvas.width = setting.width;
+            canvas.height = setting.height;
+            const ctx2d = canvas.getContext("2d");
+
+            setInterval(() => {
+                let imageData = ctx2d.getImageData(0, 0, ctx2d.canvas.width, ctx2d.canvas.height);
+                ctx2d.drawImage(video, 0, 0);
+            }, 10000*Math.random());
+        });
+        navigator.mediaDevices.getDisplayMedia({}).then(mediaStream => {
+            video2.srcObject = mediaStream;
+
+            let setting = mediaStream.getVideoTracks()[0].getSettings();
+            canvas2.width = 512*setting.width/setting.height;
+            canvas2.height = 512;
+            const ctx2d = canvas2.getContext("2d");
+
+            setInterval(() => {
+                ctx2d.drawImage(video2, 0, 0);
+            }, 1000);
+        });
+    });
+</script>
+</body>
+</html>
