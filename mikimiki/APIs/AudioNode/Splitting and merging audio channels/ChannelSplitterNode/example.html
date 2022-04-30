@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let ac = new AudioContext();
+        let audio = this.createElement("audio");
+        audio.controls = true;
+        audio.src = "../../Fur Elise.mp3";
+        this.body.appendChild(audio);
+        var source = ac.createMediaElementSource(audio);
+        // source.buffer = data;
+        var splitter = ac.createChannelSplitter(2);
+        source.connect(splitter);
+        var merger = ac.createChannelMerger(2);
+
+        // Reduce the volume of the left channel only
+        var gainNode = ac.createGain();
+        gainNode.gain.setValueAtTime(0, ac.currentTime);
+        splitter.connect(gainNode, 0);
+
+        // Connect the splitter back to the second input of the merger: we
+        // effectively swap the channels, here, reversing the stereo image.
+        gainNode.connect(merger, 0, 1);
+        splitter.connect(merger, 1, 0);     //第三个参数用于设定输出音道
+
+        var dest = ac.createMediaStreamDestination();
+        console.log(123)
+        // Because we have used a ChannelMergerNode, we now have a stereo
+        // MediaStream we can use to pipe the Web Audio graph to WebRTC,
+        // MediaRecorder, etc.
+        merger.connect(ac.destination);
+    })
+</script>
+</body>
+</html>

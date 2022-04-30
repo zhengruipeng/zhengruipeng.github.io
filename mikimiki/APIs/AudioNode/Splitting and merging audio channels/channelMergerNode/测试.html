@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var ac = new AudioContext();
+        let xhr = new XMLHttpRequest();
+        xhr.responseType = "arraybuffer";
+        xhr.open("GET","../../Fur Elise.mp3",true);
+        xhr.onreadystatechange = function (){
+            //console.log(xhr.status,xhr.readyState);
+
+            if(xhr.status !== 200 || xhr.readyState !== 4)return false;
+            ac.decodeAudioData(xhr.response, function(data) {
+                //console.log(data);
+                var source = ac.createBufferSource();
+                source.buffer = data;
+                var splitter = ac.createChannelSplitter(2);
+                source.connect(splitter);
+                var merger = ac.createChannelMerger(2);
+
+                // Reduce the volume of the left channel only
+                var gainNode = ac.createGain();
+                gainNode.gain.value = 0.5;
+                splitter.connect(gainNode, 0);
+
+                // Connect the splitter back to the second input of the merger: we
+                // effectively swap the channels, here, reversing the stereo image.
+                gainNode.connect(merger, 0, 1);
+                splitter.connect(merger, 1, 0);
+
+                var dest = ac.createMediaStreamDestination();
+
+                // Because we have used a ChannelMergerNode, we now have a stereo
+                // MediaStream we can use to pipe the Web Audio graph to WebRTC,
+                // MediaRecorder, etc.
+                merger.connect(dest);
+                source.start();
+            });
+        };
+        xhr.send();
+    })
+    </script>
+</body>
+</html>
