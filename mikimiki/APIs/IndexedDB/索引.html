@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li></li>
+</ul>
+<button id="allBtn" >all(ID)</button>
+<button id="changeValueBtn" disabled>change value</button>
+<button id="setIndexBtn">all(name)</button>
+<!--<button id="nextBtn">next</button>-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const ul = this.querySelector("ul");
+        const changeValueBtn = this.getElementById("changeValueBtn");
+        const allBtn = this.getElementById("allBtn");
+        const setIndexBtn = this.getElementById("setIndexBtn");
+        const IDBOpenRequest = indexedDB.open("testDB");
+        let db;
+        let iDBCursor,openCursorIDBRequest,idbIndex;
+        let addNotif = function (x){
+            let li = document.createElement("li");
+            li.innerHTML = x;
+            ul.appendChild(li);
+        }
+        IDBOpenRequest.onsuccess = function (ev){
+            db = this.result;
+            let IDBTransaction = db.transaction("foo","readwrite");
+            let IDBObjectStore = IDBTransaction.objectStore("foo");
+            // idbIndex = IDBObjectStore.createIndex("name",'name',{unique:true});
+            openCursorIDBRequest = IDBObjectStore.openCursor()
+            openCursorIDBRequest.onsuccess = function (){
+                iDBCursor = this.result;
+                addNotif("the cursor operation has been loaded");
+                addNotif("now you can operate the cursor via the given button");
+                changeValueBtn.disabled = false;
+            };
+        };
+        IDBOpenRequest.onupgradeneeded = function (){
+            db = this.result;
+            let iDBOS = db.createObjectStore("foo",{keyPath:"id"});
+            iDBOS.createIndex("name",'name',{unique:true});
+            let addDataPromise1 = new Promise(resolve => {iDBOS.add({id:1,name:"11",data:"one"}).onsuccess = _ => {resolve();}})
+            let addDataPromise2 = new Promise(resolve => {iDBOS.add({id:2,name:"22",data:"two"}).onsuccess = _ => {resolve();}})
+            let addDataPromise3 = new Promise(resolve => {iDBOS.add({id:3,name:"33",data:"three"}).onsuccess = _ => {resolve();}})
+            let addDataPromise4 = new Promise(resolve => {iDBOS.add({id:4,name:"44",data:"four"}).onsuccess = _ => {resolve();}})
+            let addDataPromise5 = new Promise(resolve => {iDBOS.add({id:5,name:"55",data:"five"}).onsuccess = _ => {resolve();}})
+            let addDataPromise6 = new Promise(resolve => {iDBOS.add({id:6,name:"66",data:"six"}).onsuccess = _ => {resolve();}})
+            Promise.all([addDataPromise1, addDataPromise2, addDataPromise3, addDataPromise4, addDataPromise5, addDataPromise6]).then(arr => {
+                ul.children[0].innerHTML = "all data has been inserted";
+            })
+
+        };
+        setIndexBtn.onclick = function(){
+            let idbObjectStore = db.transaction("foo",'readwrite').objectStore("foo");
+            let index = idbObjectStore.index("name");
+            let openCursorReq = index.openCursor();
+            openCursorReq.onsuccess = function (){
+                let cursor = this.result;
+                if(!cursor)return false;
+                addNotif(`${cursor.key}:${cursor.value.data}`);
+                cursor.continue();
+            };
+
+        };
+        changeValueBtn.onclick = function (){
+            let idbTransaction = db.transaction("foo","readwrite");
+            let idbOBJS = idbTransaction.objectStore("foo");
+            let openCursorReq = idbOBJS.openCursor();
+            openCursorReq.onsuccess = function (){
+                let cursor = this.result;
+                if(cursor){
+                    if(cursor.value.data === "one"){
+                        cursor.value.data = "seven";
+                        let updateReq = cursor.update(cursor.value);
+                        updateReq.onsuccess = function (){
+                            addNotif("the first entries` value has been changed ")
+                            addNotif("to see more,click the all button");
+                        }
+                    }
+                }
+            }
+        };
+        allBtn.onclick = function (){
+            let iDBTransaction = db.transaction("foo","readwrite");
+            let iDBObjectStore = iDBTransaction.objectStore("foo");
+            openCursorIDBRequest = iDBObjectStore.openCursor();
+            openCursorIDBRequest.onsuccess = function (){
+                let cursor = this.result;
+                if(cursor){
+                    addNotif(`${cursor.key}:${cursor.value.data}`)
+                    console.log(cursor);
+                    cursor.continue();
+                }
+            }
+        };
+    });
+    window.onunload = function (){
+        indexedDB.deleteDatabase("testDB");
+    };
+</script>
+</body>
+</html>

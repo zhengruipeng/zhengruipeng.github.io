@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'text/html');
+        let request = new Request("../1.jpg",{
+            method: "GET",
+            headers: myHeaders  ,
+            mode: 'cors',
+            cache: 'default',
+            body:"blob",
+            
+        });
+        console.log(request);
+        fetch(request).then( res => {
+            console.log(res);
+            return res.blob();
+        }).then(res => {
+            let url = URL.createObjectURL(res);
+            let image = new Image();
+            image.src = url;
+            image.onload = function () {
+                document.body.appendChild(this);
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

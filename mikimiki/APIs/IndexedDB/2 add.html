@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const IDB = window.indexedDB.open("toDoList",4);
+
+        /*
+               * @name :randomKey
+               *
+               * @param :int len
+               *
+               * @return : string key
+               *
+               * @desc :construct a new random key with given length*/
+        let randomKey = function (len){
+            let words = ['a','b','c','d','e','f','g','h','i','j','k','l',
+                'm','n','o','p','q','r','s','t'
+                ,'u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0'];
+            let key = "";
+            for(let i = 0;i<len;i++){
+                key += words[Math.floor(Math.random() * words.length)];
+            }
+            return key;
+        };
+
+        let addData = function (){
+            let key = randomKey(7);
+            let data = [ { taskTitle: key,
+                hours: 19, minutes: 30, day: 24,
+                month: "December", year: 2013, notified: "no" } ];
+            let IDBdb = IDB.result;
+            let IDBtransaction = IDBdb.transaction("toDoList","readwrite");
+            let objectStore = IDBtransaction.objectStore("toDoList");
+            let objectStoreRequest = objectStore.add(data[0]);
+            objectStoreRequest.onsuccess = function (){
+                document.writeln("the data has been writen ");
+            };
+            IDBtransaction.oncomplete = function (){
+                document.writeln("transaction complete: the database is update");
+            };
+            IDBtransaction.onerror = function (){
+                document.writeln("error: database can not update due to an unknown error");
+            };
+
+        }
+        IDB.onsuccess = function  (){
+            document.writeln("database loaded ");
+            addData();
+        };
+        IDB.onerror = function (){
+            document.writeln("error");
+        };
+
+    })
+    </script>
+</body>
+</html>

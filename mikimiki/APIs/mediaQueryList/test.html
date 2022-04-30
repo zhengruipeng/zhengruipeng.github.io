@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const mediaQueryList = window.matchMedia("(orientation: portrait)");
+        console.log(mediaQueryList);
+        if (mediaQueryList.matches) {
+            console.log("orientation");
+            /* The viewport is currently in portrait orientation */
+        } else {
+            console.log("landscape")
+            /* The viewport is not currently in portrait orientation, therefore landscape */
+        }
+        mediaQueryList.addEventListener('change',() => {
+            console.log("orientationchange");
+        });
+
+
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+<div draggable="true"  style="position:absolute;top:0;left:0;height:20%;width:20%;border:#F2A5AA solid 4px;" id="target"></div>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const target = this.getElementById("target");
+    target.ondragstart = function (){
+      alert()
+    }
+    target.ondragover = function (e){
+      e.preventDefault();
+    }
+    target.ondragenter = function (e){
+      e.preventDefault();
+      this.style.backgroundColor = "#f2a5aa";
+    }
+    target.ondragleave = function (){
+      this.style.backgroundColor = "#ffffff";
+    };
+    target.ondrop = function (ev){
+      ev.preventDefault();
+     this.style.backgroundColor = "#ffffff";
+      console.log(ev.dataTransfer.items[0]);
+      console.log(ev.dataTransfer.items[0].webkitGetAsEntry());
+      let directionEntry = ev.dataTransfer.items[0].webkitGetAsEntry();
+      directionEntry.getDirectory("idoly pride",{},function (entry){
+        console.log(entry);
+      });
+      console.log(directionEntry);
+
+      /*let fileReader = new FileReader();
+      fileReader.readAsDataURL(ev.dataTransfer.files[0]);
+      fileReader.onload = function (){
+        const image = new Image();
+        image.src = this.result;
+        document.body.appendChild(image);
+      }*/
+    };
+    target.ondragend = function (ev){
+      ev.preventDefault();
+      this.style.backgroundColor = "#ffffff";
+    }
+  })
+</script>
+</body>
+</html>

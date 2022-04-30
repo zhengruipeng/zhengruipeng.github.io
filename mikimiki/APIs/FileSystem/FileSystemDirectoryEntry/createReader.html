@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div draggable="true"  style="height:10vh;width:10vw;border:#F2A5AA solid 4px;" id="target"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const target = this.getElementById("target");
+        target.ondragstart = function (){
+            alert()
+        }
+        target.ondragover = function (e){
+            e.preventDefault();
+        }
+        target.ondragenter = function (e){
+            e.preventDefault();
+            this.style.backgroundColor = "#f2a5aa";
+        }
+        target.ondragleave = function (){
+            this.style.backgroundColor = "#ffffff";
+        };
+        target.ondrop = function (ev){
+            ev.preventDefault();
+            this.style.backgroundColor = "#ffffff";
+            // console.log(ev.dataTransfer.items[0]);
+            // console.log(ev.dataTransfer.items[0].webkitGetAsEntry());
+            let directionEntry = ev.dataTransfer.items[0].webkitGetAsEntry();
+            /*directionEntry.getDirectory("idoly pride",{},function (entry){
+                entry.getFile("test.png",{},function (entry){
+                    console.log(entry);
+                    entry.file(function (file){
+                        console.log(file);
+
+                    })
+                },function (error){
+                    console.log(error);
+                })
+
+                console.log(entry);
+            });
+            console.log(directionEntry);*/
+            function readDirectory(directory) {
+                let dirReader = directory.createReader();
+                let entries = [];
+
+                let getEntries = function() {
+                    dirReader.readEntries(function(results) {
+                        if (results.length) {
+                            console.log(results);
+                            entries = entries.concat(results);
+                            console.log(entries);
+
+                            getEntries();
+                            entries = entries.map(v => "|--"+v.fullPath);
+                            document.body.innerHTML += entries.join("<br />");
+
+                        }
+                    }, function(error) {
+                        /* handle error -- error is a FileError object */
+                    });
+                };
+
+                getEntries();
+                // console.log(entries);
+                return entries;
+            }
+
+            console.log(readDirectory(directionEntry))
+            // document.body.innerHTML += readDirectory(directionEntry).join("\n");
+        };
+        target.ondragend = function (ev){
+            ev.preventDefault();
+            this.style.backgroundColor = "#ffffff";
+        }
+    })
+</script>
+</body>
+</html>

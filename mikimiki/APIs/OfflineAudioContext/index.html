@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="playBtn">play</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+
+        const play = this.getElementById("playBtn");
+        // define online and offline audio context
+
+        var audioCtx = new AudioContext();
+        var offlineCtx = new OfflineAudioContext(2,44100*5,44100);
+
+        source = offlineCtx.createBufferSource();
+
+// use XHR to load an audio track, and
+// decodeAudioData to decode it and OfflineAudioContext to render it
+
+        function getData() {
+            request = new XMLHttpRequest();
+            request.open('GET', 'Poppin\'Party - ときめきエクスペリエンス! (心跳体验).flac', true);
+            request.responseType = 'arraybuffer';
+            request.onload = function() {
+                var audioData = request.response;
+
+                audioCtx.decodeAudioData(audioData, function(buffer) {
+                    console.log(buffer);
+                    source.buffer = buffer;
+                    source.connect(offlineCtx.destination);
+                    source.start();
+                    //source.loop = true;
+                    offlineCtx.startRendering().then(function(renderedBuffer) {
+                        console.log('Rendering completed successfully');
+                        var song = audioCtx.createBufferSource();
+                        song.buffer = renderedBuffer;
+                        console.log(renderedBuffer);
+                        console.log(buffer);
+
+                        song.connect(audioCtx.destination);
+
+                        play.onclick = function() {
+                            song.start();
+                        }
+                    }).catch(function(err) {
+                        console.log('Rendering failed: ' + err);
+                        // Note: The promise should reject when startRendering is called a second time on an OfflineAudioContext
+                    });
+                });
+            }
+            request.send();
+        }
+
+// Run getData to start the process off
+
+        getData();
+    })
+    </script>
+</body>
+</html>

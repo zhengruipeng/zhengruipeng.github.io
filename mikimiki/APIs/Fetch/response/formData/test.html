@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+简单记载：在火狐浏览器上可能会有很大的延迟，onfetch事件主要管理当页面想通过http协议获取信息时触发，
+可以通过fetchEvent.respondWith()方法进行回复，当此方法返回值不当时会导致整个页面无法访问。
+cacheStorage对象可以存储所有请求过的fetch的request从而储存请求信息。
+<form method="post" enctype="multipart/form-data" action="submit.php">
+    <input type="text" id="username" name="username" />
+    <input type="password" id="pwd" name="pwd" />
+    <input type="button" id="sumbit" value="submit" />
+</form>
+
+<div id="notice"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const submit = this.getElementById("sumbit");
+        const notice = this.getElementById("notice");
+        submit.onclick = function (){
+            console.log("click")
+            navigator.serviceWorker.register("./worker.js").then( serviceWorkerRegister => {
+                console.log(serviceWorkerRegister);
+                /*let xhr = new XMLHttpRequest();
+                xhr.open("POST","./submit.php",true);
+                //xhr.setRequestHeader("Content-Type","text/plain");
+                xhr.onreadystatechange = function (e){
+                    if(this.status !== 200 || this.readyState !== 4){
+                        return false;
+                    }
+
+                    console.log(e);
+                    notice.innerText = "submited";
+                    notice.innerHTML += e.target.response;
+
+                }
+                console.log(document.forms[0])
+                xhr.send(document.forms[0].elements);*/
+            }).catch( err => {
+                notice.innerText = "failed";
+            })
+        };
+    });
+</script>
+</body>
+</html>

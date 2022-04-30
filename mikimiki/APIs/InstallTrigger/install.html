@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        function xpinstallCallback(url, status)
+        {
+            if (status == 0)
+                msg = "XPInstall Test:   PASSED\n";
+            else
+                msg = "XPInstall Test:   FAILED\n";
+        }
+        xpi={'XPInstall Pre-Checkin Test':'pre_heckin.xpi'};
+        InstallTrigger.install(xpi,xpinstallCallback);
+    });
+</script>
+</body>
+</html>

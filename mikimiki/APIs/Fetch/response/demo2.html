@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="file_catch" />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const log = console.log;
+        let fileCatch = document.getElementById("file_catch");
+        fileCatch.onchange = function (){
+            new Response(this.value).arrayBuffer().then(ab => {
+                log(ab);
+            });
+        }
+    });
+</script>
+</body>
+</html>

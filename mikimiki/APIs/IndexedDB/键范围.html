@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li></li>
+</ul>
+<button id="allBtn" >all</button>
+<label>start offset<input type="range" min="1" id="startOffsetInput" /></label>
+<label>end offset<input type="range" min="1" id="endOffsetInput" /></label>
+<!--<button id="nextBtn">next</button>-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const ul = this.querySelector("ul");
+        const allBtn = this.getElementById("allBtn");
+        const startOffsetInput = this.getElementById("startOffsetInput");
+        const endOffsetInput = this.getElementById("endOffsetInput");
+        const IDBOpenRequest = indexedDB.open("testDB");
+        let db;
+        let iDBCursor,openCursorIDBRequest;
+        let addNotif = function (x){
+            let li = document.createElement("li");
+            li.innerHTML = x;
+            ul.appendChild(li);
+        }
+        IDBOpenRequest.onsuccess = function (ev){
+            db = this.result;
+            let IDBTransaction = db.transaction("foo","readwrite");
+            let IDBObjectStore = IDBTransaction.objectStore("foo");
+            openCursorIDBRequest = IDBObjectStore.openCursor()
+            openCursorIDBRequest.onsuccess = function (){
+                iDBCursor = this.result;
+                addNotif("the cursor operation has been loaded");
+                addNotif("now you can operate the cursor via the given button");
+                allBtn.disabled = false;
+            };
+        };
+        IDBOpenRequest.onupgradeneeded = function (){
+            db = this.result;
+            let iDBOS = db.createObjectStore("foo",{keyPath:"id"});
+            let addDataPromise1 = new Promise(resolve => {iDBOS.add({id:1,data:"one"}).onsuccess = _ => {resolve();}})
+            let addDataPromise2 = new Promise(resolve => {iDBOS.add({id:2,data:"two"}).onsuccess = _ => {resolve();}})
+            let addDataPromise3 = new Promise(resolve => {iDBOS.add({id:3,data:"three"}).onsuccess = _ => {resolve();}})
+            let addDataPromise4 = new Promise(resolve => {iDBOS.add({id:4,data:"four"}).onsuccess = _ => {resolve();}})
+            let addDataPromise5 = new Promise(resolve => {iDBOS.add({id:5,data:"five"}).onsuccess = _ => {resolve();}})
+            let addDataPromise6 = new Promise(resolve => {iDBOS.add({id:6,data:"six"}).onsuccess = _ => {resolve();}})
+            Promise.all([addDataPromise1, addDataPromise2, addDataPromise3, addDataPromise4, addDataPromise5, addDataPromise6]).then(arr => {
+                ul.children[0].innerHTML = "all data has been inserted";
+                startOffsetInput.max = 6;
+                endOffsetInput.max = 6;
+            })
+        };
+        allBtn.onclick = function (){
+            let iDBTransaction = db.transaction("foo","readwrite");
+            let iDBObjectStore = iDBTransaction.objectStore("foo");
+            let range = IDBKeyRange.bound(startOffsetInput.value-0,endOffsetInput.value-0);
+            openCursorIDBRequest = iDBObjectStore.openCursor(range,"next");
+            console.log(startOffsetInput.value,endOffsetInput.value);
+            console.log(range);
+            openCursorIDBRequest.onsuccess = function (){
+                let cursor = this.result;
+                if(cursor){
+                    addNotif(`${cursor.key}:${cursor.value.data}`)
+                    console.log(cursor);
+                    cursor.continue();
+                }
+            }
+        };
+    });
+    window.onunload = function (){
+        indexedDB.deleteDatabase("testDB");
+    };
+</script>
+</body>
+</html>

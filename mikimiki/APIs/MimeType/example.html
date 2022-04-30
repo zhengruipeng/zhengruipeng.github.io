@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        function isJavaPresent() {
+            return 'application/x-java-applet' in navigator.mimeTypes;
+        }
+
+        function getJavaPluginDescription() {
+            var mimetype = navigator.mimeTypes['application/x-java-applet'];
+            if (mimetype === undefined) {
+                // no Java plugin present
+                return undefined;
+            }
+            return mimetype.enabledPlugin.description;
+        }
+        console.log(isJavaPresent());
+        console.log(getJavaPluginDescription());
+        console.log(navigator.mimeTypes);
+    });
+</script>
+</body>
+</html>

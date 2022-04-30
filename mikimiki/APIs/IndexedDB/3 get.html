@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let IDBopenRequest = window.indexedDB.open("toDoList",4);
+
+        /*
+        * @name :randomKey
+        *
+        * @param :int len
+        *
+        * @return : string key
+        *
+        * @desc :construct a new random key with given length*/
+        let randomKey = function (len){
+            let words = ['a','b','c','d','e','f','g'];
+            let key = "";
+            for(let i = 0;i<len;i++){
+                key += words[Math.floor(Math.random() * words.length)];
+            }
+            return key;
+        };
+        IDBopenRequest.onsuccess = function (){
+            let key = randomKey(4);
+            const IDB = this.result;
+            const IDBTransaction = IDB.transaction("toDoList","readwrite");
+            const data = [{taskTitle:key,value:123}];
+            const objectStore = IDBTransaction.objectStore("toDoList");
+            const IDBRequestAdd = objectStore.add(data[0]);
+            document.writeln("try to add a test entries randomly<br />");
+            IDBRequestAdd.onsuccess = function (){
+                document.writeln("success: the data has been writen <br />");
+                document.writeln("try to read the test entries <br />");
+                const IDBRequestGet = objectStore.get(key);
+                IDBRequestGet.onsuccess = function (){
+                    document.writeln("data readed");
+                    document.writeln(`data: ${this.result.taskTitle}----${this.result.value}`);
+                    console.log(this.result);
+                };
+                IDBRequestGet.onerror = function (){
+                    document.writeln("error: An error threw during get data");
+                }
+
+            };
+            IDBRequestAdd.onerror = function (){
+                document.writeln("error: An error occurred in the process of adding data <br />");
+                document.writeln("desc: maybe the data existed when adding <br />");
+            };
+
+        }
+    })
+    </script>
+</body>
+</html>

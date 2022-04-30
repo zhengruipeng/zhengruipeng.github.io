@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #scrollArea{
+            height:300px;
+            border:red solid 1px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+<div id="scrollArea">
+    <img src="./image/1.jpg" id="image">
+
+</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const image = this.getElementById("image");
+        let options = {
+            root: document.querySelector('#scrollArea'),
+            rootMargin: '0px',
+            threshold: 1
+        };
+        let callback = function (entries, observer){
+            console.log("callback is running");
+            console.log(entries, observer);
+        }
+        let observer = new IntersectionObserver(callback, options);
+        console.log(observer);
+        observer.observe(image);
+
+    });
+</script>
+</body>
+</html>

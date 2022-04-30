@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="file" id="file">
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const file = this.getElementById("file");
+        window.onclick = function (){
+            try{
+                const readertext = new FileReader();
+                readertext.readAsText(file.files[0]);
+                readertext.onload = function (){
+                    console.log("readertext",this);
+                };
+                const readAsArrayBuffer = new FileReader();
+                readAsArrayBuffer.readAsArrayBuffer(file.files[0]);
+                readAsArrayBuffer.onload = function (){
+                    console.log("readAsArrayBuffer",this);
+                };
+                const readAsBinaryString = new FileReader();
+                readAsBinaryString.readAsBinaryString(file.files[0]);
+                readAsBinaryString.onload = function (){
+                    console.log("readAsBinaryString",this);
+                };
+                const readAsDataURL = new FileReader();
+                readAsDataURL.readAsDataURL(file.files[0]);
+                readAsDataURL.onload = function (){
+                    console.log("readAsDataURL",this);
+                };
+            }catch(e){
+
+            }
+        }
+    });
+</script>
+</body>
+</html>

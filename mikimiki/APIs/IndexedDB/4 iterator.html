@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let IDBopenRequest = window.indexedDB.open("toDoList",4);
+
+        /*
+        * @name :randomKey
+        *
+        * @param :int len
+        *
+        * @return : string key
+        *
+        * @desc :construct a new random key with given length*/
+        let randomKey = function (len){
+            let words = ['a','b','c','d','e','f','g','h','i','j','k','l',
+                'm','n','o','p','q','r','s','t'
+                ,'u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0'];
+            let key = "";
+            for(let i = 0;i<len;i++){
+                key += words[Math.floor(Math.random() * words.length)];
+            }
+            return key;
+        };
+
+       /* let iteratEntries = function (IDBRequestCursor){
+            let cursor = IDBRequestCursor.result;
+            console.log(cursor);
+            if(cursor){
+                document.writeln(`${cursor.result}<br />`);
+                cursor.continue();
+            }else{
+                document.writeln("no more results");
+            }
+        };*/
+        IDBopenRequest.onsuccess = function (){
+            let key = randomKey(7);
+            const IDB = this.result;
+            const IDBTransaction = IDB.transaction("toDoList","readwrite");
+            const data = [{taskTitle:key,value:123}];
+            const objectStore = IDBTransaction.objectStore("toDoList");
+            const IDBRequestAdd = objectStore.add(data[0]);
+            document.writeln("try to add a test entries randomly<br />");
+            IDBRequestAdd.onsuccess = function (){
+                document.writeln("success: the data has been writen <br />");
+                document.writeln("try to interator the test entries <br />");
+                const IDBTransaction2 = IDB.transaction("toDoList","readonly");
+                const objectStore2 = IDBTransaction2.objectStore("toDoList");
+                const IDBRequestCursor2 = objectStore2.openCursor();
+                document.writeln("data interating<br />");
+                IDBRequestCursor2.onsuccess = function (){
+                    let cursor = this.result;
+                    console.log(cursor);
+                    if(cursor){
+                        document.writeln(`${cursor.value.taskTitle}<br />`);
+                        cursor.continue();
+                    }else document.writeln("no more results<br />");
+
+                };
+                IDBRequestCursor2.onerror = function (){
+                    document.writeln("error: An error threw during get data");
+                }
+
+            };
+            IDBRequestAdd.onerror = function (){
+                document.writeln("error: An error occurred in the process of adding data <br />");
+                document.writeln("desc: maybe the data existed when adding <br />");
+            };
+
+        }
+    })
+</script>
+</body>
+</html>

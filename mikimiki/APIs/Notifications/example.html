@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="send">send a msg</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const send = this.getElementById("send");
+        send.onclick = function (){
+            let promise = Notification.requestPermission();
+        };
+    })
+    </script>
+</body>
+</html>

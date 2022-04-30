@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'text/html');
+        let request = new Request("../1.jpg",{
+            method: "GET",
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default'
+        });
+        console.log(request);
+        fetch(request).then( res => {
+            console.log(res);
+            return res.blob();
+        }).then(res => {
+            let url = URL.createObjectURL(res);
+            let image = new Image();
+            image.src = url;
+            image.onload = function () {
+                document.body.appendChild(this);
+            }
+        })
+
+        /*let xhr = new XMLHttpRequest();
+        xhr.open("GET","../test.html",true);
+        xhr.setRequestHeader("content-type","text/html");
+        xhr.onreadystatechange = function (e){
+            console.log(e);
+            if(xhr.status !== 200 || xhr.readyState !== 4) return false;
+            console.log(xhr);
+            let root = xhr.responseXML;
+            console.log(root.children[0]);
+        };
+        xhr.send();*/
+    })
+    </script>
+</body>
+</html>

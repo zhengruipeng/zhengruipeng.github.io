@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const IDBOpenRequest = window.indexedDB.open("toDoList",4);
+        let IDBDelete = function (IDBObjectStore){
+            const IDBRequest = IDBObjectStore.delete("aavv");
+            IDBRequest.onsuccess = function (){
+                document.writeln("the data has been deleted <br />");
+            };
+            IDBRequest.onerror = function (){
+                document.writeln("An error occured :maybe the property is not exist <br />");
+            }
+        };
+        let IDBOpenSuccess = function (){
+            document.writeln("database loaded <br />");
+            const IDB = this.result;
+            const IDBTransaction = IDB.transaction("toDoList","readwrite");
+            const IDBObjectStore = IDBTransaction.objectStore("toDoList");
+            IDBDelete(IDBObjectStore);
+        }
+        IDBOpenRequest.onsuccess = IDBOpenSuccess;
+    })
+    </script>
+</body>
+</html>

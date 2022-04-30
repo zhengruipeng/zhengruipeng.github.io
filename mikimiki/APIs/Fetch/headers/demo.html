@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let header = new Headers();
+        header.append("Content-Type","text/plain");
+        header.append("a","123");
+        header.forEach((v,i,a) => {
+            console.log(v,i,a);
+        });
+        header.set("Content-Type","text/html");
+        for(let value of header){
+            console.log(value);
+        }
+        console.log(header.has("Content-Type"));
+        for(let value of header.entries()){
+            console.log(value);
+        }
+        for(let value of header.keys()){
+            console.log(value);
+        }
+        for(let value of header.values()){
+            console.log(value);
+        }
+
+
+    })
+    </script>
+</body>
+</html>

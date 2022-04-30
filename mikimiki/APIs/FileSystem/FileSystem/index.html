@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      @keyframes blink {
+          from{
+              opacity: 0;
+          }
+          to{
+              opacity: 1;
+          }
+      }
+      html,body{margin:0;padding:0;
+          background-color:var(--panel-background-color);
+      }
+      body{
+          --panel-background-color:#111;
+          --panel-color:#f2a5aa;
+          --panel-font-family:"Kristen ITC";
+      }
+      main{
+          background-color:var(--panel-background-color);
+          color:var(--panel-color);
+          font-family: var(--panel-font-family);
+          /*height:calc(100vh - 20px);*/
+          width:calc(100vw - 20px);
+            padding:10px;
+      }
+      main::after{
+          content: "_";
+          color:var(--panel-color);
+          font-family: var(--panel-font-family);
+          animation-name: blink;
+          animation-direction: alternate;
+          animation-duration: .5s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+      }
+      main>div{
+          display: inline;
+      }
+    </style>
+</head>
+<body>
+<main id="main" contenteditable="">
+    <p>please drag file director into this board.</p>
+</main>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const main = this.getElementById("main");
+        let fileSystem;
+        let currentDir;
+        let command = "";
+        let  fileType = {
+            image(file){
+               /* file.arrayBuffer().then(buffer => {
+                    buffer = buffer.slice(0,buffer.byteLength);
+                    let file = new File([new ArrayBuffer(buffer)],"afterSlice.png",{type:"image/png"});
+
+                    // file.type = "image/png";
+                    console.log(file)
+                    let url = URL.createObjectURL(file);
+                    let image = new Image();
+                    image.src = url;
+                    console.log(url);
+                    image.onload = function (){
+                        console.log(this);
+                        this.style.height = "250px";
+                        main.appendChild(this);
+
+                    };
+                    image.onerror = function (err){
+                        console.log(err);
+                    }*/
+                    /*let fileReader = new FileReader();
+                    fileReader.readAsDataURL(file);
+                    fileReader.onload = function (){
+                        let image = new Image();
+                        image.src = this.result;
+                        console.log(this.result);
+                        image.onload = function (){
+                            this.style.height = "250px";
+                            main.appendChild(this);
+
+                        }
+                    }*/
+                // })
+                let fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+                fileReader.onload = function (){
+                    let image = new Image();
+                    image.src = this.result;
+                    // console.log(this.result);
+                    image.onload = function (){
+                        this.style.height = "250px";
+                        main.appendChild(this);
+                    }
+                }
+            },
+            text(file){
+                console.log(file);
+                file.text().then(text => {
+                    addText(text);
+                })
+            }
+        };
+        let commandSet = {
+            __fileSystemExist__(){
+                if(!fileSystem){
+                    addText("please add a folder to continue");
+                    return ;
+                }
+            },
+            cls(){
+                main.innerHTML = "<p>"+currentDir+"></p>"
+            },
+            dir(){
+                if(!fileSystem){
+                    addText("please add a folder to continue");
+                    return ;
+                }
+                let dirReader = fileSystem.createReader();
+                dirReader.readEntries(function (entries){
+                    entries = entries.map(v => "|--"+v.fullPath);
+                    addText(entries.join("<br />"));
+                });
+
+            },
+            cd(dir){
+                if(!fileSystem){
+                    addText("please add a folder to continue");
+                    return ;
+                }
+                fileSystem.getDirectory(dir,{},function (entry){
+                    currentDir = entry.fullPath;
+                    fileSystem = entry;
+                    addText("");
+                },function (err){
+                    console.warn(err);
+                    addText("");
+                });
+            },
+            open(dir){
+                if(!fileSystem){
+                    addText("please add a folder to continue");
+                    return ;
+                }
+                fileSystem.getFile(dir,{},function (entry){
+                    entry.file(function (file){
+                        console.log(file);
+                        try {
+                            Object.keys(fileType).forEach(typeName => {
+                                let typeRe = new RegExp(typeName,'i');
+                                if(typeRe.test(file.type)){
+                                    fileType[typeName](file);
+                                    return ;
+                                }
+                            })
+                        }catch (e){
+                            addText("cant progress the type of "+file.type);
+                        }
+                    })
+                    addText("");
+                },function (err){
+                    console.warn(err);
+                    addText("");
+                });
+            },
+            copy(){},
+        }
+        let runCommand = function (){
+            let name,dir;
+            try{
+                [,name,dir] = command.match(/(\w+)\s*(.*)/);
+            }catch (e){
+                addText("no command ");
+                return ;
+            }
+            try{
+                commandSet[name](dir);
+            }catch (e){
+                addText("no command named :"+name);
+                return;
+            }
+            // if(command)
+        };
+        let addText = function (str){
+            let p = document.createElement("p");
+            p.innerHTML = str;
+            main.appendChild(p);
+            p = document.createElement("p");
+            p.innerHTML = currentDir+">";
+            main.appendChild(p);
+        }
+        main.ondragover = function (e){
+            e.preventDefault();
+        }
+        main.ondrop = function (ev){
+            ev.preventDefault();
+            fileSystem = ev.dataTransfer.items[0].webkitGetAsEntry();
+            currentDir = fileSystem.name;
+
+            addText("the file has been added.: " + fileSystem.name);
+            console.log(fileSystem)
+        };
+        main.onkeydown = function (ev){
+            if(ev.key.toLowerCase() === "backspace"){
+                command = command.substring(0,command.length-1);
+                return;
+            }
+        }
+        main.onkeypress = function (ev){
+            if(ev.key === "Enter"){
+                console.log(command);
+                runCommand();
+                command = "";
+            }else{
+                command += ev.key;
+
+            }
+        }
+
+
+    })
+    </script>
+</body>
+</html>

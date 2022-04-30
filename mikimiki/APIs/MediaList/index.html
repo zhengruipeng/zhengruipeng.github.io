@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style media="screen" >
+            *{
+                color:red;
+            }
+            </style>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const styleSheet = this.styleSheets[0];
+        console.log(styleSheet.media)
+        console.log(styleSheet.media.item(0))
+        console.log(styleSheet.media.appendMedium("print"))
+        console.log(styleSheet.media[1])
+
+        console.log(styleSheet.media.deleteMedium("print"))
+        console.log(styleSheet.media)
+    })
+</script>
+</body>
+</html>

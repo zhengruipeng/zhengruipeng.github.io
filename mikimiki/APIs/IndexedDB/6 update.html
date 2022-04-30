@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const IDB = window.indexedDB.open("toDoList",4);
+        let getData = function (IDBdb){
+            const IDBTransaction = IDBdb.transaction("toDoList","readonly");
+            const objectStore = IDBTransaction.objectStore("toDoList");
+            const IDBRequest = objectStore.get("66dulg8");
+            IDBRequest.onsuccess = function (){
+                document.writeln("new data: " + this.result.hours + " <br />");
+            };
+        };
+        let update = function (IDBdb){
+            let IDBtransaction = IDBdb.transaction("toDoList","readwrite");
+            let objectStore = IDBtransaction.objectStore("toDoList");
+            let objectStoreRequest = objectStore.get("66dulg8");
+            objectStoreRequest.onsuccess = function (){
+                document.writeln("the data has been loaded <br />");
+                this.result.hours = 0;
+                console.log(this.result);
+                getData(IDBdb);
+            };
+            IDBtransaction.oncomplete = function (){
+                document.writeln("transaction complete: the database is update <br />");
+            };
+            IDBtransaction.onerror = function (){
+                document.writeln("error: database can not update due to an unknown error <br />");
+            };
+
+        }
+        IDB.onsuccess = function  (){
+            document.writeln("database loaded  <br />");
+            update(this.result);
+        };
+        IDB.onerror = function (){
+            document.writeln("error <br />");
+        };
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="file" />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const file = this.getElementById("file");
+        file.onchange = function (){
+            console.log(file.webkitdirectory);
+        }
+    })
+</script>
+</body>
+</html>

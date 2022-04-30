@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const IDBOpenRequest = window.indexedDB.open("toDoList",4);
+        IDBOpenRequest.onsuccess = function (){
+            const IDB = this.result;
+            const IDBTransaction = IDB.transaction("toDoList","readwrite");
+            const objectStore = IDBTransaction.objectStore("toDoList");
+            const IDBRequestClear = objectStore.clear();
+            IDBRequestClear.onsuccess = function (){
+                document.writeln("All data have been deleted");
+            };
+            IDBRequestClear.onerror = function (){
+                document.writeln("An Unexpected error occured");
+            };
+
+        }
+    })
+    </script>
+</body>
+</html>

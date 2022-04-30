@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<audio src="./1.mp3" autoplay controls></audio>
+此功能通常在增大声音的快捷键操作时使用，并且时间会在相应快捷键摁下时触发
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let audio = this.querySelector("audio");
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: 'Unforgettable',
+            artist: 'Nat King Cole',
+            album: 'The Ultimate Collection (Remastered)',
+            artwork: [
+                {src: './image/1.jpg', sizes: '96x96', type: 'image/jpeg'},
+                {src: './image/2.jpg', sizes: '128x128', type: 'image/jpeg'},
+                {src: './image/3.jpg', sizes: '192x192', type: 'image/jpeg'},
+                {src: './image/4.jpg', sizes: '256x256', type: 'image/jpeg'},
+                {src: './image/5.jpg', sizes: '384x384', type: 'image/jpeg'},
+                {src: './image/6.jpg', sizes: '512x512', type: 'image/jpeg'},
+                ]
+        });
+        navigator.mediaSession.setActionHandler('play', async function () {
+            console.log("playing");
+            await audio.play();
+            // set playback state
+            navigator.mediaSession.playbackState = "playing";
+            // update our status element
+
+        });
+        navigator.mediaSession.setActionHandler('pause',async function () {
+            console.log("pause");
+            // pause out audio
+            await audio.pause();
+            // set playback state
+            navigator.mediaSession.playbackState = "paused";
+        });
+        navigator.mediaSession.setActionHandler('stop', function () { /* Code excerpted. */});
+        navigator.mediaSession.setActionHandler('seekbackward', function () { /* Code excerpted. */});
+        navigator.mediaSession.setActionHandler('seekforward', function () { /* Code excerpted. */});
+        navigator.mediaSession.setActionHandler('seekto', function () { /* Code excerpted. */});
+        navigator.mediaSession.setActionHandler('previoustrack', function () { /* Code excerpted. */});
+        navigator.mediaSession.setActionHandler('nexttrack', function () { /* Code excerpted. */});
+        navigator.mediaSession.setActionHandler('skipad', function () { /* Code excerpted. */});
+
+    });
+</script>
+</body>
+</html>
