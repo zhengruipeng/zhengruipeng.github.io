@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            display: grid;
+            --main-color:#F2A5AA;
+            grid-template-columns: 2fr 1fr 1fr;
+            color:var(--main-color);
+            font-family: "Kristen ITC";
+            font-size:1.1em;
+        }
+        aside{
+            grid-column: -2 /span 1;
+            border:var(--main-color) solid 1px;
+            border-radius:10px;
+            display: grid;
+            grid-template-rows: 7vh;
+            grid-auto-rows: 7vh;
+        }
+        aside>custom-item{
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr 2fr;
+            align-content: center;
+            grid-column-gap: 5px;
+        }
+        .chosen{
+            background-color:var(--main-color);
+            color:white;
+            border-radius: 10px;
+        }
+        .chosen>span{
+            color:white;
+        }
+
+        custom-item{border-bottom:var(--main-color) solid 1px;}
+        custom-item:last-child{border-bottom:none;}
+    </style>
+</head>
+<body>
+<template id="filter-item-template">
+    <style>
+        custom-type{
+            color:var(--main-color);
+        }
+    </style>
+        <custom-type><slot name="custom-type" /></custom-type>
+        <custom-frequency><slot name="custom-frequency" /></custom-frequency>
+        <custom-q><slot name="custom-q" /></custom-q>
+        <custom-gain><slot name="custom-gain" /></custom-gain>
+</template>
+<aside>
+    <!---
+    模板：
+    <custom-item>
+        <span slot="custom-type">lowpass</span>
+        <input type="range" max="100" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" />
+        <input type="range" max="100" min="0" slot="custom-gain" />
+    </custom-item>
+    -->
+    <custom-item>
+        <span slot="custom-type">lowpass</span>
+        <input type="range" max="1000" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" />
+        <input type="range" max="100" min="0" slot="custom-gain" disabled />
+    </custom-item>
+    <custom-item>
+        <span slot="custom-type">highpass</span>
+        <input type="range" max="2000" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" />
+        <input type="range" max="100" min="0" slot="custom-gain" disabled />
+    </custom-item>
+    <custom-item>
+        <span slot="custom-type">bandpass</span>
+        <input type="range" max="2000" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" />
+        <input type="range" max="100" min="0" slot="custom-gain" disabled />
+    </custom-item>
+    <custom-item>
+        <span slot="custom-type">lowshelf</span>
+        <input type="range" max="1000" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" disabled />
+        <input type="range" max="100" min="-100" slot="custom-gain" />
+    </custom-item>
+    <custom-item>
+        <span slot="custom-type">highshelf</span>
+        <input type="range" max="1000" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" disabled />
+        <input type="range" max="100" min="-100" slot="custom-gain" />
+    </custom-item>
+    <custom-item>
+        <span slot="custom-type">peaking</span>
+        <input type="range" max="1000" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" />
+        <input type="range" max="100" min="-100" slot="custom-gain" />
+    </custom-item>
+    <custom-item>
+        <span slot="custom-type">notch</span>
+        <input type="range" max="1000" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" />
+        <input type="range" max="100" min="0" slot="custom-gain" disabled />
+    </custom-item>
+    <custom-item>
+        <span slot="custom-type">allpass</span>
+        <input type="range" max="1000" min="0" slot="custom-frequency" />
+        <input type="range" max="100" min="0" slot="custom-q" />
+        <input type="range" max="100" min="0" slot="custom-gain" disabled />
+    </custom-item>
+</aside>
+<p id="notice"></p>
+<script type="module">
+    //UI
+    document.addEventListener("DOMContentLoaded",function (){
+        customElements.define("custom-item",class extends HTMLElement{
+            constructor() {
+                super();
+            }
+        });
+        customElements.define("custom-type",class extends HTMLElement{
+            constructor() {
+                super();
+            }
+        });
+        customElements.define("custom-frequency",class extends HTMLElement{
+            constructor() {
+                super();
+            }
+        });
+        customElements.define("custom-q",class extends HTMLElement{
+            constructor() {
+                super();
+            }
+        });
+        customElements.define("custom-gain",class extends HTMLElement{
+            constructor() {
+                super();
+            }
+        });
+        const mainTemplate = this.getElementById("filter-item-template");
+        const customItems = this.querySelectorAll("body>aside>custom-item");
+        for(let i = 0,len = customItems.length;i<len;i++){
+            let item = customItems[i];
+            item.attachShadow({mode:"open"}).appendChild(mainTemplate.content.cloneNode(true));
+        }
+    })
+</script>
+<script type="module">
+    //Audio Node
+    document.addEventListener("DOMContentLoaded",async function (){
+        const notice = this.getElementById("notice");
+        const mainTemplate = this.getElementById("filter-item-template");
+        const customItems = this.querySelectorAll("body>aside>custom-item");
+        customItems[Symbol.iterator] = function *(){
+            for(let i = 0;i<this.length;i++){
+                yield this[i];
+            }
+        };
+
+        const customTypes = [...customItems].map(v => v.children[0]);
+        const customFrequency = [...customItems].map(v => v.children[1]);
+        const customQ = [...customItems].map(v => v.children[2]);
+        const customGain = [...customItems].map(v => v.children[3]);
+        let audioEle;
+        let currentMode = "lowpass";
+        let currentIndex = 0;
+        let updateFilterValue = function (){
+            for(let i=0,len=customTypes[0].parentElement.parentElement.children.length;i<len;i++){
+                // console.log(customTypes[0].parentElement.parentElement)
+                customTypes[0].parentElement.parentElement.children[i].className = "";
+            }
+            customTypes[currentIndex].parentElement.className = "chosen";
+            biquadFilterNode.type = currentMode;
+            biquadFilterNode.frequency.setValueAtTime(customFrequency[currentIndex].value,audioCtx.currentTime);
+            biquadFilterNode.Q.setValueAtTime(customQ[currentIndex].value,audioCtx.currentTime);
+            biquadFilterNode.gain.setValueAtTime(customGain[currentIndex].value,audioCtx.currentTime);
+            notice.innerHTML = `
+                type: ${currentMode};<br />
+                frequency: ${customFrequency[currentIndex].value};<br />
+                Q: ${customQ[currentIndex].value};<br />
+                gain: ${customGain[currentIndex].value};<br />`
+        }
+        let response = await fetch("../../Fur Elise.mp3");
+        let blob = await response.blob();
+        let url = URL.createObjectURL(blob)
+        audioEle = document.createElement("audio");
+        audioEle.src = url;
+        audioEle.volume = 1;
+        audioEle.controls = true;
+        document.body.appendChild(audioEle);
+        let audioCtx ;
+        let biquadFilterNode;
+        audioEle.onplay = function (){
+            if(!audioCtx){
+                audioCtx = new AudioContext();
+
+                let mediaElementAudioNode = audioCtx.createMediaElementSource(audioEle);
+                biquadFilterNode = audioCtx.createBiquadFilter();
+                mediaElementAudioNode.connect(biquadFilterNode);
+                biquadFilterNode.connect(audioCtx.destination);
+                updateFilterValue();
+            }
+        }
+
+
+        customTypes.forEach(item => item.parentElement.onclick = function (){
+            currentMode= this.children[0].textContent;
+            // console.log(this)
+            // currentIndex = this.parentElement.children(this);
+            for(let i = 0;i<this.parentElement.children.length;i++){
+                if(this === this.parentElement.children[i])
+                currentIndex = i;
+            }
+            updateFilterValue();
+
+        });
+        customFrequency.forEach(item => item.oninput = updateFilterValue);
+        customQ.forEach(item => item.oninput = updateFilterValue);
+        customGain.forEach(item => item.oninput = updateFilterValue);
+
+    })
+</script>
+</body>
+</html>

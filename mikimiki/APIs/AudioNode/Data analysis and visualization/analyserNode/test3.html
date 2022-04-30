@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="oscilloscope" ></canvas>
+
+<button id="switch" data-status="off">start</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const switchBtn = this.getElementById("switch");
+        var audioCtx = new AudioContext();
+        let mediaRecoder,chunks = [];
+        navigator.mediaDevices.getUserMedia({audio:true}).then(mediaStream => {
+            let mediaStreamSourceAudioNode = audioCtx.createMediaStreamSource(mediaStream);
+            mediaRecoder = new MediaRecorder(mediaStream);
+
+            mediaStreamSourceAudioNode.connect(analyser);
+            analyser.connect(audioCtx.destination);
+            mediaRecoder.ondataavailable = function (e){
+                chunks.push(e.data);
+            };
+            mediaRecoder.onstop = function (e){
+                var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=vp8' });
+                let audio = document.createElement("audio");
+                audio.src = URL.createObjectURL(blob);
+                audio.controls = true;
+                document.body.appendChild(audio);
+                let a = document.createElement('a');
+                a.href = audio.src;
+                a.download = audio.src;
+                a.click();
+                a.innerHTML = 123;
+
+                document.body.appendChild(a);
+
+            }
+        })
+
+        var analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 2048;
+
+        var bufferLength = analyser.frequencyBinCount;
+        var dataArray = new Uint8Array(bufferLength);
+        analyser.getByteTimeDomainData(dataArray);
+
+// Connect the source to be analysed
+
+// Get a canvas defined with ID "oscilloscope"
+        var canvas = document.getElementById("oscilloscope");
+        canvas.height = this.documentElement.clientHeight * 0.75;
+        canvas.width = this.documentElement.clientWidth * 0.75;
+
+        var canvasCtx = canvas.getContext("2d");
+// draw an oscilloscope of the current audio source
+
+        function draw() {
+
+            requestAnimationFrame(draw);
+
+            analyser.getByteTimeDomainData(dataArray);
+
+            canvasCtx.fillStyle = "rgb(200, 200, 200)";
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+            canvasCtx.lineWidth = 2;
+            canvasCtx.strokeStyle = "rgb(0, 0, 0)";
+
+            canvasCtx.beginPath();
+
+            var sliceWidth = canvas.width * 1.0 / bufferLength;
+            var x = 0;
+
+            for (var i = 0; i < bufferLength; i++) {
+
+                var v = dataArray[i] / 128.0;
+                var y = v * canvas.height / 2;
+
+                if (i === 0) {
+                    canvasCtx.moveTo(x, y);
+                } else {
+                    canvasCtx.lineTo(x, y);
+                }
+
+                x += sliceWidth;
+            }
+
+            canvasCtx.lineTo(canvas.width, canvas.height / 2);
+            canvasCtx.stroke();
+        }
+
+        draw();
+        switchBtn.onclick = function (){
+            let status = this.dataset.status;
+            if(status === "on"){
+                mediaRecoder.stop();
+                this.dataset.status = "off";
+                this.innerHTML = "start"
+            }else{
+                mediaRecoder.start()
+                this.dataset.status = "on";
+                this.innerHTML = "pause";
+            }
+        }
+
+
+    })
+</script>
+</body>
+</html>

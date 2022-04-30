@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="oscilloscope" ></canvas>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var canvas = document.getElementById("oscilloscope");
+        canvas.height = this.documentElement.clientHeight * 0.75;
+        canvas.width = this.documentElement.clientWidth * 0.75;
+
+        var canvasCtx = canvas.getContext("2d");
+        this.onclick = function (){
+            let context = new AudioContext();
+            let gainNode2 = context.createGain();
+            let gainNode3 = context.createGain();
+            gainNode2.gain.value = gainNode3.gain.value = 0.5;
+
+            let constantNode = context.createConstantSource();
+            constantNode.offset.setValueAtTime(.1,context.currentTime);
+            console.log(constantNode)
+            /*  let constantNode = context.createOscillator();
+            constantNode.type = "sine";
+             constantNode.frequency.setValueAtTime(500,context.currentTime);
+             constantNode.detune.setValueAtTime(500,context.currentTime);*/
+            // constantNode.frequency.setValueCurveAtTime(500,context.currentTime);
+            /*constantNode.connect(gainNode2.gain);
+            constantNode.connect(gainNode3.gain);
+            constantNode.start();
+
+            gainNode2.connect(context.destination);
+            gainNode3.connect(context.destination);*/
+
+            var analyser = context.createAnalyser();
+            analyser.fftSize = 2048;
+
+            var bufferLength = analyser.frequencyBinCount;
+            var dataArray = new Uint8Array(bufferLength);
+            analyser.getByteTimeDomainData(dataArray);
+
+// Connect the source to be analysed
+            constantNode.connect(analyser);
+            analyser.connect(context.destination);
+
+            constantNode.start();
+            function draw() {
+
+                requestAnimationFrame(draw);
+
+                analyser.getByteTimeDomainData(dataArray);
+
+                canvasCtx.fillStyle = "rgb(200, 200, 200)";
+                canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+                canvasCtx.lineWidth = 2;
+                canvasCtx.strokeStyle = "rgb(0, 0, 0)";
+
+                canvasCtx.beginPath();
+
+                var sliceWidth = canvas.width * 1.0 / bufferLength;
+                var x = 0;
+
+                for (var i = 0; i < bufferLength; i++) {
+
+                    var v = dataArray[i] / 128.0;
+                    var y = v * canvas.height / 2;
+
+                    if (i === 0) {
+                        canvasCtx.moveTo(x, y);
+                    } else {
+                        canvasCtx.lineTo(x, y);
+                    }
+
+                    x += sliceWidth;
+                }
+
+                canvasCtx.lineTo(canvas.width, canvas.height / 2);
+                canvasCtx.stroke();
+            }
+
+            draw();
+
+        };
+    })
+</script>
+</body>
+</html>

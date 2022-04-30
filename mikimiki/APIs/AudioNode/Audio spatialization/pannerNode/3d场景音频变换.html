@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="listener-data"></div>
+<div class="panner-data"></div>
+<audio src="../../EVERYDAY!%20SUNNYDAY!%20-%20サニーピース.mp3" controls id="audio"></audio>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let audio = this.getElementById("audio");
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+// create Oscillator node
+        /*var oscillator = audioCtx.createOscillator();
+
+        oscillator.type = 'sine';
+        oscillator.frequency.value = 1000; // value in hertz
+        */
+        // set up listener and panner position information
+        let mediaElementSourceAudioNode = audioCtx.createMediaElementSource(audio);
+        var WIDTH = window.innerWidth;
+        var HEIGHT = window.innerHeight;
+
+        var xPos = Math.floor(WIDTH/2);
+        var yPos = Math.floor(HEIGHT/2);
+        var zPos = 0;
+
+// define other variables
+
+
+        var panner = audioCtx.createPanner();
+        panner.panningModel = 'HRTF';       //定位的方式:equalpower&HRTF
+        panner.distanceModel = 'inverse';       //随距离音频发生改变的模型
+        panner.refDistance = 1;             //假如绝对距离大于这个值就开始衰减
+        panner.maxDistance = 300;           //超过这个距离将会听不见
+        panner.rolloffFactor = 1;       //相当于衰减模型的参数，越大就代表衰减的越快
+        panner.coneInnerAngle = 360;        //
+        panner.coneOuterAngle = 0;
+        panner.coneOuterGain = 0;
+
+
+        //设置音频源位置
+        if(panner.orientationX) {
+            panner.orientationX.setValueAtTime(0, audioCtx.currentTime);
+            panner.orientationY.setValueAtTime(0, audioCtx.currentTime);
+            panner.orientationZ.setValueAtTime(0, audioCtx.currentTime);
+        }
+        else {
+            panner.setOrientation(0,0,0);
+        }
+
+        var listener = audioCtx.listener;
+
+        //设置倾听者朝向和向上方向
+        if(listener.forwardX) {
+            listener.forwardX.setValueAtTime(0, audioCtx.currentTime);
+            listener.forwardY.setValueAtTime(0, audioCtx.currentTime);
+            listener.forwardZ.setValueAtTime(-1, audioCtx.currentTime);
+            listener.upX.setValueAtTime(0, audioCtx.currentTime);
+            listener.upY.setValueAtTime(1, audioCtx.currentTime);
+            listener.upZ.setValueAtTime(0, audioCtx.currentTime);
+        }
+        else {
+            listener.setOrientation(0,0,-1,0,1,0);
+        }
+
+        var listenerData = document.querySelector('.listener-data');
+        var pannerData = document.querySelector('.panner-data');
+
+
+// listener will always be in the same place for this demo
+        let lisPos = [xPos,yPos,0];
+
+        //倾听者位置
+        if(listener.positionX) {
+            listener.positionX.setValueAtTime(lisPos[0], audioCtx.currentTime);
+            listener.positionY.setValueAtTime(lisPos[1], audioCtx.currentTime);
+            listener.positionZ.setValueAtTime(lisPos[2], audioCtx.currentTime);
+        }
+        else {
+            listener.setPosition(lisPos[0],lisPos[1],lisPos[2]);
+        }
+
+        listenerData.innerHTML = 'Listener data: X ' + lisPos[0] + ' Y ' + lisPos[1] + ' Z ' + lisPos[2];
+        let pannerPos = [xPos,yPos,0];
+
+        //重新设置音响位置
+        function positionPanner() {
+            if(panner.positionX) {
+                panner.positionX.setValueAtTime(pannerPos[0], audioCtx.currentTime);
+                panner.positionY.setValueAtTime(pannerPos[1], audioCtx.currentTime);
+                panner.positionZ.setValueAtTime(pannerPos[2], audioCtx.currentTime);
+            } else {
+                panner.setPosition(pannerPos[0],pannerPos[1],pannerPos[2]);
+            }
+            pannerData.innerHTML = 'Panner data: X ' + pannerPos[0] + ' Y ' + pannerPos[1] + ' Z ' + pannerPos[2];
+        }
+
+
+        positionPanner();
+        mediaElementSourceAudioNode.connect(panner);
+        panner.connect(audioCtx.destination);
+        // oscillator.start();
+        window.onkeydown = function (e){
+            if(e.key === "w"){
+                lisPos[2]--;
+            }
+            if(e.key === "s"){
+                lisPos[2]++;
+            }
+            if(e.key === "a"){
+                lisPos[0]--;
+            }
+            if(e.key === "d"){
+                lisPos[0]++;
+            }
+            if(e.key === "q"){
+                lisPos[1]--;
+            }
+            if(e.key === "e"){
+                lisPos[1]++;
+            }
+
+            //倾听者位置
+            if(listener.positionX) {
+                listener.positionX.setValueAtTime(lisPos[0], audioCtx.currentTime);
+                listener.positionY.setValueAtTime(lisPos[1], audioCtx.currentTime);
+                listener.positionZ.setValueAtTime(lisPos[2], audioCtx.currentTime);
+            }
+            else {
+                listener.setPosition(lisPos[0],lisPos[1],lisPos[2]);
+            }
+
+            listenerData.innerHTML = 'Listener data: X ' + lisPos[0] + ' Y ' + lisPos[1] + ' Z ' + lisPos[2];
+            positionPanner();
+            // oscillator.connect(panner);
+            mediaElementSourceAudioNode.connect(panner);
+            panner.connect(audioCtx.destination);
+
+        };
+
+    })
+    </script>
+</body>
+</html>

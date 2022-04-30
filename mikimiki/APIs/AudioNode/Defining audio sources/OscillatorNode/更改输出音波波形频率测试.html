@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="selectType">
+    <option>sine</option>
+    <option>square</option>
+    <option>sawtooth</option>
+    <option>triangle</option>
+    <option>custom</option>
+</select>
+<input type="range" id="frequencyValue" max="2000" min="10" value="500">
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (function (fun){
+            const startBtn = document.createElement("button");
+            startBtn.innerHTML = "start";
+            document.body.appendChild(startBtn);
+            startBtn.onclick = function (mouseEvent){
+                fun.call(document,mouseEvent);
+            };
+        })(function (mouseEvent){
+            // create web audio api context
+            var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            var selectType = this.getElementById("selectType");
+            var frequencyValue = this.getElementById("frequencyValue");
+
+// create Oscillator node
+            var oscillator = audioCtx.createOscillator();
+            console.log(oscillator);
+            oscillator.type = 'sine';
+            // oscillator.frequency.value = 500; // value in hertz
+            oscillator.frequency.setValueAtTime(500,audioCtx.currentTime);
+            // oscillator.frequency.setValueAtTime(10,0);
+            // oscillator.frequency.linearRampToValueAtTime(1000,10);
+            // oscillator.frequency.setValueAtTime(1000,15);
+            // oscillator.frequency.linearRampToValueAtTime(10,25);
+            // console.log(audioCtx.currentTime)
+            oscillator.connect(audioCtx.destination);
+            oscillator.start();
+            selectType.onchange = function (){
+                oscillator.type = this.value;
+            };
+            frequencyValue.oninput = function (){
+                oscillator.frequency.setValueAtTime(this.value-0,audioCtx.currentTime);
+            };
+        });
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .button{
+            height:100px;
+            width:200px;
+            text-align:center;
+            line-height:100px;
+            font-family: 微软雅黑;
+            transition:.5s;
+            border:#aaa solid 1px;
+            float:left;
+            margin-left:20px;
+            border-radius:20px;
+        }
+        .button:hover{
+            transition:.2s;
+            cursor:pointer;
+            background-color:rgba(255,0,0,0.5);
+            box-shadow:red 0px 0px 40px;
+        }
+        </style>
+</head>
+<body>
+<button class="button" id="play" >play</button>
+<button class="button" id="stop">stop</button>
+<input type="range" id="range" min="0" max="2" />
+<p id="loading">加载中......</p>
+<!--<audio src="../Fur%20Elise.mp3" autoplay></audio>-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+
+        // var buffers = this.querySelector("audio");
+        var loading = this.querySelector("#loading");
+        var AudioContext = window.AudioContext || window.webkitAudioContext;
+        var audioCtx = new AudioContext();
+        var playSynth = this.getElementById("play");
+        var stopSynth = this.getElementById("stop");
+        var rangeSynth = this.getElementById("range");
+        var synthDelay = audioCtx.createDelay(2.0);
+        var destination = audioCtx.destination;
+
+        var synthSource;
+
+
+        let xhr = new XMLHttpRequest();
+        xhr.responseType = "arraybuffer";
+        xhr.open("GET","../../Fur Elise.mp3",true);
+        xhr.onreadystatechange = function (){
+            //console.log(xhr.status,xhr.readyState);
+
+            if(xhr.status !== 200 || xhr.readyState !== 4)return false;
+            loading.innerHTML = "";
+            audioCtx.decodeAudioData(xhr.response, function(buffers) {
+                playSynth.onclick = function() {
+                    synthSource = audioCtx.createBufferSource();
+                    synthSource.buffer = buffers;
+                    synthSource.loop = true;
+                    synthSource.start();
+                    synthSource.connect(synthDelay);
+                    synthDelay.connect(destination);
+                    this.setAttribute('disabled', 'disabled');
+                };
+
+                stopSynth.onclick = function() {
+                    synthSource.disconnect(synthDelay);
+                    synthDelay.disconnect(destination);
+                    synthSource.stop();
+                    playSynth.removeAttribute('disabled');
+                };
+
+
+                var delay1;
+                rangeSynth.oninput = function() {
+                    delay1 = rangeSynth.value;
+                    synthDelay.delayTime.setValueAtTime(delay1, audioCtx.currentTime);
+                }
+
+            });
+        };
+        xhr.send();
+
+
+    })
+    </script>
+</body>
+</html>

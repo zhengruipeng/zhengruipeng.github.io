@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<property>
+继承属性自 AudioNode。
+
+AnalyserNode.fftSize
+一个无符号长整形(unsigned long)的值，代表了用于计算频域信号时使用的 FFT (快速傅里叶变换) 的窗口大小。
+
+AnalyserNode.frequencyBinCount 只读
+一个无符号长整形(unsigned long)的值, 值为fftSize的一半。这通常等于将要用于可视化的数据值的数量。
+
+AnalyserNode.minDecibels
+是一个双精度值，表示FFT分析频域数据并转换为无符号字节值时，对输入的功率数据的最小阈值 - 基本上，
+它限定了调用getByteFrequencyData()时结果范围的最小值
+
+AnalyserNode.maxDecibels
+是一个双精度值，表示FFT分析频域数据并转换为无符号字节值时，对输入的功率数据的最大阈值 - 基本上，
+它限定了调用getByteFrequencyData()时结果范围的最大值
+
+AnalyserNode.smoothingTimeConstant
+是一个双精度浮点型(double)的值，表示最后一个分析帧的平均常数 — 基本上，它随时间使值之间的过渡更平滑。
+</property>
+<method>
+继承方法自 AudioNode.
+
+AnalyserNode.getFloatFrequencyData()
+将当前频域数据拷贝进Float32Array数组。
+
+AnalyserNode.getByteFrequencyData()
+将当前频域数据拷贝进Uint8Array数组（无符号字节数组）。
+
+AnalyserNode.getFloatTimeDomainData()
+将当前波形，或者时域数据拷贝进Float32Array数组。
+
+AnalyserNode.getByteTimeDomainData()
+将当前波形，或者时域数据拷贝进 Uint8Array数组（无符号字节数组）。
+</method>
+</body>
+</html>

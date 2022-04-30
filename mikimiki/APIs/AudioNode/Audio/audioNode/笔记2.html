@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse:collapse;
+            border:#ccc solid 1px;
+            width:100%;
+            height:auto;
+            font-family: "Source Code Pro";
+        }
+        td{
+            padding:15px;
+            text-align:center;
+            border:#ccc solid 1px;
+
+        }
+        th{
+            border:#ccc solid 1px;
+
+            background-color:#ddd;
+            padding:5px;
+            text-align:center;
+        }
+        </style>
+</head>
+<body>
+<pre>
+<information>
+AudioNode接口是表示音频处理模块的通用接口。
+示例包括：
+音频源（例如，HTML<audio>或<video>元素、振荡器节点等），
+    音频目的地，
+    中间处理模块（例如，双四元过滤器或卷积式过滤器），或
+    音量控制（如GainNode）
+
+    每个音频节点都有输入和输出，并且多个音频节点被连接以构建一个处理图。此图包含在AudioContext中，
+每个音频节点只能属于一个音频上下文。
+    源节点没有输入，只有一个或多个输出，可以用来生成声音。另一方面，目的节点没有输出；相反，它的所有输入都直接在扬声器
+（或音频上下文使用的任何音频输出设备）上回放。此外，还有一些处理节点具有输入和输出。所做的确切处理因AudioNode而异，
+但通常情况下，节点读取其输入，执行一些与音频相关的处理，并为其输出生成新值，或者只是让音频通过
+（例如，在AnalyzerNode中，处理的结果被单独访问）。
+    图中节点越多，延迟就越高。例如，如果图形的延迟为500毫秒，则当源节点播放声音时，需要半秒钟的时间才能在扬声器上听到
+该声音 （或者由于底层音频设备的延迟而更长）。因此，如果您需要交互式音频，请使图形尽可能小，
+并将用户控制的音频节点放在图形的末尾。例如，音量控制（GainNode）应该是最后一个节点，以便卷更改立即生效。
+    每个输入和输出都有一个给定数量的通道。例如，单声道音频有一个声道，而立体声音频有两个声道。
+webaudioapi将根据需要增加或减少频道数量；查看Web音频规范以获取详细信息。
+有关所有音频节点的列表，请参阅Web audio API主页。
+
+</information>
+<script type="text/javascript">
+    window.onload = function (){
+        // constructor
+        const analyserNode2 = new AnalyserNode(audioCtx, {
+            fftSize: 2048,
+            maxDecibels: -25,       //Decibels：分贝
+            minDecibels: -60,
+            smoothingTimeConstant: 0.5,
+        });
+
+        // factory method
+        const analyserNode = audioCtx.createAnalyser();
+        analyserNode.fftSize = 2048;
+        analyserNode.maxDecibels = -25;
+        analyserNode.minDecibels = -60;
+        analyserNode.smoothingTimeConstant = 0.5;
+    }
+</script>
+<constructor_explain>
+    您可以自由使用构造函数或工厂方法，也可以混合使用这两种方法，但是使用构造函数有好处：
+    所有参数可在施工期间设置，无需单独设置。
+    可以对音频节点进行子类。但在内部无法通过编写和处理自定义的方法来更改音频包装器。
+    性能稍好：在Chrome和Firefox中，工厂方法在内部调用构造函数。
+    请记住，Microsoft Edge似乎还不支持构造函数；当您使用构造函数时，它将抛出一个“函数预期”错误。
+    简史：Web音频规范的第一个版本只定义了工厂方法。经过2013年10月的设计审查，决定增加构造函数，
+    因为他们比工厂方法有许多好处。构造函数于2016年8月至10月加入规范。工厂方法继续包含在规范中，并且不会被弃用。
+</constructor_explain>
+<notes>
+    上混音(up-mixing)意思大概是由少量声道变为多个声道，下混音反之
+</notes>
+<attribute>
+    AudioNode.context 只读
+        返回关联的BaseAudioContext，即表示节点参与的处理图的对象。
+    AudioNode.numberOfInputs 只读
+        返回输入节点的输入数。源节点定义为具有numberOfInputs属性且值为0的节点。
+    AudioNode.numberOfOutputs 只读
+        返回节点输出的数量。目标节点（如AudioDestinationNode）的此属性值为0。
+    AudioNode.channelCount
+        表示一个整数，用于确定在向节点的任何输入进行上混合和下混合连接时使用了多少个通道。
+        它的定义和价值取决于它的确切用途AudioNode.channelCountMode.
+    AudioNode.channelCountMode
+        表示一个枚举值，该值描述在节点的输入和输出之间必须匹配通道的方式。
+        可能值：
+            max:信道数等于所有连接的最大信道数。在这种情况下，channelCount被忽略，只发生上混。
+            clamped-max:通道数等于所有连接的最大通道数，钳制为channelCount的值。
+            explicit:通道数由channelCount的值定义。
+
+    AudioNode.channelInterpretation
+        表示描述通道含义的枚举值。这个解释将定义音频上下混音的发生方式。
+    可能的值是“speaker(离散的)”或“discrete(麦克风)”。
+</attribute>
+混音方式如下表格
+</pre>
+<table class="standard-table">
+    <thead>
+    <tr>
+        <th scope="row">Interpretation</th>
+        <th scope="col">Input channels</th>
+        <th scope="col">Output channels</th>
+        <th scope="col">Mixing rules</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th colspan="1" rowspan="13" scope="row"><code>speakers</code></th>
+        <td><code>1</code> <em>(Mono)</em></td>
+        <td><code>2</code> <em>(Stereo)</em></td>
+        <td><em>Up-mix from mono to stereo</em>.<br>
+            The <code>M</code> input channel is used for both output channels (<code>L</code> and <code>R</code>).<br>
+            <code>output.L = input.M<br>
+                output.R = input.M</code></td>
+    </tr>
+    <tr>
+        <td><code>1</code> <em>(Mono)</em></td>
+        <td><code>4</code> <em>(Quad)</em></td>
+        <td><em>Up-mix from mono to quad.</em><br>
+            The <code>M</code> input channel is used for non-surround output channels (<code>L</code> and <code>R</code>). Surround output channels (<code>SL</code> and <code>SR</code>) are silent.<br>
+            <code>output.L = input.M<br>
+                output.R = input.M<br>
+                output.SL = 0<br>
+                output.SR = 0</code></td>
+    </tr>
+    <tr>
+        <td><code>1</code> <em>(Mono)</em></td>
+        <td><code>6</code> <em>(5.1)</em></td>
+        <td><em>Up-mix from mono to 5.1.</em><br>
+            The <code>M</code> input channel is used for the center output channel (<code>C</code>). All the others (<code>L</code>, <code>R</code>, <code>LFE</code>, <code>SL</code>, and <code>SR</code>) are silent.<br>
+            <code>output.L = 0<br>
+                output.R = 0</code><br>
+            <code>output.C = input.M<br>
+                output.LFE = 0<br>
+                output.SL = 0<br>
+                output.SR = 0</code></td>
+    </tr>
+    <tr>
+        <td><code>2</code> <em>(Stereo)</em></td>
+        <td><code>1</code> <em>(Mono)</em></td>
+        <td><em>Down-mix from stereo to mono</em>.<br>
+            Both input channels (<code>L</code> and <code>R</code>) are equally combined to produce the unique output channel (<code>M</code>).<br>
+            <code>output.M = 0.5 * (input.L + input.R)</code></td>
+    </tr>
+    <tr>
+        <td><code>2</code> <em>(Stereo)</em></td>
+        <td><code>4</code> <em>(Quad)</em></td>
+        <td><em>Up-mix from stereo to quad.</em><br>
+            The <code>L</code> and <code>R </code>input channels are used for their non-surround respective output channels (<code>L</code> and <code>R</code>). Surround output channels (<code>SL</code> and <code>SR</code>) are silent.<br>
+            <code>output.L = input.L<br>
+                output.R = input.R<br>
+                output.SL = 0<br>
+                output.SR = 0</code></td>
+    </tr>
+    <tr>
+        <td><code>2</code> <em>(Stereo)</em></td>
+        <td><code>6</code> <em>(5.1)</em></td>
+        <td><em>Up-mix from stereo to 5.1.</em><br>
+            The <code>L</code> and <code>R </code>input channels are used for their non-surround respective output channels (<code>L</code> and <code>R</code>). Surround output channels (<code>SL</code> and <code>SR</code>), as well as the center (<code>C</code>) and subwoofer (<code>LFE</code>) channels, are left silent.<br>
+            <code>output.L = input.L<br>
+                output.R = input.R<br>
+                output.C = 0<br>
+                output.LFE = 0<br>
+                output.SL = 0<br>
+                output.SR = 0</code></td>
+    </tr>
+    <tr>
+        <td><code>4</code> <em>(Quad)</em></td>
+        <td><code>1</code> <em>(Mono)</em></td>
+        <td><em>Down-mix from quad to mono</em>.<br>
+            All four input channels (<code>L</code>, <code>R</code>, <code>SL</code>, and <code>SR</code>) are equally combined to produce the unique output channel (<code>M</code>).<br>
+            <code>output.M = 0.25 * (input.L + input.R + </code><code>input.SL + input.SR</code><code>)</code></td>
+    </tr>
+    <tr>
+        <td><code>4</code> <em>(Quad)</em></td>
+        <td><code>2</code> <em>(Stereo)</em></td>
+        <td><em>Down-mix from quad to stereo</em>.<br>
+            Both left input channels (<code>L</code> and <code>SL</code>) are equally combined to produce the unique left output channel (<code>L</code>). And similarly, both right input channels (<code>R</code> and <code>SR</code>) are equally combined to produce the unique right output channel (<code>R</code>).<br>
+            <code>output.L = 0.5 * (input.L + input.SL</code><code>)</code><br>
+            <code>output.R = 0.5 * (input.R + input.SR</code><code>)</code></td>
+    </tr>
+    <tr>
+        <td><code>4</code> <em>(Quad)</em></td>
+        <td><code>6</code> <em>(5.1)</em></td>
+        <td><em>Up-mix from quad to 5.1.</em><br>
+            The <code>L</code>, <code>R</code>, <code>SL</code>, and <code>SR</code> input channels are used for their respective output channels (<code>L</code> and <code>R</code>). Center (<code>C</code>) and subwoofer (<code>LFE</code>) channels are left silent.<br>
+            <code>output.L = input.L<br>
+                output.R = input.R<br>
+                output.C = 0<br>
+                output.LFE = 0<br>
+                output.SL = input.SL<br>
+                output.SR = input.SR</code></td>
+    </tr>
+    <tr>
+        <td><code>6</code> <em>(5.1)</em></td>
+        <td><code>1</code> <em>(Mono)</em></td>
+        <td><em>Down-mix from 5.1 to mono.</em><br>
+            The left (<code>L</code> and <code>SL</code>), right (<code>R</code> and <code>SR</code>) and central channels are all mixed together. The surround channels are slightly attenuated and the regular lateral channels are power-compensated to make them count as a single channel by multiplying by <code>√2/2</code>. The subwoofer (<code>LFE</code>) channel is lost.<br>
+            <code>output.M = 0.7071 * (input.L + input.R) + input.C + 0.5 * (input.SL + input.SR)</code></td>
+    </tr>
+    <tr>
+        <td><code>6</code> <em>(5.1)</em></td>
+        <td><code>2</code> <em>(Stereo)</em></td>
+        <td><em>Down-mix from 5.1 to stereo.</em><br>
+            The central channel (<code>C</code>) is summed with each lateral surround channel (<code>SL</code> or <code>SR</code>) and mixed to each lateral channel. As it is mixed down to two channels, it is mixed at a lower power: in each case it is multiplied by <code>√2/2</code>. The subwoofer (<code>LFE</code>) channel is lost.<br>
+            <code>output.L = input.L + 0.7071 * (input.C + input.SL)<br>
+                output.R = input.R </code><code>+ 0.7071 * (input.C + input.SR)</code></td>
+    </tr>
+    <tr>
+        <td><code>6</code> <em>(5.1)</em></td>
+        <td><code>4</code> <em>(Quad)</em></td>
+        <td><em>Down-mix from 5.1 to quad.</em><br>
+            The central (<code>C</code>) is mixed with the lateral non-surround channels (<code>L</code> and <code>R</code>). As it is mixed down to two channels, it is mixed at a lower power: in each case it is multiplied by <code>√2/2</code>. The surround channels are passed unchanged. The subwoofer (<code>LFE</code>) channel is lost.<br>
+            <code>output.L = input.L + 0.7071 * input.C<br>
+                output.R = input.R + 0.7071 * input.C<br>
+                <code>output.SL = input.SL<br>
+                    output.SR = input.SR</code></code></td>
+    </tr>
+    <tr>
+        <td colspan="2" rowspan="1">Other, non-standard layouts</td>
+        <td>Non-standard channel layouts are handled as if <code>channelInterpretation</code> is set to <code>discrete</code>.<br>
+            The specification explicitly allows the future definition of new speaker layouts. This fallback is therefore not future proof as the behavior of the browsers for a specific number of channels may change in the future.</td>
+    </tr>
+    <tr>
+        <th colspan="1" rowspan="2" scope="row"><code>discrete</code></th>
+        <td rowspan="1">any (<code>x</code>)</td>
+        <td rowspan="1">any (<code>y</code>) where <code>x&lt;y</code></td>
+        <td><em>Up-mix discrete channels.</em><br>
+            Fill each output channel with its input counterpart, that is the input channel with the same index. Channels with no corresponding input channels are left silent.</td>
+    </tr>
+    <tr>
+        <td rowspan="1">any (<code>x</code>)</td>
+        <td rowspan="1">any (<code>y</code>) where <code>x&gt;y</code></td>
+        <td><em>Down-mix discrete channels.</em><br>
+            Fill each output channel with its input counterpart, that is the input channel with the same index. Input channels with no corresponding output channels are dropped.</td>
+    </tr>
+    </tbody>
+</table>
+<pre>
+<method>
+    AudioNode.connect()
+        允许我们将此节点的输出连接到另一个节点，以音频数据或AudioParam的值的形式输入。
+    AudioNode.disconnect()
+        允许我们断开当前节点与它已经连接的另一个节点的连接。
+</method>
+</pre>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="oscilloscope" width="1200" height="600"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        let an = audioCtx.createAnalyser();
+        console.log(an);
+        /*
+        属性
+
+            AudioContext.baseLatency 只读
+                返回AudioContext将音频从AudioDestinationNode传递到音频子系统的处理延迟的秒数。
+            AudioContext接口的baseLatency只读属性返回一个double值，该值表示AudioContext将音频从
+            AudioDestinationNode传递到音频子系统所产生的处理延迟秒数。
+            您可以使用latencyHint选项在构建期间请求一定的延迟，但浏览器可能会忽略该选项。
+
+
+
+
+            AudioContext.outputLatency 只读
+                返回对当前音频上下文的预估输出延迟。
+            AudioContext接口的outputLatency只读属性提供对当前音频上下文的输出延迟的估计。
+            这是浏览器将音频缓冲区从音频图传递到主机系统的音频子系统播放之间的时间，以秒为单位，
+            与音频输出设备实际处理缓冲区中的第一个采样之间的时间。
+            它因平台和可用硬件而异。
+
+       方法
+
+            也从其父接口继承方法​​​​, BaseAudioContext.
+
+            AudioContext.close()
+                关闭一个音频环境, 释放任何正在使用系统资源的音频。
+            AudioContext.createMediaElementSource()
+                创建一个MediaElementAudioSourceNode接口来关联HTMLMediaElement. 这可以用来播放和处理来自<video>或<audio> 元素的音频。
+            AudioContext.createMediaStreamSource()
+                创建一个MediaStreamAudioSourceNode接口来关联可能来自本地计算机麦克风或其他来源的音频流MediaStream。
+            AudioContext.createMediaStreamDestination()
+                创建一个MediaStreamAudioDestinationNode接口来关联可能储存在本地或已发送至其他计算机的MediaStream音频。
+            AudioContext.createMediaStreamTrackSource()
+                创建一个MediaStreamTrackAudioSourceNode，它与一个MediaStream相关联，表示一个媒体流轨迹。
+            AudioContext.getOutputTimestamp()
+                返回一个新的AudioTimestamp对象，该对象包含两个与当前音频上下文相关的音频时间戳。
+            AudioContext.resume()
+                恢复之前被暂停的音频上下文中的时间进程。
+            AudioContext.suspend()
+                暂停音频上下文中的时间进程，暂停音频硬件访问并减少进程中的CPU/电池使用。
+
+         */
+
+
+        //navigator.mediaDevices.getUserMedia({audio:true,video:true});
+    })
+    </script>
+</body>
+</html>

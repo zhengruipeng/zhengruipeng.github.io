@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    PannerNode接口表示音频源信号在空间中的位置和行为。它是一个音频节点音频处理模块，
+    用右笛卡尔坐标描述它的位置，用速度矢量描述它的运动，用方向性圆锥体描述它的方向性。
+
+    PannerNode始终只有一个输入和一个输出：输入可以是单声道或立体声，但输出始终是立体声（2个声道）；
+    如果没有至少两个音频通道，就不能有平移效果！
+</information>
+<property>
+    PannerNode.ConeInRangle
+    是一个双精度值，用于描述圆锥的角度（以度为单位），在该角度内不会发生体积减少。
+
+    PannerNode.coneOutrAngle
+    一个双精度值，描述圆锥体的角度（以度为单位），在该角度外，体积将按由coneOuterGain属性定义的常量值减少。
+
+    PannerNode.ConOuterGain
+    描述由coneoutrangle属性定义的圆锥体外体积减少量的双精度值。默认值为0，表示听不到任何声音。
+
+    PannerNode.distanceModel
+    一个枚举值，用于确定在音频源离开侦听器时使用哪个算法来减小其音量。可能的值有“linear”、“inverse”和“exponential”。默认值为“inverse”。
+
+    PannerNode.maxDistance
+    一个双精度值，表示音频源和侦听器之间的最大距离，在此之后音量不会进一步减小。
+
+    PannerNode.orientationX
+    表示音频源向量在右笛卡尔坐标系中的水平位置。虽然此AudioParam不能直接更改，
+    但可以使用其value属性更改其值。默认值为1。
+
+    PannerNode.orientationY
+    表示音频源向量在右笛卡尔坐标系中的垂直位置。默认值为0。虽然此AudioParam不能直接更改，但可以使用其value属性更改其值。默认值为0。
+
+    PannerNode.orientationZ
+    表示音频源向量在右笛卡尔坐标系中的纵向（前后）位置。默认值为0。虽然此AudioParam不能直接更改，但可以使用其value属性更改其值。默认值为0。
+
+    PannerNode.panningModel
+    一个枚举值，用于确定要使用哪个空间化算法在三维空间中定位音频。
+
+    PannerNode.positionX
+    表示音频在右笛卡尔坐标系中的水平位置。默认值为0。虽然此AudioParam不能直接更改，但可以使用其value属性更改其值。默认值为0。
+
+    PannerNode.positionY
+    表示音频在右笛卡尔坐标系中的垂直位置。默认值为0。虽然此AudioParam不能直接更改，但可以使用其value属性更改其值。默认值为0。
+
+    PannerNode.positionZ
+    表示音频在右笛卡尔坐标系中的纵向（前后）位置。默认值为0。虽然此AudioParam不能直接更改，但可以使用其value属性更改其值。默认值为0。
+
+    PannerNode.refDistance
+    一个双精度值，表示在音频源远离侦听器时减小音量的参考距离。对于大于此值的距离，将根据rolloffFactor和distanceModel
+    减少体积。
+
+    PannerNode.rolloffFactor
+    一个双精度值，描述当源从侦听器移开时，音量减小的速度。此值用于所有距离模型。
+</property>
+<method>
+    方法
+    从其父级AudioNode继承方法。
+    PannerNode.setPosition()
+    定义音频源相对于侦听器的位置（由存储在AudioContext.listener属性。
+
+    PannerNode.setOrientation()
+    定义音频源播放的方向。
+
+    PannerNode.setVelocity()
+    定义音频源的速度矢量-它移动的速度和方向。在规范的早期版本中，
+    PannerNode的速度可以上下连接到下游的AudioBufferSourceNodes。
+    这个特性没有明确规定，并且有很多问题，所以从规范中删除了它。
+</method>
+<example>
+    示例
+    在下面的示例中，您可以看到一个如何使用createPanner（）方法、AudioListener和PannerNode来控制音频空间化的示例。
+    通常，您将在3D空间中定义音频侦听器和panner（源）最初占据的位置，然后在应用程序使用时更新其中一个或两个位置。
+    例如，你可能在游戏世界里移动一个角色，当你的角色靠近或远离音乐播放器（如立体声）时，你希望音频的传输真实地改变。
+    在本例中，您可以看到这是由函数moveRight（）、moveLeft（）等控制的，这些函数通过PositionPanner（）
+    函数为平移器位置设置新值。
+    要查看完整的实现，请查看我们的panner节点示例（查看源代码）-此演示将您带到2.5D“金属房间”，
+    在那里您可以在boom box上播放曲目，然后在boom box周围走动，看看声音是如何变化的！
+    请注意我们是如何使用一些特征检测来为浏览器提供更新的属性值（例如音频侦听器.forwardX)用于设置位置等，
+    如果它支持这些，或旧方法（如AudioListener.setOrientation（））如果它仍然支持这些属性，但不支持新属性。
+</example>
+</body>
+</html>

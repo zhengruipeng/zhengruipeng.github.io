@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            height:100px;
+            width:200px;
+            text-align:center;
+            line-height:100px;
+        }
+        </style>
+</head>
+<body>
+<audio src="../../Fur%20Elise.mp3" autoplay></audio>
+
+<button data-active="false">start</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        // Create a MediaElementAudioSourceNode
+// Feed the HTMLMediaElement into it
+        var button = this.querySelector("button");
+        var myAudio = this.querySelector("audio");
+        var audioCtx = new AudioContext();
+
+        var source = audioCtx.createMediaElementSource(myAudio);
+
+// Create a compressor node
+       var compressor = audioCtx.createDynamicsCompressor();
+       compressor.threshold.setValueAtTime(-50, audioCtx.currentTime);
+       compressor.knee.setValueAtTime(40, audioCtx.currentTime);
+       compressor.ratio.setValueAtTime(12, audioCtx.currentTime);
+       compressor.attack.setValueAtTime(0, audioCtx.currentTime);
+       compressor.release.setValueAtTime(0.25, audioCtx.currentTime);
+// connect the AudioBufferSourceNode to the destination
+        source.connect(audioCtx.destination);
+
+        button.onclick = function() {
+            var active = button.getAttribute('data-active');
+            if(active == 'false') {
+                button.setAttribute('data-active', 'true');
+                button.innerHTML = 'Remove compression';
+
+                source.disconnect(audioCtx.destination);
+                source.connect(compressor);
+                compressor.connect(audioCtx.destination);
+            } else if(active == 'true') {
+                button.setAttribute('data-active', 'false');
+                button.innerHTML = 'Add compression';
+
+                source.disconnect(compressor);
+                compressor.disconnect(audioCtx.destination);
+                source.connect(audioCtx.destination);
+            }
+        }
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+The Worklet interface is a lightweight version of Web Workers and gives developers access to low-level parts of the rendering pipeline. With Worklets, you can run JavaScript and WebAssembly code to do graphics rendering or audio processing where high performance is required.
+worket接口是webworkers的轻量级版本，允许开发人员访问呈现管道的底层部分。通过工作集，
+您可以运行JavaScript和WebAssembly代码来执行需要高性能的图形渲染或音频处理。
+
+Worklets are restricted to specific use cases; they cannot be used for arbitrary computations like Web Workers. The Worklet interface abstracts properties and methods common to all kind of worklets, and cannot be created directly. Instead, you can use one of the following classes;
+工作集仅限于特定的用例；它们不能用于任意计算，如Web worker。工作集接口抽象了所有类型工作集通用的属性和方法，
+不能直接创建。相反，您可以使用以下类之一：
+    PaintWorklet:以编程方式生成CSS属性需要文件的图像。通过访问此接口CSS.paintWorklet.
+    AudioWorklet:用于使用自定义AudioNode进行音频处理。
+    AnimationWorklet:用于创建滚动链接和其他高性能程序动画。
+    LayoutWorklet:用于定义自定义元素的位置和尺寸。
+<method>
+Worklet.addModule()
+Adds the script module at the given URL to the current worklet.
+将给定URL处的脚本模块添加到当前工作集。
+</method>
+</body>
+</html>

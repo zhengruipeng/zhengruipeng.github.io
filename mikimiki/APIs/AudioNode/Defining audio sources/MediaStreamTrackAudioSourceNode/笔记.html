@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    The Web Audio API's MediaStreamTrackAudioSourceNode() constructor creates and
+    returns a new MediaStreamTrackAudioSourceNode object
+    whose audio is taken from the MediaStreamTrack specified in the given options object.
+
+    Another way to create a MediaStreamTrackAudioSourceNode is to call theAudioContext.
+    createMediaStreamTrackSource() method, specifying the MediaStreamTrack  from
+    which you want to obtain audio.
+</information>
+<Syntax>
+    audioTrackNode = new MediaStreamTrackAudioSourceNode(context, options);
+    Parameters
+
+    <context>
+        An AudioContext representing the audio context you want the node to be associated with.
+        options
+
+        A MediaStreamTrackAudioSourceOptions object defining the properties you want the MediaStreamTrackAudioSourceNode to have:
+
+        mediaStreamTrack
+        The MediaStreamTrack from which to take audio data for this node's output.
+    </context>
+    <returnValue>
+        A new MediaStreamTrackAudioSourceNode object representing the audio node whose media is obtained from the specified media track.
+    </returnValue>
+    <Exceptions>
+        NotSupportedError
+        The specified context is not an AudioContext.
+
+        InvalidStateError
+        The specified MediaStreamTrack isn't an audio track (that is, its kind property isn't audio.
+    </Exceptions>
+</Syntax>
+</body>
+</html>

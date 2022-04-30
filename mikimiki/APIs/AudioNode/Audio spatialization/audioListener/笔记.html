@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    AudioListener 接口代表了人听音乐场景时声音的位置和方向, 和用于音频空间化。
+    所有PannerNode 相对于 AudioListener 的空间化储存在BaseAudioContext.listener 属性里.
+
+    特别需要注意的是一个环境中只能有一个收听者而且这不是AudioNode.
+</information>
+<property>
+
+    AudioListener.positionX
+    在笛卡尔右手坐标系中代表一个收听者的水平坐标。默认值是 0.
+
+    AudioListener.positionY
+    Represents the vertical position of the listener in a right-hand cartesian coordinate sytem. The default is 0.
+
+    AudioListener.positionZ
+    Represents the longitudinal (back and forth) position of the listener in a right-hand cartesian coordinate sytem. The default is 0.
+
+    AudioListener.forwardX
+    在相同的笛卡尔坐标系中代表了收听者的面向的方向的水平坐标，就像 (positionX, positionY, 和 positionZ) 值一样。前方和上方值互相线性无关。默认值是 0.
+
+    AudioListener.forwardY
+    Represents the vertical position of the listener's forward direction in the same cartesian coordinate sytem as the position (positionX, positionY, and positionZ) values. The forward and up values are linearly independent of each other. The default is 0.
+
+    AudioListener.forwardZ
+    Represents the longitudinal (back and forth) position of the listener's forward direction in the same cartesian coordinate sytem as the position (positionX, positionY, and positionZ) values. The forward and up values are linearly independent of each other. The default is -1.
+
+    AudioListener.upX
+    代表了收听者头顶在笛卡尔坐标系的水平位置，就像 (positionX, positionY, 和positionZ) 值一样。 前方和上方值线性无关。默认值是 0.
+
+    AudioListener.upY
+    Represents the vertical position of the top of the listener's head in the same cartesian coordinate sytem as the position (positionX, positionY, and positionZ) values. The forward and up values are linearly independent of each other. The default is 1.
+
+    AudioListener.upZ
+    Represents the longitudinal (back and forth) position of the top of the listener's head in the same cartesian coordinate sytem as the position (positionX, positionY, and positionZ) values. The forward and up values are linearly independent of each other. The default is 0.
+</property>
+<method>
+    AudioListener.setOrientation()
+    设置收听者的方向。
+
+    AudioListener.setPosition()
+    设置收听者的位置。
+</method>
+</body>
+</html>

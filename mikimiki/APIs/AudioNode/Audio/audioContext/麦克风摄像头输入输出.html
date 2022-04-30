@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video></video>
+<input type="range" value="1" min="0" max="3" />
+<pre></pre>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var pre = document.querySelector('pre');
+        var video = document.querySelector('video');
+        var myScript = document.querySelector('script');
+        var range = document.querySelector('input');
+
+            // getUserMedia获取流
+            // 把流放入MediaStreamAudioSourceNode
+            // 输出到video元素
+
+        if (navigator.mediaDevices) {
+            console.log('getUserMedia supported.');
+            navigator.mediaDevices.getUserMedia ({audio: true, video: true})
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    video.onloadedmetadata = function(e) {
+                        video.play();
+                        video.muted = true;
+                    };
+
+                    // 创建MediaStreamAudioSourceNode
+                    // Feed the HTMLMediaElement into it
+                    var audioCtx = new AudioContext();
+                    var source = audioCtx.createMediaStreamSource(stream);
+
+                    // 创建二阶滤波器
+                    var biquadFilter = audioCtx.createBiquadFilter();
+                    biquadFilter.type = "lowshelf";
+                    biquadFilter.frequency.value = 1000;
+                    biquadFilter.gain.value = range.value;
+
+                    // 把AudioBufferSourceNode连接到gainNode
+                    // gainNode连接到目的地, 所以我们可以播放
+                    // 音乐并用鼠标调节音量
+                    source.connect(biquadFilter);
+                    biquadFilter.connect(audioCtx.destination);
+
+                    // Get new mouse pointer coordinates when mouse is moved
+                    // then set new gain value
+
+                    range.oninput = function() {
+                        biquadFilter.gain.value = range.value;
+                    }
+                })
+                .catch(function(err) {
+                    console.log('The following gUM error occured: ' + err);
+                });
+        } else {
+            console.log('getUserMedia not supported on your browser!');
+        }
+
+// dump script to pre element
+
+        pre.innerHTML = myScript.innerHTML;
+    })
+</script>
+</body>
+</html>

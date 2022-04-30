@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    Web Audio API的GainNode（）构造函数创建一个新的GainNode对象，该对象是表示音量变化的AudioNode。
+</information>
+<constructor>
+    let gn = new GainNode(context,options);
+    context:audioContext
+    options:gain:要应用的增量。这个参数是a-rate，它的标称范围是（-∞，+∞）。默认值为1。
+</constructor>
+<returnvalue>
+    一个gainNode实例
+</returnvalue>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let ac = new AudioContext();
+        let gn = new GainNode(ac,{gain:1}); //gain属性的值意为声音大小放大的倍数，可以从负无穷到正无穷
+    })
+    </script>
+</body>
+</html>

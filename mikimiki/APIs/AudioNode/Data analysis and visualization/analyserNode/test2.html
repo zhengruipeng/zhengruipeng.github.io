@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="oscilloscope" ></canvas>
+<select id="wave-type">
+    <option>sine</option>
+    <option>sawtooth</option>
+    <option>square</option>
+    <option>triangle</option>
+</select>
+<button id="switch" data-status="off">start</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const switchBtn = this.getElementById("switch");
+        const waveTypeSel = this.getElementById("wave-type");
+        var audioCtx = new AudioContext();
+
+        let oscillatorNode = audioCtx.createOscillator();
+        oscillatorNode.frequency.setValueAtTime(500,audioCtx.currentTime);
+        oscillatorNode.detune.setValueAtTime(500,audioCtx.currentTime);
+        oscillatorNode.type = "sine";
+
+        var analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 2048;
+
+        var bufferLength = analyser.frequencyBinCount;
+        var dataArray = new Uint8Array(bufferLength);
+        analyser.getByteTimeDomainData(dataArray);
+
+// Connect the source to be analysed
+        oscillatorNode.connect(analyser);
+        analyser.connect(audioCtx.destination);
+// Get a canvas defined with ID "oscilloscope"
+        var canvas = document.getElementById("oscilloscope");
+        canvas.height = this.documentElement.clientHeight * 0.75;
+        canvas.width = this.documentElement.clientWidth * 0.75;
+
+        var canvasCtx = canvas.getContext("2d");
+
+// draw an oscilloscope of the current audio source
+
+        function draw() {
+
+            requestAnimationFrame(draw);
+
+            analyser.getByteTimeDomainData(dataArray);
+
+            canvasCtx.fillStyle = "rgb(200, 200, 200)";
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+            canvasCtx.lineWidth = 2;
+            canvasCtx.strokeStyle = "rgb(0, 0, 0)";
+
+            canvasCtx.beginPath();
+
+            var sliceWidth = canvas.width * 1.0 / bufferLength;
+            var x = 0;
+
+            for (var i = 0; i < bufferLength; i++) {
+
+                var v = dataArray[i] / 128.0;
+                var y = v * canvas.height / 2;
+
+                if (i === 0) {
+                    canvasCtx.moveTo(x, y);
+                } else {
+                    canvasCtx.lineTo(x, y);
+                }
+
+                x += sliceWidth;
+            }
+
+            canvasCtx.lineTo(canvas.width, canvas.height / 2);
+            canvasCtx.stroke();
+        }
+
+        draw();
+        waveTypeSel.onchange = function (){
+            let isExist = true;
+            try{
+                oscillatorNode.stop()
+            }catch (e){
+                isExist = false;
+            }
+            oscillatorNode = audioCtx.createOscillator();
+            oscillatorNode.type = waveTypeSel.selectedOptions[0].innerHTML.trim();
+            oscillatorNode.detune.setValueAtTime(500,audioCtx.currentTime);
+            oscillatorNode.frequency.setValueAtTime(500,audioCtx.currentTime);
+            oscillatorNode.connect(analyser);
+            analyser.connect(audioCtx.destination);
+            if(isExist)oscillatorNode.start();
+        }
+        switchBtn.onclick = function (){
+            let status = this.dataset.status;
+            if(status === "on"){
+                oscillatorNode.stop();
+                this.dataset.status = "off";
+                this.innerHTML = "start"
+            }else{
+                try{
+                    oscillatorNode.start();
+                }catch (e){
+                    oscillatorNode = audioCtx.createOscillator();
+                    oscillatorNode.type = waveTypeSel.selectedOptions[0].innerHTML.trim();
+                    oscillatorNode.detune.setValueAtTime(500,audioCtx.currentTime);
+                    oscillatorNode.frequency.setValueAtTime(500,audioCtx.currentTime);
+                    oscillatorNode.connect(analyser);
+                    analyser.connect(audioCtx.destination);
+                    oscillatorNode.start(0);
+                }
+                this.dataset.status = "on";
+                this.innerHTML = "pause";
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

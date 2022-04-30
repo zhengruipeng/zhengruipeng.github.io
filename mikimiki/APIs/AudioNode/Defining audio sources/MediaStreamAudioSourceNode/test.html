@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+  import createBtn from "../createBtnEvent.js"
+  document.addEventListener("DOMContentLoaded",function (){
+      let audioStream;
+      navigator.mediaDevices.getUserMedia({audio:true}).then(function (mediaStream){
+          audioStream = mediaStream;
+          console.log(mediaStream)
+      });
+      createBtn(this,function (){
+          let audioCxt = new AudioContext();
+          let mediaStreamAudioSource = audioCxt.createMediaStreamSource(audioStream);
+          console.log(mediaStreamAudioSource)
+          let gainNode = audioCxt.createGain();
+          gainNode.gain.setValueAtTime(1,audioCxt.currentTime)
+          mediaStreamAudioSource.connect(gainNode);
+          gainNode.connect(audioCxt.destination);
+          var CurY;
+          var HEIGHT = window.innerHeight;
+          document.onmousemove = function (e) {
+              CurY = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+              gainNode.gain.value = CurY/HEIGHT;
+          };
+          console.log("start")
+
+
+      })
+  })
+</script>
+</body>
+</html>

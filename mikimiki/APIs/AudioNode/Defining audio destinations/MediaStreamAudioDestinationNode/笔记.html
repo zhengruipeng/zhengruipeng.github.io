@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    The MediaStreamAudioDestinationNode interface represents an audio destination consisting of
+    a WebRTC MediaStream with a single AudioMediaStreamTrack,
+    which can be used in a similar way to a MediaStream obtained from Navigator.getUserMedia().
+
+    It is an AudioNode that acts as an audio destination,
+    created using the AudioContext.createMediaStreamDestination() method.
+
+    Number of inputs 	1
+    Number of outputs 	0
+    Channel count 	2
+    Channel count mode 	"explicit"
+    Channel count interpretation 	"speakers"
+</information>
+<Constructor>
+    MediaStreamAudioDestinationNode.MediaStreamAudioDestinationNode()
+    Creates a new MediaStreamAudioDestinationNode object instance.
+</Constructor>
+<Properties>
+    MediaStreamAudioDestinationNode.stream
+    A MediaStream containing a single MediaStreamTrack whose kind is audio and
+    with the same number of channels as the node. You can use this property
+    to get a stream out of the audio graph and feed it into another construct,
+    such as a Media Recorder.
+</Properties>
+
+</body>
+</html>

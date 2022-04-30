@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<constructor>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function (){
+            let ac = new AudioContext();
+            console.log(ac.getOutputTimestamp());
+        })
+    </script>
+</constructor>
+<property>
+    音频时间戳.contextTime：当前由音频输出设备呈现的采样帧的时间（即，输出音频流位置），
+    其单位和来源与上下文的相同音频上下文.currentTime. 基本上，这是音频上下文首次创建之后的时间。
+
+    AudioTimestamp.performanceTime：音频输出设备呈现与存储的contextTime值相对应的采样帧的时刻的估计，
+    单位和原点与表演。现在(). 这是第一次呈现包含音频上下文的文档之后的时间。
+</property>
+</body>
+</html>

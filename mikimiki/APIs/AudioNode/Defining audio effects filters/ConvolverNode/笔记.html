@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    ConvolverNode 接口是一个对给定 AudioBuffer 上执行线性卷积的 AudioNode，
+    一般用来做音频混响效果。每一个 ConvolverNode 都会有一个输入值和输出值
+    Number of inputs 	1
+    Number of outputs 	1
+    Channel count mode 	"clamped-max"
+    Channel count 	1, 2, or 4
+    Channel interpretation 	"speakers"
+</information>
+<constructor>
+    ConvolverNode()
+    创建一个新的 ConvolverNode 对象实例
+</constructor>
+<property>
+    ConvolverNode.buffer
+    一个被 ConvolverNode 用来产生混响效果的单声道、立体声或四声道的音频缓冲器，包含了(可能是多声道)脉冲反应(IR)。
+
+    ConvolverNode.normalize
+    布尔值，在设置缓冲区属性时，可绝定是否对来自 buffer 的脉冲反应按等功率归一化进行缩放。
+</property>
+<method>
+
+</method>
+</body>
+</html>

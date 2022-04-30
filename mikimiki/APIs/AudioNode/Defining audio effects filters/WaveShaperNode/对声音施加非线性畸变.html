@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .button{
+            height:100px;
+            width:200px;
+            text-align:center;
+            line-height:100px;
+            font-family: 微软雅黑;
+            transition:.5s;
+            border:#ccc solid 1px;
+            float:left;
+            margin-left:20px;
+            border-radius:30px;
+        }
+        .button:hover{
+            transition:.2s;
+            cursor:pointer;
+            background-color:rgba(255,0,0,0.5);
+            box-shadow:red 0px 0px 40px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="button" id="stop" data-active="false">添加非线性畸变</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var button = this.querySelector('.button');
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        var distortion = audioCtx.createWaveShaper();
+
+        function makeDistortionCurve(amount) {
+            var k = typeof amount === 'number' ? amount : 50,
+                n_samples = 44100,
+                curve = new Float32Array(n_samples),
+                deg = Math.PI / 180,
+                i = 0,
+                x;
+            for ( ; i < n_samples; ++i ) {
+                x = i * 2 / n_samples - 1;
+                curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+            }
+            return curve;
+        }
+
+        distortion.curve = makeDistortionCurve(400);
+        distortion.oversample = '4x';
+        var oscillatorNode = audioCtx.createOscillator();
+        oscillatorNode.type = 'sine';
+        oscillatorNode.frequency.value = 500; // value in hertz
+        var destination = audioCtx.destination;
+        oscillatorNode.connect(destination);
+        // distortion.connect(destination);
+        oscillatorNode.start();
+        button.onclick = function (){
+            let attr = this.getAttribute("data-active");
+            if(attr === "true"){
+                try {
+                    oscillatorNode.disconnect(distortion);
+                    distortion.disconnect(destination);
+                }catch(e){
+
+                }
+                oscillatorNode.connect(destination);
+                this.innerHTML = "添加非线性畸变";
+                this.setAttribute("data-active","false");
+            }else if(attr === "false"){
+                oscillatorNode.disconnect(destination);
+                oscillatorNode.connect(distortion);
+                distortion.connect(destination);
+                this.innerHTML = "取消非线性畸变";
+                this.setAttribute("data-active","true");
+
+            }
+        };
+
+    })
+    </script>
+</body>
+</html>

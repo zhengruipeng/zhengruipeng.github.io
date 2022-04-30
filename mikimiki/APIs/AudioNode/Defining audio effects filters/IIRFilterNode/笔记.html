@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    The IIRFilterNode interface of the Web Audio API is a AudioNode processor
+    which implements a general infinite impulse response (IIR)  filter;
+    this type of filter can be used to implement tone control devices and
+    graphic equalizers as well. It lets the parameters of the filter response be specified,
+    so that it can be tuned as needed.
+
+    Number of inputs 	1
+    Number of outputs 	1
+    Channel count mode 	"max"
+    Channel count 	Same as on the input
+    Channel interpretation 	"speakers"
+
+    Typically, it's best to use the BiquadFilterNode interface to
+    implement higher-order filters. There are several reasons why:
+
+    Biquad filters are typically less sensitive to numeric quirks.
+    The filter parameters of biquad filters can be automated.
+    All even-ordered IIR filters can be created using BiquadFilterNode.
+
+    However, if you need to create an odd-ordered IIR filter,
+    you'll need to use IIRFilterNode. You may also find this interface useful
+    if you don't need automation, or for other reasons.
+
+    Once the node has been created, you can't change its coefficients.
+
+    IIRFilterNodes have a tail-time reference; they continue to output non-silent audio
+    with zero input. As an IIR filter, the non-zero input continues forever,
+    but this can be limited after some finite time in practice,
+    when the output has approached zero closely enough.
+    The actual time that takes depends on the filter coefficients provided.
+
+    Web音频API的IIRFilterNode接口是AudioNode处理器
+    它实现了一个通用的无限脉冲响应（IIR）滤波器；
+    这种类型的滤波器可用于实现音调控制设备和
+    图形均衡器以及。它允许指定过滤器响应的参数，
+    以便可以根据需要进行调整。
+    输入数量1
+    输出数量1
+    通道计数模式"max"
+    通道计数与输入相同
+    频道口译"speakers"
+    通常，最好使用BiquadFilterNode接口来
+    实现高阶过滤器。原因如下：
+    双四次滤波器通常对数值异常不太敏感。
+    双四元滤波器的滤波参数可以实现自动化。
+    所有甚至有序的IIR过滤器都可以使用BiquadFilterNode创建。
+    但是，如果你需要创建一个奇数顺序的IIR过滤器，
+    你需要使用IIRFilterNode。你也会发现这个界面很有用
+    如果你不需要自动化，或者其他原因。
+    一旦创建了节点，就不能更改其系数。
+    iirfilterNode有一个尾时间参考；它们继续输出非静音音频
+    零输入。作为IIR滤波器，非零输入永远持续，
+    但在实践中经过一段时间的限制，
+    当输出接近零时。
+    实际所需时间取决于所提供的滤波器系数。
+</information>
+<Constructor>
+    IIRFilterNode()
+    Creates a new instance of an IIRFilterNode object.
+    创建IIRFilterNode对象的新实例。
+</Constructor>
+<method>
+    getFrequencyResponse()
+    Uses the filter's current parameter settings to calculate the response for frequencies specified in the provided array of frequencies.
+    使用过滤器的当前参数设置来计算所提供的频率数组中指定频率的响应。
+</method>
+</body>
+</html>

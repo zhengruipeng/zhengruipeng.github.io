@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    The ConstantSourceNode interface—part of the Web Audio API—represents an audio source
+    (based upon AudioScheduledSourceNode) whose output is single unchanging value.
+    This makes it useful for cases in which you need a constant value coming
+    in from an audio source. In addition, it can be used like a constructible AudioParam
+    by automating the value of its offset or by connecting another node to it;
+    see Controlling multiple parameters with ConstantSourceNode.
+
+    A ConstantSourceNode has no inputs and exactly one monaural (one-channel) output.
+    The output's value is always the same as the value of the offset parameter.
+    Web Audio API的ConstantSourceNode接口部分表示一个音频源（基于AudioScheduledSourceNode），
+    其输出为单一不变值。这使得它对于需要来自音频源的常量值的情况非常有用。
+    此外，它可以像可构造的AudioParam一样使用，方法是自动设置偏移量的值或将另一个节点连接到它；
+    请参见使用ConstantSourceNode控制多个参数。
+
+    ConstantSourceNode没有输入，只有一个单声道（单声道）输出。输出的值始终与offset参数的值相同。
+</information>
+<constructor>
+    ConstantSourceNode()
+    Creates and returns a new ConstantSourceNode instance,
+    optionally specifying an object which establishes initial values for the object's properties.
+    You can also create a ConstantSourceNode whose properties are initialized to
+    their default values by calling AudioContext.createConstantSource().
+</constructor>
+<property>
+offset
+    An AudioParam which specifies
+    the value that this source continuously outputs. The default value is 1.0.
+</property>
+<event>
+    onended
+    Fired whenever the ConstantSourceNode data has stopped playing.
+</event>
+<method>
+    Inherits methods from its parent interface, AudioScheduledSourceNode.
+
+    Some browsers' implementations of these methods are part
+    of the AudioScheduledSourceNode interface.
+
+    start()
+    Schedules a sound to playback at an exact time.
+    stop()
+    Schedules a sound to stop playback at an exact time.
+</method>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    AudioBuffer接口表示存在内存里的一段短小的音频资源，
+
+    利用AudioContext.decodeAudioData()方法从一个音频文件构建，
+    或者利用 AudioContext.createBuffer()从原始数据构建。
+    把音频放入AudioBuffer后，可以传入到一个 AudioBufferSourceNode进行播放。
+
+    这些类型对象被设计来控制小音频片段，往往短于45秒。对于更长的声音，
+    通过 MediaElementAudioSourceNode来实现更为合适。
+    缓存区（buffer）包含以下数据：不间断的IEEE75432位线性PCM，从-1到1的范围额定，
+    就是说，32位的浮点缓存区的每个样本在-1.0到1.0之间。
+    如果AudioBuffer有不同的频道，他们通常被保存在独立的缓存区。
+</information>
+<property>
+
+    AudioBuffer.sampleRate 只读
+    存储在缓存区的PCM数据的采样率：浮点数，单位为 sample/s。
+    AudioBuffer.length 只读
+    返回存储在缓存区的PCM数据的采样帧率：整形。
+    AudioBuffer.duration 只读
+    返回存储在缓存区的PCM数据的时长：双精度型（单位为秒），。
+    AudioBuffer.numberOfChannels 只读
+    返回存储在缓存区的PCM数据的通道数：整形。
+</property>
+<method>
+    方法
+    AudioBuffer.getChannelData()
+    返回一个 Float32Array，包含了带有频道的PCM数据，由频道参数定义（有0代表第一个频道）
+    AudioBuffer.copyFromChannel()
+    从AudioBuffer的指定频道复制到数组终端。
+    AudioBuffer.copyToChannel()
+    复制样品到原数组的AudioBuffer的指定频道
+</method>
+</body>
+</html>

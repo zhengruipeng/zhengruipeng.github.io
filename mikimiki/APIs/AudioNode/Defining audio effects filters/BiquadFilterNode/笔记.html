@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    Web Audio API的BiquadFilterNode（）构造函数创建一个新的BiquadFilterNode对象，
+    该对象表示一个简单的低阶筛选器，并使用AudioContext.createBiquadFilter（）方法。
+</information>
+<constructor>
+    var biquadFilterNode = new BiquadFilterNode(context, options);
+</constructor>
+<syntax>
+    选项如下：
+    类型：“lowpass”、“highpass”、“bandpass”、“lowshelf”、“heghshelf”、“peaking”、“notch”、“allpass”之一。
+    其他选项的含义取决于这个选项的值。所有的默认值如下：
+    Q： 1
+    detune：0
+    frequency：350
+    gain：0
+    lowpass：（默认）允许低于截止频率的频率通过，并衰减高于截止频率的频率。这是一个标准的二阶共振低通滤波器，
+    具有12dB/倍频程衰减。
+    Q： 控制在截止频率下响应的峰值。值越大，响应越峰值。请注意，对于这种滤波器类型，此值不是传统的Q值，
+    而是以分贝为单位的共振值。
+    frequency：截止频率。
+    gain：未使用。
+    highpass：高通滤波器与低通滤波器相反。高于截止频率的频率通过，但低于截止频率的频率被衰减。它实现了一个标准的具有12dB/倍频程衰减的二阶谐振高通滤波器。
+    Q： 控制在截止频率下响应的峰值。值越大，响应越峰值。请注意，对于这种滤波器类型，此值不是传统的Q值，而是以分贝为单位的共振值。
+    frequency：截止频率。
+    gain：未使用。
+    bandpass：带通滤波器允许一定范围的频率通过，并衰减低于或高于此频率范围的频率。它实现了一个二阶带通滤波器。
+    Q： 控制带区的宽度。随着Q值的增加，宽度变窄。
+    frequency：频带的中心。
+    gain：未使用。
+    lowshelf：低层滤波器允许所有频率通过，但增加了低频的增强（或衰减）。它实现了一个二阶低阶滤波器。
+    Q： 未使用。
+    frequency：应用增强或衰减的频率的上限。
+    gain：要应用的增益，单位为分贝。如果该值为负，则频率衰减。
+    highshelf：highshelf滤波器与lowself滤波器相反，它允许所有的频率通过，但是增加了对更高频率的提升。它实现了一个二阶highshelf过滤器。
+    Q： 未使用。
+    frequency：应用增强或衰减的频率下限。
+    gain：要应用的增益，单位为分贝。如果该值为负，则频率衰减。
+    peaking：峰值滤波器允许所有频率通过，增加一个增强或衰减，频率范围。
+    Q： 被增强的频带的宽度。值大意味着宽度窄。
+    frequency：升压范围的中心频率。
+    gain：要应用的增益，单位为分贝。如果该值为负，则频率衰减。
+    notch：陷波滤波器（也称为带阻滤波器或带阻滤波器）与带通滤波器相反。它允许所有频率通过，除了一组频率。
+    Q： 衰减的频率带的宽度。值大意味着宽度窄。
+    frequency：衰减范围的中心频率。
+    gain：未使用。
+    allpass：全通滤波器允许所有频率通过，但改变不同频率之间的相位关系。它实现了一个二阶全通滤波器。
+    Q： 中心频率处相变的锐度。一个较大的值意味着更尖锐的转换和更大的群延迟。
+    frequency：相变中心发生的频率。从另一个角度看，这是最大群延迟的频率。
+    gain：未使用。
+</syntax>
+</body>
+</html>

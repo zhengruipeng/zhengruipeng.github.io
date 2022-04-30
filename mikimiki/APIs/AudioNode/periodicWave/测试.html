@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function (){
+        var real = new Float32Array(2);
+        var imag = new Float32Array(2);
+        var ac = new AudioContext();
+        var osc = ac.createOscillator();
+
+        real[0] = 100;
+        imag[0] = 11;
+        real[1] = 100;
+        imag[1] = 500;
+
+        var wave = ac.createPeriodicWave(real, imag, {disableNormalization: true});
+
+        osc.setPeriodicWave(wave);
+
+        osc.connect(ac.destination);
+
+        osc.start();
+        osc.stop(2);
+    }
+    </script>
+</body>
+</html>

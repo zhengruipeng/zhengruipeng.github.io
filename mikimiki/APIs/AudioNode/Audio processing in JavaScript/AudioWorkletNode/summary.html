@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    Web Audio API 中的  AudioWorkletNode  接口代表了用户定义的AudioNode的基类,
+    该基类可以与其他节点一起连接到音频路由图. 其具有关联的AudioWorkletProcessor,
+    它在 Web Audio 执行实际的音频处理.
+</information>
+<constructor>
+
+    AudioWorkletNode()
+    为 AudioWorkletNode 创建一个新的实例对象.
+</constructor>
+<property>
+
+    AudioWorkletNode.port 只读
+    返回一个 MessagePort 用于节点与其关联的 AudioWorkletProcessor 间的双向通讯.
+    另一端在处理器属性port 下可用.
+
+    AudioWorkletNode.parameters 只读
+    返回一个 AudioParamMap —  AudioParam 对象的集合. 它们在创建 AudioWorkletProcessor的过程中被实例化.
+    如果 AudioWorkletProcessor 有一个静态的 parameterDescriptors getter,
+    从其返回的 AudioParamDescriptor 数组用于在 AudioWorkletNode 创建 AudioParam 对象.
+    通过这种机制，使得 AudioParam 对象可以从 AudioWorkletNode 中访问. 你可以在与其关联的 AudioWorkletProcessor 中使用它的值.
+</property>
+<event>
+
+    AudioWorkletNode.onprocessorerror
+    在关联的 AudioWorkletProcessor 对象发生异常时触发.
+    一旦触发，处理器及其节点将在其整个生命周期内处于输出静默状态.
+</event>
+</body>
+</html>

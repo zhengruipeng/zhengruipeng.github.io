@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    AudioScheduledSourceNode 接口作为web音频API的一部分，
+    是几种具有在特定时刻开始与停止能力的音频源节点接口的父接口。更具体地来说，
+    这个接口定义了start() 和stop() 方法，以及onended事件
+
+    除非另有说明，基于AudioScheduledSourceNode节点的输出在没有播放时处于静默状态
+    （这种状态在start()之前与stop()之后调用）。静默状态总是由一个全0值流组成。
+</information>
+<property>
+    NULL
+</property>
+<event>
+    onended
+    在触发结束事件时要调用的函数，表示节点已完成播放。
+</event>
+<method>
+    start()
+    安排节点在指定的时间开始播放恒定的声音。如果没有指定时间，节点将立即开始播放。
+    stop()
+    安排节点在指定时间停止播放。如果没有指定时间，节点将立即停止播放。
+</method>
+</body>
+</html>

@@ -1,0 +1,156 @@
+:root {
+  --orange: hsla(32, 100%, 50%, 1);
+  --yellow: hsla(49, 99%, 50%, 1);
+  --lime: hsla(82, 90%, 45%, 1);
+  --green: hsla(127, 81%, 41%, 1);
+  --red: hsla(342, 93%, 53%, 1);
+  --pink: hsla(314, 85%, 45%, 1);
+  --blue: hsla(211, 92%, 52%, 1);
+  --purple: hsla(283, 92%, 44%, 1);
+  --cyan: hsla(195, 98%, 55%, 1);
+  --white: hsla(0, 0%, 95%, 1);
+  --black: hsla(0, 0%, 10%, 1);
+  --border: 5px solid var(--black);
+  --borderRad: 2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
+  font-family: sans-serif, system-ui;
+  color: var(--black);
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading {
+  background: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading p {
+  font-size: 200%;
+  animation: loading ease-in-out 2s infinite;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.iir-demo {
+  text-align: center;
+}
+
+/* play button */
+button, span {
+  font-size: 120%;
+}
+
+[class^=button] {
+  cursor: pointer;
+}
+
+.button-play {
+  background-color: var(--orange);
+  display: block;
+  margin: 3vmin auto;
+  padding: 3vmin 4vmin 3vmin 12vmin;
+  border: var(--border);
+  border-radius: var(--borderRad);
+}
+
+[data-playing], [data-playing=true]:hover {
+  background: var(--red) url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" fill="black" /></svg>') no-repeat left center;
+  background-size: 60% 60%;
+  cursor: pointer;
+}
+
+[data-playing]:hover {
+  background-color: var(--green);
+}
+
+[data-playing=true] {
+  background: var(--green) url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z" fill="black" /></svg>') no-repeat left center;
+  background-size: 60% 60%;
+}
+
+/* filter button */
+.filter-toggle {
+  margin: 4vmin auto;
+}
+
+.button-filter {
+  margin: 0px 0px 0px 10px;
+  padding: 0;
+  width: 90px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  border: var(--border);
+  border-radius: 25px;
+  position: relative;
+  text-align: center;
+  transition: background 0.15s ease-in-out;
+}
+
+.button-filter:after {
+  content: "";
+  position: absolute;
+  height: 31px;
+  width: 31px;
+  border: var(--border);
+  border-radius: 50%;
+  background-color: var(--red);
+  top: 0px;
+  transition: left 0.15s ease-in-out;
+  will-change: left;
+}
+
+.button-filter[data-filteron=true]:after {
+  background-color: var(--green);
+  left: 0px;
+}
+
+.button-filter[disabled] {
+  cursor: default;
+  border-color: #666666;
+}
+
+.button-filter[disabled]:after {
+  background-color: #fa7aa1;
+  border-color: #666666;
+}
+
+.button-filter[data-filteron=true][disabled]:after {
+  background-color: #4bec5e;
+}
+
+.filter-graph {
+  margin-top: 20px;
+  width: 60vw;
+  height: 40vw;
+  max-width: 600px;
+  max-height: 400px;
+}

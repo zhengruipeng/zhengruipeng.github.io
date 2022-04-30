@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    BaseAudioContext接口充当联机和脱机音频处理图的基本定义，
+    分别由AudioContext和OfflineAudioContext表示。您不会直接使用BaseAudioContext，
+    而是通过这两个继承接口中的一个来使用它的特性。
+    BaseAudioContext可以是事件的目标，因此它实现EventTarget接口。
+</information>
+<property>
+    BaseAudioContext.audioWorklet Read only Secure context
+    Returns the AudioWorklet object, which can be used to create and manage AudioNodes in which JavaScript code implementing the AudioWorkletProcessor interface are run in the background to process audio data.
+    返回AudioWorklet对象，该对象可用于创建和管理AudioNode，其中实现AudioWorkletProcessor接口的JavaScript
+    代码在后台运行以处理音频数据。
+
+    BaseAudioContext.currentTime Read only
+    Returns a double representing an ever-increasing hardware time in seconds used for scheduling. It starts at 0.
+    返回一个双精度值，表示用于调度的硬件时间不断增加（以秒为单位）。从0开始。
+
+    BaseAudioContext.destination Read only
+    Returns an AudioDestinationNode representing the final destination of all audio in the context. It can be thought of as the audio-rendering device.
+    返回表示上下文中所有音频的最终目标的AudioDestinationNode。它可以被认为是音频渲染设备。
+
+    BaseAudioContext.listener Read only
+    Returns the AudioListener object, used for 3D spatialization.
+    返回用于三维空间化的AudioListener对象。
+
+    BaseAudioContext.sampleRate Read only
+    Returns a float representing the sample rate (in samples per second) used by all nodes in this context. The sample-rate of an AudioContext cannot be changed.
+    返回一个浮点值，表示此上下文中所有节点使用的采样率（以每秒采样数为单位）。无法更改AudioContext的采样率。
+
+    BaseAudioContext.state Read only
+    Returns the current state of the AudioContext.
+    返回AudioContext的当前状态。
+</property>
+
+
+<method>
+    BaseAudioContext.createAnalyser()
+    Creates an AnalyserNode, which can be used to expose audio time and frequency data and for example to create data visualisations.
+    创建AnalyzerNode，该节点可用于公开音频时间和频率数据，例如创建数据可视化。
+
+    BaseAudioContext.createBiquadFilter()
+    Creates a BiquadFilterNode, which represents a second order filter configurable as several different common filter types: high-pass, low-pass, band-pass, etc
+    创建一个BiquadFilterNode，它表示可配置为几种不同的常用滤波器类型的二阶滤波器：高通、低通、带通等
+
+    BaseAudioContext.createBuffer()
+    Creates a new, empty AudioBuffer object, which can then be populated by data and played via an AudioBufferSourceNode.
+    创建一个新的空AudioBuffer对象，该对象可以由数据填充并通过AudioBufferSourceNode播放。
+
+    BaseAudioContext.createBufferSource()
+    Creates an AudioBufferSourceNode, which can be used to play and manipulate audio data contained within an AudioBuffer object. AudioBuffers are created using AudioContext.createBuffer or returned by AudioContext.decodeAudioData when it successfully decodes an audio track.
+    创建AudioBufferSourceNode，该节点可用于播放和操作AudioBuffer对象中包含的音频数据。
+    音频缓冲区是使用AudioContext.createBuffer 或由AudioContext.decodeAudioData当它成功解码一个音频曲目。
+
+    BaseAudioContext.createConstantSource()
+    Creates a ConstantSourceNode object, which is an audio source that continuously outputs a monaural (one-channel) sound signal whose samples all have the same value.
+    创建AudioBufferSourceNode，该节点可用于播放和操作AudioBuffer对象中包含的音频数据。音频缓冲区是使用
+    AudioContext.createBuffer或由AudioContext.decodeAudioData当它成功解码一个音频曲目。
+
+    BaseAudioContext.createChannelMerger()
+    Creates a ChannelMergerNode, which is used to combine channels from multiple audio streams into a single audio stream.
+    创建一个ChannelMergerNode，该节点用于将来自多个音频流的频道合并为单个音频流。
+
+    BaseAudioContext.createChannelSplitter()
+    Creates a ChannelSplitterNode, which is used to access the individual channels of an audio stream and process them separately.
+    创建一个ChannelSplitterNode，用于访问音频流的各个频道并分别处理它们。
+
+    BaseAudioContext.createConvolver()
+    Creates a ConvolverNode, which can be used to apply convolution effects to your audio graph, for example a reverberation effect.
+    创建ConvolverNode，可用于将卷积效果应用于音频图，例如混响效果。
+
+    BaseAudioContext.createDelay()
+    Creates a DelayNode, which is used to delay the incoming audio signal by a certain amount. This node is also useful to create feedback loops in a Web Audio API graph.
+    创建DelayNode，用于将传入的音频信号延迟一定量。此节点还可用于在Web音频API图中创建反馈循环。
+
+    BaseAudioContext.createDynamicsCompressor()
+    Creates a DynamicsCompressorNode, which can be used to apply acoustic compression to an audio signal.
+    创建DynamicCompressorNode，可用于对音频信号应用声学压缩。
+
+    BaseAudioContext.createGain()
+    Creates a GainNode, which can be used to control the overall volume of the audio graph.
+    创建一个增益节点，可用于控制音频图形的总音量。
+
+    BaseAudioContext.createIIRFilter()
+    Creates an IIRFilterNode, which represents a second order filter configurable as several different common filter types.
+    创建一个IIRFilterNode，它表示可配置为几种不同公共筛选器类型的二阶筛选器。
+
+    BaseAudioContext.createOscillator()
+    Creates an OscillatorNode, a source representing a periodic waveform. It basically generates a tone.
+    创建一个振荡器节点，一个代表周期波形的源。它基本上产生一种音调。
+
+    BaseAudioContext.createPanner()
+    Creates a PannerNode, which is used to spatialise an incoming audio stream in 3D space.
+    创建PannerNode，用于在3D空间中对传入的音频流进行空间化。
+
+    BaseAudioContext.createPeriodicWave()
+    Creates a PeriodicWave, used to define a periodic waveform that can be used to determine the output of an OscillatorNode.
+    创建周期波，用于定义可用于确定振荡器节点输出的周期波形。
+
+    BaseAudioContext.createScriptProcessor()
+    Creates a ScriptProcessorNode, which can be used for direct audio processing via JavaScript.
+    创建一个ScriptProcessorNode，可用于通过JavaScript进行直接音频处理。
+
+    BaseAudioContext.createStereoPanner()
+    Creates a StereoPannerNode, which can be used to apply stereo panning to an audio source.
+    创建StereoPannerNode，可用于将立体平移应用于音频源。
+
+    BaseAudioContext.createWaveShaper()
+    Creates a WaveShaperNode, which is used to implement non-linear distortion effects.
+    创建用于实现非线性失真效果的WaveShaperNode。
+
+    BaseAudioContext.decodeAudioData()
+    Asynchronously decodes audio file data contained in an ArrayBuffer. In this case, the ArrayBuffer is usually loaded from an XMLHttpRequest's response attribute after setting the responseType to arraybuffer. This method only works on complete files, not fragments of audio files.
+    异步解码ArrayBuffer中包含的音频文件数据。在这种情况下，ArrayBuffer通常是在将 responseType设置为ArrayBuffer
+    之后从XMLHttpRequest的response属性加载的。此方法仅适用于完整的文件，而不适用于音频文件的片段。
+</method>
+
+</body>
+</html>

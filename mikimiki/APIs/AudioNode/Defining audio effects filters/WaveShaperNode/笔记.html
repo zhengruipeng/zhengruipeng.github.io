@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+
+    WaveShaperNode 接口表示一个非线性的畸变器。 是一个使用曲线来将一个波形畸变应用到一个声音信号中的AudioNode 。
+    除了明显的失真效果之外, 它通常用来给信号添加一个暖调的感觉。
+
+    一个WaveShaperNode 总是有一个确切的输入和输出。
+    输入数目 	1
+    输出数目 	1
+    信道计数模式 	"max"
+    信道计数 	2 （不在缺省的计数模式中使用）
+    信道解释 	"speakers"
+</information>
+<constructor>
+
+    WaveShaperNode()
+    创建一个新的WaveShaperNode 对象的实例。
+</constructor>
+<property>
+    WaveShaperNode.curve
+    是一个Float32Array描述要应用的失真数值的数组。
+    WaveShaperNode.oversample
+    是一个描述是否必须使用过采样的枚举值。 过采样是一个用来在将失真效果应用到音频信号之前创建更多采样（上采样）的技术
+</property>
+
+</body>
+</html>

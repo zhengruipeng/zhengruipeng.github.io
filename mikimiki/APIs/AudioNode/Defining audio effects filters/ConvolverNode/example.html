@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    import createBtn from "../createBtnEvent.js";
+    document.addEventListener("DOMContentLoaded", function (){createBtn(document,async function (){
+        let audioCtx = new AudioContext();
+
+        async function createReverb() {
+            let convolver = audioCtx.createConvolver();
+
+            // load impulse response from file
+            let response = await fetch("../../Piano Sonata.mp3");
+            let arraybuffer  = await response.arrayBuffer();
+            convolver.buffer = await audioCtx.decodeAudioData(arraybuffer);
+
+            return convolver;
+        }
+
+
+
+        let reverb = await createReverb();
+        let response = await fetch("../../Fur Elise.mp3");
+        let blob = await response.blob();
+        let url = URL.createObjectURL(blob)
+        let audioEle = document.createElement("audio");
+        audioEle.src = url;
+        audioEle.volume = 1;
+        audioEle.controls = true;
+        audioEle.autoplay = true;
+        document.body.appendChild(audioEle);
+// mediaElementSourceAudioNode -> reverb -> destination
+        let mediaElementSourceAudioNode = audioCtx.createMediaElementSource(audioEle);
+        mediaElementSourceAudioNode.connect(reverb);
+        reverb.connect(audioCtx.destination);
+
+    })
+
+    })
+</script>
+</body>
+</html>
