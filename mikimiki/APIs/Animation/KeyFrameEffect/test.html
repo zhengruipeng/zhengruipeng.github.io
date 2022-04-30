@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="main" style="height:100px;width:100px;border:red solid 5px;" ></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const main = this.getElementById("main");
+        const timeline = new DocumentTimeline({ originTime: 100000 });
+        const keyframe = new KeyframeEffect(main,
+            [{
+                height:"100px",width:"100px",
+            },{
+                height:"200px",width:"200px",
+            }],{
+                duration:1000,
+                fill:"forwards",
+                iterations:1,
+
+            });
+        const animation = new Animation(keyframe,timeline);
+        console.log(timeline);
+        console.log(keyframe);
+        console.log(animation);
+        animation.play();
+
+    });
+</script>
+</body>
+</html>

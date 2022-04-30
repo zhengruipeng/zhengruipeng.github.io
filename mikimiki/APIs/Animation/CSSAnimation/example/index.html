@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .animate {
+      animation: slide-in 0.7s both;
+    }
+
+    @keyframes slide-in {
+      0% {
+        transform: translateY(-1000px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    </style>
+</head>
+<body>
+<div class="animate" style="height:100px;width:100px;border:solid 1px;"></div>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function () {
+    let animations = document.querySelector(".animate").getAnimations();
+    console.log(animations[0]);
+  });
+  </script>
+</body>
+</html>

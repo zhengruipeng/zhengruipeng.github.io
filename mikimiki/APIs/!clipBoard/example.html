@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        function setClipboard(text) {
+            let data = [new ClipboardItem({ "text/plain": text })];
+
+            navigator.clipboard.write(data).then(function() {
+                console.log(132);
+                /* success */
+            }, function() {
+                /* failure */
+            });
+        };
+        setClipboard("123123");
+        function copyCanvasContentsToClipboard(canvas, onDone, onError) {
+            canvas.toBlob(function (blob) {
+                let data = [new ClipboardItem({ [blob.type]: blob })];
+
+                navigator.clipboard.write(data).then(function () {
+                    onDone();
+                }, function (err) {
+                    onError(err);
+                })
+            });
+        }
+    })
+</script>
+</body>
+</html>

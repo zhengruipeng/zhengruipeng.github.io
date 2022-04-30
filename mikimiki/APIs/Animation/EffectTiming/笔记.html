@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    The EffectTiming dictionary, part of the Web Animations API, is used by Element.animate(),
+    KeyframeEffectReadOnly(), and KeyframeEffect() to describe timing properties for
+    animation effects. These properties are all optional,
+    although without setting a duration the animation will not play.
+
+    Simply put, these properties describe how the user agent should go about making
+    the transition from keyframe to keyframe, and how to behave when the animation begins and ends.
+    作为Web动画API的一部分，EffectTiming字典由元素.动画(),
+    KeyframeEffectReadOnly（）和KeyframeEffect（）来描述的计时属性
+    动画效果。这些属性都是可选的，
+    虽然没有设置持续时间，动画将无法播放。
+    简单地说，这些属性描述了用户代理应该如何进行
+    从关键帧到关键帧的转换，以及动画开始和结束时的行为方式。
+</information>
+<Properties>
+    delay Optional
+    The number of milliseconds to delay the start of the animation. Defaults to 0.
+    延迟动画开始的毫秒数。默认为0。
+
+    direction Optional
+    Whether the animation runs forwards (normal), backwards (reverse),
+    switches direction after each iteration (alternate),
+    or runs backwards and switches direction after each iteration (alternate-reverse).
+    Defaults to "".
+    动画是否forwards（normal）、backwards（reverse），
+    每次迭代后切换方向（alternate），
+    或在每次迭代后向后运行并切换方向（alternate-reverse）。
+    默认为“normal”。
+
+    duration Optional
+    The number of milliseconds each iteration of the animation takes to complete. Defaults to 0.
+    Although this is technically optional, keep in mind that your animation will not run
+    if this value is 0.
+    动画的每次迭代完成所需的毫秒数。默认为0。
+    尽管这在技术上是可选的，但请记住，动画不会运行
+    如果该值为0。
+
+    easing Optional
+    The rate of the animation's change over time. Accepts the pre-defined values
+    "linear", "ease", "ease-in", "ease-out", and "ease-in-out",
+    or a custom "cubic-bezier" value like "cubic-bezier(0.42, 0, 0.58, 1)".
+    Defaults to "linear".
+    动画随时间变化的速率。接受预定义的值
+    “linear”、“ease”、“ease-in”、“ease-out”和“ease-in-out”，
+    或自定义“立方贝塞尔”值，如“cubic-bezier(0.42，0，0.58，1)”。
+    默认为“线性”。
+
+    endDelay Optional
+    The number of milliseconds to delay after the end of an animation.
+    This is primarily of use when sequencing animations based on the end time of
+    another animation. Defaults to 0.
+    动画结束后延迟的毫秒数。
+    这主要用于根据的结束时间排序动画
+    另一个动画。默认为0。
+
+    fill Optional
+    Dictates whether the animation's effects should be reflected by the element(s) prior to playing
+    ("backwards"), retained after the animation has completed playing ("forwards"),
+    or both. Defaults to "none".
+    指示在播放之前，元素是否应反映动画的效果
+    （“backwards”），在动画播放完成后保留（“forwards”），
+    或者两者兼而有之。默认为“无”。
+
+    iterationStart Optional
+    Describes at what point in the iteration the animation should start.
+    0.5 would indicate starting halfway through the first iteration for example,
+    and with this value set, an animation with 2 iterations would end halfway through a third
+    iteration. Defaults to 0.0.
+    描述动画应在迭代中的哪个点开始。
+    0.5表示在第一次迭代的中途开始，
+    有了这个值集，一个有2个迭代的动画将在第三个迭代的中途结束
+    迭代。默认为0.0。
+
+    iterations Optional
+    The number of times the animation should repeat. Defaults to 1,
+    and can also take a value of Infinity to make it repeat for as long as the element exists.
+    动画应重复的次数。默认为1，
+    也可以取一个无穷大的值，使它在元素存在时一直重复。
+</Properties>
+这些属性都在HTMLElement.animate()中的第二个参数的key值中可以正确使用，所以猜想这个对象很有可能就是控制动画的
+</body>
+</html>

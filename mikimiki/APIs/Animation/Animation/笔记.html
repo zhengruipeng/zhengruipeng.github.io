@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    Web 动画 API的动画接口表示一个单个动画播放器并且提供用于一个动画节点或源的回放控制和一个时间轴。
+</information>
+<constructor>
+    Animation()
+    创建一个新的Animation对象实例。
+</constructor>
+<property>
+    Animation.currentTime
+    动画的当前时间值（以毫秒为单位），无论是正在运行还是已暂停。 如果动画缺少timeline或尚未播放，其值为null。
+
+    Animation.effect
+    获取或设置与此动画相关联的KeyframeEffect。
+    Animation.finished 只读
+    返回此动画的当前完成的状态。
+
+    Animation.id
+    获取或设置用于标识动画的字符串。
+
+    Animation.playState 只读
+    返回描述动画播放状态的枚举值。
+
+    Animation.playbackRate
+    返回或设置动画的播放速率。
+
+    Animation.ready 只读
+    返回此动画的当前就绪状态。
+
+    Animation.startTime
+    获取或设置动画播放应开始的预定时间。
+
+    Animation.timeline
+    获取或设置与此动画相关联的timeline。
+</property>
+<event>
+    Animation.oncancel
+    获取并设置取消事件的事件处理程序。
+
+    Animation.onfinish
+    获取并设置完成事件的事件处理程序。
+</event>
+<method>
+    Animation.cancel()
+    清除此动画的所有keyframeEffects，并中止播放。
+
+    Animation.finish()
+    设置动画中止播放。
+
+    Animation.pause()
+    暂停播放动画。.
+
+    Animation.play()
+    开始或恢复播放动画，或者如果之前完成，则重新开始动画。
+
+    Animation.reverse()
+    反转播放动画，直到播放到动画开始时停止。 如果动画完成或未播放，它将从头到尾播放。
+</method>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="background: #F2A5AA;position:fixed;top:100px;height:100px;width:100px;left:100px;" id="div"></div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const divElem = document.querySelector('div');
+
+        document.addEventListener('mousemove', evt => {
+            let anim = divElem.animate(
+                { transform: `translate(${ evt.clientX}px, ${evt.clientY}px)` },
+                { duration: 500, fill: 'forwards' }
+            );
+
+            // anim.commitStyles();
+
+            //anim.persist()
+
+            anim.onremove = event => { console.log('Animation removed');}
+
+            console.log(anim.replaceState);
+        });
+    })
+</script>
+</body>
+</html>

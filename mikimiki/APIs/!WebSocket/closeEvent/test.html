@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var exampleSocket = new WebSocket("ws://localhost/usr/JavaScript/雄关漫道真如铁，而今迈步从头越/APIS/!WebSocket/closeEvent/ws3000.js");      //https://localhost:442/dashboard/
+        exampleSocket.onclose = function (){
+            console.log("webS has finished")
+        }
+        console.log(exampleSocket);
+    })
+</script>
+</body>
+</html>

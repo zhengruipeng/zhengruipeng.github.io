@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div" style="height:100px;width:100px;border:#000;border-radius:0px;background-color:lightpink"></div>
+<script type="text/javascript">
+    window.onload = function (){
+        let div = this.document.getElementById("div");
+        let animation = div.animate([
+            {height: '100px',width: '100px',borderRadius: '0',backgroundColor: 'lightpink'},
+            { height: '200px',width: '200px',borderRadius: '50%',backgroundColor: 'skyblue' },
+        /*    { width: '200px' },
+            { borderRadius: '50%' },
+            { backgroundColor: 'skyblue' },*/
+        ], {
+            fill: 'forwards',
+            //easing: 'steps(4, end)',
+            duration: 2000
+        });
+        window.onclick = function(){
+            animation.play();
+        };
+        console.log(animation)
+        // animation.play();
+
+    }
+    </script>
+</body>
+</html>

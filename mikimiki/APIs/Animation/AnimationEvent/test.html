@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            background-color: #165baa;
+            color: #fff;
+            width: 100px;
+            height: 100px;
+            transition: width 4s;
+        }
+
+        .box:hover {
+            width: 200px;
+        }
+        </style>
+</head>
+<body>
+<div class="box"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        const item = document.querySelector(".box");
+        item.addEventListener('transitionrun', (e) => {
+            let animations = document.querySelector(".box").getAnimations();
+            console.log(animations[0]);
+            console.log(e);
+        })
+    })
+</script>
+</body>
+</html>

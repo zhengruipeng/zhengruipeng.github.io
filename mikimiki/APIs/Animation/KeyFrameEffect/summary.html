@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<inherits>
+    AnimationEffect
+</inherits>
+<information>
+    The KeyframeEffect interface of the Web Animations API lets us
+    create sets of animatable properties and values, called keyframes.
+    These can then be played using the Animation() constructor.
+</information>
+<Constructor>
+    由animation.effect返回
+
+    KeyframeEffect()
+    Returns a new KeyframeEffect object instance,
+    and also allows you to clone an existing keyframe effect object instance.
+</Constructor>
+<Properties>
+
+    KeyframeEffect.target
+    Gets and sets the element, or originating element of the pseudo-element,
+    being animated by this object. This may be null for animations that
+    do not target a specific element or pseudo-element.
+
+    KeyframeEffect.pseudoElement
+    Gets and sets the selector of the pseudo-element being animated by this object.
+    This may be null for animations that do not target a pseudo-element.
+
+    KeyframeEffect.iterationComposite
+    Gets and sets the iteration composite operation for resolving the property value changes of
+    this keyframe effect.
+
+    KeyframeEffect.composite
+    Gets and sets the composite operation property for resolving the property value
+    changes between this and other keyframe effects.
+</Properties>
+<Methods>
+
+    AnimationEffect.getComputedTiming()
+    Returns the calculated, current timing values for this keyframe effect.
+
+    KeyframeEffect.getKeyframes()
+    Returns the computed keyframes that make up this effect along with their computed
+    keyframe offsets.
+
+    AnimationEffect.getTiming()
+    The EffectTiming object associated with the animation containing all the
+    animation's timing values.
+
+    KeyframeEffect.setKeyframes()
+    Replaces the set of keyframes that make up this effect.
+
+    AnimationEffect.updateTiming()
+    Updates the specified timing properties.
+</Methods>
+</body>
+</html>

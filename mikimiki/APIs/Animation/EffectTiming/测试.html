@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        </style>
+</head>
+<body>
+<div style="border:#000 solid 1px;margin-top:10px;"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let div = this.querySelector("div");
+        var animation = div.animate([
+            {width:'0px'},
+            {width:document.documentElement.clientWidth-3+'px'},
+        ],
+            {
+                delay:1000,
+                direction:"normal",
+                duration:2000,
+                easing:"ease-in",
+                fill:"forwards",
+            });
+        animation.play();
+    })
+    </script>
+</body>
+</html>

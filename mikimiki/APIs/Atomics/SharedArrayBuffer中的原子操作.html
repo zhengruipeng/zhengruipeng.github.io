@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{
+      background-color:#000;
+      color:#00e300;
+    }
+  </style>
+</head>
+<body>
+<script type="worker">
+  (function (){
+    self.onmessage = function (ev){
+      let buffer = ev.data;
+      for(let i = 0;i<1e6;i++){
+        //buffer[0] += 1;
+        Atomics.add(buffer,0,1 )
+      }
+      this.postMessage(buffer);
+    }
+  })();
+</script>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    let workerText = this.scripts[0];
+    let workers = [];
+    for(let i = 0;i<4;i++){
+      let url = URL.createObjectURL(new Blob([workerText.innerHTML]));
+      workers.push(new Worker(url));
+    }
+    let sharedBuffer = new SharedArrayBuffer(32);
+    let unsignedInt = new Uint32Array(sharedBuffer);
+    let workerPormises = [];
+    workers.forEach((v,i) => {
+      v.postMessage(unsignedInt);
+      workerPormises[i] = new Promise(resolve => {
+        v.onmessage = function (ev){
+          resolve(v);
+        }
+      })
+    });
+    Promise.all(workerPormises).then(v => {
+      console.log(v);
+      console.log(unsignedInt);
+    })
+
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="background: #F2A5AA;position:fixed;top:100px;height:100px;width:100px;left:100px;" id="div"></div>
+<button id="cancel">cancel</button>
+<button id="finish">finish</button>
+<button id="update">刷新动画（快速刷新可导致之前动画删除）</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const finishBtn = this.getElementById("finish");
+        const removeBtn = this.getElementById("cancel");
+        const update = this.getElementById("update");
+        const div = this.getElementById("div");
+
+        let animation = div.animate([
+            {left:"100px",border:"red solid 0"},{left:"500px",border:"red solid 5px"}
+        ],{
+
+            duration:500,
+            composite:"replace",
+            iterationComposite:"replace",
+            iterations:1,
+            fill:"forwards",
+        })
+        finishBtn.onclick = function (){animation.finish()};
+        removeBtn.onclick = function (){animation.cancel()};
+        update.onclick = function (){
+            animation = div.animate(
+                {left:"500px"}
+            ,{
+                duration:500,
+                composite:"replace",
+                iterationComposite:"replace",
+
+                iterations:1,
+                fill:"forwards",
+            });
+            animation.onremove = function (e){
+                console.log(e);
+                console.log("removed");
+            };
+            animation.commitStyles();
+
+        }
+        animation.onfinish = function (e){
+            console.log("finished");
+            console.log(e)
+        };
+        animation.onremove = function (e){
+            console.log("removed");
+            console.log(e)
+        };
+        animation.oncancel = function (){
+            console.log("oncancel");
+        };
+
+    })
+</script>
+</body>
+</html>
