@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label><textarea style="height:60vh;width:90vw;"></textarea></label>
+    <label><select>
+
+    </select></label>
+    <button id="start">speak</button>
+</form>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const textarea = this.querySelector("textarea");
+        const select = this.querySelector("select");
+        const start = this.querySelector("#start");
+        let voices;
+        let speechSynthesis = window.speechSynthesis;
+        let initLangs = function (){
+            voices = speechSynthesis.getVoices();
+            let fragment = document.createDocumentFragment();
+            for(let speechSynthesisVoice of voices){
+                let option = document.createElement("option");
+                option.innerHTML = `${speechSynthesisVoice.name}`;
+                option.dataset.name = speechSynthesisVoice.name;
+                option.dataset.lang = speechSynthesisVoice.lang;
+                fragment.appendChild(option);
+            }
+             select.appendChild(fragment);
+            // console.log(voices)
+
+            /*for(var i = 0; i < voices.length ; i++) {
+                var option = document.createElement('option');
+                option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+
+                if(voices[i].default) {
+                    option.textContent += ' -- DEFAULT';
+                }
+                console.log(voices[i]);
+                option.setAttribute('data-lang', voices[i].lang);
+                option.setAttribute('data-name', voices[i].name);
+                select.appendChild(option);
+            }*/
+        };
+
+        initLangs();
+        speechSynthesis.onvoiceschanged = initLangs;
+        start.onclick = function (ev){
+            ev.preventDefault();
+            let speechSynthesisUtterance = new SpeechSynthesisUtterance(textarea.value);
+            for(let speechSynthesisVoice of voices){
+                if(speechSynthesisVoice.name === select.selectedOptions[0].dataset?.name){
+                    speechSynthesisUtterance.voice = speechSynthesisVoice;
+                }
+            }
+            speechSynthesisUtterance.lang = select.selectedOptions[0].dataset?.lang;
+            speechSynthesisUtterance.rate = 1;
+            speechSynthesisUtterance.pitch = 1;
+            window.speechSynthesis.speak(speechSynthesisUtterance);
+        };
+
+    })
+    </script>
+</body>
+</html>

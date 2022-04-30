@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let sharedWorker = new SharedWorker("./sharedWorker.js");
+        // let sharedWorker2 = new SharedWorker("./sharedWorker.js");
+        // sharedWorker2.port.onmessage =
+            sharedWorker.port.onmessage = function (e){
+            console.log(e);
+        };
+        // sharedWorker2.onerror =
+            sharedWorker.onerror = function (e){
+            console.log(e);
+        };
+        console.log(sharedWorker);
+    })
+</script>
+</body>
+</html>

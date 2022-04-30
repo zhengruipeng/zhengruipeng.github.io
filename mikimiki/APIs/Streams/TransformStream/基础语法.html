@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    let init = async function *(){
+      yield await new Promise(resolve => setTimeout(resolve,1000,1));
+      yield await new Promise(resolve => setTimeout(resolve,1000,2));
+      yield await new Promise(resolve => setTimeout(resolve,1000,3));
+      yield await new Promise(resolve => setTimeout(resolve,1000,4));
+      yield await new Promise(resolve => setTimeout(resolve,1000,5));
+    };
+    let {writable,readable} = new TransformStream({
+      transform(chunk,controller){
+        controller.enqueue(chunk*2);
+      }
+    });
+    let writableStreamDefaultWriter = writable.getWriter();
+    let readableStreamDefaultReader = readable.getReader();
+
+
+    (async function (){
+      for(let {done,value} = await readableStreamDefaultReader.read();
+          !done;{done,value} = await readableStreamDefaultReader.read()){
+        console.log(value);
+      }
+    })();
+
+    (async function (){
+      for await(let value of init()){
+        await writableStreamDefaultWriter.ready;
+        writableStreamDefaultWriter.write(value);
+      }
+      writableStreamDefaultWriter.close();
+    })();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="speechBtn">click me to speech</button>
+<button id="stop">stop</button>
+<p>what fruit do you like?<span></span></p>
+<script type="JSpeech-Grammar-Format" id="jsgf">
+    #JSGF V1.0;
+    <public> fruits = apple | orange | strawberry | watermelon;
+</script>
+<script type="text/javascript">
+    /*SpeechRecognition = SpeechRecognition === undefined?webkitSpeechRecognition:SpeechRecognition;
+    SpeechGrammarList = SpeechGrammarList === undefined?webkitSpeechGrammarList:SpeechGrammarList;*/        // var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+    // var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+    // try{if(SpeechRecognition);}catch (e) {SpeechRecognition = webkitSpeechRecognition;}
+    // try{if(SpeechGrammarList);}catch (e) {SpeechGrammarList = webkitSpeechGrammarList;}
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+    document.addEventListener("DOMContentLoaded",function (){
+        const speechBtn = this.querySelector("#speechBtn");
+        const stopBtn = this.querySelector("#stop");
+        const msg = this.querySelector("span");
+        const jsgf = this.scripts[0].textContent;
+
+        const speechRecognition = new SpeechRecognition();
+        const speechGrammarList = new SpeechGrammarList();
+        speechGrammarList.addFromString(jsgf);
+        speechRecognition.grammars = speechGrammarList;
+        speechRecognition.maxAlternatives = 1;
+        speechRecognition.iterimResults = false;
+        speechRecognition.continuous = false;
+        speechRecognition.lang = "en-US";
+
+        speechBtn.onclick = function (){
+            speechRecognition.start();
+            this.innerHTML = "listening";
+        }
+        stopBtn.onclick = function (){
+            speechRecognition.stop();
+        };
+        speechRecognition.onstart = function (){};
+        speechRecognition.onnomatch = function (){
+            msg.innerHTML = "???";
+        };
+        speechRecognition.onresult = function (ev){
+            let speechRecognitionResultList = ev.results;
+            //the first speechRecognitionResult of speechRecognitionResultList
+            let speechRecognitionResult = speechRecognitionResultList[0];
+            //the first speechRecognitionAlternative of speechRecognitionResult
+            let speechRecognitionAlternative = speechRecognitionResult[0];
+            //the text of recognition result
+            let text = speechRecognitionAlternative.transcript;
+            msg.innerHTML = `${text}`;
+        };
+        speechRecognition.onend = function (){
+            speechBtn.innerHTML = "click me to speech";
+        };
+        speechRecognition.onspeechend = function (){
+            this.stop();
+            speechBtn.innerHTML = "click me to speech";
+        };
+        speechRecognition.onerror = console.log;
+    })
+</script>
+</body>
+</html>

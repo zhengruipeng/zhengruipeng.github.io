@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul">
+</ul>
+<button id="button" style="height:100px;width:200px;"></button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoadded",function (){
+        let list1 = this.getElementById("ul");
+        let button = this.getElementById("button");
+        const stream = new ReadableStream({
+            start(controller) {
+                interval = setInterval(() => {
+                    let string = randomChars();
+
+                    // Add the string to the stream
+                    controller.enqueue(string);
+
+                    // show it on the screen
+                    let listItem = document.createElement('li');
+                    listItem.textContent = string;
+                    list1.appendChild(listItem);
+                }, 1000);
+                console.log(321);
+
+                button.addEventListener('click', function() {
+                    console.log(123);
+                    clearInterval(interval);
+                    fetchStream();
+                    controller.close();
+                })
+            },
+            pull(controller) {
+                // We don't really need a pull in this example
+            },
+            cancel() {
+                // This is called if the reader cancels,
+                // so we should stop generating strings
+                clearInterval(interval);
+            }
+        });
+    })
+    </script>
+</body>
+</html>

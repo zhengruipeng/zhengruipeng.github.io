@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let u8ca = new Uint8ClampedArray(function *(){
+            yield *[1,2,3,4];
+        }());
+        console.log(u8ca);
+        u8ca[3] = 257;
+        console.log(u8ca);
+        let u8a = new Uint8Array(function *(){
+            yield *[1,2,3,4];
+        }());
+        console.log(u8a);
+        u8a[3] = 257;
+        console.log(u8a);
+    });
+</script>
+</body>
+</html>

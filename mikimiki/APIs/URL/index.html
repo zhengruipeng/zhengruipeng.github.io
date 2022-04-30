@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let url = new URL("http://localhost:63342/websocket-server.js/%E5%AE%A2%E6%88%B7%E7%AB%AF/DOM/HTMLElement/HTMLMediaElement/TimeRange/index.html?_ijt=e07qdah9batbg1t7eb9496ak94&_ij_reload")
+        for(let name in url){
+            console.log(name+"---"+url[name]);
+        }
+        url.username = "username";
+        url.password = "password";
+        console.log(url);
+    })
+</script>
+</body>
+</html>
