@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="warning" style="display:none;">
+    <p>
+        The browser you are using does not seem to support WebGPU rendering. At this time,
+        WebGPU implementations are under continuous development, so consider installing a developer
+        build, such as <a href="https://www.google.com/chrome/canary/">Google Chrome Canary</a>.
+    </p>
+</div>
+<canvas id="gpuCanvas" width="800" height="600"></canvas>
+<script>
+    document.addEventListener("DOMContentLoaded",function (){
+        let adapter, device, canvas, context;
+        const clearColor = { r: 0.0, g: 0.5, b: 1.0, a: 1.0 };
+
+        async function init() {
+            adapter = await window.navigator.gpu.requestAdapter();
+            device = await adapter.requestDevice();
+            canvas = document.querySelector('#gpuCanvas');
+            canvas.width = 400;
+            canvas.height = 300;
+            context = canvas.getContext('webgpu');
+
+            context.configure({
+                device: device,
+                format: 'bgra8unorm'
+            });
+        }
+
+        function draw() {
+            const commandEncoder = device.createCommandEncoder();
+
+            const renderPassDescriptor = {
+                colorAttachments: [{
+                    loadValue: clearColor,
+                    storeOp: 'store',
+                    view: context.getCurrentTexture().createView()
+                }]
+            };
+
+            const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
+            passEncoder.endPass();
+
+            device.queue.submit([commandEncoder.finish()]);
+
+            requestAnimationFrame(() => {
+                draw();
+            });
+        }
+
+        function showWarning(e) {
+            document.querySelector('#gpuCanvas').style.display = 'none';
+            document.querySelector('.warning').style.display = 'block';
+        }
+
+        async function main() {
+            try {
+                await init();
+            } catch (e) {
+                showWarning(e);
+            }
+            draw();
+        }
+        main();
+    })
+
+</script>
+</body>
+</html>

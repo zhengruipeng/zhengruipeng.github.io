@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="webgpu"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",async function (){
+        const shader0 = {
+            vertex:`
+                const pos : array<vec2<f32>, 3> = array<vec2<f32>,3>(
+                    vec2<f32>(0.0,0.5),
+                    vec2<f32>(-0.5,-0.5),
+                    vec2<f32>(0.5,-0.5));
+                [[builtin(position)]] var<out> Position : vec4<f32>;
+                [[builtin(vertex_idx)]] var<in> VertexIndex : i32;
+                [[stage(vertex)]]
+                fn main() -> void {
+                    Position = vec4<f32>(pos[VertexIndex],0.0,1.0);
+                    return ;
+                }
+            `,
+            fragment:`
+                [[location(0)]] var<out> outColor : vec4(f32);
+                [[stage(fragment)]]
+                fn main() -> void {
+                    outColor = vec4<f32>(1.0,0.0,1.0,0.0);
+                    return ;
+                }
+            `
+        };
+        const canvas = this.getElementById("webgpu");
+        const adapter = await navigator.gpu?.requestAdapter();
+        const device = await adapter?.requestDevice();
+        const gpu = canvas.getContext("webgpu");
+
+        const swapChainFormat = "bgra8unorm";
+        console.log(gpu);
+        const swapChain = gpu.configure({
+            device:device,
+            format: swapChainFormat
+        });
+        const pipeline = device.createRenderPipeline({
+            vertex:{
+                module:device.createShaderModule({
+                    code:shader0.vertex
+                }),
+                entryPoint:"main"
+            },
+            fragmentStage: {
+                module:device.createShaderModule({
+                    code:shader0.fragment
+                }),
+                entryPoint: "main"
+            },
+            primitiveTopology:"triangle-list",
+            colorStates: [{
+                format:swapChainFormat,
+            }]
+        });
+        const commandEncoder = device.createCommandEncoder();
+        console.log(swapChain)
+        const textureView = swapChain.getCurrentTexture().createView();
+        const renderPass = commandEncoder.beginRenderPass({
+            colorAttachments:[{
+                attachment:textureView,
+                loadValue:[0.5,0.5,0.8,1]
+            }]
+        });
+        renderPass.setPipeline(pipeline);
+        renderPass.draw(3,1,0,0);
+        renderPass.endPass();
+
+        device.queue.submit([commandEncodeer.finish()]);
+
+    })
+</script>
+</body>
+</html>
