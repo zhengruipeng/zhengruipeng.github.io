@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>123</h1>
+<p>333</p>
+<div style="border:red solid 1px;width:600px;"></div>
+<input type="range" min="100" max="1300" />
+<input type="checkbox" checked />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        navigator.serviceWorker.register("./serviceWorker.js",serviceWorkerRegistration => {
+            console.log(serviceWorkerRegistration);
+        })
+
+        const h1Elem = document.querySelector('h1');
+        const pElem = document.querySelector('p');
+        const divElem = document.querySelector('body > div');
+        const slider = document.querySelector('input[type="range"]');
+        const checkbox = document.querySelector('input[type="checkbox"]');
+
+        divElem.style.width = '600px';
+        divElem.style.height = '200px';
+
+        slider.addEventListener('input', () => {
+            divElem.style.width = slider.value + 'px';
+        })
+
+        const resizeObserver = new ResizeObserver(entries => {
+            for (let entry of entries) {
+                if(entry.contentBoxSize) {
+                    // Firefox implements `contentBoxSize` as a single content rect, rather than an array
+                    const contentBoxSize = Array.isArray(entry.contentBoxSize) ? entry.contentBoxSize[0] : entry.contentBoxSize;
+                    console.log(entries);
+                    h1Elem.style.fontSize = Math.max(1.5, contentBoxSize.inlineSize / 200) + 'rem';
+                    pElem.style.fontSize = Math.max(1, contentBoxSize.inlineSize / 600) + 'rem';
+                } else {
+                    h1Elem.style.fontSize = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
+                    pElem.style.fontSize = Math.max(1, entry.contentRect.width / 600) + 'rem';
+                }
+            }
+
+            console.log('Size changed');
+        });
+
+        resizeObserver.observe(divElem);
+        // resizeObserver.observe(h1Elem);
+
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                resizeObserver.observe(divElem);
+            } else {
+                resizeObserver.unobserve(divElem);
+            }
+        });
+
+
+        fetch("/favicon.ico",{method:"GET"})
+        .then(response => response.blob())
+        .then(blob => {
+            let url = URL.createObjectURL(blob);
+            return new Promise((resolve,reject) => {
+                let image = new Image();
+                image.src = url;
+                image.onload = _ => resolve(image);
+                image.onerror = _ => reject(_);
+            });
+        })
+        .then(image => document.body.appendChild(image))
+        .catch(err => console.error);
+    })
+    </script>
+</body>
+</html>

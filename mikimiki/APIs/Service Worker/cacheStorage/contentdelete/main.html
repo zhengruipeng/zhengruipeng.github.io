@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let serviceW = navigator.serviceWorker.register("./worker.js");
+        serviceW.then(registration => {
+            console.log(registration);   
+        }).catch(e => {
+            console.error(e);
+        })
+
+
+    })
+    </script>
+</body>
+</html>

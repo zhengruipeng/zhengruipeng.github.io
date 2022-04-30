@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let serviceW = navigator.serviceWorker.register("./worker.js");
+        serviceW.then(function (registration){
+            console.log(registration);
+            caches.open("./openFile.html").then(function(cache) {
+                console.log(cache);
+                cache.match("./openFile.html").then( ref => {
+                    console.log(ref);
+                });
+            });
+            /*fetch("./worker.js").then(ref => {
+                console.log(ref);
+            })*/
+
+        })
+    })
+</script>
+</body>
+</html>

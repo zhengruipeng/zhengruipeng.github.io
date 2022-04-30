@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="send-msg" />
+<button id="submit-msg">submit</button>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const sendMsg = this.getElementById("send-msg");
+        const submitMsg = this.getElementById("submit-msg");
+        navigator.serviceWorker.register("./message.js").then(serviceWorkerRegister => {
+            console.log(serviceWorkerRegister);
+        });
+        submitMsg.onclick = function (){
+            let msg = sendMsg.value;
+            navigator.serviceWorker.controller.postMessage(msg);
+        };
+        navigator.serviceWorker.onmessage = function (ev){
+            console.log(ev);
+        }
+    })
+</script>
+</body>
+</html>

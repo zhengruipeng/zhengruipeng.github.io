@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="chat">chat</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let chatBtn = this.getElementById("chat");
+        Notification.requestPermission( permission => {
+            if(permission === "denied")return false;
+            const notifycation = new Notification("title",{
+                body: "body",
+                lang:"en-US",
+                dir:"ltr",
+                tag:"tag",
+                renotify:true,
+                requireInteraction: true,
+                silent:false,
+                vibrate:[200,100,200],
+                data:"data",
+            });
+            console.log(notifycation);
+            navigator.serviceWorker.register("./worker.js").then( register => {
+                console.log(register);
+            })
+
+        });
+        chatBtn.onclick = function (){
+            window.open("./chat/chat.html");
+        };
+
+    })
+</script>
+</body>
+</html>

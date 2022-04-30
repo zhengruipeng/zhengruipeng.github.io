@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        navigator.serviceWorker.register("./worker.js");
+
+        navigator.serviceWorker.addEventListener("message",function (e){
+            console.log(e);
+        });
+
+        navigator.serviceWorker.ready.then( registration => {
+            console.log(registration);
+            registration.active.postMessage("msg");
+        });
+
+        console.log(navigator.serviceWorker)
+
+    })
+    </script>
+</body>
+</html>

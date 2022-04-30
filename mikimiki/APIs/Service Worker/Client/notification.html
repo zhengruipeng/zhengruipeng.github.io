@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="send-request">send-request</button>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const sendRequestBtn = this.querySelector("#send-request");
+
+        navigator.serviceWorker.register("./notification.js").then(serviceWorkerRegister => {
+            console.log(serviceWorkerRegister);
+            serviceWorkerRegister.pushManager.subscribe({userVisibleOnly:true});
+            Notification.requestPermission().then( status => {
+                if(status === "granted"){
+                    serviceWorkerRegister.showNotification("title",{body:"foo"})
+                }
+            })
+        });
+        sendRequestBtn.onclick = function (){
+            fetch("./status.js");
+        };
+    })
+</script>
+</body>
+</html>
+
+
+
+
+

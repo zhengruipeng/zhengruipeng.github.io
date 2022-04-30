@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+此对象只有在serviceWorker线程的js页面才可以访问，通过ServiceWorkerGlobalScope.caches或者serviceWorker页面的全局变量或
+self.caches。访问后得到CacheStorage对象，调用此对象的方法之一得到一个promise对象后获得异步运行结果，通过then()获得
+比如caches.open("./xxx.html").then(cache => { /*many of codes*/});
+当promise类结果为fulfill时，回调函数的第一个参数即是Cache对象
+
+
+</body>
+</html>

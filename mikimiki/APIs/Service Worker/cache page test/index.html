@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input type="text" id="request-url" />
+    <input type="button" id="send-request" value="send" />
+    <output id="error-otp"></output>
+</form>
+<script type="text/javascript">
+    navigator.serviceWorker.register("./serviceWorker.js",{scope:"./"}).then(serviceWorkerRegister => {
+        console.log("service worker has been loaded");
+    });
+    document.addEventListener("DOMContentLoaded",function (){
+        const requestUrlInput = this.querySelector("#request-url");
+        const sendRequestBtn = this.querySelector("#send-request");
+        const errorOtp = this.querySelector("#error-otp");
+
+        requestUrlInput.oninput = function (ev){
+            ev.preventDefault();
+            if(ev.key === "Enter"){
+                sendRequestBtn.click();
+            }
+        }
+        this.forms[0].onsubmit = function (ev){
+            ev.preventDefault();
+            sendRequestBtn.click();
+
+        }
+        sendRequestBtn.onclick = function (){
+            let request = new Request(requestUrlInput.value);
+            fetch(request).then(response => {
+                console.log(response);
+            }).catch(err => {
+                errorOtp.innerHTML = err;
+            })
+        }
+
+    })
+    </script>
+</body>
+</html>

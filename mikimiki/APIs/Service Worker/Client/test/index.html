@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        location.protocol !== "https"?location.protocol = "https":location;
+        </script>
+</head>
+<body>
+<iframe src="frame.html"></iframe>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let worker = new Worker("worker.js");
+        window.open("window.html");
+        worker.postMessage("123");
+        worker.onmessage = function (e){
+            console.log(e.data);
+        };
+
+        let serviceWorker = navigator.serviceWorker.register("serviceWorker.js").then( register => {
+            console.log(register);
+        });
+
+
+    })
+    </script>
+</body>
+</html>

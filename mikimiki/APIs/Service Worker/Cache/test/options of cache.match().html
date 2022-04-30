@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        navigator.serviceWorker.register("./options of cache.match().js")
+        .then(serviceWorkerRegister => {
+            console.log(serviceWorkerRegister);
+        });
+    })
+</script>
+</body>
+</html>

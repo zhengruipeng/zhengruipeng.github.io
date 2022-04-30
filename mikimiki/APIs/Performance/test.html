@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    function load_resource() {
+      var image = new Image();
+      image.src = "1.png";
+    }
+    function clear_performance_timings() {
+      if (performance === undefined) {
+        log("Browser does not support Web Performance");
+        return;
+      }
+      // Create a resource timing performance entry by loading an image
+      load_resource();
+
+      var supported = typeof performance.clearResourceTimings == "function";
+      if (supported) {
+        console.log("Run: performance.clearResourceTimings()");
+        // performance.clearResourceTimings();
+      } else {
+        console.log("performance.clearResourceTimings() NOT supported");
+        return;
+      }
+      // getEntries should now return zero
+      var p = performance.getEntriesByType("resource");
+      console.log(p);
+      if (p.length == 0)
+        console.log("... Performance data buffer cleared");
+      else
+        console.log("... Performance data buffer NOT cleared!");
+    }
+    clear_performance_timings();
+  });
+</script>
+</body>
+</html>

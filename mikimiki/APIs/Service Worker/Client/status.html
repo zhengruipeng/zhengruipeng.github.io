@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="send-request">send-request</button>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const sendRequestBtn = this.querySelector("#send-request");
+        navigator.serviceWorker.register("./status.js").then(serviceWorkerRegister => {
+            console.log(serviceWorkerRegister);
+            if(serviceWorkerRegister.waiting){
+                console.log("In waiting state");
+            }else if(serviceWorkerRegister.active){
+                console.log("In active state");
+            }else if(serviceWorkerRegister.installing){
+                console.log("In installing state");
+            }
+        });
+        /*navigator.serviceWorker.onmessage = function (ev){
+            console.log(ev.data);
+        }*/
+        setTimeout(function (){
+            console.log(navigator.serviceWorker.controller)
+        },500);
+        sendRequestBtn.onclick = function (){
+            fetch("./status.js");
+        };
+
+    })
+</script>
+</body>
+</html>
