@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.Module = {};
+    document.addEventListener("DOMContentLoaded",function (){
+        Module.onRuntimeInitialized = function  (){
+            let res = this._printParam(2,3);
+            this._print_double(res);
+        }
+    })
+</script>
+<script type="text/javascript" src="EM_ASM_.js"></script>
+</body>
+</html>+

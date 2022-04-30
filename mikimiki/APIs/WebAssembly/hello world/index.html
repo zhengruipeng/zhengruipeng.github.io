@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    Module = {};
+    Module.onRuntimeInitialized = function (){
+        Module._main();
+        console.log(this);
+    }
+
+    document.addEventListener("DOMContentLoaded",function (){
+    })
+</script>
+<script type="text/javascript" src="test.js"></script>
+
+</body>
+</html>

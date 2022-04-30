@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.Module = {};
+    document.addEventListener("DOMContentLoaded",function (){
+        Module.onRuntimeInitialized = function (){
+            let int_ptr = Module._get_int_ptr();
+            let int_val = Module.HEAP32[int_ptr >> 2];
+            console.log("js:int_ptr:"+int_ptr);
+            console.log("js:int_val:"+int_val);
+
+            let double_ptr = Module._get_double_ptr();
+            let double_val = Module.HEAPF64[double_ptr >> 3];
+            console.log("js:double_ptr:"+double_ptr);
+            console.log("js:double_val:"+double_val);
+            console.log(Module.HEAPF64);
+
+            Module.HEAP32[int_ptr >> 2] = 31;
+            Module.HEAPF64[double_ptr >> 3] = 123456.252;
+            Module._print_data();
+        };
+    })
+</script>
+<script type="text/javascript" src="mem.js"></script>
+</body>
+</html>

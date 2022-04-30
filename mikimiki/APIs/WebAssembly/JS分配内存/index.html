@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.Module = {};
+    document.addEventListener("DOMContentLoaded",function (){
+        Module.onRuntimeInitialized = function (){
+            let len = 50;
+            let intArrPtr = this._js_malloc(len*4);
+            for(let i = 0;i<len;i++){
+                this.HEAP32[(intArrPtr >> 2)+i] = i+1;
+            }
+            console.log(this._sum(intArrPtr,len));
+            this._js_free(intArrPtr);
+            
+
+        }
+    })
+</script>
+<script type="text/javascript" src="sum.js"></script>
+</body>
+</html>
