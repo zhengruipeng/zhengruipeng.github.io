@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>this is a test paragraph</p>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        // Define the new element
+        customElements.define('word-count', WordCount, { extends: 'p' });
+        console.log(customElements.get("word-count"));
+        customElements.whenDefined("word-count").then( (a) => {
+            console.log("defined");
+            console.log(a);
+        }).catch(console.error)
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = this.getElementById("canvas");
+        canvas.height = this.documentElement.clientHeight;
+        canvas.width = this.documentElement.clientWidth;
+
+        let c = canvas.getContext("2d");
+        let image = new Image();
+        image.src = "../star.png";
+        image.onload = function (){
+            c.drawImage(this,0,0);
+
+            c.imageSmoothingEnabled = false;
+            c.drawImage(this,this.width,0,this.width*3,this.height*3);
+
+            c.imageSmoothingEnabled = true;
+            c.imageSmoothingQuality = "high";
+            c.drawImage(this,this.width*4,0,this.width*3,this.height*3);
+
+            c.imageSmoothingQuality = "medium";
+            c.drawImage(this,this.width*7,0,this.width*3,this.height*3);
+
+
+            c.imageSmoothingQuality = "low";
+            c.drawImage(this,this.width*10,0,this.width*3,this.height*3);
+
+        }
+    })
+    </script>
+</body>
+</html>

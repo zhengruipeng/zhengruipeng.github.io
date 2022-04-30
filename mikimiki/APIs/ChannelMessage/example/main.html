@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .output{
+            border:red solid 1px;
+            padding:15px 30px;
+        }
+    </style>
+</head>
+<body>
+<iframe src="./frame.html"></iframe>
+<div class="output"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var channel = new MessageChannel();
+        var output = document.querySelector('.output');
+        var iframe = document.querySelector('iframe');
+
+        iframe.onload = function() {
+            // Listen for messages on port1
+            console.log(channel);
+            channel.port1.onmessage = function(e) {
+                output.innerHTML += (e.data + "<br />");
+
+            };
+
+            // Transfer port2 to the iframe
+            iframe.contentWindow.postMessage('Hello from the main page!', '*', [channel.port2]);
+        }
+        setTimeout(function (){console.log(channel);},2000);
+
+
+    });
+</script>
+</body>
+</html>

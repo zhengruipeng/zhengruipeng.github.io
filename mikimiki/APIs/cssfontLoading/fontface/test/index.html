@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+                font-family: 'msyh';
+        }
+        </style>
+</head>
+<body>
+asdfasdf
+拖拽上传
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const worker = new Worker("app.js");
+        worker.onmessage = function (e){
+            console.log(e);
+        };
+        async function loadFonts() {
+            const font = new FontFace('msyh', 'url(../../hksn.ttc)');
+            // wait for font to be loaded
+            await font.load();
+            // add font to document
+            document.fonts.add(font);
+            // enable font with CSS class
+            document.body.classList.add('fonts-loaded');
+            console.log(font);
+            console.log(document.fonts);
+            document.fonts.load("12px msyh", "asdfff拖拽").then(res => {
+                console.log(res[0]);
+            });
+            document.fonts.ready.then(function() {
+                // Any operation that needs to be done only after all the fonts
+                // have finished loading can go here.
+            });
+
+        }
+        document.fonts.onloading = function (e){
+            console.log("loading",e);
+        };
+        document.fonts.onloadingdone = function (e){
+            console.log("loadingdone",e);
+        }
+        loadFonts();
+        /*window.onclick = function (){
+            document.body.style.fontFamily = "msyh";
+        }*/
+    })
+</script>
+</body>
+</html>

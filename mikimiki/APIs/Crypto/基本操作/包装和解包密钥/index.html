@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<code>
+    <pre>
+
+    </pre>
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (async function() {
+            const keyFormat = 'raw';
+            const extractable = true;
+            const wrappingKeyAlgoIdentifier = 'AES-KW';
+            const wrappingKeyUsages = ['wrapKey', 'unwrapKey'];
+            const wrappingKeyParams = {
+                name: wrappingKeyAlgoIdentifier,
+                length: 256
+            };
+            const keyAlgoIdentifier = 'AES-GCM';
+            const keyUsages = ['encrypt'];
+            const keyParams = {
+                name: keyAlgoIdentifier,
+                length: 256
+            };
+            //用于包装密钥的密钥
+            const wrappingKey = await crypto.subtle.generateKey(wrappingKeyParams, extractable,
+                wrappingKeyUsages);
+            console.log("用于包装密钥的密钥",wrappingKey);
+            // CryptoKey {type: "secret", extractable: true, algorithm: {...}, usages: Array(2)}
+            //被包装的密钥
+            const key = await crypto.subtle.generateKey(keyParams, extractable, keyUsages);
+            console.log("被包装的密钥",key);
+            // CryptoKey {type: "secret", extractable: true, algorithm: {...}, usages: Array(1)}
+            const wrappedKey = await crypto.subtle.wrapKey(keyFormat, key, wrappingKey,
+                wrappingKeyAlgoIdentifier);
+            console.log("包装后的密钥",wrappedKey);
+            // ArrayBuffer(40) {}
+            const unwrappedKey = await crypto.subtle.unwrapKey(keyFormat, wrappedKey,
+                wrappingKey, wrappingKeyParams, keyParams, extractable, keyUsages);
+            console.log("解开包装的密钥",unwrappedKey);
+            // CryptoKey {type: "secret", extractable: true, algorithm: {...}, usages: Array(1)}
+        })()
+    })
+</script>
+</body>
+</html>

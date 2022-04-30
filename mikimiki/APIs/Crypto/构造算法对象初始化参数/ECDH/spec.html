@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    code{
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th><a href="#supported-operations">Operation</a></th>
+        <th><a href="#algorithm-specific-params">Parameters</a></th>
+        <th><a href="#algorithm-result">Result</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>generateKey</td>
+        <td><a href="#dfn-EcKeyGenParams">EcKeyGenParams</a></td>
+        <td><a href="#dfn-CryptoKeyPair">CryptoKeyPair</a></td>
+    </tr>
+    <tr>
+        <td>deriveBits</td>
+        <td><a href="#dfn-EcdhKeyDeriveParams">EcdhKeyDeriveParams</a></td>
+        <td><a href="#dfn-octet-string">Octet string</a></td>
+    </tr>
+    <tr>
+        <td>importKey</td>
+        <td><a href="#dfn-EcKeyImportParams">EcKeyImportParams</a></td>
+        <td><a href="#dfn-CryptoKey">CryptoKey</a></td>
+    </tr>
+    <tr>
+        <td>exportKey</td>
+        <td>None</td>
+        <td>object</td>
+    </tr>
+    </tbody>
+</table>
+<code>
+    <pre>
+        dictionary EcdhKeyDeriveParams : Algorithm {
+          // The peer's EC public key.
+          required CryptoKey public;
+        };
+    </pre>
+</code>
+</body>
+</html>

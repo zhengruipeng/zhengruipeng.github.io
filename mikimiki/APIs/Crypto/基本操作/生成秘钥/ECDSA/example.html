@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (async function() {
+            const params = {
+                name: 'ECDSA',
+                namedCurve: 'P-256'
+            };
+            const keyUsages = ['sign', 'verify'];
+            const {publicKey, privateKey} = await crypto.subtle.generateKey(params, true,
+                keyUsages);
+            console.log(publicKey);
+            // CryptoKey {type: "public", extractable: true, algorithm: {...}, usages: Array(1)}
+            console.log(privateKey);
+            // CryptoKey {type: "private", extractable: true, algorithm: {...}, usages: Array(1)}
+        })();
+    })
+</script>
+</body>
+</html>

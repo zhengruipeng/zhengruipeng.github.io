@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th><a href="#supported-operations">Operation</a></th>
+        <th><a href="#algorithm-specific-params">Parameters</a></th>
+        <th><a href="#algorithm-result">Result</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>encrypt</td>
+        <td><a href="#dfn-AesCbcParams">AesCbcParams</a></td>
+        <td><a href="#dfn-ArrayBuffer">ArrayBuffer</a></td>
+    </tr>
+    <tr>
+        <td>decrypt</td>
+        <td><a href="#dfn-AesCbcParams">AesCbcParams</a></td>
+        <td><a href="#dfn-ArrayBuffer">ArrayBuffer</a></td>
+    </tr>
+    <tr>
+        <td>generateKey</td>
+        <td><a href="#dfn-AesKeyGenParams">AesKeyGenParams</a></td>
+        <td><a href="#dfn-CryptoKey">CryptoKey</a></td>
+    </tr>
+    <tr>
+        <td>importKey</td>
+        <td>None</td>
+        <td><a href="#dfn-CryptoKey">CryptoKey</a></td>
+    </tr>
+    <tr>
+        <td>exportKey</td>
+        <td>None</td>
+        <td>object</td>
+    </tr>
+    <tr>
+        <td>get key length</td>
+        <td><a href="#dfn-AesDerivedKeyParams">AesDerivedKeyParams</a></td>
+        <td>Integer</td>
+    </tr>
+    </tbody>
+</table>
+<code>
+    <pre>
+        dictionary AesCbcParams : Algorithm {
+          // The initialization vector. MUST be 16 bytes.
+          required BufferSource iv;
+        };
+    </pre>
+</code>
+</body>
+</html>

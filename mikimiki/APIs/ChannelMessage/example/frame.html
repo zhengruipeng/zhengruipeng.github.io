@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1234
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+
+        onmessage = function (e){
+            console.log(e);
+            e.ports[0].postMessage("msg has received ");
+            setInterval(function (){e.ports[0].postMessage("msg has received ");},1000);
+        }
+    })
+</script>
+</body>
+</html>

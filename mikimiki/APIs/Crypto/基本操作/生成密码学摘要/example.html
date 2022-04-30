@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    (async function() {
+      const textEncoder = new TextEncoder();
+      const message = textEncoder.encode('foo');
+      const messageDigest = await crypto.subtle.digest('SHA-256', message);
+      console.log(new Uint32Array(messageDigest));
+    })();
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+  <thead>
+  <tr>
+    <th><a href="#supported-operations">Operation</a></th>
+    <th><a href="#algorithm-specific-params">Parameters</a></th>
+    <th><a href="#algorithm-result">Result</a></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>encrypt</td>
+    <td><a href="#dfn-RsaOaepParams">RsaOaepParams</a></td>
+    <td><a href="#dfn-ArrayBuffer">ArrayBuffer</a></td>
+  </tr>
+  <tr>
+    <td>decrypt</td>
+    <td><a href="#dfn-RsaOaepParams">RsaOaepParams</a></td>
+    <td><a href="#dfn-ArrayBuffer">ArrayBuffer</a></td>
+  </tr>
+  <tr>
+    <td>generateKey</td>
+    <td><a href="#dfn-RsaHashedKeyGenParams">RsaHashedKeyGenParams</a></td>
+    <td><a href="#dfn-CryptoKeyPair">CryptoKeyPair</a></td>
+  </tr>
+  <tr>
+    <td>importKey</td>
+    <td><a href="#dfn-RsaHashedImportParams">RsaHashedImportParams</a></td>
+    <td><a href="#dfn-CryptoKey">CryptoKey</a></td>
+  </tr>
+  <tr>
+    <td>exportKey</td>
+    <td>None</td>
+    <td>object</td>
+  </tr>
+  </tbody>
+</table>
+<code>
+  <pre>
+    dictionary RsaOaepParams : Algorithm {
+      // The optional label/application data to associate with the message
+      BufferSource label;
+    };
+  </pre>
+</code>
+</body>
+</html>

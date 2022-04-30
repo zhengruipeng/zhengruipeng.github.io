@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    code{
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th><a href="#supported-operations">Operation</a></th>
+    <th><a href="#algorithm-specific-params">Parameters</a></th>
+    <th><a href="#algorithm-result">Result</a></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>deriveBits</td>
+    <td><a href="#dfn-HkdfParams">HkdfParams</a></td>
+    <td><a href="#dfn-ArrayBuffer">ArrayBuffer</a></td>
+  </tr>
+  <tr>
+    <td>importKey</td>
+    <td>None</td>
+    <td><a href="#dfn-CryptoKey">CryptoKey</a></td>
+  </tr>
+  <tr>
+    <td>Get key length</td>
+    <td>None</td>
+    <td>null</td>
+  </tr>
+  </tbody>
+</table>
+<code>
+    <pre>
+      dictionary HkdfParams : Algorithm {
+        // The algorithm to use with HMAC (e.g.: SHA-256)
+        required HashAlgorithmIdentifier hash;
+        // A bit string that corresponds to the salt used in the extract step.
+        required BufferSource salt;
+        // A bit string that corresponds to the context and application specific context for the derived keying material.
+        required BufferSource info;
+      };
+    </pre>
+</code>
+</body>
+</html>

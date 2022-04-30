@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    (async function() {
+      const textEncoder = new TextEncoder();
+      const message = textEncoder.encode('foo');
+      const messageDigest = await crypto.subtle.digest('SHA-256', message);
+      const hexDigest = Array.from(new Uint8Array(messageDigest))
+              .map((x) => x.toString(16).padStart(2, '0'))
+              .join('');
+      console.log(hexDigest);
+    })();
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" height="900" width="1600"></canvas>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const canvas = this.querySelector("#canvas");
+    const c = canvas.getContext("2d");
+    c.font = "100px 微软雅黑";
+    console.log(c.measureText("lets go"));
+
+    c.fillText("lets go",100,100);
+    c.strokeRect(100,100-Number.parseFloat(c.font),
+        Math.max(c.measureText("lets go").actualBoundingBoxRight)-Math.max(c.measureText("lets go").actualBoundingBoxLeft),
+        c.measureText("lets go").actualBoundingBoxDescent);
+  })
+</script>
+</body>
+</html>

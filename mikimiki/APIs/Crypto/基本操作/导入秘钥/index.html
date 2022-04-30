@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    code{
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+<code>
+    <pre>
+
+    </pre>
+</code>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      (async function() {
+          const params = {
+              name: 'AES-CTR',
+              length: 128
+          };
+          const keyUsages = ['encrypt', 'decrypt'];
+          const keyFormat = 'raw';
+          const isExtractable = true;
+          const key = await crypto.subtle.generateKey(params, isExtractable, keyUsages);
+          const rawKey = await crypto.subtle.exportKey(keyFormat, key);
+          const importedKey = await crypto.subtle.importKey(keyFormat, rawKey, params.name,
+              isExtractable, keyUsages);
+          const rawKey2 = await crypto.subtle.exportKey("raw",importedKey);
+          console.log(key,importedKey);
+          console.log(rawKey,rawKey2);
+
+          // CryptoKey {type: "secret", extractable: true, algorithm: {...}, usages: Array(2)}
+      })();
+  })
+</script>
+</body>
+</html>

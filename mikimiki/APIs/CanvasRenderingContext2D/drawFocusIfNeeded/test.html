@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+
+    </style>
+</head>
+<body>
+<canvas id="canvas">
+    <button>button one</button>
+    <button>button two</button>
+    <button>button three</button>
+    <button>button four</button>
+    <button>button five</button>
+    <button>button six</button>
+</canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = this.getElementById("canvas");
+        canvas.height = this.documentElement.clientHeight;
+        canvas.width = this.documentElement.clientWidth;
+
+        let c = canvas.getContext("2d");
+
+        let drawButton = function (ele,left,top,width,height){
+            c.beginPath();
+            c.strokeRect(left,top,width,height);
+            c.font = '20px sans-serif';
+            c.fillText(ele.textContent,left,top);
+            if(document.activeElement === ele){
+                c.beginPath();
+                c.rect(left-2,top-2,width+4,height+4);
+                c.drawFocusIfNeeded(ele);
+            }
+        }
+        console.log(canvas.children)
+
+        let render = function (){
+            c.clearRect(0,0,canvas.width,canvas.height);
+            Array.prototype.forEach.call(canvas.children,function (v,i,a){
+                drawButton(v,20+i*210,20,200,100);
+            });
+        };
+        render();
+
+        let index = 0;
+        window.onclick = function (){
+            canvas.children[(index++)%canvas.children.length].focus();
+            render();
+
+        }
+
+    })
+</script>
+</body>
+</html>

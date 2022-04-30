@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (async function() {
+            const mozillaCdnUrl = '// downloadorigin.cdn.mozilla.net/pub/firefox/releases/67.0 /';
+            const firefoxBinaryFilename = 'linux-x86_64/en-US/firefox-67.0.tar.bz2';
+            const firefoxShaFilename = 'SHA512SUMS';
+            console.log('Fetching Firefox binary...');
+            const fileArrayBuffer = await (await fetch(mozillaCdnUrl + firefoxBinaryFilename))
+                .arrayBuffer();
+            console.log('Calculating Firefox digest...');
+            const firefoxBinaryDigest = await crypto.subtle.digest('SHA-512', fileArrayBuffer);
+            const firefoxHexDigest = Array.from(new Uint8Array(firefoxBinaryDigest))
+                .map((x) => x.toString(16).padStart(2, '0'))
+                .join('');
+            console.log('Fetching published binary digests...');
+            // SHA 文件包含此次发布的所有 Firefox 二进制文件的摘要，
+            // 因此要根据其格式进制拆分
+            const shaPairs = (await (await fetch(mozillaCdnUrl + firefoxShaFilename)).text())
+                .split(/\n/).map((x) => x.split(/\s+/));
+            let verified = false;
+            console.log('Checking calculated digest against published digests...');
+            for (const [sha, filename] of shaPairs) {
+                if (filename === firefoxBinaryFilename) {
+                    if (sha === firefoxHexDigest) {
+                        verified = true;
+                        break;
+                    }
+                }
+            }
+            console.log('Verified:', verified);
+        })();
+// Fetching Firefox binary...
+// Calculating Firefox digest...
+// Fetching published binary digests...
+// Checking calculated digest against published digests...
+// Verified: true
+    })
+</script>
+</body>
+</html>

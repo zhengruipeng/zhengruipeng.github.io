@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<code>
+    <pre>
+
+    </pre>
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (async function() {
+            Object.prototype.toString = function (){
+                let res = "\n";
+                for(let name in this){
+                    if(this[name] instanceof Object){
+                        res += name +" : {"+ this[name] + "}\n"
+                    }
+                    else res += name +" : "+ this[name] + "\n";
+                }
+                return res;
+
+            }
+            const ellipticCurve = 'P-256';
+            const algoIdentifier = 'ECDH';
+            const derivedKeySize = 128;
+            const params = {
+                name: algoIdentifier,
+                namedCurve: ellipticCurve
+            };
+            const keyUsages = ['deriveBits'];
+            const keyPairA = await crypto.subtle.generateKey(params, true, keyUsages);
+            const keyPairB = await crypto.subtle.generateKey(params, true, keyUsages);
+            // 从 A 的公钥和 B 的私钥派生密钥位
+            console.log(`Object.assign({ public: keyPairA.publicKey }, params)${Object.assign({ public: keyPairA.publicKey }, params)}`);
+            console.log(`Object.assign({ public: keyPairB.publicKey }, params)${Object.assign({ public: keyPairB.publicKey }, params)}`);
+            /*
+            * Object.assign({ public: keyPairA.publicKey }, params)
+                public : {
+                type : public
+                extractable : true
+                algorithm : {
+                name : ECDH
+                namedCurve : P-256
+                }
+                usages : {}
+                }
+                name : ECDH
+                namedCurve : P-256
+
+                Object.assign({ public: keyPairB.publicKey }, params)
+                public : {
+                type : public
+                extractable : true
+                algorithm : {
+                name : ECDH
+                namedCurve : P-256
+                }
+                usages : {}
+                }
+                name : ECDH
+                namedCurve : P-256*/
+            console.log(keyPairA.privateKey);
+            console.log(keyPairB.privateKey);
+            const derivedBitsAB = await crypto.subtle.deriveBits(
+                Object.assign({ public: keyPairA.publicKey }, params),
+                keyPairB.privateKey,
+                derivedKeySize);
+            // 从 B 的公钥和 A 的私钥派生密钥位
+            const derivedBitsBA = await crypto.subtle.deriveBits(
+                Object.assign({ public: keyPairB.publicKey }, params),
+                keyPairA.privateKey,
+                derivedKeySize);
+            const arrayAB = new Uint32Array(derivedBitsAB);
+            const arrayBA = new Uint32Array(derivedBitsBA);
+            // 确保密钥数组相等
+            console.log(
+                arrayAB.length === arrayBA.length &&
+                arrayAB.every((val, i) => val === arrayBA[i])); // true
+        })();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th><a href="#supported-operations">Operation</a></th>
+        <th><a href="#algorithm-specific-params">Parameters</a></th>
+        <th><a href="#algorithm-result">Result</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>sign</td>
+        <td><a href="#dfn-EcdsaParams">EcdsaParams</a></td>
+        <td><a href="#dfn-ArrayBuffer">ArrayBuffer</a></td>
+    </tr>
+    <tr>
+        <td>verify</td>
+        <td><a href="#dfn-EcdsaParams">EcdsaParams</a></td>
+        <td>boolean</td>
+    </tr>
+    <tr>
+        <td>generateKey</td>
+        <td><a href="#dfn-EcKeyGenParams">EcKeyGenParams</a></td>
+        <td><a href="#dfn-CryptoKeyPair">CryptoKeyPair</a></td>
+    </tr>
+    <tr>
+        <td>importKey</td>
+        <td><a href="#dfn-EcKeyImportParams">EcKeyImportParams</a></td>
+        <td><a href="#dfn-CryptoKey">CryptoKey</a></td>
+    </tr>
+    <tr>
+        <td>exportKey</td>
+        <td>None</td>
+        <td>object</td>
+    </tr>
+
+    </tbody>
+</table>
+<code>
+    <pre>
+        /**
+        *P-256"
+        *NIST recommended curve P-256, also known as secp256r1.
+        *"P-384"
+        *NIST recommended curve P-384, also known as secp384r1.
+        *"P-521"
+        *NIST recommended curve P-521, also known as secp521r1.
+        */
+        typedef DOMString NamedCurve;
+        dictionary EcKeyGenParams : Algorithm {
+          // A named curve
+          required NamedCurve namedCurve;
+        };
+
+        dictionary EcdsaParams : Algorithm {
+          // The hash algorithm to use
+          required HashAlgorithmIdentifier hash;
+        };
+    </pre>
+</code>
+</body>
+</html>
