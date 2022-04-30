@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      //emcc add.c -o add.js -s WASM=1 -s "EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']"
+      WebAssembly.instantiateStreaming(fetch("add.wasm"),{
+          env:{
+
+          }
+      }).then(obj => {
+          console.log(obj);
+          let exports = obj.instance.exports;
+          let module = obj.module;
+          console.log(exports.add(1,3));
+          console.log(module);
+          console.log(exports.touppercase("asdf"))
+          /*let touppercase = module.cwrap("touppercase","string",['string']);
+          console.log(touppercase("123123"))*/
+      })
+  })
+</script>
+</body>
+</html>

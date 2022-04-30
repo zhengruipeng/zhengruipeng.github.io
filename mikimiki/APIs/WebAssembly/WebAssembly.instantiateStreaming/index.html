@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="sequence-before"></p>
+<p class="sequence"></p>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let importArrayToBuffer = function (memory,array,offset){
+            const importBuffer = new Uint32Array(memory.buffer,offset,array.length);
+            for(let i = 0;i< array.length;i++){
+                importBuffer[i] = array[i];
+            }
+        };
+        WebAssembly.instantiateStreaming(fetch('program.wasm'), {
+            env:{
+                print(offset,len){
+
+                    let strBuffer = new Uint32Array(memory.buffer,offset,len);
+                    console.log(Array.from(strBuffer));
+                    document.querySelector(".sequence").innerHTML = JSON.stringify(Array.from(strBuffer));
+                }
+            }
+        })
+        .then(obj => {
+            let exports = obj.instance.exports;
+            memory = exports.memory;
+            console.log(obj.instance);
+            let arr = [];
+            for(let i=0;i<10;i++){
+                arr.push(Math.round(Math.random()*10));
+            }
+
+            document.querySelector(".sequence-before").innerHTML = JSON.stringify(arr);
+            importArrayToBuffer(memory,arr,exports.getArrayOffset());
+            exports.sort();
+        })
+
+
+    })
+</script>
+</body>
+</html>

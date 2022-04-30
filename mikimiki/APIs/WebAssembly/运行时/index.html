@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="sequence-before"></p>
+<p class="sequence"></p>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+
+        WebAssembly.instantiateStreaming(fetch('lifecycle.wasm'), {
+            env:{
+
+            }
+        })
+            .then(obj => {
+                let exports = obj.instance.exports;
+                memory = exports.memory;
+                console.log(obj.instance);
+            })
+
+
+    })
+</script>
+</body>
+</html>

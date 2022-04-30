@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #img_pointer{
+            border:red solid 2px;
+            position:absolute;
+            transition: .3s;
+        }
+        </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div id="img_pointer"></div>
+<script type="text/javascript" src="canvas.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const canvas = this.querySelector("canvas");
+        const imgPointer = this.querySelector("#img_pointer");
+        let c;
+        let image = new Image();
+        image.src = "1.jpg";
+        let process1 = new Promise(resolve => image.onload = function (){resolve(this);});
+        let process2 = new Promise(resolve => Module.onRuntimeInitialized = resolve);
+        Promise.all([process1,process2]).then(res => {
+            console.log(res);
+            let image = res.filter(v => v!==undefined)[0];
+            canvas.height = image.height;
+            canvas.width = image.width;
+            c = canvas.getContext("2d");
+            c.drawImage(image,0,0);
+            let bufAddr = Module._get_img_buf(image.width,image.height);
+            let imageData = c.getImageData(0,0,image.width,image.height).data;
+            Module.HEAPU8.set(imageData,bufAddr);
+            canvas.onclick = function (ev){
+                Module._on_mouse_move(ev.x+scrollX-this.offsetLeft,ev.y+scrollY-this.offsetTop);
+                imgPointer.style.left = ev.x+scrollX-this.offsetLeft+"px";
+                imgPointer.style.top = ev.y+scrollY-this.offsetTop+"px";
+            };
+        })
+       /*
+            let that = this;
+            image.addEventListener("load",function (){
+                console.log(2)
+
+                let bufAddr = that._get_img_buf(this.width,this.height);
+                let imageData = c.getImageData(0,0,this.width,this.height).data;
+                that.HEAPU8.set(imageData,bufAddr);
+            });
+            canvas.onclick = function (ev){
+                Module._on_mouse_move(ev.x+scrollX-this.offsetLeft,ev.y+scrollY-this.offsetTop);
+            };*/
+        canvas.onclick = null;
+        window.onkeydown = function (ev){
+            Module.ccall("on_key_down","null",['string'],[ev.key]);
+        }
+    })
+</script>
+</body>
+</html>

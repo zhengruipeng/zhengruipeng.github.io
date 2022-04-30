@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="sequence-before"></p>
+<p class="sequence"></p>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let importArrayToBuffer = function (memory,array,offset){
+            const importBuffer = new Uint32Array(memory.buffer,offset,array.length);
+            for(let i = 0;i<array.length;i++){
+                importBuffer[i] = array[i];
+            }
+        };
+        fetch("program.wasm")
+            .then(response => response.arrayBuffer())
+            .then(buffer => {
+                let memory;
+                WebAssembly.compile(buffer)
+                    .then(module => {
+                        console.log(WebAssembly.Module.exports(module));
+                        console.log(WebAssembly.Module.imports(module));
+                        console.log(WebAssembly.Module.customSections(module,"customized"));
+                        return WebAssembly.instantiate(module,{
+                            env:{
+                                print(offset,len){
+                                    let strBuffer = new Uint32Array(memory.buffer,offset,len);
+                                    console.log(Array.from(strBuffer));
+                                    document.querySelector(".sequence").innerHTML = JSON.stringify(Array.from(strBuffer));
+                                }
+                            }
+                        });
+                    }).then((instance) => {
+                    let exports = instance.exports;
+                    memory = exports.memory;
+                    console.log(instance);
+                    let arr = [];
+                    for(let i=0;i<10;i++){
+                        arr.push(Math.round(Math.random()*10));
+                    }
+
+                    document.querySelector(".sequence-before").innerHTML = JSON.stringify(arr);
+                    importArrayToBuffer(memory,arr,exports.getArrayOffset());
+                    exports.sort();
+                });
+            });
+    })
+</script>
+</body>
+</html>

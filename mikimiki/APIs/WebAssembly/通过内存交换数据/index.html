@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.Module = {};
+    document.addEventListener("DOMContentLoaded",function (){
+        Module.onRuntimeInitialized = function (){
+            let intPtr = this._fibonacci(10);
+            let arr = [];
+            for(let i = 0;i<10;i++){
+                arr.push(this.HEAP32[(intPtr >> 2)+i]);
+            }
+            console.log(arr);
+        }
+    })
+</script>
+<script type="text/javascript" src="fibonacci.js"></script>
+</body>
+</html>
