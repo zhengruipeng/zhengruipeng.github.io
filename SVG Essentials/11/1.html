@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        use{ stroke:#000; }
+    </style>
+</head>
+<body>
+<svg width="200" height="200" viewBox=" 0 0 200 200">
+    <defs>
+        <filter id="drop-shadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur">
+            <feOffset in="blur" dx="4" dy="4" result="offsetBlur">
+            <feMerge>
+                <feMergeNode in="offsetBlur" >
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <path d="M 30 50 Q 10 30 30 10 50 30 30 50 Z" style="stroke:#000;fill:none" id="main" />
+    </defs>
+    <g filter="url(#drop-shadow)">
+        <use xlink:href="#main" transform=" translate(20,0) rotate(0)" />
+        <use xlink:href="#main" transform="translate(70,0) rotate(45)" />
+        <use xlink:href="#main" transform="translate(110,30) rotate(90)" />
+        <use xlink:href="#main" transform="translate(110,80) rotate(135)" />
+        <use xlink:href="#main" transform="translate(80,120) rotate(180)" />
+        <use xlink:href="#main" transform="translate(30,125) rotate(225)" />
+        <use xlink:href="#main" transform="translate(-5,90) rotate(270)" />
+        <use xlink:href="#main" transform="translate(-10,40 ) rotate(315)" />
+
+        <path d="M 60 60 A 10 10 0 1 1 60 59 Z"></path>
+        <path d="M 55 80 Q 120 150 70 200" style="stroke:#000;fill:none"></path>
+    </g>
+
+
+</svg>
+</body>
+</html>

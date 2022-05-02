@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
+  <style>
+
+  </style>
+  <circle r="100" cx="100" cy="100" style="fill: none;stroke:#000">
+    <animate id="circleAnime" attributeName="fill" attributeType="css" begin="0s" dur="1s" values="#ff9;#f9f;#9ff" keyTimes="0;0.9;1" fill="freeze" />
+  </circle>
+  <text x="100" y="300" style="visibility: hidden">
+    <set attributeName="visibility" attributeType="css" dur="1s" begin="circleAnime.end" to="visible" fill="freeze" />
+<!--    <animate attributeName="visibility" attributeType="css" dur="1s" begin="circleAnime.begin" to="visible" fill="freeze" />-->
+    All gone
+  </text>
+</svg>

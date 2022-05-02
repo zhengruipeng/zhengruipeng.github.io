@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div:eq(0){background-color:red;height:100px;width:100px;}
+    </style>
+</head>
+<body>
+<div ></div>
+<svg width="200" height="200" viewBox="0 0 200 200">
+    <path d="M 50 125 C 100 25 150 225 200 125" style="stroke:#000;fill:none"></path>
+    <path d="M -10 -3 L 10 -3 L 0 -25z" style="fill:yellow;stroke:red">
+        <animateMotion path="M 50 125 C 100 25 150 225 200 125" rotate="auto" dur="6s" fill="freeze" />
+    </path>
+</svg>
+</body>
+</html>

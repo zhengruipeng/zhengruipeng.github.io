@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg height="200" width="400" viewBox="0 0 400 200">
+    <defs>
+        <linearGradient id="model">
+            <stop offset="0%" style="stop-color:white" />
+            <stop offset="100%" style="stop-color:black" />
+        </linearGradient>
+        <linearGradient id="ltr" xlink:href="#model" x1="0%" x2="100%" y1="0%" y2="0%"></linearGradient>
+        <linearGradient id="ttb" xlink:href="#model" x1="0%" x2="0%" y1="0%" y2="100%"></linearGradient>
+    </defs>
+    <rect x="0" y="0" height="200" width="200" style="fill:url(#ltr);stroke:#000;" />
+    <rect x="200" y="0" height="200" width="200" style="fill:url(#ttb);stroke:#000;" />
+</svg>
+</body>
+</html>

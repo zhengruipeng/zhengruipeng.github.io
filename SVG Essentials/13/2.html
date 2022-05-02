@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<path>123</path>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <text x="30" y="30" style="fill:#000;stroke:#000" id="font">123</text>
+    <path d="M 50 50 100 50 100 100 50 100 50 50" style="stroke:#000;fill:none" >
+        <animateTransform begin="font.click" dur="1s" fill="freeze" attributeName="transform" type="rotate" from="0" to="360" ></animateTransform>
+    </path>
+</svg>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let path = document.getElementsByTagNameNS("http://www.w3.org/2000/svg","path");
+        let path2 = document.getElementsByTagName("path");
+        console.log(path,path2);
+
+    })
+</script>
+</body>
+</html>

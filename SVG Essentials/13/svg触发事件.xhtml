@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
+  <style>
+    rect,text{
+      cursor:pointer;
+    }
+    </style>
+  <rect x="50" y="45" height="25px" width="50" style="stroke:#000;fill:#eee;" rx="4" ry="4" id="but" />
+  <text x="60" y="60" >
+    start
+  </text>
+  <path d="M -10 -3 L 10 -3 0 -25 z" style="fill:yellow;stroke:red"  id="pathAnime">
+    <animateMotion path="M 50 125 C 100 25 150 225 200 125" rotate="auto"
+                   keyPoints="0;0.2;0.8;1" keyTimes="0;0.33;0.66;1" calcMode="linear" begin="but.click"
+                   end="pathAnime.click"
+                   dur="3s" fill="freeze" />
+  </path>
+  <path d="M 50 125 C 100 25 150 225 200 125" style="fill:none;stroke:#000" />
+</svg>

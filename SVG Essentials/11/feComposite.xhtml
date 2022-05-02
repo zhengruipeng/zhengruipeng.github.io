@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="900" width="1920">
+    <defs>
+        <filter id="over">
+            <feGaussianBlur stdDeviation="1" result="gaussianB" in="SourceAlpha" />
+            <feOffset dx="2" dy="2" in="gaussianB" result="offset" />
+            <feComposite operator="over" in="SourceGraphic" in2="offset" />
+        </filter>
+        <filter id="in">
+            <feGaussianBlur stdDeviation="1" result="gaussianB" in="SourceAlpha" />
+            <feOffset dx="2" dy="2" in="gaussianB" result="offset" />
+            <feComposite operator="in" in="SourceGraphic" in2="offset" />
+        </filter>
+        <filter id="out">
+            <feGaussianBlur stdDeviation="1" result="gaussianB" in="SourceAlpha" />
+            <feOffset dx="2" dy="2" in="gaussianB" result="offset" />
+            <feComposite operator="out" in="SourceGraphic" in2="offset" />
+        </filter>
+        <filter id="atop">
+            <feGaussianBlur stdDeviation="1" result="gaussianB" in="SourceAlpha" />
+            <feOffset dx="2" dy="2" in="gaussianB" result="offset" />
+            <feComposite operator="atop" in="SourceGraphic" in2="offset" />
+        </filter>
+        <filter id="xor">
+            <feGaussianBlur stdDeviation="1" result="gaussianB" in="SourceAlpha" />
+            <feOffset dx="2" dy="2" in="gaussianB" result="offset" />
+            <feComposite operator="xor" in="SourceGraphic" in2="offset" />
+        </filter>
+        <filter id="arithmetic">
+            <feGaussianBlur stdDeviation="1" result="gaussianB" in="SourceAlpha" />
+            <feOffset dx="2" dy="2" in="gaussianB" result="offset" />
+            <feComposite operator="arithmetic" in="SourceGraphic" in2="offset" k1="0" k2="0.3" k3="0.7" k4="0" />
+        </filter>
+    </defs>
+    <g style="transform:translate(10px,2em)"><text style="font-size:2em;filter:url(#over)">over</text></g>
+    <g style="transform:translate(10px,5em)"><text style="font-size:2em;filter:url(#in)">in</text></g>
+    <g style="transform:translate(10px,8em)"><text style="font-size:2em;filter:url(#out)">out</text></g>
+    <g style="transform:translate(80px,2em)"><text style="font-size:2em;filter:url(#atop)">atop</text></g>
+    <g style="transform:translate(80px,5em)"><text style="font-size:2em;filter:url(#xor)">xor</text></g>
+    <g style="transform:translate(80px,8em)"><text style="font-size:2em;filter:url(#arithmetic)">arithmetic</text></g>
+</svg>

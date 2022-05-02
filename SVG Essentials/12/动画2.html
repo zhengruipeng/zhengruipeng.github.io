@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg height="400" width="400">
+    <style>
+        path{
+            stroke:#000;
+            fill:none;
+        }
+    </style>
+</svg>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    let svg = this.querySelector("svg");
+    let initCirclePath = function (cx,cy,r,d){
+      /*
+      * x = pcost + r0
+      * y = psint + r1
+      * r/2PI = d/180 r = d*2PI/180
+      * */
+        let deltaR = d * 2 * Math.PI / 180
+        let arr = [];
+        for(let i = 0;i<2*Math.PI;i += deltaR){
+            arr.push(r*Math.cos(i)+cx);
+            arr.push(r*Math.sin(i)+cy);
+
+        }
+        return arr;
+    };
+    let createLinesWithGivenPath = function (svg,pathArr){
+        let path = document.createElementNS("http://www.w3.org/2000/svg","path");
+        let pathStr = `M ${pathArr[0]} ${pathArr[1]} `;
+        for(let i = 2;i<pathArr.length;i+=2){
+            pathStr += `L ${pathArr[i]} ${pathArr[i+1]} `;
+        }
+        // console.log(pathStr)
+        path.setAttribute("d",pathStr);
+        path.setAttribute("style","stroke:#000;fill:none");
+        svg.appendChild(path);
+    };
+    let createEmptyPath = function (svg,pathDLength = 0){
+        let path = document.createElementNS("http://www.w3.org/2000/svg","path");
+        if(pathDLength !== 0){
+            let pathStr = "";
+            if(pathDLength>2){
+                pathStr = `M 0 0 `;
+                for(let i = 2;i<pathDLength;i++){
+                    pathStr += `L 0 0 `;
+                }
+            }else{
+                pathStr = `M 0 0 `;
+            }
+            path.setAttribute("d",pathStr);
+
+        }
+        svg.appendChild(path);
+        return path;
+
+    }
+    let addLinesWithGivenPath = function (svg,path,pathArr){
+        let pathStr = `M ${pathArr[0]} ${pathArr[1]} `;
+        pathStr += "L "+pathStr.split(" ").filter(v => typeof v === "number").slice(2).join(" ");
+        /*for(let i = animationConfig.currentPointIndex;
+            i < pathArr.length;i+=2){*/
+            pathStr += ` L ${pathArr[animationConfig.currentPointIndex]} ${pathArr[animationConfig.currentPointIndex + 1]} `;
+        // }
+        animationConfig.currentPointIndex += 2;
+        path.setAttribute("d",pathStr);
+
+
+    };
+    let renderer = function (){
+        addLinesWithGivenPath(svg,targetPath,pathArr);
+        requestAnimationFrame(renderer);
+
+    };
+    let animationConfig = {currentPointIndex:2};
+    let pathArr = initCirclePath(200,200,150,.2)
+    // createLinesWithGivenPath(svg,pathArr);
+    let targetPath = createEmptyPath(svg,pathArr.length);
+    requestAnimationFrame(renderer);
+  })
+</script>
+</body>
+</html>

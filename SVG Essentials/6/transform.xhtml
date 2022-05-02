@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100vh" width="100vw">
+    <style>
+        use{stroke:#000;fill:none;}
+    </style>
+    <defs>
+        <g id="graphics">
+            <polygon points="0 0 50 0 0 50"></polygon>
+            <circle r="25" cx="75" cy="25"></circle>
+            <rect x="0" y="50" height="50" width="100"></rect>
+        </g>
+    </defs>
+    <use xlink:href="#graphics" transform="translate(0,0)" />
+    <use xlink:href="#graphics" transform="translate(50,0) scale(2,1)" style="stroke:red" />
+    <use xlink:href="#graphics" transform="scale(1,2) translate(0,50)" />
+    <use xlink:href="#graphics" transform="rotate(45,0,0) translate(200,0)" style="stroke:blue" />
+    <use xlink:href="#graphics" transform="translate(0,300) skewX(30)" style="stroke:purple" />
+    <use xlink:href="#graphics" transform="translate(150,300) skewY(30)" style="stroke:green" />
+</svg>

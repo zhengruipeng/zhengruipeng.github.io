@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="200" height="200" viewBox="0 0 200 200">
+    <path d="M 0 0 100 0 Q 125 0 125 25 L 125 100" style="stroke:#000;fill:none;">
+        <animate attributeName="d" attributeType="XML"
+        begin="0s" dur="2s" from="M 0 0 100 0 Q 125 0 125 25 L 125 100"
+        to="M 0 0 100 0 Q 100 25 125 25 L 125 100" fill="freeze" repeatCount="indefinite" id="fir" calcMode="discrete"></animate>
+        <animate attributeName="d" attributeType="XML"
+                 begin="fir.begin+2" dur="2s" from="M 0 0 100 0 Q 100 25 125 25 L 125 100"
+                 to="M 0 0 100 0 Q 125 0 125 25 L 125 100" fill="freeze" repeatCount="indefinite"></animate>
+    </path>
+</svg>
+</body>
+</html>

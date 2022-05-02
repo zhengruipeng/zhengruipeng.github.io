@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
+  <style>
+
+  </style>
+  <defs>
+    <path id="curve" d="M 0 0 Q 5 20 10 10 T 20 20" style="stroke:#000;fill:none" />
+    <filter id="blur-background">
+      <feImage xlink:href="#rect" result="image" />
+      <feGaussianBlur in="image" stdDeviation="2" result="blur" />
+      <feComposite in="blur" in2="SourceGraphic" operator="in" />
+      <feOffset dx="5" dy="5" result="offsetBlur" />
+    </filter>
+  </defs>
+  <g enable-background="new">
+    <rect x="0" y="0" width="60" height="60" style="fill:lightblue;stroke:blue;stroke-width:10" id="rect" />
+    <circle cx="40" cy="40" r="30" style="fill:#fff;filter:url(#blur-background)" />
+  </g>
+</svg>

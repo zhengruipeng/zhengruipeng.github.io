@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="200" height="200" viewBox="0 0 200 200">
+    <defs>
+        <path d="M 30 50 Q 10 30 30 10 50 30 30 50 Z" style="stroke:#000;fill:none" id="main" />
+        <filter id="filter">
+            <feImage xlink:href="../../image/1.jpg" x="0" y="0" height="100%" width="100%" result="image" />
+            <feComponentTransfer in="image" result="image">
+                <feFuncB type="gamma" amplitude="1" exponent="0.707" offset="0" />
+                <feFuncR type="gamma" amplitude="1" exponent="0.707" offset="0" />
+                <feFuncG type="gamma" amplitude="1" exponent="0.707" offset="0" />
+            </feComponentTransfer>
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2" />
+            <feOffset dx="2" dy="2" in="blur" result="blur" />
+            <feMerge>
+                <feMergeNode in="image" />
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic">
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g filter="url(#filter)">
+        <use xlink:href="#main" transform=" translate(20,0) rotate(0)" />
+        <use xlink:href="#main" transform="translate(70,0) rotate(45)" />
+        <use xlink:href="#main" transform="translate(110,30) rotate(90)" />
+        <use xlink:href="#main" transform="translate(110,80) rotate(135)" />
+        <use xlink:href="#main" transform="translate(80,120) rotate(180)" />
+        <use xlink:href="#main" transform="translate(30,125) rotate(225)" />
+        <use xlink:href="#main" transform="translate(-5,90) rotate(270)" />
+        <use xlink:href="#main" transform="translate(-10,40 ) rotate(315)" /》
+        <path d="M 60 60 A 10 10 0 1 1 60 59 Z"></path>
+        <path d="M 55 80 Q 120 150 70 200" style="stroke:#000;fill:none"></path>
+    </g>
+
+</svg>
+</body>
+</html>

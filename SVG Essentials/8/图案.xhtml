@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
+  <style>
+
+  </style>
+  <defs>
+    <pattern id="uoCircle" x="0" y="0" height="40" width="40" patternUnits="userSpaceOnUse" patternContentUnits="objectBoundingBox" style="stroke: #000;fill:none">
+      <circle r="20" cx="20" cy="20" />
+    </pattern>
+    <pattern id="ouCircle" x="0" y="0" height=".35" width=".35" patternUnits="objectBoundingBox" patternContentUnits="userSpaceOnUse" style="stroke: #000;fill:none">
+      <circle r="20" cx="20" cy="20" />
+    </pattern>
+    <pattern id="uuCircle" x="0" y="0" height="40" width="40" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" style="stroke: #000;fill:none">
+      <circle r="20" cx="20" cy="20" />
+    </pattern>
+    <pattern id="ooCircle" x="0" y="0" height=".35" width=".35" patternUnits="objectBoundingBox" patternContentUnits="objectBoundingBox" style="stroke: #000;fill:none;">
+      <circle r="20" cx="20" cy="20" style="stroke-width: 0.01;stroke:#000;fill: none" />
+    </pattern>
+  </defs>
+  <rect x="40" y="20" width="100" height="100" style="fill:url(#uoCircle);stroke:#000">
+    <animate attributeType="xml" attributeName="x" from="40" to="540" dur="1s" fill="freeze" />
+    <animate attributeType="xml" attributeName="height" from="100" to="150" dur="1s" fill="freeze" />
+    <animate attributeType="xml" attributeName="width" from="100" to="150" dur="1s" fill="freeze" />
+  </rect>
+  <rect x="40" y="220" width="200" height="200" style="fill:url(#ouCircle);stroke:#000">
+    <animate attributeType="xml" attributeName="x" from="40" to="540" dur="1s" fill="freeze" />
+  </rect>
+  <rect x="40" y="420" width="200" height="200" style="fill:url(#uuCircle);stroke:#000">
+    <animate attributeType="xml" attributeName="x" from="40" to="540" dur="1s" fill="freeze" />
+  </rect>
+  <g transform="translate(0,620)">
+  <rect x="0" y="0" width="200" height="200" style="fill:url(#ooCircle);stroke:#000">
+    <animate attributeType="xml" attributeName="x" from="40" to="540" dur="1s" fill="freeze" />
+  </rect>
+  </g>
+</svg>

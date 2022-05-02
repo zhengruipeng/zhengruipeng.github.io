@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
+  <path d="M 100 100 L 200 100 200 200 100 200 100 100" style="fill:none;stroke:#000">
+    <animate attributeName="d" attributeType="xml" id="to-triangle"
+             to="M 150 100 L 200 200 100 200 100 200 150 100" begin=".7s" dur=".2s" fill="freeze" />
+    <animate attributeName="d" attributeType="xml" id="to-line"
+             to="M 200 200 L 100 200 100 200 100 200 100 200" begin="to-triangle.end+.7s" dur=".2s" fill="freeze" />
+    <animate attributeName="d" attributeType="xml"
+             to="M 100 200 L 100 200 100 200 100 200 100 200" begin="to-line.end+.7s" dur=".2s" fill="freeze" />
+  </path>
+</svg>

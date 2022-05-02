@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="900" width="1920">
+    <style>
+
+    </style>
+    <defs>
+        <filter id="image-filter" filterUnits="objectBoundingBox">
+            <feImage xlink:href="./1.jpg" x="0" y="0" height="100%" width="100%" preserveAspectRatio="none" result="image" />
+            <feComponentTransfer in="image" result="trans-image">
+                <feFuncR type="linear" slope="3" intercept="0" />
+                <feFuncG type="linear" slope="1.5" intercept="0" />
+                <feFuncB type="linear" slope="1" intercept="0" />
+                <feFuncA type="linear" slope="1.5" intercept="0" />
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode in="trans-image" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <filter id="gamma-filter" filterUnits="objectBoundingBox">
+            <feImage xlink:href="./1.jpg" x="0" y="0" height="100%" width="100%" preserveAspectRatio="none" result="image" />
+            <feComponentTransfer in="image" result="trans-image">
+                <feFuncR type="gamma" amplitude="1" exponent="0.01" offset="0" />
+                <feFuncG type="gamma" amplitude="1" exponent="2" offset="0" />
+                <feFuncB type="gamma" amplitude="1" exponent="2" offset="0" />
+                <feFuncA type="gamma" amplitude="1" exponent="0.707" offset="0" />
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode in="trans-image" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <filter id="identity-filter" filterUnits="objectBoundingBox">
+            <feImage xlink:href="./1.jpg" x="0" y="0" height="100%" width="100%" preserveAspectRatio="none" result="image" />
+            <feComponentTransfer in="image" result="trans-image">
+                <feFuncR type="identity" />
+                <feFuncG type="identity" />
+                <feFuncB type="identity" />
+                <feFuncA type="identity" />
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode in="trans-image" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <filter id="table-filter" filterUnits="objectBoundingBox">
+            <feImage xlink:href="./1.jpg" x="0" y="0" height="100%" width="100%" preserveAspectRatio="none" result="image" />
+            <feComponentTransfer in="image" result="trans-image">
+                <feFuncR type="table" tableValues="0.0,0.5,0.6,0.85,1.0"/>
+                <feFuncG type="table" tableValues="0.0,0.5,0.6,0.85,1.0"/>
+                <feFuncB type="table" tableValues="0.0,0.5,0.6,0.85,1.0"/>
+                <feFuncA type="table" tableValues="0.0,0.5,0.6,0.85,1.0"/>
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode in="trans-image" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <filter id="discrete-filter" filterUnits="objectBoundingBox">
+        <feImage xlink:href="./1.jpg" x="0" y="0" height="100%" width="100%" preserveAspectRatio="none" result="image" />
+        <feComponentTransfer in="image" result="trans-image">
+            <feFuncR type="discrete" tableValues="0.125 0.375 0.625 0.875"/>
+            <feFuncG type="discrete" tableValues="0.125 0.375 0.625 0.875"/>
+            <feFuncB type="discrete" tableValues="0.125 0.375 0.625 0.875"/>
+            <feFuncA type="discrete" tableValues="0.125 0.375 0.625 0.875"/>
+        </feComponentTransfer>
+        <feMerge>
+            <feMergeNode in="trans-image" />
+            <feMergeNode in="SourceGraphic" />
+        </feMerge>
+    </filter>
+        <path d="M 30 50 Q 10 30 30 10 50 30 30 50 Z" style="stroke:#000;fill:#eee" id="main" />
+    </defs>
+    <g style="filter:url(#image-filter)">
+        <use xlink:href="#main" transform=" translate(20,0) rotate(0)" />
+        <use xlink:href="#main" transform="translate(72,-2) rotate(45)" />
+        <use xlink:href="#main" transform="translate(110,30) rotate(90)" />
+        <use xlink:href="#main" transform="translate(112,82) rotate(135)" />
+        <use xlink:href="#main" transform="translate(80,120) rotate(180)" />
+        <use xlink:href="#main" transform="translate(30,125) rotate(225)" />
+        <use xlink:href="#main" transform="translate(-10,90) rotate(270)" />
+        <use xlink:href="#main" transform="translate(-12,38 ) rotate(315)" />
+
+        <path d="M 60 60 A 10 10 0 1 1 60 59 Z" style="stroke:#000;fill:#888" />
+        <path d="M 55 80 Q 120 150 70 200" style="stroke:#000;fill:none" />
+    </g>
+    <g style="filter:url(#gamma-filter);transform:translateY(250px)">
+        <use xlink:href="#main" transform=" translate(20,0) rotate(0)" />
+        <use xlink:href="#main" transform="translate(72,-2) rotate(45)" />
+        <use xlink:href="#main" transform="translate(110,30) rotate(90)" />
+        <use xlink:href="#main" transform="translate(112,82) rotate(135)" />
+        <use xlink:href="#main" transform="translate(80,120) rotate(180)" />
+        <use xlink:href="#main" transform="translate(30,125) rotate(225)" />
+        <use xlink:href="#main" transform="translate(-10,90) rotate(270)" />
+        <use xlink:href="#main" transform="translate(-12,38 ) rotate(315)" />
+
+        <path d="M 60 60 A 10 10 0 1 1 60 59 Z" style="stroke:#000;fill:#888" />
+        <path d="M 55 80 Q 120 150 70 200" style="stroke:#000;fill:none" />
+    </g>
+    <g style="filter:url(#identity-filter);transform:translateX(200px)">
+        <use xlink:href="#main" transform=" translate(20,0) rotate(0)" />
+        <use xlink:href="#main" transform="translate(72,-2) rotate(45)" />
+        <use xlink:href="#main" transform="translate(110,30) rotate(90)" />
+        <use xlink:href="#main" transform="translate(112,82) rotate(135)" />
+        <use xlink:href="#main" transform="translate(80,120) rotate(180)" />
+        <use xlink:href="#main" transform="translate(30,125) rotate(225)" />
+        <use xlink:href="#main" transform="translate(-10,90) rotate(270)" />
+        <use xlink:href="#main" transform="translate(-12,38 ) rotate(315)" />
+
+        <path d="M 60 60 A 10 10 0 1 1 60 59 Z" style="stroke:#000;fill:#888" />
+        <path d="M 55 80 Q 120 150 70 200" style="stroke:#000;fill:none" />
+    </g>
+    <g style="filter:url(#table-filter);transform:translateX(200px) translateY(250px)">
+        <use xlink:href="#main" transform=" translate(20,0) rotate(0)" />
+        <use xlink:href="#main" transform="translate(72,-2) rotate(45)" />
+        <use xlink:href="#main" transform="translate(110,30) rotate(90)" />
+        <use xlink:href="#main" transform="translate(112,82) rotate(135)" />
+        <use xlink:href="#main" transform="translate(80,120) rotate(180)" />
+        <use xlink:href="#main" transform="translate(30,125) rotate(225)" />
+        <use xlink:href="#main" transform="translate(-10,90) rotate(270)" />
+        <use xlink:href="#main" transform="translate(-12,38 ) rotate(315)" />
+
+        <path d="M 60 60 A 10 10 0 1 1 60 59 Z" style="stroke:#000;fill:#888" />
+        <path d="M 55 80 Q 120 150 70 200" style="stroke:#000;fill:none" />
+    </g>
+    <g style="filter:url(#discrete-filter);transform:translateX(400px)">
+        <use xlink:href="#main" transform=" translate(20,0) rotate(0)" />
+        <use xlink:href="#main" transform="translate(72,-2) rotate(45)" />
+        <use xlink:href="#main" transform="translate(110,30) rotate(90)" />
+        <use xlink:href="#main" transform="translate(112,82) rotate(135)" />
+        <use xlink:href="#main" transform="translate(80,120) rotate(180)" />
+        <use xlink:href="#main" transform="translate(30,125) rotate(225)" />
+        <use xlink:href="#main" transform="translate(-10,90) rotate(270)" />
+        <use xlink:href="#main" transform="translate(-12,38 ) rotate(315)" />
+
+        <path d="M 60 60 A 10 10 0 1 1 60 59 Z" style="stroke:#000;fill:#888" />
+        <path d="M 55 80 Q 120 150 70 200" style="stroke:#000;fill:none" />
+    </g>
+
+
+
+</svg>

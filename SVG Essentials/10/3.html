@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="200" height="200" viewBox="0 0 200 200">
+    <defs>
+        <mask id="redmask" x="0" y="0" width="1" height="1" maskContentUnits="objectBoundingBox">
+            <rect width="1" height="1" x="0" y="0" style="fill:#fff;opacity:1" />
+        </mask>
+    </defs>
+
+    <rect x="0" y="0" height="100" width="100" style="fill:blue;stroke:#000;mask:url(#redmask)"></rect>
+</svg>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
+    <style>
+
+    </style>
+    <defs>
+        <filter id="drop-shadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="shadow" />
+            <feOffset dx="4" dy="4" in="shadow" result="offset" />
+            <feMerge>
+                <feMergeNode in="offset" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <path d="M 30 50 Q 10 30 30 10 50 30 30 50 Z" style="stroke:#000;fill:#eee" id="main" />
+    </defs>
+    <g filter="url(#drop-shadow)">
+        <use xlink:href="#main" transform=" translate(20,0) rotate(0)" />
+        <use xlink:href="#main" transform="translate(72,-2) rotate(45)" />
+        <use xlink:href="#main" transform="translate(110,30) rotate(90)" />
+        <use xlink:href="#main" transform="translate(112,82) rotate(135)" />
+        <use xlink:href="#main" transform="translate(80,120) rotate(180)" />
+        <use xlink:href="#main" transform="translate(30,125) rotate(225)" />
+        <use xlink:href="#main" transform="translate(-10,90) rotate(270)" />
+        <use xlink:href="#main" transform="translate(-12,38) rotate(315)" />
+
+        <path d="M 60 60 A 10 10 0 1 1 60 59 Z" style="stroke:#000;fill:#888" />
+        <path d="M 55 80 Q 120 150 70 200" style="stroke:#000;fill:none" />
+    </g>
+</svg>

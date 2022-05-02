@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="200" height="200" viewBox="0 0 200 200">
+    <defs>
+        <linearGradient id="model">
+            <stop style="stop-color:red" offset="0%" />
+            <stop style="stop-color:blue" offset="100%" />
+        </linearGradient>
+        <clipPath id="clip" ><rect x="15" y="15" width="20" height="20" /></clipPath>
+    </defs>
+    <rect style="fill:url(#model);stroke:#000;clip-path: url(#clip)" x="0" y="0" width="200" height="200" />
+</svg>
+</body>
+</html>

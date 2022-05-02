@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
+    <style>
+
+    </style>
+    <defs>
+        <clipPath id="circle" clipPathUnits="userSpaceOnUse">
+            <circle r="50" cx="50" cy="50" />
+        </clipPath>
+        <clipPath id="ocircle" clipPathUnits="objectBoundingBox">
+            <circle r=".5" cx=".5" cy=".5" />
+        </clipPath>
+
+        <g id="graphics" >
+            <polygon points="0 0 50 0 0 50" />
+            <circle r="25" cx="75" cy="25" />
+            <rect x="0" y="50" height="50" width="100" />
+        </g>
+    </defs>
+    <g style="transform: translate(20px,20px)">
+        <circle r="50" cx="50" cy="50" style="stroke:#000;fill:none" />
+        <use xlink:href="#graphics" style="stroke:#000;fill:red" />
+    </g>
+    <g style="transform: translate(20px,200px)">
+        <use xlink:href="#graphics" style="stroke:#000;fill:red;clip-path: url(#circle)" />
+    </g>
+    <g style="transform: translate(20px,400px)">
+        <use xlink:href="#graphics" style="stroke:#000;fill:red;clip-path: url(#ocircle)" />
+    </g>
+
+</svg>

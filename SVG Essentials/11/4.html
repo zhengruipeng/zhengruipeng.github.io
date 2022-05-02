@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="300" height="100" viewBox="0 0 400 250">
+    <title>Result of saturate on primary colors</title>
+    <defs>
+
+        <filter id="rotate" filterUnits="objectBoundingBox">
+            <feColorMatrix type="hueRotate" values="45"/>
+        </filter>
+
+        <g id="squares">
+            <rect id="red" x="0" y="0" width="30" height="30" style="fill: #f00;"/>
+            <rect id="green" x="40" y="0" width="30" height="30" style="fill: #0f0;"/>
+            <rect id="blue" x="80" y="0" width="30" height="30" style="fill: #00f;"/>
+            <rect id="yellow" x="120" y="0" width="30" height="30" style="fill: #ff0;"/>
+            <rect id="magenta" x="160" y="0" width="30" height="30" style="fill: #f0f;"/>
+            <rect id="cyan" x="200" y="0" width="30" height="30" style="fill: #0ff;"/>
+        </g>
+    </defs>
+
+    <g style="font-size: 10pt; text-anchor: end;">
+        <text x="5" y="15">Rotate</text>
+        <text x="5" y="35">0°</text>
+        <text x="5" y="75">65°</text>
+    </g>
+
+    <g transform="translate( 50, 10 )">
+        <use xlink:href="#squares"  />
+    </g>
+
+    <g transform="translate( 50, 50 )">
+        <use xlink:href="#squares"  style="filter: url(#rotate);"/>
+</svg>
+
+</body>
+</html>
