@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div contextmenu="popup-menu">
+    Right-click to see the adjusted context menu
+</div>
+
+<menu type="context" id="popup-menu" style="display:none">
+    <menuitem>Action</menuitem>
+    <menuitem>Another action</menuitem>
+    <hr/>
+    <menuitem>Separated action</menuitem>
+</menu>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let popupMenu = this.getElementById("popup-menu");
+        /* popupMenu.onclick = function (){
+               console.log(this);
+         };*/
+        for(let value of popupMenu.children){
+            value.onclick = function (){
+                console.log(this.textContent);
+            }
+        }
+    });
+</script>
+</body>
+</html>

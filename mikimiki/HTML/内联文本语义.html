@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre style="line-height:2em;">
+<a>超链接</a>
+<abbr title="全称">一个术语的缩写</abbr>
+<b>用于将读者的注意引导次标签上</b>
+<bdi>不知道从什么方向嵌入文本时使用</bdi>
+<bdo>用于覆盖文本朝向</bdo>
+<cite>引用作品或者是URL用</cite>
+<code>表示一段计算机代码</code>
+<data>讲一个指定的内容与机械翻译放在一起</data>
+<dfn>定义一个属于</dfn>
+<mark>标记显示文本</mark>
+<q>封闭短的行内医用文本</q>
+<ruby>
+    <rb>被注释并且注音的内容</rb>
+    <rp>不能使用注解</rp>
+    <rt>注音</rt>
+    <rtc>语义注解</rtc>
+</ruby>
+<s>用来表示不相关或者是不准确的事情</s>
+<samp>用于表示计算机程序的输出</samp>
+<time>用于表示24小时时间</time>
+<tt>电报文本元素</tt>
+<var>表示变量的名称，或者由用户提供的值。</var>
+</pre>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const body = this.body;
+        let addTagName = function (ele){
+            for(let value of ele){
+                if(value.tagName === "RUBY")continue;
+                if(value.children !== null)addTagName(value.children);
+                if(value.tagName === "SCRIPT" || value.tagName === "PRE") continue;
+                value.textContent = value.tagName + ":   " + value.textContent;
+            }
+        }
+        addTagName(body.children);
+
+    })
+</script>
+</body>
+</html>

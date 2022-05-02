@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<map name="image" id="image" style="position:absolute;">
+    <area shape="circle" coords="100 100 100" id="circle" />
+    <area shape="rect" coords="250 200 350 300" id="rect" />
+    <area shape="poly" coords="200 300 100 400 300 400" id="poly" />
+</map>
+<svg width="400" height="400" style="position:absolute;z-index:-1" id="svg">
+    <circle cx="100" r="100" cy="100" stroke="#000" style="fill:none;"></circle>
+    <rect x="250" y="200" width="100" height="100" stroke="#000" style="fill:none;"></rect>
+    <path d="M 200 300 L 100 400 300 400 Z" stroke="#000" style="fill:none;"></path>
+</svg>
+<img src="./1.jpg" usemap="#image" style="height:400px;width:400px;opacity:0.5">
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const circle = this.getElementById("circle");
+        const rect = this.getElementById("rect");
+        const poly = this.getElementById("poly");
+        const svg = this.getElementById("svg");
+        const image = this.getElementById("image");
+        rect.onclick = function (){
+            console.log("rect");
+        };
+        poly.onclick = function (){
+            console.log("poly");
+        };
+        circle.onclick = function (){
+            console.log("circle");
+        };
+        svg.onclick = function (e) {
+            let x = e.clientX;
+            let y = e.clientY;
+            const ev = document.createEvent("MouseEvents");
+            ev.initMouseEvent("click",false,true,window,0,x,y,x,y,false,false,false,false,1);
+            console.log(ev);
+            image.dispatchEvent(ev);
+            circle.dispatchEvent(ev);
+        };
+        image.onclick = function (){console.log("map")}
+    })
+    </script>
+</body>
+</html>

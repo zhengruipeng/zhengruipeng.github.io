@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<blockquote>此标签中是引用内容</blockquote>
+<dir>HTML目录元素</dir>
+<figure>次元素代表一段独立的内容，<figcaption>此元素使相关联的图片的说明或标题</figcaption></figure>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const body = this.body;
+        let addTagName = function (ele){
+            for(let value of ele){
+                if(value.children !== null)addTagName(value.children);
+                if(value.tagName === "SCRIPT" || value.tagName === "PRE") continue;
+
+                value.textContent = value.tagName + ":   " + value.textContent;
+            }
+        }
+        addTagName(body.children);
+
+    })
+</script>
+</body>
+</html>
