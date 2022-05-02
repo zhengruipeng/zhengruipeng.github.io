@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数1</title>
+</head>
+<body>
+<div id="div1" style="font-size:60px">0</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        navigator.usb.onconnect = function (){
+            alert(1)
+        };
+        navigator.usb.ondisconnect = function (){
+            alert(2)
+        }
+        console.log(navigator.usb)
+
+        const filters = [
+            {vendorId: 0x1209, productId: 0xa800},
+            {vendorId: 0x1209, productId: 0xa850}
+        ];
+        navigator.usb.requestDevice({filters: filters})
+            .then(usbDevice => {
+                console.log("Product name: " + usbDevice.productName);
+            })
+            .catch(e => {
+                console.log("There is no device. " + e);
+            });
+    })
+</script>
+<input type="button" value="开始计时" />
+<input type="button" value="停止计时" />
+
+</body>
+</html>
