@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        video{
+            width:320px;
+            height:240px;
+            border:1px solid black;
+        }
+        div{
+            display:inline-block;
+        }
+        button,input{
+            cursor:pointer;
+            transition:.3s;
+            border:1px solid #eee;
+            border-radius:3px;
+            padding:5px 15px;
+
+        }
+        button:hover,input:hover{
+            box-shadow: #0099ff 0 0 15px;
+            background-color:rgba(0,153,256,.2);
+        }
+    </style>
+</head>
+<body>
+<div id="setup">
+    <p>demo</p>
+    <p>
+        <input type="text" name="key" id="key" />
+        <button id="connect" >Connect</button>
+        <span id="statusline" style="display: none">Status:
+            <span id="status">Disconnected</span>
+        </span>
+        <button id="call" style="display: none" >call</button>
+    </p>
+</div>
+
+<div id="scMessage" style="float:right;display: none">
+    <p>
+        <input type="text" name="message" id="message" />
+        <button id="send" style="display: none" >send</button>
+    </p>
+    <p>Response :
+        <span id="response">
+
+        </span>
+    </p>
+</div>
+
+<br />
+
+<div style="width:30%;vertical-align:top">
+    <div>
+        <video id="myVideo" autoplay controls muted></video>
+    </div>
+    <p>
+        <b>Outgoing Messages</b>
+        <br />
+        <textarea id="outmessage" rows="100" style="width:100%"></textarea>
+    </p>
+</div>
+
+<div style="width:30%;vertical-align:top">
+    <textarea id="chatbox" rows="10" style="width:100%"></textarea>
+    <p style="width:100%">
+        <b>Real-Time:</b>
+        <textarea id="rtt" rows="2" style="width:100%"></textarea>
+    </p>
+    <p style="width:100%">
+        <b>chat msg:</b>
+        <input type="text" style="width:100%;" name="chat" id="chat" />
+    </p>
+</div>
+
+<div style="width:30%;vertical-align:top">
+    <div>
+        <video id="yourVideo" autoplay controls></video>
+    </div>
+    <p>
+        <b>Incoming Messages</b>
+        <br />
+        <textarea id="inmessages" rows="100" style="width:100%"></textarea>
+    </p>
+</div>
+<script></script>
+<script type="text/javascript" src="clientXHRSignalingChannel.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let signalingChannel, key, id,
+            haveLocalMedia = false,
+            connected = false,
+            myVideoStream;
+        let queryparams;
+
+        let weWaited = false;
+        let yourVideoStream;
+        let doNothing = function (){};
+        let pc,dc,      //数据通道
+            data = {};
+        let constraints = {
+            mandatory:{
+                OfferToReceiveAudio:true,
+                OfferToReceiveVideo:true,
+            }
+        };
+
+        const keyElement = document.getElementById('key');
+        const responseElement = document.getElementById('response');
+        const messageElement = document.getElementById('message');
+        const outmessageElement = document.getElementById('outmessage');
+        const myVideo = document.getElementById("myVideo");
+        const statuslineElement = document.getElementById("statusline");
+        const statusElement = document.getElementById("status");
+        const sendElement = document.getElementById("send");
+        const connectElement = document.getElementById("connect");
+        const scMessageElement = document.getElementById("scMessage");
+        const yourVideo = document.getElementById("yourVideo");
+        const callElement = document.getElementById("call");
+        const chatboxElement = document.getElementById("chatbox");
+        const chatElement = document.getElementById("chat");
+        const rttElement = document.getElementById("rtt");
+
+        //用于设置状态的工具函数
+        let setStatus = function (str){
+            switch(str){
+                case "Waiting":
+                    statuslineElement.style.display = "inline";
+                    statusElement.innerText = "Waiting for peer signaling connection";
+                    sendElement.style.display = "none";
+                    callElement.style.display = "none";
+                    break;
+                case "Connected":
+                    statuslineElement.style.display = "inline";
+                    statusElement.innerText = "Peer signaling connected , waiting for local media";
+                    sendElement.style.display = "inline";
+                    callElement.style.display = "none";
+                    scMessageElement.style.display = "inline-block";
+                    break;
+                case "Ready for call":
+                    statusElement.innerText = "Ready for call";
+                    callElement.style.display = "inline";
+                    break;
+                /*case "Set up":
+                    statusElement.innerText = "Peer signaling connected and local media obtained";
+                    break;*/
+                case "On call":
+                    statusElement.innerHTML = "On call";
+                    callElement.style.display = "none";
+                    break;
+
+                default:
+            }
+        };
+
+        //检查配置状态
+        let verifySetupDone = function (){
+            if(connected && haveLocalMedia)setStatus("Set up");
+        };
+
+
+        let onIceCandidate = function (e){
+            if(e.candidate){
+                send({
+                    type:"candidate",
+                    mlineindex:e.candidate.sdpMLineIndex,
+                    candidate:e.candidate.candidate,
+                });
+            }
+        };
+        let onRemoteStreamAdded = function (e){
+            yourVideoStream = e.stream;
+            //attachMediaStream(yourVideo,yourVideoStream);
+            yourVideo.srcObject = yourVideoStream;
+           // console.log("getUserMedia");
+            setStatus("On call");
+        };
+        let onRemoteStreamRemoved = function (e){};
+        let onDataChannelAdded = function (e){
+            dc = e.channel;
+            setupDataHandlers();
+            sendChat("hello");
+        };
+        let setupDataHandlers = function (){
+            data.send = function (msg){
+                msg = SON.stringify(msg);
+                console.log("sending " + msg + "over data channel");
+                dc.send(msg);
+            };
+            dc.onmessage = function (e){
+                let msg = JSON.parse(e.data);
+                if(msg.rtt){
+                    console.log("received rtt of '" + msg.rtt + "'");
+                    rttElement.value = msg.rtt;
+                    msg = msg.rtt;
+                }else if(msg.chat){
+                    console.log("received chat of '" + msg.chat + "'");
+                    chatboxElement.value += "<- " + msg.chat + "\n";
+                    rttElement.value = "";
+                    chatboxElement.scrollTop = chatboxElement.scrollHeight;
+                    msg = msg.chat;
+                }else{
+                    console.log("received " + msg + "on data channel");
+                }
+            };
+        };
+        let sendRtt = function (){
+            let msg = chatElement.value;
+            data.send({rtt:msg});
+        };
+        let sendChat = function (msg){
+            msg = msg || chat.value;
+            console.log("sendChat (" + msg + ")");
+            chatboxElement.value += "->" + msg + "\n";
+            data.send({chat:msg});
+            chatElement.value = "";
+            chatboxElement.scrollTop = chatboxElement.scrollHeight;
+        };
+        let gotDescription = function (localDesc){
+            pc.setLocalDescription(localDesc);
+            send(localDesc);
+        }
+        let call = function (){
+            dc = pc.createDataChannel("chat");
+            setupDataHandlers();
+            pc.createOffer(gotDescription,doNothing,constraints);
+        };
+        let answer = function (){
+            pc.createAnswer(gotDescription,doNothing,constraints);
+        };
+        let attachMedia = function (){
+            pc.addStream(myVideoStream);
+            setStatus("Ready for call");
+            if(queryparams && queryparams.call && weWaited){
+                call();
+            }
+        };
+        let attachMediaIfReady = function (){
+            if(pc && haveLocalMedia) {
+                attachMedia();
+            }
+        };
+
+        let createPC = function (){
+            let stunuri = true;
+            let turnuri = false;
+            let myfalse = function (v){
+                return ((v === "0")||(v === "false")||(!v));
+            };
+
+            let config = [];
+            if(queryparams){
+                if('stunuri' in queryparams){
+                    stunuri = !myfalse(queryparams['stunuri']);
+                }
+                if('turnuri' in queryparams){
+                    turnuri = !myfalse(queryparams.turnuri);
+                };
+            };
+            if(stunuri){
+                config.push({'url':"stun:stun.l.google.com:19302"});
+            }
+            if(turnuri){
+                if(stunuri){
+                    config.push({"url":"turn:user@turn.webrtcbook.com","credential":"test"});
+                }else {
+                    config.push({"url":"turn:user@turn-only.webrtcbook.com","credential":"test"});
+                }
+            }
+            console.log("config = "+JSON.stringify(config));
+            pc = new RTCPeerConnection({iceServers:config});
+            pc.onicecandidate = onIceCandidate;
+            pc.onaddstream = onRemoteStreamAdded;
+            pc.onremovestream = onRemoteStreamRemoved;
+            pc.ondatachannel = onDataChannelAdded;
+            console.log("createPC");
+            attachMediaIfReady();
+        };
+
+        //配置信令通道
+        let connect = function (){
+            key = keyElement.value;
+            let scHandlers = {
+                onWaiting(){
+                    setStatus("Waiting");
+                    weWaited = true;
+                    //verifySetupDone();
+                },
+                onConnected(){
+                    //connected = verifySetupDonetrue;
+                    setStatus("Connected");
+                    //();
+                    createPC();
+                },
+                onMessage(msg){     //handle message
+                    let msgE = document.getElementById("inmessages");
+                    let msgString = JSON.stringify(msg).replace(/\\r\\n/g,"\n");
+                    msgE.value = msgString+ "\n" + msgE.value;
+                    if(msg.type === "offer"){
+                        pc.setRemoteDescription(new RTCSessionDescription(msg));
+                        answer();
+                    }else if(msg.type === "answer"){
+                        pc.setRemoteDescription(new RTCSessionDescription(msg));
+                    }else if(msg.type === "candidate"){
+                        pc.addIceCandidate(
+                            new RTCIceCandidate({sdpMLineIndex:msg.mlineindex,candidat:msg.candidate}));
+                    }
+                },
+            };
+            signalingChannel = createDignalingChannel(key,scHandlers);
+            signalingChannel.connect(function (){
+                responseElement.innerHTML = msg;
+            });
+        };
+
+        //发送信息
+        let send = function (msg) {
+            msg = msg || messageElement.value;
+            let msgString = JSON.stringify(msg);
+            let handler = function (res) {
+                responseElement.innerText = res;
+                return false;
+            };
+            outmessageElement.value = msgString + "\n" + outmessageElement.value;
+            signalingChannel.send(msg, handler);
+        };
+
+        //获取媒体源
+        let getMedia = function (){
+            navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(function (mediaStream){
+                myVideoStream = mediaStream;
+                haveLocalMedia = true;
+                myVideo.srcObject = mediaStream;
+                console.log("getUserMedia");
+                //verifySetupDone();
+                attachMediaIfReady();
+
+            },function (){
+                console.warn("Cound get video");
+            })
+        };
+
+        if(queryparams && queryparams['key']){
+            keyElement.value = queryparams['key'];
+            connect();
+        }
+
+        getMedia();
+
+        messageElement.onkeyup =
+            keyElement.onkeyup = function (e){
+            if(e.keyCode === 13){
+                connect();
+                return false;
+            }
+        };
+        connectElement.onclick = function (){
+            connect();
+        };
+        sendElement.onclick = function (){
+            send();
+        };
+        callElement.onclick = function (){
+            call();
+        };
+        chatElement.onkeyup = function(e){
+            sendRtt();
+            if(e.keyCode === 13){
+                sendChat();
+                return false;
+            }
+        };
+
+    });
+</script>
+</body>
+</html>

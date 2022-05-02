@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+            overflow: hidden;
+            --select-mode-radius:20px;
+            --select-mode-font-size:1.5em;
+            --select-mode-font-family:微软雅黑;
+            --select-mode-background-color:#CBF1F2;
+            --select-mode-transition-duration:.5s;
+            --select-mode-font-color:#A7B0CB;
+        }
+        /*#student-mode-page,
+        #select-mode-page,
+        #teacher-mode-page
+        !*#classroom-details*!
+        {
+            display: none !important;
+        }*/
+        #select-mode-page{
+            display:grid;
+            grid-template-rows: repeat(5,1fr);
+            grid-template-columns: repeat(5,1fr);
+            grid-row-gap: 5vh;
+            height:100vh;
+            width:100vw;
+
+        }
+        .select-option{
+            border:var(--select-mode-background-color) solid 1px;
+            border-radius:var(--select-mode-radius);
+            font-size:var(--select-mode-font-size);
+            font-family: var(--select-mode-font-family);
+            display: grid;
+            align-content: center;
+            justify-content:center;
+            transition:var(--select-mode-transition-duration);
+        }
+        .select-option:hover{
+            transition:var(--select-mode-transition-duration);
+            cursor:pointer;
+            background-color:var(--select-mode-background-color);
+        }
+        #student-mode{
+            grid-row: 2/span 1;
+            grid-column: 2/span 3;
+        }
+        #teacher-mode{
+            grid-row: 3/span 1;
+            grid-column: 2/span 3;
+        }
+        #staff-mode{
+            grid-row: 4/span 1;
+            grid-column: 2/span 3;
+        }
+        #teacher-mode-page{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: repeat(4,1fr);
+            grid-column-gap: 5vw;
+            grid-row-gap: 5vh;
+            height:100vh;
+            width:100vw;
+            transition:var(--select-mode-transition-duration);
+        }
+        #classroom-details{
+            transition:var(--select-mode-transition-duration);
+            width:100vw;
+            height:100vh;
+            display:grid;
+            justify-content: center;
+        }
+        .previous-page{
+            position:fixed;
+            top:0;
+            left:-100vw !important;
+            transition:var(--select-mode-transition-duration);
+            display: none;
+        }
+        .current-page{
+            position:fixed;
+            top:0;
+            left:0 !important;
+            transition:var(--select-mode-transition-duration);
+        }
+        .next-page{
+            position:fixed;
+            top:0;
+            left:100vw !important;
+            transition:var(--select-mode-transition-duration);
+            display: none;
+        }
+        .disable{
+            color:#999999;
+            cursor: not-allowed;
+        }
+        #cancel{
+            position:fixed;
+            top:5vh;
+            left:5vw;
+            height:5vh;
+            width:5vh;
+            border-radius: 10%;
+            background-image:linear-gradient(to top left,var(--select-mode-background-color),#F2A5AA);
+            color:black;
+            text-align:center;
+            line-height:5vh;
+            cursor:pointer;
+            z-index:1;
+            font-family:var(--select-mode-font-family);
+            font-size:var(--select-mode-font-size);
+        }
+    </style>
+</head>
+<body>
+<div id="cancel" onselectstart="event.preventDefault();"><</div>
+<main id="select-mode-page">
+    <div class="select-option" id="student-mode"><span>学生模式</span></div>
+    <div class="select-option" id="teacher-mode"><span>教师模式</span></div>
+    <div class="select-option" id="staff-mode"><span>职工模式</span></div>
+</main>
+<main id="student-mode-page">
+    <template>
+        <p>教室位置</p>
+    </template>
+</main>
+<main id="teacher-mode-page">   <!--跟职工通道一样，目前-->
+    <template>
+        <style>
+            div{
+                display:grid;
+                align-content: center;
+                justify-content: center;
+                border-radius: var(--select-mode-radius);
+                border:var(--select-mode-background-color) solid 1px;
+                transition:var(--select-mode-transition-duration);
+
+            }
+            div:hover{
+                cursor:pointer;
+                background-color:var(--select-mode-background-color);
+                transition:var(--select-mode-transition-duration);
+            }
+            </style>
+        <div class="classroom-select">101</div>
+        <div class="classroom-select">102</div>
+        <div class="classroom-select">103</div>
+        <div class="classroom-select">104</div>
+    </template>
+</main>
+<main id="classroom-details">
+    <template>
+        <style>
+            table{
+                border:1px var(--select-mode-background-color) solid ;
+                width:60vw;
+                margin:auto;
+                border-collapse:collapse;
+                font-family: var(--select-mode-font-family);
+                font-size:var(--select-mode-font-size);
+                color:var(--select-mode-font-color);
+            }
+            td,th{
+                border:var(--select-mode-background-color) solid 1px;
+                padding:5px 10px;
+                text-align:center;
+                font-stretch: normal;
+                font-style: normal;
+                font-weight: normal;
+            }
+        </style>
+        <table>
+            <thead>
+            <tr>
+                <th>仪器位置</th>
+                <th>故障设备编号</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--<tr>
+                <td>101</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>3</td>
+            </tr>-->
+            </tbody>
+        </table>
+    </template>
+    <!--<span slot="roomId">101</span>
+    <span slot="deviceId">1</span>
+    <span slot="roomId">101</span>
+    <span slot="deviceId">2</span>
+    <span slot="roomId">101</span>
+    <span slot="deviceId">3</span>-->
+</main>
+
+<!---init data-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const studentModePage = document.getElementById("student-mode-page");
+        const teacherModePage = document.getElementById("teacher-mode-page");
+        const classroomDetails = document.getElementById("classroom-details");
+        let studentModePageTemplate = studentModePage.querySelector("template");
+        studentModePage.attachShadow({mode:"open"}).appendChild(studentModePageTemplate.content);
+        let teacherModePageTemplate = teacherModePage.querySelector("template");
+        teacherModePage.attachShadow({mode:"open"}).appendChild(teacherModePageTemplate.content);
+        let classroomDetailsTemplate = classroomDetails.querySelector("template");
+        classroomDetails.attachShadow({mode:"open"}).appendChild(classroomDetailsTemplate.content);
+    })
+</script>
+<!--init UI-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const selectModePage = document.getElementById("select-mode-page");
+        const studentModePage = document.getElementById("student-mode-page");
+        const teacherModePage = document.getElementById("teacher-mode-page");
+        const classroomDetails = document.getElementById("classroom-details");
+        const studentMode = document.getElementById("student-mode");
+        const teacherMode = document.getElementById("teacher-mode");
+        const staffMode = document.getElementById("staff-mode");
+        const cancelBtn = document.getElementById("cancel");
+        const classRoomSelect = teacherModePage.shadowRoot.querySelectorAll(".classroom-select");
+        let initStatus = function (){
+            selectModePage.classList.add("current-page");
+            studentModePage.classList.add("next-page");
+            teacherModePage.classList.add("next-page");
+            classroomDetails.classList.add("next-page");
+        };
+        let switchBtn = function (ele){
+            ele.classList.toggle("disable");
+        }
+        initStatus();
+        let currentPage = selectModePage;
+        /*
+        * previous-page
+        current-page
+        next-page
+        * */
+        studentMode.onclick = function (){
+            selectModePage.classList.remove("current-page");
+            studentModePage.classList.remove("next-page");
+            selectModePage.classList.add("previous-page");
+            studentModePage.classList.add("current-page");
+            currentPage = studentModePage;
+            switchBtn(cancelBtn);
+
+        };
+        teacherMode.onclick = function (){
+            selectModePage.classList.remove("current-page");
+            teacherModePage.classList.remove("next-page");
+            selectModePage.classList.add("previous-page");
+            teacherModePage.classList.add("current-page");
+            currentPage = teacherModePage;
+            switchBtn(cancelBtn);
+
+        };
+        staffMode.onclick = function (){
+            selectModePage.classList.remove("current-page");
+            teacherModePage.classList.remove("next-page");
+            selectModePage.classList.add("previous-page");
+            teacherModePage.classList.add("current-page");
+            currentPage = teacherModePage;
+            switchBtn(cancelBtn);
+
+        };
+
+        for(let i = 0,len = classRoomSelect.length;i<len;i++){
+            // console.log(classRoomSelect[i]);
+            classRoomSelect[i].onclick = function (ev){
+                classroomDetails.classList.remove("next-page");
+                teacherModePage.classList.remove("current-page");
+                classroomDetails.classList.add("current-page");
+                teacherModePage.classList.add("previous-page");
+                currentPage = classroomDetails;
+            }
+        }
+        cancelBtn.onclick = function (){
+            switch (currentPage){
+                case selectModePage:
+                    break;
+                case studentModePage:
+                    currentPage.classList.remove("current-page");
+                    selectModePage.classList.remove("previous-page");
+                    currentPage.classList.add("next-page");
+                    selectModePage.classList.add("current-page");
+                    currentPage = selectModePage;
+                    switchBtn(cancelBtn);
+                    break;
+                case teacherModePage:
+                    currentPage.classList.remove("current-page");
+                    selectModePage.classList.remove("previous-page");
+                    currentPage.classList.add("next-page");
+                    selectModePage.classList.add("current-page");
+                    currentPage = selectModePage;
+                    switchBtn(cancelBtn);
+                    break;
+                case classroomDetails:
+                    currentPage.classList.remove("current-page");
+                    teacherModePage.classList.remove("previous-page");
+                    currentPage.classList.add("next-page");
+                    teacherModePage.classList.add("current-page");
+                    currentPage = teacherModePage;
+                    break;
+            }
+        };
+    })
+</script>
+<!--init indexed DB-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const classroomDetails = document.getElementById("classroom-details");
+        const devicesTable = classroomDetails.shadowRoot.querySelector("table");
+        let indexDBReq = indexedDB.open("roomDB",4);
+        let db;
+        let store;
+        indexDBReq.onsuccess = function (){
+            console.log("onsuccess");
+            db = this.result;
+            let IDBTransaction = db.transaction("classroom","readwrite");
+            let IDBObjectStore = IDBTransaction.objectStore("classroom");
+            IDBObjectStore.add({"roomId":"101",data:['设备1','设备2','设备3']});
+            IDBObjectStore.add({"roomId":"102",data:['设备1','设备2','设备3']});
+            IDBObjectStore.add({"roomId":"103",data:['设备1','设备2','设备3']});
+            IDBObjectStore.add({"roomId":"104",data:['设备1','设备2','设备3']});
+            let req = IDBObjectStore.getAll();
+            req.onsuccess = function (ev){
+                console.log(this.result);
+                let roomData = this.result;
+                roomData.forEach((currentData,i,roomData) => {
+                    let tr = document.createElement("tr");
+                    let roomIdTd = document.createElement("td");
+                    let deviceIdTd = document.createElement("td");
+                    roomIdTd.appendChild(document.createTextNode(roomData[i]['roomId']));
+                    deviceIdTd.appendChild(document.createTextNode(roomData[i]['data'][0]));
+                    tr.appendChild(roomIdTd);
+                    tr.appendChild(deviceIdTd);
+                    devicesTable.appendChild(tr)
+                });
+            }
+        };
+        indexDBReq.onerror = function (){
+            document.write("database open request error")
+        }
+        indexDBReq.onupgradeneeded = function (){
+            db = this.result;
+            store = db.createObjectStore("classroom",{keyPath:"roomId"});
+            console.log("房间数据库更新完毕");
+        };
+
+        // indexedDB.deleteDatabase("roomDB");
+        // let worker = new Worker("worker.js");
+    });
+    window.onunload = function (){
+        indexedDB.deleteDatabase("roomDB");
+    };
+</script>
+</body>
+</html>

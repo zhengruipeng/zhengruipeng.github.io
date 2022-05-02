@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        video{
+            width:320px;
+            height:240px;
+            border:1px solid black;
+        }
+        div{
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+<div id="setup">
+    <p>demo</p>
+    <p>
+        <input type="text" name="key" id="key" />
+        <button id="connect" >Connect</button>
+        <span id="statusline" style="display: none">Status:
+            <span id="status">Disconnected</span>
+        </span>
+    </p>
+</div>
+
+<div id="scMesssage" style="float:right;display: none">
+    <p>
+        <input type="text" name="message" id="message" />
+        <button id="send" style="display: none" >send</button>
+    </p>
+    <p>Response :
+        <span id="reponse">
+
+        </span>
+    </p>
+</div>
+
+<br />
+
+<div style="width:30%;vertical-align:top">
+    <div>
+        <video id="myVideo" autoplay controls muted></video>
+    </div>
+    <p>
+        <b>Outgoing Messages</b>
+        <br />
+        <textarea id="outmessages" rows="100" style="width:100%"></textarea>
+    </p>
+</div>
+
+<div style="width:30%;vertical-align:top">
+    <div>
+        <video id="placeholder" autoplay controls></video>
+    </div>
+    <p>
+        <b>Incoming Messages</b>
+        <br />
+        <textarea id="inmessages" rows="100" style="width:100%"></textarea>
+    </p>
+</div>
+
+<script></script>
+<script type="text/javascript" src="clientXHRSignalingChannel.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let f = function (){
+            return 123;
+        };
+
+
+        let signalingChannel, key, id,
+            haveLocalMedia = false,
+            connected = false,
+            myVideoStream;
+        let queryparams;
+        const keyElement = document.getElementById('key');
+        const responseElement = document.getElementById('response');
+        const messageElement = document.getElementById('message');
+        const outmessageElement = document.getElementById('outmessage');
+        const myVideo = document.getElementById("myVideo");
+        const statuslineElement = document.getElementById("statusline");
+        const statusElement = document.getElementById("status");
+        const sendElement = document.getElementById("send");
+        const connectElement = document.getElementById("connect");
+        const scMessageElement = document.getElementById("scMessage");
+
+        //let video = document.getElementById("video");
+
+        let setStatus = function (str){
+            switch(str){
+                case "Waiting":
+                    statuslineElement.style.display = "inline";
+                    statusElement.innerText = "Waiting for peer signaling connection";
+                    sendElement.style.display = "none";
+                    break;
+                case "Connected":
+                    statuslineElement.style.display = "inline";
+                    statusElement.innerText = "Peer signaling connected , waiting for local media";
+                    sendElement.style.display = "inline";
+                    scMessageElement.style.display = "inline-block";
+                    break;
+                case "Set up":
+                    statusElement.innerText = "Peer signaling connected and local media obtained";
+                    break;
+                default:
+            }
+        };
+
+        let verifySetupDone = function (){
+            if(connected && haveLocalMedia)setStatus("Set up");
+        };
+
+        let connect = function (){
+            key = keyElement.value;
+            let scHandlers = {
+                onWaiting(){
+                    setStatus("Waiting");
+                },
+                onConnected(){
+                    connected = true;
+                    setStatus("Connected");
+                    verifySetupDone();
+                },
+                onMessage(msg){
+                    let msgE = document.getElementById("inmessages");
+                    let msgString = JSON.stringify(msg);
+                    msgE.value = msgString+ "\n" + msgE.value;
+                },
+            };
+            signalingChannel = createDignalingChannel(key,scHandlers);
+            signalingChannel.connect(function (){
+                responseElement.innerHTML = msg;
+            });
+        };
+
+        let send = function (msg){
+            msg = msg || messageElement.value;
+            let msgString = JSON.stringify(msg);
+            let handler = function (res){
+                responseElement.innerText = res;
+                return false;
+            };
+            outmessageElement.value = msgString + "\n" + outmessageElement.value;
+            signalingChannel.send(msg,handler);
+        };
+
+        let getMedia = function (){
+            navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(function (mediaStream){
+                myVideoStream = mediaStream;
+                haveLocalMedia = true;
+                myVideo.srcObject = mediaStream;
+                verifySetupDone();
+            },function (){
+                console.warn("Cound get video");
+            })
+        };
+
+        if(queryparams && queryparams['key']){
+            keyElement.value = queryparams['key'];
+            connect();
+        }
+
+        getMedia();
+    });
+</script>
+</body>
+</html>
