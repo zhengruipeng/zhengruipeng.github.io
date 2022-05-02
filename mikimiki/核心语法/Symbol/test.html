@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        console.log([] instanceof Array);
+        console.log(Array[Symbol.hasInstance]([]));
+
+        let arr1 = [1,2,3];
+        arr1[Symbol.isConcatSpreadable] = true;
+        console.log([].concat(arr1));
+
+        let o1 = {
+            a:1,
+            b:2,
+            c:3,
+            [Symbol.iterator] : function *(){
+                for(let name in this){
+                    yield this[name];
+                }
+            },
+            [Symbol.asyncIterator] :function *(){
+                for(let name in this){
+                    yield "async:"+this[name];
+                }
+            },
+        };
+        for(let v of o1) console.log(v);
+        (async () => {
+            for await(let v of o1) console.log(v);
+        })();
+
+        let regexp = /([\w]+)@([\w]+)\.com/;
+        let s = "1484422307@qq.com";
+        console.log(s.match(regexp));
+        console.log(regexp[Symbol.match](s));
+        console.log(s.search(regexp));
+        console.log(regexp[Symbol.search](s));
+        console.log(s.split(regexp));
+        console.log(regexp[Symbol.split](s));
+        console.log(s.replace(regexp,"账号是$1，平台是$2"));
+        console.log(regexp[Symbol.replace](s,"账号是$1，平台是$2"));
+
+        let CA = class extends Array{
+            static get [Symbol.species](){
+                return Array;
+            }
+            constructor(arr) {
+                super();
+                for(let i=0,len = arr.length;i<len;i++){
+                    this[i] = arr[i];
+                }
+            }
+        };
+        let carr = new CA([1,2,3,4]);
+        console.log(carr.map( v => v*2));
+
+        let o2 = {
+            [Symbol.toStringTag] : "abc",
+        };
+        console.log(Object.prototype.toString.call(o2));
+
+        let o3 = {
+            [Symbol.toPrimitive] (hint){
+                console.log(hint)
+                if(hint === "default")return "abcd";
+                else return 0;
+            },
+        };
+        console.log(o3+11);
+        console.log(o3-11);
+    })
+</script>
+</body>
+</html>

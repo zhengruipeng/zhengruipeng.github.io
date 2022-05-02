@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let s = "123";
+        let reg = /2/;
+        console.log(s.match(reg));
+        console.log(reg[Symbol.match](s));
+        let o = {
+            [Symbol.match](){
+                return 321;
+            }
+        };
+        console.log(s.match(o));
+
+        console.log(s.replace(reg,"4"));
+        console.log(reg[Symbol.replace](s,5));
+        let p = {
+            [Symbol.replace](string){
+                return "replace"+string;
+            },
+        };
+        console.log(s.replace(p));
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    let o = {};
+    console.log(Reflect.isExtensible(o));
+    Reflect.preventExtensions(o);
+    console.log(Reflect.isExtensible(o));
+  });
+</script>
+</body>
+</html>

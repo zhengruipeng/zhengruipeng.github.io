@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let o = {};
+        let a = [];
+        console.log(Reflect.getPrototypeOf(o));
+        console.log(Reflect.getPrototypeOf(a));
+        console.log(o.__proto__);
+        console.log(a.__proto__);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let func = function (){
+            return this.a;
+        };
+        console.log(Reflect.apply(func,{a:123},[]));
+
+        /*{
+            姓名:郑瑞蓬
+            性别：男
+            出生年月：2002/01/31
+            民族：汉
+            文化程度：高中
+            政治面貌：共青团员
+            申请入党时间：2021/10/15
+            所在团支部：东北石油大学
+            学院：计算机与信息技术学院
+            个人简历：高中于黑龙江省哈尔滨市第十一中学就读，大学于黑龙江省大庆市东北石油大学就读
+        }*/
+    });
+</script>
+</body>
+</html>

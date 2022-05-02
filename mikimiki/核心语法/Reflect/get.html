@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    let o = {
+      get baz(){
+        return this.foo+this.bar;
+      }
+    };
+    let ro = {
+      foo:1,
+      bar:2
+    };
+    console.log(Reflect.get(o,'baz',ro));
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Title</title>
+</head>
+<body>
+<p>RegExp.lastIndex只有有global修饰符的时候才发挥作用，是指最后一次匹配的位置。
+    再次重新设置会从lastIndex指定的数值位置开始匹配</p>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let regexp = /a/g;
+        let s = "aac";
+        regexp.lastIndex = 0;
+        console.log(regexp.test(s));
+        console.log(regexp.lastIndex);
+    })
+</script>
+</body>
+</html>

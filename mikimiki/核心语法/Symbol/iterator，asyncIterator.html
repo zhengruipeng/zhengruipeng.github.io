@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;margin:0;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let o = {0:3,1:2,2:1};
+        o[Symbol.iterator] = function *(){
+            yield 3;
+            yield 2;
+            yield 1;
+        };
+        o[Symbol.asyncIterator] = function *(){
+            yield 3;
+            yield 2;
+            yield 4;
+        };
+        for(let v of o){
+            console.log(v);
+        }
+        (async function (){
+            for await(const x of o) {
+                console.log(x);
+            }
+        })();
+    })
+</script>
+</body>
+</html>

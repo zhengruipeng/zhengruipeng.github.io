@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Symbol.species在es5构造函数中使用方法未知，在es6中使用方法已知但是不知道原因，作用貌似是通过return后制定的构造函数
+修改派生对象返回值类型，派生是指通过类似于map和concat等对象返回的新对象
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        class MyArray extends Array {
+            // 覆盖 species 到父级的 Array 构造函数上
+            static get [Symbol.species]() { return Array; }
+        }
+    /*    let  MyArray = {
+            // 覆盖 species 到父级的 Array 构造函数上
+            [Symbol.species](){ return Array; }
+        };
+        MyArray.prototype = Array;*/
+        let a = new MyArray(1,2,3);
+        let mapped = a.map(x => x);
+        console.log(mapped instanceof MyArray); // false
+        console.log(mapped instanceof Array);   // true
+
+        let concated = a.concat([1]);
+        console.log(concated instanceof MyArray); // false
+        console.log(concated instanceof Array);   // true
+
+        /*let F = function (){
+            this[Symbol.species] = function (){ alert(132); }
+        };
+        let a = new F();
+        console.log(a)*/
+
+        const object1 = {
+            [Symbol.toPrimitive](hint) {
+                if (hint === 'number') {
+                    return 42;
+                }
+                return null;
+            }
+        };
+
+        console.log(+object1);
+// expected output: 42
+
+
+        class ValidatorClass {
+            get [Symbol.toStringTag]() {
+                return 'Validator';
+            }
+        }
+        console.log(Object.prototype.toString.call(new ValidatorClass()));
+// expected output: "[object Validator]"
+
+    })
+</script>
+</body>
+</html>
