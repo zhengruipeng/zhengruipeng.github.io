@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            font-family: 微软雅黑;
+        }
+        body{
+            background-color:#333333;
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style:none;
+            position:fixed;
+            top:-185px;left:50px;
+            opacity:1;
+            transition:.5s;
+        }
+        li{
+            text-align:center;
+            height:40px;
+            width:500px;
+            display: block;
+            background-color:#222222;
+            color:deepskyblue;
+            border:1px solid deepskyblue;
+            line-height:40px;
+            border-width:1px 1px 1px 10px;
+            box-shadow:3px 3px 10px 2px deepskyblue;
+            animation-name: shadow;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            -webkit-animation-direction: alternate;
+            -moz-animation-direction: alternate;
+            -o-animation-direction: alternate;
+            animation-direction: alternate;
+        }
+        #notice{
+            position:fixed;
+            top:70px;left:600px;
+            text-align:center;
+            height:110px;
+            width:400px;
+            display: block;
+            background-color:#222222;
+            color:deepskyblue;
+            border:1px solid deepskyblue;
+            border-width:1px 1px 1px 10px;
+            box-shadow:3px 3px 10px 2px deepskyblue;
+            line-height:55px;
+            opacity:0;
+            transition:.3s;
+        }
+        .inputCdis{
+            height:15%;width:40%;border:solid #ccc 1px;border-radius: 30px;margin:auto;
+            position:absolute;top:-15%;left:25%;background-color:white;padding:5%;transition:.5s;
+            text-align:center;opacity:0;z-index:-1;
+        }
+        .inputCapp{
+            height:15%;width:40%;border:solid #ccc 1px;border-radius: 30px;margin:auto;
+            position:absolute;top:0 !important;left:25%;background-color:white;padding:5%;transition:.5s;
+            opacity: 1 !important;text-align:center;z-index:2;
+        }
+        .coverdis{
+            position:absolute;top:0;left:0;height:100%;width:100%;background-color:#ccc;
+            z-index:-1;opacity:0;transition:.5s;
+        }
+        .coverapp{
+            position:absolute;top:0;left:0;height:100%;width:100%;background-color:#ccc;
+            z-index:1 !important;opacity:.5 !important;transition:.5s;
+        }
+        /*li:nth-child(4):hover #notice{
+
+            opacity:1;
+            transition:.3s;
+        }*/
+        @keyframes shadow {
+            from{
+                box-shadow:3px 3px 15px 1px deepskyblue;
+            }
+
+            to{
+                box-shadow:5px 3px 15px 10px deepskyblue;
+            }
+        }
+        .appear{
+            top:0px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="drag" style="position:fixed;top:0;left:0;display: none;text-align:center;width: 100%;height:100%;background-color:#222222;color:yellow">拖拽文件到浏览器窗口</div>
+<ul>
+
+    <!--<p>提示：对号摁z，错号摁x，评语摁c，画直线s，画椭圆y，撤回摁图片下面的摁钮或v，文字变大摁d，文字变小摁a</p>-->
+    <li>
+        <label for="scale">图片调整大小： 300<input type="range" style="background-color:#333333" max="1366" min="300" value="750" id="scale" />1366</label>
+    </li>
+    <li>
+        <label for="selectColor">文字颜色： <input type="text" style="padding-left:10px;background-color:#333333;color:deepskyblue" id="selectColor" value="red"></label><br />
+    </li>
+    <li>
+        <label for="fontSize">文字大小： <input type="number" style="padding-left:10px;background-color:#333333;color:deepskyblue " id="fontSize" value="50"></label>
+    </li>
+    <li>
+        说明
+
+    </li>
+    <li id="show_menu">
+        展示/取消
+    </li>
+</ul>
+<div id="notice" style="z-index:-1">
+    对号摁z，错号摁x，评语摁c，画直线s，画椭圆y，撤回摁图片下面的摁钮或v，文字变大摁d，文字变小摁a
+</div>
+<!--当用户输入评论时出现的输入文本框-->
+<div class="coverdis" id="cover"></div>
+<div id="inputC" class="inputCdis" >输入内容：<textarea type="text" id="inputDiscuss" rows="3" cols="30"></textarea>
+    <button id="butdissub" style="height:30px;width:50px;">提交</button>
+    <button id="butdiscal" style="height:30px;width:50px;">取消</button></div>
+<br />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        //1.单行文字拖拽时会出现文字消失现象
+        //2.当多行文字调整大小时会出现多个字重合（文字消除不彻底）的现象，通常是第二行文字和部分黑框无法消除
+
+        let dragDiv = this.getElementById("drag");
+        let scale = this.getElementById("scale");
+        let selectedColor = this.getElementById("selectColor");
+        let fontSize = this.getElementById("fontSize");
+        let inputC = this.getElementById("inputC");
+        let inputDiscuss = this.getElementById("inputDiscuss");
+        let cover = this.getElementById("cover");
+        let butdissub = this.getElementById("butdissub");
+        let butdiscal = this.getElementById("butdiscal");
+        let show_menu = this.getElementById("show_menu");
+        let menu = this.getElementsByTagName("ul")[0];
+        let noticeLi = this.getElementsByTagName("li")[3];
+        let notice = this.getElementById("notice");
+        let mode = "yes";
+        let stack = [];
+        let textInput = [];
+        let canvasCounter = 0;      //计算canvas序号
+        let addFont = function (x,y,text,color = red,c){
+            let original = c.fillStyle;
+            c.fillStyle = color;
+            c.font = (fontSize.value||"50")+'px sans-serif';
+            c.fillText(text,x-20,y-20);
+            c.fillStyle = original;
+        };
+        let canvasClick = function (e,c){
+            let x = e.clientX;
+            let y = e.clientY;
+            let rect = c.canvas.getBoundingClientRect();
+            let top = rect.top;
+            let left = rect.left;
+            switch (mode) {
+                case "yes":
+                    addFont(x-left+10,y-top+40,"√",selectedColor.value || "red",c);break;
+                case "no":
+                    addFont(x-left+10,y-top+40,"×",selectedColor.value || "red",c);break;
+                case "other":
+                    let p = prompt();
+                    addFont(x-left+10,y-top+40,p,selectedColor.value || "red",c);break;
+            }
+
+        };
+        dragDiv.ondrop = function (e){
+            e.preventDefault();
+            dragDiv.style.display = "none";
+            for(let i=0,len = e.dataTransfer.files.length;i<len;i++){
+                let file = e.dataTransfer.files[i];
+                let fr = new FileReader();
+                fr.readAsDataURL(file);
+                fr.onload = function (e){
+                    let image = new Image();
+                    image.src = e.target.result;
+                    image.onload = function (){
+                        let width = this.width;
+                        let height = this.height;
+                        let canvas = document.createElement("canvas");
+                        let hidden = document.createElement("canvas");      //用于原背景图片的备份
+                        let button = document.createElement("button");
+                        hidden.style.display = "none";
+                        button.innerText = "撤回";
+                        button.style.height = "30px";
+                        button.style.width = "60px";
+                        canvas.counter = canvasCounter++;
+                        stack.push([]);         //像素文件缓存，可以累积多个canvas画布
+                        let moving = false;
+                        let mousemoving = false;
+
+                        let c,h;
+                        let imageData;
+                        //根据图像横纵大小不同更改尺寸
+                        if(width >height){
+                            canvas.height = (i+1)*scale.value;
+                            canvas.width = width*scale.value/height;
+                            c = canvas.getContext("2d");
+                            imageData = c.getImageData(0,0,canvas.width,canvas.height);
+                            c.drawImage(this,0,i*scale.value,width*scale.value/height,scale.value);
+
+                            hidden.height = (i+1)*scale.value;
+                            hidden.width = width*scale.value/height;
+                            h = hidden.getContext("2d");
+                            imageData2 = h.getImageData(0,0,hidden.width,hidden.height);
+                            h.drawImage(this,0,i*scale.value,width*scale.value/height,scale.value);
+
+                        }
+                        else{
+                            canvas.width = scale.value;
+                            canvas.height = (i+1)*height*scale.value/width;
+                            c = canvas.getContext("2d");
+                            imageData = c.getImageData(0,0,canvas.width,canvas.height);
+                            c.drawImage(this,0,i*height*scale.value/width,scale.value,height*scale.value/width);
+
+                            hidden.width = scale.value;
+                            hidden.height = (i+1)*height*scale.value/width;
+                            h = hidden.getContext("2d");
+                            imageData2 = h.getImageData(0,0,hidden.width,hidden.height);
+                            h.drawImage(this,0,i*height*scale.value/width,scale.value,height*scale.value/width);
+
+                        }
+                        //添加撤回功能
+                        window.onkeypress = function (e){
+                            let k = e.key.toLowerCase();
+                            switch (k) {
+                                case "v":button.click();break;
+                            }
+                        };
+                        let changeTextPos = function (e){
+                            //判断文字是否是更改位置阶段，防止更改位置时触发完整点击事件
+                            if(moving)return false;
+                            imageData = c.getImageData(0,0,canvas.width,canvas.height);
+                            button.history = 1;
+                            let x = e.clientX;
+                            let y = e.clientY;
+                            let rect = c.canvas.getBoundingClientRect();
+                            let top = rect.top;
+                            let left = rect.left;
+                            c.fillStyle = selectedColor.value || "red";
+                            c.font = (fontSize.value||"50")+'px sans-serif';
+
+                            cover.classList.toggle("coverapp");
+                            inputC.classList.toggle("inputCapp");
+                            butdissub.onclick = function (){
+                                stack[canvas.counter].push(c.getImageData(0,0,canvas.width,canvas.height));
+
+                                cover.classList.toggle("coverapp");
+                                inputC.classList.toggle("inputCapp");
+                                let text = inputDiscuss.value;
+                                if(text === "" || text == null){return false;}
+                                let textarr = text.split(/\n/);
+                                let temp,rectPos;
+                                let textH = parseInt(fontSize.value) || 50;
+                                let multiple = false;
+                                moving = true;
+
+                                //多行文本编辑
+                                if(textarr.length >= 2){
+                                    let rectW = 0;
+                                    textarr.forEach(function (v,i,a){
+                                        rectW = Math.max(rectW,c.measureText(v).width);
+                                        c.fillText(v,x-left,y-top+textH*(i+1));
+                                    });
+                                    temp = c.getImageData(0,0,canvas.width,canvas.height);
+                                    // c.strokeRect(x-left,y-top,rectW,textH*textarr.length);
+                                    rectPos = [x-left,y-top,rectW,textH*textarr.length];
+                                    multiple = true;
+                                }
+                                else{
+                                    c.fillText(textarr[0],x-left,y-top+textH);
+                                    temp = c.getImageData(0,0,canvas.width,canvas.height);
+                                    // c.strokeRect(x-left,y-top,c.measureText(textarr[0]).width,textH);
+                                    rectPos = [x-left,y-top,c.measureText(textarr[0]).width,textH];
+
+                                }
+                                //移动文字
+
+                                //双击击中文字后重新编辑文字内容
+                                canvas.ondblclick = function (e){
+                                    if(mousemoving)return false;
+                                    let nx = e.clientX;
+                                    let ny = e.clientY;
+                                    let posX = nx-left;
+                                    let posY = ny-top;
+
+                                    if((posX >rectPos[0] && posX < rectPos[0]+rectPos[2]) &&
+                                        (posY >rectPos[1] && posY < rectPos[1]+rectPos[3])) {
+                                        c.putImageData(stack[canvas.counter][stack[canvas.counter].length-1],0,0);
+                                        cover.classList.toggle("coverapp");
+                                        inputC.classList.toggle("inputCapp");
+                                        x = nx;
+                                        y = ny;
+                                        let orf = butdiscal.onclick;
+                                        butdiscal.onclick = function (){
+                                            if(textarr.length >= 2){
+                                                let rectW = 0;
+                                                textarr.forEach(function (v,i,a){
+                                                    rectW = Math.max(rectW,c.measureText(v).width);
+                                                    c.fillText(v,x-left,y-top+textH*(i+1));
+                                                });
+                                                temp = c.getImageData(0,0,canvas.width,canvas.height);
+                                                c.strokeRect(x-left,y-top,rectW,textH*textarr.length);
+                                                rectPos = [x-left,y-top,rectW,textH*textarr.length];
+                                                multiple = true;
+                                            }
+                                            else{
+                                                c.fillText(textarr[0],x-left,y-top+textH);
+                                                temp = c.getImageData(0,0,canvas.width,canvas.height);
+                                                c.strokeRect(x-left,y-top,c.measureText(textarr[0]).width,textH);
+                                                rectPos = [x-left,y-top,c.measureText(textarr[0]).width,textH];
+
+                                            }
+                                            cover.classList.toggle("coverapp");
+                                            inputC.classList.toggle("inputCapp");
+
+                                        }
+                                    }
+                                };
+                                canvas.onmousedown = function (e){
+                                    let x = e.clientX;
+                                    let y = e.clientY;
+                                    let posX = x-left;
+                                    let posY = y-top;
+
+
+                                    if((posX >rectPos[0] && posX < rectPos[0]+rectPos[2]) &&
+                                        (posY >rectPos[1] && posY < rectPos[1]+rectPos[3])){
+                                        moving = true;
+
+                                        let dx = posX-rectPos[0];
+                                        let dy = posY-rectPos[1];
+
+                                        canvas.style.cursor = "move";
+                                        canvas.onmousemove = function (e){
+                                            mousemoving = true;
+                                            c.putImageData(stack[canvas.counter][stack[canvas.counter].length-1],0,0);
+                                            let x = e.clientX;
+                                            let y = e.clientY;
+                                            let posX = x-left;
+                                            let posY = y-top;
+                                            if(multiple){
+                                                let rectW = 0;
+                                                textarr.forEach(function (v,i,a){
+                                                    rectW = Math.max(rectW,c.measureText(v).width);
+                                                    c.fillText(v,posX-dx,posY+textH*(i+1)-dy);
+
+                                                });
+                                                temp = c.getImageData(0,0,canvas.width,canvas.height);
+                                                // c.strokeRect(posX-dx,posY-dy,rectW,textH*textarr.length);
+                                            }else{
+                                                c.fillText(text,posX-dx,posY+textH-dy);
+                                                temp = c.getImageData(0,0,canvas.width,canvas.height);
+                                                // c.strokeRect(posX-dx,posY-dy,c.measureText(text).width,textH);
+                                            }
+                                            rectPos[0] = posX-dx;
+                                            rectPos[1] = posY-dy;
+                                        };
+                                        canvas.onmouseup = function (){
+                                            mousemoving = false;
+                                            this.onmousemove = null;
+                                            canvas.style.cursor = "default"
+                                        };
+
+
+                                    }else{//点击了空白区域
+                                        c.putImageData(temp,0,0);
+
+                                        canvas.onmousedown = drawGeome;
+                                        canvas.onmousemove = null;
+                                        canvas.onmouseup = null;
+                                        textInput.push({rectPos:rectPos,c:c,
+                                            imageData:stack[canvas.counter][stack[canvas.counter].length-1],
+                                            value:text,multiple:multiple});
+                                        setTimeout(function (){moving = false;},500)
+
+                                    }
+
+                                };
+                                fontSize.onchange = function (){
+                                    if(moving){
+                                        c.putImageData(stack[canvas.counter][stack[canvas.counter].length-1],0,0);
+                                        textH = parseInt(this.value);
+                                        c.font = (fontSize.value||"50")+'px sans-serif';
+
+                                        if(multiple){
+                                            let rectW = 0;
+                                            textarr.forEach(function (v,i,a){
+                                                rectW = Math.max(rectW,c.measureText(v).width);
+                                                c.fillText(v,rectPos[0],rectPos[1]+textH*(i+1));
+
+                                            });
+                                            temp = c.getImageData(0,0,canvas.width,canvas.width);
+                                            c.strokeRect(rectPos[0],rectPos[1],rectW,textH*textarr.length);
+
+                                        }else{
+                                            c.fillText(text,rectPos[0],rectPos[1]+textH);
+                                            temp = c.getImageData(0,0,canvas.width,canvas.width);
+                                            c.strokeRect(rectPos[0],rectPos[1],c.measureText(text).width,textH);
+
+
+                                        }
+                                        rectPos[2] = c.measureText(text).width;
+                                        rectPos[3] = textH;
+                                        moving = true;
+                                    }
+                                };
+                            };
+                        };
+                        canvas.onclick = function (e){
+                            if(mode === "yes" || mode === "no" ){
+                                button.history = 1;
+
+                                imageData = c.getImageData(0,0,canvas.width,canvas.height);
+                                stack[canvas.counter].push(c.getImageData(0,0,canvas.width,canvas.height));
+                                canvasClick(e,c)
+                            }
+                            //原本文字的修改
+                            else if(mode === "other"){
+                                let x = e.clientX;
+                                let y = e.clientY;
+                                let bCRect = this.getBoundingClientRect();
+                                let posX = x-bCRect.left;
+                                let posY = y-bCRect.top;
+                                let hit = false;
+                                let temp = c.getImageData(0,0,canvas.width,canvas.height);
+                                let temp4;
+                                textInput.forEach(function (v,i,a){
+                                    if((posX >v['rectPos'][0] && posX < v['rectPos'][0]+v['rectPos'][2]) &&
+                                        (posY >v['rectPos'][1] && posY < v['rectPos'][1]+v['rectPos'][3])){     //第一次命中文字目标
+                                        let rectPos = v.rectPos;
+                                        moving = true;
+                                        hit = true;
+                                        temp4 = c.getImageData(0,0,canvas.width,canvas.height);     //temp4缓存为未有任何修改之前（加黑框）的缓存
+                                        let hID = h.getImageData(0,0,hidden.width,hidden.height);
+
+                                        canvas.onmousedown = function (e){
+                                            let temp2 = c.getImageData(0,0,canvas.width,canvas.height);
+
+                                            let bCR = canvas.getBoundingClientRect();
+                                            let left = bCR.left;
+                                            let top = bCR.top;
+                                            let x = e.clientX;
+                                            let y = e.clientY;
+                                            let posX = x-left;
+                                            let posY = y-top;       //在画图面板上的横纵坐标
+
+
+                                            if((posX >v.rectPos[0] && posX < v.rectPos[0]+v.rectPos[2]) &&
+                                                (posY >v.rectPos[1] && posY < v.rectPos[1]+v.rectPos[3])){      //选择后再次命中的判断
+                                                for(let i=0,len = canvas.width+5;i<len;i++){
+                                                    for(let j=0,len2 = canvas.height+5;j<len2;j++){
+                                                        if( (i >v['rectPos'][0] && i < v['rectPos'][0]+v['rectPos'][2]) &&
+                                                            (j >v['rectPos'][1] && j < v['rectPos'][1]+v['rectPos'][3]) ){
+                                                            //进入的是在黑框之内的像素
+                                                            //(j*canvas.width+i)*4
+                                                            temp4.data[(j*canvas.width+i)*4] =  hID.data[(j*canvas.width+i)*4];
+                                                            temp4.data[(j*canvas.width+i)*4+1] =  hID.data[(j*canvas.width+i)*4+1];
+                                                            temp4.data[(j*canvas.width+i)*4+2] =  hID.data[(j*canvas.width+i)*4+2];
+                                                            temp4.data[(j*canvas.width+i)*4+3] =  hID.data[(j*canvas.width+i)*4+3];
+                                                        }else{
+                                                            continue;
+                                                        }
+                                                    }
+                                                }       //从隐藏缓存中读取缺少的像素
+
+                                                moving = true;
+                                                let dx = posX-v.rectPos[0];
+                                                let dy = posY-v.rectPos[1];     //相对于文字黑框的偏移量
+                                                let textH = fontSize.value || 50;       //刷新文字大小
+                                                canvas.style.cursor = "move";
+                                                canvas.onmousemove = function (e){
+                                                    mousemoving = true;
+                                                    c.putImageData(temp4,0,0);
+                                                    let x = e.clientX;
+                                                    let y = e.clientY;
+                                                    let posX = x-left;      //canvas坐标下的x,y轴
+                                                    let posY = y-top;
+                                                    let text = v.value;
+                                                    let textarr = text.split("\n");
+                                                    c.fillStyle = selectedColor.value || "red";
+                                                    let rectW = 0;
+                                                    textarr.forEach(function (v,i,a){
+                                                        rectW = Math.max(rectW,c.measureText(v).width);
+                                                        c.fillText(v,posX-dx,posY+textH*(i+1)-dy);
+
+                                                    });
+                                                    temp2 = c.getImageData(0,0,canvas.width,canvas.height);
+                                                    v.rectPos[0] = posX-dx;
+                                                    v.rectPos[1] = posY-dy;
+                                                };
+                                                canvas.onmouseup = function (e){
+                                                    mousemoving = false;
+                                                    c.putImageData(temp2,0,0);
+                                                    this.onmousemove = null;
+                                                    canvas.style.cursor = "default"
+                                                };
+
+
+                                            }
+                                            else{           //修改后点击空白区域
+                                                c.putImageData(temp2,0,0);
+                                                stack[canvas.counter].push(c.getImageData(0,0,canvas.width,canvas.height));
+                                                hit = false;
+                                                canvas.onmousedown = drawGeome;
+                                                canvas.onmousemove = null;
+                                                canvas.onmouseup = null;
+                                                textInput[i] = {rectPos:rectPos,c:c,
+                                                    imageData:stack[canvas.counter][stack[canvas.counter].length-1],
+                                                    value:v.value,multiple:v.multiple};
+                                                setTimeout(function (){moving = false;},500)
+
+                                            }
+
+                                        };
+                                        fontSize.onchange = function (){
+                                            if(moving){
+                                                for(let i=0,len = canvas.width+2;i<len;i++){
+                                                    for(let j=0,len2 = canvas.height+2;j<len2;j++){
+                                                        if( (i >v['rectPos'][0] && i < v['rectPos'][0]+v['rectPos'][2]) &&
+                                                            (j >v['rectPos'][1] && j < v['rectPos'][1]+v['rectPos'][3]) ){
+                                                            //进入的是在黑框之内的像素
+                                                            //(j*canvas.width+i)*4
+                                                            temp4.data[(j*canvas.width+i)*4] =  hID.data[(j*canvas.width+i)*4];
+                                                            temp4.data[(j*canvas.width+i)*4+1] =  hID.data[(j*canvas.width+i)*4+1];
+                                                            temp4.data[(j*canvas.width+i)*4+2] =  hID.data[(j*canvas.width+i)*4+2];
+                                                            temp4.data[(j*canvas.width+i)*4+3] =  hID.data[(j*canvas.width+i)*4+3];
+                                                        }else{
+                                                            continue;
+                                                        }
+                                                    }
+                                                }       //从隐藏缓存中读取缺少的像素
+                                                c.putImageData(temp4,0,0);
+                                                let textH = parseInt(this.value);
+                                                c.font = (textH||"50")+'px sans-serif';
+                                                let text = v.value;
+                                                let textarr = text.split("\n");
+                                                if(v.multiple){
+                                                    let rectW = 0;
+                                                    textarr.forEach(function (t,i,a){
+                                                        rectW = Math.max(rectW,c.measureText(t).width);
+                                                        c.fillText(t,v.rectPos[0],v.rectPos[1]+textH*(i+1));
+
+                                                    });
+                                                    temp = c.getImageData(0,0,canvas.width,canvas.width);
+                                                    // c.strokeRect(v.rectPos[0],v.rectPos[1],rectW,textH*textarr.length);
+                                                    rectPos[2] = rectW;
+                                                    rectPos[3] = textH*textarr.length;
+
+
+                                                }else{
+                                                    c.fillText(text,v.rectPos[0],v.rectPos[1]+textH);
+                                                    temp = c.getImageData(0,0,canvas.width,canvas.width);
+                                                    // c.strokeRect(v.rectPos[0],v.rectPos[1],c.measureText(text).width,textH);
+                                                    rectPos[2] = c.measureText(text).width;
+                                                    rectPos[3] = textH;
+
+                                                }
+
+                                            }
+                                        };
+
+
+                                    }
+                                });
+                                if(!hit){
+                                    changeTextPos(e);
+                                }
+                            }
+
+                        };
+
+
+                        let drawGeome = function (e){
+                            if(mode === "line"){
+                                button.history = 1;
+                                stack[canvas.counter].push(c.getImageData(0,0,canvas.width,canvas.height));
+                                imageData = c.getImageData(0,0,canvas.width,canvas.height);
+                                // let imageData2 = c.getImageData(0,0,canvas.width,canvas.height);
+                                let startX,startY;
+                                let x = e.clientX;
+                                let y = e.clientY;
+                                let rect = canvas.getBoundingClientRect();
+                                let top = rect.top;
+                                let left = rect.left;
+                                startX = x-left;
+                                startY = y-top;
+                                canvas.onmousemove = function (e){
+                                    c.putImageData(stack[canvas.counter][stack[canvas.counter].length-1],0,0);
+                                    let x = e.clientX;
+                                    let y = e.clientY;
+                                    let onX = x-left;
+                                    let onY = y-top;
+                                    c.beginPath();
+                                    c.moveTo(startX,startY);
+                                    c.lineTo(onX,onY);
+                                    c.closePath();
+                                    c.strokeStyle = selectedColor.value || "red";
+                                    c.stroke();
+                                    // c.putImageData(imageData2,0,0);
+                                    // button.click();
+                                };
+                                canvas.onmouseup = function (e){
+                                    this.onmousemove = null;
+                                };
+                            }
+                            //画圆
+                            if(mode === "arc"){
+                                button.history = 1;
+
+                                imageData = c.getImageData(0,0,canvas.width,canvas.height);
+                                stack[canvas.counter].push(c.getImageData(0,0,canvas.width,canvas.height));
+
+                                let x = e.clientX;
+                                let y = e.clientY;
+                                let rect = canvas.getBoundingClientRect();
+                                let top = rect.top;
+                                let left = rect.left;
+                                let startX,startY;
+                                startX = x-left;
+                                startY = y-top;
+                                canvas.onmousemove = function (e){
+                                    c.putImageData(stack[canvas.counter][stack[canvas.counter].length-1],0,0);
+
+                                    let x = e.clientX;
+                                    let y = e.clientY;
+                                    let onX,onY;
+                                    onX = x-left;
+                                    onY = y-top;
+                                    let deltaX = onX - startX;
+                                    let deltaY = onY - startY;
+                                    /*let r = deltaX > deltaY ? deltaY : deltaX;
+                                    r /= 2;*/
+                                    let a = deltaX /2;
+                                    let b = deltaY /2;
+
+                                    c.beginPath();
+                                    c.ellipse(startX+a,startY+b,Math.abs(a),Math.abs(b),0,0, 2 * Math.PI);
+                                    c.strokeStyle = selectedColor.value || "red";
+                                    c.stroke();
+                                };
+                                canvas.onmouseup = function (){
+                                    this.onmousemove = null;
+                                };
+                            }
+                        };
+                        //画直线功能
+                        canvas.onmousedown = drawGeome;
+
+                        button.history = 1;
+                        button.onclick = function (e){
+                            e.preventDefault();
+                            if(stack[canvas.counter].length !== 0){
+                                c.putImageData(stack[canvas.counter][stack[canvas.counter].length-(button.history)],0,0);
+                                stack[canvas.counter].length -= 1;
+                            }
+                        };
+                        document.body.appendChild(canvas);
+                        document.body.appendChild(button);
+
+                    };
+                };
+
+
+            }
+        };
+        dragDiv.ondragover = function (e){e.preventDefault()};
+        window.ondragenter = function (){
+            dragDiv.style.display = "block";
+        };
+        window.onkeydown = function (e){
+            let k = e.key.toLowerCase();
+            switch (k) {
+                case 'z':mode = "yes";break;
+                case 'x':mode = "no";break;
+                case 'c':mode = "other";break;
+                case 's':mode = "line";break;
+                case 'y':mode = "arc";break;
+                case "a":fontSize.value -= 10;
+                    if( typeof fontSize.onchange != undefined)fontSize.onchange();break;
+                case "d":fontSize.value = parseInt(fontSize.value) + 10;
+                    if( typeof fontSize.onchange != undefined)fontSize.onchange();break;
+            }
+        };
+        butdiscal.onclick = function (){
+            cover.classList.toggle("coverapp");
+            inputC.classList.toggle("inputCapp");
+
+        };
+        show_menu.onclick = function (){
+            menu.classList.toggle("appear");
+        };
+        noticeLi.onmouseover = function (){
+            notice.style.display = "block";
+            notice.style.opacity = "1";
+            notice.style.zIndex = "1";
+        };
+        noticeLi.onmouseout = function (){
+            notice.style.opacity = "0";
+            setTimeout("notice.style.display = 'none'",500);
+            notice.style.zIndex = "-1";
+
+        };
+    })
+</script>
+</body>
+</html>

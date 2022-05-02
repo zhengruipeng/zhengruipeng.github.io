@@ -1,0 +1,16 @@
+.button{
+    box-shadow: #87CEFA 0 0 30px;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: button;
+    animation-direction: alternate;
+}
+.button:hover{cursor:pointer}
+@keyframes button{
+    from{
+        box-shadow: #87CEFA 0 0 30px;
+    }to{
+         box-shadow: #87CEFA 0 0 70px;
+     }
+
+}

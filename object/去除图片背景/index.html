@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        const canvas = document.getElementById("canvas");
+
+        const EPSILON = 1;
+
+        const image = new Image();
+        image.src = "" +
+            "d439b6003af33a87e950fc4bbd1707385343fbf21f04.png" +
+            "";
+        image.onload = function (){
+            canvas.width = this.width;
+            canvas.height = this.height;
+            const c = canvas.getContext("2d");
+
+            c.drawImage(this,0,0);
+
+            let imageData = c.getImageData(0,0,canvas.width,canvas.height);
+            for(let i = 0,len = imageData.data.length;i<len;i+=4){
+                /*if(imageData.data[i + 0] === 255 &&
+                    imageData.data[i + 1] === 255 &&
+                    imageData.data[i + 2] === 255 ){
+                    imageData.data[i + 3] = 0;
+                }*/
+                if(Math.hypot(imageData.data[i + 0]-0,imageData.data[i + 1]-0,imageData.data[i + 2]-0)<EPSILON){
+                    imageData.data[i + 0] = 255;
+                    imageData.data[i + 1] = 255;
+                    imageData.data[i + 2] = 255;
+                    imageData.data[i + 3] = 255;
+                }
+                /*if(Math.hypot(imageData.data[i + 0]-185,imageData.data[i + 1]-185,imageData.data[i + 2]-175)<EPSILON){
+                    imageData.data[i + 0] = 255;
+                    imageData.data[i + 1] = 255;
+                    imageData.data[i + 2] = 255;
+                    imageData.data[i + 3] = 0;
+                }*/
+            }
+
+            c.putImageData(imageData,0,0);
+
+        };
+    })
+</script>
+</body>
+</html>

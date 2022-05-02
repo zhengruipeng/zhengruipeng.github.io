@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function () {
+            var canvas = document.getElementById("canvas");
+            var c = canvas.getContext("2d");
+            var point = {fir:{x:500,y:250},sec:{x:700,y:250},thi:{x:700,y:350},fou:{x:500,y:350}};
+            var drawArc,drawLine;
+            var draw = function () {
+                drawArc = function () {
+                    c.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
+                    for(let name in point){
+                        c.beginPath();
+                        c.arc(point[name]["x"],point[name]["y"],15,0,Math.PI*2,false);
+                        c.fillStyle = "#66ccff";
+                        c.fill();
+                        c.closePath();
+                    }
+                };
+                drawLine = function () {
+                    c.beginPath();
+                    c.moveTo(point["fir"]["x"],point["fir"]["y"]);
+                    for(let name in point){
+                        if(name == "fir")continue;
+                        c.lineTo(point[name]["x"],point[name]["y"]);
+                    }
+                    c.lineTo(point["fir"]["x"],point["fir"]["y"]);
+                    c.strokeStyle = "#9501ad";
+                    c.stroke();
+                    c.closePath();
+                };
+            };
+            canvas.onmousedown = function (e){
+                let x = e.clientX;
+                let y = e.clientY,lock = true;
+                let old_x,old_y;
+                for(let name in point){
+                    if(Math.abs(x- point[name]["x"])<15 && Math.abs(y- point[name]["y"])<15){
+                        var select = name;
+                        lock = false;
+                    }
+                }
+                if(lock === false){
+                    old_x = point[select]["x"];
+                    old_y = point[select]["y"];
+                    canvas.onmousemove = function (e) {
+                        let x = e.clientX;
+                        let y = e.clientY;
+                        point[select]["x"] = x;
+                        point[select]["y"] = y;
+                        drawArc();
+                        drawLine();
+
+                    };
+                    canvas.onmouseup = function () {
+                        canvas.onmousemove = null;
+                        let new_x = point[select]["x"];
+                        let new_y = point[select]["y"];
+                        let distance_x = (new_x-old_x)/4,distance_y = (new_y-old_y)/4;
+                        var other = {};
+                        for(let name in point){
+                            if(name === select)continue;
+                            other[name] = {};
+                            other[name]["x"] = point[name]["x"];
+                            other[name]["y"] = point[name]["y"];
+                        }
+
+                        var timer = setInterval(function (){
+                            for(let name in point){
+                                if(name === select)continue;
+                                if(Math.abs(/*目标点*/other[name]["x"]+distance_x -  /*当前点*/point[name]['x']) <= 2 && Math.abs(other[name]["y"]+distance_y - point[name]['y'])<= 2 )clearInterval(timer);
+                                point[name]["x"] += distance_x/10;
+                                point[name]["y"] += distance_y/10;
+                                drawArc();
+                                drawLine();
+
+                            }
+                        },15);
+
+                    };
+                }
+
+            };
+
+
+            draw();
+            drawArc();
+            drawLine();
+
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+<canvas id="canvas" width="1200" height="600"></canvas>
+</body>
+</html>

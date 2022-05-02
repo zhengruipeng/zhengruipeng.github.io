@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<script type="x-webgl/x-vertex-shader" id="vertex">#version 300 es
+in vec4 a_position;
+in vec4 a_normal;
+in vec4 a_color;
+in vec2 a_texture;
+uniform mat4 u_perspective;
+uniform vec4 u_ambient;
+uniform vec4 u_point_pos;
+uniform vec4 u_point_color;
+uniform int  u_point_ld;
+uniform vec4  u_perspective_pos;
+uniform float u_a;
+uniform float u_b;
+uniform float u_c;
+uniform float u_ld;
+uniform float u_ls;
+uniform float u_kd;
+uniform float u_ks;
+uniform float u_alpha;
+out vec4 v_ambient;
+out vec4 v_point_pos;
+out vec4 v_point_color;
+out vec4 v_position;
+out vec4 v_normal;
+out vec4 v_color;
+out vec4 v_perspective_pos;
+out float v_a;        //二次距离衰减因子常数
+out float v_b;        //二次距离衰减因子常数
+out float v_c;        //二次距离衰减因子常数
+out float v_ld;       //光强度
+out float v_ls;       //镜面反射光线强度
+out float v_kd;       //环境光反射系数
+out float v_ks;       //镜面反射系数
+out float v_alpha;    //高光系数
+out vec2 v_texture;
+    void main(){
+        gl_Position = u_perspective * a_position;
+        v_ambient = u_ambient;
+        v_point_pos = u_point_pos;
+        v_point_color = u_point_color;
+        v_position = a_position;
+        v_normal = a_normal;
+        v_color = a_color;
+        v_perspective_pos = u_perspective_pos;
+        v_a = u_a;
+        v_b = u_b;
+        v_c = u_c;
+        v_ld = u_ld;
+        v_ls = u_ls;
+        v_kd = u_kd;
+        v_ks = u_ks;
+        v_alpha = u_alpha;
+        v_texture = a_texture;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">#version 300 es
+precision highp float;
+in float v_a;        //二次距离衰减因子常数
+in float v_b;        //二次距离衰减因子常数
+in float v_c;        //二次距离衰减因子常数
+in float v_ld;       //光强度
+in float v_ls;       //镜面反射光线强度
+in float v_kd;       //环境光反射系数
+in float v_ks;       //镜面反射系数
+in float v_alpha;    //高光系数
+in vec4 v_ambient;
+in vec4 v_point_pos;
+in vec4 v_point_color;
+in vec4 v_position;
+in vec4 v_normal;
+in vec4 v_color;
+in vec4 v_perspective_pos;
+in vec2 v_texture;
+uniform sampler2D u_sampler0;
+out vec4 fragColor;
+    void main(){
+        float a=v_a;                 //二次距离衰减因子常数
+        float b=v_b;                 //二次距离衰减因子常数
+        float c=v_c;                 //二次距离衰减因子常数
+        float ld = v_ld;            //光强度
+        float ls =  v_ls;              //镜面反射光线强度
+        float kd = v_kd;              //环境光反射系数
+        float ks = v_ks;             //镜面反射系数
+        float alpha = v_alpha;            //高光系数
+        float d = length(v_point_pos-v_position);       //光源到当前点距离
+        vec3 l = vec3(v_point_pos-v_position);
+        vec3 v = vec3(v_perspective_pos-v_position);
+        vec3 h = normalize((l+v)/length(l+v));         //半角向量
+        vec3 normal = vec3(v_normal);
+        vec4 texture = texture(u_sampler0,v_texture);
+        vec3 point_pos = vec3(normalize(v_point_pos-v_position));
+        float theta = max(dot(point_pos,normal),0.0);
+        vec3 ambient = vec3(v_ambient) * vec3(v_color);
+        float minus = 1.0/(a+b*d+c*d*d)*(kd*ld*theta+ks*ls*max(pow(max(dot(normal,h),0.0),alpha),0.0));
+        vec3 point = vec3(v_point_color) * vec3(v_color) * minus;
+        fragColor = texture * vec4(ambient+point,1.0);
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = this.getElementById("webgl");
+        let vertex = this.getElementById("vertex");
+        let fragment = this.getElementById("fragment");
+        webgl.height = this.documentElement.clientHeight;
+        webgl.width = this.documentElement.clientWidth;
+        Math.cot = function (x){
+            return 1/Math.tan(x);
+        };
+        let gl = webgl.getContext("webgl2");
+        let vertices = [],normals = [],indices = [],colors = [],texture = [];
+        let drawSphere = function(radius,segmentX,segmentY) {
+            let lats = segmentX,
+                longs = segmentY;
+
+            for (let latNumber = 0; latNumber <= lats; ++latNumber) {
+                for (let longNumber = 0; longNumber <= longs; ++longNumber) {
+                    var u = longNumber / segmentX;
+                    var v = latNumber / segmentY;
+                    let theta = latNumber * Math.PI / lats;
+                    let phi = longNumber / longs * 2 * Math.PI ;
+                    let sinTheta = Math.sin(theta);
+                    let sinPhi = Math.sin(phi);
+                    let cosTheta = Math.cos(theta);
+                    let cosPhi = Math.cos(phi);
+                    let x = cosPhi * sinTheta;
+                    let y = cosTheta;
+                    let z = sinPhi * sinTheta;
+                    // let s, t ,u;
+                    vertices.push(radius * x);
+                    vertices.push(radius * y);
+                    vertices.push(radius * z);
+                    normals.push(x);
+                    normals.push(y);
+                    normals.push(z);
+                    colors.push(1.0);
+                    colors.push(1.0);
+                    colors.push(1.0);
+                    texture.push(u);
+                    texture.push(1-v);
+                    texture.push(0);
+                }
+            }
+
+            for (let latNumberI = 0; latNumberI < lats; ++latNumberI) {
+                for (let longNumberI = 0; longNumberI < longs; ++longNumberI) {
+                    let first = (latNumberI * (longs+1)) + longNumberI;
+                    let second = first + longs + 1;
+                    indices.push(first);
+                    indices.push(second);
+                    indices.push(first+1);
+                    indices.push(second);
+                    indices.push(second+1);
+                    indices.push(first+1);
+                }
+            }
+            vertices = new Float32Array(vertices);
+            normals = new Float32Array(normals);
+            colors = new Float32Array(colors);
+            texture = new Float32Array(texture);
+            indices = new Uint16Array(indices);
+        };
+        let initShader = function (vertex,fragment){
+            let loadShader =function (text,type){
+                let shader = gl.createShader(type);
+                gl.shaderSource(shader,text);
+                gl.compileShader(shader);
+                return shader;
+            };
+            let program = gl.createProgram();
+            vertex = loadShader(vertex,gl.VERTEX_SHADER);
+            fragment = loadShader(fragment,gl.FRAGMENT_SHADER);
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,fragment);
+            gl.linkProgram(program);
+            return program;
+        };
+        let initBuffer = function (name,buffer,shader){
+            let attribute = gl.getAttribLocation(shader,name);
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,buffer,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute)
+        };
+        let initArrayBuffer = function (buffer){
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,buffer,gl.STATIC_DRAW);
+        };
+        let initUniform = function (name,value,type,shader){
+            let uniform = gl.getUniformLocation(shader,name);
+            type.substr(0,1) === "M"?gl["uniform"+type](uniform,false,value):gl["uniform"+type](uniform,...value);
+        };
+        let distance = function (arr){
+            return Math.hypot(...arr);
+        };
+        let normal = function(arr1,arr2){
+            return [
+                arr1[1]*arr2[2]-arr2[1]*arr1[2],
+                arr2[0]*arr1[2]-arr2[2]*arr1[0],
+                arr2[1]*arr1[0]-arr2[0]*arr1[1],
+            ];
+        };
+        let times = function(mat1 ,mat2) {
+            var i, e, a, b, ai0, ai1, ai2, ai3;
+            // Calculate e = a * b
+            e = mat1;
+            a = mat1;
+            b = mat2;
+
+            if (e === b) {
+                b = new Float32Array(16);
+                for (i = 0; i < 16; ++i) {
+                    b[i] = e[i];
+                }
+            }
+
+            for (i = 0; i < 4; i++) {
+                ai0=a[i];  ai1=a[i+4];  ai2=a[i+8];  ai3=a[i+12];
+                e[i]    = ai0 * b[0]  + ai1 * b[1]  + ai2 * b[2]  + ai3 * b[3];
+                e[i+4]  = ai0 * b[4]  + ai1 * b[5]  + ai2 * b[6]  + ai3 * b[7];
+                e[i+8]  = ai0 * b[8]  + ai1 * b[9]  + ai2 * b[10] + ai3 * b[11];
+                e[i+12] = ai0 * b[12] + ai1 * b[13] + ai2 * b[14] + ai3 * b[15];
+            }
+
+            return mat1;
+        };
+        let normalize = function (vec){
+            return distance(vec) !== 0?[vec[0]/distance(vec),vec[1]/distance(vec),vec[2]/distance(vec)]:[0,0,0];
+        };
+        let minus = function (vec1,vec2){
+            return [vec2[0]-vec1[0],vec2[1]-vec1[1],vec2[2]-vec1[2]];
+        };
+        let translate = function(mat1,x, y, z){
+            var e = mat1;
+            e[12] += e[0] * x + e[4] * y + e[8]  * z;
+            e[13] += e[1] * x + e[5] * y + e[9]  * z;
+            e[14] += e[2] * x + e[6] * y + e[10] * z;
+            e[15] += e[3] * x + e[7] * y + e[11] * z;
+            return mat1;
+        };
+        let initPerspective = function (eyeX,eyeY,eyeZ,centerX,centerY,centerZ,topX,topY,topZ, fovy, ascept, near, far) {
+            fovy = Math.PI/180*fovy;
+            let perspective = new Float32Array([
+                Math.cot(fovy)/ascept,0,0,0,
+                0,Math.cot(fovy),0,0,
+                0,0,-(near+far)/(far-near),-1,
+                0,0,-(2*far*near)/(far-near),0
+            ]);
+            let fe = [eyeX,eyeY,eyeZ];
+            let fc = [centerX,centerY,centerZ];
+            let ft = [topX,topY,topZ];
+            let fn = normalize(minus(fe,fc));          //z
+            let fu = normalize(normal(fn,ft));        //x
+            let fv = normalize(normal(fn,fu));        //y
+            let lookAt = new Float32Array([
+                fu[0],-fv[0],-fn[0],0,
+                fu[1],-fv[1],-fn[1],0,
+                fu[2],-fv[2],-fn[2],0,
+                0,0,0,1
+            ]);
+            lookAt = translate(lookAt,-eyeX,-eyeY,-eyeZ);
+            lookAt = times(perspective,lookAt);
+            return lookAt;
+        };
+        let render = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
+            requestAnimationFrame(render);
+        };
+        let loadTexture = function (){
+            let u_sampler0 = gl.getUniformLocation(gl.SHADER_PROGRAM0,"u_sampler0");
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,1);
+            let texture = gl.createTexture();
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D,texture);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,this);
+            gl.uniform1i(u_sampler0,0);
+        };
+        gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,1);
+        gl.SHADER_PROGRAM0 = initShader(vertex.innerText,fragment.innerText);
+        gl.useProgram(gl.SHADER_PROGRAM0);
+        drawSphere(1,256,256);
+        initBuffer("a_position",vertices,gl.SHADER_PROGRAM0);
+        initBuffer("a_normal",normals,gl.SHADER_PROGRAM0);
+        initBuffer("a_color",colors,gl.SHADER_PROGRAM0);
+        initArrayBuffer(indices);
+        let perspective_pos = [0,0,5];
+        let perspective = initPerspective(...perspective_pos,0,0,0,0,1,0,20,webgl.width/webgl.height,.1,1000);
+        initUniform("u_perspective",perspective,"Matrix4fv",gl.SHADER_PROGRAM0);
+        initUniform("u_ambient",[1,1,1,1],"4f",gl.SHADER_PROGRAM0);
+        initUniform("u_point_pos",[2,3,5,1],"4f",gl.SHADER_PROGRAM0);
+        initUniform("u_point_color",[1,1,1,1],"4f",gl.SHADER_PROGRAM0);
+        initUniform("u_perspective_pos",perspective_pos.concat([1]),"4f",gl.SHADER_PROGRAM0);
+        initUniform("u_perspective_pos",perspective_pos.concat([1]),"4f",gl.SHADER_PROGRAM0);
+        initUniform("u_a",[.1],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_b",[.1],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_c",[.1],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_ld",[2],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_ls",[2],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_kd",[1],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_ks",[1],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_alpha",[10],"1f",gl.SHADER_PROGRAM0);
+        initBuffer("a_texture",texture,gl.SHADER_PROGRAM0);
+        let image = new Image();
+        image.src = "../image/3earth.jpg";
+        image.onload = loadTexture;
+        render();
+    })
+</script>
+</body>
+</html>

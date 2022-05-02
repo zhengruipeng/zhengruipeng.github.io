@@ -1,0 +1,26 @@
+.three_img1 {
+    width:100px;
+    height:100px;
+    position: absolute;
+    transform: rotateY(0);
+}
+.three_img2 {
+    width:100px;
+    height:100px;
+    transform: rotateY(-90deg) translateX(-50px) translateZ(50px);
+}
+.threeD{
+    height:100px;width:100px;
+    transition:0.5s;
+    transform-style: preserve-3d;
+}
+.threeD:hover{
+    transform-style: preserve-3d;
+    transform:rotateY(90deg) translateX(50px)  translateZ(50px);
+    cursor:pointer;
+}
+.model{
+    float:left;margin-left:30px;margin-top:20px;
+}
+#button_area{ width:570px;
+    float:left;margin-left:10px; }

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        div{ border:#000 solid 0px; }
+        #div{ width:900px;margin:0 auto;height:600px;  }
+        body{background-image:url("./image/background.jpg");
+            background-position: center;
+            background-origin: padding-box;
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+        }
+        #svgdoc{ height:300px;width:300px;margin-left:10px;float:left;margin-top:10px; }
+        #start{ position:absolute;top:0px;left:0;
+            height:100%;width:100%;
+            z-index:3;
+            text-align:center;
+            background-image:url("./image/7.jpg")
+        }
+        .disappeared{ display: none !important; }
+        .cantsee{ opacity:0;z-index:-1 !important; }
+        .complete{width:500px;height:300px;position:absolute;top:28%;left:32%;
+            background-color:#000;font-size:50px;text-align:center;
+            color:white;opacity:0;line-height:300px;transition:1s;
+            border-radius:45px;
+        }
+        #canvas{position:absolute;top:0;left:0;height:100%;width:100%;z-index:4;
+        transition:0.3s}
+        #canvas .embed{
+            border: solid 1px;position:absolute;top:150px;left:100px;
+            height:0px;width:0px;
+            transition:0.5s;
+            color:white;
+            font-size:20px;
+        }
+        .cancel{
+            border: solid 1px;position:absolute;top:30px;left:30px;
+            height:30px;width:70px;
+            line-height:30px;text-align:center;
+            color:white;
+        }
+        #canvas .cancel:hover{
+            cursor:pointer;
+        }
+        #canvas .info{
+            position:absolute;top:240px;left:600px;
+            border:solid 1px;
+            /*height:150px;width:300px;*/
+            height:0px;width:0px;
+            color:white;font-size:30px;font-family:黑体;
+            line-height:150px;text-align:center;
+            cursor:pointer;
+            transition:0.5s;
+        }
+        #movie{ position:absolute;z-index:4;transition:0.5s;width:0;height:0 }
+    </style>
+    <link href="image.css" rel="stylesheet" type="text/css"/>
+    <link href="button.css" rel="stylesheet" type="text/css"/>
+    <link href="divs.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="start" >
+    <div class="complete">Loaded three.js</div>
+    <svg width="1300" height="600" viewBox="0 0 1300 600">
+        <defs>
+            <linearGradient id="model">
+                <stop offset="0%" style="stop-color:red" />
+                <stop offset="16%" style="stop-color:orange" />
+                <stop offset="32%" style="stop-color:yellow" />
+                <stop offset="48%" style="stop-color:green" />
+                <stop offset="64%" style="stop-color:#00ffff" />
+                <stop offset="80%" style="stop-color:blue" />
+                <stop offset="100%" style="stop-color:#ff00ff" />
+            </linearGradient>
+            <linearGradient id="ltr" xlink:href="#model" x1="0%" x2="100%" y1="0%" y2="0%"></linearGradient>
+        </defs>
+    <image xlink:href="./image/6.png" x="0" y="0" height="100" width="100" id="start_image">
+        <animateMotion path="M 550 200 A 50 50 0 1 0 550 199 " begin="0s" dur="1s" fill="freeze" id="zero_front"></animateMotion>
+        <animateMotion path="M 550 200 A 50 50 0 1 0 550 199 " begin="zero_front.end" dur="1s" fill="freeze" id="zero"></animateMotion>
+    </image>
+    <rect  x="450" y="400" width="400" height="15" style="fill:url(#ltr);stroke:none">
+        <animate attributeName="width" attributeType="XML" from="0" to="400" begin="0s" dur="2s" fill="freeze"></animate>
+    </rect>
+    <text x="350" y="500 " style="font-size:40px;">
+        <tspan x="450 " y="500">
+            L
+            <animate attributeName="y" attributeType="XML" from="500" to="475" begin="0s" dur="0.2s" fill="freeze" id="tspan_smil"></animate>
+            <animate attributeName="y" attributeType="XML" from="475" to="500" begin="tspan_smil.end" dur="0.2s" fill="freeze" id="tspan1_smil"></animate>
+        </tspan>
+        <tspan x="490 " y="500">
+            o
+            <animate attributeName="y" attributeType="XML" from="500" to="475" begin="tspan1_smil.end" dur="0.2s" fill="freeze" id="tspan2_smil"></animate>
+            <animate attributeName="y" attributeType="XML" from="475" to="500" begin="tspan2_smil.end" dur="0.2s" fill="freeze"  id="tspan3_smil"></animate>
+        </tspan>
+        <tspan x="530 " y="500">
+            a
+            <animate attributeName="y" attributeType="XML" from="500" to="475" begin="tspan3_smil.end" dur="0.2s" fill="freeze" id="tspan4_smil"></animate>
+            <animate attributeName="y" attributeType="XML" from="475" to="500" begin="tspan4_smil.end" dur="0.2s" fill="freeze"  id="tspan5_smil"></animate>
+        </tspan>
+        <tspan x="570 " y="500">
+            d
+            <animate attributeName="y" attributeType="XML" from="500" to="475" begin="tspan5_smil.end" dur="0.2s" fill="freeze" id="tspan6_smil"></animate>
+            <animate attributeName="y" attributeType="XML" from="475" to="500" begin="tspan6_smil.end" dur="0.2s" fill="freeze"  id="tspan7_smil"></animate>
+        </tspan>
+        <tspan x="610 " y="500">
+            i
+            <animate attributeName="y" attributeType="XML" from="500" to="475" begin="tspan7_smil.end" dur="0.2s" fill="freeze" id="tspan8_smil"></animate>
+            <animate attributeName="y" attributeType="XML" from="475" to="500" begin="tspan8_smil.end" dur="0.2s" fill="freeze"  id="tspan9_smil"></animate>
+        </tspan>
+        <tspan x="650 " y="500">
+            n
+            <animate attributeName="y" attributeType="XML" from="500" to="475" begin="tspan9_smil.end" dur="0.2s" fill="freeze" id="tspan10_smil"></animate>
+            <animate attributeName="y" attributeType="XML" from="475" to="500" begin="tspan10_smil.end" dur="0.2s" fill="freeze" id="tspan11_smil"></animate>
+        </tspan>
+        <tspan x="690 " y="500">
+            g
+            <animate attributeName="y" attributeType="XML" from="500" to="475" begin="tspan11_smil.end" dur="0.2s" fill="freeze" id="tspan12_smil"></animate>
+            <animate attributeName="y" attributeType="XML" from="475" to="500" begin="tspan12_smil.end" dur="0.2s" fill="freeze" ></animate>
+        </tspan>
+    </text>
+    <!--<text x="550" y="550 " style="font-size:20px;"><tspan>MISAKAMISAKA speaking gently!!!</tspan></text>-->
+</svg>
+</div>
+<div id="div">
+    <div id="svgdoc">
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <image xlink:href="./image/1.png" height="300" width="200" x="-100" y="0" preserveAspectRatio="none" style="opacity:0">
+                <animate animationType="CSS" attributeName="opacity" from="0" to="1" begin="zero.end+1" dur="0.2s" fill="freeze" id="fir" />
+                <animate animationType="XML" attributeName="x" from="-100" to="0" begin="zero.end+1" dur="0.2s" fill="freeze" />
+            </image>
+            <image xlink:href="./image/2.png" height="200" width="150" x="100" y="120" preserveAspectRatio="none" style="opacity:0">
+                <animate animationType="CSS" attributeName="opacity" from="0" to="1" begin="fir.end" dur="0.2s" fill="freeze" id="sec" />
+                <animate animationType="XML" attributeName="x" from="100" to="50" begin="fir.end" dur="0.2s" fill="freeze" />
+            </image>
+            <image xlink:href="./image/3.png" height="300" width="200" x="200" y="20" preserveAspectRatio="none" style="opacity:0">
+                <animate animationType="CSS" attributeName="opacity" from="0" to="1" begin="sec.end" dur="0.2s" fill="freeze" id="thi" />
+                <animate animationType="XML" attributeName="x" from="200" to="170" begin="sec.end" dur="0.2s" fill="freeze" />
+            </image>
+            <image xlink:href="./image/4.png" height="340" width="220" x="85" y="200" preserveAspectRatio="none" style="opacity:0" >
+                <animate animationType="CSS" attributeName="opacity" from="0" to="1" begin="thi.end" dur="0.2s" fill="freeze" id="fou" />
+                <animate animationType="XML" attributeName="y" from="200" to="50" begin="thi.end" dur="0.2s" fill="freeze" />
+            </image>
+        </svg>
+        <!--<div style="font-size:20px;">SMIL动画无法加载</div>-->
+    </div>
+    <div id="button_area">
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/11.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/22.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/33.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/44.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/55.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/66.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/77.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/88.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/99.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/1010.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/1111.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+        <div class="threeD model" src="./image/1.mp4">
+            <img src="./image/8.jpg" style="height:100px;width:100px;" class="three_img1">
+            <img src="./image/1212.jpg" style="height:100px;width:100px;" class="three_img2">
+        </div>
+    </div>
+    <div id="image">
+        <img src="image/1.jpeg" class="img1" id="img1" />
+        <img src="image/2.jpeg" class="img2" id="img2" />
+        <img src="image/3.jpeg" class="img3" id="img3" />
+        <img src="image/4.jpeg" class="img4" id="img4" />
+        <img src="image/5.jpeg" class="img5" id="img5" />
+        <div id="left"><</div>
+        <div id="right">></div>
+        <div class="main">
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+        </div>
+    </div>
+</div>
+<div id="canvas"  class="cantsee">
+    <div class="button cancel">cancel</div>
+    <div class="button info"><!--欢迎来到学院都市-->_</div>
+    <div class="embed button"></div>
+  <!--  <div class="embed2 button"></div>
+    <div class="embed3 button"></div>-->
+</div>
+<div id="movie">
+
+</div>
+<script type="text/javascript" src="./three_69.js" defer></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        setTimeout(function (){if(!document.getElementById("start").className){
+            alert("动画无法实现，系统自动退化");
+            document.getElementById("start").className = "disappeared"
+        }},3500);
+        if(!document.getElementsByClassName){
+            alert("部分CSS动画可能无法运行");
+            document.getElementsByClassName = function (a){
+                return document.querySelectorAll("."+a);
+            }
+        }
+        if(!document.querySelector){alert("请更新您的浏览器");return false;}
+        var timer,canvas = document.getElementById("canvas"),src;
+        var display = function (){
+            for(var i=0;i<document.querySelectorAll("#image img").length;i++){
+                document.getElementById("img"+(i+1)).className = "img"+(parseInt(document.getElementById("img"+(i+1)).className.substr(3,1))-1);
+                if(document.getElementById("img"+(i+1)).className.substr(3,1) <1 )document.getElementById("img"+(i+1)).className = "img5";
+                document.getElementsByClassName("child")[i].style.backgroundColor = "#fff";
+            }
+            document.getElementsByClassName("child")[document.getElementsByClassName("img3")[0].getAttribute("id").substr(3,1)-1].style.backgroundColor = "#ccc";
+            timer = setTimeout(display,3000);
+        };
+        let Paint = function (){
+            this.scene;
+            this.camera;
+            this.material;
+            this.mesh;
+            this.geometry;
+            this.renderer;
+            this.texture;
+            this.rotation;
+            this.loaded = false;
+            this.initScene = function (){
+                let render;
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(45,canvas.offsetWidth/canvas.offsetHeight,1,1000);
+                this.camera.position.set(0,0,5);
+                this.renderer = new THREE.WebGLRenderer({antialias:true});
+                this.renderer.setSize(canvas.offsetWidth,canvas.offsetHeight);
+                this.geometry = new THREE.SphereGeometry(1,64,64);
+                this.texture = THREE.ImageUtils.loadTexture("./image/earth.jpg");
+                this.material = new THREE.MeshBasicMaterial({map:this.texture});
+                this.mesh = new THREE.Mesh(this.geometry,this.material);
+                this.mesh.position.set(0,0,0);
+                this.mesh.rotateX(0.5);
+                this.mesh.rotateY(0);
+                this.scene.add(this.mesh);
+                canvas.appendChild(this.renderer.domElement);
+                let that = this;
+
+                render = function (){
+                    if(Math.abs(2.1 - that.mesh.rotation.y )>= 0.05 && canvas.className === ""){
+                        that.mesh.rotation.y += 0.04;
+                        that.camera.position.z -= 0.048;
+                    }
+                    that.renderer.render(that.scene,that.camera);
+                    requestAnimationFrame(render);
+                };
+                render();
+            };
+            this.redraw = function (){
+                this.camera.position.set(0,0,5);
+                this.mesh.rotation.y = 0;
+                let info = document.querySelector("#canvas .info");
+                info.innerHTML = "";
+                info.style.height = "0";
+                info.style.width = "0";
+                let embed = document.querySelector("#canvas .embed");
+                embed.style.height = "0";
+                embed.style.width = "0";
+                embed.innerHTML = "";
+            };
+            this.inputText = function (n){
+                let info = document.querySelector("#canvas .info");
+                let embed = document.querySelector("#canvas .embed");
+                info.style.height = "150px";
+                setTimeout(function (){info.style.width = "300px";},500);
+                setTimeout(function (){
+
+                    info.innerHTML = "";
+                    let str = "欢迎来到学院都市";
+                    let i=0;
+                    let timer = setInterval(function (){
+                        if(str[i+1] === undefined) {
+                            (new Paint).info(embed,n);
+                            clearInterval(timer);
+                        }
+
+                        info.innerHTML = info.innerHTML.substr(0,info.innerHTML.length-1);
+                        info.innerHTML += str[i++]+"_";
+                    },100)
+                },1000);
+
+            };
+            this.info = function (e,n) {
+                let str = "这里是将超能力认知为一般科学的反超自然学园都市。一名白衣修女从天而降，来到高中生上条当麻的房间。但那名修女装扮的少女却表示，她是从魔法的世界逃到这里来的。上条对这个自称是禁书目录的神秘少女的言行相当怀疑，然而真正的魔法师，却在两人眼前出现──！";
+                e.style.height = "350px";
+                e.style.width = "300px";
+                setTimeout(function (){e.innerHTML = str},500)
+            }
+        };
+        let image_clicked = function (){
+            let index = this.id;
+            index.substr(0,index.length-1);
+            canvas.className = "";
+            paint.inputText(index);
+        };
+        let video = function (e,that){
+            let movie = document.getElementById("movie");
+            movie.style.transition = "0.5s";
+            movie.className = "";
+      /*      let x = e.clientX;
+            let y = e.clientY;*/
+            let video = document.createElement("video");
+            video.src = src;
+            video.style.height = "100%";
+            video.style.width = "100%";
+            video.style.position = "absolute";
+            video.style.top = "0";
+            video.style.left = "0";
+            video.setAttribute("controls","controls");
+            movie.appendChild(video);
+            let cancel = document.createElement("div");
+            cancel.className = "button";
+            cancel.className += " cancel";
+            cancel.innerHTML=  "cancel";
+            cancel.onclick = function (){
+                movie.style.top = "0";
+                movie.style.position = "absolute";
+                movie.style.left = "0";
+                movie.style.height = "0";
+                movie.style.width = "0";
+                movie.removeChild(video);
+                movie.removeChild(cancel);
+                movie.className += " cantsee";
+            };
+            movie.appendChild(cancel);
+            movie.style.top = "0";
+            movie.style.position = "absolute";
+            movie.style.left = "0";
+            movie.style.height = "100%";
+            movie.style.backgroundColor = "#000";
+            movie.style.width = "100%";
+
+        };
+        let paint = new Paint();
+        document.getElementById("left").addEventListener("click",function (){
+            clearTimeout(timer);
+            for(var i=0;i<document.querySelectorAll("#image img").length;i++){
+                document.getElementById("img"+(i+1)).className = "img"+(parseInt(document.getElementById("img"+(i+1)).className.substr(3,1))-1);
+                if(document.getElementById("img"+(i+1)).className.substr(3,1) <1 )document.getElementById("img"+(i+1)).className = "img5";
+                document.getElementsByClassName("child")[i].style.backgroundColor = "#fff";
+            }
+            document.getElementsByClassName("child")[document.getElementsByClassName("img3")[0].getAttribute("id").substr(3,1)-1].style.backgroundColor = "#ccc";
+            timer = setTimeout(display,3000);
+        },true);
+        document.getElementById("right").addEventListener("click",function (){
+            clearTimeout(timer);
+            for(var i=0;i<document.querySelectorAll("#image img").length;i++){
+                document.getElementById("img"+(i+1)).className = "img"+(parseInt(document.getElementById("img"+(i+1)).className.substr(3,1))+1);
+                if(document.getElementById("img"+(i+1)).className.substr(3,1) >5 )document.getElementById("img"+(i+1)).className = "img1";
+                document.getElementsByClassName("child")[i].style.backgroundColor = "#fff";
+            }
+            document.getElementsByClassName("child")[document.getElementsByClassName("img3")[0].getAttribute("id").substr(3,1)-1].style.backgroundColor = "#ccc";
+            timer = setTimeout(display,3000);
+        },true);
+        document.getElementById("zero").addEventListener("endEvent",function (){
+
+                document.getElementsByClassName("complete")[0].style.opacity = "0.5";
+                setTimeout(() => {
+                    document.getElementById("start").className = "disappeared";
+                }, 1000);
+        },true);
+        document.querySelector("#canvas .cancel").addEventListener("click",function (){
+            paint.redraw();
+            canvas.className += " cantsee";
+        },true);
+        document.getElementById("img1").addEventListener("click",image_clicked,true);
+        document.getElementById("img2").addEventListener("click",image_clicked,true);
+        document.getElementById("img3").addEventListener("click",image_clicked,true);
+        document.getElementById("img4").addEventListener("click",image_clicked,true);
+        document.getElementById("img5").addEventListener("click",image_clicked,true);
+        for(let i=0,len = document.querySelectorAll(".model").length;i<len;i++){
+            document.querySelectorAll(".model")[i].addEventListener("click",function (e){
+                src = document.querySelectorAll(".model")[i].getAttribute("src")
+                video(e,this)
+            },true);
+        }
+        display();
+        paint.initScene();
+
+
+
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="webgl" ></canvas>
+<script type="x-vertex/x-shader" id="shader">
+    attribute vec4 a_position;
+    attribute vec4 a_normal;
+    uniform mat4 u_perspective;
+    varying vec3 v_Normal;
+    varying vec3 v_Position;
+    varying vec4 v_Color;
+    varying vec2 v_texture;
+    attribute vec2 a_texture;
+    uniform mat4 u_chance;
+    uniform mat4 u_normal_chance;
+void main() {
+    vec4 a_color = vec4(1.0,1.0,1.0,1.0);
+    gl_Position = u_perspective * u_chance * a_position;
+    v_Position = vec3(a_position);
+    v_Normal = normalize(vec3(u_normal_chance * a_normal));
+    v_Color = a_color;
+    v_texture = a_texture;
+}
+
+</script>
+<script type="x-fragment/x-fragment" id="fragment">
+#ifdef GL_ES
+    precision highp float;
+    #endif
+    uniform vec3 u_directional_color;
+    uniform vec3 u_directional_pos;
+    uniform vec3 u_ambient;
+    varying vec3 v_Normal;
+    varying vec3 v_Position;
+    varying vec4 v_Color;
+    uniform sampler2D u_sampler0;
+    varying vec2 v_texture;
+    void main() {
+        vec3 normal = normalize(v_Normal);
+        vec3 lightDirection = normalize(u_directional_pos - v_Position);
+        float nDotL = max(dot(lightDirection, normal), 0.0);
+        vec3 diffuse = u_directional_color * v_Color.rgb * nDotL;
+        vec3 ambient = u_ambient * v_Color.rgb;
+        gl_FragColor = vec4(texture2D(u_sampler0,v_texture).rgb + diffuse + ambient, v_Color.a);
+    }
+</script>
+<script type="type/javascript" src="../../libs/物理学公式.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = document.getElementById("webgl");
+        let shader = document.getElementById("shader");
+        let fragment = document.getElementById("fragment");
+        let meteorolite = {
+            //r 半径(km) v自转速度(d) a 近日点（km） q远日点（km） period公转周期（day） magnitude视星等 incline倾斜度 m质量（kg）
+            "sun": {"r" : 696000 , "v" : 25.05 , "a" : 0 , "q" : 0 , "period" : 0},
+            "mercury": {"r" : 2439 , "v" : 58.646 , "a" : 46001200 , "q" : 69816900 , "period" : 87.969 ,
+                "magnitude": -1.9,"incline":7.00487,"m": 3.3022e23, },
+            "venus": {"r" : 6051.5 , "v" : 243 , "a" : 107476259 , "q" : 108942109 , "period" : 224.7,
+                "magnitude": -3.7,"incline":3.395,"m": 3.395e24,},
+            "earth": {"r" : 6378 , "v" : 1 , "a" : 147098074 , "q" : 152097701 , "period" : 365.24219,
+                "magnitude": 0,"incline":0,"m": 5.965e24,},
+            "mars": {"r" : 3397 , "v" : 1.03 , "a" : 2.0662e8 , "q" : 2.4923e8 , "period" : 686.980,
+                "magnitude": -1.5,"incline":1.85061,"m": 6.4219e25,},
+            "jupiter": {"r" : 69911 , "v" : 0.416 , "a" : 740573600 , "q" : 816520800 , "period" : 11.8618*94608e11,
+                "magnitude": -2.27,"incline":1.30530,"m": 1.9e27,},
+            "saturn": {"r" : 60268 , "v" : 0.439 , "a" : 1353572956 , "q" : 1513325783 , "period" : 10832.327,
+                "magnitude": 0.45,"incline": 2.485240,"m": 5.684e26,},
+            "uranus": {"r" : 24973 , "v" :0.72 , "a" : 2748938461 , "q" : 3004419704 , "period" : 84.323326 *94608e11,
+                "magnitude": 5.8 ,"incline": 0.772556,"m": 8.681e25,},
+            "neptune": {"r" : 24766 , "v" : 0.663 , "a" : 4504000000 , "q" : 4504000000 , "period" : 60327.624,
+                "magnitude": 7.85 ,"incline":1.767975,"m": 1.0247e26,},
+            "pluto": {"r" : 1149 , "v" : 6.375 , "a" : 4.437e9 , "q" : 7.311e9 , "period" : 90581,
+                "magnitude": 15.1,"incline":17.1405,"m": 1.473e22,},
+            "2013 3FY27" : {"r" : 368 , "v" : 2.69 , "a" : 43 , "q" : 45 , "period" : 115005},            //未知天体
+            "eris" : {"r" : 1165 , "v" : 2.31 , "a" : 37.7 , "q" : 97.5 , "period" : 203600},                 //37.7a  97.5a  公转203600d
+            "2010 0EK139" : {"r" : 238 , "v" : 5.89 , "a" : 31 , "q" : 34 , "period" : 898140},
+            "2007 7UK126" : {"r" : 306 , "v" : 5.38 , "a" : 55 , "q" : 63 , "period" : 151006},
+            "2007 7OR10" : {"r" : 645 , "v" : 2.66 , "a" : 33 , "q" : 50 , "period" : 566054},
+            "2006 SQ372" : {"r" : 37.5 , "v" : 0 , "a" : 20 , "q" : 24 , "period" : 8200090},              //自转未知 公转8200090d   147098074km*1600
+            "2005 5UQ513" : {"r" : 335 , "v" : 4.03 , "a" : 55.3 , "q" : 83 , "period" : 874627},
+            "2005 5RN43" : {"r" : 348 , "v" : 4.17 , "a" : 34 , "q" : 50 , "period" : 453786},
+            "2005 5QU182" : {"r" : 208 , "v" : 5.17 , "a" : 51 , "q" : 63 , "period" : 1456314},
+            "2003 3AZ84" : {"r" : 374 , "v" : 4.15 , "a" : 34 , "q" : 49 , "period" : 456662},
+            "2003 3OP32" : {"r" : 128 , "v" : 4.65 , "a" : 33 , "q" : 36, "period" : 789661},
+            "2002 2TX300" : {"r" : 145 , "v" : 4.64 , "a" : 43.5 , "q" : 38 , "period" : 104808},           //43.5a 38a 104808
+            "2002 2MS4" : {"r" : 480 , "v" : 4.07 , "a" : 31 , "q" : 51 , "period" : 204789},
+            "2002 2AW197" : {"r" : 330 , "v" : 4.48 , "a" : 47 , "q" : 41 , "period" : 117836.3},           //47a   41a     117836.3d
+            "2002 AW197" : {"r" : 940 , "v" : 0.003 , "a" : 47 , "q" : 41 , "period" : 118761.41},               //47a   41a     118761.41d    自转未知
+            "2002 2UX25" : {"r" : 352 , "v" : 4.75 , "a" : 44 , "q" : 58 , "period" : 459644},
+            "Makemake" : {"r" : 713 , "v" : 3.80 , "a" : 53.074 , "q" : 38.509 , "period" : 113183},              //公转：113183    53.074a  38.509a
+            "Varda" : {"r" : 335 , "v" : 4.27 , "a" : 45 , "q" : 40 , "period" : 103400.6},                 //45a  40a  103400.6d
+            "Haumea" : {"r" : 718 , "v" : 0.163146 , "a" : 80 , "q" : 80 , "period" : 103468},            //公转：103468d    7480000000+147098074km
+            "Orcus" : {"r" : 946.3 , "v" : 0 , "a" : 2.4 , "q" : 2.0 , "period" : 1369.6},             //1369.6d   2.4a  2.0a    自转未知
+            "Varuna" : {"r" : 361 , "v" : 4.47 , "a" : 43 , "q" : 54 , "period" : 786248},
+            "Quaoar" : {"r" : 546 , "v" : 4.56 , "a" : 42 , "q" : 82 , "period" : 783211},
+            "Ixion" : {"r" : 337 , "v" : 4.65 , "a" : 41 , "q" : 60 , "period" : 458742},
+            "Sedna" : {"r" : 520 , "v" : 4.35 , "a" : 942 , "q" : 76.1 , "period" : 464349}                  //76.1a  942a
+
+        };
+        let Geometry = function (){
+            this.initSphere = function(radius,segmentX,segmentY) {
+                let vertices = [];
+                let normal = [];
+                let indices = [];
+                var lats = segmentX,
+                    longs = segmentY;
+
+                for (let latNumber = 0; latNumber <= lats; ++latNumber) {
+                    for (let longNumber = 0; longNumber <= longs; ++longNumber) {
+                        let theta = latNumber * Math.PI / lats;
+                        let phi = longNumber * 2 * Math.PI / longs;
+                        let sinTheta = Math.sin(theta);
+                        let sinPhi = Math.sin(phi);
+                        let cosTheta = Math.cos(theta);
+                        let cosPhi = Math.cos(phi);
+
+                        let x = cosPhi * sinTheta;
+                        let y = cosTheta;
+                        let z = sinPhi * sinTheta;
+
+                        vertices.push(radius * x);
+                        vertices.push(radius * y);
+                        vertices.push(radius * z);
+                        normal.push(x);
+                        normal.push(y);
+                        normal.push(z);
+
+                    }
+                }
+
+                for (let latNumberI = 0; latNumberI < lats; ++latNumberI) {
+                    for (let longNumberI = 0; longNumberI < longs; ++longNumberI) {
+                        let first = (latNumberI * (longs+1)) + longNumberI;
+                        let second = first + longs + 1;
+                        indices.push(first);
+                        indices.push(second);
+                        indices.push(first+1);
+
+                        indices.push(second);
+                        indices.push(second+1);
+                        indices.push(first+1);
+                    }
+                }
+                return {vertices:vertices,indices:indices,normal:normal};
+            };
+        };
+
+        gl.clearColor(0,0,0,1);
+        gl.enable(gl.DEPTH_TEST);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+
+    })
+</script>
+</body>
+</html>

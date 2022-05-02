@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin:0;padding:0;font-family: 微软雅黑 }
+        body{ background:url("./image/windowsxp.png");overflow:hidden }
+        div{ border:solid 1px; }
+        #main{ height:100%;width:100%;position:absolute; }
+        #changemethod:hover{ cursor:pointer;transition:.5s;background-color:#000;color:#9501ad }
+        .desktop{  }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="one" class="desktop" style="position: absolute;background-color:black;opacity:.5"></div>
+    <div id="two" class="desktop" style="position: absolute;background-color:yellow;opacity: .4;"></div>
+    <div id="three" class="desktop" style="position: absolute;background-color:red;opacity:.2"></div>
+    <div id="changemethod" style="position: absolute;text-align:center;transition:.5s;">切换效果</div>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let main = this.getElementById("main");
+        let changemethod = this.getElementById("changemethod");
+        let desktopsDiv = this.getElementsByClassName("desktop");
+        let screenHeight = this.documentElement.clientHeight;
+        let screenWidth = this.documentElement.clientWidth;
+        let changemethodtimer;
+        let lastDesktop = 1;
+        let currentDesktop = 1;
+        let styleSheetName = ["one","two","three","four","five","six","seven","eight","nine"];
+        let changeName = ["normal","deep"];
+        let changeNameSelected = 0;
+        let load = function (){
+            for(let i=-1;i<desktopsDiv.length-1;i++){
+                desktopsDiv[i+1].style.left = i*screenWidth+"px";
+                desktopsDiv[i+1].style.top = "0px";
+                desktopsDiv[i+1].style.height = screenHeight+"px";
+                desktopsDiv[i+1].style.width = screenWidth+"px";
+            }
+            changemethod.style.left = "0px";
+            changemethod.style.top = screenHeight+"px";
+            changemethod.style.height = "20px";
+            changemethod.style.width = screenWidth+"px";
+        };
+        let animation = function (ele,obj,time,uint,plus){
+            time = time/60;
+            let startValue = {};
+            for(let name in obj){
+                startValue[name] = ele.style[name];
+            }
+            let animate = function (){
+                for(let name in obj){
+                    if(plus === "+"){
+                        if(parseFloat(ele.style[name]) >parseFloat(startValue[name])+obj[name]){
+                            ele.style[name] = parseFloat(startValue[name])+obj[name]+uint;
+                            return false;
+                        }
+                    }else{
+                        if(parseFloat(ele.style[name])<parseFloat(startValue[name])+obj[name]){
+                            ele.style[name] = parseFloat(startValue[name])+obj[name]+uint;
+                            return false;
+                        }
+                    }
+                    ele.style[name] = parseFloat(ele.style[name])+obj[name]/time+uint;
+                }
+                requestAnimationFrame(animate);
+            };
+            animate();
+        };
+        let getCurrentDesktop = function (){
+            lastDesktop = currentDesktop;
+            let res = screenWidth;
+            for(let i=0;i<desktopsDiv.length;i++){
+                res = Math.min(res,Math.abs(parseFloat(desktopsDiv[i].style.left)));
+                if(res === Math.abs(parseFloat(desktopsDiv[i].style.left))){
+                    currentDesktop = i;
+                }
+            }
+
+        };
+        let loadStyleSheet = function (d){
+            switch(changeName[changeNameSelected]){
+                case "normal":
+                    for(let i=0;i<desktopsDiv.length;i++){
+                        document.styleSheets[0].insertRule("."+styleSheetName[i]+
+                            "{" +
+                            "transition:.5s;" +
+                            "position:absolute;" +
+                            "height:"+screenHeight+"px;" +
+                            "width:"+screenWidth+"px;" +
+                            "left:"+(i-Math.floor(desktopsDiv.length/2))*screenWidth+"px !important;" +
+                            "top:0}");
+                        desktopsDiv[i+d]?desktopsDiv[i+d].className = "desktop "+styleSheetName[i]:i;
+                    }
+                    break;
+
+            }
+
+        };
+        load();
+        loadStyleSheet(0);
+        document.onmousedown = function (e){
+            let ox = e.clientX;
+            for(let i=0;i<desktopsDiv.length;i++){
+                desktopsDiv[i].className = "desktop";
+            }
+            this.onmousemove = function (e){
+                clearTimeout(changemethodtimer);
+                let x = e.clientX;
+                let dx = x-ox;
+                for(let i=0;i<desktopsDiv.length;i++){
+                    desktopsDiv[i].style.left = parseFloat(desktopsDiv[i].style.left) + dx + "px";
+                }
+                ox = x;
+            };
+            this.onmouseup = function (){
+                getCurrentDesktop();
+                loadStyleSheet(currentDesktop-1);
+                this.onmousemove = null;
+                for(let i=0;i<desktopsDiv.length;i++){
+                    desktopsDiv[i].style.left =  (i-currentDesktop)*screenWidth+"px";
+                }
+            };
+            changemethodtimer = setTimeout(function (){
+                document.onmousemove = null;
+                for(let i=0;i<desktopsDiv.length;i++){
+                    animation(desktopsDiv[i],{height:-.3*screenHeight,width:-.3*screenWidth},500,"px","-");
+                    animation(desktopsDiv[i],{top:.1*screenHeight,left:.15*screenWidth},500,"px","+");
+                }
+                animation(changemethod,{top:-20},500,"px","-");
+                window.onmousedown = function (){
+                    for(let i=0;i<desktopsDiv.length;i++){
+                        desktopsDiv[i].style.left =  (i-currentDesktop)*screenWidth+"px";
+                        animation(desktopsDiv[i],{height:.3*screenHeight,width:.3*screenWidth},500,"px","+");
+                        animation(desktopsDiv[i],{top:-.1*screenHeight,left:-.15*screenWidth},500,"px","-");
+
+                    }
+                    animation(changemethod,{top:20},500,"px","+");
+                    document.onmousemove = null;
+                    window.onmousedown = null;
+
+                };
+            },1000);
+        };
+        main.onmouseup = function (){
+            clearTimeout(changemethodtimer);
+        }
+
+    })
+</script>
+</body>
+</html>

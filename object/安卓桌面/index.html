@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin:0;padding:0;font-family: 微软雅黑 }
+        body{ background:url("./image/windowsxp.png");overflow:hidden }
+        div{ border:solid 1px; }
+        #main{ height:100%;width:100%;position:absolute; }
+        #changemethod:hover{ cursor:pointer;transition:.5s;background-color:#000;color:#9501ad }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="one" class="desktop" style="position: absolute;background-color:blue;opacity:.2"></div>
+    <div id="two" class="desktop" style="position: absolute;background-color:yellow;opacity: .4;"></div>
+    <div id="three" class="desktop" style="position: absolute;background-color:red;opacity:.2"></div>
+    <div id="changemethod" style="position: absolute;text-align:center;transition:.5s;">切换效果</div>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let main = this.getElementById("main");
+        let changemethod = this.getElementById("changemethod");
+        let desktopsDiv = this.getElementsByClassName("desktop");
+        let screenHeight = this.documentElement.clientHeight;
+        let screenWidth = this.documentElement.clientWidth;
+        let changemethodtimer;
+        let currentDesttop = 1;
+        let styleSheetName = ["one","two","three","four","five","six","seven","eight","nine"];
+        let changeName = ["normal","deep"];
+        let load = function (){
+            for(let i=-1;i<desktopsDiv.length-1;i++){
+                desktopsDiv[i+1].style.left = i*screenWidth+"px";
+                desktopsDiv[i+1].style.top = "0px";
+                desktopsDiv[i+1].style.height = screenHeight+"px";
+                desktopsDiv[i+1].style.width = screenWidth+"px";
+            }
+            changemethod.style.left = "0px";
+            changemethod.style.top = screenHeight+"px";
+            changemethod.style.height = "20px";
+            changemethod.style.width = screenWidth+"px";
+        };
+        let animation = function (ele,obj,time,uint,plus){
+            time = time/60;
+            let startValue = {};
+            for(let name in obj){
+                startValue[name] = ele.style[name];
+            }
+            let animate = function (){
+                for(let name in obj){
+                    if(plus === "+"){
+                        if(parseFloat(ele.style[name]) >parseFloat(startValue[name])+obj[name]){
+                            ele.style[name] = parseFloat(startValue[name])+obj[name]+uint;
+                            return false;
+                        }
+                    }else{
+                        if(parseFloat(ele.style[name])<parseFloat(startValue[name])+obj[name]){
+                            ele.style[name] = parseFloat(startValue[name])+obj[name]+uint;
+                            return false;
+                        }
+                    }
+                    ele.style[name] = parseFloat(ele.style[name])+obj[name]/time+uint;
+                }
+                requestAnimationFrame(animate);
+            };
+            animate();
+        };
+        let getCurrentDesktop = function (){
+            let res = screenWidth;
+            for(let i=0;i<desktopsDiv.length;i++){
+                res = Math.min(res,Math.abs(parseFloat(desktopsDiv[i].style.left)));
+                if(res === Math.abs(parseFloat(desktopsDiv[i].style.left))){
+                    currentDesttop = i;
+                }
+            }
+
+        };
+        let loadStyleSheet = function (){
+            for(let i=0;i<styleSheetName.length;i++){
+                document.styleSheets[0].insertRule("."+styleSheetName[i]+"{position:absolute;height:"+screenHeight+"px;width:"+screenWidth+"px;left:"+(i-Math.floor(styleSheetName.length/2))+"px;top:0}")
+            }
+        };
+        load();
+        // loadStyleSheet();
+        document.onmousedown = function (e){
+            let ox = e.clientX,oy = e.clientY;
+            this.onmousemove = function (e){
+                clearTimeout(changemethodtimer);
+                let x = e.clientX,y = e.clientY;
+                let dx = (x-ox)/1,dy = y-oy;
+                if(dx<0) {//往右
+                    for(let i=0;i<desktopsDiv.length;i++){
+                        animation(desktopsDiv[i],{left:dx},1,"px","-");
+                    }
+                }
+                else {
+                    for(let i=0;i<desktopsDiv.length;i++){
+                        animation(desktopsDiv[i],{left:dx},1,"px","+");
+                    }
+                }
+                ox = x;oy = y;
+                this.onmouseup = function (){
+                    getCurrentDesktop();
+                    if(parseFloat(desktopsDiv[currentDesttop].style.left)<0){//向右收
+                        getCurrentDesktop();
+                         for(let i=0;i<desktopsDiv.length;i++){
+                            let cl = parseFloat(desktopsDiv[i].style.left);
+                            animation(desktopsDiv[i],{left:(i-currentDesttop)*screenWidth-cl},500,"px","+")
+                        }
+                     }else{//向左收
+                        getCurrentDesktop();
+                        for(let i=0;i<desktopsDiv.length;i++){
+                            let cl = parseFloat(desktopsDiv[i].style.left);
+                            animation(desktopsDiv[i],{left:(i-currentDesttop)*screenWidth-cl},500,"px","-");
+                        }
+                    }
+
+                    this.onmousemove = null;
+                };
+
+            };
+            changemethodtimer = setTimeout(function (){
+                document.onmousemove = null;
+                for(let i=0;i<desktopsDiv.length;i++){
+                    animation(desktopsDiv[i],{height:-.3*screenHeight,width:-.3*screenWidth},500,"px","-");
+                    animation(desktopsDiv[i],{top:.1*screenHeight,left:.15*screenWidth},500,"px","+");
+                }
+                animation(changemethod,{top:-20},500,"px","-");
+                window.onmousedown = function (){
+                    for(let i=0;i<desktopsDiv.length;i++){
+                        animation(desktopsDiv[i],{height:.3*screenHeight,width:.3*screenWidth},500,"px","+");
+                        animation(desktopsDiv[i],{top:-.1*screenHeight,left:-.15*screenWidth},500,"px","-");
+                    }
+                    animation(changemethod,{top:20},500,"px","+");
+                    document.onmousemove = null;
+                    window.onmousedown = null;
+
+                };
+            },1000);
+        };
+        main.onmouseup = function (){
+            clearTimeout(changemethodtimer);
+        }
+
+    })
+</script>
+</body>
+</html>

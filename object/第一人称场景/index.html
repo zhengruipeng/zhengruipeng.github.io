@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20190316</title>
+    <style>
+        *{padding:0;margin:0;}
+    </style>
+</head>
+<body>
+<canvas width="400" height="400" id="canvas"></canvas>
+<div style="position:absolute;top:0;right:0" id="stats"></div>
+<script type="text/javascript" src="../../libs/stats.js"></script>
+<script type="x-vertex/x-shader" id="vertex">#version 300 es
+in vec4 a_normal;
+in vec2 a_texture;
+in vec4 a_position;
+in vec3 objTangent;
+
+uniform mat4 u_perspective;
+uniform mat4 u_change;
+uniform vec4 u_ambient;
+uniform vec4 u_point_pos;
+uniform vec4 u_point_pos2;
+uniform vec4 u_point_pos3;
+uniform vec4 u_point_pos4;
+uniform vec4 u_point_pos5;
+uniform vec4 u_point_pos6;
+uniform vec4 u_point_color;
+uniform vec4  u_perspective_pos;
+uniform float u_a;
+uniform float u_b;
+uniform float u_c;
+uniform float u_ld;
+uniform float u_ls;
+uniform float u_kd;
+uniform float u_ks;
+uniform float u_alpha;
+out vec4 v_ambient;
+out vec4 v_point_pos;
+out vec4 v_point_pos2;
+out vec4 v_point_pos3;
+out vec4 v_point_pos4;
+out vec4 v_point_pos5;
+out vec4 v_point_pos6;
+out vec4 v_point_color;
+out vec4 v_position;
+out vec4 v_normal;
+out vec4 v_color;
+out vec4 v_perspective_pos;
+out float v_a;        //二次距离衰减因子常数
+out float v_b;        //二次距离衰减因子常数
+out float v_c;        //二次距离衰减因子常数
+out float v_ld;       //光强度
+out float v_ls;       //镜面反射光线强度
+out float v_kd;       //环境光反射系数
+out float v_ks;       //镜面反射系数
+out float v_alpha;    //高光系数
+out vec2 v_texture;
+out vec3 L;
+out vec3 V;
+void main(){
+    gl_Position = u_perspective*u_change * a_position;
+    v_ambient = u_ambient;
+    v_point_pos = u_point_pos;
+    v_point_pos2 = u_point_pos2;
+    v_point_pos3 = u_point_pos3;
+    v_point_pos4 = u_point_pos4;
+    v_point_pos5 = u_point_pos5;
+    v_point_pos6 = u_point_pos6;
+    v_point_color = u_point_color;
+    v_position = u_change*a_position;
+    v_normal = a_normal;
+    v_color = vec4(1.0,1.0,1.0,1.0);
+    v_perspective_pos = u_perspective_pos;
+    v_a = u_a;
+    v_b = u_b;
+    v_c = u_c;
+    v_ld = u_ld;
+    v_ls = u_ls;
+    v_kd = u_kd;
+    v_ks = u_ks;
+    v_alpha = u_alpha;
+    v_texture = a_texture;
+
+
+
+    vec3 eyePosition = (a_position).xyz;
+    vec3 eyeLightPos = (u_point_pos).xyz;
+    vec3 N = normalize(a_normal.xyz);
+    vec3 T = normalize(objTangent);
+    vec3 B = cross(N,T);
+    L.x = dot(T,eyeLightPos - eyePosition);
+    L.x = dot(B,eyeLightPos - eyePosition);
+    L.x = dot(N,eyeLightPos - eyePosition);
+    L = normalize(L);
+
+    V.x = dot(T,-eyePosition);
+    V.y = dot(B,-eyePosition);
+    V.z = dot(N,-eyePosition);
+    V = normalize(V);
+}
+</script>
+<script type="x-fragment/x-fragment" id="fragment">#version 300 es
+precision highp float;
+in float v_a;        //二次距离衰减因子常数
+in float v_b;        //二次距离衰减因子常数
+in float v_c;        //二次距离衰减因子常数
+in float v_ld;       //光强度
+in float v_ls;       //镜面反射光线强度
+in float v_kd;       //环境光反射系数
+in float v_ks;       //镜面反射系数
+in float v_alpha;    //高光系数
+in vec4 v_ambient;
+in vec4 v_point_pos;
+in vec4 v_point_pos2;
+in vec4 v_point_pos3;
+in vec4 v_point_pos4;
+in vec4 v_point_pos5;
+in vec4 v_point_pos6;
+in vec4 v_point_color;
+in vec4 v_position;
+in vec4 v_normal;
+in vec4 v_color;
+in vec4 v_perspective_pos;
+in vec2 v_texture;
+in vec3 L;
+in vec3 V;
+uniform sampler2D u_sampler0;
+uniform sampler2D u_sampler1;
+out vec4 fragColor;
+    void main(){
+        vec4 texture0 = texture(u_sampler0,v_texture);
+        vec4 texture1 = texture(u_sampler1,v_texture);
+        float a=v_a;
+        float b=v_b;
+        float c=v_c;
+        float ld = v_ld;
+        float ls =  v_ls;
+        float kd = v_kd;
+        float ks = v_ks;
+        float alpha = v_alpha;
+        float d = length(v_point_pos-v_position);
+        vec3 l = vec3(v_point_pos-v_position);
+        vec3 v = vec3(v_perspective_pos-v_position);
+        vec3 h = normalize((l+v)/length(l+v));
+        vec3 normal = normalize(vec3(v_normal)-(1.7*texture1.xyz-1.0));
+        vec3 point_pos = vec3(normalize(v_point_pos-v_position));
+        float theta = max(dot(point_pos,normal),0.0);
+        vec3 ambient = vec3(v_ambient) * vec3(v_color);
+        float minus = 1.0/(a+b*d+c*d*d)*(kd*ld*theta+ks*ls*max(pow(max(dot(normal,h),0.0),alpha),0.0));
+        vec3 point = vec3(v_point_color) * vec3(v_color) * minus;
+
+        float d2 = length(v_point_pos2-v_position);       //光源到当前点距离
+        vec3 l2 = vec3(v_point_pos2-v_position);
+        vec3 v2 = vec3(v_perspective_pos-v_position);
+        vec3 h2 = normalize((l2+v2)/length(l2+v2));         //半角向量
+        vec3 normal2 = normalize(vec3(v_normal)-(1.7*texture1.xyz-1.0));
+        vec3 point_pos2 = vec3(normalize(v_point_pos2-v_position));
+        float theta2 = max(dot(point_pos2,normal2),0.0);
+        float minus2 = 1.0/(a+b*d2+c*d2*d2)*(kd*ld*theta2+ks*ls*max(pow(max(dot(normal2,h2),0.0),alpha),0.0));
+        vec3 point2 = vec3(v_point_color) * vec3(v_color) * minus2;
+
+        float d3 = length(v_point_pos3-v_position);       //光源到当前点距离
+        vec3 l3 = vec3(v_point_pos3-v_position);
+        vec3 v3 = vec3(v_perspective_pos-v_position);
+        vec3 h3 = normalize((l3+v3)/length(l3+v3));         //半角向量
+        vec3 normal3 = normalize(vec3(v_normal)-(1.7*texture1.xyz-1.0));
+        vec3 point_pos3 = vec3(normalize(v_point_pos3-v_position));
+        float theta3 = max(dot(point_pos3,normal3),0.0);
+        float minus3 = 1.0/(a+b*d3+c*d3*d3)*(kd*ld*theta3+ks*ls*max(pow(max(dot(normal3,h3),0.0),alpha),0.0));
+        vec3 point3 = vec3(v_point_color) * vec3(v_color) * minus3;
+
+        float d4 = length(v_point_pos4-v_position);       //光源到当前点距离
+        vec3 l4 = vec3(v_point_pos4-v_position);
+        vec3 v4 = vec3(v_perspective_pos-v_position);
+        vec3 h4 = normalize((l4+v4)/length(l4+v4));         //半角向量
+        vec3 normal4 = normalize(vec3(v_normal)-(1.7*texture1.xyz-1.0));
+        vec3 point_pos4 = vec3(normalize(v_point_pos4-v_position));
+        float theta4 = max(dot(point_pos4,normal4),0.0);
+        float minus4 = 1.0/(a+b*d4+c*d4*d4)*(kd*ld*theta4+ks*ls*max(pow(max(dot(normal4,h4),0.0),alpha),0.0));
+        vec3 point4 = vec3(v_point_color) * vec3(v_color) * minus4;
+
+        float d5 = length(v_point_pos5-v_position);       //光源到当前点距离
+        vec3 l5 = vec3(v_point_pos5-v_position);
+        vec3 v5 = vec3(v_perspective_pos-v_position);
+        vec3 h5 = normalize((l5+v5)/length(l5+v5));         //半角向量
+        vec3 normal5 = normalize(vec3(v_normal)-(1.7*texture1.xyz-1.0));
+        vec3 point_pos5 = vec3(normalize(v_point_pos5-v_position));
+        float theta5 = max(dot(point_pos5,normal5),0.0);
+        float minus5 = 1.0/(a+b*d5+c*d5*d5)*(kd*ld*theta5+ks*ls*max(pow(max(dot(normal5,h5),0.0),alpha),0.0));
+        vec3 point5 = vec3(v_point_color) * vec3(v_color) * minus5;
+
+        float d6 = length(v_point_pos6-v_position);       //光源到当前点距离
+        vec3 l6 = vec3(v_point_pos6-v_position);
+        vec3 v6 = vec3(v_perspective_pos-v_position);
+        vec3 h6 = normalize((l6+v6)/length(l6+v6));         //半角向量
+        vec3 normal6 = normalize(vec3(v_normal)-(1.7*texture1.xyz-1.0));
+        vec3 point_pos6 = vec3(normalize(v_point_pos6-v_position));
+        float theta6 = max(dot(point_pos6,normal6),0.0);
+        float minus6 = 1.0/(a+b*d6+c*d6*d6)*(kd*ld*theta6+ks*ls*max(pow(max(dot(normal6,h6),0.0),alpha),0.0));
+        vec3 point6 = vec3(v_point_color) * vec3(v_color) * minus6;
+
+        fragColor = texture0 * vec4(ambient+point+point2+point3+point4+point5+point6,1.0);
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = document.querySelector("#canvas");
+        let statsout = document.querySelector("#stats");
+        webgl.width=document.documentElement.clientWidth;
+        webgl.height=document.documentElement.clientHeight-3;
+        let vertex = document.querySelector("#vertex");
+        let fragment = document.querySelector("#fragment");
+        let gl = canvas.getContext("webgl2");
+        let plane_vertices = [1,1,0,1,-1,0,-1,-1,0,1,1,0,-1,-1,0,-1,1,0];
+        let plane_uv = [3,1,0,3,0,0,0,0,0,3,1,0,0,0,0,0,1,0];
+        let plane_normals = [0,0,1, 0,0,1, 0,0,1, 0,0,1, 0,0,1, 0,0,1,];
+        let plane_indices = [  0,1,2,3,4,5];
+        let cube_vertices = [   // Vertex coordinates
+            1.0, 1.0, 1.0,  -1.0, 1.0, 1.0,  -1.0,-1.0, 1.0,   1.0,-1.0, 1.0,  // v0-v1-v2-v3 front
+            1.0, 1.0, 1.0,   1.0,-1.0, 1.0,   1.0,-1.0,-1.0,   1.0, 1.0,-1.0,  // v0-v3-v4-v5 right
+            1.0, 1.0, 1.0,   1.0, 1.0,-1.0,  -1.0, 1.0,-1.0,  -1.0, 1.0, 1.0,  // v0-v5-v6-v1 up
+            -1.0, 1.0, 1.0,  -1.0, 1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0,-1.0, 1.0,  // v1-v6-v7-v2 left
+            -1.0,-1.0,-1.0,   1.0,-1.0,-1.0,   1.0,-1.0, 1.0,  -1.0,-1.0, 1.0,  // v7-v4-v3-v2 down
+            1.0,-1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0, 1.0,-1.0,   1.0, 1.0,-1.0   // v4-v7-v6-v5 back
+        ];
+        let cube_uv = [
+            1,1,1, 0,1,1, 0,0,1, 1,0,1,
+            0,1,1, 0,0,1, 1,0,-1, 1,1,-1,
+            1,1,1, 0,1,-1, 0,0,-1, 1,0,1,
+            1,1,1, 0,1,-1, 0,0,-1, 1,0,1,
+            1,1,-1, 0,1,-1, 0,0,1, 1,0,1,
+            0,0,-1, 1,0,-1, 1,1,-1, 0,1,-1
+        ];
+        let cube_normals = [
+            0.0, 0.0, 1.0,  0.0, 0.0, 1.0,  0.0, 0.0, 1.0,  0.0, 0.0, 1.0, // v0-v1-v2-v3 front
+            1.0, 0.0, 0.0,  1.0, 0.0, 0.0,  1.0, 0.0, 0.0,  1.0, 0.0, 0.0, // v0-v3-v4-v5 right
+            0.0, 1.0, 0.0,  0.0, 1.0, 0.0,  0.0, 1.0, 0.0,  0.0, 1.0, 0.0, // v0-v5-v6-v1 up
+            -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, // v1-v6-v7-v2 left
+            0.0,-1.0, 0.0,  0.0,-1.0, 0.0,  0.0,-1.0, 0.0,  0.0,-1.0, 0.0, // v7-v4-v3-v2 down
+            0.0, 0.0,-1.0,  0.0, 0.0,-1.0,  0.0, 0.0,-1.0,  0.0, 0.0,-1.0  // v4-v7-v6-v5 back
+        ];
+        let cube_indices = [       // Indices of the vertices
+            0, 1, 2,   0, 2, 3,    // front
+            4, 5, 6,   4, 6, 7,    // right
+            8, 9,10,   8,10,11,    // up
+            12,13,14,  12,14,15,    // left
+            16,17,18,  16,18,19,    // down
+            20,21,22,  20,22,23     // back
+        ];
+        let textureNum =0;
+        let textureList = {};
+        Math.cot = function (x){
+            return 1/Math.tan(x);
+        };
+        let initUniform = function (name,value,type,shader){
+            let uniform = gl.getUniformLocation(shader,name);
+            type.substr(0,1) === "M"?gl["uniform"+type](uniform,false,value):gl["uniform"+type](uniform,...value);
+        };
+        let initShader = function (vertex,fragment){
+            let loadShader =function (text,type){
+                let shader = gl.createShader(type);
+                gl.shaderSource(shader,text);
+                gl.compileShader(shader);
+                return shader;
+            };
+            let program = gl.createProgram();
+            vertex = loadShader(vertex,gl.VERTEX_SHADER);
+            fragment = loadShader(fragment,gl.FRAGMENT_SHADER);
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,fragment);
+            gl.linkProgram(program);
+            return program;
+        };
+        let distance = function (arr){
+            return Math.hypot(...arr);
+        };
+        let normal = function(arr1,arr2){
+            return [
+                arr1[1]*arr2[2]-arr2[1]*arr1[2],
+                arr2[0]*arr1[2]-arr2[2]*arr1[0],
+                arr2[1]*arr1[0]-arr2[0]*arr1[1],
+            ];
+        };
+        let times = function(mat1 ,mat2) {
+            var i, e, a, b, ai0, ai1, ai2, ai3;
+            // Calculate e = a * b
+            e = mat1;
+            a = mat1;
+            b = mat2;
+
+            if (e === b) {
+                b = new Float32Array(16);
+                for (i = 0; i < 16; ++i) {
+                    b[i] = e[i];
+                }
+            }
+
+            for (i = 0; i < 4; i++) {
+                ai0=a[i];  ai1=a[i+4];  ai2=a[i+8];  ai3=a[i+12];
+                e[i]    = ai0 * b[0]  + ai1 * b[1]  + ai2 * b[2]  + ai3 * b[3];
+                e[i+4]  = ai0 * b[4]  + ai1 * b[5]  + ai2 * b[6]  + ai3 * b[7];
+                e[i+8]  = ai0 * b[8]  + ai1 * b[9]  + ai2 * b[10] + ai3 * b[11];
+                e[i+12] = ai0 * b[12] + ai1 * b[13] + ai2 * b[14] + ai3 * b[15];
+            }
+
+            return mat1;
+        };
+        let normalize = function (vec){
+            return distance(vec) !== 0?[vec[0]/distance(vec),vec[1]/distance(vec),vec[2]/distance(vec)]:[0,0,0];
+        };
+        let minus = function (vec1,vec2){
+            return [vec2[0]-vec1[0],vec2[1]-vec1[1],vec2[2]-vec1[2]];
+        };
+        let translate = function(mat1,x, y, z){
+            var e = mat1;
+            e[12] += e[0] * x + e[4] * y + e[8]  * z;
+            e[13] += e[1] * x + e[5] * y + e[9]  * z;
+            e[14] += e[2] * x + e[6] * y + e[10] * z;
+            e[15] += e[3] * x + e[7] * y + e[11] * z;
+            return mat1;
+        };
+        let initPerspective = function (eyeX,eyeY,eyeZ,centerX,centerY,centerZ,topX,topY,topZ, fovy, ascept, near, far) {
+
+            fovy = Math.PI/180*fovy;
+            let perspective = new Float32Array([
+                Math.cot(fovy)/ascept,0,0,0,
+                0,Math.cot(fovy),0,0,
+                0,0,-(near+far)/(far-near),-1,
+                0,0,-(2*far*near)/(far-near),0
+            ]);
+            let fe = [eyeX,eyeY,eyeZ];
+            let fc = [centerX,centerY,centerZ];
+            let ft = [topX,topY,topZ];
+            let fn = normalize(minus(fe,fc));          //z
+            let fu = normalize(normal(fn,ft));        //x
+            let fv = normalize(normal(fn,fu));        //y
+            let lookAt = new Float32Array([
+                fu[0],-fv[0],-fn[0],0,
+                fu[1],-fv[1],-fn[1],0,
+                fu[2],-fv[2],-fn[2],0,
+                0,0,0,1
+            ]);
+            lookAt = translate(lookAt,-eyeX,-eyeY,-eyeZ);
+            lookAt = times(perspective,lookAt);
+            return lookAt;
+        };
+        let initBuffer = function (name,buffer,shader){
+            let attribute = gl.getAttribLocation(shader,name);
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,buffer,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute)
+        };
+        let initArrayBuffer = function (buffer){
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,buffer,gl.STATIC_DRAW);
+        };
+        let loadTexture = function (image,image1,texturenum,name){
+            let u_sampler = gl.getUniformLocation(gl.SHADER_PROGRAM0,"u_sampler0");
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,1);
+            let texture = gl.createTexture();
+            gl.activeTexture(gl["TEXTURE"+texturenum]);
+            gl.bindTexture(gl.TEXTURE_2D,texture);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,image);
+            gl.uniform1i(u_sampler,texturenum);
+            let u_sampler2 = gl.getUniformLocation(gl.SHADER_PROGRAM0,"u_sampler1");
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,1);
+            let texture2 = gl.createTexture();
+            gl.activeTexture(gl["TEXTURE"+(texturenum+1)]);
+            gl.bindTexture(gl.TEXTURE_2D,texture2);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,image1);
+            gl.uniform1i(u_sampler2,texturenum+1);
+            textureList[name] = texturenum;
+        };
+        let Geometry = function (vertices,normals,uv,indices,translate,rotation,scale,shader){
+            this.changeMatrix = [1,0,0,0,
+                0,1,0,0,
+                0,0,1,0,
+                0,0,0,1];
+            this.currentShader = shader;
+            this.vertices = vertices;
+            this.normals = normals;
+            this.uv = uv;
+            this.indices = indices;
+            this.translate = translate || this.changeMatrix;
+            this.rotation = rotation || this.changeMatrix;
+            this.scale = scale || this.changeMatrix;
+            this.changeMatrix = times(this.changeMatrix,this.translate);
+            this.changeMatrix = times(this.changeMatrix,this.rotation);
+            this.changeMatrix = times(this.changeMatrix,this.scale);
+            this.vertexArray = gl.createVertexArray();
+
+            this.config = function (){
+                gl.bindVertexArray(this.vertexArray);
+                initBuffer("a_position",new Float32Array(this.vertices),this.currentShader);
+                initBuffer("a_normal",new Float32Array(this.normals),this.currentShader);
+                initBuffer("a_texture",new Float32Array(this.uv),this.currentShader);
+                initBuffer("objTangent",new Float32Array(this.vertices),this.currentShader);
+                initArrayBuffer(new Uint16Array(this.indices));
+            };
+            this.draw = function (){
+                gl.bindVertexArray(this.vertexArray);
+                initUniform("u_change",new Float32Array(this.changeMatrix),"Matrix4fv",this.currentShader);
+                gl.drawElements(gl.TRIANGLES,this.indices.length,gl.UNSIGNED_SHORT,0);
+            }
+        };
+        let Material = function (ambient,point_pos,point_pos1,point_pos2,point_pos3,point_pos4,point_pos5,point_color,perspective_pos,a,b,c,ld,ls,kd,ks,alpha,shader){
+            this.ambient = ambient;
+            this.point_pos = point_pos;
+            this.point_pos1 = point_pos1;
+            this.point_pos2 = point_pos2;
+            this.point_pos3 = point_pos3;
+            this.point_pos4 = point_pos4;
+            this.point_pos5 = point_pos5;
+            this.point_color = point_color;
+            this.perspective_pos = perspective_pos;
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            this.ld = ld;
+            this.ls = ls;
+            this.kd = kd;
+            this.ks = ks;
+            this.alpha = alpha;
+            this.shader = shader;
+            this.setTexture = function (n1,n2){
+                let u_sampler = gl.getUniformLocation(gl.SHADER_PROGRAM0,"u_sampler0");
+                gl.uniform1i(u_sampler,n1);
+                let u_sampler2 = gl.getUniformLocation(gl.SHADER_PROGRAM0,"u_sampler1");
+                gl.uniform1i(u_sampler2,n2);
+            };
+            this.loadTexture = function (src1,src2,name){
+                let image = new Image();
+                image.src = src1;
+                image.onload = function (){
+                    let image1 = new Image();
+                    image1.src = src2;
+                    image1.onload = function (){
+                        loadTexture(image,image1,textureNum,name);
+                        textureNum+=2;
+                    };
+                };
+            };
+            this.config = function (){
+                initUniform("u_ambient",this.ambient,"4f",this.shader);
+                initUniform("u_point_pos",this.point_pos,"4f",this.shader);
+                initUniform("u_point_pos2",this.point_pos1,"4f",this.shader);
+                initUniform("u_point_pos3",this.point_pos2,"4f",this.shader);
+                initUniform("u_point_pos4",this.point_pos3,"4f",this.shader);
+                initUniform("u_point_pos5",this.point_pos4,"4f",this.shader);
+                initUniform("u_point_pos6",this.point_pos5,"4f",this.shader);
+                initUniform("u_point_color",this.point_color,"4f",this.shader);
+                initUniform("u_perspective_pos",this.perspective_pos.concat([1]),"4f",this.shader);
+                initUniform("u_a",this.a,"1f",this.shader);
+                initUniform("u_b",this.b,"1f",this.shader);
+                initUniform("u_c",this.c,"1f",this.shader);
+                initUniform("u_ld",this.ld,"1f",this.shader);
+                initUniform("u_ls",this.ls,"1f",this.shader);
+                initUniform("u_kd",this.kd,"1f",this.shader);
+                initUniform("u_ks",this.ks,"1f",this.shader);
+                initUniform("u_alpha",this.alpha,"1f",this.shader);
+            };
+        };
+        let initStats = function (){
+            let stats = new Stats();
+            stats.setMode(0);
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.right = '0px';
+            stats.domElement.style.top = '0px';
+            statsout.appendChild(stats.domElement);
+            return stats;
+        };
+        let render = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            let perspective = initPerspective(...perspective_pos,...lookAt,0,1,0,45,webgl.width/webgl.height,.1,1000);
+            initUniform("u_perspective",perspective,"Matrix4fv",gl.SHADER_PROGRAM0);
+            material.setTexture(textureList["wall"],textureList["wall"]+1);
+            wallplaneBack.draw();
+            wallplaneRight.draw();
+            wallplaneLeft.draw();
+            wallplaneFront.draw();
+            centerCube.draw();
+            material2.setTexture(textureList["floor"],textureList["floor"]+1);
+            wallplaneTop.draw();
+            wallplaneBottom.draw();
+            material3.setTexture(textureList["swall"],textureList["swall"]+1);
+            leftWall1.draw();
+            leftWall2.draw();
+            rightWall1.draw();
+            rightWall2.draw();
+            material4.setTexture(textureList["fwall"],textureList["fwall"]+1);
+            backWall2.draw();
+            backWall1.draw();
+            frontWall2.draw();
+
+            frontWall1.draw();
+            backBigWall1.draw();
+            backBigWall2.draw();
+            frontBigWall1.draw();
+            frontBigWall2.draw();
+            stats.update();
+            requestAnimationFrame(render);
+        };
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.enable(gl.DEPTH_TEST);
+        gl.SHADER_PROGRAM0 = initShader(vertex.innerText,fragment.innerText);
+        gl.useProgram(gl.SHADER_PROGRAM0);
+        let perspective_pos = [145,25,145];
+        let lookAt = [0,0,1];           //三维极坐标
+        let lookAtrad = [-1.6,1.6];
+        let perspective = initPerspective(...perspective_pos,0,0,0,0,1,0,45,webgl.width/webgl.height,.1,1000);
+        initUniform("u_perspective",perspective,"Matrix4fv",gl.SHADER_PROGRAM0);
+        try{
+            var wallplaneBack = new Geometry(plane_vertices,plane_normals,plane_uv,plane_indices,
+                [1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    0,0,-75,1], false,
+                [170,0,0,0,
+                    0,35,0,0,
+                    0,0,150,0,
+                    0,0,0,1],gl.SHADER_PROGRAM0);
+            var wallplaneFront = new Geometry(plane_vertices,plane_normals,plane_uv,plane_indices,
+                [1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    0,0,75,1], false,
+                [170,0,0,0,
+                    0,35,0,0,
+                    0,0,150,0,
+                    0,0,0,1],gl.SHADER_PROGRAM0);
+            var wallplaneRight = new Geometry(plane_vertices,plane_normals,plane_uv,plane_indices,
+                [1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    170,0,0,1],
+                [
+                    0,0,-1,0,
+                    0,1,0,0,
+                    1,0,0,0,
+                    0,0,0,1
+                ],
+                [150,0,0,0,
+                    0,35,0,0,
+                    0,0,150,0,
+                    0,0,0,1],gl.SHADER_PROGRAM0);
+            var wallplaneLeft = new Geometry(plane_vertices,plane_normals,plane_uv,plane_indices,
+                [1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    -170,0,0,1],
+                [
+                    0,0,1,0,
+                    0,1,0,0,
+                    -1,0,0,0,
+                    0,0,0,1
+                ],
+                [150,0,0,0,
+                    0,35,0,0,
+                    0,0,150,0,
+                    0,0,0,1],gl.SHADER_PROGRAM0);
+            var wallplaneTop = new Geometry(plane_vertices,plane_normals,plane_uv,plane_indices,
+                [1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    0,35,0,1],
+                [
+                    1,0,0,0,
+                    0,0,1,0,
+                    0,-1,0,0,
+                    0,0,0,1
+                ],
+                [170,0,0,0,
+                    0,150,0,0,
+                    0,0,150,0,
+                    0,0,0,1],gl.SHADER_PROGRAM0);
+            var wallplaneBottom = new Geometry(plane_vertices,plane_normals,plane_uv,plane_indices,
+                [1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    0,-35,0,1],
+                [
+                    1,0,0,0,
+                    0,0,1,0,
+                    0,-1,0,0,
+                    0,0,0,1
+                ],
+                [170,0,0,0,
+                    0,150,0,0,
+                    0,0,150,0,
+                    0,0,0,1],gl.SHADER_PROGRAM0);
+            var centerCube = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,false,false,
+                [
+                    80,0,0,0,
+                    0,35,0,0,
+                    0,0,80,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var leftWall1 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    25,-10,67.5,1,
+                ],false,
+                [
+                    5,0,0,0,
+                    0,15,0,0,
+                    0,0,20,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var leftWall2 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    -25,-10,67.5,1,
+                ],false,
+                [
+                    5,0,0,0,
+                    0,15,0,0,
+                    0,0,20,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var rightWall1 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    25,-10,-67.5,1,
+                ],false,
+                [
+                    5,0,0,0,
+                    0,15,0,0,
+                    0,0,20,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var rightWall2 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    -25,-10,-67.5,1,
+                ],false,
+                [
+                    5,0,0,0,
+                    0,15,0,0,
+                    0,0,20,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var frontWall1 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    60,-10,-35,1,
+                ],false,
+                [
+                    17,0,0,0,
+                    0,15,0,0,
+                    0,0,3,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var frontWall2 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    60,-10,35,1,
+                ],false,
+                [
+                    17,0,0,0,
+                    0,15,0,0,
+                    0,0,3,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var backWall1 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    -60,-10,-35,1,
+                ],false,
+                [
+                    17,0,0,0,
+                    0,15,0,0,
+                    0,0,3,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var backWall2 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    -60,-10,35,1,
+                ],false,
+                [
+                    17,0,0,0,
+                    0,15,0,0,
+                    0,0,3,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var backBigWall1 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    -70,-10,-55,1,
+                ],false,
+                [
+                    5,0,0,0,
+                    0,25,0,0,
+                    0,0,40,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var backBigWall2 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    -70,-10,55,1,
+                ],false,
+                [
+                    5,0,0,0,
+                    0,25,0,0,
+                    0,0,40,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var frontBigWall1 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    70,-10,-55,1,
+                ],false,
+                [
+                    5,0,0,0,
+                    0,25,0,0,
+                    0,0,40,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+            var frontBigWall2 = new Geometry(cube_vertices,cube_normals,cube_uv,cube_indices,
+                [
+                    1,0,0,0,
+                    0,1,0,0,
+                    0,0,1,0,
+                    70,-10,55,1,
+                ],false,
+                [
+                    5,0,0,0,
+                    0,25,0,0,
+                    0,0,40,0,
+                    0,0,0,1,
+                ],gl.SHADER_PROGRAM0);
+        }catch (e) {
+            alert("加载几何体失败")
+        }
+
+        let material  = new Material([.15,.15,.15,1],[90,25,80,1],[-90,25,90,1],[90,25,-90,1],[-90,25,-90,1],[0,25,150,1],[0,25,-130,1],[1,1,1,1],perspective_pos,[.005],[.005],[.005],[7],[7],[1],[1],[1],gl.SHADER_PROGRAM0);
+        let material2 = new Material([.15,.15,.15,1],[90,25,80,1],[-90,25,90,1],[90,25,-90,1],[-90,25,-90,1],[0,25,150,1],[0,25,-130,1],[1,1,1,1],perspective_pos,[.005],[.005],[.005],[7],[7],[1],[1],[1],gl.SHADER_PROGRAM0);
+        let material3 = new Material([.15,.15,.15,1],[90,25,80,1],[-90,25,90,1],[90,25,-90,1],[-90,25,-90,1],[0,25,150,1],[0,25,-130,1],[1,1,1,1],perspective_pos,[.005],[.005],[.005],[7],[7],[1],[1],[1],gl.SHADER_PROGRAM0);
+        let material4 = new Material([.15,.15,.15,1],[90,25,80,1],[-90,25,90,1],[90,25,-90,1],[-90,25,-90,1],[0,25,150,1],[0,25,-130,1],[1,1,1,1],perspective_pos,[.005],[.005],[.005],[7],[7],[1],[1],[1],gl.SHADER_PROGRAM0);
+        material.config();
+        material2.config();
+        material3.config();
+        material4.config();
+        wallplaneBack.config();
+        wallplaneRight.config();
+        wallplaneLeft.config();
+        wallplaneFront.config();
+        wallplaneTop.config();
+        wallplaneBottom.config();
+        centerCube.config();
+        leftWall1.config();
+        leftWall2.config();
+        rightWall1.config();
+        rightWall2.config();
+        frontWall1.config();
+        frontWall2.config();
+        backWall1.config();
+        backWall2.config();
+        backBigWall1.config();
+        backBigWall2.config();
+        frontBigWall1.config();
+        frontBigWall2.config();
+        let stats = initStats();
+        render();
+        material.loadTexture("./general/stone.jpg","./texture/wall_normal.png","wall");
+        material2.loadTexture("./general/metal-floor.jpg","./general/metal-floor-normal.jpg","floor");
+        material3.loadTexture("./general/brick-wall.jpg","./general/brick-wall.jpg","swall");
+        material4.loadTexture("./general/plaster.jpg","./general/plaster-normal.jpg","fwall");
+        document.addEventListener("mousedown",function (e){
+            let x= e.clientX,y = e.clientY;
+            let theta,phi;
+            let mousemove = function(e){
+                let dx = (e.clientX-x)/8,dy = -(e.clientY-y)/5;
+                theta = dx*Math.PI/180+lookAtrad[0];
+                phi = dy*Math.PI/180+lookAtrad[1];
+                if(phi<0){
+                    phi = 0;
+                    return false;
+                }else if(phi >Math.PI){
+                    phi = Math.PI;
+                    return false;
+                }
+                lookAt[2] = Math.cos(theta) * Math.sin(phi) + perspective_pos[2];
+                lookAt[0] = Math.sin(theta) * Math.sin(phi) + perspective_pos[0];
+                lookAt[1] = Math.cos(phi) + perspective_pos[1];
+            };
+            document.addEventListener ("mousemove",mousemove);
+            document.addEventListener("mouseup",function (){
+                this.removeEventListener("mousemove",mousemove);
+                lookAtrad[0] = theta;
+                lookAtrad[1] = phi;
+            })
+        });
+        document.addEventListener("keydown",function (e){
+            if(e.key === "w"){
+                let dx = lookAt[0] - perspective_pos[0];
+                let dy = lookAt[1] - perspective_pos[1];
+                let dz = lookAt[2] - perspective_pos[2];
+                perspective_pos[0] = perspective_pos[0]+dx;
+                perspective_pos[1] = perspective_pos[1]+dy;
+                perspective_pos[2] = perspective_pos[2]+dz;
+                lookAt[0] = lookAt[0]+dx;
+                lookAt[1] = lookAt[1]+dy;
+                lookAt[2] = lookAt[2]+dz;
+            }
+            if(e.key === "w"){
+                let dx = lookAt[0] - perspective_pos[0];
+                let dy = lookAt[1] - perspective_pos[1];
+                let dz = lookAt[2] - perspective_pos[2];
+                perspective_pos[0] = perspective_pos[0]+dx;
+                perspective_pos[1] = perspective_pos[1]+dy;
+                perspective_pos[2] = perspective_pos[2]+dz;
+                lookAt[0] = lookAt[0]+dx;
+                lookAt[1] = lookAt[1]+dy;
+                lookAt[2] = lookAt[2]+dz;
+            }
+            if(e.key === "s"){
+                let dx = lookAt[0] - perspective_pos[0];
+                let dy = lookAt[1] - perspective_pos[1];
+                let dz = lookAt[2] - perspective_pos[2];
+                perspective_pos[0] = perspective_pos[0]-dx;
+                perspective_pos[1] = perspective_pos[1]-dy;
+                perspective_pos[2] = perspective_pos[2]-dz;
+                lookAt[0] = lookAt[0]-dx;
+                lookAt[1] = lookAt[1]-dy;
+                lookAt[2] = lookAt[2]-dz;
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

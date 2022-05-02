@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas height="1024" width="1024" id="canvas"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = this.getElementById("canvas");
+        let c = canvas.getContext("2d");
+        let image = new Image();
+        image.src= "./general/brick-wall.jpg";
+        image.onload =function (){
+            c.drawImage(this,0,0,1024,1024);
+            let pixels = c.getImageData(0,0,1024,1024);
+            for(let i=0;i<pixels.data.length;i+=4){
+                pixels.data[i+0] = pixels.data[i+0];
+                pixels.data[i+1] = pixels.data[i+1];
+                pixels.data[i+2] = pixels.data[i+2];
+            }
+            c.putImageData(pixels,0,0,0,0,1024,1024)
+        };
+    })
+</script>
+</body>
+</html>
