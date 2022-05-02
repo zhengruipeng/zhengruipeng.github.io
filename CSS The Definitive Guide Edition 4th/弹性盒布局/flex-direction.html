@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        main>div,main{
+            margin:10px;
+            border:red solid 1px;
+            padding:10px;
+        }
+        main{
+            display: flex;
+        }
+
+        .row{
+            flex-direction:row;
+        }
+        .row-reverse{
+            flex-direction:row-reverse;
+        }
+        .column{
+            flex-direction:column;
+        }
+        .column-reverse{
+            flex-direction:column-reverse;
+        }
+    </style>
+</head>
+<body>
+<details>
+    <summary>row</summary>
+    <main class="row">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </main>
+</details>
+<details>
+    <summary>row-reverse</summary>
+    <main class="row-reverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </main>
+</details>
+<details>
+    <summary>column</summary>
+    <main class="column">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </main>
+</details>
+<details>
+    <summary>column-reverse</summary>
+    <main class="column-reverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </main>
+</details>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+
+    })
+</script>
+</body>
+</html>

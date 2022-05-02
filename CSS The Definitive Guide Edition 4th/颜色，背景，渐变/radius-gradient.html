@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:100px;
+            width:100px;
+            background-repeat: no-repeat;
+        }
+        #closest-side{
+            background-image:radial-gradient(circle closest-side at 30% 30%,red,yellow);
+        }
+        #closest-corner{
+            background-image:radial-gradient(circle closest-corner at 30% 30%,red,yellow);
+        }
+        #farthest-side{
+            background-image:radial-gradient(circle farthest-side at 30% 30%,red,yellow);
+        }
+        #farthest-corner{
+            background-image:radial-gradient(circle farthest-corner at 30% 30%,red,yellow);
+        }
+
+    </style>
+</head>
+<body>
+<details>
+    <summary>closest-side</summary>
+    <div id="closest-side" class="div"></div>
+</details>
+<details>
+    <summary>farthest-side</summary>
+    <div id="farthest-side" class="div"></div>
+</details>
+<details>
+    <summary>closest-corner</summary>
+    <div id="closest-corner" class="div"></div>
+</details>
+<details>
+    <summary>farthest-corner</summary>
+    <div id="farthest-corner" class="div"></div>
+</details>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+
+    })
+</script>
+</body>
+</html>

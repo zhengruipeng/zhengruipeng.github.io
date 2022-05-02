@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    main{
+      display: grid;
+      grid-template-columns: repeat(10,1fr);
+      grid-template-rows: repeat(5,10vh);
+    }
+    .one{
+      background-color:#ff000099;
+      grid-row-start:2;
+      grid-row-end:span 2;
+      grid-column-start:5;
+      grid-column-end:span 2;
+    }
+
+    .two{
+      background-color:#00ff0099;
+      grid-row-start:3;
+      grid-row-end:span 2;
+      grid-column-start:3;
+      grid-column-end:span 3;
+    }
+
+    footer{
+        display: grid;
+        grid-template-areas:
+        "header header header header header"
+        "menu content content content content"
+        "menu content content content content"
+        "menu footer footer footer footer";
+        height:50vh;
+
+    }
+    #header{
+        grid-row-start:1;
+        grid-column-start:1;
+        grid-column-end:6;
+        background-color:rgba(140,94,230,.5);
+    }
+    #menu{
+        grid-row-start:menu;
+        grid-column-start:menu;
+        grid-column-end:span 1;
+        grid-row-end:menu;
+        background-color:rgba(32,255,230,.5);
+
+    }
+    #content{
+        grid-row-start:content;
+        grid-row-end:content;
+        grid-column-start:content;
+        grid-column-end:content;
+        background-color:rgba(89,150,255,.5);
+    }
+    #footer{
+        grid-row-start:footer;
+        grid-column-start: footer;
+        grid-column-end:footer;
+        background-color:rgba(255,190,0,.5);
+    }
+
+    </style>
+</head>
+<body>
+<main>
+  <div class="one"></div>
+  <div class="two"></div>
+</main>
+<footer>
+    <div id="header"></div>
+    <div id="menu"></div>
+    <div id="content"></div>
+    <div id="footer"></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #fir{
+      display: grid;
+      grid-template-columns: repeat(4,2em 1fr 1fr) 3em;
+      border:red solid 1px;
+      height:100px;
+    }
+    #sec{
+      display: grid;
+      grid-template-columns: repeat(auto-fill,[top]5em[bottom]);
+      border:red solid 1px;
+      height:100px;
+    }
+    div div{
+      border:red solid 1px;
+    }
+    </style>
+</head>
+<body>
+<p>有限个栅格</p>
+<div id="fir">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<p>5em auto-fill</p>
+<div id="sec">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<p></p>
+<div>
+
+</div>
+
+</body>
+</html>

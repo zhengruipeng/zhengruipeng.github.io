@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      height:30vh;
+      width:1000px;
+      background-image:url("1.png");
+      background-size: 100px 100px;
+      background-position: left top;
+      background-repeat:no-repeat;
+      border:red dotted 2vh;
+      background-origin: padding-box;
+      padding:3vh;
+    }
+    #border{
+      background-origin:border-box;
+    }
+    #padding{
+      background-origin:padding-box;
+    }
+    #content{
+      background-origin:content-box;
+    }
+  </style>
+</head>
+<body>
+<div id="border"></div>
+<div id="padding"></div>
+<div id="content"></div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+
+  })
+</script>
+</body>
+</html>

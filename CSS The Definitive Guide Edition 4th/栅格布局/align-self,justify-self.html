@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .justify,
+        .align{
+            display: grid;
+            border:#000 solid 1px;
+            grid-template:10vh 10vh 10vh 10vh / 1fr 1fr 1fr;
+        }
+        .justify div,
+        .align div{
+            border:#000 solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="justify">
+    <div style="justify-self:start">11111</div>
+    <div style="justify-self:end">11111</div>
+    <div style="justify-self:center">11111</div>
+    <div style="justify-self:left">11111</div>
+    <div style="justify-self:right">11111</div>
+    <div style="justify-self:self-start">11111</div>
+    <div style="justify-self:self-end">11111</div>
+    <div style="justify-self:stretch">11111</div>
+    <div style="justify-self:baseline">11111</div>
+</div>
+<hr />
+<div class="align">
+    <div style="align-self:start">11111</div>
+    <div style="align-self:end">11111</div>
+    <div style="align-self:center">11111</div>
+    <div style="align-self:left">11111</div>
+    <div style="align-self:right">11111</div>
+    <div style="align-self:self-start">11111</div>
+    <div style="align-self:self-end">11111</div>
+    <div style="align-self:stretch;">11111</div>
+    <div style="align-self:baseline">11111</div>
+</div>
+</body>
+</html>

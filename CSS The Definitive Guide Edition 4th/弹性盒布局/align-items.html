@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      border:#000 solid 1px;
+      height:300px;
+    }
+    .flex{
+      display: flex;
+    }
+    div>div{
+      padding:0 25px;
+      height:auto;
+      display: flex;
+      align-content: center;
+    }
+    .flex-start{
+      align-items:flex-start;
+    }
+    .flex-end{
+      align-items:flex-end;
+    }
+    .center{
+      align-items:center;
+    }
+    .baseline{
+      align-items:baseline;
+    }
+    .stretch{
+      align-items:stretch;
+    }
+  </style>
+</head>
+<body>
+<details>
+  <summary>flex-start</summary>
+  <div class="flex-start flex">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+  </div>
+</details>
+<details>
+  <summary>flex-end</summary>
+  <div class="flex-end flex">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+  </div>
+</details>
+<details>
+  <summary>center</summary>
+  <div class="center flex">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+  </div>
+</details>
+<details>
+  <summary>baseline</summary>
+  <div class="baseline flex">
+    <div style="font-size:3rem;">A</div>
+    <div>B</div>
+    <div>C</div>
+  </div>
+</details>
+<details>
+  <summary>stretch</summary>
+  <div class="stretch flex">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+  </div>
+</details>
+
+</body>
+</html>

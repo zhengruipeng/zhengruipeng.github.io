@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        header{
+            display: grid;
+            grid-template-areas:
+            "h h h"
+            "l c c";
+            height:30vh;
+        }
+        #one{
+            grid-area:h;
+            background-color:#f008;
+        }
+        #two{
+            grid-area:l;
+            background-color:#0f08;
+        }
+        #three{
+            grid-area:c;
+            background-color:#00f8;
+        }
+        main{
+            display: grid;
+            height:50vh;
+            grid-template-areas:
+            "t t t"
+            "b b b ";
+        }
+        #four{
+            grid-area:t / t ;
+            background-color:#ff08;
+        }
+        #five{
+            grid-area:t / 2  / b-end / 4;
+            background-color:#0ff8;
+        }
+        </style>
+</head>
+<body>
+<header>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+</header>
+<main>
+    <div id="four"></div>
+    <div id="five"></div>
+
+</main>
+</body>
+</html>

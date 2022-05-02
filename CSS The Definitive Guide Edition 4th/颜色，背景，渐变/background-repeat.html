@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:30vh;
+            width:1000px;
+            background-image:url("1.png");
+            background-size: 100px 100px;
+            background-position: left top;
+            border:red solid 1px;
+            background-origin: padding-box;
+            margin:10px;
+        }
+        #repeat-x{
+            background-repeat:repeat-x;
+        }
+        #repeat-y{
+            background-repeat:repeat-y;
+        }
+        #repeat{
+            background-repeat:repeat;
+        }
+        #space{
+            background-repeat:space;
+        }
+        #round{
+            background-repeat:round;
+        }
+        #no-repeat{
+            background-repeat:no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div id="repeat-x"></div>
+<div id="repeat-y"></div>
+<div id="repeat"></div>
+<div id="space"></div>
+<div id="round"></div>
+<div id="no-repeat"></div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+
+    })
+</script>
+</body>
+</html>

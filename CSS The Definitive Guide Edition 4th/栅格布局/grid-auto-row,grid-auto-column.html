@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    ul{
+      display: grid;
+      grid-template-columns: 15vh 15vh 15vh 15vh;
+      grid-template-rows:15vh 15vh 15vh;
+      grid-auto-rows: 15vh;
+      grid-auto-flow:row;
+      text-align:center;
+      list-style:none;
+    }
+    li{
+      border:solid 1px #000;
+
+    }
+    li.wide{
+      grid-column:auto / span 2;
+    }
+    li.tall{
+      grid-row:auto / span 2;
+    }
+    </style>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li class="wide">2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li class="tall">8</li>
+  <li>9</li>
+  <li>10</li>
+  <li class="wide tall">11</li>
+  <li>12</li>
+  <li>13</li>
+  <li>14</li>
+  <li>15</li>
+  <li>16</li>
+</ul>
+</body>
+</html>

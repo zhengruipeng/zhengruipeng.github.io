@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        main{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        main > ul:nth-of-type(1){
+            display: grid;
+            grid:
+                "header header" 1rem
+                [center-start]"content content" 1fr [center-end]
+                "footer footer" 3em /
+                1fr 1fr;
+            grid-auto-flow: row;
+            grid-auto-rows: auto;
+            grid-auto-columns: auto;
+            text-align:center;
+            list-style: none;
+        }
+        main > ul:nth-of-type(2){
+            display: grid;
+            grid: dense rows 2em / 2em;
+            grid-template:repeat(2,10vh) / repeat(2,20vw);
+            text-align:center;
+            list-style: none;
+        }
+        li{
+            border:#000 solid 1px;
+        }
+        main > ul:first-child > li:nth-child(3){
+            margin:auto 0;
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+<main>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</main>
+</body>
+</html>

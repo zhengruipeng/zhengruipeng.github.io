@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    main>div,main{
+      margin:10px;
+      border:red solid 1px;
+      padding:10px;
+    }
+    main{
+      display: flex;
+      width:1000px;
+    }
+    main>div{
+      width:100px;
+
+    }
+    .nowrap{
+      flex-wrap:nowrap;
+    }
+    .wrap{
+      flex-wrap:wrap;
+    }
+    .wrap-reverse{
+      flex-wrap:wrap-reverse;
+    }
+
+  </style>
+</head>
+<body>
+<details>
+  <summary>nowrap</summary>
+  <main class="nowrap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+  </main>
+</details>
+<details>
+  <summary>wrap</summary>
+  <main class="wrap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+  </main>
+</details>
+<details>
+  <summary>wrap-reverse</summary>
+  <main class="wrap-reverse">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+  </main>
+</details>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+
+  })
+</script>
+</body>
+</html>

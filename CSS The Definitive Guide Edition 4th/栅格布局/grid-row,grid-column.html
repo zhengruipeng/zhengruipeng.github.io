@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    header{
+      display: grid;
+      grid-template-columns: repeat(3,[first-col] 1fr [second-col] 1fr);
+      grid-template-rows:repeat(3,[first-row] 1fr [second-row] 1fr);
+      height:50vh;
+      border:#000 solid 1px;
+    }
+    #one{
+      grid-row: first-row / span 1;
+      grid-column: first-col 1 / second-col 2;
+      background-color:#ff000088;
+    }
+    #two{
+      grid-row:first-row 2 / span first-row 1;
+      grid-column:first-col 2 / first-col 3;
+      background-color:#00ff0088;
+    }
+    #three{
+      grid-row:3 ;
+      grid-column: 4 / span 2;
+      background-color:#0000ff88;
+    }
+    </style>
+</head>
+<body>
+<header>
+  <div id="one"></div>
+  <div id="two"></div>
+  <div id="three"></div>
+</header>
+</body>
+</html>

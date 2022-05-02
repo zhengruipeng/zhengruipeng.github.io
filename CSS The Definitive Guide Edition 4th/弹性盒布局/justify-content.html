@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border:#000 solid 1px;
+        }
+        .flex{
+            display: flex;
+        }
+        div>div{
+            padding:25px;
+        }
+        .flex-start{
+            justify-content:flex-start;
+        }
+        .flex-end{
+            justify-content:flex-end;
+        }
+        .center{
+            justify-content:center;
+        }
+        .space-between{
+            justify-content:space-between;
+        }
+        .space-around{
+            justify-content:space-around;
+        }
+        .space-evenly{
+            justify-content:space-evenly;
+        }
+        </style>
+</head>
+<body>
+<details>
+    <summary>flex-start</summary>
+    <div class="flex-start flex">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+</details>
+<details>
+    <summary>flex-end</summary>
+    <div class="flex-end flex">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+</details>
+<details>
+    <summary>flex-center</summary>
+    <div class="center flex">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+</details>
+<details>
+    <summary>space-between</summary>
+    <div class="space-between flex">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+</details>
+<details>
+    <summary>space-around</summary>
+    <div class="space-around flex">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+</details>
+<details>
+    <summary>space-evenly</summary>
+    <div class="space-evenly flex">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+</details>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    ul{
+      list-style:none;
+      text-align:center;
+      line-height:10vh;
+    }
+    ul.flow-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows:10vh 10vh;
+      grid-auto-flow:row;
+
+    }
+
+    ul.flow-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows:10vh 10vh;
+      grid-auto-flow:column;
+    }
+
+    .irregular{
+      display: grid;
+      grid-template-columns: repeat(4,15vh);
+      grid-template-rows:repeat(5,15vh);
+      grid-auto-flow:row;
+      grid-auto-rows:15vh;
+    }
+
+    li{
+      border:#000 solid 1px;
+    }
+
+    li.tall{
+      grid-row:auto / span 2;
+    }
+    li.wide{
+      grid-column:auto / span 2;
+    }
+    .dense{
+      grid-auto-flow: dense row;
+    }
+    </style>
+</head>
+<body>
+<ul class="flow-row">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+</ul>
+
+<ul class="flow-col">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+</ul>
+
+<ul class="irregular">
+  <li>1</li>
+  <li class="wide ">2</li>
+  <li>3</li>
+  <li class="tall ">4</li>
+  <li>5</li>
+  <li>6</li>
+  <li class="tall wide">7</li>
+  <li class="wide">8</li>
+  <li>9</li>
+  <li>10</li>
+  <li>11</li>
+  <li>12</li>
+  <li>13</li>
+</ul>
+<hr /><hr />
+<ul class="irregular dense">
+  <li>1</li>
+  <li class="wide ">2</li>
+  <li>3</li>
+  <li class="tall ">4</li>
+  <li>5</li>
+  <li>6</li>
+  <li class="tall wide">7</li>
+  <li class="wide">8</li>
+  <li>9</li>
+  <li>10</li>
+  <li>11</li>
+  <li>12</li>
+  <li>13</li>
+</ul>
+
+</body>
+</html>

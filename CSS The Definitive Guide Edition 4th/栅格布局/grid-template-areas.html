@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    main div{
+      border:red solid 1px;
+      padding:20px 0;
+    }
+    main {
+      display: grid;
+      grid-template-areas:
+      "header header header header"
+      "left center center right"
+      "left ... footer footer";
+      grid-template-columns:repeat(4,1fr);
+      grid-template-rows:repeat(4,1fr);
+
+    }
+    </style>
+</head>
+<body>
+<main>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</main>
+</body>
+</html>

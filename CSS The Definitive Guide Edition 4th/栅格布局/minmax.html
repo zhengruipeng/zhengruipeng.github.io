@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    div,
+    main{
+      border:red solid 1px;
+      /*width:40ch;*/
+      padding:10px;
+    }
+    .child{
+
+    }
+    main{
+      display:grid;
+      grid-template-columns:minmax(10ch,max-content) minmax(min-content,5ch) /*5ch*/  minmax(20ch,1fr)/*20ch*/ 10ch;
+
+    }
+    </style>
+</head>
+<body>
+<main>
+  <div class="child">0000000000</div>
+  <div class="child">00000</div>
+  <div class="child">00000000000000000000</div>
+  <div class="child">0000000000</div>
+
+</main>
+</body>
+</html>

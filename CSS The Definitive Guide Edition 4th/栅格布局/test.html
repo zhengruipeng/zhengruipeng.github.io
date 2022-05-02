@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<template>
+<code class="prism language-shell has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token function">pushd</span> <span class="token string">"%~dp0"</span>
+
+    <span class="token function">dir</span> /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum <span class="token operator">&gt;</span>hyper-v.txt
+
+    <span class="token keyword">for</span> /f %%i <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">'findstr /i . hyper-v.txt 2^&gt;nul'</span><span class="token punctuation">)</span> <span class="token keyword">do</span> dism /online /norestart /add-package:<span class="token string">"%SystemRoot%\servicing\Packages\%%i"</span>
+
+    del hyper-v.txt
+
+    Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL
+    <div class="hljs-button signin" data-title="登录后复制（为作者贡献原力分）" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4334&quot;}"></div></code>
+</template>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const code = this.querySelector("template").content;
+        const nodeIterator = this.createNodeIterator(code,NodeFilter.SHOW_TEXT,null,null);
+        let currentNode;
+        while(currentNode = nodeIterator.nextNode()){
+            this.body.appendChild(currentNode);
+        }
+    })
+</script>
+</body>
+</html>

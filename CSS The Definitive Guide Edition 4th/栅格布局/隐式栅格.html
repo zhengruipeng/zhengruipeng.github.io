@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        main{
+            /*height:50vh;*/
+            display: grid;
+            grid-template-columns:repeat(5,1fr);
+            grid-template-rows:repeat(2,15vh) [begin] 15vh [middle] 15vh [end] repeat(4,15vh) [middle] 15vh;
+            border:#000 solid 1px;
+        }
+        #original{
+            grid-area:begin 1 / 1 / end 1 / 6;
+            background-color:#ccc8;
+        }
+        #one{
+            grid-row: middle / end 2;
+            grid-column:1;
+            background-color:#f008;
+        }
+        #two{
+            grid-row:begin /span middle 2;
+            grid-column:2;
+            background-color:#0f08;
+        }
+        #three{
+            grid-row: span 2 / begin;
+            grid-column:3;
+            background-color:#00f8;
+        }
+        #four{
+            grid-row:span 4 / 6;
+            grid-column:4;
+            background-color:#ff08;
+        }
+        #five{
+            grid-row:span 3 / end 1;
+            grid-column:5;
+            background-color:#0ff8;
+        }
+        #six{
+            grid-row: begin / end;
+            grid-column: 6;
+            background-color:#0008;
+        }
+        </style>
+</head>
+<body>
+<main>
+    <div id="original"></div>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <div id="five"></div>
+    <div id="six"></div>
+</main>
+</body>
+</html>

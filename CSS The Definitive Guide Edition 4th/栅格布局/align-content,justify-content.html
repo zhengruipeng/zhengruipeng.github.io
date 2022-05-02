@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        main{
+            display: grid;
+            grid-template-rows: repeat(7,15vh);
+            grid-template-columns:repeat(3,1fr);
+            padding:0.5em;
+            border:#000 solid 1px;
+            width:50vw;
+        }
+
+        .justify-space-between{
+            display: grid;
+            grid-template-columns:16% 16% 16% 16%;
+            grid-template-rows: 1fr;
+            justify-content: space-between;
+            border:inherit;
+            grid-row: 1/span 1;
+            grid-column: 1 / span 3;
+            grid-column-gap: 1em;
+            width:auto;
+        }
+        .justify-space-around{
+            display: grid;
+            grid-template-columns:16% 16% 16% 16%;
+            grid-template-rows: 1fr;
+            justify-content: space-around;
+            border:inherit;
+            grid-row: 2/span 1;
+            grid-column: 1 / span 3;
+            grid-column-gap: 1em;
+        }
+        .justify-space-evenly{
+            display: grid;
+            grid-template-columns:16% 16% 16% 16%;
+            grid-template-rows: 1fr;
+            justify-content: space-evenly;
+            border:inherit;
+            grid-row: 3/span 1;
+            grid-column: 1 / span 3;
+            grid-column-gap: 1em;
+
+        }
+        .align-space-between{
+            display: grid;
+            grid-template-columns:1fr;
+            grid-template-rows: 16% 16% 16% 16%;
+            align-content: space-between;
+            border:inherit;
+            grid-row: 4 / span 4;
+            grid-column: 1 / span 1;
+            grid-row-gap: 1em;
+        }
+        .align-space-around{
+            display: grid;
+            grid-template-columns:1fr;
+            grid-template-rows: 16% 16% 16% 16%;
+            align-content: space-around;
+            border:inherit;
+            grid-row: 4 / span 4;
+            grid-column: 2 / span 1;
+            grid-row-gap: 1em;
+        }
+        .align-space-evenly{
+            display: grid;
+            grid-template-columns:1fr;
+            grid-template-rows: 16% 16% 16% 16%;
+            align-content: space-evenly;
+            border:inherit;
+            grid-row: 4 / span 4;
+            grid-column: 3 / span 1;
+            grid-row-gap: 1em;
+        }
+
+        main>div >div{
+            border:inherit;
+            margin:10px 0   ;
+        }
+
+        main>div:after{
+            content:attr(class);
+        }
+
+    </style>
+</head>
+<body>
+<main>
+    <div class="justify-space-between">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="justify-space-around">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="justify-space-evenly">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="align-space-between">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="align-space-around">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="align-space-evenly">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</main>
+</body>
+</html>
