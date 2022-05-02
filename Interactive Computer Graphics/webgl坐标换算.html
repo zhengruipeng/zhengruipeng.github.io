@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="../libs/超级实用の小工具.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        document.onclick = function(e){
+            let x = e.clientX;
+            let y = e.clientY;
+            let w = this.documentElement.clientWidth;
+            let h = this.documentElement.clientHeight;
+            printf("%i<br>",-1+2*x/w);
+            printf("%i<br>",-1+2*(h-y)/h);
+        }
+    })
+</script>
+</body>
+</html>

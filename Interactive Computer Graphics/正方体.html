@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<script type="text/javascript" src="../libs/超级实用の小工具.js"></script>
+<script type="text/javascript" src="../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-vertex-shader" id="vertex">#version 300 es
+in vec4 a_position;
+in vec4 a_color;
+out vec4 v_color;
+uniform mat4 u_perspective;
+uniform mat4 u_chance;
+    void main(){
+        gl_Position = u_perspective *u_chance* a_position;
+        v_color = a_color;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">#version 300 es
+precision highp float;
+out vec4 frag_color;
+in vec4 v_color;
+    void main(){
+        frag_color = v_color;
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = ele("#webgl");
+        let vertex = ele("#vertex");
+        let fragment = ele("#fragment");
+        webgl.width = document.documentElement.clientWidth;
+        webgl.height = document.documentElement.clientHeight;
+        let gl = webgl.getContext("webgl2");
+        let vertices = [
+            1,1,1,  1,-1,1,   -1,-1,1,  -1,1,1,
+            1,1,-1,  1,-1,-1,   -1,-1,-1,  -1,1,-1,
+        ];
+        let indices = [0,1,2,0,2,3,
+            0,4,3,3,4,7,
+            0,1,5,0,5,4,
+            4,5,6,6,4,7,
+            2,3,7,2,7,6,
+            1,2,6,1,6,5];
+        let colors = new Float32Array([     // Colors
+            0.4, 0.4, 1.0,
+            0.4, 1.0, 0.4,
+            1.0, 0.4, 0.4,
+            1.0, 1.0, 0.4,
+            1.0, 1.0, 1.0,
+            0.4, 1.0, 1.0,
+            1.0, 0.4, 1.0,
+            1.0, 1.0, 0.4,
+        ]);
+        let rotation = new Matrix4();
+        let initShader = function (vertex,fragment){
+            let loadShader = function (text,type){
+                let shader = gl.createShader(type);
+                gl.shaderSource(shader,text);
+                gl.compileShader(shader);
+                return shader;
+            };
+            vertex = loadShader(vertex,gl.VERTEX_SHADER);
+            fragment = loadShader(fragment,gl.FRAGMENT_SHADER);
+            let program = gl.createProgram();
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,fragment);
+            gl.linkProgram(program);
+            gl.useProgram(program);
+            gl.SHADER_PROGRAM = program;
+        };
+        let initBuffer = function (f32a,name){
+            let attribute = gl.getAttribLocation(gl.SHADER_PROGRAM,name);
+            let buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute);
+        };
+        let initElementArrayBuffer = function (){
+            let buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buffer);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indices),gl.STATIC_DRAW);
+        };
+        let initPerspective = function (pos,lookAt){
+            let matrix = new Matrix4();
+            matrix.perspective(45,webgl.width/webgl.height,.1,1000);
+            matrix.lookAt(...pos,...lookAt,0,1,0);
+            let u_perspective = gl.getUniformLocation(gl.SHADER_PROGRAM,"u_perspective");
+            gl.uniformMatrix4fv(u_perspective,false,matrix.elements);
+        };
+        let initChance = function (){
+            let u_chance = gl.getUniformLocation(gl.SHADER_PROGRAM,"u_chance");
+            rotation.rotate(1,0,1,0);
+            gl.uniformMatrix4fv(u_chance,false,rotation.elements);
+        };
+        let render = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            initChance();
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
+            requestAnimationFrame(render);
+        };
+        initShader(vertex.innerHTML,fragment.innerHTML);
+        initBuffer(new Float32Array(vertices),"a_position");
+        initBuffer(new Float32Array(colors),"a_color");
+        initElementArrayBuffer();
+        initPerspective([3,2,4],[0,0,0]);
+        gl.clearColor(0,0,0,1);
+        gl.enable(gl.DEPTH_TEST);
+        render();
+
+    })
+</script>
+</body>
+</html>

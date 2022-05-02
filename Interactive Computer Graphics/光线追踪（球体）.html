@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;margin:0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<canvas id="output" style="position:absolute;top:400px;left:0px;height:800px;width:800px;" height="400" width="400"></canvas>
+<script type="x-webgl/x-vertex-shader" id="vertex">#version 300 es
+in vec4 a_position;
+in vec4 a_color;
+uniform mat4 u_perspective;
+out vec4 v_color;
+    void main(){
+        gl_Position = u_perspective * a_position;
+        v_color = a_color;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">#version 300 es
+precision highp float;
+in vec4 v_color;
+out vec4 fragColor;
+    void main(){
+        fragColor = v_color;
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = this.getElementById("webgl");
+        let output = this.getElementById("output");
+        let c = output.getContext("2d");
+        let vertex = this.getElementById("vertex");
+        let fragment = this.getElementById("fragment");
+        webgl.width = 400;
+        webgl.height = 400;
+        let gl = webgl.getContext("webgl2");
+        Math.cot = function (x){
+            return 1/Math.tan(x);
+        };
+        let initShader = function (vertex,frag){
+            let loadShader = function (text,type){
+                let shader = gl.createShader(type);
+                gl.shaderSource(shader,text);
+                gl.compileShader(shader);
+                return shader;
+            };
+            vertex = loadShader(vertex,gl.VERTEX_SHADER);
+            frag = loadShader(frag,gl.FRAGMENT_SHADER);
+            let program = gl.createProgram();
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,frag);
+            gl.linkProgram(program);
+            return program;
+
+        };
+        let initBuffer = function (name,value,shader){
+            let attribute = gl.getAttribLocation(shader,name);
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,value,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute)
+        };
+        let initUniform = function (name,value,type,shader){
+            let uniform = gl.getUniformLocation(shader,name);
+            type.slice(0,1) === "M"?gl['uniform'+type](uniform,false,value):gl['uniform'+type](uniform,...value);
+
+        };
+        let vertices = [],normals = [],indices = [],colors = [],texture = [];
+        let drawSphere = function(radius,segmentX,segmentY) {
+            let lats = segmentX,
+                longs = segmentY;
+
+            for (let latNumber = 0; latNumber <= lats; ++latNumber) {
+                for (let longNumber = 0; longNumber <= longs; ++longNumber) {
+                    var u = longNumber / segmentX;
+                    var v = latNumber / segmentY;
+                    let theta = latNumber * Math.PI / lats;
+                    let phi = longNumber / longs * 2 * Math.PI ;
+                    let sinTheta = Math.sin(theta);
+                    let sinPhi = Math.sin(phi);
+                    let cosTheta = Math.cos(theta);
+                    let cosPhi = Math.cos(phi);
+                    let x = cosPhi * sinTheta;
+                    let y = cosTheta;
+                    let z = sinPhi * sinTheta;
+                    // let s, t ,u;
+                    vertices.push(radius * x);
+                    vertices.push(radius * y);
+                    vertices.push(radius * z);
+                    normals.push(x);
+                    normals.push(y);
+                    normals.push(z);
+                    colors.push(1.0);
+                    colors.push(1.0);
+                    colors.push(1.0);
+                    texture.push(u);
+                    texture.push(1-v);
+                    texture.push(0);
+                }
+            }
+
+            for (let latNumberI = 0; latNumberI < lats; ++latNumberI) {
+                for (let longNumberI = 0; longNumberI < longs; ++longNumberI) {
+                    let first = (latNumberI * (longs+1)) + longNumberI;
+                    let second = first + longs + 1;
+                    indices.push(first);
+                    indices.push(second);
+                    indices.push(first+1);
+                    indices.push(second);
+                    indices.push(second+1);
+                    indices.push(first+1);
+                }
+            }
+            vertices = new Float32Array(vertices);
+            normals = new Float32Array(normals);
+            colors = new Float32Array(colors);
+            texture = new Float32Array(texture);
+            indices = new Uint16Array(indices);
+        };
+        let distance = function (arr){
+            return Math.hypot(...arr);
+        };
+        let normal = function(arr1,arr2){
+            return [
+                arr1[1]*arr2[2]-arr2[1]*arr1[2],
+                arr2[0]*arr1[2]-arr2[2]*arr1[0],
+                arr2[1]*arr1[0]-arr2[0]*arr1[1],
+            ];
+        };
+        let cross = function (arr1,arr2){
+            return [
+                arr1[1]*arr2[2]-arr2[1]*arr1[2],
+                arr2[0]*arr1[2]-arr2[2]*arr1[0],
+                arr2[1]*arr1[0]-arr2[0]*arr1[1],
+            ];
+        };
+        let times = function(mat1 ,mat2,type) {
+            if(mat1.length === 16 && mat2.length === 16 ){
+                var i, e, a, b, ai0, ai1, ai2, ai3;
+                // Calculate e = a * b
+                e = mat1;
+                a = mat1;
+                b = mat2;
+
+                if (e === b) {
+                    b = new Float32Array(16);
+                    for (i = 0; i < 16; ++i) {
+                        b[i] = e[i];
+                    }
+                }
+
+                for (i = 0; i < 4; i++) {
+                    ai0=a[i];  ai1=a[i+4];  ai2=a[i+8];  ai3=a[i+12];
+                    e[i]    = ai0 * b[0]  + ai1 * b[1]  + ai2 * b[2]  + ai3 * b[3];
+                    e[i+4]  = ai0 * b[4]  + ai1 * b[5]  + ai2 * b[6]  + ai3 * b[7];
+                    e[i+8]  = ai0 * b[8]  + ai1 * b[9]  + ai2 * b[10] + ai3 * b[11];
+                    e[i+12] = ai0 * b[12] + ai1 * b[13] + ai2 * b[14] + ai3 * b[15];
+                }
+
+                return mat1;
+            }
+            else if(mat1.length === 3 && mat2.length === 3 ){
+                if(!type)alert("type未声明");
+                if(type === "dot"){
+                    return mat1[0]*mat2[0]+mat1[1]*mat2[1]+mat1[2]*mat2[2];
+                }
+                else if(type === "cross"){
+                    return [
+                        mat1[1]*mat2[2]-mat2[1]*mat1[2],
+                        mat2[0]*mat1[2]-mat2[2]*mat1[0],
+                        mat2[1]*mat1[0]-mat2[0]*mat1[1],
+                    ];
+                }
+                else if(type === "glsl"){
+                    return [mat1[0] * mat2[0],mat1[1] * mat2[1],mat1[2] * mat2[2]];
+                }
+            }else if(typeof mat1 === "number" || typeof mat2 === "number"){
+                let nn = typeof mat1 === "number"?mat2:mat1;
+                let n = nn === mat1?mat2:mat1;
+                return [nn[0]*n,nn[1]*n,nn[2]*n];
+            }
+        };
+        let normalize = function (vec){
+            return distance(vec) !== 0?[vec[0]/distance(vec),vec[1]/distance(vec),vec[2]/distance(vec)]:[0,0,0];
+        };
+        let minus = function (vec1,vec2){
+            return [vec2[0]-vec1[0],vec2[1]-vec1[1],vec2[2]-vec1[2]];
+        };
+        let add = function (vec1,vec2){
+            return [vec1[0]+vec2[0],vec1[1]+vec2[1],vec1[2]+vec2[2]]
+        };
+        let dot = function (vec1,vec2){
+            return vec1[0]*vec2[0]+vec1[1]*vec2[1]+vec1[2]*vec2[2];
+        };
+        let equalTo = function (a,b){
+            return (a[0] === b[0])&&(a[1] === b[1])&&(a[2] === b[2]);
+        };
+        let translate = function(mat1,x, y, z){
+            var e = mat1;
+            e[12] += e[0] * x + e[4] * y + e[8]  * z;
+            e[13] += e[1] * x + e[5] * y + e[9]  * z;
+            e[14] += e[2] * x + e[6] * y + e[10] * z;
+            e[15] += e[3] * x + e[7] * y + e[11] * z;
+            return mat1;
+        };
+        let initPerspective = function (eyeX,eyeY,eyeZ,centerX,centerY,centerZ,topX,topY,topZ, fovy, ascept, near, far) {
+            fovy = Math.PI/180*fovy;
+            let perspective = new Float32Array([
+                Math.cot(fovy)/ascept,0,0,0,
+                0,Math.cot(fovy),0,0,
+                0,0,-(near+far)/(far-near),-1,
+                0,0,-(2*far*near)/(far-near),0
+            ]);
+            let fe = [eyeX,eyeY,eyeZ];
+            let fc = [centerX,centerY,centerZ];
+            let ft = [topX,topY,topZ];
+            let fn = normalize(minus(fe,fc));          //z
+            let fu = normalize(normal(fn,ft));        //x
+            let fv = normalize(normal(fn,fu));        //y
+            let lookAt = new Float32Array([
+                fu[0],-fv[0],-fn[0],0,
+                fu[1],-fv[1],-fn[1],0,
+                fu[2],-fv[2],-fn[2],0,
+                0,0,0,1
+            ]);
+            lookAt = translate(lookAt,-eyeX,-eyeY,-eyeZ);
+            lookAt = times(perspective,lookAt);
+            return lookAt;
+        };
+        let initArrayBuffer = function (b){
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,b,gl.STATIC_DRAW);
+        };
+
+        let phong = function (v_position,v_normal,v_color,v_ambient,point_pos,point_color,a,b,c,d_i,m_i,d_r,m_r,highLight,perspective_pos)
+        {
+            let normal = v_normal;
+            let position = v_position;
+            let point_relative_pos = minus(position,point_pos);
+            let length = distance(point_relative_pos);
+            let halfangle = normalize(add(normalize(point_relative_pos),normalize(minus(v_position,perspective_pos))));
+            let theta = Math.max(dot(normalize(point_relative_pos),normalize(normal)),0.0);
+            let reduction = 1.0/(a+b*length+c*length*length);
+            let diffuse = d_i * d_r * theta;
+            let mirror = m_i * m_r * Math.max(Math.pow(dot(normalize(normal),halfangle),highLight),0.0);
+            let phong = reduction * (diffuse + mirror);
+            let point = [point_color[0]*v_color[0]*phong,point_color[1]*v_color[1]*phong,point_color[2]*v_color[2]*phong];
+            // let ambient = [v_ambient[0]*v_color[0],v_ambient[1]*v_color[1],v_ambient[2]*v_color[2]];
+            let res = point;
+            return res;
+        };
+
+        let max = 3;
+        let background = [0,0,0];
+        let intersect = function (p,u,status){        //求交计算
+
+            //p起始点  d方向向量   status状态
+            let deltaP = minus([0,0,5],[-1,0,0]);
+            if(times(u,deltaP,"dot")**2-distance(deltaP)**2+1**2<0)
+                return {s:Number.POSITIVE_INFINITY,q:null,point:null};
+            let res1 = times(u,deltaP,"dot")+Math.sqrt(times(u,deltaP,"dot")**2-distance(deltaP)**2+1**2);
+            let res2 = times(u,deltaP,"dot")-Math.sqrt(times(u,deltaP,"dot")**2-distance(deltaP)**2+1**2);
+            let s = Math.min(res1,res2);
+            let point = add(p,times(s,normalize(u)));
+            return {s:s,q:normalize(minus(p,point)),point:point};
+        };
+        let light = [3,2,5];
+        let none = [];
+        let getNormal = function (p){
+            return [p[0]+1,p[1],p[2]];
+        };
+        let reflect = function (q,n){
+            return minus(times(times(times(2,q),n,"dot"),n),q);
+        };
+        let transmit = function (){};
+
+        let trace = function (p,d,step){
+            if(step > max){
+                return background;
+            }
+            let status;
+            let {s,q,point} = intersect(p,d,status);        //观察点到被观察点的向量
+            if(!Number.isFinite(s))return background;
+
+            let n = getNormal(point);      //根据被观察点求法向量
+            let r = reflect(q,n);       //求出反射向量
+            if(equalTo(normalize(r),normalize(minus(light,point)))){
+                return [1,1,1];
+            }
+            // t = transmit(q,n);      //求出折射向量
+            let local = phong(point,n,
+                [1,1,1],[0,0,0],[3,2,5],[1,1,1],.1,.1,.1,3,3,.8,.8,100,[0,0,5]);       //根据入射向量，法向量，反射向量求出phong光照模型相应的颜色值
+            let reflected = trace(q,r,step+1);      //反射光线和折射光线进入迭代
+            // transmitted = trace(q,r,step+1);
+
+            return add(local,reflected);     //作用相加
+        };
+
+        let render = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
+            requestAnimationFrame(render);
+        };
+        gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,1);
+        gl.SHADER_PROGRAM0 = initShader(vertex.innerText,fragment.innerText);
+        gl.useProgram(gl.SHADER_PROGRAM0);
+        drawSphere(1,1,1);
+
+
+
+        let perspective_pos = [0,0,4];      //基准点
+
+        let perspectiveMatrix = initPerspective(...perspective_pos,0,0,0,0,1,0,20,webgl.width/webgl.height,.1,1000);
+        let p = [];
+        let w=0;
+
+        for(let i=-2;i<2;i+=.04){
+            for(let j=2;j>-2;j-=.04){
+                p = p.concat(trace([0,0,5],normalize(minus([0,0,5],[i,j,-2])),0));
+            }
+        }
+
+        let ID = c.getImageData(0,0,100,100);
+        let d = ID.data;
+        for(let i=0,l = ID.data.length;i<l;i+=4){
+            d[i] = p[i/4*3]*255;
+            d[i+1] = p[i/4*3+1]*255;
+            d[i+2] = p[i/4*3+2]*255;
+            d[i+3] = 255;
+        }
+        c.putImageData(ID,0,0);
+
+        // alert(w);
+        // console.log(trace([0,0,5],[0,0,-1],0));
+        /*for(let i=0;i<vertices.length;i+=3){
+           p = p.concat(phong([vertices[i],vertices[i+1],vertices[i+2]],[normals[i],normals[i+1],normals[i+2]],
+                [1,1,1],[0,0,0],[3,2,5],[1,1,1],.1,.1,.1,3,3,.8,.8,100,perspective_pos));
+        }*/
+        initBuffer("a_position",new Float32Array(vertices),gl.SHADER_PROGRAM0);
+        initBuffer("a_color",new Float32Array(p),gl.SHADER_PROGRAM0);
+        initUniform("u_perspective",perspectiveMatrix,"Matrix4fv",gl.SHADER_PROGRAM0);
+        initArrayBuffer(indices);
+        // render();
+
+    })
+</script>
+</body>
+</html>

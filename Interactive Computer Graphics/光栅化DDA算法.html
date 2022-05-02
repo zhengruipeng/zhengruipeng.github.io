@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+        *{
+            padding:0px;margin:0px;
+        }
+        rect{
+            fill:none;stroke:#ccc;stroke-width:1px;
+        }
+    </style>
+</head>
+<body>
+<svg id="svg"></svg>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let svg = this.getElementById("svg");
+        svg.setAttribute("width",String(document.documentElement.clientWidth));
+        svg.setAttribute("height",String(document.documentElement.clientHeight));
+        let Rasterization = function (p1,p2){
+            this.RECT_SIZE = 20;
+            this.lines = [];
+
+            if(arguments.length !== 0){
+                this.lines[0].p2 = p2;
+                this.lines[0].p1 = p1;
+                this.lines[0].k = (p2[1]-p1[1])/(p2[0]-p1[0]);
+                this.lines[0].deltaY = p2[1]-p1[1];
+                this.lines[0].deltaX = p2[0]-p1[0];
+            }
+            let fragment = document.createDocumentFragment();
+            for(let i=0,h = svg.getAttribute("height");i<h;i+=this.RECT_SIZE){
+
+                for(let j=0,w = svg.getAttribute("width");j<w;j+=this.RECT_SIZE){
+                    let rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+                    rect.setAttribute("x",j.toString());
+                    rect.setAttribute("y",i.toString());
+                    rect.setAttribute("width",this.RECT_SIZE.toString());
+                    rect.setAttribute("height",this.RECT_SIZE.toString());
+                    fragment.appendChild(rect);
+                }
+            }
+            svg.appendChild(fragment);
+        };
+        Rasterization.prototype.writePixel = function (x,y,c){
+            let m = Math.ceil(svg.getAttribute("width")/this.RECT_SIZE);
+            let n = y*m+x;
+            let rect = svg.getElementsByTagNameNS("http://www.w3.org/2000/svg","rect")[n-1];
+            console.log(rect);
+            rect.style.fill = c;
+            return this;
+        };
+        Rasterization.prototype.readPixel = function (x,y){
+            let m = Math.ceil(svg.getAttribute("width")/this.RECT_SIZE);
+            let n = y*m+x;
+            let rect = svg.getElementsByTagNameNS("http://www.w3.org/2000/svg","rect")[n-1];
+            return rect;
+        };
+        Rasterization.prototype.createLine = function (p1,p2){
+            /*this.line[0].p2 = p2;
+            this.line[0].p1 = p1;
+            this.line[0].k = (p2[1]-p1[1])/(p2[0]-p1[0]);
+            this.line[0].deltaY = p2[1]-p1[1];
+            this.line[0].deltaX = p2[0]-p1[0];*/
+            if((p2[1]-p1[1])/(p2[0]-p1[0]) > 1 || (p2[1]-p1[1])/(p2[0]-p1[0]) < -1){
+                if(p2[1]<p1[1]){
+                    let t = p1;
+                    p1 = p2;
+                    p2 = t;
+                }
+            }else {
+                if(p2[0]<p1[0]){
+                    let t = p1;
+                    p1 = p2;
+                    p2 = t;
+                }
+            }
+            this.lines.push({p1:p1,p2:p2,k:(p2[1]-p1[1])/(p2[0]-p1[0]),deltaY:p2[1]-p1[1],deltaX:p2[0]-p1[0]});
+            return this;
+        };
+        Rasterization.prototype.drawLine = function (index,color) {
+            if(index >= this.lines.length ){throw new this.RangeError("index >= this.lines.length")}
+            let {p1,p2,k} = this.lines[index];
+
+            if(k<=1 && k>0){
+                let o_y = p1[1];
+
+                for(let i=0;i<p2[0]-p1[0];i++){
+                    this.writePixel(p1[0]+i+1,Math.round(o_y += k)-1,color);
+                }
+
+            }else if(k>1){
+                let o_x = p1[0];
+
+                for(let i=0;i<Math.abs(p2[1]-p1[1]);i++){
+                    this.writePixel(Math.round(o_x += 1/k),p1[1]+i,color);
+                }
+
+            }else if(k<=-1){
+                let o_x = p1[0];
+
+                for(let i=0;i<p2[1]-p1[1];i++){
+                    this.writePixel(Math.round(o_x += 1/k)+1,p1[1]+i,color);
+                }
+
+            }else if(k>-1 && k<=0){
+                let o_y = p1[1];
+
+                for(let i=0;i<p2[0]-p1[0];i++){
+                    this.writePixel(p1[0]+i+1,Math.round(o_y += k),color);
+                }
+            }
+            return this;
+        };
+        Rasterization.prototype.showLine = function (index,color){
+            let line = document.createElementNS("http://www.w3.org/2000/svg","path");
+            line.setAttribute("d","M "+this.lines[index].p1[0]*this.RECT_SIZE+" "+this.lines[index].p1[1]*this.RECT_SIZE+" L "+this.lines[index].p2[0]*this.RECT_SIZE+" "+this.lines[index].p2[1]*this.RECT_SIZE);
+            line.style.stroke=color;
+            line.style.fill = "none";
+            svg.appendChild(line);
+            return this;
+        };
+        Rasterization.prototype.RangeError = function (msg) {
+            this.message = msg;
+        };
+        Rasterization.prototype.RangeError.prototype = new RangeError();
+        new Rasterization().createLine([15,10],[2,25]).drawLine(0,"green").showLine(0,"black")
+            .createLine([0,0],[50,0]).drawLine(1,"red").showLine(1,"red");
+    })
+</script>
+</body>
+</html>

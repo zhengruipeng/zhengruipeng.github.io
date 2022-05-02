@@ -1,0 +1,651 @@
+<script type="text/javascript">
+    let threeD = function (webgl,gl){
+    let Perspective = function (eyeX,eyeY,eyeZ,centerX,centerY,centerZ,topX,topY,topZ, fovy, ascept, near, far){
+        fovy = Math.PI/180*fovy;
+        let perspective = new Float32Array([
+            this.cot(fovy)/ascept,0,0,0,
+            0,this.cot(fovy),0,0,
+            0,0,-(near+far)/(far-near),-1,
+            0,0,-(2*far*near)/(far-near),0
+        ]);
+        let fe = [eyeX,eyeY,eyeZ];
+        let fc = [centerX,centerY,centerZ];
+        let ft = [topX,topY,topZ];
+        let fn = this.normalize(this.minus(fe,fc));          //z
+        let fu = this.normalize(this.normal(fn,ft));        //x
+        let fv = this.normalize(this.normal(fn,fu));        //y
+        let lookAt = new Float32Array([
+            fu[0],-fv[0],-fn[0],0,
+            fu[1],-fv[1],-fn[1],0,
+            fu[2],-fv[2],-fn[2],0,
+            0,0,0,1
+        ]);
+        lookAt = this.translate(lookAt,-eyeX,-eyeY,-eyeZ);
+        lookAt = this.times(perspective,lookAt);
+        return lookAt;
+    };
+    Perspective.prototype.distance = function (arr){
+        return Math.hypot(...arr);
+    };
+    Perspective.prototype.normal = function(arr1,arr2){
+        return [
+            arr1[1]*arr2[2]-arr2[1]*arr1[2],
+            arr2[0]*arr1[2]-arr2[2]*arr1[0],
+            arr2[1]*arr1[0]-arr2[0]*arr1[1],
+        ];
+    };
+    Perspective.prototype.times = function(mat1 ,mat2) {
+        var i, e, a, b, ai0, ai1, ai2, ai3;
+        // Calculate e = a * b
+        e = mat1;
+        a = mat1;
+        b = mat2;
+
+        if (e === b) {
+            b = new Float32Array(16);
+            for (i = 0; i < 16; ++i) {
+                b[i] = e[i];
+            }
+        }
+
+        for (i = 0; i < 4; i++) {
+            ai0=a[i];  ai1=a[i+4];  ai2=a[i+8];  ai3=a[i+12];
+            e[i]    = ai0 * b[0]  + ai1 * b[1]  + ai2 * b[2]  + ai3 * b[3];
+            e[i+4]  = ai0 * b[4]  + ai1 * b[5]  + ai2 * b[6]  + ai3 * b[7];
+            e[i+8]  = ai0 * b[8]  + ai1 * b[9]  + ai2 * b[10] + ai3 * b[11];
+            e[i+12] = ai0 * b[12] + ai1 * b[13] + ai2 * b[14] + ai3 * b[15];
+        }
+
+        return mat1;
+    };
+    Perspective.prototype.normalize = function (vec){
+        let len = this.distance(vec);
+        return len !== 0?[vec[0]/len,vec[1]/len,vec[2]/len]:[0,0,0];
+    };
+    Perspective.prototype.minus = function (vec1,vec2){
+        return [vec2[0]-vec1[0],vec2[1]-vec1[1],vec2[2]-vec1[2]];
+    };
+    Perspective.prototype.translate = function(mat1,x, y, z){
+        var e = mat1;
+        e[12] += e[0] * x + e[4] * y + e[8]  * z;
+        e[13] += e[1] * x + e[5] * y + e[9]  * z;
+        e[14] += e[2] * x + e[6] * y + e[10] * z;
+        e[15] += e[3] * x + e[7] * y + e[11] * z;
+        return mat1;
+    };
+    Perspective.prototype.cot = function (x){
+        return 1/Math.tan(x);
+    };
+
+    let Scene = function (webgl,gl){
+        this.geometries = [];
+        this.materials = [];
+        this.shaders = [];
+        this.textures = [];
+        this.color = [];
+        this.perspective = new Float32Array([]);
+        this.webgl = webgl;
+        this.gl = gl;
+        this.Perspective = Perspective;
+        this.Geometry = Geometry;
+        this.Material = Material;
+        this.Texture = Texture;
+    };
+    //config{perspective: perspective name,shader:shader obj}
+    Scene.prototype.append = function (geometry,config = {}){
+        if(geometry.constructor === Geometry){
+            this.geometries.push(geometry);
+            if(geometry.name){
+                this.geometries[geometry.name] = this.geometries.length-1;
+            }
+        }else if(geometry.constructor === Float32Array){
+            let c = scene.currentShader;
+            this.shaders.forEach(function (v){
+                scene.useProgram(v);
+                scene.initUniform(config.perspective || "u_perspective",geometry,"Matrix4fv",v);
+            });
+            scene.useProgram(c);
+            this.perspective = geometry;
+            // scene.initUniform(config.perspective || "u_perspective",geometry,"Matrix4fv",config.shader || scene.currentShader);
+        }else if(geometry.constructor === Texture){
+            this.textures.push(geometry);
+        }
+
+    };
+    //config{sampler: sampler name,}
+    Scene.prototype.changeTexture = function (index,config = {}){
+        let c = scene.currentShader;
+        this.shaders.forEach(function (v){
+            scene.useProgram(v);
+            scene.initUniform(config.sampler || "u_sampler"+index,[index],"1i",v);
+        });
+        scene.useProgram(c);
+    };
+    Scene.prototype.remove = function (index){
+        if(typeof index === "number") delete this.geometries[index];
+        if(typeof index === "string") delete this.geometries[this.geometries[index]];
+    };
+    /*
+    * @name:renderer;
+    * @param:object;
+    * @return:undefined;
+    * 参数用于更改传入glsl语言中变量用到，结构例如：
+    * {
+    *   vertex:a new attribute name,
+    *   normal:a new attribute name,
+    *   color:a new attribute name,
+    *   texture:a new attribute name,
+    *   shader:current shader
+    * }*/
+    Scene.prototype.renderer = function (config = {}){
+
+        for(let value of this.geometries){
+            if(!value)continue;
+            this.gl.bindVertexArray(value.vertexArray);
+            this.initBuffer(config["vertex"] || "a_position",new Float32Array(value.vertex),config.shader || value["shader"]);
+            if(value.normal) this.initBuffer(config["normal"] || "a_normal",new Float32Array(value.normal),config.shader || value["shader"]);
+            if(value.color) this.initBuffer(config["color"] || "a_color",new Float32Array(value.color),config.shader || value["shader"]);
+            if(value.texture) this.initBuffer(config["texture"] || "a_texture",new Float32Array(value.texture),config.shader || value["shader"]);
+            this.initArrayBuffer(new Uint16Array(value.indices));
+        }
+    };
+    Scene.prototype.render = function (index,config = {}){
+        let currentShader = this.currentShader;
+        this.useProgram(this.geometries[index].shader);
+        this.gl.bindVertexArray(this.geometries[index].vertexArray);
+        this.initUniform(config.changeMatrix || "u_change",new Float32Array(this.geometries[index].matrix),"Matrix4fv",this.geometries[index].shader);
+        this.initUniform(config.inverseChangeMatrix || "u_inverse_change",new Float32Array(this.geometries[index].inverseMatrix),"Matrix4fv",this.geometries[index].shader);
+        this.gl.drawElements(this.gl.TRIANGLES,this.geometries[index].indices.length,this.gl.UNSIGNED_SHORT,0);
+        this.useProgram(currentShader);
+    };
+    Scene.prototype.renderAll = function (config = {}){
+        for(let i=0;i<this.geometries.length;i++){
+            this.render(i,config);
+        }
+
+    };
+    Scene.prototype.initBuffer = function (name,value,shader){
+        let attribute = this.gl.getAttribLocation(shader,name);
+        let buf = this.gl.createBuffer();
+        this.gl.bindBuffer(this.gl.ARRAY_BUFFER,buf);
+        this.gl.bufferData(this.gl.ARRAY_BUFFER,value,this.gl.STATIC_DRAW);
+        this.gl.vertexAttribPointer(attribute,3,this.gl.FLOAT,false,0,0);
+        this.gl.enableVertexAttribArray(attribute)
+    };
+    Scene.prototype.initUniform = function (name,value,type,shader){
+        let uniform = this.gl.getUniformLocation(shader,name);
+        type.slice(0,1) === "M"?this.gl['uniform'+type](uniform,false,value):this.gl['uniform'+type](uniform,...value);
+
+    };
+    Scene.prototype.initArrayBuffer = function (b){
+        let buf = this.gl.createBuffer();
+        this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER,buf);
+        this.gl.bufferData(this.gl.ELEMENT_ARRAY_BUFFER,b,this.gl.STATIC_DRAW);
+    };
+    Scene.prototype.E = new Float32Array([1,0,0,0,
+        0,1,0,0,
+        0,0,1,0,
+        0,0,0,1]);
+    Scene.prototype.useProgram = function (program){
+        this.gl.useProgram(program);
+        this.currentShader = program;
+    };
+    Scene.prototype.clear = function (){
+        this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
+    };
+    Scene.prototype.clearColor = function (a,b,c,d){
+        this.color = [a,b,c,d];
+        this.gl.clearColor(a,b,c,d);
+    };
+    Scene.prototype.enable = function(a){this.gl.enable(a)};
+    Scene.prototype.initShader = function (vertex,frag){
+        let loadShader = function (text,type){
+            let shader = scene.gl.createShader(type);
+            scene.gl.shaderSource(shader,text);
+            scene.gl.compileShader(shader);
+            return shader;
+        };
+        vertex = loadShader(vertex,this.gl.VERTEX_SHADER);
+        frag = loadShader(frag,this.gl.FRAGMENT_SHADER);
+        let program = this.gl.createProgram();
+        this.gl.attachShader(program,vertex);
+        this.gl.attachShader(program,frag);
+        this.gl.linkProgram(program);
+        this.shaders.push(program);
+        return program;
+    };
+    Scene.prototype.configShader = function (name,value,type,shader = ""){
+        this.initUniform(name,value,type,shader || this.currentShader);
+    };
+
+
+    let Geometry = function (vertex = null,normal = null, color = null,
+                             texture = null, indices, shader = null,M = "",name,parent = null){
+        if(!shader)if(vertex)throw RangeError("shader未指定");
+        if(!vertex)throw Error("Geometry:vertex未指定");
+        this.vertex = vertex;
+        this.normal = normal;
+        this.color = color;
+        this.texture = texture;
+        this.matrix = this.E;
+        this.M = M;
+        this.indices = indices;
+        this.vertexArray = scene.gl.createVertexArray();
+        this.shader = shader;
+        this.name = name || "";
+        this.parent = parent;
+        if(parent !== null){
+            this.M = parent.M+"*"+M;
+        }
+        if(this.M) this.matrix = this.parseM(this.M);
+        this.inverseMatrix = this.transpose(this.setInverseOf(this.matrix));
+    };
+    /*
+    * @name:parseM
+    * @param:String M
+    * @return:Float32Array
+    * 自动构造函数列之后用eval进行解析，参数格式：
+    *   T:平移 S：缩放 R：旋转，括号中的参数分别为xyz轴的改变量，用*连接，不能出现空格
+    * 例如：T(1,2,0)*S(1,1,1)*R(45,0,1,0)
+     * */
+    Geometry.prototype.setChangeMatrix = function (p){
+        if(typeof p === "string"){
+            this.M = p;
+            p = this.parseM(p);
+            this.matrix = p;
+            this.inverseMatrix = this.transpose(this.setInverseOf(this.matrix));
+        }else{
+            throw new Error("Unknown param")
+        }
+    };
+    Geometry.prototype.parseM = function (M){
+        let fun = "this.E";
+        let reg = /(\w)?\(([-]?\d*\.?\d{0,}),([-]?\d*\.?\d{0,}),([-]?\d*\.?\d{0,}),?([-]?\d*\.?\d{0,})?\)/;
+        let arr = M.split("*");
+
+        for(let name in arr){
+            let arr2 = arr[name].match(reg);
+
+            switch (arr2[1]) {
+                case "S":fun = "this.concat("+fun+",this.setScale(this.E,"+arr2[2]+","+arr2[3]+","+arr2[4]+"))"; break;
+                case "T":fun = "this.concat("+fun+",this.setTranslate(this.E,"+arr2[2]+","+arr2[3]+","+arr2[4]+"))"; break;
+                case "R":fun = "this.concat("+fun+",this.setRotate(this.E,"+arr2[2]+","+arr2[3]+","+arr2[4]+","+arr2[5]+"))"; break;
+            }
+        }
+        return eval(fun);
+    };
+    Geometry.prototype.setRotate = function(elements, angle, x, y, z) {
+        var e, s, c, len, rlen, nc, xy, yz, zx, xs, ys, zs;
+
+        angle = Math.PI * angle / 180;
+        let ele = new Float32Array(elements);
+        e = ele;
+
+        s = Math.sin(angle);
+        c = Math.cos(angle);
+
+        if (0 !== x && 0 === y && 0 === z) {
+            // Rotation around X axis
+            if (x < 0) {
+                s = -s;
+            }
+            e[0] = 1;  e[4] = 0;  e[ 8] = 0;  e[12] = 0;
+            e[1] = 0;  e[5] = c;  e[ 9] =-s;  e[13] = 0;
+            e[2] = 0;  e[6] = s;  e[10] = c;  e[14] = 0;
+            e[3] = 0;  e[7] = 0;  e[11] = 0;  e[15] = 1;
+        } else if (0 === x && 0 !== y && 0 === z) {
+            // Rotation around Y axis
+            if (y < 0) {
+                s = -s;
+            }
+            e[0] = c;  e[4] = 0;  e[ 8] = s;  e[12] = 0;
+            e[1] = 0;  e[5] = 1;  e[ 9] = 0;  e[13] = 0;
+            e[2] =-s;  e[6] = 0;  e[10] = c;  e[14] = 0;
+            e[3] = 0;  e[7] = 0;  e[11] = 0;  e[15] = 1;
+        } else if (0 === x && 0 === y && 0 !== z) {
+            // Rotation around Z axis
+            if (z < 0) {
+                s = -s;
+            }
+            e[0] = c;  e[4] =-s;  e[ 8] = 0;  e[12] = 0;
+            e[1] = s;  e[5] = c;  e[ 9] = 0;  e[13] = 0;
+            e[2] = 0;  e[6] = 0;  e[10] = 1;  e[14] = 0;
+            e[3] = 0;  e[7] = 0;  e[11] = 0;  e[15] = 1;
+        } else {
+            // Rotation around another axis
+            len = Math.sqrt(x*x + y*y + z*z);
+            if (len !== 1) {
+                rlen = 1 / len;
+                x *= rlen;
+                y *= rlen;
+                z *= rlen;
+            }
+            nc = 1 - c;
+            xy = x * y;
+            yz = y * z;
+            zx = z * x;
+            xs = x * s;
+            ys = y * s;
+            zs = z * s;
+
+            e[ 0] = x*x*nc +  c;
+            e[ 1] = xy *nc + zs;
+            e[ 2] = zx *nc - ys;
+            e[ 3] = 0;
+
+            e[ 4] = xy *nc - zs;
+            e[ 5] = y*y*nc +  c;
+            e[ 6] = yz *nc + xs;
+            e[ 7] = 0;
+
+            e[ 8] = zx *nc + ys;
+            e[ 9] = yz *nc - xs;
+            e[10] = z*z*nc +  c;
+            e[11] = 0;
+
+            e[12] = 0;
+            e[13] = 0;
+            e[14] = 0;
+            e[15] = 1;
+        }
+
+        return ele;
+    };
+    Geometry.prototype.setTranslate = function(elements, x, y, z) {
+        var e = new Float32Array(elements);
+        e[0] = 1;  e[4] = 0;  e[8]  = 0;  e[12] = x;
+        e[1] = 0;  e[5] = 1;  e[9]  = 0;  e[13] = y;
+        e[2] = 0;  e[6] = 0;  e[10] = 1;  e[14] = z;
+        e[3] = 0;  e[7] = 0;  e[11] = 0;  e[15] = 1;
+        return e;
+    };
+    Geometry.prototype.setScale = function(elements, x, y, z) {
+        var e = new Float32Array(elements);
+        e[0] = x;  e[4] = 0;  e[8]  = 0;  e[12] = 0;
+        e[1] = 0;  e[5] = y;  e[9]  = 0;  e[13] = 0;
+        e[2] = 0;  e[6] = 0;  e[10] = z;  e[14] = 0;
+        e[3] = 0;  e[7] = 0;  e[11] = 0;  e[15] = 1;
+        return e;
+    };
+    Geometry.prototype.concat = function(elements,other) {
+        var i, e, a, b, ai0, ai1, ai2, ai3;
+
+        // Calculate e = a * b
+        e = new Float32Array(elements);
+        a = new Float32Array(elements);
+        b = other;
+
+        // If e equals b, copy b to temporary matrix.
+        if (e === b) {
+            b = new Float32Array(16);
+            for (i = 0; i < 16; ++i) {
+                b[i] = e[i];
+            }
+        }
+
+        for (i = 0; i < 4; i++) {
+            ai0=a[i];  ai1=a[i+4];  ai2=a[i+8];  ai3=a[i+12];
+            e[i]    = ai0 * b[0]  + ai1 * b[1]  + ai2 * b[2]  + ai3 * b[3];
+            e[i+4]  = ai0 * b[4]  + ai1 * b[5]  + ai2 * b[6]  + ai3 * b[7];
+            e[i+8]  = ai0 * b[8]  + ai1 * b[9]  + ai2 * b[10] + ai3 * b[11];
+            e[i+12] = ai0 * b[12] + ai1 * b[13] + ai2 * b[14] + ai3 * b[15];
+        }
+
+        return e;
+    };
+    Geometry.prototype.transpose = function(elements) {
+        var e, t;
+
+        e = new Float32Array(elements);
+
+        t = e[ 1];  e[ 1] = e[ 4];  e[ 4] = t;
+        t = e[ 2];  e[ 2] = e[ 8];  e[ 8] = t;
+        t = e[ 3];  e[ 3] = e[12];  e[12] = t;
+        t = e[ 6];  e[ 6] = e[ 9];  e[ 9] = t;
+        t = e[ 7];  e[ 7] = e[13];  e[13] = t;
+        t = e[11];  e[11] = e[14];  e[14] = t;
+
+        return e;
+    };
+    Geometry.prototype.setInverseOf = function(elements) {
+        var i, s, d, inv, det;
+
+        s = elements;
+        d = new Float32Array(16);
+        inv = new Float32Array(16);
+
+        inv[0]  =   s[5]*s[10]*s[15] - s[5] *s[11]*s[14] - s[9] *s[6]*s[15]
+            + s[9]*s[7] *s[14] + s[13]*s[6] *s[11] - s[13]*s[7]*s[10];
+        inv[4]  = - s[4]*s[10]*s[15] + s[4] *s[11]*s[14] + s[8] *s[6]*s[15]
+            - s[8]*s[7] *s[14] - s[12]*s[6] *s[11] + s[12]*s[7]*s[10];
+        inv[8]  =   s[4]*s[9] *s[15] - s[4] *s[11]*s[13] - s[8] *s[5]*s[15]
+            + s[8]*s[7] *s[13] + s[12]*s[5] *s[11] - s[12]*s[7]*s[9];
+        inv[12] = - s[4]*s[9] *s[14] + s[4] *s[10]*s[13] + s[8] *s[5]*s[14]
+            - s[8]*s[6] *s[13] - s[12]*s[5] *s[10] + s[12]*s[6]*s[9];
+
+        inv[1]  = - s[1]*s[10]*s[15] + s[1] *s[11]*s[14] + s[9] *s[2]*s[15]
+            - s[9]*s[3] *s[14] - s[13]*s[2] *s[11] + s[13]*s[3]*s[10];
+        inv[5]  =   s[0]*s[10]*s[15] - s[0] *s[11]*s[14] - s[8] *s[2]*s[15]
+            + s[8]*s[3] *s[14] + s[12]*s[2] *s[11] - s[12]*s[3]*s[10];
+        inv[9]  = - s[0]*s[9] *s[15] + s[0] *s[11]*s[13] + s[8] *s[1]*s[15]
+            - s[8]*s[3] *s[13] - s[12]*s[1] *s[11] + s[12]*s[3]*s[9];
+        inv[13] =   s[0]*s[9] *s[14] - s[0] *s[10]*s[13] - s[8] *s[1]*s[14]
+            + s[8]*s[2] *s[13] + s[12]*s[1] *s[10] - s[12]*s[2]*s[9];
+
+        inv[2]  =   s[1]*s[6]*s[15] - s[1] *s[7]*s[14] - s[5] *s[2]*s[15]
+            + s[5]*s[3]*s[14] + s[13]*s[2]*s[7]  - s[13]*s[3]*s[6];
+        inv[6]  = - s[0]*s[6]*s[15] + s[0] *s[7]*s[14] + s[4] *s[2]*s[15]
+            - s[4]*s[3]*s[14] - s[12]*s[2]*s[7]  + s[12]*s[3]*s[6];
+        inv[10] =   s[0]*s[5]*s[15] - s[0] *s[7]*s[13] - s[4] *s[1]*s[15]
+            + s[4]*s[3]*s[13] + s[12]*s[1]*s[7]  - s[12]*s[3]*s[5];
+        inv[14] = - s[0]*s[5]*s[14] + s[0] *s[6]*s[13] + s[4] *s[1]*s[14]
+            - s[4]*s[2]*s[13] - s[12]*s[1]*s[6]  + s[12]*s[2]*s[5];
+
+        inv[3]  = - s[1]*s[6]*s[11] + s[1]*s[7]*s[10] + s[5]*s[2]*s[11]
+            - s[5]*s[3]*s[10] - s[9]*s[2]*s[7]  + s[9]*s[3]*s[6];
+        inv[7]  =   s[0]*s[6]*s[11] - s[0]*s[7]*s[10] - s[4]*s[2]*s[11]
+            + s[4]*s[3]*s[10] + s[8]*s[2]*s[7]  - s[8]*s[3]*s[6];
+        inv[11] = - s[0]*s[5]*s[11] + s[0]*s[7]*s[9]  + s[4]*s[1]*s[11]
+            - s[4]*s[3]*s[9]  - s[8]*s[1]*s[7]  + s[8]*s[3]*s[5];
+        inv[15] =   s[0]*s[5]*s[10] - s[0]*s[6]*s[9]  - s[4]*s[1]*s[10]
+            + s[4]*s[2]*s[9]  + s[8]*s[1]*s[6]  - s[8]*s[2]*s[5];
+
+        det = s[0]*inv[0] + s[1]*inv[4] + s[2]*inv[8] + s[3]*inv[12];
+        if (det === 0) {
+            return d;
+        }
+
+        det = 1 / det;
+        for (i = 0; i < 16; i++) {
+            d[i] = inv[i] * det;
+        }
+
+        return d;
+    };
+    Geometry.prototype.E = new Float32Array([1,0,0,0,
+        0,1,0,0,
+        0,0,1,0,
+        0,0,0,1]);
+    Geometry.prototype.add = function (obj){
+        //先判断gl.program对象
+        if(obj.name === "WebGLProgram"){
+            this.shader = obj;
+        }
+        //字符串型可能是name，M
+        if(typeof obj === "string"){
+            if(obj.indexOf("(") !== -1 && obj.indexOf(",") !== -1){
+                this.M = obj;
+            }else{
+                this.name = obj;
+            }
+        }
+        if(obj.constructor === Geometry){
+            this.parent = obj;
+        }
+        //判断vertex,normal,color,texture,indices
+        if(obj.constructor === Array || obj.constructor === Float32Array || obj.constructor === Uint16Array){
+            return {vertices:this.vertices,normals:this.normals,colors:this.colors,
+                texture:this.texture,indices:this.indices,}
+
+        }
+    };
+
+    let Material = function (){
+        this.u_reduction_a = u_reduction_a;
+        this.u_reduction_b = u_reduction_b;
+        this.u_reduction_c = u_reduction_c;
+        this.u_diffuse_intensity = u_diffuse_intensity;
+        this.u_mirror_intensity = u_mirror_intensity;
+        this.u_diffuse_reflection = u_diffuse_reflection;
+        this.u_mirror_reflection = u_mirror_reflection;
+        this.u_highLight = u_highLight;
+        this.u_perspective_pos = u_perspective_pos;
+    };
+
+    /*
+    * @param:mode
+    * @type:string
+    * @value:image,renderbuffer,uint8Array
+    * 当mode为image时，第一个参数传入image路径，
+    * 当mode为renderbuffer时，第一个参数传入goemetry对象，
+    * 当mode为uint8Array时第一个参数传入Uint8Array对象
+    * 当mode为cubeTexture时第一个参数传入Object对象,其中posx为x正半轴壁纸negx,posy,negy,posz,negz同理
+    * */
+
+    /*
+    * config{int index;int mipMap;Array(3) position;Array(4) clearColor}*/
+    let Texture = function (url,mode = "image",config={}) {
+        this.url = url;
+        this.imageData=null;
+        this.mode = mode.toLowerCase();
+        this.renderBuffer = null;
+        this.frameBuffer = null;
+        this.texture = scene.gl.createTexture();
+        this.index = config.index || 0;
+        this.MIPMAP_DETAILS = config.mipMap || 512;
+        this.frameBufPerPos = config.position;
+        this.CLEARCOLOR = config.clearColor;
+        if(this.mode === "image"){
+            let that = this;
+            let image = new Image();
+            image.src = url;
+            image.onload = function (){
+                that.imageData = this;
+                that.onload();
+            };
+        }else if(this.mode === "renderbuffer"){
+            this.imageData = null;
+            let frameBuffer = scene.gl.createFramebuffer();
+            scene.gl.bindFramebuffer(scene.gl.FRAMEBUFFER,frameBuffer);
+            let renderBuffer = scene.gl.createRenderbuffer();
+            scene.gl.bindRenderbuffer(scene.gl.RENDERBUFFER,renderBuffer);
+
+            this.renderBuffer = renderBuffer;
+            this.frameBuffer = frameBuffer;
+            this.onload();
+
+        }else if(this.mode === "uint8array"){
+
+        }else if(this.mode === "cubetexture"){
+            let p1 = new Promise(function (resolve){
+                let image = new Image();
+                image.src = url.posx;
+                image.onload = function (){
+                    url.posx = this;
+                    resolve();
+                };
+            });
+            let p2 = new Promise(function (resolve){
+                let image = new Image();
+                image.src = url.negx;
+                image.onload = function (){
+                    url.negx = this;
+                    resolve();
+                };
+            });
+            let p3 = new Promise(function (resolve){
+                let image = new Image();
+                image.src = url.posy;
+                image.onload = function (){
+                    url.posy = this;
+                    resolve();
+                };
+            });
+            let p4 = new Promise(function (resolve){
+                let image = new Image();
+                image.src = url.negy;
+                image.onload = function (){
+                    url.negy = this;
+                    resolve();
+                };
+            });
+            let p5 = new Promise(function (resolve){
+                let image = new Image();
+                image.src = url.posz;
+                image.onload = function (){
+                    url.posz = this;
+                    resolve();
+                };
+            });
+            let p6 = new Promise(function (resolve){
+                let image = new Image();
+                image.src = url.negz;
+                image.onload = function (){
+                    url.negz = this;
+                    resolve();
+                };
+            });
+            Promise.all([p1, p2,p3,p4,p5,p6]).then(() => {
+                this.onload({posx:url.posx,negx:url.negx,posy:url.posy,
+                    negy:url.negy,posz:url.posz,negz:url.negz});
+            })
+        }
+    };
+    Texture.prototype.onload = function (data){
+        scene.gl.pixelStorei(scene.gl.UNPACK_FLIP_Y_WEBGL,true);
+        scene.gl.activeTexture(scene.gl['TEXTURE'+this.index]);
+        if(this.mode === "image"){
+            scene.gl.bindTexture(scene.gl.TEXTURE_2D,this.texture);
+            scene.gl.texParameteri(scene.gl.TEXTURE_2D,scene.gl.TEXTURE_MIN_FILTER,scene.gl.LINEAR);
+            scene.gl.texImage2D(scene.gl.TEXTURE_2D,0,scene.gl.RGBA,scene.gl.RGBA,scene.gl.UNSIGNED_BYTE,this.imageData);
+        }else if(this.mode === "renderbuffer"){
+            scene.gl.bindTexture(scene.gl.TEXTURE_2D,this.texture);
+            let cs = scene.currentShader;
+            scene.gl.texImage2D(scene.gl.TEXTURE_2D,0,scene.gl.RGBA,this.MIPMAP_DETAILS,this.MIPMAP_DETAILS,0,scene.gl.RGBA,scene.gl.UNSIGNED_BYTE,this.imageData);
+            scene.gl.generateMipmap(scene.gl.TEXTURE_2D);
+            scene.gl.texParameteri(scene.gl.TEXTURE_2D,scene.gl.TEXTURE_MAG_FILTER,scene.gl.LINEAR_MIPMAP_LINEAR);
+            scene.gl.bindTexture(scene.gl.TEXTURE_2D,null);
+            scene.gl.framebufferTexture2D(scene.gl.FRAMEBUFFER,scene.gl.COLOR_ATTACHMENT0,scene.gl.TEXTURE_2D,this.texture,this.index);
+            if(scene.gl.checkFramebufferStatus(scene.gl.FRAMEBUFFER) != scene.gl.FRAMEBUFFER_COMPLETE)alert("framebuffer加载失败");
+            scene.gl.bindTexture(scene.gl.TEXTURE_2D,this.texture);
+            scene.useProgram(scene.geometries[this.url].shader);
+            let perspectiveMatrix = new Perspective(...(this.frameBufPerPos),0,0,0,0,1,0,20,1,.1,10);
+            scene.configShader("u_perspective",perspectiveMatrix,"Matrix4fv",scene.geometries[this.url].shader);
+            scene.configShader("u_perspective_pos",this.frameBufPerPos.concat([1]),"4f",scene.geometries[this.url].shader);
+            scene.gl.viewport(0,0,this.MIPMAP_DETAILS,this.MIPMAP_DETAILS);
+            scene.gl.clearColor(...this.CLEARCOLOR);
+            scene.gl.clear(scene.gl.COLOR_BUFFER_BIT);
+            scene.render(this.url);
+            scene.configShader("u_perspective",scene.perspective,"Matrix4fv");
+            scene.gl.bindFramebuffer(scene.gl.FRAMEBUFFER,null);
+            scene.gl.bindRenderbuffer(scene.gl.RENDERBUFFER,null);
+            scene.useProgram(cs);
+            scene.gl.viewport(0,0,scene.webgl.width,scene.webgl.height);
+            scene.gl.clearColor(...scene.color);
+            scene.enable(scene.gl.DEPTH_TEST);
+        }else if(this.mode === "cubetexture"){
+            scene.gl.bindTexture(scene.gl.TEXTURE_CUBE_MAP,this.texture);
+            scene.gl.texParameteri(scene.gl.TEXTURE_CUBE_MAP,scene.gl.TEXTURE_MIN_FILTER,scene.gl.LINEAR);
+            scene.gl.texImage2D(scene.gl.TEXTURE_CUBE_MAP_NEGATIVE_X,0,scene.gl.RGBA,scene.gl.RGBA,scene.gl.UNSIGNED_BYTE,data.negx);
+            scene.gl.texImage2D(scene.gl.TEXTURE_CUBE_MAP_POSITIVE_X,0,scene.gl.RGBA,scene.gl.RGBA,scene.gl.UNSIGNED_BYTE,data.posx);
+            scene.gl.texImage2D(scene.gl.TEXTURE_CUBE_MAP_NEGATIVE_Y,0,scene.gl.RGBA,scene.gl.RGBA,scene.gl.UNSIGNED_BYTE,data.negy);
+            scene.gl.texImage2D(scene.gl.TEXTURE_CUBE_MAP_POSITIVE_Y,0,scene.gl.RGBA,scene.gl.RGBA,scene.gl.UNSIGNED_BYTE,data.posy);
+            scene.gl.texImage2D(scene.gl.TEXTURE_CUBE_MAP_NEGATIVE_Z,0,scene.gl.RGBA,scene.gl.RGBA,scene.gl.UNSIGNED_BYTE,data.negz);
+            scene.gl.texImage2D(scene.gl.TEXTURE_CUBE_MAP_POSITIVE_Z,0,scene.gl.RGBA,scene.gl.RGBA,scene.gl.UNSIGNED_BYTE,data.posz);
+        }
+    };
+
+    let scene = new Scene(webgl,gl);
+    return scene;
+};
+</script>

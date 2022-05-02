@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding:0;margin:0}
+        .shading{display:none;}
+    </style>
+</head>
+<body>
+<canvas id="2d"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = this.getElementById("2d");
+        canvas.height = this.documentElement.clientHeight;
+        canvas.width = this.documentElement.clientWidth;
+        let c = canvas.getContext("2d");
+        c.YMAX = .9 * canvas.height;
+        c.YMIN = .1 * canvas.height;
+        c.XMAX = .9 * canvas.width;
+        c.XMIN = .1 * canvas.width;
+        let Point = function (x,y){
+            this.x = x;
+            this.y = y;
+        };
+        Point.prototype.toArray = function (){return [this.x,this.y]};
+        let Line = function (p1,p2){
+            this.alpha = {XMIN:0,YMIN:0,YMAX:0,XMAX:0};
+            this.p1 = p1;
+            this.p2 = p2;
+            this.slice = function (){
+                this.param();
+                console.log(this.alpha);
+                var p1 = this.p1,p2 = this.p2;
+                if(this.alpha["YMAX"]>this.alpha["XMIN"]&&this.alpha["XMIN"]>this.alpha["YMIN"]&&this.alpha["YMIN"]>this.alpha['XMAX']||
+                    this.alpha["YMAX"]<this.alpha["XMIN"] && this.alpha["XMIN"]<this.alpha["YMIN"] && this.alpha["YMIN"]<this.alpha['XMAX']){
+                    if(this.alpha["XMIN"]>0 && this.alpha["XMIN"]<1) p1 =  this.setPoint(this.alpha["XMIN"]);
+                    if(this.alpha["YMIN"]>0 && this.alpha["YMIN"]<1) p2 =  this.setPoint(this.alpha["YMIN"]);
+
+                }else if(this.alpha["XMAX"]>this.alpha["YMIN"]&&this.alpha["YMIN"]>this.alpha["YMAX"]&&this.alpha["YMAX"]>this.alpha["XMIN"]||
+                    this.alpha["XMAX"]<this.alpha["YMIN"]&& this.alpha["YMIN"]<this.alpha["YMAX"] &&this.alpha["YMAX"]<this.alpha["XMIN"]){
+                    if(this.alpha["YMAX"]>0 && this.alpha["YMAX"]<1)p1 =  this.setPoint(this.alpha["YMAX"]);
+                    if(this.alpha["YMIN"]>0 && this.alpha["YMIN"]<1)p2 =  this.setPoint(this.alpha["YMIN"]);
+                }else if(this.alpha["XMAX"]>this.alpha["YMAX"]&&this.alpha["YMAX"]>this.alpha["YMIN"]&&this.alpha["YMIN"]>this.alpha["XMIN"]||
+                    this.alpha["XMAX"]<this.alpha["YMAX"]&& this.alpha["YMAX"]<this.alpha["YMIN"] &&this.alpha["YMIN"]<this.alpha["XMIN"]){
+                    if(this.alpha["YMAX"]>0 && this.alpha["YMAX"]<1)p1 =  this.setPoint(this.alpha["YMAX"]);
+                    if(this.alpha["YMIN"]>0 && this.alpha["YMIN"]<1)p2 =  this.setPoint(this.alpha["YMIN"]);
+                }else if(this.alpha["XMIN"]>this.alpha["YMAX"]&&this.alpha["YMAX"]>this.alpha["XMAX"]&&this.alpha["XMAX"]>this.alpha["YMIN"]||
+                    this.alpha["XMIN"]<this.alpha["YMAX"]&& this.alpha["YMAX"]<this.alpha["XMAX"] &&this.alpha["XMAX"]<this.alpha["YMIN"]){
+                    if(this.alpha["YMAX"]>0 && this.alpha["YMAX"]<1)p1 =  this.setPoint(this.alpha["YMAX"]);
+                    if(this.alpha["XMAX"]>0 && this.alpha["XMAX"]<1)p2 =  this.setPoint(this.alpha["XMAX"]);
+                }else if(this.alpha["XMIN"]>this.alpha["YMIN"]&&this.alpha["YMIN"]>this.alpha["XMAX"]&&this.alpha["XMAX"]>this.alpha["YMAX"]||
+                    this.alpha["XMIN"]<this.alpha["YMIN"]&& this.alpha["YMIN"]<this.alpha["XMAX"] &&this.alpha["XMAX"]<this.alpha["YMAX"]){
+                    if(this.alpha["YMIN"]>0 && this.alpha["YMIN"]<1)p1 =  this.setPoint(this.alpha["YMIN"]);
+                    if(this.alpha["XMAX"]>0 && this.alpha["XMAX"]<1)p2 =  this.setPoint(this.alpha["XMAX"]);
+                }else if(this.alpha["YMIN"]>this.alpha["XMIN"]&&this.alpha["XMIN"]>this.alpha["YMAX"]&&this.alpha["YMAX"]>this.alpha["XMAX"]||
+                    this.alpha["YMIN"]<this.alpha["XMIN"]&& this.alpha["XMIN"]<this.alpha["YMAX"] &&this.alpha["YMAX"]<this.alpha["XMAX"]){
+                    if(this.alpha["YMAX"]>0 && this.alpha["YMAX"]<1)p1 =  this.setPoint(this.alpha["YMAX"]);
+                    if(this.alpha["XMIN"]>0 && this.alpha["XMIN"]<1)p2 =  this.setPoint(this.alpha["XMIN"]);
+                }
+                this.p1 = p1;
+                this.p2 = p2;
+                return this;
+            };
+            this.draw = function (){
+                c.beginPath();
+                c.moveTo(this.p1.x,this.p1.y);
+                c.lineTo(this.p2.x,this.p2.y);
+                c.stroke();
+                c.closePath();
+            };
+        };
+        Line.prototype.setPoint = function (bate){
+            let x = (1 - bate) * this.p1.x+ bate * this.p2.x;
+            let y = (1 - bate) * this.p1.y+ bate * this.p2.y;
+            return new Point(x,y);
+        };
+        Line.prototype.param = function (){
+            this.alpha["YMAX"] = (c.YMAX-this.p1.y)/(this.p2.y-this.p1.y);
+            this.alpha["YMIN"] = (c.YMIN-this.p1.y)/(this.p2.y-this.p1.y);
+            this.alpha["XMAX"] =(c.XMAX-this.p1.x)/(this.p2.x-this.p1.x);
+            this.alpha["XMIN"] = (c.XMIN-this.p1.x)/(this.p2.x-this.p1.x);
+            return this;
+        };
+        c.rect(c.XMIN,c.YMIN,c.XMAX-c.XMIN,c.YMAX-c.YMIN);
+        c.stroke();
+        let l1 = new Line(new Point(20,200),new Point(300,300));
+        l1.slice().draw();
+    })
+</script>
+</body>
+</html>

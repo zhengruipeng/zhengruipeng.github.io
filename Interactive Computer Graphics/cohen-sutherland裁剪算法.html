@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding:0;margin:0}
+        .shading{display:none;}
+    </style>
+</head>
+<body>
+<canvas id="2d"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = this.getElementById("2d");
+        canvas.height = this.documentElement.clientHeight;
+        canvas.width = this.documentElement.clientWidth;
+        let c = canvas.getContext("2d");
+        c.YMAX = .9 * canvas.height;
+        c.YMIN = .1 * canvas.height;
+        c.XMAX = .9 * canvas.width;
+        c.XMIN = .1 * canvas.width;
+        let Point = function (x,y){
+            if(x<0 || x>canvas.width)new Error("x值不在范围内");
+            if(y<0 || y>canvas.height)new Error("y值不在范围内");
+            this.x = x;
+            this.y = y;
+            this.xCode = "00";
+            this.yCode = "00";
+            this.code = this.xCode + this.yCode;
+            this.toString = function (){return this.code};
+            this.valueOf = function (){return parseInt(this.code,2)};
+            if(y-c.YMAX>0)this.yCode = "10";
+            if(y-c.YMIN<0)this.yCode = "01";
+            if(x-c.XMAX>0)this.xCode = "10";
+            if(x-c.XMIN<0)this.xCode = "01";
+            this.code = this.xCode + this.yCode;
+        };
+        let Line = function (p1,p2){
+            this.p1 = p1;
+            this.p2 = p2;
+            this.visible = true;
+            this.cross_point = function (p1,p2){
+                let p = p2.valueOf() === 0?p1:p2;
+                let inverse_p = p2.valueOf() === 0?p2:p1;
+                let k = (p2.y-p1.y)/(p2.x-p1.x);
+                if(p.xCode === "10" || p.xCode === "01"){
+                    if(p.xCode === "10"){   //x>XMAX
+                        p.x = c.XMAX;
+                        p.y = inverse_p.y+k*(p.x-inverse_p.x);
+
+                    }else if(p.xCode === "01"){    //x<XMIN
+                        p.x = c.XMIN;
+                        p.y = inverse_p.y+k*(p.x-inverse_p.x);
+                    }
+                }
+                if(p.yCode === "10" || p.yCode === "01"){
+                    if(p.yCode === "10"){   //y>YMAX
+                        p.y = c.YMAX;
+                        p.x = inverse_p.x +1/k*(p.y-inverse_p.y);
+                    }else if(p.yCode === "01"){
+                        p.y = c.YMIN;
+                        p.x = inverse_p.x +1/k*(p.y-inverse_p.y);
+                    }
+                }
+                p.xCode = "00";
+                p.yCode = "00";
+                p.code = "0000";
+                return [p,inverse_p];
+            };
+            this.slice = function (){
+                let p1 = this.p1;
+                let p2 = this.p2;
+                if(p1.toString() === p2.toString() && p2.valueOf() === 0){return this;}
+                if(p1.toString() !== p2.toString() && (p2.valueOf() === 0 || p1.valueOf() === 0)){
+                    [p1,p2] = this.cross_point(p1,p2);
+                    this.p1 = p1;this.p2 = p2;return this;
+                }
+                if((p1.valueOf() & p2.valueOf()) !== 0){this.visible = false;return this;}
+                if((p1.valueOf() & p2.valueOf()) === 0){
+                    [p1,p2] = this.cross_point(p1,p2);
+                    [p1,p2] = this.cross_point(p1,p2);
+                    [p1,p2] = this.cross_point(p1,p2);
+                    [p1,p2] = this.cross_point(p1,p2);
+                    this.p1 = p1;this.p2 = p2;
+                    return this;}
+                console.log("no selected");
+                return this;
+            };
+            this.draw = function (){
+                if(!this.visible)return;
+                c.beginPath();
+                c.moveTo(p1.x,p1.y);
+                c.lineTo(p2.x,p2.y);
+                c.stroke();
+                c.closePath();
+            };
+        };
+        c.rect(c.XMIN,c.YMIN,c.XMAX-c.XMIN,c.YMAX-c.YMIN);
+        c.stroke();
+        let l = new Line(new Point(150,400),new Point(1600,420));
+        l.slice().draw();
+        let l1 = new Line(new Point(150,600),new Point(1300,20));
+        l1.slice().draw();
+        let l2 = new Line(new Point(0,100),new Point(400,420));
+        l2.slice().draw();
+    })
+</script>
+</body>
+</html>

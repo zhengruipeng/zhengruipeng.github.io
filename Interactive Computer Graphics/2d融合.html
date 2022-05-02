@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        aside{
+            position:fixed;
+            right:0;
+            top:0;
+            display: grid;
+            grid-template-rows:40px;
+            grid-template-columns: 1fr;
+            grid-auto-rows: 40px;
+
+            width:auto;
+            border:black solid 1px;
+            border-radius:15px;
+        }
+        aside>div{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 40px;
+            justify-items: center;
+            align-items: center;
+        }
+        aside select{
+            background-color:transparent;
+            padding-left:15px;
+            border-radius:15px;
+            width:100%;
+
+        }
+        </style>
+</head>
+<body>
+<aside>
+    <div>
+        <p class="option-title">融合方式：</p>
+        <select id="select-composite-operation">
+            <option value="source-over     " >source-over     </option>
+            <option value="source-in       " >source-in       </option>
+            <option value="source-out      " >source-out      </option>
+            <option value="source-atop     " >source-atop     </option>
+            <option value="destination-over" >destination-over</option>
+            <option value="destination-in  " >destination-in  </option>
+            <option value="destination-out " >destination-out </option>
+            <option value="destination-atop" >destination-atop</option>
+            <option value="lighter         " >lighter         </option>
+            <option value="copy            " >copy            </option>
+            <option value="xor             " >xor             </option>
+            <option value="multiply        " >multiply        </option>
+            <option value="screen          " >screen          </option>
+            <option value="overlay         " >overlay         </option>
+            <option value="darken          " >darken          </option>
+            <option value="lighten         " >lighten         </option>
+            <option value="color-dodge     " >color-dodge     </option>
+            <option value="color-burn      " >color-burn      </option>
+            <option value="hard-light      " >hard-light      </option>
+            <option value="soft-light      " >soft-light      </option>
+            <option value="difference      " >difference      </option>
+            <option value="exclusion       " >exclusion       </option>
+            <option value="hue             " >hue             </option>
+            <option value="saturation      " >saturation      </option>
+            <option value="color           " >color           </option>
+            <option value="luminosity      " >luminosity      </option>
+        </select>
+    </div>
+</aside>
+<canvas></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = this.querySelector("canvas");
+        const selectCompositeOperation = this.querySelector("#select-composite-operation");
+        canvas.height = this.documentElement.clientHeight-3;
+        canvas.width = this.documentElement.clientWidth;
+        let ctx = canvas.getContext("2d");
+        let drawCircleWithShadow = function (x,     /*int */
+                                             y,     /*int */
+                                             r,     /*int */
+                                             color,     /*string :fill color*/){
+            ctx.beginPath();
+            // ctx.arc(x,y,r,0,Math.PI*2,false);
+            ctx.rect(x,y,2*r,2*r);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.closePath();
+        };
+
+        let clear = function (){
+            canvas.parentNode.removeChild(canvas);
+            canvas = document.createElement("canvas");
+            canvas.height = document.documentElement.clientHeight-3;
+            canvas.width = document.documentElement.clientWidth;
+            document.body.appendChild(canvas);
+            ctx = canvas.getContext('2d');
+            /*ctx.beginPath();
+            ctx.fillStyle = "white";
+            ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+            ctx.closePath();*/
+
+        };
+        let render = function (){
+            drawCircleWithShadow(100,100,50,"rgba(255,0,0,.8)");
+            drawCircleWithShadow(150,150,50,"rgba(0,0,255,1)");
+        };
+        clear();
+        render();
+        selectCompositeOperation.onchange = function (){
+            clear();
+            ctx.globalCompositeOperation = this[this.selectedIndex].value.trim();
+            console.log(this[this.selectedIndex].value.trim(),ctx.globalCompositeOperation)
+            render();
+        }
+    })
+</script>
+</body>
+</html>

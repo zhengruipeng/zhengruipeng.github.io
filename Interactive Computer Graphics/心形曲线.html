@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding: 0;margin: 0;}
+    </style>
+</head>
+<body>
+<svg id="svg" height="600" width="600">
+    <path d="" id="path" style="stroke:#000" fill="pink"></path>
+</svg>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let path = this.getElementById("path");
+        let theta = 0;
+        let r = 100;
+        let O = [150,30];
+        path.setAttribute("d","M "+O[0]+" "+O[1]+" L ");
+        let temp = "";
+        let cocoro = function (){
+            //row = a(1-cos theta);
+            //x = row * cos theta;
+            //y = row * sin theta;
+            let row = r * (1 - Math.cos(theta));
+            theta+=Math.PI/180*2;
+            let y = -row * Math.cos(theta)+O[1];
+            let x = row * Math.sin(theta)+O[0];
+            temp += x+" "+y+" ";
+        };
+        let rotation = function (n){
+            if(n === undefined){
+                for(;theta<=2*Math.PI;){
+                    cocoro();
+                }
+            }else{
+                for(let i = 0;i<n;i++){
+                    cocoro();
+                }
+            }
+
+        };
+        rotation();
+        path.setAttribute("d",path.getAttribute("d")+temp);
+        path.style.transform = "scale(1,2)";
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<script type="text/javascript" src="../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-vertex-shader" id="vertex">#version 300 es
+in vec4 a_position;
+in vec4 a_color;
+out vec4 v_color;
+uniform mat4 u_perspective;
+    void main(){
+        mat4 change = mat4(0.5,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.5);
+        gl_Position = change * u_perspective * a_position;
+        v_color = a_color;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">#version 300 es
+precision highp float;
+in vec4 v_color;
+out vec4 fragColor;
+    void main(){
+        fragColor = v_color;
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = this.getElementById("webgl");
+        let vertex = this.getElementById("vertex");
+        let frag = this.getElementById("fragment");
+        webgl.height = this.documentElement.clientHeight;
+        webgl.width = this.documentElement.clientHeight;
+        let gl = webgl.getContext("webgl2");
+        let points = [.5,.5,.5,-.5,-.5,-.5,-.5,.5];
+        var vertices = new Float32Array([   // Vertex coordinates
+            1.0, 1.0, 1.0,  -1.0, 1.0, 1.0,  -1.0,-1.0, 1.0,   1.0,-1.0, 1.0,  // v0-v1-v2-v3 front
+            1.0, 1.0, 1.0,   1.0,-1.0, 1.0,   1.0,-1.0,-1.0,   1.0, 1.0,-1.0,  // v0-v3-v4-v5 right
+            1.0, 1.0, 1.0,   1.0, 1.0,-1.0,  -1.0, 1.0,-1.0,  -1.0, 1.0, 1.0,  // v0-v5-v6-v1 up
+            -1.0, 1.0, 1.0,  -1.0, 1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0,-1.0, 1.0,  // v1-v6-v7-v2 left
+            -1.0,-1.0,-1.0,   1.0,-1.0,-1.0,   1.0,-1.0, 1.0,  -1.0,-1.0, 1.0,  // v7-v4-v3-v2 down
+            1.0,-1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0, 1.0,-1.0,   1.0, 1.0,-1.0   // v4-v7-v6-v5 back
+        ]);
+
+        var colors = new Float32Array([     // Colors
+            0.4, 0.4, 1.0,  0.4, 0.4, 1.0,  0.4, 0.4, 1.0,  0.4, 0.4, 1.0,  // v0-v1-v2-v3 front(blue)
+            0.4, 1.0, 0.4,  0.4, 1.0, 0.4,  0.4, 1.0, 0.4,  0.4, 1.0, 0.4,  // v0-v3-v4-v5 right(green)
+            1.0, 0.4, 0.4,  1.0, 0.4, 0.4,  1.0, 0.4, 0.4,  1.0, 0.4, 0.4,  // v0-v5-v6-v1 up(red)
+            1.0, 1.0, 0.4,  1.0, 1.0, 0.4,  1.0, 1.0, 0.4,  1.0, 1.0, 0.4,  // v1-v6-v7-v2 left
+            1.0, 1.0, 1.0,  1.0, 1.0, 1.0,  1.0, 1.0, 1.0,  1.0, 1.0, 1.0,  // v7-v4-v3-v2 down
+            0.4, 1.0, 1.0,  0.4, 1.0, 1.0,  0.4, 1.0, 1.0,  0.4, 1.0, 1.0   // v4-v7-v6-v5 back
+        ]);
+
+        var indices = new Uint16Array([       // Indices of the vertices
+            0, 1, 2,   0, 2, 3,    // front
+            4, 5, 6,   4, 6, 7,    // right
+            8, 9,10,   8,10,11,    // up
+            12,13,14,  12,14,15,    // left
+            16,17,18,  16,18,19,    // down
+            20,21,22,  20,22,23     // back
+        ]);
+        let initShader = function (vertex,fragment){
+            let loadShader = function (text,type){
+                let shader = gl.createShader(type);
+                gl.shaderSource(shader,text);
+                gl.compileShader(shader);
+                return shader;
+            };
+            vertex = loadShader(vertex,gl.VERTEX_SHADER);
+            fragment = loadShader(fragment,gl.FRAGMENT_SHADER);
+            let program = gl.createProgram();
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,fragment);
+            gl.linkProgram(program);
+            return program;
+        };
+        let initBuffer = function (name,f32a,shader){
+            let attribute = gl.getAttribLocation(shader,name);
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,2,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute);
+        };
+        let render = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            gl.drawElements(gl.TRIANGLES,indices.length, gl.UNSIGNED_SHORT, 0)
+        };
+        let initCamara = function (){
+            let matrix = new Matrix4();
+            matrix.setRotate(45,0,1,0);
+            matrix.rotate(-37.5,1,0,0);
+            let perspective = gl.getUniformLocation(gl.SHADER_PROGRAM0,"u_perspective");
+            gl.uniformMatrix4fv(perspective,false,matrix.elements);
+        };
+        let initArrayBuffer = function (i){
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,i,gl.STATIC_DRAW);
+        };
+        gl.SHADER_PROGRAM0 = initShader(vertex.innerHTML,frag.innerHTML);
+        gl.useProgram(gl.SHADER_PROGRAM0);
+        gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,1);
+        initBuffer("a_position", new Float32Array(points), gl.SHADER_PROGRAM0);
+        initBuffer("a_color", new Float32Array(colors), gl.SHADER_PROGRAM0);
+        initArrayBuffer(indices);
+        initCamara();
+        render();
+
+    })
+</script>
+</body>
+</html>

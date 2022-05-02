@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<script type="text/javascript" src="../libs/cuon-utils.js"></script>
+<script type="x-webgl/x-vertex-shader" id="vertex">
+attribute vec2 a_position;
+    void main(){
+        gl_Position = vec4(a_position,0.0,1.0);
+        gl_PointSize = 1.0;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">
+    void main(){
+        gl_FragColor = vec4(1.0,1.0,1.0,1.0);
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = document.getElementById("webgl");
+        let vertex = document.getElementById("vertex");
+        let fragment = document.getElementById("fragment");
+        webgl.height = document.documentElement.clientHeight;
+        webgl.width = document.documentElement.clientWidth;
+        let gl = webgl.getContext("webgl");
+        let point = [[.5,-.5],[-.5,-.5],[0,.5]];
+        let vertices = [.5,-.5,-.5,-.5,0,.5];
+        let createShader = function (vertex,type){
+            let shader = gl.createShader(type);
+            gl.shaderSource(shader,vertex);
+            gl.compileShader(shader);
+            gl.getShaderParameter(shader,gl.COMPILE_STATUS);
+            gl.getShaderInfoLog(shader);
+            return shader;
+        };
+        let initShader = function (vertex,fragment) {
+            let ver = createShader(vertex,gl.VERTEX_SHADER);
+            let frag = createShader(fragment,gl.FRAGMENT_SHADER);
+            let program = gl.createProgram();
+            gl.attachShader(program,ver);
+            gl.attachShader(program,frag);
+            gl.linkProgram(program);
+            gl.getProgramParameter(program,gl.LINK_STATUS);
+            gl.getProgramInfoLog(program);
+            gl.useProgram(program);
+            gl.program = program;
+
+        };
+        let draw = function (){
+            gl.drawArrays(gl.POINTS,0,vertices.length/2);
+        };
+        let initPoint = function (current){
+            let select = point[Math.floor(Math.random()*3)];
+            let deltaX = (select[0] - current[0])/2;
+            let deltaY = (select[1] - current[1])/2;
+            vertices.push(current[0] + deltaX);
+            vertices.push(current[1] + deltaY);
+            return vertices.slice(vertices.length-3,vertices.length-1);
+        };
+        let initPoints = function (num){
+            let current = [0,0.5];
+            for(let i=0;i<num;i++){
+                current = initPoint(current);
+            }
+        };
+        let initBuffer = function (arr){
+            let a_position = gl.getAttribLocation(gl.program,"a_position");
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(arr),gl.STATIC_DRAW);
+            gl.vertexAttribPointer(a_position,2,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(a_position);
+        };
+        initShader(vertex.innerText,fragment.innerText);
+        gl.clearColor(0,0,0,1);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        initPoints(10000);
+        initBuffer(vertices);
+        draw();
+    })
+</script>
+</body>
+</html>

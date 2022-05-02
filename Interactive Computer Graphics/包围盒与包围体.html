@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<canvas id="2d" ></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = this.getElementById("2d");
+        canvas.height = this.documentElement.clientHeight;
+        canvas.width = this.documentElement.clientWidth;
+        let c = canvas.getContext("2d");
+        let InitPattern = function (d){
+            let i;
+            d = d.trim();
+            let data = d.split(" ");
+            let currentPoint;
+            this.d = d;
+            this.data = data;
+            this.MAX_X = 0;
+            this.MAX_Y = 0;
+            this.MIN_X = 0;
+            this.MIN_Y = 0;
+            let that = this;
+            let changeBoundingBox = function (x,y){
+                if(x<that.MIN_X){that.MIN_X = x}
+                if(x>that.MAX_X){that.MAX_X = x}
+                if(y<that.MIN_Y){that.MIN_Y = y}
+                if(y>that.MAX_Y){that.MAX_Y = y}
+            };
+            data:for(i=0;i<data.length;i++){
+
+                if(!Number.isNaN(parseInt(data[i]))){
+                    continue;
+                }
+
+                switch (data[i]) {
+                    case "M":
+                        c.moveTo(data[i+1],data[i+2]);
+                        currentPoint = [data[i+1],data[i+2]];
+                        this.MAX_X = data[i+1];
+                        this.MIN_X = data[i+1];
+                        this.MAX_Y = data[i+2];
+                        this.MIN_Y = data[i+2];
+                        break;
+                    case "L":
+                        c.lineTo(data[i+1],data[i+2]);
+                        currentPoint = [data[i+1],data[i+2]];
+                        changeBoundingBox(data[i+1],data[i+2]);
+                        break;
+                    case "H":
+                        c.lineTo(data[i+1],currentPoint[1]);
+                        currentPoint[0] = data[i+1];
+                        changeBoundingBox(data[i+1],currentPoint[1]);
+                        break;
+                    case "V":
+                        c.lineTo(currentPoint[0],data[i+1]);
+                        currentPoint[1] = data[i+1];
+                        changeBoundingBox(currentPoint[0],data[i+1]);
+                        break;
+                    case "Q":
+                        c.quadraticCurveTo(data[i+1],data[i+2],data[i+3],data[i+4]);
+                        currentPoint = [data[i+3],data[i+4]];
+                        changeBoundingBox(data[i+1],data[i+2]);
+                        changeBoundingBox(data[i+3],data[i+4]);
+                        break;
+                    case "T":
+                        c.quadraticCurveTo(2*currentPoint[0]-data[i-4],2*currentPoint[1]-data[i-3],data[i+1],data[i+2]);
+                        currentPoint = [data[i+1],data[i+2]];
+                        changeBoundingBox(2*currentPoint[0]-data[i-4],2*currentPoint[1]-data[i-3]);
+                        changeBoundingBox(data[i+1],data[i+2]);
+                        break;
+                    case "C":
+                        c.bezierCurveTo(data[i+1],data[i+2],data[i+3],data[i+4],data[i+5],data[i+6]);
+                        currentPoint = [data[i+5],data[i+6]];
+                        changeBoundingBox(data[i+1],data[i+2]);
+                        changeBoundingBox(data[i+3],data[i+4]);
+                        changeBoundingBox(data[i+5],data[i+6]);
+                        break;
+                    case "S":
+                        c.bezierCurveTo(2*currentPoint[0]-data[i-4],2*currentPoint[1]-data[i-3],data[i+1],data[i+2],data[i+3],data[i+4]);
+                        currentPoint = [data[i+3],data[i+4]];
+                        changeBoundingBox(data[i+1],data[i+2]);
+                        changeBoundingBox(data[i+3],data[i+4]);
+                        changeBoundingBox(2*currentPoint[0]-data[i-4],2*currentPoint[1]-data[i-3]);
+                        break;
+                    case "Z":
+                        c.closePath();
+                        currentPoint = null;
+                        break data;
+                }
+            }
+        };
+        InitPattern.prototype.stroke = function (color){
+            c.strokeStyle = color;
+            c.stroke();
+            return this;
+        };
+        InitPattern.prototype.fill = function (color){
+            c.fillStyle=color;
+            c.fill();
+            return this;
+        };
+        InitPattern.prototype.showBoundingBox = function (color){
+            c.rect(this.MIN_X,this.MIN_Y,this.MAX_X-this.MIN_X,this.MAX_Y-this.MIN_Y);
+            c.strokeStyle = color;
+            c.stroke();
+            return this;
+        };
+        new InitPattern("M 100 100 L 200 200 L 100 200 L 200 300 C 300 400 400 200 500 300 S 700 200 800 300 V 250 Z ").stroke("#000").showBoundingBox("#666");
+
+
+    })
+</script>
+</body>
+</html>

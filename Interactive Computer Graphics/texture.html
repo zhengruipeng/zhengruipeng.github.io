@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<script type="x-webgl/x-vertex-shader" id="vertex">#version 300 es
+in vec4 a_position;
+in vec2 a_texture;
+uniform mat4 u_perspective;
+uniform mat4 u_change;
+out vec2 v_texture;
+void main(){
+	gl_Position = u_perspective * u_change * a_position;
+	v_texture = a_texture;
+}
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">#version 300 es
+precision highp float;
+in vec2 v_texture;
+uniform sampler2D u_sampler;
+out vec4 frag_color;
+void main(){
+	frag_color = texture(u_sampler,v_texture);
+}
+
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let canvas = this.getElementById("webgl");
+        let vertex = this.getElementById("vertex");
+        let fragment = this.getElementById("fragment");
+        canvas.height = this.documentElement.clientHeight;
+        canvas.width = this.documentElement.clientWidth;
+        let gl = canvas.getContext("webgl2");
+        let vertices = [1,0,1,1,0,-1,-1,0,-1,-1,0,1];
+        let texture = [1,0,1,1,0,1,0,0];
+        Math.cot = function (x){
+            return 1/Math.tan(x);
+        };
+        let initShader = function (vertex,fragment){
+            let loadShader = function (text,type){
+                let shader = gl.createShader(type);
+                gl.shaderSource(shader,text);
+                gl.compileShader(shader);
+                return shader;
+            };
+            let program = gl.createProgram();
+            vertex = loadShader(vertex,gl.VERTEX_SHADER);
+            fragment = loadShader(fragment,gl.FRAGMENT_SHADER);
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,fragment);
+            gl.linkProgram(program);
+            return program;
+        };
+        let initBuffer = function (name,value,type,shader){
+            let attribute = gl.getAttribLocation(shader,name);
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,value,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,type,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute);
+        };
+        let initUniform = function (name,value,type,shader){
+            let uniform = gl.getUniformLocation(shader,name);
+            (type.indexOf("M") !== -1)?gl["uniform"+type](uniform,false,value):gl["uniform"+type](uniform,value);
+        };
+        let distance = function (arr){
+            return Math.hypot(...arr);
+        };
+        let normal = function(arr1,arr2){
+            return [
+                arr1[1]*arr2[2]-arr2[1]*arr1[2],
+                arr2[0]*arr1[2]-arr2[2]*arr1[0],
+                arr2[1]*arr1[0]-arr2[0]*arr1[1],
+            ];
+        };
+        let times = function(mat1 ,mat2) {
+            var i, e, a, b, ai0, ai1, ai2, ai3;
+            // Calculate e = a * b
+            e = mat1;
+            a = mat1;
+            b = mat2;
+
+            if (e === b) {
+                b = new Float32Array(16);
+                for (i = 0; i < 16; ++i) {
+                    b[i] = e[i];
+                }
+            }
+
+            for (i = 0; i < 4; i++) {
+                ai0=a[i];  ai1=a[i+4];  ai2=a[i+8];  ai3=a[i+12];
+                e[i]    = ai0 * b[0]  + ai1 * b[1]  + ai2 * b[2]  + ai3 * b[3];
+                e[i+4]  = ai0 * b[4]  + ai1 * b[5]  + ai2 * b[6]  + ai3 * b[7];
+                e[i+8]  = ai0 * b[8]  + ai1 * b[9]  + ai2 * b[10] + ai3 * b[11];
+                e[i+12] = ai0 * b[12] + ai1 * b[13] + ai2 * b[14] + ai3 * b[15];
+            }
+
+            return mat1;
+        };
+        let normalize = function (vec){
+            return distance(vec) !== 0?[vec[0]/distance(vec),vec[1]/distance(vec),vec[2]/distance(vec)]:[0,0,0];
+        };
+        let minus = function (vec1,vec2){
+            return [vec2[0]-vec1[0],vec2[1]-vec1[1],vec2[2]-vec1[2]];
+        };
+        let translate = function(mat1,x, y, z){
+            var e = mat1;
+            e[12] += e[0] * x + e[4] * y + e[8]  * z;
+            e[13] += e[1] * x + e[5] * y + e[9]  * z;
+            e[14] += e[2] * x + e[6] * y + e[10] * z;
+            e[15] += e[3] * x + e[7] * y + e[11] * z;
+            return mat1;
+        };
+        let inverse = function(obj,other) {
+            var i, s, d, inv, det;
+
+            s = other;
+            d = obj;
+            inv = new Float32Array(16);
+
+            inv[0]  =   s[5]*s[10]*s[15] - s[5] *s[11]*s[14] - s[9] *s[6]*s[15]
+                + s[9]*s[7] *s[14] + s[13]*s[6] *s[11] - s[13]*s[7]*s[10];
+            inv[4]  = - s[4]*s[10]*s[15] + s[4] *s[11]*s[14] + s[8] *s[6]*s[15]
+                - s[8]*s[7] *s[14] - s[12]*s[6] *s[11] + s[12]*s[7]*s[10];
+            inv[8]  =   s[4]*s[9] *s[15] - s[4] *s[11]*s[13] - s[8] *s[5]*s[15]
+                + s[8]*s[7] *s[13] + s[12]*s[5] *s[11] - s[12]*s[7]*s[9];
+            inv[12] = - s[4]*s[9] *s[14] + s[4] *s[10]*s[13] + s[8] *s[5]*s[14]
+                - s[8]*s[6] *s[13] - s[12]*s[5] *s[10] + s[12]*s[6]*s[9];
+
+            inv[1]  = - s[1]*s[10]*s[15] + s[1] *s[11]*s[14] + s[9] *s[2]*s[15]
+                - s[9]*s[3] *s[14] - s[13]*s[2] *s[11] + s[13]*s[3]*s[10];
+            inv[5]  =   s[0]*s[10]*s[15] - s[0] *s[11]*s[14] - s[8] *s[2]*s[15]
+                + s[8]*s[3] *s[14] + s[12]*s[2] *s[11] - s[12]*s[3]*s[10];
+            inv[9]  = - s[0]*s[9] *s[15] + s[0] *s[11]*s[13] + s[8] *s[1]*s[15]
+                - s[8]*s[3] *s[13] - s[12]*s[1] *s[11] + s[12]*s[3]*s[9];
+            inv[13] =   s[0]*s[9] *s[14] - s[0] *s[10]*s[13] - s[8] *s[1]*s[14]
+                + s[8]*s[2] *s[13] + s[12]*s[1] *s[10] - s[12]*s[2]*s[9];
+
+            inv[2]  =   s[1]*s[6]*s[15] - s[1] *s[7]*s[14] - s[5] *s[2]*s[15]
+                + s[5]*s[3]*s[14] + s[13]*s[2]*s[7]  - s[13]*s[3]*s[6];
+            inv[6]  = - s[0]*s[6]*s[15] + s[0] *s[7]*s[14] + s[4] *s[2]*s[15]
+                - s[4]*s[3]*s[14] - s[12]*s[2]*s[7]  + s[12]*s[3]*s[6];
+            inv[10] =   s[0]*s[5]*s[15] - s[0] *s[7]*s[13] - s[4] *s[1]*s[15]
+                + s[4]*s[3]*s[13] + s[12]*s[1]*s[7]  - s[12]*s[3]*s[5];
+            inv[14] = - s[0]*s[5]*s[14] + s[0] *s[6]*s[13] + s[4] *s[1]*s[14]
+                - s[4]*s[2]*s[13] - s[12]*s[1]*s[6]  + s[12]*s[2]*s[5];
+
+            inv[3]  = - s[1]*s[6]*s[11] + s[1]*s[7]*s[10] + s[5]*s[2]*s[11]
+                - s[5]*s[3]*s[10] - s[9]*s[2]*s[7]  + s[9]*s[3]*s[6];
+            inv[7]  =   s[0]*s[6]*s[11] - s[0]*s[7]*s[10] - s[4]*s[2]*s[11]
+                + s[4]*s[3]*s[10] + s[8]*s[2]*s[7]  - s[8]*s[3]*s[6];
+            inv[11] = - s[0]*s[5]*s[11] + s[0]*s[7]*s[9]  + s[4]*s[1]*s[11]
+                - s[4]*s[3]*s[9]  - s[8]*s[1]*s[7]  + s[8]*s[3]*s[5];
+            inv[15] =   s[0]*s[5]*s[10] - s[0]*s[6]*s[9]  - s[4]*s[1]*s[10]
+                + s[4]*s[2]*s[9]  + s[8]*s[1]*s[6]  - s[8]*s[2]*s[5];
+
+            det = s[0]*inv[0] + s[1]*inv[4] + s[2]*inv[8] + s[3]*inv[12];
+            if (det === 0) {
+                return obj;
+            }
+
+            det = 1 / det;
+            for (i = 0; i < 16; i++) {
+                d[i] = inv[i] * det;
+            }
+
+            return d;
+        };
+        let transpose = function(obj) {
+            var e, t;
+
+            e = obj;
+
+            t = e[ 1];  e[ 1] = e[ 4];  e[ 4] = t;
+            t = e[ 2];  e[ 2] = e[ 8];  e[ 8] = t;
+            t = e[ 3];  e[ 3] = e[12];  e[12] = t;
+            t = e[ 6];  e[ 6] = e[ 9];  e[ 9] = t;
+            t = e[ 7];  e[ 7] = e[13];  e[13] = t;
+            t = e[11];  e[11] = e[14];  e[14] = t;
+
+            return obj;
+        };
+
+        let renderer = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            gl.drawArrays(gl.TRIANGLE_FAN,0,4);
+            requestAnimationFrame(renderer);
+        };
+        let initPerspective = function (eyeX,eyeY,eyeZ,centerX,centerY,centerZ,topX,topY,topZ, fovy, ascept, near, far) {
+            fovy = Math.PI/180*fovy;
+            let perspective = new Float32Array([
+                Math.cot(fovy)/ascept,0,0,0,
+                0,Math.cot(fovy),0,0,
+                0,0,-(near+far)/(far-near),-1,
+                0,0,-(2*far*near)/(far-near),0
+            ]);
+            let fe = [eyeX,eyeY,eyeZ];
+            let fc = [centerX,centerY,centerZ];
+            let ft = [topX,topY,topZ];
+            let fn = normalize(minus(fe,fc));          //z
+            let fu = normalize(normal(fn,ft));        //x
+            let fv = normalize(normal(fn,fu));        //y
+            let lookAt = new Float32Array([
+                fu[0],-fv[0],-fn[0],0,
+                fu[1],-fv[1],-fn[1],0,
+                fu[2],-fv[2],-fn[2],0,
+                0,0,0,1
+            ]);
+            lookAt = translate(lookAt,-eyeX,-eyeY,-eyeZ);
+            lookAt = times(perspective,lookAt);
+            return lookAt;
+        };
+        let initTexture = function (imageData,index){
+            let texture = gl.createTexture();
+            gl.activeTexture(gl['TEXTUER'+index]);
+            gl.bindTexture(gl.TEXTURE_2D,texture);
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,imageData);
+            gl.generateMipmap(gl.TEXTURE_2D);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR_MIPMAP_LINEAR);
+            initUniform("u_sampler",index,"1i",gl.SHADER_PROGRAM0)
+
+        };
+        gl.clearColor(0,0,0,1);
+        gl.enable(gl.DEPTH_TEST);
+        gl.SHADER_PROGRAM0 = initShader(vertex.innerHTML,fragment.innerHTML);
+        gl.useProgram(gl.SHADER_PROGRAM0);
+        let perspective_pos = [5,5,5];
+        let perspective = initPerspective(...perspective_pos,0,0,0,0,1,0,20,canvas.width/canvas.height,.1,1000);
+        initBuffer("a_position",new Float32Array(vertices),3,gl.SHADER_PROGRAM0);
+        initBuffer("a_texture",new Float32Array(texture),2,gl.SHADER_PROGRAM0);
+        initUniform("u_perspective",perspective,"Matrix4fv",gl.SHADER_PROGRAM0);
+        initUniform("u_change",new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]),"Matrix4fv",gl.SHADER_PROGRAM0);
+        let image = new Image();
+        image.src = "./texture/1.jpg";
+        image.onload = function (){
+            initTexture(this,0);
+        };
+        renderer();
+
+
+
+
+
+    });
+</script>
+</body>
+</html>
