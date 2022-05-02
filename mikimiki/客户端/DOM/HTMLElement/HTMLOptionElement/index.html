@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select >
+    <option value="1" name="1">11</option>
+    <optgroup label="group1">
+        <option value="2" name="2">22</option>
+        <option value="3" name="3">33</option>
+
+    </optgroup>
+</select>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const select = this.querySelector("select");
+        const option = this.querySelector('option');
+        const optgroup = this.querySelector('optgroup');
+        console.log(select);
+        console.log(option);
+        console.log(optgroup);
+    })
+</script>
+</body>
+</html>

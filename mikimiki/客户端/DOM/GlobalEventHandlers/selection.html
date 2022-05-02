@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="height:600px;width:100%;border:red solid 1px;" id="div">123441234</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.getElementById("div");
+        this.onselectstart = function (){
+            console.log("onselectionstart");
+        };
+        this.onselectionchange = function (){
+            console.log("onselectionchange");
+        };
+    })
+</script>
+</body>
+</html>

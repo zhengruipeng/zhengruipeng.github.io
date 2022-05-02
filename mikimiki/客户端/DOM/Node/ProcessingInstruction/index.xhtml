@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<?xml-stylesheet type="text/css" href="1.css"?>
+<head>
+    <title>Title</title>
+</head>
+<body>
+123123
+<script type="module"><![CDATA[
+    document.addEventListener("DOMContentLoaded",function (){
+        var doc = new DOMParser().parseFromString('<foo />', 'application/xml');
+        var pi = doc.createProcessingInstruction('xml-stylesheet', 'href="1.css" type="text/css"');
+        console.log(pi);
+        doc.insertBefore(pi, doc.firstChild);
+
+        console.log(new XMLSerializer().serializeToString(doc));
+// Displays: <?xml-stylesheet href="mycss.css" type="text/css"?><foo/>
+    });]]>
+</script>
+</body>
+</html>

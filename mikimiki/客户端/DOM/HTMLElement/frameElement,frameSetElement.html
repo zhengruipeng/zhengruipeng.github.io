@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function (){
+            console.log(this.querySelector("frame"));
+            console.log(this.querySelector("frameset"));
+        })
+    </script>
+</head>
+<frameset cols="50%,50%">
+    <frame src="./1马太福音.html" />
+    <frame src="./3路加福音.html" />
+</frameset>
+<body>
+执行frameset的时候不执行body中内容
+</body>
+</html>

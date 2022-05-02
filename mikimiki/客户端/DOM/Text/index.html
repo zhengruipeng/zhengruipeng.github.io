@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Why yes.
+  123<span></span>123</div>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const div = this.querySelector("div");
+    console.log(div.childNodes[0]);
+    div.childNodes[0].splitText(7);
+    console.log(div.childNodes[0]);
+    console.log(div.childNodes[1]);
+
+  })
+</script>
+</body>
+</html>

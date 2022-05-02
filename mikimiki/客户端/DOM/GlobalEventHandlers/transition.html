@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div{
+            height:100px;
+            width:200px;
+            border:red solid 1px;
+            transition:.3s;
+        }
+        #div:hover{
+            height:200px;
+        }
+        </style>
+</head>
+<body>
+<div id="div">123441234</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.getElementById("div");
+        div.ontransitionstart = function (){
+            console.log("ontransitionstart");
+        };
+        div.ontransitionend = function (){
+            console.log("ontransitionend");
+        };
+        div.ontransitioncancel = function (){
+            console.log("ontransitioncancel");
+        };
+        div.ontransitionrun = function (){
+            console.log("ontransitionrun");
+        };
+    })
+</script>
+</body>
+</html>

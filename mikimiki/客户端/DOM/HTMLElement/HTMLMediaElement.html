@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<video controls crossorigin="use-credentials" muted loop="loop" preload="auto" >
+    <source src="./image/1.mp4" type="video/mp4" />
+    <track src="" />
+</video>
+<button id="seek-to-20s" style="padding:20px;">20s </button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const video = this.querySelector("video");
+        const seekTo20s = this.querySelector("#seek-to-20s");
+        video.oncanplay = function (){
+            with(video){
+                // console.log("autoplay ",audioTracks);
+                /*
+                                console.log("autoplay ",autoplay);
+                */
+                console.log("buffered ",buffered);
+                // console.log("controller ",controller);
+                /*
+                                console.log("controls ",controls);
+                */
+                // console.log("controlsList ",controlsList);
+                /*console.log("crossOrigin ",crossOrigin);
+                console.log("currentSrc ",currentSrc);
+                console.log("currentTime ",currentTime);
+                console.log("defaultMuted ",defaultMuted);
+                console.log("defaultPlaybackRate ",defaultPlaybackRate);*/
+                // console.log("disableRemotePlayback ",disableRemotePlayback);
+                /* console.log("duration ",duration);
+                 console.log("ended ",ended);
+                 console.log("error ",error);
+                 console.log("loop ",loop);*/
+                // console.log("mediaGroup ",mediaGroup);
+                /* console.log("mediaKeys ",mediaKeys);
+                 console.log("muted ",muted);*/
+                // console.log("networkSate ",networkSate);
+                /*console.log("paused ",paused);
+                console.log("playbackRate ",playbackRate);*/
+                console.log("played ",played);
+                /* console.log("preload ",preload);*/
+                // console.log("preservesPitch ",preservesPitch);
+                /*console.log("readyState ",readyState);*/
+                console.log("seekable ",seekable);
+                /*   console.log("seeking ",seeking);*/
+                // console.log("sinkId ",sinkId);
+                /*  console.log("src ",src);
+                  console.log("srcObject ",srcObject);*/
+                // console.log("videoTracks ",videoTracks);
+                /* console.log("volume ",volume);*/
+                console.log(seekable.start(0))
+                console.log(seekable.end(0))
+                console.log(seekable.length)
+            }
+        }
+        video.onseeked = function (){
+            console.log(this.seekable.start(1))
+            console.log(this.seekable.end(1))
+            console.log(this.seekable.length)
+        };
+        seekTo20s.onclick = function (){
+            video.fastSeek(20);
+        }
+
+    })
+</script>
+</body>
+</html>

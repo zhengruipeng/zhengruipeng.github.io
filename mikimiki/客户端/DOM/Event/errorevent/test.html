@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function() {
+        const image = new Image();
+        image.src = "123123.jpg";
+        image.onerror = function (e){
+            console.log(e);
+        }
+    })
+</script>
+</body>
+</html>

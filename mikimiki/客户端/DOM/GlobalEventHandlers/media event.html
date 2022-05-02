@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video id="video" src="./1.mp4" controls></video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const video = this.getElementById("video");
+        video.oncanplaythrough = function (e){
+            console.log("oncanplaythrough",e);
+        };
+        video.oncanplay = function (e){
+            console.log("oncanplay",e);
+        };
+        video.onpause = function (e){
+            console.log("onpause",e);
+        };
+        video.onplay = function (e){
+            console.log("onplay",e);
+        };
+    })
+    </script>
+</body>
+</html>

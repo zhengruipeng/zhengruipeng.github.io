@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes f{
+            from{
+                height:100px;
+            }
+            to{
+                height:200px;
+            }
+        }
+        div{
+            height:100px;
+            width:100px;
+            border:red 1px solid;
+            animation-name:f;
+            animation-duration:1000ms;
+            animation-timing-function: linear;
+            animation-fill-mode: backwards;
+            animation-iteration-count: 2;
+            animation-direction: alternate;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let div = this.getElementById("div");
+        div.onanimationstart = function (e){
+            console.log("animationstart",e);
+        };
+        div.onanimationcancel = function (e){
+            console.log("onanimationcancel  ",e);
+        };
+        div.onanimationend = function (e){
+            console.log("onanimationend",e);
+        };
+        div.onanimationiteration = function (e){
+            console.log("onanimationiteration",e);
+        };
+
+    })
+</script>
+</body>
+</html>

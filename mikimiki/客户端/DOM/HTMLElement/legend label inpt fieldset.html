@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        fieldset{
+            padding:30px 50px;
+            border-radius:20px;
+            border:#ccc solid 1px;
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif 微软雅黑;
+            letter-spacing: 1px;
+            font-size:18px;
+        }
+        input{
+            margin:20px;
+            display: block;
+            font-size:16px;
+            padding:5px 15px;
+        }
+        input[type="submit"]{
+            background-color:#2675BE;
+            border-radius:15px;
+            padding:7px 15px;
+            border:0;
+            display: inline;
+            cursor:pointer;
+            color:white;
+        }
+        input[type="button"]{
+            background-color:#EDEDED;
+            border-radius:15px;
+            padding:7px 15px;
+            border:0;
+            display: inline;
+            cursor:pointer;
+
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    <fieldset style="">
+        <legend>basic info: </legend>
+        <label for="name">name: </label>
+        <input type="text" id="name" />
+        <label for="pwd">pwd: </label>
+        <input type="password" id="pwd" />
+        <input type="button" id="cancel" name="cancel"  value="cancel"/>
+        <input type="submit" id="submit" name="submit" value="submit" />
+    </fieldset>
+</form>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        console.log(this.querySelector("legend"));
+        console.log(this.querySelector("label"));
+        console.log(this.querySelector("input"));
+        console.log(this.querySelector("fieldset"));
+    })
+</script>
+</body>
+</html>

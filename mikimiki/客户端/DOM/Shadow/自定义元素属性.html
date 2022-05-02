@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<x-foo></x-foo>
+<button id="modify-attr-with-DOM">modify-attr-with-DOM</button>
+<button id="modify-attr-with-JS">modify-attr-with-JS</button>
+<button id="remove-test-ele">remove-test-ele</button>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const xFoo = this.querySelector("x-foo");
+        const modifyAttrWBBtn = this.querySelector("#modify-attr-with-DOM");
+        const modifyAttrWJBtn = this.querySelector("#modify-attr-with-JS");
+        const removeTestEle = this.querySelector("#remove-test-ele");
+        const Foo = class extends HTMLElement{
+            constructor(){
+                super();
+                console.log("创建一个元素");
+            }
+            connectedCallback(){
+                console.log("连接上");
+            }
+            disconnectedCallback(){
+                console.log("取消链接");
+            }
+            static get observedAttributes(){
+                return ['bar'];
+            }
+            attributeChangedCallback(name,oldV,newV){
+                console.log(`更改属性通过DOM${oldV}->${newV}`);
+                // this[name] = newV;
+            }
+            get bar(){
+                console.log("getAttr:"+this.getAttribute("bar"));
+                return this.getAttribute("bar");
+            }
+            set bar(value){
+                console.log("setAttr:"+value);
+                this.setAttribute("bar",value);
+                return value;
+            }
+        };
+        customElements.define("x-foo",Foo);
+
+        modifyAttrWBBtn.onclick = function (){
+            xFoo.setAttribute("bar",xFoo.getAttribute("bar") === "true"?"false":"true");
+        };
+        modifyAttrWJBtn.onclick = function (){
+            xFoo.bar = xFoo.bar === "true"?"false":"true";
+        };
+        removeTestEle.onclick = function (){
+            try{
+                xFoo.parentNode.removeChild(xFoo);
+            }catch(e){}
+        };
+    });
+</script>
+</body>
+</html>

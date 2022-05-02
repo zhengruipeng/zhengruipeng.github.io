@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #table-template{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<template id="table-template">
+    <style>
+        table{
+            border-collapse:collapse;
+            float:center;
+
+        }
+        td,
+        th{
+            border:#ccc solid 1px;
+            padding:10px 30px;
+
+        }
+        colgroup{
+            background:rgba(123,114,233,.4);
+        }
+        caption{
+            caption-side: bottom;
+        }
+    </style>
+    <table>
+        <caption>caption</caption>
+        <colgroup span="1" />
+        <thead>
+        <tr>
+            <th><slot name="td-one-one" id="slot1"></slot></th>
+            <th>123</th>
+            <th>123</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>123</td>
+            <td><slot name="td-two-two"></slot></td>
+            <td>123</td>
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td><slot name="td-three-three"></slot></td>
+        </tr>
+        </tbody>
+    </table>
+</template>
+<element-table>
+    <span slot="td-one-one">first element-table tag,</span>
+    <span slot="td-two-two">first element-table tag,</span>
+    <span slot="td-three-three">first element-table tag,</span>
+</element-table>
+<element-table>
+    <span slot="td-one-one">sec element-table tag,</span>
+    <span slot="td-two-two">sec element-table tag,</span>
+    <span slot="td-three-three">sec element-table tag,</span>
+</element-table>
+<element-table>
+    <span slot="td-one-one">third element-table tag,</span>
+    <span slot="td-two-two">third element-table tag,</span>
+    <span slot="td-three-three">third element-table tag,</span>
+</element-table>
+<slot>test slot ele</slot>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const tableTemplate = this.getElementById("table-template");
+        const template = this.querySelector("template");
+        const slot = this.querySelector("slot");
+        customElements.define("element-table",class extends HTMLElement{
+            constructor() {
+                super();
+                const content = tableTemplate.content;
+                const shadowRoot = this.attachShadow({mode:"open"});
+                shadowRoot.appendChild(content.cloneNode(true));
+            }
+        });
+        console.log(tableTemplate);
+        console.log(slot);
+    });
+</script>
+</body>
+</html>

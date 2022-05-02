@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<template>
+    <p slot="slot1">p1</p>
+</template>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const template = this.querySelector("template");
+        let FooElement = class extends HTMLElement{
+            constructor(){
+                super();
+                this.attachShadow({mode:"open"});
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+                console.log("创建结束");
+            }
+        };
+        customElements.define("x-foo",FooElement);
+        let foo1 = this.createElement("x-foo");
+        foo1.innerHTML = "<slot name='slot1'></slot>";
+        document.body.appendChild(foo1);
+
+    });
+</script>
+</body>
+</html>

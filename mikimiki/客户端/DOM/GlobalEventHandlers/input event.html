@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input">
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const input = this.getElementById("input");
+        input.oninput = function (e){
+            console.log("oninput",e)
+        };
+        input.onchange = fujnction (){
+            console.log("onchange",e)
+        }
+    })
+</script>
+</body>
+</html>

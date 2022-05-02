@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+123123
+<input type="text" id="input"/>
+<!--
+    comment text
+-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let input = this.getElementById("input");
+        input.oncompositionstart = function (){         //不会运行
+            console.log("on---");
+        }
+        input.addEventListener("compositionstart",function (e){
+            console.log("start");
+            console.log(e);
+        });
+        //fire when the east language composition system input .some IME can not occure this event ,
+        //so ,it can not be used in some important program.
+        input.addEventListener("compositionupdate",function (e){
+            console.log("update");
+            console.log(e);
+        });
+        input.addEventListener("compositionend",function (e){
+            console.log("end");
+            console.log(e);
+        });
+    })
+</script>
+</body>
+</html>

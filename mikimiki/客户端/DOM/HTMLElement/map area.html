@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<map id="map">
+    <area shape="rect" coords="0,0,100,300" data-pos="left">
+    <area shape="rect" coords="100,0,200,300" data-pos="mid">
+    <area shape="rect" coords="200,0,300,300" data-pos="right">
+</map>
+<img src="./image/1.jpg" usemap="#map" style="height:300px;width:300px;" />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const map = this.querySelector("map");
+        const area = this.querySelectorAll("area");
+        map.onclick = function (){
+            console.log("u`ve clicked this image");
+        };
+        for(let value of area){
+            value.onclick = function (){
+                console.log(this.dataset.pos+" modle");
+            };
+        }
+    })
+</script>
+</body>
+</html>

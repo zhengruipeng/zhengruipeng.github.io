@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+此方法为range对象和staticrange对象的继承对象，无法被单独实例化，提供五个只读属性，
+其他range对象作为此对象的接口
+以下为mdn原文
+collapsed Read only
+A Boolean value which is true if the range is collapsed. A collapsed range is one whose start position and end position are the same, resulting in a zero-character-long range.
+endContainer Read only
+The DOM Node in which the end of the range, as specified by the endOffset property, is located.
+endOffset Read only
+An integer value indicating the offset, in characters, from the beginning of the node's contents to the beginning of the range represented by the range object. This value must be less than the length of the endContainer node.
+startContainer Read only
+The DOM Node in which the beginning of the range, as specified by the startOffset property, is located.
+startOffset Read only
+An integer value indicating the offset, in characters, from the beginning of the node's contents to the last character of the contents referred to  by the range object. This value must be less than the length of the node indicated in startContainer.
+
+<script type="text/javascript">
+    window.onload = function (){
+        console.log(Range)
+    }
+    </script>
+</body>
+</html>

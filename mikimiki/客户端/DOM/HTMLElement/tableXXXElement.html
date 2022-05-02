@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{
+            text-align:center;
+
+        }
+        table{
+            border-collapse:collapse;
+            float:center;
+
+        }
+        td,
+        th{
+            border:#ccc solid 1px;
+            padding:10px 30px;
+
+        }
+        colgroup{
+            background:rgba(123,114,233,.4);
+        }
+        caption{
+            caption-side: bottom;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div>
+        <table>
+            <caption>caption</caption>
+            <colgroup span="1" />
+            <thead>
+            <tr>
+                <th>123</th>
+                <th>123</th>
+                <th>123</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>123</td>
+                <td>123</td>
+                <td>123</td>
+            </tr>
+            <tr>
+                <td>123</td>
+                <td>123</td>
+                <td>123</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    123123
+    <div>123123</div>
+</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const table = this.querySelector("table");
+        const thead = this.querySelector("thead");
+        const tbody = this.querySelector("tbody");
+        const td = this.querySelector("td");
+        const th = this.querySelector("th");
+        const tr = this.querySelector("tr");
+        const caption = this.querySelector("caption");
+        const colgroup = this.querySelector("colgroup");
+        console.log(table);
+        console.log(thead);
+        console.log(tbody);
+        console.log(td);
+        console.log(th);
+        console.log(tr);
+        console.log(caption);
+        console.log(colgroup);
+    });
+</script>
+</body>
+</html>

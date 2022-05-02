@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input" />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const input = this.getElementById("input");
+        input.oninput = function (ev){
+            console.log(ev.data);       //记录添加数据
+            console.log(ev.inputType);      //记录输入类型
+            console.log(ev.isComposing);
+        }
+        input.addEventListener("compositionstart",function (e){
+            console.log("compositionstart");
+        });
+        input.addEventListener("compositionend",function (e){
+            console.log("compositionend");
+        });
+    })
+    </script>
+</body>
+</html>

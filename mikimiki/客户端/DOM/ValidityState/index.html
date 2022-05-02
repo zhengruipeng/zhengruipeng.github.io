@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>bad input:<input type="number" id="bad-input" /></label><br /><br />
+<label>custom error:<input type="number" id="custom-error" max="1000" /></label><br /><br />
+<label>pattern mismatch:<input type="text" id="pattern-mismatch" pattern="\d{3,4}" /></label><br /><br />
+<label>range over flow: <input type="number" id="range-over-flow" max="100" /></label><br /><br />
+<label>range under flow: <input type="number" id="range-under-flow" min="10" /></label><br /><br />
+<label>step mismatch: <input type="number" id="step-mismatch" step="10" /></label><br /><br />
+<label>too long: <input type="text" id="too-long" maxlength="10" /></label><br /><br />
+<label>too short: <input type="text" id="too-short" minlength="2" /></label><br /><br />
+<label>type mismatch: <input type="email" id="type-mismatch" /></label><br /><br />
+<label>valid: <input type="number" id="valid" minlength="2" /></label><br /><br />
+<label>value missing: <input type="number" id="value-missing" required/></label><br /><br />
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const badInput = this.querySelector("#bad-input");
+        const customError = this.querySelector("#custom-error");
+        const patternMismatch = this.querySelector("#pattern-mismatch");
+        const rangeOverFlow = this.querySelector("#range-over-flow");
+        const rangeUnderFlow = this.querySelector("#range-under-flow");
+        const stepMismatch = this.querySelector("#step-mismatch");
+        const tooLong = this.querySelector("#too-long");
+        const tooShort = this.querySelector("#too-short");
+        const typeMismatch = this.querySelector("#type-mismatch");
+        const valid = this.querySelector("#valid");
+        const valueMissing = this.querySelector("#value-missing");
+
+        badInput.oninput = function (){
+            console.log(this.validity.badInput);
+        };
+        customError.oninput = function (){
+            if(this.validity.rangeOverflow){
+                this.setCustomValidity("its too high");
+            }else{
+                this.setCustomValidity("");
+            }
+            console.log(this.validity.customError);
+        };
+        patternMismatch.oninput = function (){
+            console.log(this.validity.patternMismatch);
+        };
+        rangeOverFlow.oninput = function (){
+            console.log(this.validity.rangeOverflow);
+        };
+        rangeUnderFlow.oninput = function (){
+            console.log(this.validity.rangeUnderflow);
+        };
+        stepMismatch.oninput = function (){
+            console.log(this.validity.stepMismatch);
+        };
+        tooLong.oninput = function (){
+            console.log(this.validity.tooLong);
+        };
+        tooShort.oninput = function (){
+            console.log(this.validity.tooShort);
+        };
+        typeMismatch.oninput = function (){
+            console.log(this.validity.typeMismatch);
+        };
+        valid.oninput = function (){
+            console.log(this.validity.valid);
+        };
+        valueMissing.oninput = function (){
+            console.log(this.validity.valueMissing);
+        };
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video src="../1.mp4" controls autoplay muted></video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const video = this.querySelector("video");
+        setTimeout(function (){
+            console.log(video.buffered.end(0));
+            console.log(video.played);
+            console.log(video.seekable.end(0));
+        },200);
+
+
+    })
+</script>
+</body>
+</html>

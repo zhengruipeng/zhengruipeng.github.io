@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="height:600px;width:100%;border:red solid 1px;" id="div"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.getElementById("div");
+        div.onpointerdown = function (){
+            console.log("onpointerdown");
+        };
+        div.onpointermove = function (){
+            console.log("onpointermove");
+        };
+        div.onpointerup = function (){
+            console.log("onpointerup");
+        };
+        div.onpointerover = function (){
+            console.log("onpointerover");
+        };
+        div.onpointerout = function (){
+            console.log("onpointerout");
+        };
+        div.onpointerenter = function (){
+            console.log("onpointerenter");
+        };
+        div.onpointerleave = function (){
+            console.log("onpointerleave");
+        };
+        div.onpointercancel = function (){
+            console.log("onpointercancel");
+        };
+    })
+    </script>
+</body>
+</html>

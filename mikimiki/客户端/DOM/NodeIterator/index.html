@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <div>
+        <h2>Title</h2>
+        <p>p1</p>
+        <p>p1</p>
+        <p>p1<span>32</span></p>
+    </div>
+</main>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const main = this.querySelector("main");
+        let nodeIterator = document.createNodeIterator(main,NodeFilter.SHOW_ELEMENT);
+        console.log(nodeIterator);
+        let cNode = nodeIterator.nextNode();
+        while(cNode){
+            console.log(cNode = nodeIterator.nextNode());
+
+        }
+        console.log(nodeIterator);
+
+    })
+    </script>
+</body>
+</html>

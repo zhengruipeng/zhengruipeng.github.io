@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    let arr = ["red","yellow","blue"];
+    for(let i = 0;i<arr.length;i++){
+      let div = document.createElement("div");
+      let shadowRoot = div.attachShadow({mode:"open"});
+      shadowRoot.innerHTML = `
+                <style>
+                    div{
+                        background-color:${arr[i]}
+                    }
+                </style>
+                <div>shadow</div>`;
+      this.body.appendChild(div);
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <p><b>Hello</b> World!</p>
+    <ul>
+        <li>List Items</li>
+        <li>List Items</li>
+        <li>List Items</li>
+    </ul>
+</div>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let div = this.querySelector("div");
+        let p = this.querySelector("p");
+        let b = this.querySelector("b");
+        let li = this.querySelector("li");
+        let liEnd = this.querySelectorAll("li")[2];
+
+        let range = this.createRange();
+        let range2 = this.createRange();
+        range.setStartBefore(b);
+        range.setEndAfter(li);
+        // range2.setStartAfter(p);
+        // range2.setEndBefore(liEnd);
+        console.log(range)
+        // console.log(range2)
+        // console.log(range.selectNodeContents(div));
+
+        const fieldset = this.createElement("fieldset");
+        const legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("选中的范围中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range.extractContents());
+        this.body.appendChild(fieldset);
+    });
+</script>
+</body>
+</html>

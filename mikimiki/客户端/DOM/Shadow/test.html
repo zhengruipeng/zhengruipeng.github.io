@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <style>
+        *{
+            font-size:1.3em;
+        }
+        .red{
+            color:red;
+        }
+        .orange{
+            color:orange;
+        }
+    </style>
+    <p class="red">12341234</p>
+    <p class="orange">12341234</p>
+</div>
+<x-foo>
+
+</x-foo>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        div.attachShadow({mode:"open"}).innerHTML = "" +
+            "<slot></slot>" +
+            "<slot></slot>";
+        const FooElement = class extends HTMLElement{
+            constructor(){
+                super();
+                console.log(this);
+            }
+        };
+        customElements.define("x-foo",FooElement);
+
+    });
+</script>
+</body>
+</html>

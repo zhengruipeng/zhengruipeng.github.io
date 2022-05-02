@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="myForm">
+
+</form>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var elem1, elem2;
+
+// document.forms is an HTMLCollection
+
+        elem1 = document.forms[0];
+        elem2 = document.forms.item(0);
+
+        alert(elem1 === elem2); // shows: "true"
+
+        elem1 = document.forms.myForm;
+        elem2 = document.forms.namedItem("myForm");
+
+        alert(elem1 === elem2); // shows: "true"
+
+        elem1 = document.forms["named.item.with.periods"];
+    })
+</script>
+</body>
+</html>
