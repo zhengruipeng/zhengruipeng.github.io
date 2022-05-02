@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let a = [1,2,3,4,5];
+        let b = Array.from(a);
+        console.log(a.copyWithin(0,2,4));
+        console.log(b.entries());
+        console.log(b.find(function (x) {
+            return x>3;
+        }));
+        console.log(b.findIndex(function (x) {
+            return x>3;
+        }));
+        for(let value of b[Symbol.iterator]()){
+            console.log(value);
+        }
+    })
+    </script>
+</body>
+</html>

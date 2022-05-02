@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let Parent = function (){
+
+        };
+        Parent.prototype.constructor = Parent;
+        Parent.prototype.parentM = function (){return 123;};
+        let Child = function (){
+            if(this === window)return false;
+            Parent.call(this);
+            this.a = 123;
+
+        };
+        Child.prototype = Object.create(Parent.prototype);
+        Child.prototype.constructor = Child;
+
+        console.log(new Child);
+
+        Parent = class {
+            constructor() {
+
+            }
+        };
+        Parent.prototype.parentM = function (){return 123;};
+        Child = class extends Parent{
+            constructor() {
+                super();
+                this.a = 123;
+            }
+        };
+
+        console.log(new Child);
+    })
+</script>
+
+</body>
+</html>

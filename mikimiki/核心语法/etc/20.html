@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.addEventListener("DOMContentLoaded",function () {
+        let b = function *(){
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 4;
+        };
+        console.log(Array.from(b()));
+        console.log(Array.of(1,2,3,));
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input" />
+<script type="text/javascript">
+    window.onload = function (){
+       let input = document.getElementById("input");
+        input.addEventListener("compositionstart",function (e) {
+            console.log("compositionstart")
+            console.log(e)
+        });
+        input.addEventListener("compositionupdate",function (e) {
+            console.log("compositionupdate")
+            console.log(e)
+        });
+        input.addEventListener("compositionend",function (e) {
+            console.log("compositionend")
+            console.log(e)
+        });
+    };
+
+
+</script>
+</body>
+</html>

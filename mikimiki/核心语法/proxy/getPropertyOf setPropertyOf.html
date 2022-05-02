@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+getPrototypeOf在Object.getPrototypeOf(p)、Reflect.getPrototypeOf(p)、p.__proto__、Object.prototype.isPrototypeOf(p)
+p instanceof Object出现时触发，返回值由return指定
+setPrototypeOf在Object.setPrototypeOf(p)、Reflect.setPrototypeOf(p)出现时触发，忽略return的返回值
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let o = {
+            name:"ibuki",
+            age:18,
+            gender:"female",
+            camp:"sakura",
+            nationality:"japanese",
+        };
+        let p = new Proxy(o,{
+            getPrototypeOf:function (target){     //target监听的对象，propKey所引用的属性，receiver相应的proxy对象
+                console.log(...arguments);
+                return target;
+            },
+            setPrototypeOf: function(target, prototype) {
+                console.log(...arguments);
+                Object.setPrototypeOf(target,prototype);
+                return 123;
+            }
+        });
+        console.log(Object.getPrototypeOf(p));
+        console.log(Reflect.getPrototypeOf(p));
+        console.log(p.__proto__);
+        console.log(Object.prototype.isPrototypeOf(p));
+        console.log(p instanceof Object);
+        console.log(Reflect.setPrototypeOf(p,Array.prototype));
+        console.log(Object.setPrototypeOf(p,Array.prototype));
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<video width="600" height="350" controls>-->
+    <!--<source src="../../image/1.mp4" type="video/mp4">-->
+<!--</video>-->
+<!--<video width="320" height="240" controls>
+    <source src="../../image/1.mp4" type="video/mp4">
+    &lt;!&ndash;<source src="movie.ogg" type="video/ogg">
+    <source src="movie.webm" type="video/webm">
+    <object data="movie.mp4" width="320" height="240">
+        <embed src="movie.swf" width="320" height="240">
+    </object>&ndash;&gt;
+</video>-->
+<!--<iframe src="10.html" style="position:absolute;top:0;left:0;height:100%;width:100%"></iframe>-->
+<canvas height="600" width="1300" id="canvas"></canvas>
+<script type="text/javascript">
+    // let div = window.document.querySelector("div");
+    // div.requestPointerLock();
+    document.querySelector("canvas").requestFullscreen();
+    document.querySelector("canvas").requestPointerLock();
+
+    /*document.addEventListener("DOMContentLoaded",function () {
+        let render = function (){
+        }
+        render()
+
+    })*/
+    window.addEventListener("pointerlockerror",function (){
+        console.log("pointerlockerror")
+    })
+
+</script>
+</body>
+</html>

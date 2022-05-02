@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="复制内容" /><br />
+<input type="text" />
+<script type="text/javascript">
+    document.addEventListener("copy",function (e) {
+        console.log("copy");
+        console.log(e);
+    });
+    document.addEventListener("cut",function (e) {
+        console.log("cut");
+        console.log(e);
+    });
+    document.addEventListener("paste",function (e) {
+        console.log("paste");
+        console.log(e);
+    });
+</script>
+</body>
+</html>

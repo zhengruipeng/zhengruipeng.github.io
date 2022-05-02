@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" id="root">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        try{
+            console.log(asdf);
+        }catch(e){
+            with(e){
+                console.log(e.message);
+                console.log(e.name);
+                console.log(e.fileName);
+                console.log(e.lineNumber);
+                console.log(e.columnNumber);
+                console.log(e.stack);
+            }
+            console.log(e);
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let o = {
+            a:123,
+            [Symbol.for(33)]:3312,
+        };
+        let o2 = {
+            a:3212,
+            b:3212,
+            [Symbol.for(123)]:333,
+        };
+        let target = {};
+        Object.assign(target,o,o2);
+        console.log(target);
+        console.log(target[Symbol.for(123)]);
+
+    })
+</script>
+</body>
+</html>

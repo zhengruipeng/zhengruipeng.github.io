@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+beforeunload事件在unload事件之前被触发，两个事件中写弹窗无效，错误无法阻止两个事件的运行，
+触发方式：刷新窗口或者关闭窗口触发，可以通过localstorage等确认是否运行代码
+当页面中存在子框架的时候先触发框架的同等事件，beforeunload永远比unload先触发
+<a href="../etc/1.html">实例</a>
+</body>
+</html>

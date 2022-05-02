@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<a href="6.html">切换</a>
+<script>
+    window.addEventListener("DOMContentLoaded",function () {
+
+    });
+    window.addEventListener("pagehide",function (e){
+        window.sessionStorage.setItem("a",321);
+    })
+    // window.addEventListener("pageshow",function (){console.log("pageshow");alert()});
+    window.addEventListener("popstate",function (){
+        window.sessionStorage.setItem("b",321);
+        console.log("popstate");
+    });
+    window.ondblclick = function () {
+        history.pushState({
+            title: "title",
+            url: "#"
+        },"title")
+    }
+</script>
+</body>
+</html>

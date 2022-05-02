@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+SyntaxError对象代表尝试解析语法上不合法的代码的错误
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        try {
+            throw new SyntaxError('Hello', 'someFile.js', 10);
+        } catch (e) {
+            console.log(e instanceof SyntaxError); // true
+            console.log(e.message);                // "Hello"
+            console.log(e.name);                   // "SyntaxError"
+            console.log(e.fileName);               // "someFile.js"
+            console.log(e.lineNumber);             // 10
+            console.log(e.columnNumber);           // 0
+            console.log(e.stack);                  // "@Scratchpad/2:11:9\n"
+        }
+
+
+    })
+    </script>
+</body>
+</html>

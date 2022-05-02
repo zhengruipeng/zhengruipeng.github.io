@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+deleteProperty在对对象调用delete运算符时触发，defineProperty同理在调用Object.defineProperty时触发，
+ownKeys在对象调用Object.values()或Object.keys()时触发，但是不会返回返回值，在Reflect.ownKeys()时触发会返回返回值
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let o = {
+            name:"ibuki",
+            age:18,
+            gender:"female",
+            camp:"sakura",
+            nationality:"japanese",
+        };
+        let p = new Proxy(o,{
+            deleteProperty:function (target,propKey){
+                console.log(...arguments);
+                let value = target[propKey];
+                delete target[propKey];
+                return value;
+            },
+            ownKeys(target) {
+                console.log(...arguments);
+                return Reflect.ownKeys(target);
+            },
+            defineProperty:function (target,propKey,descriptor){
+                console.log(...arguments);
+                return Reflect.defineProperty(target,propKey,descriptor);
+            }
+        });
+        console.log(delete p.camp);
+        for(let name in p){
+            console.log(name+"------"+p[name]);
+        }
+        console.log(p.hasOwnProperty("age"));
+        Object.defineProperty(p,"like",{
+            enumerable:true,
+            configurable:true,
+            writable:true,
+            value:"me"
+        });
+        console.log(p);
+
+
+    })
+</script>
+</body>
+</html>

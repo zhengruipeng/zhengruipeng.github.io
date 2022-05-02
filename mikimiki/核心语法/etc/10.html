@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+点击屏幕触发打印
+<script type="text/javascript">
+    window.onclick = function(){
+        print();
+    }
+    window.addEventListener("afterprint",function (e) {
+        console.log("afterprint");
+        console.log(e);
+    })
+    window.addEventListener("beforeprint",function (e) {
+        console.log("beforeprint");
+        console.log(e);
+    })
+    </script>
+</body>
+</html>

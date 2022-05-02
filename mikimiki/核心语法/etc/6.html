@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Child Frame</title>
+
+</head>
+<body>
+点击屏幕跳回上一页
+<script>
+    window.addEventListener("DOMContentLoaded",function () {
+        console.log(window.sessionStorage.getItem("a"));
+        console.log(window.sessionStorage.getItem("b"));
+        window.onclick = function (){
+            history.go(-1)
+        }
+    });
+</script>
+</body>
+</html>

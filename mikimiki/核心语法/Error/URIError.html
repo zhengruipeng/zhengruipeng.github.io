@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+URIError 对象用来表示以一种错误的方式使用全局URI处理函数而产生的错误。
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        try {
+            decodeURIComponent('%');
+        } catch (e) {
+            console.log(e instanceof URIError); // true
+            console.log(e.message);             // "malformed URI sequence"
+            console.log(e.name);                // "URIError"
+            console.log(e.fileName);            // "Scratchpad/1"
+            console.log(e.lineNumber);          // 2
+            console.log(e.columnNumber);        // 2
+            console.log(e.stack);               // "@Scratchpad/2:2:3\n"
+        }
+
+
+    })
+</script>
+</body>
+</html>

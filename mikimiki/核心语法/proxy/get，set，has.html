@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let o = {
+            name:"ibuki",
+            age:18,
+            gender:"female",
+            camp:"sakura",
+            nationality:"japanese",
+        };
+        let p = new Proxy(o,{
+            get:function (target,propKey,receiver){     //target监听的对象，propKey所引用的属性，receiver相应的proxy对象
+                console.log(...arguments);
+                return target[propKey];
+            },
+            set:function (target,propKey,value,receiver){       //value修改的值
+                console.log(...arguments);
+                return  target[propKey] = value;
+            },
+            has:function (target,propKey){
+                console.log(...arguments);
+                return propKey in target;
+            }
+        });
+        console.log(p.name);
+        console.log(p.name = "伊吹");
+        console.log("name" in p);
+
+    })
+</script>
+</body>
+</html>

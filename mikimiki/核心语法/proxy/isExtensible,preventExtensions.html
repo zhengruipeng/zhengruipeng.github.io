@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+isExtensible在Reflect.isExtensible()触发时触发，返回值必须为Reflect.isExtensible(target)才能不报错
+preventExtensions在Reflect.preventExtensions()触发时触发，返回值必须为Reflect.preventExtensions(target)才能不报错
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let o = {
+            name:"ibuki",
+            age:18,
+            gender:"female",
+            camp:"sakura",
+            nationality:"japanese",
+        };
+        let p = new Proxy(o,{
+            isExtensible:function (target){
+                console.log("isExtensible");
+                return Reflect.isExtensible(target);
+            },
+            preventExtensions:function (target){
+                console.log("preventExtensions");
+                return Reflect.preventExtensions(target);
+            },
+        });
+        console.log(Object.isExtensible(p));
+        console.log(Object.preventExtensions(p));
+
+    })
+</script>
+</body>
+</html>

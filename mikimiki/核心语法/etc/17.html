@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<a href="./18.html">jump</a>-->
+<div id="div" class="div " data-num="0" style="border:solid 1px;height:100px;width:100px;" ></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let div = this.getElementById("div");
+        div.addEventListener("broadcast",function (e) {
+            console.log("broadcast");
+            console.log(e);
+        })
+        div.onmouseover = function () {
+            this.className += " a";
+        };
+        div.onmouseout = function () {
+            this.style = "border:solid 1px;height:100px;width:100px;background-color:red;";
+        };
+    })
+</script>
+</body>
+</html>
