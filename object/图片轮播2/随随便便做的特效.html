@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js_code.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded",function (){
+                var control = true;
+                var canvas = d.getElementById("canvas");
+                var c = canvas.getContext("2d");
+
+                var image = new Image();
+                image.src = "../image/2.jpg";
+                image.onload = function (){
+                    canvas.height = this.height;
+                    canvas.width = this.width;
+                    c.drawImage(this,0,0);
+                };
+
+                load();
+                function load(){
+                    control = !control;
+                    control?render(2):render(6);
+                    setTimeout(load,5000)
+                }
+                function render(n){
+                    var image = new Image();
+                    image.src = "../image/"+n+".jpg";
+                    image.onload = function (){
+                        animation();
+                        var y = 0,x = 0;
+                        function animation(){
+                            if(x<canvas.width) {
+                                c.drawImage(image, x, y, 100, 100, x, y, 100, 100);
+                                x+=100;         //横坐标
+
+                            }else{
+                                y+=100;         //纵坐标
+                                x = 0;
+                            }
+                            setTimeout(animation,20);
+                        }
+                    };
+                }
+
+
+
+
+
+            })(this)
+        })
+    </script>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+</html>

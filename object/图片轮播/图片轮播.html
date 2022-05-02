@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{ height:400px;width:600px;
+            position:absolute;top:0px;left:0px;
+            overflow: hidden;
+        }
+        .position0{ position:absolute;top:0px;left:-600px;z-index:1;transition:0.5s;  }
+        .position1{ position:absolute;top:0px;left:0px;z-index:2;transition:0.5s;  }
+        .position2{ position:absolute;top:0px;left:600px;z-index:1;transition:0.5s;  }
+        .positionh{ position:absolute;top:0px;left:0px;z-index:0;transition:0.5s;  }
+        </style>
+
+</head>
+<body>
+<div id="main">
+    <div id="num" style="transition:0.5s;height:50px;width:50px;position:absolute;
+    top:350px;left:550px;opacity:0;background-color:black;color:white;font-size:30px;text-align:center;line-height:50px;z-index:3"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded",function (){
+        var arr = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"];
+        var div = document.getElementById("main");
+        for(let i=0,len = arr.length;i<len;i++){
+            var image = document.createElement("img");
+            image.src="image/"+arr[i];
+            image.style.height = "400px";
+            image.style.width = "600px";
+            (i === 0)?image.className = "position0":image.className = "positionh";
+            (i === 1)?image.className = "position1":image;
+            (i === 2)?image.className = "position2":image;
+            div.appendChild(image);
+        }
+        var playing = 2;
+        var play = function (){
+
+            var image = document.getElementsByTagName("img");
+            for(var i = 0;i<image.length;i++ ){
+                var n = image[i].src.match(/([0-9]).jpg/);
+                if(image[i].className === "position1"){
+                    var center = image[i];
+                    var show = i;
+                }
+                if(image[i].className === "position0"){
+                    var left = image[i];
+                }
+                if(image[i].className === "position2"){
+                    var right = image[i];
+                }
+                if(parseInt(n[0]) == playing+2){
+
+                    var will = image[i];
+                }
+            }
+            center.className = "position0";
+            left.className = "positionh";
+            right.className = "position1";
+            will.className = "position2";
+            if(playing>=5){
+                playing = -1;
+            }else{
+                playing++;
+            }
+            var num = document.getElementById("num");
+            num.style.opacity = "0.5";
+            num.innerHTML = show+1;
+            setTimeout(function (){
+                num.style.opacity = "0";
+            },1000)
+
+        };
+        setInterval(play,2000)
+
+
+    })
+</script>
+</body>
+</html>
