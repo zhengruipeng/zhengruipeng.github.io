@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<information>
+    该类型使用对象来表示一个DOM元素的属性。在大多数DOM方法中， 你可能会直接通过字符串的方式获取属性值
+    （例如Element.getAttribute()），但是一些函数（例如Element.getAttributeNode()）
+    或通过迭代器访问时则返回Attr类型。
+
+    警告：从Gecko 7.0开始(Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4)，
+    控制台会输出这些方法和属性将会被移除的警告信息。你应该对代码进行相应的修正。
+
+    在DOM4[REC]中，为了规范化Attr的实现，它不再继承自Node。在目前DOM4.1[WD]中又有变动，
+    因此不建议使用Attr对象上有关Node的属性和方法。
+</information>
+<property>
+
+    name 只读
+    该属性的名称
+
+    namespaceURI 只读
+    表示该属性的命名空间URIDOMString，如果该元素不在命名空间中，则返回null。
+
+    localName 只读
+    表示该属性的命名空间限定的本地名称DOMString。
+
+    prefix 只读
+    表示该属性的命名空间前缀DOMString，如果没有前缀指定则返回null。
+
+    ownerElement 只读
+    该属性所附属的元素节点。
+
+    注意: DOM Level 4移除了这个方法。由于当你从Element中获得Attr对象时，你应已知相关的元素。
+    在某些场景下并一定能够得到相关的元素，比如通过Document.evaluate返回的Attr对象，最新的DOM草案再次引入该属性。
+
+    Gecko从Gecko 7.0 (Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4)开始会输出一个废弃的提示信息。
+    该提示信息在Gecko 49.0 (Firefox 49.0 / Thunderbird 49.0 / SeaMonkey 2.46)再次被删除。
+
+    specified 只读
+    该属性将返回真。如果这个属性你在源代码或者在脚本中明确指定的话，它总是返回真。否则它是由文档的DTD默认定义的，将总是返回假。
+
+    value
+    属性的值
+    注意: DOM Level 3定义namespaceURI, localName和prefix为Node接口。在DOM4中被移至Attr。
+    Chrome 46.0版本以上、Firefox 48.0版本以上实现了该改动。
+</property>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+    const canvas = document.getElementById("canvas");
+    canvas.height = window.document.documentElement.clientHeight-3;
+    canvas.width = window.document.documentElement.clientWidth;
+    const c = canvas.getContext("2d");
+    document.addEventListener("DOMContentLoaded",function  (){
+
+
+    });
+    window.addEventListener("resize",function (){
+        location = location;        //reload
+    })
+</script>
+<script type="text/javascript" src="./app.js"></script>
+<script type="text/javascript" src="coordinate%20sys.js"></script>
+</body>
+</html>

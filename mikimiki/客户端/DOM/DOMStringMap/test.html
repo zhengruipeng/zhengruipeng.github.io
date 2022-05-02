@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div data-a="123" data-b="321" id="div"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = document.getElementById("div");
+        console.log(div.dataset);
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function(){
+        var pending = navigator.mozApps.install(manifestUrl);
+
+        pending.onsuccess = function () {
+            // Save the App object that is returned
+            var appRecord = this.result;
+            alert('Installation successful!');
+        };
+        pending.onerror = function () {
+            // Display the name of the error
+            alert('Install failed, error: ' + this.error.name);
+        };
+    })
+    </script>
+</body>
+</html>

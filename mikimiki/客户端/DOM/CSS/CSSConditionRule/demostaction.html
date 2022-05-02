@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @media screen and (min-width: 100px) {
+            body{
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let styleSheet = document.styleSheets[0];
+        let cssRule = styleSheet.cssRules[0];
+        let rule = cssRule.cssRules[0];
+        console.log(cssRule);
+
+        /*
+        * this object is a interface of CSSConditionRule
+        * you can look up all of the properties and methods in the object such as:
+        *  CSSMediaRule, CSSSupportsRule, and CSSDocumentRule.*/
+    })
+</script>
+</body>
+</html>

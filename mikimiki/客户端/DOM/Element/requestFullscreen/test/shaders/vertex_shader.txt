@@ -1,0 +1,73 @@
+attribute vec4 a_normal;
+attribute vec2 a_texture;
+attribute vec4 a_position;
+attribute vec3 objTangent;
+
+uniform mat4 u_perspective;
+uniform vec4 u_ambient;
+uniform vec4 u_point_pos;
+uniform vec4 u_point_color;
+uniform int  u_point_ld;
+uniform vec4  u_perspective_pos;
+uniform float u_a;
+uniform float u_b;
+uniform float u_c;
+uniform float u_ld;
+uniform float u_ls;
+uniform float u_kd;
+uniform float u_ks;
+uniform float u_alpha;
+varying vec4 v_ambient;
+varying vec4 v_point_pos;
+varying vec4 v_point_color;
+varying vec4 v_position;
+varying vec4 v_normal;
+varying vec4 v_color;
+varying vec4 v_perspective_pos;
+varying float v_a;        //二次距离衰减因子常数
+varying float v_b;        //二次距离衰减因子常数
+varying float v_c;        //二次距离衰减因子常数
+varying float v_ld;       //光强度
+varying float v_ls;       //镜面反射光线强度
+varying float v_kd;       //环境光反射系数
+varying float v_ks;       //镜面反射系数
+varying float v_alpha;    //高光系数
+varying vec2 v_texture;
+varying vec3 L;
+varying vec3 V;
+void main(){
+    gl_Position = u_perspective * a_position;
+    v_ambient = u_ambient;
+    v_point_pos = u_point_pos;
+    v_point_color = u_point_color;
+    v_position = a_position;
+    v_normal = a_normal;
+    v_color = vec4(1.0,1.0,1.0,1.0);
+    v_perspective_pos = u_perspective_pos;
+    v_a = u_a;
+    v_b = u_b;
+    v_c = u_c;
+    v_ld = u_ld;
+    v_ls = u_ls;
+    v_kd = u_kd;
+    v_ks = u_ks;
+    v_alpha = u_alpha;
+    v_texture = a_texture;
+
+
+
+    vec3 eyePosition = (a_position).xyz;
+    vec3 eyeLightPos = (u_point_pos).xyz;
+    vec3 N = normalize(a_normal.xyz);
+    vec3 T = normalize(objTangent);
+    vec3 B = cross(N,T);
+    L.x = dot(T,eyeLightPos - eyePosition);
+    L.x = dot(B,eyeLightPos - eyePosition);
+    L.x = dot(N,eyeLightPos - eyePosition);
+    L = normalize(L);
+
+    V.x = dot(T,-eyePosition);
+    V.y = dot(B,-eyePosition);
+    V.z = dot(N,-eyePosition);
+    V = normalize(V);
+}

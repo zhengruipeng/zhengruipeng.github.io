@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let ev = new Event("customEvent");
+        document.addEventListener("customEvent",function (e){
+            console.log(e)
+        })
+        document.dispatchEvent(ev);
+        console.log(ev);
+
+    })
+    </script>
+</body>
+</html>

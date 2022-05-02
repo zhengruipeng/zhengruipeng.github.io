@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<article id="article">
+    当地时间29日，美国白宫发言人普萨基在白宫的简报会上表示，拜登政府将对前总统特朗普实施的所有国家安全措施进行审查，包括2020年1月签署的中美第一阶段贸易协议，并将借此重新考虑与中国的关系。“我们将与盟友和伙伴进行协调，致力于有效解决这一问题。”
+
+    普萨基在会上拒绝回答现任政府是否认为与中国的贸易协定仍然有效。普萨基表示：“上届政府实施的所有举措都还在审查中，因为这关系到美国的国家安全，所以我不能假设事情会取得进展。”
+
+    此前，拜登提名的财政部长耶伦也承诺，要对中美第一阶段贸易协议的情况进行全面评估，并表示美国将与盟友更密切地合作。
+</article>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const article = this.getElementById("article");
+        document.onselectionchange = function (e){
+            let selection = document.getSelection();
+            console.log(article.textContent.substr(selection.anchorOffset,selection.focusOffset));
+        };
+
+    })
+    </script>
+</body>
+</html>

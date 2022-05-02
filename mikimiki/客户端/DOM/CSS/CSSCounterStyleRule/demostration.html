@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        @counter-style  fir {
+            system: fixed;
+            symbols: Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ;
+            suffix: " ";
+            prefix: " -";
+            range: 1 3 ;
+        }
+        li{
+            list-style:fir;
+
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>some words</li>
+    <li>some words</li>
+    <li>some words</li>
+    <li>some words</li>
+    <li>some words</li>
+</ul>
+<script>
+    window.addEventListener("DOMContentLoaded",function () {
+        let stylesheet = document.styleSheets[0];
+        let cssRule = stylesheet.cssRules[0];
+        console.log(cssRule);
+    });
+</script>
+</body>
+</html>

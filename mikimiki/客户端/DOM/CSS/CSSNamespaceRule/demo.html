@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @namespace svg url(http://www.w3.org/2000/svg);
+        svg|path{
+            stroke-width:10px;
+        }
+    </style>
+</head>
+<body>
+<svg height="200" width="200">
+    <path d="M 0 0 L 200 200" style="fill:none;" stroke="#000"></path>
+</svg>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let stylesheet = this.styleSheets[0];
+        let rule = stylesheet.cssRules[0];
+        console.log(rule);
+    })
+
+    </script>
+</body>
+</html>

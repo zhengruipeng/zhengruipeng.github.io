@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            height:100px;
+            width:200px;
+            border:red solid 1px;
+        }
+        .a{
+            background-color:#66ccff;
+        }
+    </style>
+</head>
+<body>
+<div class="a"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let styleSheet = document.styleSheets[0];
+        let sr = styleSheet.cssRules[1];
+        console.log(styleSheet);
+    })
+</script>
+</body>
+</html>

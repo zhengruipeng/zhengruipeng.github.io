@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>click the delete button to remove the article</div>
+<p id="paragraphs">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let p = this.getElementById("paragraphs");
+        let c = p.childNodes[0];
+        console.log(c);
+        console.log(c.data);
+        console.log(c.appendData("123123"));
+        c.splitText(140);
+        p.normalize();
+        let moving = false;
+        p.onclick = function (e){
+            if(moving)return false;
+            let offset = document.caretPositionFromPoint(e.clientX,e.clientY);
+            console.log(this,offset);
+            c.deleteData(offset.offset,5);
+        }
+        p.oncontextmenu = function (e){
+            e.preventDefault();
+            let caretP = document.caretPositionFromPoint(e.clientX,e.clientY);
+            let p = prompt();
+            c.insertData(caretP.offset,p);
+        }
+
+        p.onmousedown = function (e){
+            let caretP1 = document.caretPositionFromPoint(e.clientX,e.clientY);
+            p.onmousemove = function (){
+                moving = true;
+            }
+            p.onmouseup = function (e){
+                let caretP2 = document.caretPositionFromPoint(e.clientX,e.clientY);
+                console.log(c.substringData(caretP1.offset,caretP2.offset-caretP1.offset));
+                setTimeout(() => {moving = false},20);
+                console.log(moving);
+            };
+        }
+        window.onkeydown = function (e){
+            console.log(e.key);
+            switch (e.key){
+                case "Delete":
+                    c.remove();
+                    break;
+                case "r":
+                    let parag = prompt();
+                    let ordinal_fun = p.onclick;
+                    p.onclick = function (e){
+                        let caretP1 = document.caretPositionFromPoint(e.clientX,e.clientY);
+                        p.onclick = function(e){
+                            let caretP2 = document.caretPositionFromPoint(e.clientX,e.clientY);
+                            c.replaceData(caretP1.offset,caretP2.offset-caretP1.offset,parag);
+                            this.onclick = ordinal_fun;
+                        }
+                    }
+                    break;
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

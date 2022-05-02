@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border:red solid 1px;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" height="768" width="1366">
+
+</canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const canvas = this.getElementById("canvas");
+        const c = canvas.getContext("2d");
+        function toggleFullscreen() {
+            let elem = document.querySelector("canvas");
+
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        };
+        c.fillRect(100,100,200,200);
+
+        window.onclick = toggleFullscreen;
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const dq = new DOMQuad(
+            new DOMPoint(1,1),
+            new DOMPoint(10,1),
+            new DOMPoint(1,10),
+            new DOMPoint(10,10),
+        );
+        console.log(dq);
+        console.log(DOMQuad.fromRect(new DOMRect(0,0,100,100)));
+        console.log(DOMQuad.fromQuad(new DOMQuad(
+            new DOMPoint(1,1),
+            new DOMPoint(10,1),
+            new DOMPoint(1,10),
+            new DOMPoint(10,10)
+        )));
+
+    })
+    </script>
+</body>
+</html>

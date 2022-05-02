@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            height:100px;
+            width:100px;
+            border:red solid 1px;
+            position:absolute;
+            text-align:center;
+            line-height:100px;
+
+        }
+        #source{
+            top:0;
+            left:0;
+        }
+        #target{
+            top:0px;
+            left:300px;
+        }
+    </style>
+</head>
+<body>
+<div draggable="true" id="source">source</div>
+<div draggable="true" id="target">target</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const source = document.getElementById("source");
+        const target = document.getElementById("target");
+        const image  = new Image();
+        image.src = "./4.jpg";
+        source.ondragstart = function (e){
+            console.log(e.dataTransfer);
+            e.dataTransfer.setData("text/plain","msg");
+            e.dataTransfer.setDragImage(image,0,0);
+        };
+        source.ondragend = function (e){
+        };
+        target.ondragenter = function (e){
+            this.style.backgroundColor = "red";
+        };
+        target.ondragover = function  (e){
+            e.preventDefault();
+        }
+        target.ondragleave = function (e){
+            this.style.backgroundColor = "white";
+        };
+        target.ondrop = function (e){
+            e.preventDefault();
+            this.style.backgroundColor = "white";
+            e.dataTransfer.items[0].getAsString(s => {
+                console.log(s);
+            });
+        };
+
+    })
+</script>
+</body>
+</html>

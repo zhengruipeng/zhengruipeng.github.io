@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        @keyframes anime{
+            from{
+                background-color:red;
+            }
+            to{
+                background-color:rgb(40,255,40);
+            }
+        }
+        body{
+            animation-name:anime;
+            animation-duration:5s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+        }
+    </style>
+</head>
+<body>
+inherit obj only have cssRule and Object
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let stylesheet = this.styleSheets[0];
+        let rule = stylesheet.cssRules[0].cssRules[0];
+        console.log(rule);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        @keyframes anime{
+            from{
+                height:100px;
+                width:100px;
+            }
+            to{
+                height:200px;
+                width:200px;
+            }
+        }
+        div{
+            border:red solid 1px;
+            text-align:center;
+        }
+        #csstrans{
+            transition-duration:1s;
+            height:100px;
+            width:100px;
+            transition-timing-function: linear;
+            opacity:1;
+        }
+        #cssanime{
+            animation-name:anime;
+            animation-duration:1000ms;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            animation-iteration-count: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="js">JS animation API</div>
+<div id="csstrans">CSS transition</div>
+<div id="cssanime">CSS animation</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.getElementById("js");
+        const csstrans = this.getElementById("csstrans");
+        const cssanime = this.getElementById("cssanime");
+        const animation = div.animate([
+            {height:"100px",width:"100px",},
+            {height:"200px",width:"200px",},
+        ],{
+            duration:1000,
+            fill:"forwards",
+        },);
+        animation.play();
+        setTimeout(() => {
+            csstrans.style.height = "200px";
+            csstrans.style.width = "200px";
+        },1);
+
+        console.log(document.getAnimations());
+        console.log(div.getAnimations({subtree:true}));
+
+    })
+</script>
+</body>
+</html>

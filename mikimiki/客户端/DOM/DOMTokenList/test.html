@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet script" id="linkele">
+</head>
+<body>
+
+<form>
+    <output for="name value" id="output" />
+    <input type="text" name="value1" id="name" />
+    <input type="text" name="value2" id="value" />
+</form>
+<anchor rel="author script stylesheet" id="anchor">
+
+</anchor>
+<area rel="author stylesheet" id="area" />
+<div class="a b c" id="classEle"></div>
+<iframe src="test.html" sandbox="allow-forms" id="frame"></iframe>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const output = this.getElementById("output");
+        const linkele = this.getElementById("linkele");
+        const anchor = this.getElementById("anchor");
+        const area = this.getElementById("area");
+        const classEle = this.getElementById("classEle");
+        const frame = this.getElementById("frame");
+        console.log(output.htmlFor);
+        console.log(linkele.relList);
+        console.log(anchor.relList);
+        console.log(area.relList);
+        console.log(classEle.className);
+        console.log(frame.sandbox);
+
+    })
+    </script>
+</body>
+</html>

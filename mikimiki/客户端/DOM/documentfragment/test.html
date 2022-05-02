@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        td{
+            border:red solid 1px;
+            padding:10px;
+        }
+        table{
+            border-collapse:collapse;
+
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const fragment = document.createDocumentFragment();
+        const table = this.createElement("table");
+        for(let i = 0;i<5;i++){
+            const tr = document.createElement("tr");
+            for(let j = 0;j<5;j++){
+                const td = document.createElement("td");
+                td.textContent = `${i}行${j}列`;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        fragment.appendChild(table);
+        console.log(fragment);
+        document.body.appendChild(fragment);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+precision highp float;
+varying float v_a;        //二次距离衰减因子常数
+varying float v_b;        //二次距离衰减因子常数
+varying float v_c;        //二次距离衰减因子常数
+varying float v_ld;       //光强度
+varying float v_ls;       //镜面反射光线强度
+varying float v_kd;       //环境光反射系数
+varying float v_ks;       //镜面反射系数
+varying float v_alpha;    //高光系数
+varying vec4 v_ambient;
+varying vec4 v_point_pos;
+varying vec4 v_point_color;
+varying vec4 v_position;
+varying vec4 v_normal;
+varying vec4 v_color;
+varying vec4 v_perspective_pos;
+varying vec2 v_texture;
+varying vec3 L;
+varying vec3 V;
+uniform sampler2D u_sampler0;
+uniform sampler2D u_sampler1;
+
+    void main(){
+        vec4 texture0 = texture2D(u_sampler0,v_texture);
+        vec4 texture1 = texture2D(u_sampler1,v_texture);
+
+        float a=v_a;
+        float b=v_b;
+        float c=v_c;
+        float ld = v_ld;
+        float ls =  v_ls;
+        float kd = v_kd;
+        float ks = v_ks;
+        float alpha = v_alpha;
+        float d = length(v_point_pos-v_position);
+        vec3 l = vec3(v_point_pos-v_position);
+        vec3 v = vec3(v_perspective_pos-v_position);
+        vec3 h = normalize((l+v)/length(l+v));
+        vec3 normal = normalize(vec3(texture1));
+        vec3 point_pos = vec3(normalize(v_point_pos-v_position));
+        float theta = max(dot(point_pos,normal),0.0);
+        vec3 ambient = vec3(v_ambient) * vec3(v_color);
+        float minus = 1.0/(a+b*d+c*d*d)*(kd*ld*theta+ks*ls*max(pow(max(dot(normal,h),0.0),alpha),0.0));
+        vec3 point = vec3(v_point_color) * vec3(v_color) * minus;
+        gl_FragColor =texture0 * vec4(ambient+point,1.0); /*texture0 * vec4(ambient+point,1.0) + vec4(1.0 * texture0.xyz,1.0)*/;
+    }

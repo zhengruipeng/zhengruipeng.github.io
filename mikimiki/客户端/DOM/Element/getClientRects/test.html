@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="main" part="a b c"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function() {
+        const main = this.getElementById("main");
+        console.log(main.part);
+        console.log(main.getClientRects());
+        console.log(main.getBoundingClientRect());
+
+    })
+</script>
+</body>
+</html>

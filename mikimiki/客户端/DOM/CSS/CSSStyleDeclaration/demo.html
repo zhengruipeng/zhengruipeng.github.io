@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            height:100px;
+            width:200px;
+            border:red solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div style="background-color:#66ccff;"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        //these are three methods to give a CSSStyleDeclaration interface
+        //they have different implements in programming
+
+
+        let div = this.querySelector("div");
+        let sd = getComputedStyle(div);
+        console.log(sd.lineHeight);
+
+        console.log(div.style)
+
+        let styleSheet = this.styleSheets[0];
+        sd = styleSheet.cssRules[0].style;
+        console.log(sd);
+    })
+</script>
+</body>
+</html>

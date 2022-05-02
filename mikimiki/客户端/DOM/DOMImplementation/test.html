@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        console.log(document.implementation);
+        var dt = document.implementation.createDocumentType('svg:svg', '-//W3C//DTD SVG 1.1//EN', 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd');
+        var d = document.implementation.createDocument('http://www.w3.org/2000/svg', 'svg:svg', dt);
+        console.assert(d.doctype.publicId); // -//W3C//DTD SVG 1.1//EN
+
+        let htmldoc = document.implementation.createHTMLDocument("title");
+        let root = document.createElement("html");
+        htmldoc.appendChild(root);
+        console.assert(htmldoc);
+
+    });
+    </script>
+</body>
+</html>

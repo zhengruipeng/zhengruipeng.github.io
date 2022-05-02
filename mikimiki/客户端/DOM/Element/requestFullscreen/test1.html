@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function (){
+        let p = new Promise((res,rej) => {
+            console.log("running");
+            res(123);
+        });
+        let p2 = new Promise((res,rej) => {
+            console.log("running");
+            res(123);
+        });
+        p.then(res => console.log(res))
+        .catch(rej => console.log(rej))
+        Promise.all([p,p2]).then(res => {
+            console.log(312,res)
+        }) ;
+    }
+</script>
+</body>
+</html>

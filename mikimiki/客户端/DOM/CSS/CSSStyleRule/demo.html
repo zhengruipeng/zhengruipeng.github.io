@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            height:100px;
+            width:200px;
+            border:red solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div style="background-color:#66ccff;"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        //"styleMap" is not specified
+        let styleSheet = this.styleSheets[0];
+        sd = styleSheet.cssRules[0];
+        console.log(sd);
+        try{
+            var sr = new CSSStyleRule();
+            console.log(sr);
+        }catch(e){
+            console.log(e);
+        }
+    })
+</script>
+</body>
+</html>

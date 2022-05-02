@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div style="height:100px;width:100px;border:red solid 1px;" id="main">12341234</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        this.requestStorageAccess()
+            .then( () => {
+                console.log("success");
+            })
+            .catch( () => {
+                console.log("fail");
+            });
+        this.requestStorageAccess()
+            .then( () => {
+                console.log("success");
+            })
+            .catch( () => {
+                console.log("fail");
+            })
+    });
+
+</script>
+</body>
+</html>

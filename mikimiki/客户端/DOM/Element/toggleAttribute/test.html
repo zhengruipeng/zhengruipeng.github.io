@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div draggable id="main"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const main = this.getElementById("main");
+        window.onclick = function (){
+            main.toggleAttribute("draggable");
+            console.log(main);
+        }
+
+    })
+</script>
+</body>
+</html>

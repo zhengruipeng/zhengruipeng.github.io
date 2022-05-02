@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const doc = new DOMParser().parseFromString("<abc />","text/xml");
+        const pi = document.createProcessingInstruction("xml-stylesheet","href='./1.css' type='text/css'");
+        doc.insertBefore(pi,doc.firstChild);
+        // console.log(doc.documentElement)
+        console.log(new XMLSerializer().serializeToString(doc));
+
+    })
+    </script>
+</body>
+</html>

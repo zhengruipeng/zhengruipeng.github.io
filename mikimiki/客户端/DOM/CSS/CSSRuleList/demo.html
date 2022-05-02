@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+        }
+        </style>
+</head>
+<body>
+a raed-only like-array list of CSSRule OBJ.
+rules are NOT added or removed from the list directly.
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let stylesheet = this.styleSheets[0];
+        console.log(stylesheet.cssRules);       //return a CSSRuleList instance
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @media screen and (min-width:100px){
+            body{
+                background-color:#ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function(){
+        let stylesheet = this.styleSheets[0];
+        let rule = stylesheet.cssRules[0];
+        console.log(rule);
+    })
+    </script>
+</body>
+</html>
