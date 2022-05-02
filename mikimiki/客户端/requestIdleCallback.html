@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let callback = function (){
+            document.writeln("callback function run <br />");
+        };
+        let fun = function (){
+            document.writeln("first main thread function run <br />");
+        };
+        let fun2 = function (){
+            document.writeln("second main thread function run <br />");
+        };
+        requestIdleCallback(callback);
+        fun();
+        fun2();
+
+    });
+</script>
+</body>
+</html>

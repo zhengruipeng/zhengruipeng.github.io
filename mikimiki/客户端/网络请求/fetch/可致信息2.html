@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var myImage = document.querySelector('img');
+
+        var myRequest = new Request('../../../../image/1.jpg');
+
+        fetch(myRequest).then(function(response) {
+            console.log(response);  
+            return response.blob();
+        }).then(function(response) {
+            var objectURL = URL.createObjectURL(response);
+            myImage.src = objectURL;
+        });
+    })
+    </script>
+</body>
+</html>

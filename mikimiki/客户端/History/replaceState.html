@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            padding:10px 20px;
+            border-radius: 5px;
+            background:#eee;
+            border:#ccc solid 1px;
+        }
+        button:hover{
+            cursor:pointer;
+
+        }
+    </style>
+</head>
+<body>
+<button id="button-back">back</button>
+<button id="button-forward">forward</button>
+<label>go to page: <input type="number" id="page-index" /></label>
+<button id="button-go">go</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const buttonBack = document.getElementById("button-back");
+        const buttonForward = document.getElementById("button-forward");
+        const buttonGo = document.getElementById("button-go");
+        const gotoPageIndex = document.getElementById("page-index");
+
+        history.pushState("data1","fir","./1.html");
+        history.pushState("data2","sec","./2.html");
+        history.pushState("data3","thi","./3.html");
+
+        history.replaceState("data2","sec","./3.html");
+        buttonBack.onclick = function (){
+            history.back();
+        };
+        buttonForward.onclick = function (){
+            history.forward();
+        };
+        buttonGo.onclick = function (){
+            history.go(gotoPageIndex.value-0);
+        };
+        console.log(history);
+    });
+</script>
+</body>
+</html>

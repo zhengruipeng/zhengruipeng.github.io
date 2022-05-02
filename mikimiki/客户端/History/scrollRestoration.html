@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        history.pushState("data1","","./1.html");
+        history.pushState("data2","","./2.html");
+
+        console.log(history.state);
+        //此属性决定是否在回到历史页面的时候滚动到上次浏览处
+        console.log(history.scrollRestoration);
+        history.scrollRestoration = "manual"
+        console.log(history.scrollRestoration);
+
+    })
+    </script>
+</body>
+</html>
