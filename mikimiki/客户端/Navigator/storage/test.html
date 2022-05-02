@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        location.protocol !== "https:"?location.protocol = "https:":null;
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        console.log(navigator.storage);
+        navigator.storage.estimate().then(res => {
+            console.log(res);
+        });     //显示可以储存的信息多少
+        navigator.storage.persist().then(res => {
+            console.log(res);
+        });     //请求长久储存，并返回响应值，但无论拒绝与否总返回true
+        navigator.storage.persisted().then(res => {
+            console.log(res);
+        });     //查看是不是长久储存，并返回响应值，但无论拒绝与否总返回true
+    })
+    </script>
+</body>
+</html>

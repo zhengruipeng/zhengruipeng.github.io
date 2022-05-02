@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<img src="1.png" style="object-position: 12px 3px;" id="image" />
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let replacedEl = document.getElementById( 'image' );
+        let position = new CSSPositionValue( CSS.px(35), CSS.px(40) );
+
+        replacedEl.attributeStyleMap.set( 'object-position', position );
+        console.log( position.x.value, position.y.value );
+        console.log( replacedEl.computedStyleMap().get('object-position') );
+    });
+</script>
+</body>
+</html>

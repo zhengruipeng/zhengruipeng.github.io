@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="notify">have a notify</button>
+<button id="close">close notification</button>
+<br />
+<code id="status" style="padding:14px;"></code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+         const notify = this.getElementById("notify");
+        const status = this.getElementById("status");
+        const close = this.getElementById("close");
+         notify.onclick = function (){
+             Notification.requestPermission().then(res => {
+                 console.log(res);
+                 if(res === "granted"){
+                     //很多属性目前还都不好使
+                    const notifycation = new Notification("title",{
+                        body: "body",
+                        icon: "./17.png",
+                        image:"./18.png",
+                        badge:"./19.png",
+                        lang:"en-US",
+                        dir:"rtl",
+                        tag:"tag",
+                        renotify:true,
+                        requireInteraction: true,
+                        silent:false,
+                        vibrate:[200,100,200],
+                        data:"data",
+                    });
+                    notifycation.onclick = function (){
+                        status.innerHTML += "you have clicked the notification <br />";
+                    };
+                     notifycation.onclose = function (){
+                         status.innerHTML += "the notification has closed <br />";
+                         close.onclick = null;
+                     };
+                     notifycation.onshow = function (){
+                         status.innerHTML += "notification start <br />";
+                         close.onclick = function (){
+                             //这种写法目前不好使
+                            // this.close();
+
+                         }
+                     };
+                    console.log(notifycation);
+                 }else if(res === "prompt"){
+                     notify.innerHTML = "rejected";
+                 }
+             })
+         }
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg height="700" width="1920" xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect x="100" y="100" width="100" height="100" transform="translate(20,200) rotate(45,1,0)" style="fill:none;stroke:#000" id="rect">
+<!--        <animate attributeType="xml" attributeName="translate" from="100" to="200" dur="1s" fill="freeze"  />-->
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="30" begin="0s" dur="2s" fill="freeze" ></animateTransform>
+    </rect>
+</svg>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const svg = this.querySelector("svg");
+        const rect = this.querySelector("animateTransform");
+        console.log(rect);
+        console.log(rect.transform);
+        console.log(svg.createSVGAngle());
+       /* let mat = class{
+            constructor(ele){
+                this.elements = ele;
+            }
+            tranverse(){
+                let s = Math.sqrt(this.elements.length);
+                for(let i = 0;i<s;i++){
+                    for(let j = 0;j<i;j++){
+                        let t = this.elements[i*s+j]
+                        this.elements[i*s+j] = this.elements[j*s+i];
+                        this.elements[j*s+i] = t;
+                    }
+                }
+                return this;
+            }
+        }
+        console.log(new mat([1,2,3,4,5,6,7,8,9]).tranverse());*/
+    });
+</script>
+</body>
+</html>

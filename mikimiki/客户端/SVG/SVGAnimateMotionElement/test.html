@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<svg height="700" width="1920" xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M 50 125 C 100 25 150 225 200 125" style="stroke:#000;fill:none"></path>
+    <path d="M -10 -3 L 10 -3 L 0 -25z" style="fill:yellow;stroke:red">
+      <animateMotion path="M 50 125 C 100 25 150 225 200 125" rotate="auto" dur="6s" fill="freeze" />
+    </path>
+</svg>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    const animateMotion = this.querySelector("animateMotion");
+    console.log(animateMotion);
+  });
+</script>
+</body>
+</html>

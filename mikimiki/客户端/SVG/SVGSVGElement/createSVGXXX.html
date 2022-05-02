@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p style="color:red;font-weight:bolder;">只能在chrome使用，firefox中会出错。20211120</p>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      let svgsvgEle = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      console.log("SVGSVGElement",svgsvgEle);
+
+      let svgNumber = svgsvgEle.createSVGNumber();
+      svgNumber.value = 12;
+      console.log("svgNumber",svgNumber);
+
+      let svgLength = svgsvgEle.createSVGLength();
+      svgLength.value = 1;
+      svgLength.valueAsString = "1cm";
+      svgLength.convertToSpecifiedUnits(svgLength.SVG_LENGTHTYPE_PX);
+      console.log("svgLength",svgLength);
+
+      let svgAngle = svgsvgEle.createSVGAngle();
+      svgAngle.value = 1;
+      svgAngle.valueAsString = "1rad";
+      svgAngle.convertToSpecifiedUnits(svgAngle.SVG_ANGLETYPE_GRAD);
+      console.log("svgAngle",svgAngle);
+
+      let svgPoint = svgsvgEle.createSVGPoint();
+      svgPoint.x = 0;
+      svgPoint.y = 0;
+      svgPoint.z = 0;
+      svgPoint.w = 1;
+      console.log("svgPoint",svgPoint);
+
+      let svgMatrix = svgsvgEle.createSVGMatrix();
+      svgMatrix.m11 = 11;
+      svgMatrix.m12 = 12;
+      svgMatrix.m13 = 13;
+      svgMatrix.m14 = 14;
+      svgMatrix.m21 = 21;
+      svgMatrix.m22 = 22;
+      svgMatrix.m23 = 23;
+      svgMatrix.m24 = 24;
+      svgMatrix.m31 = 31;
+      svgMatrix.m32 = 32;
+      svgMatrix.m33 = 33;
+      svgMatrix.m34 = 34;
+      svgMatrix.m41 = 41;
+      svgMatrix.m42 = 42;
+      svgMatrix.m43 = 43;
+      svgMatrix.m44 = 44;
+      console.log("svgMatrix",svgMatrix);
+
+      let svgRect = svgsvgEle.createSVGRect();
+      svgRect.x = 0;
+      svgRect.y = 0;
+      svgRect.height = 100;
+      svgRect.width = 100;
+      console.log("svgRect",svgRect);
+
+      let transformMatrix = svgsvgEle.createSVGMatrix();
+      transformMatrix.a = 1;
+      transformMatrix.d = 1;
+      let svgTransform = svgsvgEle.createSVGTransform();
+      svgTransform.setMatrix(transformMatrix);
+      svgTransform.setTranslate(12,21);
+      svgTransform.setScale(2,3);
+      console.log(svgTransform);
+
+      transformMatrix = svgsvgEle.createSVGMatrix();
+      transformMatrix.m11 = 2;
+      transformMatrix.m12 = 0;
+      transformMatrix.m13 = 0;
+      transformMatrix.m14 = 0;
+      transformMatrix.m21 = 0;
+      transformMatrix.m22 = 1;
+      transformMatrix.m23 = 0;
+      transformMatrix.m24 = 0;
+      transformMatrix.m31 = 0;
+      transformMatrix.m32 = 0;
+      transformMatrix.m33 = 2;
+      transformMatrix.m34 = 0;
+      transformMatrix.m41 = 12;
+      transformMatrix.m42 = 2;
+      transformMatrix.m43 = 3;
+      transformMatrix.m44 = 1;
+      let svgTransformFromMatrix = svgsvgEle.createSVGTransformFromMatrix(transformMatrix)
+      console.log(svgTransformFromMatrix)
+  })
+</script>
+</body>
+</html>

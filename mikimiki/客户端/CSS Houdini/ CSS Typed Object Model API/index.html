@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            border:red solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="div"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        let stylePropertyReadOnly = div.computedStyleMap();
+        console.log(stylePropertyReadOnly);
+        console.log(stylePropertyReadOnly.get("height"));
+        console.log(div.attributeStyleMap.set("height",CSS.px(100)));
+        console.log(div.attributeStyleMap.delete('height'));
+        console.log(div.attributeStyleMap.clear());
+    })
+</script>
+</body>
+</html>

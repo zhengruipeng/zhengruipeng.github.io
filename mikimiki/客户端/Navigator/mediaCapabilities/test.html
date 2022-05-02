@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        navigator.mediaCapabilities.decodingInfo({
+            type : 'file',
+            audio : {
+                contentType : "audio/mp3",
+                channels : 2,
+                bitrate : 132700,
+                samplerate : 5200
+            }
+        }).then(function(result) {
+            console.log('This configuration is ' +
+                (result.supported ? '' : 'not ') + 'supported, ' +
+                (result.smooth ? '' : 'not ') + 'smooth, and ' +
+                (result.powerEfficient ? '' : 'not ') + 'power efficient.')
+        });
+    })
+    </script>
+</body>
+</html>

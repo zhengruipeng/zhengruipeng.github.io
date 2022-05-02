@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg>
+    <rect x="0" y="0" height="100" width="100">
+        <animate attributeName="width" attributeType="xml" dur="4s" fill="freeze" to="500" begin="100s" />
+    </rect>
+</svg>
+<button id="targetElement">targetElement</button>
+<button id="beginElement">beginElement</button>
+<button id="beginElementAt">beginElementAt</button>
+<button id="endElement">endElement</button>
+<button id="endElementAt">endElementAt</button>
+<button id="getStartTime">getStartTime</button>
+<button id="getCurrentTime">getCurrentTime</button>
+<button id="getSimpleDuration">getSimpleDuration</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const animate = this.querySelector("animate");
+        const targetElement = this.getElementById("targetElement");
+        const beginElement = this.getElementById("beginElement");
+        const beginElementAt = this.getElementById("beginElementAt");
+        const endElement = this.getElementById("endElement");
+        const endElementAt = this.getElementById("endElementAt");
+        const getStartTime = this.getElementById("getStartTime");
+        const getCurrentTime = this.getElementById("getCurrentTime");
+        const getSimpleDuration = this.getElementById("getSimpleDuration");
+
+        targetElement.onclick = function (){
+            console.log(animate.targetElement);
+        };
+        beginElement.onclick = function (){
+            animate.beginElement();
+        };
+        beginElementAt.onclick = function (){
+            animate.beginElementAt(1);
+        };
+        endElement.onclick = function (){
+            animate.endElement();
+        };
+        endElementAt.onclick = function (){
+           animate.endElementAt(1);
+        };
+        getStartTime.onclick = function (){
+            console.log(animate.getStartTime());
+        };
+        getCurrentTime.onclick = function (){
+            console.log(animate.getCurrentTime());
+        };
+        getSimpleDuration.onclick = function (){
+            console.log(animate.getSimpleDuration());
+        };
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="500" width="500" >
+    <defs>
+        <path d="M 50 100 h 150 a 50 50 0 0 1 50 50 v 150" id="corner" />
+    </defs>
+    <use xlink:href="#corner" style="fill:none;stroke:#000" />
+
+    <text style="text-anchor:middle">
+        <textPath xlink:href="#corner" startOffset="50%" method="stretch">
+            centered text 中央揃えテキスト 居中文本
+        </textPath>
+    </text>
+</svg>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const textPath = this.querySelector("textPath");
+        console.log(textPath.method);
+    });
+</script>
+</body>
+</html>

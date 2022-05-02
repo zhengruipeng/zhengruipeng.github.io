@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        navigator.geolocation.getCurrentPosition(res => {
+            console.log(res.coords);
+            console.log(new Date(res.timestamp));
+        });
+
+    })
+</script>
+</body>
+</html>

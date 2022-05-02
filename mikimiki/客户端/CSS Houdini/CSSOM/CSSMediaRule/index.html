@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    @media all {
+      body{
+        color:red;
+      }
+    }
+  </style>
+</head>
+<body>
+123
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    let myRules = document.styleSheets[0].cssRules;
+    console.log(myRules[0]); // a CSSMediaRule representing the media query
+  });
+</script>
+</body>
+</html>

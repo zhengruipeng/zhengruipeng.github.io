@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video height="600" width="1200" id="video" controls autoplay muted ></video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        const video = this.getElementById("video");
+        let start = function (){
+            navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(mediastream => {
+                video.srcObject = mediastream;
+            })
+        };
+        window.onclick = start;
+
+
+
+    })
+</script>
+</body>
+</html>

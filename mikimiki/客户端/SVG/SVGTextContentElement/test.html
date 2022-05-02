@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="1920" height="300">
+    <text x="100" y="100">this is the <tspan>text</tspan></text>
+</svg>
+<button id="getNumberOfChars">getNumberOfChars</button>
+<button id="getComputedTextLength">getComputedTextLength</button>
+<button id="getSubStringLength">getSubStringLength</button>
+<button id="getStartPositionOfChar">getStartPositionOfChar</button>
+<button id="getEndPositionOfChar">getEndPositionOfChar</button>
+<button id="getExtentOfChar">getExtentOfChar</button>
+<button id="getRotationOfChar">getRotationOfChar</button>
+<button id="getCharNumAtPosition">getCharNumAtPosition</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const text = this.querySelector("text");
+        const svgEle = this.querySelector("svg");
+
+        console.log(text);
+        const getNumberOfChars = this.getElementById("getNumberOfChars");
+        const getComputedTextLength = this.getElementById("getComputedTextLength");
+        const getSubStringLength = this.getElementById("getSubStringLength");
+        const getStartPositionOfChar = this.getElementById("getStartPositionOfChar");
+        const getEndPositionOfChar = this.getElementById("getEndPositionOfChar");
+        const getExtentOfChar = this.getElementById("getExtentOfChar");
+        const getRotationOfChar = this.getElementById("getRotationOfChar");
+        const getCharNumAtPosition = this.getElementById("getCharNumAtPosition");
+        getNumberOfChars.onclick = function (){
+            console.log(text.getNumberOfChars());
+        };
+        getComputedTextLength.onclick = function (){
+            console.log(text.getComputedTextLength());
+        };
+        getSubStringLength.onclick = function (){
+            console.log(text.getSubStringLength(3,8));
+        };
+        getStartPositionOfChar.onclick = function (){
+            console.log(text.getStartPositionOfChar(3));
+        };
+        getEndPositionOfChar.onclick = function (){
+            console.log(text.getEndPositionOfChar(3));
+        };
+        getExtentOfChar.onclick = function (){
+            console.log(text.getExtentOfChar(3));
+        };
+        getRotationOfChar.onclick = function (){
+            console.log(text.getRotationOfChar(3));
+        };
+        getCharNumAtPosition.onclick = function (){
+            console.log(text.getCharNumAtPosition(text.getStartPositionOfChar(3)));
+        };
+
+    })
+    </script>
+</body>
+</html>

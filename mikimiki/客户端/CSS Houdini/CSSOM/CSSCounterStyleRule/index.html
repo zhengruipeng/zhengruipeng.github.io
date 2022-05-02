@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    @counter-style circled-alpha {
+      system: fixed;
+      symbols: Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ;
+      suffix: " f  ";
+      prefix:" g ";
+    }
+    .items {
+      list-style: circled-alpha;
+    }
+  </style>
+</head>
+<body>
+<ol class="items">
+  <li>123</li>
+  <li>123</li>
+  <li>123</li>
+  <li>123</li>
+  <li>123</li>
+  <li>123</li>
+  <li>123</li>
+  <li>123</li>
+</ol>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    let cssRule = this.styleSheets[0].cssRules[0];
+    console.log(cssRule);
+  });
+</script>
+</body>
+</html>

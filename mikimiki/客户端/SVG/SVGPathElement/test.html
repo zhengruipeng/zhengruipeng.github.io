@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg height="1080" width="1920">
+    <path d="M 100 100 c 50 50 100 -50 150 0 s 100 -50 150 0" style="fill:none;stroke:#000" />
+</svg>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const path = this.querySelector("path");
+        console.log(path);
+        console.log(path.getTotalLength());
+        console.log(path.getPointAtLength(100));
+
+    })
+</script>
+</body>
+</html>

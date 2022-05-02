@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="userMedia">user media permission</button>
+<button id="geolocation">geolocation permission</button>
+<button id="notification">notification permission</button>
+<button id="permission">permission</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const userMedia = this.getElementById("userMedia");
+        const geolocation = this.getElementById("geolocation");
+        const notification = this.getElementById("notification");
+        const permission = this.getElementById("permission");
+        userMedia.onclick = function (){
+            navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(mediaStream => {
+                console.log(mediaStream);
+            });
+        }
+        geolocation.onclick = function (){
+            navigator.geolocation.getCurrentPosition(res => {
+                console.log(res);
+            })
+        }
+        notification.onclick = function (){
+            Notification.requestPermission().then(res => {
+                console.log(res);
+            });
+        }
+
+
+        permission.onclick = function (){
+            navigator.permissions.query({name:"notifications"}).then(res => {
+                console.log(res);
+            })
+            navigator.permissions.query({name:"geolocation"}).then(res => {
+                console.log(res);
+            })
+           /* navigator.permissions.query({name:"userMedia"}).then(res => {
+                console.log(res);
+            })*/
+
+
+        }
+    })
+    </script>
+</body>
+</html>

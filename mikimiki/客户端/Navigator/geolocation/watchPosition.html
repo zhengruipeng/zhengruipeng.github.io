@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let watcher = navigator.geolocation.watchPosition( res => {
+            console.log(res);
+        });
+        window.onclick = function (){
+            navigator.geolocation.clearWatch(watcher);
+
+        }
+    })
+</script>
+</body>
+</html>

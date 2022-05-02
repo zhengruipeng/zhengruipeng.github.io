@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @supports (background: paint(id)) {
+            textarea {
+                background-image: paint(checkerboard);
+                --rect-size:50;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<textarea></textarea>
+<script>
+    if ('paintWorklet' in CSS) {
+        CSS.paintWorklet.addModule('checkerboard.js');
+    }
+</script>
+</body>
+</html>

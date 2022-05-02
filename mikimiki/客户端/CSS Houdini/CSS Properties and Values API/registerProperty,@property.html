@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .registered {
+            --my-color: #c0ffee;
+            background-image: linear-gradient(to right, #fff, var(--my-color));
+            transition: --my-color 1s ease-in-out;
+        }
+
+        .registered:hover,
+        .registered:focus {
+            --my-color: #b4d455;
+        }
+
+        .unregistered {
+            --unregistered: #c0ffee;
+            background-image: linear-gradient(to right, #fff, var(--unregistered));
+            transition: --unregistered 1s ease-in-out;
+        }
+
+        .unregistered:hover,
+        .unregistered:focus {
+            --unregistered: #b4d455;
+        }
+        button {
+            font-size: 3vw;
+        }
+    </style>
+</head>
+<body>
+<button class="registered">Background Registered</button>
+<button class="unregistered">Background Not Registered</button>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+      CSS.registerProperty({
+          name: '--my-color',
+          syntax: '<color>',
+          inherits: false,
+          initialValue: '#c0ffee'
+      });
+
+  })
+</script>
+</body>
+</html>

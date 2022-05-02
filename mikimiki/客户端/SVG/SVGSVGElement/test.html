@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<svg height="400" width="400">
+  <rect x="0" y="0" height="100" width="100" style="stroke: #000;fill:none">
+    <animate attributeName="width" attributeType="xml" fill="freeze" dur="2s" begin="0s" repeatCount="indefinite" to="200" />
+  </rect>
+</svg>
+<button id="pauseAnimations">pauseAnimations</button>
+<button id="unpauseAnimations">unpauseAnimations</button>
+<button id="animationsPaused">animationsPaused</button>
+<button id="getCurrentTime">getCurrentTime</button>
+<button id="setCurrentTime">setCurrentTime</button>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    let svg = this.querySelector("svg");
+    let pauseAnimations = this.querySelector("#pauseAnimations");
+    let unpauseAnimations = this.querySelector("#unpauseAnimations");
+    let animationsPaused = this.querySelector("#animationsPaused");
+    let getCurrentTime = this.querySelector("#getCurrentTime");
+    let setCurrentTime = this.querySelector("#setCurrentTime");
+    console.log(svg);
+    pauseAnimations.onclick = function (){
+      svg.pauseAnimations();
+    }
+    unpauseAnimations.onclick = function (){
+      svg.unpauseAnimations();
+    }
+    animationsPaused.onclick = function (){
+      console.log(svg.animationsPaused());
+    }
+    getCurrentTime.onclick = function (){
+      console.log(svg.getCurrentTime());
+    }
+    setCurrentTime.onclick = function (){
+      svg.setCurrentTime(prompt("time")-0);
+    }
+
+
+
+
+  })
+</script>
+</body>
+</html>

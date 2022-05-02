@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p style="color:red;font-weight:bolder;">只能在chrome使用20211120</p>
+<svg height="400" width="400">
+    <style>
+        *{
+            stroke:#000;
+            fill:none;
+        }
+    </style>
+  <circle r="50" cx="50" cy="50" />
+    <g>
+        <rect x="20" y="20" height="40" width="40" />
+    </g>
+    <rect x="0" y="0" height="200" width="200" id="the-bigest-one" />
+
+</svg>
+<button id="getIntersectionList">getIntersectionList</button>
+<button id="checkIntersectionList">checkIntersectionList</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const svg = this.querySelector("svg");
+        const g = this.querySelector("g");
+        const getIntersectionList = this.getElementById("getIntersectionList");
+        const checkIntersectionList = this.getElementById("checkIntersectionList");
+        const theBiggestOne = this.getElementById("the-bigest-one");
+        const container = svg.createSVGRect();
+        container.x = 0;
+        container.y = 0;
+        container.height = 100;
+        container.width = 100;
+        getIntersectionList.onclick = function (){
+            console.log(svg.getIntersectionList(container,null));
+            console.log(svg.getIntersectionList(container,g));
+        };
+        checkIntersectionList.onclick = function (){
+            console.log(svg.checkIntersection(theBiggestOne,container));
+        }
+    })
+    </script>
+</body>
+</html>

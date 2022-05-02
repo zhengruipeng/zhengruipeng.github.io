@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div style="height:min(10px,200px)"></div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    const div = this.querySelector("div");
+    console.log(div.attributeStyleMap.get("height"));
+  });
+</script>
+</body>
+</html>

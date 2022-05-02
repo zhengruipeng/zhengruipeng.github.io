@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<svg height="700" width="1920" xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="100" y="100" width="100" height="100" transform="translate(20,200) rotate(45,1,0)" style="fill:none;stroke:#000" id="rect">
+            <animate attributeType="xml" attributeName="y" from="100" to="200" dur="1s" fill="freeze"  />
+<!--    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="30" begin="0s" dur="2s" fill="freeze" ></animateTransform>-->
+  </rect>
+</svg>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    const animate = this.querySelector("animate");
+    console.log(animate);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            background-color:white;
+            border-radius: 4px;
+            border:#aaa solid 1px;
+            padding:5px 10px;
+            transition:.6s;
+        }
+        button:hover{
+            box-shadow: 0 0 10px #000;
+            cursor:pointer;
+            transition:.2s;
+        }
+        </style>
+</head>
+<body>
+<button id="request">requestport</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const request = this.getElementById("request");
+        console.log(navigator.serial);
+
+        navigator.serial.onconnect = function (){
+            console.log("connected");
+        };
+        navigator.serial.ondisconnect = function (){
+            console.log("disconnect");
+        };
+
+        navigator.serial.addEventListener('connect', (e) => {
+            console.log("connected");
+        });
+
+        navigator.serial.addEventListener('disconnect', (e) => {
+            console.log("disconnect");
+        });
+
+        navigator.serial.getPorts().then( port => {
+            console.log(port);
+        });
+        request.onclick = function (){
+            navigator.serial.requestPort().then( port => {
+                console.log(port);
+            },err => {
+                console.log(err);
+            });
+        };
+
+
+    })
+    </script>
+</body>
+</html>

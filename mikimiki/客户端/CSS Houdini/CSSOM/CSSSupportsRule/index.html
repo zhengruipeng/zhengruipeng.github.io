@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    @supports (width:100px){
+      body{
+        height:100px;
+        border:solid 1px;
+      }
+    }
+  </style>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    const cssRule = document.styleSheets[0].cssRules[0];
+    console.log(cssRule);
+  });
+</script>
+</body>
+</html>

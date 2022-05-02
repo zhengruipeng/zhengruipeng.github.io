@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg height="400" width="1920">
+  <polygon points="100 100 200 100 120 200 150 50 180 200 100 100" style="fill:none;stroke:#000;" />
+</svg>
+<button id="appendItem">appendItem</button>
+<button id="removeItem">removeItem</button>
+<button id="replaceItem">replaceItem</button>
+<button id="insertItemBefore">insertItemBefore</button>
+<button id="getItem">getItem</button>
+<button id="initialize">initialize</button>
+<button id="clear">clear</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const svgsvgEle = this.querySelector("svg");
+        const polygon = this.querySelector('polygon');
+        const appendItem = this.getElementById("appendItem");
+        const removeItem = this.getElementById("removeItem");
+        const replaceItem = this.getElementById("replaceItem");
+        const insertItemBefore = this.getElementById("insertItemBefore");
+        const getItem = this.getElementById("getItem");
+        const initialize = this.getElementById("initialize");
+        const clear = this.getElementById("clear");
+        console.log(polygon.points);
+
+        appendItem.onclick = function (){
+            let point = svgsvgEle.createSVGPoint();
+            point.x = 200;
+            point.y = 200;
+            polygon.points.appendItem(point);
+        };
+        removeItem.onclick = function (){
+            polygon.points.removeItem(polygon.points.length-1);
+        };
+        replaceItem.onclick = function (){
+            let point = svgsvgEle.createSVGPoint();
+            point.x = 0;
+            point.y = 100;
+            polygon.points.replaceItem(point,polygon.points.length-1)
+        };
+        insertItemBefore.onclick = function (){
+            let point = svgsvgEle.createSVGPoint();
+            point.x = 200;
+            point.y = 200;
+            polygon.points.insertItemBefore(point,polygon.points.length);
+        };
+        getItem.onclick = function (){
+            let x = Math.floor(Math.random()*polygon.points.length);
+            console.log(x,polygon.points.getItem(x));
+        };
+        initialize.onclick = function (){
+            let len = polygon.points.length;
+            let arr = [];
+            for(let i = 0;i<len;i++){
+                let point = svgsvgEle.createSVGPoint();
+                point.x = Math.random()*100+100;
+                point.y = Math.random()*100+100;
+                arr.push(point);
+            }
+            polygon.points.initialize(...arr);
+            console.log(polygon.points)
+        };
+        clear.onclick = function (){
+            polygon.points.clear();
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="presentBtn" style="display: none;">Present</button>
+<button id="reconnectBtn" style="display: none;">Reconnect</button>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        console.log(navigator.presentation);
+
+        // The Present button is visible if at least one presentation display is available
+        var presentBtn = document.getElementById("presentBtn");
+        var reconnectBtn = document.getElementById("reconnectBtn");
+
+        // It is also possible to use relative presentation URL e.g. "presentation.html"
+        var presUrls = ["./presentation.html", "./alternate.html"];
+
+        // show or hide present button depending on display availability
+        var handleAvailabilityChange = function(available) {
+            console.log(available)
+            presentBtn.style.display = available ? "inline" : "none";
+        };
+
+        // Promise is resolved as soon as the presentation display availability is
+        // known.
+        var request = new PresentationRequest(presUrls);
+        request.getAvailability().then(function(availability) {
+
+            // availability.value may be kept up-to-date by the controlling UA as long
+            // as the availability object is alive. It is advised for the web developers
+            // to discard the object as soon as it's not needed.
+            handleAvailabilityChange(availability.value);
+            availability.onchange = function() { handleAvailabilityChange(this.value); };
+        }).catch(function() {
+
+            // Availability monitoring is not supported by the platform, so discovery of
+            // presentation displays will happen only after request.start() is called.
+            // Pretend the devices are available for simplicity; or, one could implement
+            // a third state for the button.
+            handleAvailabilityChange(true);
+        });
+        presentBtn.onclick = function () {
+            // Start new presentation.
+            request.start()
+                // The connection to the presentation will be passed to setConnection on
+                // success.
+                .then(setConnection);
+            // Otherwise, the user canceled the selection dialog or no screens were
+            // found.
+        };
+        var reconnect = function () {
+            // read presId from localStorage if exists
+            var presId = localStorage["presId"];
+            // presId is mandatory when reconnecting to a presentation.
+            if (!!presId) {
+                request.reconnect(presId)
+                    // The new connection to the presentation will be passed to
+                    // setConnection on success.
+                    .then(setConnection);
+                // No connection found for presUrl and presId, or an error occurred.
+            }
+        };
+        // On navigation of the controller, reconnect automatically.
+        reconnect();
+        // Or allow manual reconnection.
+        reconnectBtn.onclick = reconnect;
+    });
+</script>
+</body>
+</html>

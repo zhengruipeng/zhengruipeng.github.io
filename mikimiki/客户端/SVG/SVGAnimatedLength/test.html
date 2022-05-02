@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg height="700" width="1920" xmlns='http://www.w3.org/2000/svg'
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect ry="100" rx="100" x="50" y="50" height="100" width="100" style="fill: none;stroke:#000" />
+</svg>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const rect = this.querySelector("rect");
+        console.log(rect.rx);
+    });
+</script>
+</body>
+</html>
