@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            background: #000;
+            color: #F2A5AA;
+            display: block;
+            min-height: 100vh;
+            font-size:1.2em;
+            overflow: scroll;
+            padding:1.2em;
+        }
+        </style>
+</head>
+<body>
+<code>
+
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const code = this.querySelector("code");
+        let Con = function (){
+            this.width;
+            this.height;
+            this.arr = [];
+            this.location = new DOMPoint();
+            this.path = [];
+            this.hasVisited = [];
+            this.toThePointPath = [];
+
+        }
+        Con.prototype = {};
+        Con.prototype.constructor = Con;
+        Con.prototype.output = function (msg){
+            code.innerHTML += msg+"<br />"
+        }
+        Con.prototype.getIndexWithXY = function (x,y){
+            return this.width*x+y;
+        };
+        Con.prototype.initRandomArr = function (n,m = n){
+            this.width = n+2;
+            this.height = m+2;
+            for(let i = 0;i<n*m;i++){
+                this.arr[i] = Math.random()>0.5?1:0;
+            }
+            this.output("you have create a map with "+this.width+"*"+this.height);
+
+        };
+        Con.prototype.fillItWithWall = function (){
+            //添加上面一行
+            for(let i = 0;i<this.width;i++){
+                this.arr.unshift(1);
+            }
+
+            //添加左右
+            for(let i = 1;i<this.height-1;i++){
+                this.arr.splice(this.getIndexWithXY(i,0),0,1);
+                this.arr.splice(this.getIndexWithXY(i,this.width)-1,0,1);
+            }
+
+            //添加下面一行
+            for(let i = 0;i<this.width;i++){
+                this.arr.push(1);
+            }
+        };
+        Con.prototype.toString = function (){
+            let res = "";
+            for(let i = 0;i<this.height;i++){
+                res += this.arr.slice(this.getIndexWithXY(i,0),this.getIndexWithXY(i,this.width)).join(" ");
+                res += "<br />";
+            }
+            return res;
+
+        };
+        Con.prototype.setStartPoint = function (x,y){
+            x -= 0;
+            y -= 0;
+            if(x === 0 || y === 0 || x === this.width || y === this.height){
+                this.output("you have set the point into the wall");
+                return false;
+            }
+            this.location.x = x;
+            this.location.y = y;
+            this.arr[this.getIndexWithXY(x,y)] = 0;
+            // this.hasVisited.push(new DOMPoint(this.location.x,this.location.y));
+            this.output(`you have set the point into (${x},${y})`);
+        };
+        Con.prototype.movePointTo = function (x,y){
+            if(!this.location.x || !this.location.y){
+                this.output("the start point is not defined ");
+                return false;
+            }
+            if(Math.abs(x-this.location.x) > 1 || Math.abs(y-this.location.y) > 1) {
+                // this.output("you have move to a far position")
+                // return false;
+            }
+            this.path.push(new DOMPoint(this.location.x,this.location.y));
+
+            this.location.x = x;
+            this.location.y = y;
+            this.hasVisited.push(new DOMPoint(x,y));
+
+            this.output(`you have move to (${x},${y})`);
+
+        };
+         Con.prototype.hasBeenVisited = function (x,y){
+            let [cx,cy] = [x,y];
+            for(let i = 0;i<this.hasVisited.length;i++){
+                let {x,y} = this.hasVisited[i];
+                if(cx === x && cy === y)return true;
+                // console.log(`cx:${cx},x:${x},cy:${cy},y:${y},`)
+            }
+            return false;
+        }
+        Con.prototype.findWayTo = function (x,y){
+            if(this.arr[this.getIndexWithXY(x,y)] === 1){
+                this.output("you have select a end point with 1");
+                return false;
+            }
+            this.output("finding the way to point "+x+","+y);
+            let destinctX = x;
+            let destinctY = y;
+            let that = this;
+            let moveTo = function (x,y){
+
+                if(that.hasBeenVisited(x,y)){
+                    return false;
+                }
+                if(that.arr[that.getIndexWithXY(x,y)] === 1){
+                    return false    ;
+                }
+                that.movePointTo(x,y);
+
+                if(x === destinctX && y === destinctY){
+                    that.output("find way successfully,in path"+that.path.map(v => v.x+","+v.y).join(' -> ' ));
+                    that.toThePointPath.push(that.path.map(v => v.x+","+v.y));
+                    let lastP = that.path.pop();
+                    that.movePointTo(lastP.x,lastP.y);
+                    return false;
+                }
+                moveTo(x+1,y);
+                // moveTo(x+1,y+1);
+                moveTo(x   ,y+1);
+                // moveTo(x-1,y+1);
+                moveTo(x-1,y);
+                // moveTo(x-1,y-1);
+                moveTo(x  ,y-1);
+                // moveTo(x+1,y-1);
+            }
+            moveTo(this.location.x,this.location.y);
+            if(this.toThePointPath.length !== 0) {
+                this.output("finding the way over ,we have finded " + (this.toThePointPath.length === 1?1:this.toThePointPath.length+"s") + " way to " + destinctX + "," + destinctY + "");
+            }else{
+                this.output("finding the way over ,we have finded no way to " + destinctX + "," + destinctY + "");
+            }
+        };
+        let startPoint = [1,1];
+        let endPoint = [4,4];
+
+        let con = new Con();
+        con.initRandomArr(4);
+        con.fillItWithWall();
+        con.setStartPoint(1,1);
+        con.arr[con.getIndexWithXY(...endPoint)] = 0;
+
+        con.output(con.toString());
+
+        if(!con.location.x){
+            con.output("the process end.with exist 0");
+            return false;
+        }
+
+        con.findWayTo(4,4);
+
+
+    })
+</script>
+</body>
+</html>

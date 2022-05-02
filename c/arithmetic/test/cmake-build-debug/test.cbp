@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="test"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option output="D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="d:\minwg\bin\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="d:\minwg\bin\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="d:\minwg\bin\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test/fast">
+				<Option output="D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="d:\minwg\bin\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="d:\minwg\bin\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="d:\minwg\bin\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 test/fast"/>
+					<CompileFile command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinWG/bin/bin/mingw32-make.exe -f &quot;D:/XAMPP/htdocs/usr/c/arithmetic/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/XAMPP/htdocs/usr/c/arithmetic/test/main.c">
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="D:/XAMPP/htdocs/usr/c/arithmetic/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
