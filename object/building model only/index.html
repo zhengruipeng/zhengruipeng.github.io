@@ -1,0 +1,510 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="./css/main.css">
+    <!--build in object extend-->
+    <script type="text/javascript">
+        Math.cot = function (x){
+            return 1/Math.tan(x);
+        };
+    </script>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<div id="notice" class="notice_hid">这是有关实验楼的信息</div>
+<!--global var-->
+<script type="text/javascript">
+    window.globalVar = {};
+    window.globalVar.FH = 3;
+    window.globalVar.threeD = {};
+    window.globalVar.threeD.perspectiveCamera = null;
+    window.globalVar.threeD.geometry = {};      //[TypeArray vertices,normals,colors,texture,indices]
+    window.globalVar.threeD.shaders = [];      //[vertex,fragment]
+    window.globalVar.threeD.data = {};      //{vertexArray,vertices,normals,colors,texture,indices}
+    window.globalVar.threeD.camera = {
+        position:[],
+        lookAt:[],
+    }
+    window.globalVar.threeD.frameBufferColor = {
+        building1:[0,0,0,],
+        building2:[.2,0,0,],
+        building4:[.4,0,0,],
+        building6:[.6,0,0,],
+        building10:[.8,0,0,],
+        building12:[1,0,0,],
+        corridor:[0,.2,0,],
+    };
+    window.globalVar.threeD.webgl = window.document.getElementById("webgl");
+    window.globalVar.threeD.gl = null;
+    window.globalVar.threeD.initShader = function (vertex,frag){
+        let gl = globalVar.threeD.gl;
+        let loadShader = function (text,type){
+            let shader = gl.createShader(type);
+            gl.shaderSource(shader,text);
+            gl.compileShader(shader);
+            return shader;
+        };
+        vertex = loadShader(vertex,gl.VERTEX_SHADER);
+        frag = loadShader(frag,gl.FRAGMENT_SHADER);
+        let program = gl.createProgram();
+        gl.attachShader(program,vertex);
+        gl.attachShader(program,frag);
+        gl.linkProgram(program);
+        return program;
+
+    };
+    window.globalVar.threeD.initBuffer = function (name,value,shader){
+        let gl = globalVar.threeD.gl;
+
+        let attribute = gl.getAttribLocation(shader,name);
+        let buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,value,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(attribute)
+    };
+    window.globalVar.threeD.initUniform = function (name,value,type,shader){
+        let gl = globalVar.threeD.gl;
+
+        let uniform = gl.getUniformLocation(shader,name);
+        type.slice(0,1) === "M"?gl['uniform'+type](uniform,false,value):gl['uniform'+type](uniform,...value);
+
+    };
+    window.globalVar.threeD.initArrayBuffer = function (b){
+        let gl = globalVar.threeD.gl;
+
+        let buf = gl.createBuffer();
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,b,gl.STATIC_DRAW);
+    };
+</script>
+<!--modify webgl canvas size-->
+<script type="text/javascript">
+    //let webglCanvas = window.globalVar.threeD.webgl;
+    window.globalVar.threeD.webgl.width = document.documentElement.clientWidth;
+    window.globalVar.threeD.webgl.height = document.documentElement.clientHeight-3;
+    window.globalVar.threeD.gl = window.globalVar.threeD.webgl.getContext("webgl2");
+</script>
+<!--<script type="text/javascript" src="./scripts/webgl-getShaders.js"></script>-->
+<!--controls-->
+<script type="text/javascript" src="./libs/cuon-matrix.js"></script>
+<!--shaders-->
+<script type="text/javascript" src="./shader/vertex-shader1.js"></script>
+<script type="text/javascript" src="./shader/fragment-shader1.js"></script>
+<script type="text/javascript" src="./shader/vertex-shader2.js"></script>
+<script type="text/javascript" src="./shader/fragment-shader2.js"></script>
+
+<script type="text/javascript" src="./scripts/webgl-perspective-camera.js"></script>
+<!--geometry data-->
+<script type="text/javascript" src="./geometryData/sphere.js"></script>
+<script type="text/javascript" src="./geometryData/cube.js"></script>
+<script type="text/javascript" src="./geometryData/building1.js"></script>
+<script type="text/javascript" src="./geometryData/building2.js"></script>
+<script type="text/javascript" src="./geometryData/corridor.js"></script>
+<script type="text/javascript" src="./geometryData/building4-center.js"></script>
+<script type="text/javascript" src="./geometryData/building6-left.js"></script>
+<script type="text/javascript" src="./geometryData/building10.js"></script>
+<script type="text/javascript" src="./geometryData/building12.js"></script>
+<!--config shader data-->
+<script type="text/javascript" src="./scripts/webgl-shader1-config.js"></script>
+<script type="text/javascript" src="./scripts/webgl-shader2-config.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building2-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-corridor-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building4-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building6-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building10-moudle.js"></script>
+<script type="text/javascript" src="./scripts/webgl-building12-moudle.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const notice = document.getElementById("notice");
+        const webgl = globalVar.threeD.webgl;
+        const gl = globalVar.threeD.gl;
+        const initUniform = globalVar.threeD.initUniform;
+        const initBuffer = globalVar.threeD.initBuffer;
+        const initArrayBuffer = globalVar.threeD.initArrayBuffer;
+        const initShader = globalVar.threeD.initShader;
+        const matrix = {
+            rotation:{},
+            scale:{},
+            translate:{},
+        };
+        let notifications = false;
+        let notification_timer = 0;
+        Notification.requestPermission().then(res => {
+            if(res === "granted"){
+                notifications = true;
+            }
+
+        });
+
+        //gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,1);
+        gl.enable(gl.DEPTH_TEST);
+
+        let theta = 0;
+        matrix.global = new Matrix4();
+        matrix.global.setRotate(0,0,1,0);
+        matrix.globalInverse = new Matrix4();
+
+        matrix.building1 = new Matrix4();
+        matrix.building2 = new Matrix4();
+        matrix.building3 = new Matrix4();
+        matrix.corridor = new Matrix4();
+        matrix.corridor2 = new Matrix4();
+        matrix.building4Center = new Matrix4();
+        matrix.building5Center = new Matrix4();
+        matrix.building6Left = new Matrix4();
+        matrix.building7Left = new Matrix4();
+        matrix.building8Right = new Matrix4();
+        matrix.building9Right = new Matrix4();
+        matrix.building10 = new Matrix4();
+        matrix.building11 = new Matrix4();
+        matrix.building12 = new Matrix4();
+        matrix.building13 = new Matrix4();
+
+        matrix.building1Inverse = new Matrix4();
+        matrix.building2Inverse = new Matrix4();
+        matrix.building3Inverse = new Matrix4();
+        matrix.corridorInverse = new Matrix4();
+        matrix.corridor2Inverse = new Matrix4();
+        matrix.building4CenterInverse = new Matrix4();
+        matrix.building5CenterInverse = new Matrix4();
+        matrix.building6LeftInverse = new Matrix4();
+        matrix.building7LeftInverse = new Matrix4();
+        matrix.building8RightInverse = new Matrix4();
+        matrix.building9RightInverse = new Matrix4();
+        matrix.building10Inverse = new Matrix4();
+        matrix.building11Inverse = new Matrix4();
+        matrix.building12Inverse = new Matrix4();
+        matrix.building13Inverse = new Matrix4();
+
+        let notify = function (msg){
+            notice.innerText = msg;
+            notice.classList.add("notice_show");
+            notice.classList.remove("notice_hid");
+            clearTimeout(notification_timer);
+
+            if(notifications){
+                new Notification("来自实验楼预览页面",{
+                    body: msg,
+                    lang:"ch-ZH",
+                    dir:"ltr",
+                    vibrate:[200,100,200],
+                    renotify:true,
+                    tag:"tag"
+                });
+            }
+
+
+            notification_timer = setTimeout(() => {
+                notice.classList.add("notice_hid");
+                notice.classList.remove("notice_show");
+            },2000);
+        };
+        let initFramebuffer = function (){
+            gl.useProgram(gl.SHADER_PROGRAM1);
+
+            let texture = gl.createTexture();
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D,texture);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,webgl.width,webgl.height,0,gl.RGB,gl.UNSIGNED_BYTE,null);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+            let frameBuffer = gl.createFramebuffer();
+            let renderBuffer = gl.createRenderbuffer();
+            gl.bindFramebuffer(gl.FRAMEBUFFER,frameBuffer);
+            gl.bindRenderbuffer(gl.RENDERBUFFER,renderBuffer);
+            gl.renderbufferStorage(gl.RENDERBUFFER,gl.DEPTH_COMPONENT16,webgl.width,webgl.height);
+            gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,texture,0);
+            gl.framebufferRenderbuffer(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.RENDERBUFFER,renderBuffer);
+            let status = gl.checkFramebufferStatus(gl.FRAMEBUFFER);
+            notify("The Framebuffer have been loaded");
+            if(status !== gl.FRAMEBUFFER_COMPLETE){
+                notify("FrameBuffer is not loaded");
+            }
+        };
+        let drawFramebuffer = function (vertices,colors,indices,matrix){
+            gl.useProgram(gl.SHADER_PROGRAM1);
+
+            let width = globalVar.threeD.webgl.width;
+            let height = globalVar.threeD.webgl.height;
+            gl.viewport(0,0,width,height);
+            gl.enable(gl.DEPTH_TEST);
+            gl.clearColor(0,0,0,1);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            initBuffer("a_position",vertices,gl.SHADER_PROGRAM1);
+            initUniform("u_change",matrix,"Matrix4fv",gl.SHADER_PROGRAM1);
+            initUniform("a_color",colors.concat([1]),"4f",gl.SHADER_PROGRAM1);
+            initUniform("u_perspective",(new globalVar.threeD.perspectiveCamera(
+                ...globalVar.threeD.camera.position,...globalVar.threeD.camera.lookAt,
+                0,1,0,20,webgl.width/webgl.height,.1,1000)).matrix,
+                "Matrix4fv",gl.SHADER_PROGRAM1);
+            initArrayBuffer(indices);
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
+
+        };
+
+        let renderer = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+
+            matrix.global.rotate(.7,0,1,0);
+            matrix.globalInverse.setInverseOf(matrix.global);
+            matrix.globalInverse.transpose();
+            initUniform("u_global_change",matrix.global.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            initUniform("u_global_trans",matrix.globalInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+
+            //building1
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            gl.bindVertexArray(globalVar.threeD.data.building1.vertexArray);
+            initUniform("u_change",matrix.building1.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building1Inverse.setInverseOf(matrix.building1);
+            matrix.building1Inverse.transpose();
+            initUniform("u_trans",matrix.building1Inverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building1Indices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building1.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building1Vertices,globalVar.threeD.frameBufferColor.building1,building1TriangleIndices,matrix.building1.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            gl.bindVertexArray(globalVar.threeD.data.building2.vertexArray);
+            matrix.building2 = new Matrix4(new Float32Array(matrix.building1.elements));
+            matrix.building2.translate(0,0,28);
+            initUniform("u_change",matrix.building2.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building2Inverse.setInverseOf(matrix.building2);
+            matrix.building2Inverse.transpose();
+            initUniform("u_trans",matrix.building2Inverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building2Indices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building2.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building2Vertices,globalVar.threeD.frameBufferColor.building2,building2TriangleIndices,matrix.building2.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            matrix.building3 = new Matrix4(new Float32Array(matrix.building1.elements));
+            matrix.building3.translate(0,0,-28);
+            initUniform("u_change",matrix.building3.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building3Inverse.setInverseOf(matrix.building3);
+            matrix.building3Inverse.transpose();
+            initUniform("u_trans",matrix.building3Inverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building2Indices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building2.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building2Vertices,globalVar.threeD.frameBufferColor.building2,building2TriangleIndices,matrix.building3.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            gl.bindVertexArray(globalVar.threeD.data.corridor.vertexArray);
+            matrix.corridor = new Matrix4(new Float32Array(matrix.building1.elements));
+            matrix.corridor.translate(0,0,33.97);
+            initUniform("u_change",matrix.corridor.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.corridorInverse.setInverseOf(matrix.corridor);
+            matrix.corridorInverse.transpose();
+            initUniform("u_trans",matrix.corridorInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,corridorIndices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.corridor.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(corridorVertices,globalVar.threeD.frameBufferColor.corridor,corridorTriangleIndices,matrix.corridor.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            matrix.corridor2 = new Matrix4(new Float32Array(matrix.building1.elements));
+            matrix.corridor2.translate(0,0,-33.97);
+            initUniform("u_change",matrix.corridor2.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.corridor2Inverse.setInverseOf(matrix.corridor2);
+            matrix.corridor2Inverse.transpose();
+            initUniform("u_trans",matrix.corridor2Inverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,corridorIndices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.corridor.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(corridorVertices,globalVar.threeD.frameBufferColor.corridor,corridorTriangleIndices,matrix.corridor2.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            gl.bindVertexArray(globalVar.threeD.data.building4Center.vertexArray);
+            matrix.building4Center = new Matrix4(new Float32Array(matrix.building1.elements));
+            matrix.building4Center.translate(0,0,44.98);
+            initUniform("u_change",matrix.building4Center.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building4CenterInverse.setInverseOf(matrix.building4Center);
+            matrix.building4CenterInverse.transpose();
+            initUniform("u_trans",matrix.building4CenterInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building4CenterIndices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building4Center.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building4CenterVertices,globalVar.threeD.frameBufferColor.building4,building4CenterTriangleIndices,matrix.building4Center.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            matrix.building5Center = new Matrix4(new Float32Array(matrix.building1.elements));
+            matrix.building5Center.translate(0,0,-44.98);
+            initUniform("u_change",matrix.building5Center.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building5CenterInverse.setInverseOf(matrix.building5Center);
+            matrix.building5CenterInverse.transpose();
+            initUniform("u_trans",matrix.building5CenterInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building4CenterIndices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building4Center.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building4CenterVertices,globalVar.threeD.frameBufferColor.building4,building4CenterTriangleIndices,matrix.building5Center.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            gl.bindVertexArray(globalVar.threeD.data.building6Left.vertexArray);
+            matrix.building6Left = new Matrix4(new Float32Array(matrix.building4Center.elements));
+            matrix.building6Left.translate(-47.33,0,-33);
+            initUniform("u_change",matrix.building6Left.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building6LeftInverse.setInverseOf(matrix.building6Left);
+            matrix.building6LeftInverse.transpose();
+            initUniform("u_trans",matrix.building6LeftInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building6LeftIndices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building6Left.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building6LeftVertices,globalVar.threeD.frameBufferColor.building6,building6LeftTriangleIndices,matrix.building6Left.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            matrix.building7Left = new Matrix4(new Float32Array(matrix.building5Center.elements));
+            matrix.building7Left.translate(-47.33,0,33);
+            initUniform("u_change",matrix.building7Left.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building7LeftInverse.setInverseOf(matrix.building7Left);
+            matrix.building7LeftInverse.transpose();
+            initUniform("u_trans",matrix.building7LeftInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building6LeftIndices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building6Left.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building6LeftVertices,globalVar.threeD.frameBufferColor.building6,building6LeftTriangleIndices,matrix.building7Left.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            matrix.building8Right = new Matrix4(new Float32Array(matrix.building5Center.elements));
+            matrix.building8Right.rotate(180,0,1,0);
+            matrix.building8Right.translate(-47.33,0,-33);
+            initUniform("u_change",matrix.building8Right.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building8RightInverse.setInverseOf(matrix.building8Right);
+            matrix.building8RightInverse.transpose();
+            initUniform("u_trans",matrix.building8RightInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building6LeftIndices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building6Left.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building6LeftVertices,globalVar.threeD.frameBufferColor.building6,building6LeftTriangleIndices,matrix.building8Right.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            matrix.building9Right = new Matrix4(new Float32Array(matrix.building5Center.elements));
+            matrix.building9Right.rotate(180,0,1,0);
+            matrix.building9Right.translate(-47.33,0,33);
+            initUniform("u_change",matrix.building9Right.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building9RightInverse.setInverseOf(matrix.building9Right);
+            matrix.building9RightInverse.transpose();
+            initUniform("u_trans",matrix.building9RightInverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building6LeftIndices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building6Left.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building6LeftVertices,globalVar.threeD.frameBufferColor.building6,building6LeftTriangleIndices,matrix.building9Right.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            gl.bindVertexArray(globalVar.threeD.data.building10.vertexArray);
+            matrix.building10 = new Matrix4(new Float32Array(matrix.building5Center.elements));
+            matrix.building10.translate(-41.07,0,20);
+            initUniform("u_change",matrix.building10.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building10Inverse.setInverseOf(matrix.building10);
+            matrix.building10Inverse.transpose();
+            initUniform("u_trans",matrix.building10Inverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building10Indices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building10.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building10Vertices,globalVar.threeD.frameBufferColor.building10,building10TriangleIndices,matrix.building10.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            matrix.building11 = new Matrix4(new Float32Array(matrix.building5Center.elements));
+            matrix.building11.translate(-41.07,0,-20);
+            initUniform("u_change",matrix.building11.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building11Inverse.setInverseOf(matrix.building11);
+            matrix.building11Inverse.transpose();
+            initUniform("u_trans",matrix.building11Inverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building10Indices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building10.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building10Vertices,globalVar.threeD.frameBufferColor.building10,building10TriangleIndices,matrix.building11.elements);
+
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            gl.bindVertexArray(globalVar.threeD.data.building12.vertexArray);
+            matrix.building12 = new Matrix4(new Float32Array(matrix.building5Center.elements));
+            matrix.building12.translate(39.07,0,20);
+            initUniform("u_change",matrix.building12.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building12Inverse.setInverseOf(matrix.building12);
+            matrix.building12Inverse.transpose();
+            initUniform("u_trans",matrix.building12Inverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building12Indices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building12.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building12Vertices,globalVar.threeD.frameBufferColor.building12,building12TriangleIndices,matrix.building12.elements);
+
+            gl.useProgram(gl.SHADER_PROGRAM0);
+            matrix.building13 = new Matrix4(new Float32Array(matrix.building5Center.elements));
+            matrix.building13.translate(39.07,0,-20);
+            initUniform("u_change",matrix.building13.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            matrix.building13Inverse.setInverseOf(matrix.building13);
+            matrix.building13Inverse.transpose();
+            initUniform("u_trans",matrix.building13Inverse.elements,"Matrix4fv",gl.SHADER_PROGRAM0);
+            gl.drawElements(gl.LINES,building12Indices.length,gl.UNSIGNED_SHORT,0);
+            // gl.drawElements(gl.TRIANGLES,globalVar.threeD.data.building12.triangleIndices.length,gl.UNSIGNED_SHORT,0);
+            // drawFramebuffer(building12Vertices,globalVar.threeD.frameBufferColor.building12,building12TriangleIndices,matrix.building13.elements);
+            // drawFramebuffer(building1Vertices,globalVar.threeD.frameBufferColor.building1,building1TriangleIndices,matrix.building1.elements);
+
+            requestAnimationFrame(renderer);
+        };
+        let building1Vertices = globalVar.threeD.data.building1.vertices;
+        let building2Vertices = globalVar.threeD.data.building2.vertices;
+        let corridorVertices = globalVar.threeD.data.corridor.vertices;
+        let building4CenterVertices = globalVar.threeD.data.building4Center.vertices;
+        let building6LeftVertices = globalVar.threeD.data.building6Left.vertices;
+        let building10Vertices = globalVar.threeD.data.building10.vertices;
+        let building12Vertices = globalVar.threeD.data.building12.vertices;
+
+        let building1Indices = globalVar.threeD.data.building1.indices;
+        let building2Indices = globalVar.threeD.data.building2.indices;
+        let corridorIndices = globalVar.threeD.data.corridor.indices;
+        let building4CenterIndices = globalVar.threeD.data.building4Center.indices;
+        let building6LeftIndices = globalVar.threeD.data.building6Left.indices;
+        let building10Indices = globalVar.threeD.data.building10.indices;
+        let building12Indices = globalVar.threeD.data.building12.indices;
+
+        let building1TriangleIndices = globalVar.threeD.data.building1.triangleIndices;
+        let building2TriangleIndices = globalVar.threeD.data.building2.triangleIndices;
+        let corridorTriangleIndices = globalVar.threeD.data.corridor.triangleIndices;
+        let building4CenterTriangleIndices = globalVar.threeD.data.building4Center.triangleIndices;
+        let building6LeftTriangleIndices = globalVar.threeD.data.building6Left.triangleIndices;
+        let building10TriangleIndices = globalVar.threeD.data.building10.triangleIndices;
+        let building12TriangleIndices = globalVar.threeD.data.building12.triangleIndices;
+
+        gl.useProgram(gl.SHADER_PROGRAM0);
+        renderer();
+        // initFramebuffer();
+
+        notice.onmouseover = function (){
+            clearTimeout(notification_timer);
+        };
+        notice.onmouseout = function (){
+            notification_timer = setTimeout(() => {
+                notice.classList.add("notice_hid");
+                notice.classList.remove("notice_show");
+            },2000);
+        };
+        webgl.onclick = function (e){
+            let x = e.clientX;
+            let y = webgl.height - e.clientY;
+            let w = document.documentElement.clientWidth;
+            let h = document.documentElement.clientHeight;
+            // x = -1+2*x/w;y = -1+2*(h-y)/h;
+            let data = new Uint8Array(4);
+            gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,data);
+            let colors =  globalVar.threeD.frameBufferColor;
+            switch(data.join(",")){
+                case colors.building1.join(","):
+                    notify("building1");
+                    break;
+                case colors.building2.join(","):
+                    notify("building2");
+                    break;
+                case colors.building4.join(","):
+                    notify("building4");
+                    break;
+                case colors.building6.join(","):
+                    notify("building6");
+                    break;
+                case colors.building10.join(","):
+                    notify("building10");
+                    break;
+                case colors.building12.join(","):
+                    notify("building12");
+                    break;
+
+
+            }
+        };
+
+    })
+    </script>
+</body>
+</html>

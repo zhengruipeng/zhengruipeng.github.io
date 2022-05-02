@@ -1,0 +1,39 @@
+@keyframes shadow {
+    from{
+        box-shadow:0 0 5px #00AAFF;
+    }
+    to{
+        box-shadow:0 0 30px #00AAFF;
+    }
+}
+body{
+    margin:0;
+}
+#notice{
+    animation-delay: 0s;
+    animation-direction: alternate-reverse;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-name: shadow;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    border:#00AAFF solid 1px;
+    border-radius:10px;
+    position:fixed;
+    top:0;
+    left:35%;
+    height:30%;
+    width:30%;
+    text-align: center;
+    padding-top:20px;
+    color:white;
+    font-family: 微软雅黑;
+    font-size:18px;
+    transition: .5s;
+}
+.notice_show{
+    top:0 !important;
+}
+.notice_hid{
+    top:-40% !important;
+}
