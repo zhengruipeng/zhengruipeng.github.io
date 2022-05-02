@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        caption {
+            padding: 8px;
+            caption-side: bottom;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(100, 100, 100);
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            font-size: 1rem;
+        }
+
+        td,
+        th {
+            border: 1px solid rgb(100, 100, 100);
+            padding: 10px 10px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        col{
+            background-color: #d7d9f2;
+
+        }
+
+    </style>
+</head>
+<body>
+<table>
+    <caption>表格标题</caption>
+    <colgroup>
+        <col span="2" >
+    </colgroup>
+    <thead>
+        <tr>
+            <th scope="col">标题</th>
+            <th scope="col">标题2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">正文</td>
+            <td scope="row">正文2</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>汇总2</td>
+            <td>汇总</td>
+        </tr>
+    </tfoot>
+
+</table>
+</body>
+</html>

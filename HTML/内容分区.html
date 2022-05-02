@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<address>address用于提供个人以及组织信息</address>
+<article>文章和页面的独立结构</article>
+<aside>和其余内容基本无关的部分</aside>
+<footer>内容的页脚</footer>
+<header>标题元素</header>
+<hgroup>代表一个段落的标题</hgroup>
+<main>文档的主体部分</main>
+<nav>提供导航链接</nav>
+<section>文中一个独立部分</section>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const body = this.body;
+        for(let value of body.children){
+            if(value.tagName === "SCRIPT") continue;
+            value.textContent = value.tagName + ":   " + value.textContent;
+        }
+    })
+    </script>
+</body>
+</html>
