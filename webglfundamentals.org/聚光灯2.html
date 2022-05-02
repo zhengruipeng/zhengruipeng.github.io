@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;margin:0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<script type="x-webgl/x-vertex-shader" id="vertex">#version 300 es
+in vec4 a_position;
+in vec4 a_normal;
+in vec4 a_color;
+uniform mat4 u_perspective;
+uniform mat4 u_change;
+uniform vec4 u_ambient;
+uniform vec4 u_point_pos;
+uniform vec4 u_point_color;
+uniform vec4 u_perspective_pos;
+uniform float u_reduction_a;
+uniform float u_reduction_b;
+uniform float u_reduction_c;
+uniform float u_diffuse_intensity;
+uniform float u_mirror_intensity;
+uniform float u_diffuse_reflection;
+uniform float u_mirror_reflection;
+uniform float u_highLight;
+out vec4 v_position;
+out vec4 v_normal;
+out vec4 v_color;
+out vec4 v_ambient;
+out vec4 v_point_pos;
+out vec4 v_point_color;
+out float v_reduction_a;
+out float v_reduction_b;
+out float v_reduction_c;
+out float v_diffuse_intensity;
+out float v_mirror_intensity;
+out float v_diffuse_reflection;
+out float v_mirror_reflection;
+out float v_highLight;
+out vec4 v_perspective_pos;
+    void main(){
+    gl_Position = u_perspective * u_change * a_position;
+        v_position = u_change * a_position;
+        v_normal = a_normal;
+        v_color = a_color;
+        v_ambient = u_ambient;
+        v_point_pos = u_point_pos;
+        v_point_color = u_point_color;
+        v_reduction_a = u_reduction_a;
+        v_reduction_b = u_reduction_b;
+        v_reduction_c = u_reduction_c;
+        v_diffuse_intensity = u_diffuse_intensity;
+        v_mirror_intensity = u_mirror_intensity;
+        v_diffuse_reflection = u_diffuse_reflection;
+        v_mirror_reflection = u_mirror_reflection;
+        v_highLight = u_highLight;
+        v_perspective_pos = u_perspective_pos;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">#version 300 es
+precision highp float;
+in vec4 v_position;
+in vec4 v_normal;
+in vec4 v_color;
+in vec4 v_ambient;
+in vec4 v_point_pos;
+in vec4 v_point_color;
+in float v_reduction_a;
+in float v_reduction_b;
+in float v_reduction_c;
+in float v_diffuse_intensity;
+in float v_mirror_intensity;
+in float v_diffuse_reflection;
+in float v_mirror_reflection;
+in float v_highLight;
+in vec4 v_perspective_pos;
+uniform vec3 u_light_direction;
+out vec4 fragColor;
+float radToDeg(float rad){
+    return rad/3.1415926*180.0;
+}
+float degToRad(float deg){
+    return deg/180.0*3.1415926;
+}
+    void main(){
+        vec3 normal = vec3(v_normal);
+        vec3 point_pos = vec3(v_point_pos);
+        vec3 position = vec3(v_position);
+        vec3 point_relative_pos = point_pos - position;
+        float length = length(point_relative_pos);
+        vec3 halfangle = normalize(normalize(point_relative_pos)+normalize(vec3(v_perspective_pos - v_position)));
+        float theta = max(dot(normalize(point_relative_pos),normalize(normal)),0.0);
+        float reduction = 1.0/(v_reduction_a+v_reduction_b*length+v_reduction_c*length*length);
+        float diffuse = v_diffuse_intensity * v_diffuse_reflection * theta;
+        float mirror = v_mirror_intensity * v_mirror_reflection * max(pow(dot(normalize(normal),halfangle),v_highLight),0.0);
+        float phong = reduction * (diffuse + mirror);
+        vec3 point = vec3(v_point_color) * vec3(v_color) * phong;
+        vec3 ambient = vec3(v_ambient) * vec3(v_color);
+        //float inLight = step(0.4,theta);
+        //float dotFromDirection = dot(/*surfaceToLightDirection*/normalize(point_pos-position),-normalize(point_pos));
+        float dotFromDirection = dot(normalize(point_pos-position),-normalize(u_light_direction));
+        //float limitRange = 1.0 - 2.0;
+        //float inLight = clamp((dotFromDirection - 2.0) / limitRange, 0.0, 1.0);
+        float inLight = smoothstep(cos(degToRad(50.0)),cos(degToRad(0.0)), dotFromDirection);
+        //float inLight = smoothstep(cos(1.0),cos(0.5), dotFromDirection);
+        //float light = inLight * dot(normal, surfaceToLightDirection);
+        point = inLight * point;
+        fragColor = vec4(ambient + point,1.0);
+
+        /*if(0.4<theta && theta< 1.0){
+            fragColor = vec4(ambient+point,1.0);
+        }else{
+            fragColor = vec4(ambient,1.0);
+        }*/
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = this.getElementById("webgl");
+        let vertex = this.getElementById("vertex");
+        let fragment = this.getElementById("fragment");
+        webgl.width = this.documentElement.clientWidth;
+        webgl.height = this.documentElement.clientHeight-3;
+        let gl = webgl.getContext("webgl2");
+        Math.cot = function (x){
+            return 1/Math.tan(x);
+        };
+        function initShader(shaderSources, opt_attribs, opt_locations, opt_errorCallback) {
+            /**
+             * Creates a program, attaches shaders, binds attrib locations, links the
+             * program and calls useProgram.
+             * @param {WebGLShader[]} shaders The shaders to attach
+             * @param {string[]} [opt_attribs] An array of attribs names. Locations will be assigned by index if not passed in
+             * @param {number[]} [opt_locations] The locations for the. A parallel array to opt_attribs letting you assign locations.
+             * @param {module:webgl-utils.ErrorCallback} opt_errorCallback callback for errors. By default it just prints an error to the console
+             *        on error. If you want something else pass an callback. It's passed an error message.
+             * @memberOf module:webgl-utils
+             */
+            function createProgram(gl, shaders, opt_attribs, opt_locations, opt_errorCallback) {
+                const errFn = opt_errorCallback || error;
+                const program = gl.createProgram();
+                shaders.forEach(function(shader) {
+                    gl.attachShader(program, shader);
+                });
+                if (opt_attribs) {
+                    opt_attribs.forEach(function(attrib, ndx) {
+                        gl.bindAttribLocation(
+                            program,
+                            opt_locations ? opt_locations[ndx] : ndx,
+                            attrib);
+                    });
+                }
+                gl.linkProgram(program);
+
+                // Check the link status
+                const linked = gl.getProgramParameter(program, gl.LINK_STATUS);
+                if (!linked) {
+                    // something went wrong with the link
+                    const lastError = gl.getProgramInfoLog(program);
+                    errFn(`Error in program linking: ${lastError}\n${
+                        shaders.map(shader => {
+                            const src = addLineNumbersWithError(gl.getShaderSource(shader));
+                            console.log(gl.getShaderSource(shader),src);
+                            const type = gl.getShaderParameter(shader, gl.SHADER_TYPE);
+                            return `${glEnumToString(gl, type)}:\n${src}`;
+                        }).join('\n')
+                    }`);
+
+                    gl.deleteProgram(program);
+                    return null;
+                }
+                return program;
+            }
+            /**
+             * Loads a shader.
+             * @param {WebGLRenderingContext} gl The WebGLRenderingContext to use.
+             * @param {string} shaderSource The shader source.
+             * @param {number} shaderType The type of shader.
+             * @param {module:webgl-utils.ErrorCallback} opt_errorCallback callback for errors.
+             * @return {WebGLShader} The created shader.
+             */
+            function loadShader(gl, shaderSource, shaderType, opt_errorCallback) {
+                const errFn = opt_errorCallback || error;
+                // Create the shader object
+                const shader = gl.createShader(shaderType);
+
+                // Load the shader source
+                gl.shaderSource(shader, shaderSource);
+
+                // Compile the shader
+                gl.compileShader(shader);
+
+                // Check the compile status
+                const compiled = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+                if (!compiled) {
+                    // Something went wrong during compilation; get the error
+                    const lastError = gl.getShaderInfoLog(shader);
+                    // console.log(lastError);
+                    errFn(`Error compiling shader: ${lastError}\n${addLineNumbersWithError(shaderSource, lastError)}`);
+                    gl.deleteShader(shader);
+                    return null;
+                }
+
+                return shader;
+            }
+            function addLineNumbersWithError(src, log = '') {
+                // Note: Error message formats are not defined by any spec so this may or may not work.
+                const matches = [...log.matchAll(errorRE)];
+                // console.log(matches);
+                const lineNoToErrorMap = new Map(matches.map((m, ndx) => {
+                    const lineNo = parseInt(m[1]);
+                    const next = matches[ndx + 1];
+                    const end = next ? next.index : log.length;
+                    const msg = log.substring(m.index, end);
+                    return [lineNo - 1, msg];
+                }));
+                return src.split('\n').map((line, lineNo) => {
+                    const err = lineNoToErrorMap.get(lineNo);
+                    return `${lineNo + 1}: ${line}${err ? `\n\n^^^ ${err}` : ''}`;
+                }).join('\n');
+            }
+            const errorRE = /ERROR:\s*\d+:(\d+)/gi;
+            let topWindow = window;
+            const defaultShaderType = [
+                "VERTEX_SHADER",
+                "FRAGMENT_SHADER",
+            ];
+            function error(msg) {
+                if (topWindow.console) {
+                    if (topWindow.console.error) {
+                        topWindow.console.error(msg);
+                    } else if (topWindow.console.log) {
+                        topWindow.console.log(msg);
+                    }
+                }
+            }
+            const shaders = [];
+            for (let ii = 0; ii < shaderSources.length; ++ii) {
+                shaders.push(loadShader(
+                    gl, shaderSources[ii], gl[defaultShaderType[ii]], opt_errorCallback));
+            }
+            return createProgram(gl, shaders, opt_attribs, opt_locations, opt_errorCallback);
+        }
+        let initBuffer = function (name,value,shader){
+            let attribute = gl.getAttribLocation(shader,name);
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,value,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute)
+        };
+        let initUniform = function (name,value,type,shader){
+            let uniform = gl.getUniformLocation(shader,name);
+            type.slice(0,1) === "M"?gl['uniform'+type](uniform,false,value):gl['uniform'+type](uniform,...value);
+
+        };
+        let vertices = [],normals = [],indices = [],colors = [],texture = [];
+        let drawSphere = function(radius,segmentX,segmentY) {
+            let lats = segmentX,
+                longs = segmentY;
+
+            for (let latNumber = 0; latNumber <= lats; ++latNumber) {
+                for (let longNumber = 0; longNumber <= longs; ++longNumber) {
+                    var u = longNumber / segmentX;
+                    var v = latNumber / segmentY;
+                    let theta = latNumber * Math.PI / lats;
+                    let phi = longNumber / longs * 2 * Math.PI ;
+                    let sinTheta = Math.sin(theta);
+                    let sinPhi = Math.sin(phi);
+                    let cosTheta = Math.cos(theta);
+                    let cosPhi = Math.cos(phi);
+                    let x = cosPhi * sinTheta;
+                    let y = cosTheta;
+                    let z = sinPhi * sinTheta;
+                    // let s, t ,u;
+                    vertices.push(radius * x);
+                    vertices.push(radius * y);
+                    vertices.push(radius * z);
+                    normals.push(x);
+                    normals.push(y);
+                    normals.push(z);
+                    colors.push(1.0);
+                    colors.push(1.0);
+                    colors.push(1.0);
+                    texture.push(u);
+                    texture.push(1-v);
+                    texture.push(0);
+                }
+            }
+
+            for (let latNumberI = 0; latNumberI < lats; ++latNumberI) {
+                for (let longNumberI = 0; longNumberI < longs; ++longNumberI) {
+                    let first = (latNumberI * (longs+1)) + longNumberI;
+                    let second = first + longs + 1;
+                    indices.push(first);
+                    indices.push(second);
+                    indices.push(first+1);
+                    indices.push(second);
+                    indices.push(second+1);
+                    indices.push(first+1);
+                }
+            }
+            vertices = new Float32Array(vertices);
+            normals = new Float32Array(normals);
+            colors = new Float32Array(colors);
+            texture = new Float32Array(texture);
+            indices = new Uint16Array(indices);
+        };
+        let distance = function (arr){
+            return Math.hypot(...arr);
+        };
+        let normal = function(arr1,arr2){
+            return [
+                arr1[1]*arr2[2]-arr2[1]*arr1[2],
+                arr2[0]*arr1[2]-arr2[2]*arr1[0],
+                arr2[1]*arr1[0]-arr2[0]*arr1[1],
+            ];
+        };
+        let times = function(mat1 ,mat2) {
+            var i, e, a, b, ai0, ai1, ai2, ai3;
+            // Calculate e = a * b
+            e = mat1;
+            a = mat1;
+            b = mat2;
+
+            if (e === b) {
+                b = new Float32Array(16);
+                for (i = 0; i < 16; ++i) {
+                    b[i] = e[i];
+                }
+            }
+
+            for (i = 0; i < 4; i++) {
+                ai0=a[i];  ai1=a[i+4];  ai2=a[i+8];  ai3=a[i+12];
+                e[i]    = ai0 * b[0]  + ai1 * b[1]  + ai2 * b[2]  + ai3 * b[3];
+                e[i+4]  = ai0 * b[4]  + ai1 * b[5]  + ai2 * b[6]  + ai3 * b[7];
+                e[i+8]  = ai0 * b[8]  + ai1 * b[9]  + ai2 * b[10] + ai3 * b[11];
+                e[i+12] = ai0 * b[12] + ai1 * b[13] + ai2 * b[14] + ai3 * b[15];
+            }
+
+            return mat1;
+        };
+        let normalize = function (vec){
+            return distance(vec) !== 0?[vec[0]/distance(vec),vec[1]/distance(vec),vec[2]/distance(vec)]:[0,0,0];
+        };
+        let minus = function (vec1,vec2){
+            return [vec2[0]-vec1[0],vec2[1]-vec1[1],vec2[2]-vec1[2]];
+        };
+        let translate = function(mat1,x, y, z){
+            var e = mat1;
+            e[12] += e[0] * x + e[4] * y + e[8]  * z;
+            e[13] += e[1] * x + e[5] * y + e[9]  * z;
+            e[14] += e[2] * x + e[6] * y + e[10] * z;
+            e[15] += e[3] * x + e[7] * y + e[11] * z;
+            return mat1;
+        };
+        let initPerspective = function (eyeX,eyeY,eyeZ,centerX,centerY,centerZ,topX,topY,topZ, fovy, ascept, near, far) {
+            fovy = Math.PI/180*fovy;
+            let perspective = new Float32Array([
+                Math.cot(fovy)/ascept,0,0,0,
+                0,Math.cot(fovy),0,0,
+                0,0,-(near+far)/(far-near),-1,
+                0,0,-(2*far*near)/(far-near),0
+            ]);
+            let fe = [eyeX,eyeY,eyeZ];
+            let fc = [centerX,centerY,centerZ];
+            let ft = [topX,topY,topZ];
+            let fn = normalize(minus(fe,fc));          //z
+            let fu = normalize(normal(fn,ft));        //x
+            let fv = normalize(normal(fn,fu));        //y
+            let lookAt = new Float32Array([
+                fu[0],-fv[0],-fn[0],0,
+                fu[1],-fv[1],-fn[1],0,
+                fu[2],-fv[2],-fn[2],0,
+                0,0,0,1
+            ]);
+            lookAt = translate(lookAt,-eyeX,-eyeY,-eyeZ);
+            lookAt = times(perspective,lookAt);
+            return lookAt;
+        };
+        function subtractVectors(a, b) {
+            let dst = [];
+            dst[0] = a[0] - b[0];
+            dst[1] = a[1] - b[1];
+            dst[2] = a[2] - b[2];
+            return dst;
+        }
+        function cross(a, b) {
+            let dst = [];
+            dst[0] = a[1] * b[2] - a[2] * b[1];
+            dst[1] = a[2] * b[0] - a[0] * b[2];
+            dst[2] = a[0] * b[1] - a[1] * b[0];
+            return dst;
+        }
+        function lookAt(cameraPosition, target, up) {
+            let dst = [];
+            var zAxis = normalize(
+                subtractVectors(cameraPosition, target));
+            var xAxis = normalize(cross(up, zAxis));
+            var yAxis = normalize(cross(zAxis, xAxis));
+            dst[ 0] = xAxis[0];
+            dst[ 1] = xAxis[1];
+            dst[ 2] = xAxis[2];
+            dst[ 3] = 0;
+            dst[ 4] = yAxis[0];
+            dst[ 5] = yAxis[1];
+            dst[ 6] = yAxis[2];
+            dst[ 7] = 0;
+            dst[ 8] = zAxis[0];
+            dst[ 9] = zAxis[1];
+            dst[10] = zAxis[2];
+            dst[11] = 0;
+            dst[12] = cameraPosition[0];
+            dst[13] = cameraPosition[1];
+            dst[14] = cameraPosition[2];
+            dst[15] = 1;
+
+            return dst;
+        }
+        function multiply(a, b) {
+            let dst = new Float32Array(16);
+            var b00 = b[0 * 4 + 0];
+            var b01 = b[0 * 4 + 1];
+            var b02 = b[0 * 4 + 2];
+            var b03 = b[0 * 4 + 3];
+            var b10 = b[1 * 4 + 0];
+            var b11 = b[1 * 4 + 1];
+            var b12 = b[1 * 4 + 2];
+            var b13 = b[1 * 4 + 3];
+            var b20 = b[2 * 4 + 0];
+            var b21 = b[2 * 4 + 1];
+            var b22 = b[2 * 4 + 2];
+            var b23 = b[2 * 4 + 3];
+            var b30 = b[3 * 4 + 0];
+            var b31 = b[3 * 4 + 1];
+            var b32 = b[3 * 4 + 2];
+            var b33 = b[3 * 4 + 3];
+            var a00 = a[0 * 4 + 0];
+            var a01 = a[0 * 4 + 1];
+            var a02 = a[0 * 4 + 2];
+            var a03 = a[0 * 4 + 3];
+            var a10 = a[1 * 4 + 0];
+            var a11 = a[1 * 4 + 1];
+            var a12 = a[1 * 4 + 2];
+            var a13 = a[1 * 4 + 3];
+            var a20 = a[2 * 4 + 0];
+            var a21 = a[2 * 4 + 1];
+            var a22 = a[2 * 4 + 2];
+            var a23 = a[2 * 4 + 3];
+            var a30 = a[3 * 4 + 0];
+            var a31 = a[3 * 4 + 1];
+            var a32 = a[3 * 4 + 2];
+            var a33 = a[3 * 4 + 3];
+            dst[ 0] = b00 * a00 + b01 * a10 + b02 * a20 + b03 * a30;
+            dst[ 1] = b00 * a01 + b01 * a11 + b02 * a21 + b03 * a31;
+            dst[ 2] = b00 * a02 + b01 * a12 + b02 * a22 + b03 * a32;
+            dst[ 3] = b00 * a03 + b01 * a13 + b02 * a23 + b03 * a33;
+            dst[ 4] = b10 * a00 + b11 * a10 + b12 * a20 + b13 * a30;
+            dst[ 5] = b10 * a01 + b11 * a11 + b12 * a21 + b13 * a31;
+            dst[ 6] = b10 * a02 + b11 * a12 + b12 * a22 + b13 * a32;
+            dst[ 7] = b10 * a03 + b11 * a13 + b12 * a23 + b13 * a33;
+            dst[ 8] = b20 * a00 + b21 * a10 + b22 * a20 + b23 * a30;
+            dst[ 9] = b20 * a01 + b21 * a11 + b22 * a21 + b23 * a31;
+            dst[10] = b20 * a02 + b21 * a12 + b22 * a22 + b23 * a32;
+            dst[11] = b20 * a03 + b21 * a13 + b22 * a23 + b23 * a33;
+            dst[12] = b30 * a00 + b31 * a10 + b32 * a20 + b33 * a30;
+            dst[13] = b30 * a01 + b31 * a11 + b32 * a21 + b33 * a31;
+            dst[14] = b30 * a02 + b31 * a12 + b32 * a22 + b33 * a32;
+            dst[15] = b30 * a03 + b31 * a13 + b32 * a23 + b33 * a33;
+            return dst;
+        }
+        function xRotation(angleInRadians) {
+            let dst = new Float32Array(16);
+            var c = Math.cos(angleInRadians);
+            var s = Math.sin(angleInRadians);
+
+            dst[ 0] = 1;
+            dst[ 1] = 0;
+            dst[ 2] = 0;
+            dst[ 3] = 0;
+            dst[ 4] = 0;
+            dst[ 5] = c;
+            dst[ 6] = s;
+            dst[ 7] = 0;
+            dst[ 8] = 0;
+            dst[ 9] = -s;
+            dst[10] = c;
+            dst[11] = 0;
+            dst[12] = 0;
+            dst[13] = 0;
+            dst[14] = 0;
+            dst[15] = 1;
+
+            return dst;
+        }
+        function yRotation(angleInRadians) {
+            let dst = new Float32Array(16);
+            var c = Math.cos(angleInRadians);
+            var s = Math.sin(angleInRadians);
+
+            dst[ 0] = c;
+            dst[ 1] = 0;
+            dst[ 2] = -s;
+            dst[ 3] = 0;
+            dst[ 4] = 0;
+            dst[ 5] = 1;
+            dst[ 6] = 0;
+            dst[ 7] = 0;
+            dst[ 8] = s;
+            dst[ 9] = 0;
+            dst[10] = c;
+            dst[11] = 0;
+            dst[12] = 0;
+            dst[13] = 0;
+            dst[14] = 0;
+            dst[15] = 1;
+
+            return dst;
+        }
+        let initArrayBuffer = function (b){
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,b,gl.STATIC_DRAW);
+        };
+        let render = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
+            requestAnimationFrame(render);
+        };
+        gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,0);
+        // initShaders(gl,vertex.innerText,fragment.innerText);
+        gl.SHADER_PROGRAM0 = initShader([vertex.innerText,fragment.innerText]);
+        gl.useProgram(gl.SHADER_PROGRAM0);
+        drawSphere(1,32,32);
+        let worldMatrix = new Float32Array([
+            5,0,0,0,
+            0,5,0,0,
+            0,0,5,0,
+            0,0,0,1
+        ]);
+        let perspective_pos = [0,0,15];
+        let point_pos = [0,0,7];
+        let perspectiveMatrix = initPerspective(...perspective_pos,0,0,0,0,1,0,20,webgl.width/webgl.height,.1,1000);
+        initBuffer("a_position",vertices,gl.SHADER_PROGRAM0);
+        initBuffer("a_normal",normals,gl.SHADER_PROGRAM0);
+        initBuffer("a_color",colors,gl.SHADER_PROGRAM0);
+        initArrayBuffer(indices);
+        initUniform("u_perspective",perspectiveMatrix,"Matrix4fv",gl.SHADER_PROGRAM0);
+        initUniform("u_change",worldMatrix,"Matrix4fv",gl.SHADER_PROGRAM0);
+        initUniform("u_ambient",[0,0,0,1],"4f",gl.SHADER_PROGRAM0);
+        initUniform("u_point_pos",[...point_pos,1],"4f",gl.SHADER_PROGRAM0);
+        initUniform("u_point_color",[1,1,1,1],"4f",gl.SHADER_PROGRAM0);
+        initUniform("u_reduction_a",[0.05],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_reduction_b",[0.05],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_reduction_c",[0.05],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_diffuse_intensity",[0.8],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_mirror_intensity",[0.8],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_diffuse_reflection",[0.5],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_mirror_reflection",[0.5],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_highLight",[1],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_perspective_pos",perspective_pos.concat([1]),"4f",gl.SHADER_PROGRAM0);
+
+        var lmat = lookAt(point_pos, [0,0,-1], [0,1,0]);
+
+        lmat = multiply(xRotation(0), lmat);
+        lmat = multiply(yRotation(0), lmat);
+        // get the zAxis from the matrix
+        // negate it because lookAt looks down the -Z axis
+        let lightDirection = [-lmat[8], -lmat[9], -lmat[10]];
+        console.log(lightDirection);
+
+        initUniform("u_light_direction",lightDirection,"3f",gl.SHADER_PROGRAM0);
+        render();
+
+    })
+</script>
+</body>
+</html>
