@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<code>
+    <pre id="code">
+
+    </pre>
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const codeContainer = this.querySelector("#code");
+        fetch("./获取网页源代码.html").then(response => response.text())
+        .then(text => codeContainer.innerText = text);
+    })
+</script>
+</body>
+</html>

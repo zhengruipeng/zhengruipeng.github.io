@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border:1px #000 solid;
+            padding:5px 10px ;
+            text-align:center;
+            width:100%;
+        }
+        td{
+            border:1px #000 solid;
+        }
+        </style>
+</head>
+<body>
+获取视频流后按照一秒一帧进行捕获，帧数据会输出至开发者工具<br/>
+<video autoplay controls  ></video>
+<canvas  id="2d"></canvas>
+<table>
+    <caption>视频参数</caption>
+    <tbody>
+
+    </tbody>
+</table>
+<!--<canvas id="2d"></canvas>-->
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      const video = this.querySelector("video");
+      const canvas = this.querySelector("canvas");
+      const table = this.querySelector("table");
+      const tbody = table.querySelector("tbody");
+        navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(mediaStream => {
+            video.srcObject = mediaStream;
+            // console.log(mediaStream.getVideoTracks());
+            // console.log(mediaStream.getVideoTracks()[0].getConstraints())
+            // console.log(mediaStream.getVideoTracks()[0].getCapabilities())
+            // console.log(mediaStream.getVideoTracks()[0].getSettings())
+            let setting = mediaStream.getVideoTracks()[0].getSettings();
+
+            for(let name in setting){
+                let tr = document.createElement("tr");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                td1.innerHTML = name;
+                td2.innerHTML = setting[name];
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tbody.appendChild(tr);
+
+            }
+            canvas.width = setting.width;
+            canvas.height = setting.height;
+            const ctx2d = canvas.getContext("2d");
+            setInterval(() => {
+                ctx2d.drawImage(video,0,0);
+                let imageData = ctx2d.getImageData(0,0,ctx2d.canvas.width,ctx2d.canvas.height);
+                console.log(imageData);
+            },1000);
+        })
+  })
+</script>
+</body>
+</html>
