@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="2d"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const canvas = this.getElementById("2d");
+        canvas.height = 720;
+        canvas.width = 1280;
+        const c = canvas.getContext("2d");
+        c.fillStyle = "rgba(200,200,200,0.3)";
+        c.strokeStyle = "rgba(201,238,246,1)";
+        c.font = "40px 萝莉体 第二版";
+        c.lineWidth = 2;
+        c.fillText("_wakaba_",50,50);
+        c.strokeText("_wakaba_",50,50);
+        c.font = "20px 萝莉体 第二版";
+        c.fillText("のJS养成之路",75,80);
+        c.strokeText("のJS养成之路",75,80);
+    })
+    </script>
+</body>
+</html>

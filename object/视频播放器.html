@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ padding:0;margin:0; }
+    </style>
+</head>
+<body>
+<div id="message" style="z-index:1;text-align:center;line-height:450%;opacity:0;position:absolute;top:-20%;height:20%;width:20%;left:40%;background-color:#222222;color:white;transition:.5s"></div>
+<video src="./1.mp4" autoplay controls id="video" style="height:100%;width:100%;position:absolute;z-index:0"></video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let select = prompt("输入级数");
+        let video = this.getElementById("video");
+        let message = this.getElementById("message");
+        let messageTimer;
+        let mouseDisTimer;
+        let setMessage = function (str){
+            clearTimeout(messageTimer);
+            let disappear = function (){
+                message.style.opacity = "0.0";
+                message.style.top = "-20%";
+            };
+            message.innerText = str;
+            message.style.opacity = "0.8";
+            message.style.top = "-0%";
+            messageTimer = setTimeout(disappear,2000);
+
+        };
+        let Controls = function (video,playing){
+            this.target = video;
+            this.playing = playing;
+            this.playRate = 1.0;
+            this.select = function (n){
+                let src = this.target.src;
+                this.target.setAttribute("src",src.substring(0,src.lastIndexOf("/")+1)+n+src.substring(src.lastIndexOf(".mp4"),src.length));
+            };
+            this.pause = function (){
+                setMessage("暂停");
+                this.target.pause();
+            };
+            this.play = function (){
+                setMessage("播放");
+                this.target.play();
+            };
+            this.next = function (){
+                let src = this.target.src;
+                this.playing = parseFloat(src.substring(src.lastIndexOf("/")+1,src.lastIndexOf(".mp4")))+1;
+                this.target.setAttribute("src",src.substring(0,src.lastIndexOf("/")+1)+this.playing+src.substring(src.lastIndexOf(".mp4"),src.length));
+                if(this.target.networkState === 3){
+                    setMessage("播放完成");
+                    this.target.setAttribute("src",src.substring(0,src.lastIndexOf("/")+1)+(this.playing)+src.substring(src.lastIndexOf(".mp4"),src.length));
+                }
+            };
+            this.setPlayRate = function (n){
+                this.target.playbackRate = this.playRate+n;
+                this.playRate = this.playRate + n;
+            };
+        };
+        let con = new Controls(video,select);
+        con.select(select);
+        video.onended = function (){con.next()};
+        window.onkeydown = function (e){
+            if(e.ctrlKey){
+                switch (e.key) {
+                    case "z":con.setPlayRate(0.1);setMessage("播放速度: "+(con.playRate.toString().substr(0,3)));break;
+                    case "x":con.setPlayRate(-0.1);setMessage("播放速度: "+(con.playRate.toString().substr(0,3)));break;
+                }
+            }
+            if(e.key === " "){
+                e.preventDefault();
+                if(con.target.paused)con.play();
+                else con.pause();
+            }else if(e.keyCode === 37){
+                e.preventDefault();
+                con.target.currentTime = con.target.currentTime-2;
+            }else if(e.keyCode === 39){
+                e.preventDefault();
+                con.target.currentTime = con.target.currentTime+2;
+            }
+        };
+        video.onmousemove = function (){
+            clearTimeout(mouseDisTimer);
+            video.style.cursor = "pointer";
+            mouseDisTimer = setTimeout(function (){video.style.cursor = "none";},1000);
+        };
+
+    })
+</script>
+</body>
+</html>
