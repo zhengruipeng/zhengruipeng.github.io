@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let whiteNoise = async function (){
+            const audioContext = new AudioContext();
+            await audioContext.audioWorklet.addModule('white-noise-processor.js');
+            const whiteNoiseNode = new AudioWorkletNode(audioContext, 'white-noise-processor');
+            whiteNoiseNode.connect(audioContext.destination);
+        };
+        this.onclick = whiteNoise;
+
+    })
+</script>
+</body>
+</html>

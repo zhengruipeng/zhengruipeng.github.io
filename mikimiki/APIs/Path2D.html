@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" ></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const canvas = this.getElementById("canvas");
+        canvas.width = this.documentElement.clientWidth;
+        canvas.height = this.documentElement.clientHeight;
+
+        const c = canvas.getContext("2d");
+
+        let path1 = new Path2D();
+        path1.moveTo(100,100);
+        path1.lineTo(100,200);
+        path1.lineTo(200,200);
+        path1.closePath();
+
+        const path2 = new Path2D();
+        path2.moveTo(200,100);
+        path2.bezierCurveTo(300,0,400,200,500,100);
+
+        path1.addPath(path2);
+        c.lineWidth = "1";
+        c.strokeStyle = "#000";
+        c.stroke(path1);
+    })
+</script>
+</body>
+</html>

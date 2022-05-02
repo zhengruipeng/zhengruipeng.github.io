@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @supports (display: layout(centering)) {
+            .centering-layout { display: layout(centering);border:red solid 1px; }
+        }
+    </style>
+</head>
+<body>
+<div class="centering-layout"></div>
+<div class="centering-layout"></div>
+<div class="centering-layout"></div>
+<div class="centering-layout"></div>
+
+<script type="text/javascript">
+    window.onload = async function (){
+        if ('layoutWorklet' in CSS) {
+            console.log('CSS Layout API available!');
+        }
+        await CSS.layoutWorklet.addModule('layoutworklet.js');
+
+    }
+</script>
+</body>
+</html>

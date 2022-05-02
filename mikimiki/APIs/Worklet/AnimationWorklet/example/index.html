@@ -1,0 +1,28 @@
+<div id='scrollingContainer'>
+    <div id='header' style='height: 150px'></div>
+    <div id='avatar'><img></div>
+</div>
+
+<script>
+    window.onload = async function (){
+        await CSS.animationWorklet.addModule('twitter-header-animator.js');
+        const animation = new WorkletAnimation(
+            'twitter-header',
+            [new KeyframeEffect($avatar,  /* scales down as we scroll up */
+                [{transform: 'scale(1)'}, {transform: 'scale(0.5)'}],
+                {duration: 1000, iterations: 1}),
+                new KeyframeEffect($header, /* loses transparency as we scroll up */
+                    [{opacity: 0}, {opacity: 0.8}],
+                    {duration: 1000, iterations: 1})],
+            new ScrollTimeline({
+                scrollSource: $scrollingContainer,
+                orientation: 'block',
+                timeRange: 1000,
+                startScrollOffset: 0,
+                endScrollOffset: $header.clientHeight}));
+        animation.play();
+
+        // Since this animation is using a group effect, the same animation instance
+        // is accessible via different handles: $avatarEl.getAnimations()[0], $headerEl.getAnimations()[0]
+    }
+</script>

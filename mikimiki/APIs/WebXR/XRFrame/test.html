@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        location.protocol !== "https:"?location.protocol = "https:":undefined;
+    </script>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        // Obtain XR object
+        const webgl = this.getElementById("webgl");
+        const gl = webgl.getContext("webgl2");
+        const XR = navigator.xr
+
+        // Request a new XRSession
+        XR.requestSession("inline").then(async (xrSession) => {
+            let xrReferenceSpace = await xrSession.requestReferenceSpace("viewer");
+            console.log(xrReferenceSpace);
+            xrSession.requestAnimationFrame((time, xrFrame) => {        //不知道为什么没法运行
+
+                let xrWebGLLayer = xrSession.renderState.baseLayer;
+
+                let viewer = xrFrame.getViewerPose(xrReferenceSpace)
+
+                gl.bindFramebuffer(xrWebGLLayer.framebuffer)
+                for (xrView of viewer.views) {
+                    let xrViewport = xrWebGLLayer.getViewport(xrView)
+                    gl.viewport(xrViewport.x, xrViewport.y, xrViewport.width, xrViewport.height)
+
+                    // WebGL draw calls will now be rendered into the appropriate viewport.
+                }
+            });
+
+        })
+    })
+    </script>
+</body>
+</html>

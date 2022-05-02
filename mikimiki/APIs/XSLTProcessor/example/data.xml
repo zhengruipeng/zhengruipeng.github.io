@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<myNS:Article xmlns:myNS="http://devedge.netscape.com/2002/de">
+    <myNS:Title>My Article</myNS:Title>
+    <myNS:Authors>
+        <myNS:Author company="Foopy Corp.">Mr. Foo</myNS:Author>
+        <myNS:Author>Mr. Bar</myNS:Author>
+    </myNS:Authors>
+    <myNS:Body>
+        The <b>rain</b> in <u>Spain</u> stays mainly in the plains.
+    </myNS:Body>
+</myNS:Article>

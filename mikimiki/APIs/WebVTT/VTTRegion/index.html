@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    video::cue{
+      color:white;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+<video src="../1.mp4" controls>
+
+</video>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const video = this.querySelector("video");
+    let track = video.addTextTrack("captions","Captions","en");
+    track.mode = "showing";
+    let firCue = new VTTCue(0,10,"字幕1");
+    firCue.id="firCue";
+    video.width = 500;
+    const region = new VTTRegion();
+    region.width = 50;  // Use 50% of the video width
+    region.lines = 1;  // Use 4 lines of height.
+    region.viewportAnchorX = 25;  // Have the region start at 25% from the left.
+    firCue.region = region;
+    track.addCue(firCue);
+    track.addCue(new VTTCue(11,20,"字幕2"));
+  })
+</script>
+</body>
+</html>

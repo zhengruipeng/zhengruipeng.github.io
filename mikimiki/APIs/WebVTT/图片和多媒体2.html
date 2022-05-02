@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        video{
+            width:500px;
+        }
+        video::cue {
+            font-size: 1em;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+
+<video src="1.mp4" controls>
+    <track src="zimu.vtt" srclang="en" default="" kind="captions"/>
+</video>
+<audio src="1.mp3" controls>
+    <track src="zimu.vtt" srclang="en" default="" kind="captions"/>
+</audio>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        
+    })
+</script>
+</body>
+</html>

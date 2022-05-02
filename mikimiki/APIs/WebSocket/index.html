@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            padding:14px;
+        }
+    </style>
+</head>
+<body>
+<button id="close">终止连接</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const closeButton = this.getElementById("close");
+
+        var ws = new WebSocket("ws://localhost:3000/","ws");
+
+        ws.onopen = function() {
+            // Web Socket 已连接上，使用 send() 方法发送数据
+            ws.send("发送数据");
+            console.log("数据发送中...");
+        };
+
+        ws.onmessage = function (evt) {
+            var msg = evt.data;
+            console.log("数据已接收..." + msg);
+        };
+
+        ws.onclose = function() {
+            console.log("连接已关闭...");
+        };
+
+        closeButton.onclick = function (){
+            ws.close();
+        }
+
+    });
+</script>
+</body>
+</html>

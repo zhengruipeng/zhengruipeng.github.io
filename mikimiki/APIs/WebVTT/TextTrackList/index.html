@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        video::cue{
+            color:white;
+            font-size: 1em;
+        }
+        </style>
+</head>
+<body>
+<video src="../1.mp4" controls>
+
+</video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const video = this.querySelector("video");
+        const tracks = video.textTracks;
+        let track = video.addTextTrack("captions","Captions","en");
+        track.mode = "showing";
+        let firCue = new VTTCue(0,10,"字幕1");
+        firCue.id="firCue";
+        track.addCue(firCue);
+        track.addCue(new VTTCue(11,20,"字幕2"));
+        console.log(track);
+        console.log(tracks.getTrackById("fir"));
+        console.log(tracks.getTrackById("fir")?.cues.getCueById("firCue"));
+        tracks.onaddtrack = function (e){
+            console.log("addTrack",e);
+        };
+        tracks.onchange = function (e){
+            console.log("onchange",e);
+        };
+        tracks[0].oncuechange = function (e){
+            console.log("oncuechange",e);
+        };
+        tracks[0].cues.getCueById("firCue").onenter = function (e){
+            console.log("onenter",e);
+        };
+        tracks[0].cues.getCueById("firCue").onexit = function (e){
+            console.log("onexit",e);
+        };
+        tracks[0].cues[1].pauseOnExit = true;
+
+    })
+</script>
+</body>
+</html>
