@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        video{
+            width:640px;
+            height:480px;
+        }
+        </style>
+</head>
+<body>
+<video id="source" autoplay playsInline muted loop></video>
+<video id="target" autoplay playsInline></video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const source = this.getElementById("source");
+        const target = this.getElementById("target");
+
+        source.src = "../../../1.mp4";
+
+        source.oncanplay = function (){
+            let fps = 30;
+            console.log(source);
+            let mediaStream = null;
+            if(source.captureStream){
+                mediaStream = source.captureStream(fps);
+            }else if(source.mozCaptureStream){
+                mediaStream = source.mozCaptureStream(fps);
+
+            }
+            console.log(mediaStream)
+            target.srcObject = mediaStream;
+        }
+
+    })
+</script>
+</body>
+</html>

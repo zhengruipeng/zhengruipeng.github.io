@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="sendMsg" maxlength="20"  />
+<p id="receiveMsg"></p>
+<button id="call">call</button>
+<button id="send">send</button>
+<button id="hungup">hungup</button>
+<p id="notification"></p>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const sendMsgInput = this.getElementById("sendMsg");
+        const receiveMsgContainer = this.getElementById("receiveMsg");
+        const callBtn = this.getElementById("call");
+        const sendBtn = this.getElementById("send");
+        const hungupBtn = this.getElementById("hungup");
+        const notification = this.getElementById("notification");
+        const RTCICEConfig = {iceServers:[{url:"stun:stun.l.google.com:19302"}]};
+        let peerConnA,peerConnB;
+        let sendChannel,receiveChannel;
+        callBtn.onclick = function (){
+            let createOffer = async function (desc){
+                await peerConnA.setLocalDescription(desc);
+                await peerConnB.setRemoteDescription(desc);
+                let answer = await peerConnB.createAnswer();
+                await peerConnB.setLocalDescription(answer);
+                await peerConnA.setRemoteDescription(answer);
+            }
+            peerConnA = new RTCPeerConnection(RTCICEConfig);
+            peerConnB = new RTCPeerConnection(RTCICEConfig);
+
+            peerConnA.addEventListener("icecandidate",async function (e){
+                await peerConnB.addIceCandidate(e.candidate);
+                console.log("iceCandidate event in A");
+            });
+            peerConnB.addEventListener("icecandidate",async function (e){
+                await peerConnA.addIceCandidate(e.candidate);
+                console.log("iceCandidate event in B");
+            });
+            peerConnA.addEventListener("iceconnectionstatechange",function (e){
+                console.log(e.type+" ev. fired in A");
+            });
+            peerConnB.addEventListener("iceconnectionstatechange",function (){
+                console.log(e.type+" ev. fired in B");
+            });
+
+            sendChannel = peerConnA.createDataChannel("webrtc-datachannel");
+            sendChannel.onopen = sendChannel.onclose = function (){
+                console.log(this.readyState);
+            };
+
+            peerConnB.addEventListener("datachannel",function (e){
+                receiveChannel = e.channel;
+                receiveChannel.onopen = function (){
+                    notification.innerHTML = "the status of signaling channel is:"+this.readyState;
+                };
+                receiveChannel.onmessage = function (e){
+                    receiveMsgContainer.innerHTML = e.data;
+                };
+                receiveChannel.onclose = function (){
+                    notification.innerHTML = "the status of signaling channel is:"+this.readyState;
+                }
+            })
+
+            peerConnA.createOffer().then(res => {
+                createOffer(res);
+            })
+
+        };
+        sendBtn.onclick = function (){
+            if(sendMsgInput.value === "")notification.innerHTML = "传输信息不能为空";
+            sendChannel.send(sendMsgInput.value);
+            console.log("数据已发送："+sendMsgInput.value)
+        };
+        hungupBtn.onclick = function (){
+            peerConnA.close();
+            peerConnB.close();
+        };
+    })
+    </script>
+</body>
+</html>

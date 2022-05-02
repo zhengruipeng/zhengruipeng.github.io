@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .blur{
+      filter:blur(3px);
+    }
+    .inverse{
+      filter:invert(1);
+    }
+    .grayscale{
+      filter:grayscale(1);
+    }
+    .none{
+      filter:none;
+    }
+    </style>
+</head>
+<body>
+
+<button id="camera">打开屏幕共享</button>
+<button id="blur">添加模糊滤镜</button>
+<button id="inverse">添加翻转滤镜</button>
+<button id="grayscale">添加灰度滤镜</button>
+<button id="none">无滤镜</button>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const openCamera = this.getElementById("camera");
+    const blur = this.getElementById("blur");
+    const inverse = this.getElementById("inverse");
+    const grayscale = this.getElementById("grayscale");
+    const none = this.getElementById("none");
+    openCamera.onclick = function (){
+      navigator.mediaDevices.getDisplayMedia({audio:true,video:true}).then(mediaStream => {
+        const video = document.createElement("video");
+        video.srcObject = mediaStream;
+        video.autoplay = true;
+        video.playsInline = true;
+
+        document.body.appendChild(video);
+      })
+    };
+    blur.onclick = function (){
+      document.getElementsByTagName("video")[0].className = "blur";
+    };
+    inverse.onclick = function (){
+      document.getElementsByTagName("video")[0].className = "inverse";
+    };
+    grayscale.onclick = function (){
+      document.getElementsByTagName("video")[0].className = "grayscale";
+    };
+    none.onclick = function (){
+      document.getElementsByTagName("video")[0].className = "none";
+    };
+  })
+</script>
+</body>
+</html>

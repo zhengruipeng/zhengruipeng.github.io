@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="button">截图</button>
+<video playsinline autoplay id="video" height="480" width="640"></video>
+<canvas height="480" width="640" id="canvas"></canvas>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const button = this.getElementById("button");
+        const video = this.getElementById("video");
+        const canvas = this.getElementById("canvas");
+        const c = canvas.getContext("2d");
+        navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(mediaStream => {
+            video.srcObject = mediaStream;
+        });
+        button.onclick = function (){
+            c.drawImage(video,0,0,640,480);
+
+        }
+
+    })
+</script>
+</body>
+</html>

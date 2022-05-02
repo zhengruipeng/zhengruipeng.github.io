@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module" src="../libs/soundmeter.js"></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      let p1 = new Promise((resolved,reject) => {
+          import("../libs/soundmeter.js").then(module => {
+              const SoundMeter = module.default;
+              let audioCtx = new AudioContext();
+              const soundMeter = new SoundMeter(audioCtx);
+              console.log(soundMeter);
+            resolved(soundMeter);
+          });
+      });
+      let p2 = new Promise((resolved,rejected) => {
+          navigator.mediaDevices.getUserMedia({audio:true,video:false}).then( mediaStream => {
+              const audio = document.createElement("audio");
+              audio.srcObject = mediaStream;
+              audio.autoplay = true;
+              document.body.appendChild(audio);
+              resolved(mediaStream);
+          })
+      });
+      let fetchF = function (res){
+          res[0].connectToSource(res[1]);
+          let val = res[0].instant.toFixed(2)*348+1;
+          console.log(val);
+
+          setTimeout(_ => {fetchF(res)},1000);
+      }
+      Promise.all([p1,p2]).then(fetchF)
+
+
+  })
+  </script>
+</body>
+</html>

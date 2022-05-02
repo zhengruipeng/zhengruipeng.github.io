@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="device">
+
+</select>
+<video></video>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const device = this.getElementById("device");
+
+    navigator.mediaDevices.enumerateDevices().then(res => {
+      for(let v of res){
+        if(v.kind !== "audiooutput")continue;
+        const opt = document.createElement("option");
+        opt.value = v.deviceId;
+        opt.innerHTML = v.label;
+        device.appendChild(opt);
+
+      }
+    });
+
+    device.onchange = function (){
+      let device = this.selectedOptions[0];
+      let deviceId = device.value;
+      navigator.mediaDevices.getUserMedia({audio:true,video:false}).then(mediaStream => {
+        let videotrack = mediaStream.getVideoTracks()[0];
+        let audiotrack = mediaStream.getAudioTracks()[0];
+
+
+      })
+    }
+
+  })
+  </script>
+</body>
+</html>

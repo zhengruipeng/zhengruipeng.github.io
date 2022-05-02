@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="camera">打开摄像头</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const openCamera = this.getElementById("camera");
+        openCamera.onclick = function (){
+            navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(mediaStream => {
+                const video = document.createElement("video");
+                video.srcObject = mediaStream;
+                video.autoplay = true;
+                video.playsInline = true;
+
+                document.body.appendChild(video);
+
+            })
+        }
+    })
+    </script>
+</body>
+</html>

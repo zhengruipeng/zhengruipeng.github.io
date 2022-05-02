@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            display:block;
+            margin:5px 10px;
+        }
+        #fileDrop{
+            height:180px;
+            width:100%;
+            position:fixed;
+            background-color:rgba(51,255,0,.5);
+            top:0;
+            left:0;
+        }
+        progress{
+            display: inline;
+            margin:10px 20px;
+        }
+        .process{
+            width:auto;
+            margin:20px;
+            padding:10px 40px;
+            border:#ccc solid 2px;
+            text-align: justify;
+        }
+        .process>p{
+            line-height:10px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="fileDrop" style="display: none;"></div>
+<template id="file-update-template">
+    <div class="process">
+        <h3><slot name="document-name">DOC. NAME</slot></h3>
+        <p><span>update progress： </span><slot name="upload-progress"></slot></p>
+        <p><span>download progress：  </span><slot name="download-progress"></slot></p>
+    </div>
+</template>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const fileDrop = document.getElementById("fileDrop");
+        // const updateProgress = document.getElementById("updateProgress");
+        // const downloadProgress = document.getElementById("downloadProgress");
+        let notify = function (msg){
+            new Notification(msg,{title:"来自网页的提醒"});
+        };
+
+        let peerConnA,peerConnB;
+        let localChannel,remoteChannel;
+        let allFiles = [],currentFileName;
+        const RTCICEConfig = {iceServers:[{url:"stun:stun.l.google.com:19302"}]};
+        let initRTCConn = function (){
+            let createOfferAndAnswer = async function (){
+                const desc = await peerConnA.createOffer();
+
+                await peerConnA.setLocalDescription(desc);
+                await peerConnB.setRemoteDescription(desc);
+                const answer = await peerConnB.createAnswer();
+                await peerConnB.setLocalDescription(answer);
+                await peerConnA.setRemoteDescription(answer)
+            };
+            peerConnA = new RTCPeerConnection(RTCICEConfig);
+            peerConnB = new RTCPeerConnection(RTCICEConfig);
+
+            peerConnA.addEventListener("icecandidate",async function (e){
+                await peerConnB.addIceCandidate(e.candidate);
+            });
+            peerConnB.addEventListener("icecandidate",async function (e){
+                await peerConnA.addIceCandidate(e.candidate);
+            });
+            peerConnA.addEventListener("iceconnectionstatechange",function (e){
+            });
+            peerConnB.addEventListener("iceconnectionstatechange",function (e){
+            });
+
+            localChannel = peerConnA.createDataChannel("dataChannel1");
+            localChannel.binaryType = "arraybuffer";
+
+            peerConnB.addEventListener("datachannel",function (e){
+                remoteChannel = e.channel;
+                remoteChannel.binaryType = "arraybuffer";
+                remoteChannel.onopen = function (e){
+                    notify("channel is opened");
+                };
+                remoteChannel.onclose = function (e){
+                    notify("channel is closed");
+                };
+                let receiveData = [
+                    {name:"exampleName",buffer:[],size:0},
+                ];
+                let fileExist = function (name){
+                    let res = -1;
+                    for(let i = 0,len = receiveData.length;i<len;i++){
+                        if(receiveData[i].name === name){
+                            res = i;
+                            return res;
+                        }
+                    }
+                    return res;
+                }
+                let fileExistInFileArr = function (name){
+                    let res = -1;
+                    for(let i = 0,len = allFiles.length;i<len;i++){
+                        if(allFiles[i].name === name){
+                            res = i;
+                            return res;
+                        }
+                    }
+                    return res;
+                }
+                remoteChannel.onmessage = function (e){
+                    let fileName = currentFileName;
+                    console.log(fileName);
+                    let index = fileExist(fileName);
+                    if(index === -1){
+                        receiveData.push({buffer:[],size:0,name:fileName});
+                        index = fileExist(fileName);
+                    }
+
+                    receiveData[index].buffer.push(e.data);
+                    receiveData[index].size += e.data.byteLength;
+                    document.getElementById(fileName + "-download-progress").value = receiveData[index].size;
+                    let index2 = fileExistInFileArr(fileName);
+                    if(allFiles[index2].size === receiveData[index].size){
+                        notify(fileName+" download complete");
+                        alert("123")
+                        const received = new Blob(receiveData[index].buffer);
+                        receiveData[index].buffer = [];
+                        let downloadBtn = document.createElement("a");
+                        downloadBtn.href = URL.createObjectURL(received);
+                        downloadBtn.download = allFiles[index2].name+"download";
+                        downloadBtn.innerHTML = "download "+fileName;
+                        document.body.appendChild(downloadBtn);
+                    }
+                };
+            });
+
+            createOfferAndAnswer();
+        };
+        let sendFile = function (file){
+            document.getElementById(file.name + "-upload-progress").max = file.size;
+            document.getElementById(file.name + "-download-progress").max = file.size;
+
+            let chunkSize = 16384;
+            let fileReader = new FileReader();
+            let offset = {fileName:0,};
+            offset[file.name] = 0;
+            let readSlice = function (){
+                let slice = file.slice( offset[file.name], offset[file.name] + chunkSize);
+                fileReader.readAsArrayBuffer(slice);
+            };
+            fileReader.addEventListener("load",function (){
+                this.result.cusName = file.name;
+                currentFileName = file.name;
+                localChannel.send(this.result);
+                offset[file.name] += this.result.byteLength;
+                document.getElementById(file.name + "-upload-progress").value =  offset[file.name];
+                if( offset[file.name] < file.size){
+                    readSlice();
+                }
+
+            });
+            readSlice();
+        };
+        initRTCConn();
+        customElements.define('element-process',class extends HTMLElement {
+            constructor() {
+                super();
+                const template = document.getElementById('file-update-template').content;
+                console.log(template);
+                const shadowRoot = this.attachShadow({mode: 'open'})
+                    .appendChild(template.cloneNode(true));
+            }
+        });
+
+        window.ondragover = function (e){
+            fileDrop.style.display = "block";
+        };
+        window.ondragleave = function (){
+        };
+        fileDrop.ondragover = function (e){
+            fileDrop.style.display = "block";
+
+            e.preventDefault();
+
+        };
+        fileDrop.ondragenter = function (e){
+            fileDrop.style.display = "block";
+            e.preventDefault();
+        };
+        fileDrop.ondragleave = function (e){
+            e.preventDefault();
+            fileDrop.style.display = "none";
+
+        };
+        fileDrop.ondrop = function (e){
+            e.preventDefault();
+            this.style.display = "none";
+            for(let file of e.dataTransfer.files){
+                allFiles.push(file);
+                const elementProcess = document.createElement("element-process");
+                const fileName = document.createElement("span");
+                fileName.slot = "document-name";
+                fileName.innerHTML = file.name;
+                elementProcess.appendChild(fileName);
+                const uploadProgress = document.createElement("progress");
+                uploadProgress.slot = "upload-progress";
+                uploadProgress.id = file.name + "-upload-progress";
+                elementProcess.appendChild(uploadProgress);
+                const downloadProgress = document.createElement("progress");
+                downloadProgress.slot = "download-progress";
+                downloadProgress.id = file.name + "-download-progress";
+                elementProcess.appendChild(downloadProgress);
+                document.body.appendChild(elementProcess);
+
+                sendFile(file);
+
+            }
+
+        };
+
+    })
+    </script>
+</body>
+</html>

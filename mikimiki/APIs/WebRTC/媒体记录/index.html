@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="startRecord">开始录制</button>
+<button id="finishRecord">停止录制</button>
+<button id="recordedVideo">播放已录制视频</button>
+<button id="download">下载视频</button>
+<p id="notification"></p>
+<hr />
+
+<video id="source"></video>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const startRecordBtn = this.getElementById("startRecord");
+      const finishRecordBtn = this.getElementById("finishRecord");
+      const recordedVideo = this.getElementById("recordedVideo");
+      const download = this.getElementById("download");
+      const notification = this.getElementById("notification");
+    const source = this.getElementById("source");
+    const useMediaStream = function (){
+      this.mediaStream = null;
+      this.mediaRecorder = null;
+      this.recorderBlob = [];
+      this.recorderTime = 10;
+
+      this.getUserMedia = function (cb){
+        navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(mediaStream => {
+            this.mediaStream = mediaStream;
+            cb(mediaStream);
+        });
+      };
+      this.startRecorder = async function (videoContainer){
+          this.mediaStream = await navigator.mediaDevices.getUserMedia({audio:true,video:true});
+          this.recorderBlob = [];
+          let option = {mineType:"video/mp4"};
+            console.log(this.mediaStream);
+          this.mediaRecorder = new MediaRecorder(this.mediaStream,option);
+          videoContainer.srcObject = this.mediaStream;
+
+          this.mediaRecorder.onstop = function (){
+              notification.innerHTML = "录制已停止";
+          };
+          let that = this;
+          this.mediaRecorder.ondataavailable = function (e){
+              notification.innerHTML = "dataavailable";
+              that.recorderBlob.push(e.data);
+
+
+          };
+          this.mediaRecorder.start(this.recorderTime);
+      }
+        this.stopRecorder = function (videoContainer){
+          console.log(this.mediaRecorder);
+          this.mediaRecorder.stop();
+          videoContainer.srcObject = null;
+
+      }
+        this.playRecordedVideo = function (videoContainer){
+          const blob = new Blob(this.recorderBlob,{type:"video/mp4"});
+          videoContainer.src = URL.createObjectURL(blob);
+          videoContainer.play();
+
+      }
+        this.downloadRecordVideo = function (){
+          const blob = new Blob(this.recorderBlob,{type:"video/mp4"});
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "test.mp4";
+          a.style.display = "none";
+          document.body.appendChild(a);
+          a.click();
+
+
+      }
+    };
+    let mediaR = new useMediaStream();
+    let g = function (){
+        startRecordBtn.onclick = mediaR.startRecorder.bind(mediaR,source);
+        finishRecordBtn.onclick = mediaR.stopRecorder.bind(mediaR,source);
+        recordedVideo.onclick = () => mediaR.playRecordedVideo(source);
+        download.onclick = mediaR.downloadRecordVideo.bind(mediaR);
+
+    };
+    mediaR.getUserMedia(g);
+
+  })
+  </script>
+</body>
+</html>

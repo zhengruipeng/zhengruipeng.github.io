@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      canvas{
+        border:red solid 1px;
+      }
+    </style>
+</head>
+<body>
+<canvas id="canvas" height="480" width="640"></canvas>
+<video id="remote" muted autoplay playsinline height="480" width="640"></video>
+<button id="start">开始</button>
+<button id="call">呼叫</button>
+<button id="finish">挂断</button>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const canvas = this.getElementById("canvas");
+    const remoteVideo = this.getElementById("remote");
+    const startBtn = this.getElementById("start");
+    const callBtn = this.getElementById("call");
+    const finishBtn = this.getElementById("finish");
+    const c = canvas.getContext("2d");
+    let mousedown = function (e){
+      c.strokeStyle = "#000";
+      let x = e.layerX-this.offsetLeft;
+      let y = e.layerY-this.offsetTop;
+
+      c.moveTo(x,y);
+      c.lineTo(x,y);
+      c.stroke();
+      canvas.onmousemove = mousemove;
+      canvas.onmouseup = mouseup;
+
+    };
+    let mousemove = function (e){
+      let x = e.layerX-this.offsetLeft;
+      let y = e.layerY-this.offsetTop;
+      c.lineTo(x,y);
+      c.stroke();
+    };
+    let mouseup = function (e){
+      this.onmousemove = null;
+    }
+    startBtn.onclick = function (){
+      canvas.onmousedown = mousedown;
+    };
+    let peerConnA = null;
+    let peerConnB = null;
+    let RTCConnConfig = {"iceServer":[{urls:"stun:stun.l.google.com:19302"}]};
+    let canvasStream = canvas.captureStream(10);
+    let createOfferHandler = async function (desc){
+        await peerConnA.setLocalDescription(desc);
+        await peerConnB.setRemoteDescription(desc);
+        let answer = await peerConnB.createAnswer();
+        await peerConnB.setLocalDescription(answer);
+        await peerConnA.setRemoteDescription(answer);
+
+    };
+    let remoteStream = function (e){
+        console.log(e.streams[0]);
+        remoteVideo.srcObject = e.streams[0];
+
+    };
+    let iceCandidateA = function (e){
+        peerConnB.addIceCandidate(e.candidate);
+    };
+    let iceCandidateB = function(e){
+        peerConnA.addIceCandidate(e.candidate);
+    };
+    let connectionstatechangeA, connectionstatechangeB;
+    connectionstatechangeA = connectionstatechangeB = function (){
+
+    };
+    callBtn.onclick = function (){
+      peerConnA = new RTCPeerConnection (RTCConnConfig);
+      peerConnB = new RTCPeerConnection (RTCConnConfig);
+      peerConnA.addEventListener("icecandidate",iceCandidateA);
+      peerConnB.addEventListener("icecandidate",iceCandidateB);
+      peerConnA.addEventListener("iceconnectionstatechange",connectionstatechangeA);
+      peerConnB.addEventListener("iceconnectionstatechange",connectionstatechangeB);
+      peerConnB.addEventListener("track",remoteStream);
+
+      canvasStream.getTracks().forEach(v => {
+          peerConnA.addTrack(v,canvasStream);
+
+      });
+
+      peerConnA.createOffer().then(res => {
+          createOfferHandler(res);
+      })
+    };
+    finishBtn.onclick = function (){
+      canvas.onMouseDown = null;
+      canvas.onmousemove = null;
+      canvas.onmouseup = null;
+    };
+
+  })
+  </script>
+</body>
+</html>
