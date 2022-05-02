@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    input{
+      margin:20px;
+
+    }
+    input[type="text"]:invalid{
+      box-shadow: red 0 0 30px;
+    }
+    input[type="text"]:valid{
+      box-shadow: blue 0 0 30px;
+    }
+    input[type="tel"]:invalid{
+      box-shadow: red 0 0 30px;
+    }
+    input[type="tel"]:valid{
+      box-shadow: blue 0 0 30px;
+    }
+
+
+    </style>
+</head>
+<body>
+<input type="text" pattern="\w+@\w+.com" />
+<input type="tel" pattern="\d{1,4}-\d{3,}" />
+</body>
+</html>

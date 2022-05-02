@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    input{
+      margin:30px;
+    }
+    input:enabled{
+      box-shadow:red 0 0 30px ;
+      opacity:.5;
+      transition:1s;
+    }
+    input:disabled{
+      box-shadow:blue 0 0 30px ;
+    }
+    input:focus{
+      opacity:1;
+      transition:1s;
+    }
+  </style>
+</head>
+<body>
+<input type="text" class="enabled" />
+<input type="text" class="disabled" disabled />
+</body>
+</html>

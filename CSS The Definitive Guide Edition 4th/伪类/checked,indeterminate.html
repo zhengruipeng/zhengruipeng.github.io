@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    [type="checkbox"]:checked{
+      box-shadow:blue 0 0 30px;
+      transition:.5s;
+    }
+    [type="checkbox"]:indeterminate{
+      box-shadow:red 0 0 30px;
+    }
+    [type="checkbox"] + label{
+      background-color:rgba(0,0,0,0);
+      transition:.5s;
+
+    }
+  </style>
+</head>
+<body>
+<form>
+  <input type="checkbox" id="fir" /><label for="fir">I</label>
+  <input type="checkbox" id="sec" /><label for="sec">II</label>
+  <input type="checkbox" id="thi" /><label for="thi">III</label>
+  <input type="checkbox" id="fou" /><label for="fou">IV</label>
+  <input type="checkbox" id="fif" /><label for="fif">V</label>
+</form>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const inputEles = this.querySelectorAll("input");
+    inputEles[0].indeterminate = true;
+
+  })
+</script>
+</body>
+</html>

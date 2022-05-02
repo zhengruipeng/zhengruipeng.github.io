@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      margin:30px;
+      border-image-outset:10px;
+      padding:10px;
+      line-height:100px;
+      border-style:solid ;
+      border-width:2px;
+      border-color:#000;
+      border-image-width:30px;
+      border-image-slice:30%;
+      width:500px;
+    }
+    div.repeat{
+      border-image-source: url("1.png");
+
+      border-image-repeat: repeat;
+    }
+    div.stretch{
+      border-image-source: url("1.png");
+      border-image-repeat: stretch;
+    }
+    div.round{
+      border-image-source: url("1.png");
+      border-image-repeat: round;
+    }
+    div.space{
+      border-image-source: url("1.png");
+      border-image-repeat: space;
+    }
+  </style>
+</head>
+<body>
+<div class="repeat">this is content text.the image of border repeat by attribute value repeat</div>
+<div class="stretch">this is content text.the image of border repeat by attribute value stretch</div>
+<div class="round">this is content text.the image of border repeat by attribute value round</div>
+<div class="space">this is content text.the image of border repeat by attribute value space</div>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+
+  })
+</script>
+</body>
+</html>

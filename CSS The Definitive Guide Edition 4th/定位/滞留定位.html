@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    main{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      overflow: scroll;
+      width:600px;
+      height:100vh;
+    }
+    main>div{
+      grid-column: 1/span 3;
+      grid-row: 2/span 1;
+    }
+    #sticky{
+      text-align: center;
+      position:sticky;
+      top:0;
+      background-color:#ccc;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div>
+
+    <p id="sticky">1234</p>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </div>
+
+</main>
+<script type="module">
+
+  document.addEventListener("DOMContentLoaded",function (){
+
+  })
+</script>
+</body>
+</html>

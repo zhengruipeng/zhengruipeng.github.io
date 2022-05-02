@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    ul :first-child{
+      background-color:blue;
+
+    }
+    ul :nth-child(2){
+      background-color:red;
+    }
+    ul :nth-child(3){
+      font-weight: bold;
+    }
+    ul :nth-child(2) ~ li{
+      font-style: italic;
+    }
+    ul :nth-child(2n+1) {
+      text-transform:uppercase;
+    }
+    </style>
+  <style>
+    table>tbody>tr>td:after{
+      content:" content ";
+
+    }
+    table>tbody>tr>td{
+      padding:10px;
+      border:#000 solid 1px;
+    }
+    table{
+      border-collapse:collapse;
+
+    }
+    table > tbody >:nth-child(even){
+      background-color:silver;
+    }
+    table > tbody > :nth-child(odd){
+      background-color:gold;
+    }
+
+    </style>
+</head>
+<body>
+<ul>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+  <li>fourth</li>
+  <li>fifth</li>
+  <li>sixth</li>
+  <li>seventh</li>
+</ul>
+
+<table>
+  <tbody>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

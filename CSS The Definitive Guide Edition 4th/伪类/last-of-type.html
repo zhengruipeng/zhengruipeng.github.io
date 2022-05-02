@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse:collapse;
+            margin:20px;
+        }
+        div>table:last-of-type > tbody > tr > td{
+            border:red solid 1px;
+        }
+
+        table tr>td:after{
+            content:"ta";
+        }
+        table >tbody> tr > td{
+            background-color:blue;
+            padding:5px 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <div></div>
+    <p></p>
+    <table>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

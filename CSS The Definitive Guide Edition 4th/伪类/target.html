@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    *:target{
+      box-shadow: red 0 0 30px;
+    }
+    #section1:target:after{
+      content:"(exist as a target)";
+
+    }
+    #section1{
+      position:absolute;
+      top:3000px;
+      left:0;
+    }
+
+    </style>
+</head>
+<body>
+<a href="./target.html#section1">jump to section1 </a>
+<section id="section1">
+123123
+</section>
+
+</body>
+</html>

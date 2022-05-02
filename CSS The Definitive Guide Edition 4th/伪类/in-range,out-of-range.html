@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    input{
+      display: block;
+      margin:40px;
+
+    }
+    input:in-range{
+      box-shadow: blue 0 0 30px;
+    }
+    input:out-of-range{
+      box-shadow: red 0 0 30px;
+    }
+    </style>
+</head>
+<body>
+<input type="number" max="100" min="1" />
+<input type="range" max="100" min="0" step="10" />
+
+
+</body>
+</html>

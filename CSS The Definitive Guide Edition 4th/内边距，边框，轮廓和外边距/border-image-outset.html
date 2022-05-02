@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      border-image-source:url("1.png");
+      border-image-slice: 30%;
+      border-image-width: 20px;
+      padding:5px;
+      border-image-outset:15px;
+      width:100px;
+      margin:30px;
+      border-style: solid ;
+      border-width:2px;
+    }
+  </style>
+</head>
+<body>
+<div>this is the content text</div>
+<div style="border-image-source:url('./2.png')">this is the content text</div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+
+  })
+</script>
+</body>
+</html>

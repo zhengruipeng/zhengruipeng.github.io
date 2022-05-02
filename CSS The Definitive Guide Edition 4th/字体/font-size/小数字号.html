@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+        }
+        hr:first-child{
+            position: relative;
+            top:24px;
+        }
+    </style>
+</head>
+<body>
+<hr />
+<p></p>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const p = this.querySelector("p");
+
+        for(let i = 0;i<10;i++){
+            const span = document.createElement("span");
+            span.innerHTML = "0";
+            span.style.fontSize = 30+0.1*i+"px";
+            p.appendChild(span);
+        }
+    })
+</script>
+</body>
+</html>

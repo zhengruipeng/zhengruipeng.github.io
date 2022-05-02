@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    header{
+      font-size:3rem;
+      border:red solid 1px;
+    }
+    #main-title{
+      font-size:inherit;
+      border:inherit;
+    }
+    #sub-title{
+      font-size:initial;
+      border:initial;
+
+    }
+    header > p > em{
+      /*可继承属性继承，否则取默认值*/
+      font-size:unset;
+      border:unset;
+
+    }
+
+
+    </style>
+</head>
+<body>
+<header >
+  <p id="main-title">main<em>>_<</em></p>
+  <p id="sub-title">sub<em>>_<</em></p>
+</header>
+</body>
+</html>

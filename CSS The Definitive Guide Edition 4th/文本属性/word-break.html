@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            width:250px;
+        }
+        p:first-child{
+            hyphens:auto;
+        }
+        p:nth-of-type(2){
+            hyphens:manual;
+        }
+        p:nth-of-type(3){
+            hyphens:none;
+        }
+    </style>
+</head>
+<body>
+<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfas dfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
+<p>asdfasdfasdfasdfa&#xad;sdfasdfasdfasdfasdfasdfasdfas dfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
+<p>asdfasdfasdfasdfa&#xad;sdfasdfasdfasdfasdfasdfasdfas dfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
+</body>
+</html>
