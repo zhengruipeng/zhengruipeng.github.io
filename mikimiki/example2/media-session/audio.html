@@ -18,8 +18,6 @@ licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/">CC B
 
 <button id="playButton">▶ PLAY</button>
 
-{% include output_helper.html %}
-
 <script>
   if (!('mediaSession' in navigator)) {
     ChromeSamples.setStatus('The Media Session API is not yet available. Try Chrome for Android.');
@@ -32,8 +30,6 @@ licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/">CC B
 
   log = ChromeSamples.log;
 </script>
-
-{% include js_snippet.html filename='audio.js' %}
 
 <script>
   document.querySelector('#playButton').addEventListener('click', onPlayButtonClick);
