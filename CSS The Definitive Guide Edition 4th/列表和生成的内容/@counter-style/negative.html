@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @counter-style  fix{
+            system: numeric;
+            symbols: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+            suffix: '$';
+            prefix: '#';
+            negative: '*(' ')';
+        }
+        ul{
+            margin-left:50px;
+            list-style:fix;
+            counter-reset: ul-counter -5;
+        }
+        ul>li{
+            counter-increment: ul-counter;
+        }
+        ul>li::before{
+            content:counter(ul-counter,fix);
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

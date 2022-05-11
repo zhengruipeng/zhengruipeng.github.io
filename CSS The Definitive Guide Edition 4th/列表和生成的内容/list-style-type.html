@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select>
+    <option>disc</option>
+    <option>circle</option>
+    <option>square</option>
+    <option>disclosure-open</option>
+    <option>disclosure-closed</option>
+    <option>decimal</option>
+    <option>decimal-leading-zero</option>
+    <option>arabic-indic</option>
+    <option>armenian</option>
+    <option>upper-armenian</option>
+    <option>lower-armenian</option>
+    <option>bengali</option>
+    <option>cambodian</option>
+    <option>khmer</option>
+    <option>cjk-decimal</option>
+    <option>devanagari</option>
+    <option>gujarati</option>
+    <option>gurmukhi</option>
+    <option>georgian</option>
+    <option>hebrew</option>
+    <option>kannada</option>
+    <option>lao</option>
+    <option>malayalam</option>
+    <option>mongolian</option>
+    <option>myanmar</option>
+    <option>oriya</option>
+    <option>persian</option>
+    <option>lower-roman</option>
+    <option>upper-roman</option>
+    <option>tamil</option>
+    <option>telugu</option>
+    <option>thai</option>
+    <option>tibetan</option>
+    <option>lower-branch</option>
+    <option>cjk-heavenly-stem</option>
+    <option>lower-greek</option>
+    <option>hiragana</option>
+    <option>hiragana-iroha</option>
+    <option>katakana</option>
+    <option>katakana-iroha</option>
+    <option>japanese-informal</option>
+    <option>japanese-formal</option>
+    <option>korean-hangul-formal</option>
+    <option>korean-hanja-informal</option>
+    <option>korean-hanja-formal</option>
+    <option>simp-chinese-informal</option>
+    <option>simp-chinese-formal</option>
+    <option>trad-chinese-informal</option>
+    <option>trad-chinese-formal</option>
+    <option>ethiopic-numeric</option>
+</select>
+<ol>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+<ul style="list-style-type:'南小鸟'">
+    <li></li>
+    <li></li>
+    <li></li>
+
+</ul>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const ol = this.querySelector("ol");
+        const select = this.querySelector("select");
+        select.onchange = function (){
+            ol.style.listStyleType = this.selectedOptions[0].innerHTML;
+        };
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            counter-reset: h1-counter;
+
+        }
+        h1 {
+            counter-reset:h2-counter;
+            counter-increment: h1-counter;
+        }
+        h1::before {
+            content: counter(h1-counter) ".";
+        }
+
+        h2 {
+            counter-reset:h3-counter;
+            counter-increment: h2-counter;
+
+        }
+        h2::before {
+            content:counter(h1-counter) "." counter(h2-counter) "." ;
+        }
+        h3 {
+            counter-increment: h3-counter;
+
+        }
+        h3::before {
+            content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) "." ;
+        }
+    </style>
+</head>
+<body>
+<h1>the secret life of salmon</h1>
+<h2>introduction</h2>
+<h2>habitats</h2>
+<h3>ocean</h3>
+<h3>rivers</h3>
+<h2>spawning</h2>
+<h3>fertillization</h3>
+<h3>rivers</h3>
+<h3>rivers</h3>
+<h1>the secret life of salmon</h1>
+<h2>introduction</h2>
+<h2>habitats</h2>
+<h3>ocean</h3>
+<h3>rivers</h3>
+<h2>spawning</h2>
+<h3>fertillization</h3>
+<h3>rivers</h3>
+<h3>rivers</h3>
+    <script type='text/javascript'>
+        document.addEventListener("DOMContentLoaded", function () {
+            const h1 = this.querySelector("h1");
+
+        })
+        </script>
+</body>
+</html>

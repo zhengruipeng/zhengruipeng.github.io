@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        book{
+            quotes: '《' '》';
+            display: block;
+        }
+        book::after{
+            content: close-quote ;
+        }
+        book::before{
+            content: open-quote ;
+        }
+        step{
+            quotes:'{' '}' '[' ']' '(' ')';
+        }
+        step::before{
+            content:open-quote;
+        }
+        step::after{
+            content:close-quote ;
+        }
+    </style>
+</head>
+<body>
+<book>铃村优的瑠依观察日记</book>
+<book>琴乃和丽央的记仇小本本（麻奈：草）</book>
+<book>Kokoro著作之：今天丽央吃了多少pancake</book>
+<step>123*<step>321+<step>332+22</step></step></step>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        customElements.define("book",class extends HTMLElement{
+            constructor(){
+                super();
+            }
+        })
+    })
+    </script>
+</body>
+</html>

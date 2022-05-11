@@ -18,75 +18,12 @@
         </style>
 </head>
 <body>
-<div class="box"></div>
+<input type="button" value="button" />
+<input type="checkbox" />
+<input type="color" />
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded",function () {
-        const item = document.querySelector(".box");
-        item.addEventListener('transitionrun', () => {
-            let animations = document.querySelector(".box").getAnimations();
-            console.log(animations0);
-        });
 
-        let DoublePrecisionEPSILON = function (){
-
-        }
-        DoublePrecisionEPSILON.prototype = {};
-        DoublePrecisionEPSILON.prototype.constructor = DoublePrecisionEPSILON;
-        DoublePrecisionEPSILON.toIntForm = function (arr){
-            let elements = Array.from(arr);
-            let maxLen = 0;
-            elements.forEach(v => {
-                if((v+'').indexOf('.') !== -1){
-                    maxLen = Math.max(maxLen,(v+'').substring((v+'').indexOf('.')).length-1)
-                }
-            } );
-
-            if(maxLen>16){
-                maxLen = 16;
-                elements = elements.map(v => (v+'').substring(0,16)-0);
-            }
-            console.log(maxLen);
-            elements = elements.map(v => {
-                /*if((v+"").indexOf(".") !== -1){
-                    let decimalLen = (v+'').substring((v+'').indexOf('.')).length-1;
-                    console.log(v)
-                    v = v+""+(new Array(maxLen-decimalLen).fill('0').join(""));
-                    console.log(v);
-                }*/
-                // return (v+"").split(".").join("")-0
-                // return v*(10**maxLen);
-                let arr = new Array(maxLen+1).fill("0");
-                arr[0] = '1';
-                // console.log(arr.join("")-0)
-                return v*(arr.join("")-0);
-            });
-            console.log(elements)
-            let pointPos = maxLen;
-            return {elements,pointPos};
-        };
-        DoublePrecisionEPSILON.add = function (...arr){
-            let {elements,pointPos} = DoublePrecisionEPSILON.toIntForm(arr);
-            let calcRes = elements.reduce((pv,cv,i,a) => {
-                return pv+cv;
-            })
-            let resStr = calcRes+'';
-            resStr = resStr.substring(0,resStr.length-pointPos)+"."+resStr.substring(resStr.length-pointPos);
-            let res = Number.parseFloat(resStr);
-            return res;
-        };
-        DoublePrecisionEPSILON.minus = function (...arr){
-            let {elements,pointPos} = DoublePrecisionEPSILON.toIntForm(arr);
-            let calcRes = elements.reduce((pv,cv,i,a) => {
-                return pv-cv;
-            })
-            let resStr = calcRes+'';
-            resStr = resStr.substring(0,resStr.length-pointPos)+"."+resStr.substring(resStr.length-pointPos);
-            let res = Number.parseFloat(resStr);
-            return res;
-            // return calcRes/(10**pointPos);
-        };
-        // console.log(DoublePrecisionEPSILON.toIntForm([3,0.4]));
-        console.log(DoublePrecisionEPSILON.add(4.27,5.1))
     })
 </script>
 </body>

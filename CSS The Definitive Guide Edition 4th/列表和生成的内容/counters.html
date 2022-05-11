@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ol{
+            counter-reset: counter-ol;
+            list-style: none;
+        }
+        ol>li{
+            counter-increment: counter-ol;
+
+        }
+        ol>li::before{
+            content:counters(counter-ol,'.',lower-latin);
+        }
+        </style>
+</head>
+<body>
+<ol>
+  <li>
+      <ol>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ol>
+  </li>
+  <li></li>
+  <li></li>
+  <li>
+      <ol>
+          <li>
+              <ol>
+                  <li></li>
+                  <li></li>
+              </ol>
+          </li>
+          <li></li>
+          <li>
+              <ol>
+                  <li></li>
+                  <li></li>
+              </ol>
+          </li>
+          <li></li>
+      </ol>
+  </li>
+</ol>
+</body>
+</html>

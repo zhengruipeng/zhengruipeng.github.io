@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height:100vh;
+            width: 100vw;
+            border:red solid 3px;
+            overflow: scroll;
+        }
+        </style>
+</head>
+<body>
+chrome有的时候下载不全，建议用firefox
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let fileSystem;
+        let currentDir;
+
+        this.body.ondragover = function (e){
+            e.preventDefault();
+        }
+        this.body.ondrop = function (ev){
+            ev.preventDefault();
+            fileSystem = ev.dataTransfer.items[0].webkitGetAsEntry();
+            currentDir = fileSystem.name;
+
+            console.log(fileSystem)
+
+            let dirReader = fileSystem.createReader();
+            dirReader.readEntries(function (entries){
+                entries = entries.map(v => v.fullPath);
+                let counter = 0;
+                let store = [];
+                entries.forEach((path,index) => {
+                    const image = new Image();
+                    image.src = path;
+                    image.onload = function (){
+                        const canvas = document.createElement("canvas");
+                        canvas.height = 1080;
+                        canvas.width = 1920;
+                        const ctx = canvas.getContext("2d");
+                        ctx.drawImage(this,(2340-1920)/2,0,1920,1080,0,0,1920,1080);
+
+                        document.body.appendChild(canvas);
+
+                        let a = document.createElement("a");
+                        let url = canvas.toDataURL("image/jpeg");
+
+                        let date = new Date();
+                        let filename = ""+date.getFullYear()+
+                            (((date.getMonth()+1)+"").length === 1?("0"+(date.getMonth()+1)):((date.getMonth()+1)+""))+
+                            (((date.getDate())+"").length === 1?("0"+(date.getDate())):((date.getDate())+""))+
+                            (((date.getHours())+"").length === 1?("0"+(date.getHours())):((date.getHours())+""))+
+                            (((date.getMinutes())+"").length === 1?("0"+(date.getMinutes())):((date.getMinutes())+""))+
+                        (((date.getSeconds())+"").length === 1?("0"+(date.getSeconds())):((date.getSeconds())+""))+
+                        (((date.getMilliseconds())+"").length !== 3?((date.getMilliseconds()+"").padStart(3,"0")):((date.getMilliseconds())+""));
+                        a.download = filename+""+index;
+                        a.href=url;
+                        a.click();
+
+                        console.log(filename+""+index);
+                        if(store.indexOf(filename+""+index)!==-1){
+                            console.log("出现重复"+filename+""+index);
+                        }
+                        store.push(filename+""+index);
+
+                        counter++;
+                    };
+                })
+                setTimeout(function (){
+                    console.log("共"+entries.length);
+                    console.log("处理了"+counter);
+                },3000);
+            });
+        };
+    })
+</script>
+</body>
+</html>
