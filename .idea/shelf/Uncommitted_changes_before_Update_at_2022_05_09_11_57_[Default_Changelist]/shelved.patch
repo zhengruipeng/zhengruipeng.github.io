@@ -1,0 +1,888 @@
+Index: java/jsp/example/web/WEB-INF/web.xml
+===================================================================
+diff --git a/java/jsp/example/web/WEB-INF/web.xml b/java/jsp/example/web/WEB-INF/web.xml
+deleted file mode 100644
+--- a/java/jsp/example/web/WEB-INF/web.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+-         version="4.0">
+-</web-app>
+\ No newline at end of file
+Index: java/jsp/example/target/example/pom.xml
+===================================================================
+diff --git a/java/jsp/example/target/example/pom.xml b/java/jsp/example/target/example/pom.xml
+deleted file mode 100644
+--- a/java/jsp/example/target/example/pom.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,67 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-  <modelVersion>4.0.0</modelVersion>
+-
+-  <groupId>org.example</groupId>
+-  <artifactId>example</artifactId>
+-  <version>1.0-SNAPSHOT</version>
+-  <packaging>war</packaging>
+-
+-  <name>example Maven Webapp</name>
+-  <!-- FIXME change it to the project's website -->
+-  <url>http://www.example.com</url>
+-
+-  <properties>
+-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-    <maven.compiler.source>1.7</maven.compiler.source>
+-    <maven.compiler.target>1.7</maven.compiler.target>
+-  </properties>
+-
+-  <dependencies>
+-    <dependency>
+-      <groupId>junit</groupId>
+-      <artifactId>junit</artifactId>
+-      <version>4.11</version>
+-      <scope>test</scope>
+-    </dependency>
+-  </dependencies>
+-
+-  <build>
+-    <finalName>example</finalName>
+-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+-      <plugins>
+-        <plugin>
+-          <artifactId>maven-clean-plugin</artifactId>
+-          <version>3.1.0</version>
+-        </plugin>
+-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+-        <plugin>
+-          <artifactId>maven-resources-plugin</artifactId>
+-          <version>3.0.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-compiler-plugin</artifactId>
+-          <version>3.8.0</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-surefire-plugin</artifactId>
+-          <version>2.22.1</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-war-plugin</artifactId>
+-          <version>3.2.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-install-plugin</artifactId>
+-          <version>2.5.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-deploy-plugin</artifactId>
+-          <version>2.8.2</version>
+-        </plugin>
+-      </plugins>
+-    </pluginManagement>
+-  </build>
+-</project>
+Index: java/jsp/jsp_lesson/jsp_lesson.iml
+===================================================================
+diff --git a/java/jsp/jsp_lesson/jsp_lesson.iml b/java/jsp/jsp_lesson/jsp_lesson.iml
+deleted file mode 100644
+--- a/java/jsp/jsp_lesson/jsp_lesson.iml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,15 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module version="4">
+-  <component name="FacetManager">
+-    <facet type="web" name="Web">
+-      <configuration>
+-        <descriptors>
+-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
+-        </descriptors>
+-        <webroots>
+-          <root url="file://$MODULE_DIR$" relative="/" />
+-        </webroots>
+-      </configuration>
+-    </facet>
+-  </component>
+-</module>
+\ No newline at end of file
+Index: java/jsp/example/example.iml
+===================================================================
+diff --git a/java/jsp/example/example.iml b/java/jsp/example/example.iml
+deleted file mode 100644
+--- a/java/jsp/example/example.iml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,15 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module version="4">
+-  <component name="FacetManager">
+-    <facet type="web" name="Web">
+-      <configuration>
+-        <descriptors>
+-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
+-        </descriptors>
+-        <webroots>
+-          <root url="file://$MODULE_DIR$" relative="/" />
+-        </webroots>
+-      </configuration>
+-    </facet>
+-  </component>
+-</module>
+\ No newline at end of file
+Index: java/jsp/JSP_test/index.jsp
+===================================================================
+diff --git a/java/jsp/JSP_test/index.jsp b/java/jsp/JSP_test/index.jsp
+deleted file mode 100644
+--- a/java/jsp/JSP_test/index.jsp	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<body>
+-123123
+-</body>
+-</html>
+\ No newline at end of file
+Index: java/jsp/example/src/main/webapp/index.jsp
+===================================================================
+diff --git a/java/jsp/example/src/main/webapp/index.jsp b/java/jsp/example/src/main/webapp/index.jsp
+deleted file mode 100644
+--- a/java/jsp/example/src/main/webapp/index.jsp	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,5 +0,0 @@
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-</body>
+-</html>
+Index: java/jsp/example/target/example/src/main/webapp/index.jsp
+===================================================================
+diff --git a/java/jsp/example/target/example/src/main/webapp/index.jsp b/java/jsp/example/target/example/src/main/webapp/index.jsp
+deleted file mode 100644
+--- a/java/jsp/example/target/example/src/main/webapp/index.jsp	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,5 +0,0 @@
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-</body>
+-</html>
+Index: java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/1.html
+===================================================================
+diff --git a/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/1.html b/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/1.html
+deleted file mode 100644
+--- a/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/1.html	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,71 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-    <style>
+-        h1{
+-            text-align:center;
+-        }
+-        h2{
+-            font-family: 黑体;
+-            color:red;
+-        }
+-        .attention{
+-            color:blue;
+-            text-decoration-line: underline;
+-        }
+-        p{
+-            margin-left:4em;
+-        }
+-
+-        footer{
+-            width:100%;
+-            text-align:center;
+-            padding:10px;
+-        }
+-        footer>div{
+-            display: inline;
+-        }
+-        footer>div:nth-child(2){
+-            padding:4em;
+-        }
+-        header:after,
+-        main:after,
+-        footer:after{
+-            content:"";
+-            display: block;
+-            border:#000 solid 1px;
+-            margin:10px;
+-        }
+-        </style>
+-</head>
+-<body>
+-<section>
+-    <header>
+-        <h1>东北石油大学 </h1>
+-    </header>
+-
+-    <main>
+-        <h2>一、简介</h2>
+-        <p>东北石油大学是一所全国重点院校，是伴随大庆油田的发现而诞生的一所以工学为主，工、理、管、文、经、法、教育学多学科协调发展的省属普通高等学校。</p>
+-
+-        <h2>二、办学理念</h2>
+-        <p>东北石油大学按照<strong class="attention">以人为本、科学发展、质量立校、特色创优</strong>的办学理念.</p>
+-        <p>抓住机遇，锐意改革，求真务实，开拓创新.</p>
+-
+-        <h2>三、招生</h2>
+-        <p>学校面向30个省（市、自治区）招生。</p>
+-        <p>目前，全日制在校生24886人，其中本科生<storng>16950</storng>
+-            人、专科生<em>5636</em>人（秦皇岛校区）、硕士、博士研究生<ins>2300</ins>
+-            人。办学50年来，学校培养各类人才近<del>10</del>万名。
+-        </p>
+-    </main>
+-
+-    <footer>
+-        <div><img src="images/1.jpg"><a href="http://www.nepu.edu.cn">跳转到主页</a></div>
+-        <div><img src="images/2.jpg"><a href="http://www1.nepu.edu.cn/nepuss/">软件学院</a></div>
+-    </footer>
+-</section>
+-</body>
+-</html>
+\ No newline at end of file
+Index: java/jsp/jsp_lesson/homework1/2.html
+===================================================================
+diff --git a/java/jsp/jsp_lesson/homework1/2.html b/java/jsp/jsp_lesson/homework1/2.html
+deleted file mode 100644
+--- a/java/jsp/jsp_lesson/homework1/2.html	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,84 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-    <meta charset="UTF-8">
+-    <title> 人人网介绍 </title>
+-    <style>
+-        h1{
+-            text-align:center;
+-        }
+-        h2{
+-            font-family: 黑体;
+-            color:red;
+-        }
+-        .attention{
+-            color:blue;
+-            text-decoration-line: underline;
+-        }
+-        ol>li{
+-            margin:4px;
+-        }
+-        p,ol{
+-            margin-left:4em;
+-        }
+-
+-        footer{
+-            width:100%;
+-            text-align:center;
+-            padding:10px;
+-        }
+-        footer>div{
+-            display: inline;
+-        }
+-        footer>div:nth-child(2){
+-            padding:4em;
+-        }
+-        header:after,
+-        main:after,
+-        footer:after{
+-            content:"";
+-            display: block;
+-            border:#000 solid 1px;
+-            margin:10px;
+-        }
+-    </style>
+-</head>
+-
+-<body>
+-<article>
+-    <header>
+-        <h1>人人网</h1>
+-    </header>
+-    <main>
+-        <h2>1.人人网LOGO的含义</h2>
+-        <p>人人网LOGO由两个抽象的<i>人字变形，人字成圈形寓意每个人的人际圈</i>，同时俩个人字中间发生交集，象征着人人网是一个
+-            <strong class="attention">人与人的沟通分享平台，分享真实、沟通快乐</strong>。
+-        </p>
+-        <br />
+-
+-        <a href="http://www.xiaonei.com"><img src="./images/renren.jpg" alt="logo" /></a>
+-
+-        <section>
+-            <h2>2.网站来源</h2>
+-            <p>2009年8月4日，千橡集团在<a href="http://www.xiaonei.com">校内网</a>
+-                发布消息，“为了给校内网带来一个更长远、更广阔的发展前景， 我们需要割舍对校内品牌的依恋之情，去积极的、勇敢的创造一个更伟大，
+-                更具延展性的新品牌，一个广大用户心目中的至爱品牌”，将旗下著名的校内网更名为人人网。最实际的原因，是因为当年热衷于校内网的许多大学生毕业并踏入社会后，
+-                发现他们并不在学校，然而每天还在登陆校内网，所以感到不适应。
+-            </p>
+-        </section>
+-
+-        <section>
+-            <h2>3.注册方式</h2>
+-                <p>  人人网现阶段向所有互联网用户开放，您需要经过以下步骤才能注册成为正式用户。 </p>
+-                <ol>
+-                    <li> 到注册页面，填写您的<strong class="attention">真实姓名，E-mail和设置密码</strong>
+-                       。选择您的身份，人人网将根据您的身份来决定您的注册方式和资料填写。根据要求填写相应的注册信息，用自己的E-mail或者手机号码作为账号注册；
+-                    </li>
+-                    <li>到您的注册邮箱查收来自人人网的<ins>激活信</ins>，点击邮件里的激活链接激活您的账号；</li>
+-                    <li>激活成功后通过验证即可成为正式用户。</li>
+-                </ol>
+-        </section>
+-    </main>
+-</article>
+-</body>
+-</html>
+Index: java/jsp/example/web/test.jsp
+===================================================================
+diff --git a/java/jsp/example/web/test.jsp b/java/jsp/example/web/test.jsp
+deleted file mode 100644
+--- a/java/jsp/example/web/test.jsp	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<body>
+-123123
+-</body>
+-</html>
+\ No newline at end of file
+Index: java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/2.html
+===================================================================
+diff --git a/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/2.html b/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/2.html
+deleted file mode 100644
+--- a/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/2.html	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,79 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-    <meta charset="UTF-8">
+-    <title> 人人网介绍 </title>
+-    <style>
+-        h1{
+-            text-align:center;
+-        }
+-        h2{
+-            font-family: 黑体;
+-            color:red;
+-        }
+-        .attention{
+-            color:blue;
+-            text-decoration-line: underline;
+-        }
+-        p{
+-            margin-left:4em;
+-        }
+-
+-        footer{
+-            width:100%;
+-            text-align:center;
+-            padding:10px;
+-        }
+-        footer>div{
+-            display: inline;
+-        }
+-        footer>div:nth-child(2){
+-            padding:4em;
+-        }
+-        header:after,
+-        main:after,
+-        footer:after{
+-            content:"";
+-            display: block;
+-            border:#000 solid 1px;
+-            margin:10px;
+-        }
+-    </style>
+-</head>
+-
+-<body>
+-<article>
+-    <header>
+-        <h1>人人网</h1>
+-    </header>
+-    <main>
+-        <h2>1.人人网LOGO的含义</h2>
+-        <p>人人网LOGO由两个抽象的<i>人字变形，人字成圈形寓意每个人的人际圈</i>，同时俩个人字中间发生交集，象征着人人网是一个
+-            <strong class="attention">人与人的沟通分享平台，分享真实、沟通快乐</strong>。
+-        </p>
+-        <br />
+-
+-        <a href="http://www.xiaonei.com"><img src="./images/renren.jpg" alt="logo" /></a>
+-
+-        <section>
+-            <h2>2.网站来源</h2>
+-            <p>2009年8月4日，千橡集团在<a href="http://www.xiaonei.com">校内网</a>
+-                发布消息，“为了给校内网带来一个更长远、更广阔的发展前景， 我们需要割舍对校内品牌的依恋之情，去积极的、勇敢的创造一个更伟大，
+-                更具延展性的新品牌，一个广大用户心目中的至爱品牌”，将旗下著名的校内网更名为人人网。最实际的原因，是因为当年热衷于校内网的许多大学生毕业并踏入社会后，
+-                发现他们并不在学校，然而每天还在登陆校内网，所以感到不适应。
+-            </p>
+-        </section>
+-
+-        <section>
+-            <h2>3.注册方式</h2>
+-                <p>  人人网现阶段向所有互联网用户开放，您需要经过以下步骤才能注册成为正式用户。 </p>
+-                <p> 1、到注册页面，填写您的<strong class="attention">真实姓名，E-mail和设置密码</strong>
+-                    。选择您的身份，人人网将根据您的身份来决定您的注册方式和资料填写。根据要求填写相应的注册信息，用自己的E-mail或者手机号码作为账号注册；
+-                </p>
+-                <p> 2、到您的注册邮箱查收来自人人网的<ins>激活信</ins>，点击邮件里的激活链接激活您的账号；</p>
+-                <p> 3、激活成功后通过验证即可成为正式用户。</p>
+-        </section>
+-    </main>
+-</article>
+-</body>
+-</html>
+Index: java/jsp/example/target/example/example.iml
+===================================================================
+diff --git a/java/jsp/example/target/example/example.iml b/java/jsp/example/target/example/example.iml
+deleted file mode 100644
+--- a/java/jsp/example/target/example/example.iml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,15 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module version="4">
+-  <component name="FacetManager">
+-    <facet type="web" name="Web">
+-      <configuration>
+-        <descriptors>
+-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
+-        </descriptors>
+-        <webroots>
+-          <root url="file://$MODULE_DIR$" relative="/" />
+-        </webroots>
+-      </configuration>
+-    </facet>
+-  </component>
+-</module>
+\ No newline at end of file
+Index: java/jsp/example/src/main/webapp/WEB-INF/web.xml
+===================================================================
+diff --git a/java/jsp/example/src/main/webapp/WEB-INF/web.xml b/java/jsp/example/src/main/webapp/WEB-INF/web.xml
+deleted file mode 100644
+--- a/java/jsp/example/src/main/webapp/WEB-INF/web.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,7 +0,0 @@
+-<!DOCTYPE web-app PUBLIC
+- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+-
+-<web-app>
+-  <display-name>Archetype Created Web Application</display-name>
+-</web-app>
+Index: java/jsp/example/pom.xml
+===================================================================
+diff --git a/java/jsp/example/pom.xml b/java/jsp/example/pom.xml
+deleted file mode 100644
+--- a/java/jsp/example/pom.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,67 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-  <modelVersion>4.0.0</modelVersion>
+-
+-  <groupId>org.example</groupId>
+-  <artifactId>example</artifactId>
+-  <version>1.0-SNAPSHOT</version>
+-  <packaging>war</packaging>
+-
+-  <name>example Maven Webapp</name>
+-  <!-- FIXME change it to the project's website -->
+-  <url>http://www.example.com</url>
+-
+-  <properties>
+-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-    <maven.compiler.source>1.7</maven.compiler.source>
+-    <maven.compiler.target>1.7</maven.compiler.target>
+-  </properties>
+-
+-  <dependencies>
+-    <dependency>
+-      <groupId>junit</groupId>
+-      <artifactId>junit</artifactId>
+-      <version>4.11</version>
+-      <scope>test</scope>
+-    </dependency>
+-  </dependencies>
+-
+-  <build>
+-    <finalName>example</finalName>
+-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+-      <plugins>
+-        <plugin>
+-          <artifactId>maven-clean-plugin</artifactId>
+-          <version>3.1.0</version>
+-        </plugin>
+-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+-        <plugin>
+-          <artifactId>maven-resources-plugin</artifactId>
+-          <version>3.0.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-compiler-plugin</artifactId>
+-          <version>3.8.0</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-surefire-plugin</artifactId>
+-          <version>2.22.1</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-war-plugin</artifactId>
+-          <version>3.2.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-install-plugin</artifactId>
+-          <version>2.5.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-deploy-plugin</artifactId>
+-          <version>2.8.2</version>
+-        </plugin>
+-      </plugins>
+-    </pluginManagement>
+-  </build>
+-</project>
+Index: java/jsp/example/target/example/WEB-INF/web.xml
+===================================================================
+diff --git a/java/jsp/example/target/example/WEB-INF/web.xml b/java/jsp/example/target/example/WEB-INF/web.xml
+deleted file mode 100644
+--- a/java/jsp/example/target/example/WEB-INF/web.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,7 +0,0 @@
+-<!DOCTYPE web-app PUBLIC
+- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+-
+-<web-app>
+-  <display-name>Archetype Created Web Application</display-name>
+-</web-app>
+Index: java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/WEB-INF/web.xml
+===================================================================
+diff --git a/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/WEB-INF/web.xml b/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/WEB-INF/web.xml
+deleted file mode 100644
+--- a/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/WEB-INF/web.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+-         version="4.0">
+-</web-app>
+\ No newline at end of file
+Index: java/jsp/jsp_lesson/homework1/1.html
+===================================================================
+diff --git a/java/jsp/jsp_lesson/homework1/1.html b/java/jsp/jsp_lesson/homework1/1.html
+deleted file mode 100644
+--- a/java/jsp/jsp_lesson/homework1/1.html	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,71 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-    <style>
+-        h1{
+-            text-align:center;
+-        }
+-        h2{
+-            font-family: 黑体;
+-            color:red;
+-        }
+-        .attention{
+-            color:blue;
+-            text-decoration-line: underline;
+-        }
+-        p{
+-            margin-left:4em;
+-        }
+-
+-        footer{
+-            width:100%;
+-            text-align:center;
+-            padding:10px;
+-        }
+-        footer>div{
+-            display: inline;
+-        }
+-        footer>div:nth-child(2){
+-            padding:4em;
+-        }
+-        header:after,
+-        main:after,
+-        footer:after{
+-            content:"";
+-            display: block;
+-            border:#000 solid 1px;
+-            margin:10px;
+-        }
+-        </style>
+-</head>
+-<body>
+-<section>
+-    <header>
+-        <h1>东北石油大学 </h1>
+-    </header>
+-
+-    <main>
+-        <h2>一、简介</h2>
+-        <p>东北石油大学是一所全国重点院校，是伴随大庆油田的发现而诞生的一所以工学为主，工、理、管、文、经、法、教育学多学科协调发展的省属普通高等学校。</p>
+-
+-        <h2>二、办学理念</h2>
+-        <p>东北石油大学按照<strong class="attention">以人为本、科学发展、质量立校、特色创优</strong>的办学理念.</p>
+-        <p>抓住机遇，锐意改革，求真务实，开拓创新.</p>
+-
+-        <h2>三、招生</h2>
+-        <p>学校面向30个省（市、自治区）招生。</p>
+-        <p>目前，全日制在校生24886人，其中本科生<storng>16950</storng>
+-            人、专科生<em>5636</em>人（秦皇岛校区）、硕士、博士研究生<ins>2300</ins>
+-            人。办学50年来，学校培养各类人才近<del>10</del>万名。
+-        </p>
+-    </main>
+-
+-    <footer>
+-        <div><img src="images/1.jpg"><a href="http://www.nepu.edu.cn">跳转到主页</a></div>
+-        <div><img src="images/2.jpg"><a href="http://www1.nepu.edu.cn/nepuss/">软件学院</a></div>
+-    </footer>
+-</section>
+-</body>
+-</html>
+\ No newline at end of file
+Index: java/jsp/example/index.jsp
+===================================================================
+diff --git a/java/jsp/example/index.jsp b/java/jsp/example/index.jsp
+deleted file mode 100644
+--- a/java/jsp/example/index.jsp	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,11 +0,0 @@
+-<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
+-<!DOCTYPE html>
+-<html lang="zh">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<body>
+-恭喜你，JSP好使了
+-</body>
+-</html>
+\ No newline at end of file
+Index: java/jsp/example/target/example/index.jsp
+===================================================================
+diff --git a/java/jsp/example/target/example/index.jsp b/java/jsp/example/target/example/index.jsp
+deleted file mode 100644
+--- a/java/jsp/example/target/example/index.jsp	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,11 +0,0 @@
+-<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
+-<!DOCTYPE html>
+-<html lang="zh">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<body>
+-恭喜你，JSP好使了
+-</body>
+-</html>
+\ No newline at end of file
+Index: java/jsp/example/target/example/web/test.jsp
+===================================================================
+diff --git a/java/jsp/example/target/example/web/test.jsp b/java/jsp/example/target/example/web/test.jsp
+deleted file mode 100644
+--- a/java/jsp/example/target/example/web/test.jsp	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<body>
+-123123
+-</body>
+-</html>
+\ No newline at end of file
+Index: java/jsp/example/target/example/web/WEB-INF/web.xml
+===================================================================
+diff --git a/java/jsp/example/target/example/web/WEB-INF/web.xml b/java/jsp/example/target/example/web/WEB-INF/web.xml
+deleted file mode 100644
+--- a/java/jsp/example/target/example/web/WEB-INF/web.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+-         version="4.0">
+-</web-app>
+\ No newline at end of file
+Index: java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/jsp_lesson.iml
+===================================================================
+diff --git a/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/jsp_lesson.iml b/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/jsp_lesson.iml
+deleted file mode 100644
+--- a/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/jsp_lesson.iml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,15 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module version="4">
+-  <component name="FacetManager">
+-    <facet type="web" name="Web">
+-      <configuration>
+-        <descriptors>
+-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
+-        </descriptors>
+-        <webroots>
+-          <root url="file://$MODULE_DIR$" relative="/" />
+-        </webroots>
+-      </configuration>
+-    </facet>
+-  </component>
+-</module>
+\ No newline at end of file
+Index: java/jsp/JSP_test/pom.xml
+===================================================================
+diff --git a/java/jsp/JSP_test/pom.xml b/java/jsp/JSP_test/pom.xml
+deleted file mode 100644
+--- a/java/jsp/JSP_test/pom.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,16 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <modelVersion>4.0.0</modelVersion>
+-
+-    <groupId>org.example</groupId>
+-    <artifactId>JSP_test</artifactId>
+-    <version>1.0-SNAPSHOT</version>
+-
+-    <properties>
+-        <maven.compiler.source>15</maven.compiler.source>
+-        <maven.compiler.target>15</maven.compiler.target>
+-    </properties>
+-
+-</project>
+\ No newline at end of file
+Index: java/jsp/example/target/example/src/main/webapp/WEB-INF/web.xml
+===================================================================
+diff --git a/java/jsp/example/target/example/src/main/webapp/WEB-INF/web.xml b/java/jsp/example/target/example/src/main/webapp/WEB-INF/web.xml
+deleted file mode 100644
+--- a/java/jsp/example/target/example/src/main/webapp/WEB-INF/web.xml	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ /dev/null	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
+@@ -1,7 +0,0 @@
+-<!DOCTYPE web-app PUBLIC
+- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+-
+-<web-app>
+-  <display-name>Archetype Created Web Application</display-name>
+-</web-app>
+Index: mikimiki/test.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Title</title>\r\n    <style>\r\n        .box {\r\n            background-color: #165baa;\r\n            color: #fff;\r\n            width: 100px;\r\n            height: 100px;\r\n            transition: width 4s;\r\n        }\r\n\r\n        .box:hover {\r\n            width: 200px;\r\n        }\r\n        </style>\r\n</head>\r\n<body>\r\n<div class=\"box\"></div>\r\n<script type=\"text/javascript\">\r\n    document.addEventListener(\"DOMContentLoaded\",function () {\r\n        const item = document.querySelector(\".box\");\r\n        item.addEventListener('transitionrun', () => {\r\n            let animations = document.querySelector(\".box\").getAnimations();\r\n            console.log(animations0);\r\n        });\r\n\r\n        let DoublePrecisionEPSILON = function (){\r\n\r\n        }\r\n        DoublePrecisionEPSILON.prototype = {};\r\n        DoublePrecisionEPSILON.prototype.constructor = DoublePrecisionEPSILON;\r\n        DoublePrecisionEPSILON.toIntForm = function (arr){\r\n            let elements = Array.from(arr);\r\n            let maxLen = 0;\r\n            elements.forEach(v => {\r\n                if((v+'').indexOf('.') !== -1){\r\n                    maxLen = Math.max(maxLen,(v+'').substring((v+'').indexOf('.')).length-1)\r\n                }\r\n            } );\r\n\r\n            if(maxLen>16){\r\n                maxLen = 16;\r\n                elements = elements.map(v => (v+'').substring(0,16)-0);\r\n            }\r\n            console.log(maxLen);\r\n            elements = elements.map(v => {\r\n                /*if((v+\"\").indexOf(\".\") !== -1){\r\n                    let decimalLen = (v+'').substring((v+'').indexOf('.')).length-1;\r\n                    console.log(v)\r\n                    v = v+\"\"+(new Array(maxLen-decimalLen).fill('0').join(\"\"));\r\n                    console.log(v);\r\n                }*/\r\n                // return (v+\"\").split(\".\").join(\"\")-0\r\n                // return v*(10**maxLen);\r\n                let arr = new Array(maxLen+1).fill(\"0\");\r\n                arr[0] = '1';\r\n                // console.log(arr.join(\"\")-0)\r\n                return v*(arr.join(\"\")-0);\r\n            });\r\n            console.log(elements)\r\n            let pointPos = maxLen;\r\n            return {elements,pointPos};\r\n        };\r\n        DoublePrecisionEPSILON.add = function (...arr){\r\n            let {elements,pointPos} = DoublePrecisionEPSILON.toIntForm(arr);\r\n            let calcRes = elements.reduce((pv,cv,i,a) => {\r\n                return pv+cv;\r\n            })\r\n            let resStr = calcRes+'';\r\n            resStr = resStr.substring(0,resStr.length-pointPos)+\".\"+resStr.substring(resStr.length-pointPos);\r\n            let res = Number.parseFloat(resStr);\r\n            return res;\r\n        };\r\n        DoublePrecisionEPSILON.minus = function (...arr){\r\n            let {elements,pointPos} = DoublePrecisionEPSILON.toIntForm(arr);\r\n            let calcRes = elements.reduce((pv,cv,i,a) => {\r\n                return pv-cv;\r\n            })\r\n            let resStr = calcRes+'';\r\n            resStr = resStr.substring(0,resStr.length-pointPos)+\".\"+resStr.substring(resStr.length-pointPos);\r\n            let res = Number.parseFloat(resStr);\r\n            return res;\r\n            // return calcRes/(10**pointPos);\r\n        };\r\n        // console.log(DoublePrecisionEPSILON.toIntForm([3,0.4]));\r\n        console.log(DoublePrecisionEPSILON.add(4.27,5.1))\r\n    })\r\n</script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/mikimiki/test.html b/mikimiki/test.html
+--- a/mikimiki/test.html	(revision cc77d7e2ec433653f66d3e16e80694294865fa2c)
++++ b/mikimiki/test.html	(date 1651840051795)
+@@ -18,75 +18,12 @@
+         </style>
+ </head>
+ <body>
+-<div class="box"></div>
++<input type="button" value="button" />
++<input type="checkbox" />
++<input type="color" />
+ <script type="text/javascript">
+     document.addEventListener("DOMContentLoaded",function () {
+-        const item = document.querySelector(".box");
+-        item.addEventListener('transitionrun', () => {
+-            let animations = document.querySelector(".box").getAnimations();
+-            console.log(animations0);
+-        });
+-
+-        let DoublePrecisionEPSILON = function (){
+ 
+-        }
+-        DoublePrecisionEPSILON.prototype = {};
+-        DoublePrecisionEPSILON.prototype.constructor = DoublePrecisionEPSILON;
+-        DoublePrecisionEPSILON.toIntForm = function (arr){
+-            let elements = Array.from(arr);
+-            let maxLen = 0;
+-            elements.forEach(v => {
+-                if((v+'').indexOf('.') !== -1){
+-                    maxLen = Math.max(maxLen,(v+'').substring((v+'').indexOf('.')).length-1)
+-                }
+-            } );
+-
+-            if(maxLen>16){
+-                maxLen = 16;
+-                elements = elements.map(v => (v+'').substring(0,16)-0);
+-            }
+-            console.log(maxLen);
+-            elements = elements.map(v => {
+-                /*if((v+"").indexOf(".") !== -1){
+-                    let decimalLen = (v+'').substring((v+'').indexOf('.')).length-1;
+-                    console.log(v)
+-                    v = v+""+(new Array(maxLen-decimalLen).fill('0').join(""));
+-                    console.log(v);
+-                }*/
+-                // return (v+"").split(".").join("")-0
+-                // return v*(10**maxLen);
+-                let arr = new Array(maxLen+1).fill("0");
+-                arr[0] = '1';
+-                // console.log(arr.join("")-0)
+-                return v*(arr.join("")-0);
+-            });
+-            console.log(elements)
+-            let pointPos = maxLen;
+-            return {elements,pointPos};
+-        };
+-        DoublePrecisionEPSILON.add = function (...arr){
+-            let {elements,pointPos} = DoublePrecisionEPSILON.toIntForm(arr);
+-            let calcRes = elements.reduce((pv,cv,i,a) => {
+-                return pv+cv;
+-            })
+-            let resStr = calcRes+'';
+-            resStr = resStr.substring(0,resStr.length-pointPos)+"."+resStr.substring(resStr.length-pointPos);
+-            let res = Number.parseFloat(resStr);
+-            return res;
+-        };
+-        DoublePrecisionEPSILON.minus = function (...arr){
+-            let {elements,pointPos} = DoublePrecisionEPSILON.toIntForm(arr);
+-            let calcRes = elements.reduce((pv,cv,i,a) => {
+-                return pv-cv;
+-            })
+-            let resStr = calcRes+'';
+-            resStr = resStr.substring(0,resStr.length-pointPos)+"."+resStr.substring(resStr.length-pointPos);
+-            let res = Number.parseFloat(resStr);
+-            return res;
+-            // return calcRes/(10**pointPos);
+-        };
+-        // console.log(DoublePrecisionEPSILON.toIntForm([3,0.4]));
+-        console.log(DoublePrecisionEPSILON.add(4.27,5.1))
+     })
+ </script>
+ </body>

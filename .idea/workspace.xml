@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220511">
+      <change afterPath="$PROJECT_DIR$/.vs/CMakeWorkspaceSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/ProjectSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/zhengruipeng.github.io/config/applicationhost.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/zhengruipeng.github.io/v17/.suo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/zhengruipeng.github.io/v17/Browse.VC.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/zhengruipeng.github.io/v17/workspaceFileList.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/additive-symbols.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/alphabetic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/cyclic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/extends.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/fallback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/fixed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/negative.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/numeric.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/pad.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/prefix,suffix.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/range.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/@counter-style/symbolic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/counter-basic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/counter-complex.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/counters.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/list-style-image.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/list-style-type.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/quotes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/去除图片边框.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/iframe和css基础/表格样式基础.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/lesson 2/illust_87103620_20220110_145024.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interactive Computer Graphics/环境反射.html" beforeDir="false" afterPath="$PROJECT_DIR$/Interactive Computer Graphics/环境反射.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/JSP_test/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/JSP_test/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/example.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/example.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/target/example/web/test.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/example/web/test.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/bg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/dqpi1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/dqpi2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/go.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/go2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/img-pq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/login.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/lovely.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/nepu.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/register.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/renren.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/xxjj-1n.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/xxjj-2n.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/homework1/images/xygk_01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/jsp_lesson.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/bg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/dqpi1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/dqpi2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/go.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/go2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/img-pq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/login.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/lovely.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/nepu.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/register.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/renren.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/xxjj-1n.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/xxjj-2n.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/homework1/images/xygk_01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/jsp_lesson.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/out/artifacts/jsp_lesson_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/out/artifacts/jsp_lesson_war_exploded/out/artifacts/jsp_lesson_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jsp/jsp_lesson/out/artifacts/jsp_lesson_war_exploded/out/artifacts/jsp_lesson_war_exploded/out/artifacts/jsp_lesson_war_exploded/out/artifacts/jsp_lesson_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/test.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="28dDivJAoD7UcS3fqB50bcSnuX4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\列表和生成的内容\@counter-style" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\列表和生成的内容" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\lesson 2" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="" />
+      <created>1651537701990</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651537701990</updated>
+      <workItem from="1651537706282" duration="3620000" />
+      <workItem from="1651545932288" duration="1458000" />
+      <workItem from="1651573878540" duration="9614000" />
+      <workItem from="1651628192680" duration="10729000" />
+      <workItem from="1651649989192" duration="977000" />
+      <workItem from="1651670898830" duration="983000" />
+      <workItem from="1651709890928" duration="19000" />
+      <workItem from="1651711691670" duration="103000" />
+      <workItem from="1651813787549" duration="4642000" />
+      <workItem from="1651832020120" duration="2885000" />
+      <workItem from="1651839924381" duration="747000" />
+      <workItem from="1651843215284" duration="547000" />
+      <workItem from="1651881974433" duration="160000" />
+      <workItem from="1651983761073" duration="1296000" />
+      <workItem from="1652005149209" duration="2032000" />
+      <workItem from="1652012223021" duration="1973000" />
+      <workItem from="1652064475037" duration="138000" />
+      <workItem from="1652064954901" duration="430000" />
+      <workItem from="1652097779636" duration="3075000" />
+      <workItem from="1652143304577" duration="22000" />
+      <workItem from="1652153517194" duration="367000" />
+      <workItem from="1652154069009" duration="9320000" />
+      <workItem from="1652187321002" duration="2222000" />
+      <workItem from="1652232735581" duration="12991000" />
+      <workItem from="1652251303791" duration="797000" />
+      <workItem from="1652255512898" duration="461000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="20220511" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220511" />
+  </component>
+</project>
