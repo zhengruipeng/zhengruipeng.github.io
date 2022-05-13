@@ -11,9 +11,9 @@
                     $('.fade-in').each(function(index) {
                         $(this).delay(100*index).animate({ top : 0, opacity: 1 }, 100);
                     });
-                }, 100);
+                }, 0);
             });
-        }, 100);
+        }, 0);
     });      
     
 	jQuery(document).ready(function($){ 
@@ -41,7 +41,7 @@
             items:1,
             loop:true,
             autoplay:true,
-            autoplayTimeout:100,
+            autoplayTimeout:2000,
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
             nav:true,

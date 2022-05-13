@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220513(3)">
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220513(5)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/doorplate/css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/object/doorplate/css/animate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/doorplate/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/doorplate/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/doorplate/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/doorplate/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/doorplate/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/doorplate/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +114,7 @@
       <workItem from="1652345655254" duration="385000" />
       <workItem from="1652355108644" duration="4833000" />
       <workItem from="1652405045640" duration="10175000" />
-      <workItem from="1652445181766" duration="2574000" />
+      <workItem from="1652445181766" duration="3574000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -154,7 +158,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652447210912</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="20220513(4)">
+      <created>1652447964072</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652447964072</updated>
+    </task>
+    <task id="LOCAL-00008" summary="20220513(5)">
+      <created>1652448015473</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652448015473</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +197,8 @@
     <MESSAGE value="20220513" />
     <MESSAGE value="20220513(2)" />
     <MESSAGE value="20220513(3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220513(3)" />
+    <MESSAGE value="20220513(4)" />
+    <MESSAGE value="20220513(5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220513(5)" />
   </component>
 </project>
