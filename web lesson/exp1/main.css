@@ -54,7 +54,7 @@ main{
     position:fixed;
     transition: var(--transition-duration);
     top:10%;
-    left:calc(50%);
+    left:calc(50% - 0.58em);
     font-size:4em;
     color:rgba(200,200,200,.3);
     transform: rotateZ(-90deg) scale(1,3);

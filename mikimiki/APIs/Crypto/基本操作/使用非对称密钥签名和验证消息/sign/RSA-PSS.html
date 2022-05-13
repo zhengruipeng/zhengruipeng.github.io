@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<code>
+    <pre>
+
+    </pre>
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (async function() {
+            const keyParams = {
+                name: 'RSA-PSS',
+                hash: 'SHA-256',
+                modulusLength: 4096,
+                publicExponent: new Uint8Array([1,0,1]),
+                // publicExponent: new Uint8Array(arr),
+            };
+            const keyUsages = ['sign', 'verify'];
+            const {publicKey, privateKey} = await crypto.subtle.generateKey(keyParams, true,
+                keyUsages);
+            const message = (new TextEncoder()).encode('I am Satoshi Nakamoto');
+            const signParams = {
+                name: 'RSA-PSS',
+                saltLength: 32
+            };
+            const signature = await crypto.subtle.sign(signParams, privateKey, message);
+            console.log(new Uint32Array(signature));
+            // Uint32Array(16) [2202267297, 698413658, 1501924384, 691450316, 778757775, ... ]
+        })();
+    })
+</script>
+</body>
+</html>

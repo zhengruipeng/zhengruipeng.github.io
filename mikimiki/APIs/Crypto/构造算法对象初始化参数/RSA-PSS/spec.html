@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../param-table.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th><a href="#supported-operations">Operation</a></th>
+        <th><a href="#algorithm-specific-params">Parameters</a></th>
+        <th><a href="#algorithm-result">Result</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>sign</td>
+        <td><a href="#dfn-RsaPssParams">RsaPssParams</a></td>
+        <td><a href="#dfn-ArrayBuffer">ArrayBuffer</a></td>
+    </tr>
+    <tr>
+        <td>verify</td>
+        <td><a href="#dfn-RsaPssParams">RsaPssParams</a></td>
+        <td>boolean</td>
+    </tr>
+    <tr>
+        <td>generateKey</td>
+        <td><a href="#dfn-RsaHashedKeyGenParams">RsaHashedKeyGenParams</a></td>
+        <td><a href="#dfn-CryptoKeyPair">CryptoKeyPair</a></td>
+    </tr>
+    <tr>
+        <td>importKey</td>
+        <td><a href="#dfn-RsaHashedImportParams">RsaHashedImportParams</a></td>
+        <td><a href="#dfn-CryptoKey">CryptoKey</a></td>
+    </tr>
+    <tr>
+        <td>exportKey</td>
+        <td>None</td>
+        <td>object</td>
+    </tr>
+    </tbody>
+</table>
+<code>
+    <pre>
+        typedef (object or DOMString) AlgorithmIdentifier;
+        typedef AlgorithmIdentifier HashAlgorithmIdentifier;
+        dictionary Algorithm {
+          required DOMString name;
+        };
+        dictionary RsaKeyGenParams : Algorithm {
+          // The length, in bits, of the RSA modulus
+          [EnforceRange] required unsigned long modulusLength;
+          // The RSA public exponent
+          required BigInteger publicExponent;
+        };
+        dictionary RsaHashedKeyGenParams : RsaKeyGenParams {
+            // The hash algorithm to use
+            required HashAlgorithmIdentifier hash;
+        };
+        dictionary RsaHashedImportParams : Algorithm {
+          // The hash algorithm to use
+          required HashAlgorithmIdentifier hash;
+        };
+        dictionary RsaPssParams : Algorithm {
+          // The desired length of the random salt
+          [EnforceRange] required unsigned long saltLength;
+        };
+    </pre>
+</code>
+</body>
+</html>

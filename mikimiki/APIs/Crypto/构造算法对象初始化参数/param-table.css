@@ -1,0 +1,17 @@
+table{
+    border:#FBE2F7 solid 1px;
+    border-collapse:collapse;
+}
+td,th{
+    border:#FBE2F7 solid 1px;
+    padding:4px 15px;
+    text-align: center;
+}
+td>a,th>a{
+    text-decoration: none;
+    color:#000;
+    cursor:default;
+}
+tr:nth-child(even){
+    background-color:#FBE2F760;
+}

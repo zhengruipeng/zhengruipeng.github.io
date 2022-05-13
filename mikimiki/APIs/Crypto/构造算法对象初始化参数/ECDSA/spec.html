@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../param-table.css" />
     <style>
         code{
             font-size: 1.5rem;
@@ -57,7 +58,15 @@
         *"P-521"
         *NIST recommended curve P-521, also known as secp521r1.
         */
+
         typedef DOMString NamedCurve;
+        "P-256"
+            NIST recommended curve P-256, also known as secp256r1.
+        "P-384"
+            NIST recommended curve P-384, also known as secp384r1.
+        "P-521"
+            NIST recommended curve P-521, also known as secp521r1.
+
         dictionary EcKeyGenParams : Algorithm {
           // A named curve
           required NamedCurve namedCurve;
@@ -67,6 +76,12 @@
           // The hash algorithm to use
           required HashAlgorithmIdentifier hash;
         };
+
+        dictionary EcKeyImportParams : Algorithm {
+          // A named curve
+          required NamedCurve namedCurve;
+        };
+
     </pre>
 </code>
 </body>

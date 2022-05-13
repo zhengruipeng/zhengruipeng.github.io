@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table{
+      border-collapse: collapse;
+      border:#aaa solid 1px;
+      margin:0 auto;
+    }
+    td,th{
+      border:#aaa solid 1px;
+      /*padding:1em 3em;*/
+      height:2em;
+      width:3em;
+    }
+    tr:nth-child(even){
+      background-color:#a5a9aa20;
+    }
+    tbody>tr:nth-child(1) td:nth-child(1)>a:after{
+      content:" ";
+      display: block;
+      background-color: red;
+      height:100%;
+      width:100%;
+
+    }
+    tbody>tr:nth-child(2) td:nth-child(1)>a:after{
+      content:" ";
+      display: block;
+      background-color: blue;
+      height:100%;
+      width:100%;
+    }
+  </style>
+</head>
+<body>
+<table >
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a></a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><a></a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  </tbody>
+</table>
+</body>
+</html>

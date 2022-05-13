@@ -23,6 +23,7 @@
                 name: algoIdentifier,
                 length: 256
             };
+
             const keyUsages = ['encrypt', 'decrypt'];
             const key = await crypto.subtle.generateKey(keyParams, true,
                 keyUsages);

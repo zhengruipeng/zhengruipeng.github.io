@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220511">
-      <change afterPath="$PROJECT_DIR$/object/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/.idea/object.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/去除图片背景/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/exp1/UI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/exp1/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/exp1/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/exp1/main.css" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220511(2)">
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/ECDSA.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/HMAC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/RSA-PSS.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/RSASSA-PKCS1-v1_5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/Algorithm dictionary/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSA-PSS/spec.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/param-table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/综合测试/ECDSA加密.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/lesson 5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/lesson 5/table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/lesson 5/后代选择器.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_05_06_19_51_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_05_06_19_51__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/023b5bb5c9ea15ce36d31175cd4b2df33a87e9501431.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/09fa513d269759ee3d6dcaabc9b054166d224f4a7135.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/0bd162d9f2d3572c11df3abaf158742762d0f703650b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/a50f4bfbfbedab64034f18b38c7db8c379310a55b027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/b812c8fcc3cec3fdfc03a524adc3c33f8794a4c28905.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/bd315c6034a85edf8db1c252321f1e23dd54564edf25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/c2cec3fdfc039245d688ed7efcdfb3c27d1ed21b8f25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/cdbf6c81800a19d8bc3ea97648b1958ba61ea8d3e827.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/d009b3de9c82d158ccbf78c3fb410ed8bc3eb135e424.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/d439b6003af33a87e950fc4bbd1707385343fbf21f04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/f31fbe096b63f6246b60bf6ffc0ffcf81a4c510f0501.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片背景/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用对称密钥加密和解密/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用对称密钥加密和解密/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/ECDSA/spec.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/ECDSA/spec.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/HMAC/spec.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/HMAC/spec.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSASSA-PKCS1-v1_5/spec.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSASSA-PKCS1-v1_5/spec.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/算法种类以及可应用的场合/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/算法种类以及可应用的场合/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web lesson/exp1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/exp1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web lesson/exp1/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/exp1/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -69,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web lesson/exp1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSA-PSS" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -78,11 +78,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Crypto\构造算法对象初始化参数\RSA-PSS" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\exp1" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\列表和生成的内容\@counter-style" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\列表和生成的内容" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io" />
     </key>
   </component>
   <component name="RunManager">
@@ -124,7 +124,15 @@
       <workItem from="1652232735581" duration="12991000" />
       <workItem from="1652251303791" duration="797000" />
       <workItem from="1652255512898" duration="1891000" />
-      <workItem from="1652262880588" duration="9459000" />
+      <workItem from="1652262880588" duration="10417000" />
+      <workItem from="1652274173000" duration="193000" />
+      <workItem from="1652323601121" duration="540000" />
+      <workItem from="1652328824980" duration="4764000" />
+      <workItem from="1652344572216" duration="863000" />
+      <workItem from="1652345655254" duration="385000" />
+      <workItem from="1652355108644" duration="4833000" />
+      <workItem from="1652405045640" duration="10175000" />
+      <workItem from="1652445181766" duration="810000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -140,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652256108717</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="20220511(2)">
+      <created>1652273375362</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273375363</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +176,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="20220511" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220511" />
+    <MESSAGE value="20220511(2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220511(2)" />
   </component>
 </project>

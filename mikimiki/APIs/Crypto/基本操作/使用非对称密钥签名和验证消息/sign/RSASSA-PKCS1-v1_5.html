@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<code>
+    <pre>
+
+    </pre>
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (async function() {
+            let arr = (65537).toString(2).split("").map(v => Number.parseInt(v));
+            console.log(Number.parseInt(arr.join(""),2));
+            console.log(new Uint8Array(arr))
+            console.log(new Uint8Array([1,0,1]))
+            const keyParams = {
+                name: 'RSASSA-PKCS1-v1_5',
+                hash: 'SHA-256',
+                modulusLength: 4096,
+                publicExponent: new Uint8Array([1,0,1]),
+                // publicExponent: new Uint8Array(arr),
+            };
+            const keyUsages = ['sign', 'verify'];
+            const {publicKey, privateKey} = await crypto.subtle.generateKey(keyParams, true,
+                keyUsages);
+            const message = (new TextEncoder()).encode('I am Satoshi Nakamoto');
+            const signParams = {
+                name: 'RSASSA-PKCS1-v1_5',
+                hash: 'SHA-256'
+            };
+            const signature = await crypto.subtle.sign("RSASSA-PKCS1-v1_5", privateKey, message);
+            console.log(new Uint32Array(signature));
+            // Uint32Array(16) [2202267297, 698413658, 1501924384, 691450316, 778757775, ... ]
+        })();
+    })
+</script>
+</body>
+</html>

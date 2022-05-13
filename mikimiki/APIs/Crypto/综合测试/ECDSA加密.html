@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<code>
+    <pre>
+
+    </pre>
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (async function() {
+            const algoIdentifier = "ECDSA";
+            const keyParams = {
+                namedCurve: "P-256",
+                name: algoIdentifier,
+                length: 256
+            };
+            const keyUsages = ['sign', 'verify'];
+            const {publicKey,privateKey} = await crypto.subtle.generateKey(keyParams, true,
+                keyUsages);
+            const originalPlaintext = (new TextEncoder()).encode('I am Satoshi Nakamoto');
+            const EcdsaParams = {
+                name: algoIdentifier,
+                hash: 'SHA-256'
+            }
+            console.log(publicKey)
+            const ciphertext = await crypto.subtle.sign(EcdsaParams, privateKey,
+                originalPlaintext);
+            console.log(ciphertext);
+            // ArrayBuffer(32) {}
+            const decryptedPlaintext = await crypto.subtle.verify(EcdsaParams, publicKey,
+                ciphertext,originalPlaintext);
+            console.log(decryptedPlaintext);
+            let textModified = new Uint8Array(Array.from(originalPlaintext).push(1));
+            const decryptedPlaintext2 = await crypto.subtle.verify(EcdsaParams, publicKey,
+                ciphertext,textModified);
+            console.log(decryptedPlaintext2);
+            // I am Satoshi Nakamoto
+        })();
+    })
+</script>
+</body>
+</html>
