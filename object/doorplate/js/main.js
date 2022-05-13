@@ -1,6 +1,7 @@
 (function ($) {
     "use strict";
 
+    alert("1.0");
     $(window).on('load', function(){
         $('body').css({ overflowY: 'hidden'});
         setTimeout(function(){
