@@ -1,0 +1,32 @@
+precision highp float;
+varying vec4 v_position;
+varying vec4 v_normal;
+varying vec4 v_color;
+varying vec4 v_ambient;
+varying vec4 v_point_pos;
+varying vec4 v_point_color;
+varying float v_reduction_a;
+varying float v_reduction_b;
+varying float v_reduction_c;
+varying float v_diffuse_intensity;
+varying float v_mirror_intensity;
+varying float v_diffuse_reflection;
+varying float v_mirror_reflection;
+varying float v_highLight;
+varying vec4 v_perspective_pos;
+    void main(){
+        vec3 normal = vec3(v_normal);
+        vec3 point_pos = vec3(v_point_pos);
+        vec3 position = vec3(v_position);
+        vec3 point_relative_pos = point_pos - position;
+        float length = length(point_relative_pos);
+        vec3 halfangle = normalize(normalize(vec3(point_relative_pos))+normalize(vec3(v_perspective_pos - v_position)));
+        float theta = max(dot(normalize(point_relative_pos),normalize(normal)),0.0);
+        float reduction = 1.0/(v_reduction_a+v_reduction_b*length+v_reduction_c*length*length);
+        float diffuse = v_diffuse_intensity * v_diffuse_reflection * theta;
+        float mirror = v_mirror_intensity * v_mirror_reflection * max(pow(dot(normalize(normal),halfangle),v_highLight),0.0);
+        float phong = reduction * (diffuse + mirror);
+        vec3 point = vec3(v_point_color) * vec3(v_color) * phong;
+        vec3 ambient = vec3(v_ambient) * vec3(v_color);
+        gl_FragColor = vec4(ambient + point,1.0);
+    }
