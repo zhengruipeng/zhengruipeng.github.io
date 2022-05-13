@@ -1,30 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220511(2)">
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/ECDSA.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/HMAC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/RSA-PSS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/RSASSA-PKCS1-v1_5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/Algorithm dictionary/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSA-PSS/spec.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/param-table.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/综合测试/ECDSA加密.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/lesson 5/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/lesson 5/table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/lesson 5/后代选择器.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_05_06_19_51_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_05_06_19_51__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220513">
+      <change afterPath="$PROJECT_DIR$/object/doorplate/libs/fonts.googleapis.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/doorplate/libs/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/doorplate/libs/mouse-click.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用对称密钥加密和解密/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用对称密钥加密和解密/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用非对称密钥签名和验证消息/sign/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/ECDSA/spec.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/ECDSA/spec.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/HMAC/spec.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/HMAC/spec.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSASSA-PKCS1-v1_5/spec.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSASSA-PKCS1-v1_5/spec.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/算法种类以及可应用的场合/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/算法种类以及可应用的场合/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web lesson/exp1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/exp1/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web lesson/exp1/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/exp1/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/doorplate/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/doorplate/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/doorplate/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/doorplate/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -132,7 +115,7 @@
       <workItem from="1652345655254" duration="385000" />
       <workItem from="1652355108644" duration="4833000" />
       <workItem from="1652405045640" duration="10175000" />
-      <workItem from="1652445181766" duration="810000" />
+      <workItem from="1652445181766" duration="1864000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -155,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652273375363</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="20220513">
+      <created>1652446011849</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652446011849</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +167,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="20220511" />
     <MESSAGE value="20220511(2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220511(2)" />
+    <MESSAGE value="20220513" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220513" />
   </component>
 </project>
