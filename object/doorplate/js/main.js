@@ -5,16 +5,16 @@
     $(window).on('load', function(){
         $('body').css({ overflowY: 'hidden'});
         setTimeout(function(){
-            $('#preload-content').fadeOut(300, function(){
-                $('#preload').fadeOut(300);
+            $('#preload-content').fadeOut(100, function(){
+                $('#preload').fadeOut(100);
                 $('body').css({ overflowY: 'visible'});
                 setTimeout(function(){
                     $('.fade-in').each(function(index) {
-                        $(this).delay(300*index).animate({ top : 0, opacity: 1 }, 300);
+                        $(this).delay(100*index).animate({ top : 0, opacity: 1 }, 100);
                     });
-                }, 300);
+                }, 100);
             });
-        }, 300);
+        }, 100);
     });      
     
 	jQuery(document).ready(function($){ 
@@ -42,7 +42,7 @@
             items:1,
             loop:true,
             autoplay:true,
-            autoplayTimeout:300,
+            autoplayTimeout:100,
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
             nav:true,
@@ -138,7 +138,7 @@
         $(".creative-slider").owlCarousel({
             items:1,
             autoplay:true,
-            autoplayTimeout:300,
+            autoplayTimeout:100,
             loop:true,
             animateOut: 'fadeOut',
             animateIn: 'fadeIn'

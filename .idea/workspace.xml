@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220513">
-      <change afterPath="$PROJECT_DIR$/object/doorplate/libs/fonts.googleapis.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/doorplate/libs/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/doorplate/libs/mouse-click.js" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220513(3)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/doorplate/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/doorplate/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/doorplate/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/doorplate/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +110,7 @@
       <workItem from="1652345655254" duration="385000" />
       <workItem from="1652355108644" duration="4833000" />
       <workItem from="1652405045640" duration="10175000" />
-      <workItem from="1652445181766" duration="1864000" />
+      <workItem from="1652445181766" duration="2574000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -145,7 +140,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652446011849</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="20220513(2)">
+      <created>1652447102587</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652447102587</updated>
+    </task>
+    <task id="LOCAL-00006" summary="20220513(3)">
+      <created>1652447210912</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652447210912</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +177,8 @@
     <MESSAGE value="20220511" />
     <MESSAGE value="20220511(2)" />
     <MESSAGE value="20220513" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220513" />
+    <MESSAGE value="20220513(2)" />
+    <MESSAGE value="20220513(3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220513(3)" />
   </component>
 </project>
