@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220513(6)">
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用对称密钥加密和解密/AES-CBC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用对称密钥加密和解密/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/使用对称密钥加密和解密/RSA-OAEP.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSA-OAEP/spec.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSA-OAEP/spec.html" afterDir="false" />
-    </list>
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220514(密码学加密算法更新)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +109,7 @@
       <workItem from="1652355108644" duration="4833000" />
       <workItem from="1652405045640" duration="10175000" />
       <workItem from="1652445181766" duration="3719000" />
-      <workItem from="1652497137195" duration="5936000" />
+      <workItem from="1652497137195" duration="6317000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -179,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652448891505</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="20220514(密码学加密算法更新)">
+      <created>1652505066869</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652505066869</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +209,7 @@
     <MESSAGE value="20220513(4)" />
     <MESSAGE value="20220513(5)" />
     <MESSAGE value="20220513(6)" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220513(6)" />
+    <MESSAGE value="20220514(密码学加密算法更新)" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220514(密码学加密算法更新)" />
   </component>
 </project>
