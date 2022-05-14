@@ -86,3 +86,10 @@ body{
     animation-fill-mode: backwards;
     animation-iteration-count: infinite;
 }
+#geolocation{
+    position: fixed;
+    bottom:20%;
+    left:3%;
+    color:white;
+
+}
