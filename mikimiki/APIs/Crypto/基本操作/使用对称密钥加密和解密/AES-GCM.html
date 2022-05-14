@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<code>
+    <pre>
+
+    </pre>
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        (async function() {
+            const algoIdentifier = 'AES-GCM';
+            const keyParams = {
+                name: algoIdentifier,
+                length: 256
+            };
+
+            const keyUsages = ['encrypt', 'decrypt'];
+            const key = await crypto.subtle.generateKey(keyParams, true,
+                keyUsages);
+            const originalPlaintext = (new TextEncoder()).encode('I am Satoshi Nakamoto');
+            const encryptDecryptParams = {
+                name: algoIdentifier,
+                iv: crypto.getRandomValues(new Uint8Array(16))
+            };
+            const ciphertext = await crypto.subtle.encrypt(encryptDecryptParams, key,
+                originalPlaintext);
+            console.log(ciphertext);
+            // ArrayBuffer(32) {}
+            const decryptedPlaintext = await crypto.subtle.decrypt(encryptDecryptParams, key,
+                ciphertext);
+            console.log((new TextDecoder()).decode(decryptedPlaintext));
+            // I am Satoshi Nakamoto
+        })();
+    })
+</script>
+</body>
+</html>

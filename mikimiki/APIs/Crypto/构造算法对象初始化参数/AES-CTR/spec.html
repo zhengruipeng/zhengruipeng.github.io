@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="../param-table.css" rel="stylesheet" type="text/css" />
     <style>
         code{
             font-size: 1.5rem;
@@ -53,6 +54,11 @@
 </table>
 <code>
     <pre>
+        typedef (object or DOMString) AlgorithmIdentifier;
+        typedef AlgorithmIdentifier HashAlgorithmIdentifier;
+        dictionary Algorithm {
+          required DOMString name;
+        };
         dictionary AesCtrParams : Algorithm {
           // The initial value of the counter block. counter MUST be 16 bytes
           // (the AES block size). The counter bits are the rightmost length

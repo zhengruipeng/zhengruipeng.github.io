@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="../param-table.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <table border="1">
@@ -43,6 +44,25 @@
 </table>
 <code>
   <pre>
+    typedef (object or DOMString) AlgorithmIdentifier;
+    typedef AlgorithmIdentifier HashAlgorithmIdentifier;
+    dictionary Algorithm {
+      required DOMString name;
+    };
+    dictionary RsaKeyGenParams : Algorithm {
+      // The length, in bits, of the RSA modulus
+      [EnforceRange] required unsigned long modulusLength;
+      // The RSA public exponent
+      required BigInteger publicExponent;
+    };
+    dictionary RsaHashedKeyGenParams : RsaKeyGenParams {
+        // The hash algorithm to use
+        required HashAlgorithmIdentifier hash;
+    };
+    dictionary RsaHashedImportParams : Algorithm {
+      // The hash algorithm to use
+      required HashAlgorithmIdentifier hash;
+    };
     dictionary RsaOaepParams : Algorithm {
       // The optional label/application data to associate with the message
       BufferSource label;
