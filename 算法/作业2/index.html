@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<code>
+
+</code>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",async function (){
+        let output = function (msg){
+            document.querySelector("code").innerHTML += msg + "<br />";
+        }
+        let response = await fetch("./input.txt");
+        let text = await response.text();
+        let arr = text.split("\r\n");
+        arr.shift();
+        arr = arr.map(v => Number.parseInt(v));
+        let map = new Map();
+        arr.forEach(v => {
+            if(!map.has(v)){
+                map.set(v,0);
+            }
+            map.set(v,map.get(v) + 1);
+        });
+        output(map);
+        let maxValue = Math.max(...map.values());
+        output(maxValue);
+
+        for(let [key,value] of map.entries()){
+            if(value === maxValue){
+                output(key);
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- presentation.html -->
+<script>
+    var addConnection = function(connection) {
+        this.onmessage = function (message) {
+            if (message.data == "say hello")
+                this.send("hello");
+        };
+    };
+
+    navigator.presentation.receiver.connectionList.then(function (list) {
+        list.connections.map(function (connection) {
+            addConnection(connection);
+        });
+        list.onconnectionavailable = function (evt) {
+            addConnection(evt.connection);
+        };
+    });
+</script>
+</body>
+</html>

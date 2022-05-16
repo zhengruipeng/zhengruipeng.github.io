@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",async function (){
+        let response = await fetch("./input.txt");
+        let text = await response.text();
+        let textArr = text.split("\r\n");
+        textArr.shift();
+        textArr = textArr.map(v => Number.parseInt(v));
+        let number = textArr[0];
+        let arr = [];
+        let f = function (n){
+            let sum = 1;
+            if(arr[n]) return arr[n];
+            for(let i = 2; i <= Math.sqrt(n); i++){
+                if(n % i === 0) {
+                    if(i * i === n)
+                        sum += f(i);
+                    else
+                        sum += f(i) + f(n / i);
+                }
+            }
+            return sum;
+        }
+
+        console.log(f(number));
+
+    })
+</script>
+</body>
+
+</html>
