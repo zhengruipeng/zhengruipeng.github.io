@@ -49,8 +49,12 @@ feature_id: 5414209298890752
 </p>
 
 <script>
-  log = console.log;
-</script>
+  log = function (...msg){
+    console.log(...msg);
+    let p = document.createElement("p");
+    p.innerHTML = msg+"<br />";
+    document.body.appendChild(p);
+  }</script>
 
 <script type="text/javascript">
 const presentationRequest = new PresentationRequest(['receiver/index.html']);

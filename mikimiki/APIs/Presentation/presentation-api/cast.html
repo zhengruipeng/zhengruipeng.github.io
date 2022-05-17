@@ -24,7 +24,12 @@ feature_id: 6676265876586496
 </p>
 
 <script>
-  log = console.log;
+  log = function (...msg){
+    console.log(...msg);
+    let p = document.createElement("p");
+    p.innerHTML = msg+"<br />";
+    document.body.appendChild(p);
+  }
 </script>
 
 <script>// App ID EF1A139F is registered in the Google Cast SDK Developer
