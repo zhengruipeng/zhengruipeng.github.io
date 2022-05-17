@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color:yellow;
+            /*overflow-x: hidden;*/
+            margin:0;
+            padding: 0;
+        }
+        header{
+            text-align: center;
+            color:red;
+
+        }
+        header:after{
+            border-top:red solid 2px;
+            content: "";
+            display: block;
+            width:95vw;
+            margin:auto;
+            height:0;
+        }
+        header:link{
+            color:blue;
+        }
+        header:active{
+            color: purple;
+        }
+        main>h1{
+            font-family: 宋体;
+            color:blue;
+            font-size:1.5em;
+        }
+        ul>li:first-child{
+            list-style: none;
+        }
+        table{
+            border:red solid 1px;
+            border-collapse: collapse;
+            counter-reset: td;
+            margin:0 auto;
+            width:60vw;
+            text-align: center;
+        }
+        td{
+            border:red solid 1px;
+            padding:10px;
+            counter-increment: td;
+        }
+        caption{
+            font-size:2em;
+        }
+        tr:nth-child(odd){
+            background-color:rgba(255,0,0,0.5);
+        }
+        tr:nth-child(even){
+            background-color:rgba(0,255,255,0.5);
+        }
+        .img-container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            width:96vw;
+            align-content: center;
+            justify-content: center;
+        }
+        .img-container>img{
+            height:100%;
+            width:100%;
+        }
+        </style>
+</head>
+<body>
+<header>
+    <h1>东北石油大学</h1>
+    <nav>
+        <a href="#" name="head">简介</a>
+        <a href="#">历史</a>
+        <a href="#">内涵</a>
+        <a href="#">师资</a>
+    </nav>
+</header>
+<main>
+    <h1>东北石油大学简介</h1>
+    <p>
+        简介<br />
+        <strong>简介</strong><br />
+        <ins>简介</ins><br />
+        <del>简介</del><br />
+        东北石油大学（Northeast Petroleum University），简称东油（NEPU），坐落于中国最大的石油石化基地黑龙江省大庆市龙凤区高新技术产业开发区，是伴随中国最大油田大庆油田的发现而诞生的一所全国重点大学，是黑龙江省与中国石油天然气集团公司、中国石油化工集团公司、中国海洋石油总公司共建高校，是黑龙江省重点建设的高水平大学，还是国家“卓越工程师教育培养计划”、“国家大学生创新性实验计划”实施高校，国家“特色重点学科项目”建设高校，“国家建设高水平大学公派研究生项目”实施高校，CDIO工程教育联盟成员单位。
+    <table>
+    <caption>著名大学</caption>
+        <tr>
+            <td>名称</td>
+            <td>地址</td>
+            <td>介绍</td>
+        </tr>
+        <tr>
+            <td>清华</td>
+            <td>北京</td>
+            <td>著名985</td>
+        </tr>
+        <tr>
+            <td>北大</td>
+            <td>北京</td>
+            <td>著名985</td>
+        </tr>
+    <tr>
+        <td>东油</td>
+        <td>大庆</td>
+        <td>x_x</td>
+    </tr>
+    </table>
+    </p>
+    <h1>东北石油大学历史</h1>
+    <p>
+        历史<br />
+        <em>历史</em><br />
+        <sub>历史</sub><br />
+        <sup>历史</sup><br />
+        东北石油大学源于清华大学石油炼制系，孕育于北京石油学院，诞生发展于大庆油田，是大庆油田大会战的重要成果之一。学校前身东北石油学院创建于1960年5月，1975年7月更名为大庆石油学院，2010年4月正式更名为东北石油大学。中石油、中石化、中海油的多位总裁、副总裁毕业于此，被誉为石油界的“黄埔军校”。
+
+    </p>
+    <h1>东北石油大学文化</h1>
+    <p>
+        <ul>
+            <li>
+                <ol>
+                    <li>自由</li>
+                    <li>民主</li>
+                    <li>文明</li>
+                </ol>
+            </li>
+    <li>爱国</li>
+    <li>诚信</li>
+        </ul>
+    </p>
+    <h1>东北石油大学师资</h1>
+    <div class="img-container">
+        <img src="1.jpeg" />
+        <img src="2.jpeg" />
+        <img src="3.jpeg" />
+        <img src="4.jpeg" />
+    </div>
+    <p>
+
+        <a href="#head">返回首页</a>
+    </p>
+</main>
+</body>
+</html>

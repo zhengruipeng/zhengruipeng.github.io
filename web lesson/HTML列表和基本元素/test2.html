@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+<button></button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let styleSheet = document.styleSheets[0];
+        let cssRule = styleSheet.cssRules[0];
+        let cssStyleDeclaration = cssRule.style;
+
+        console.log(cssStyleDeclaration);
+        console.log(cssStyleDeclaration.padding);
+        console.log(cssStyleDeclaration.margin);
+    });
+</script>
+</body>
+</html>

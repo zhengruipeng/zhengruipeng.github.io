@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*div,
+        header,
+        main,
+        footer{
+            border:red solid 1px;
+
+        }*/
+        div{
+            display: grid;
+            grid-template-rows:1fr 3fr 1fr;
+            width:100vw;
+        }
+        header,
+        main,
+        footer{
+            text-align: center;
+        }
+        main>ul{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3,1fr);
+            list-style: none;
+            grid-row-gap: 20px;
+        }
+        table{
+            margin:auto;
+            border:#000 solid 1px;
+            border-collapse:collapse;
+        }
+        td{
+            padding:20px 80px;
+            border:#000 solid 1px;
+        }
+        main>div{
+            margin:auto;
+        }
+        img{
+            float:right;
+            height:20vh;
+            width:10vw;
+        }
+        </style>
+</head>
+<body>
+<div>
+    <header>
+        <h1>个人简历</h1>
+    </header>
+    <main>
+        <img src="./1.jpg">
+
+        <ul>
+            <li>姓名：郑瑞蓬</li>
+            <li>性别：男</li>
+            <li>年龄：20</li>
+            <li>籍贯：harbin</li>
+            <li>政治面貌：团员</li>
+            <li>邮箱：HoshiMiki@yandex.ru</li>
+            <li>电话：HoshiMiki@yandex.ru</li>
+            <li>邮箱：HoshiMiki@yandex.ru</li>
+
+        </ul>
+        <table>
+            <tr>
+                <td>数学</td>
+                <td>英语</td>
+                <td>计算机</td>
+                <td>政治</td>
+                <td>总分</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>100</td>
+                <td>150</td>
+                <td>100</td>
+                <td>450</td>
+            </tr>
+        </table>
+        <hr />
+        <div>
+            教育背景：东北石油yyds
+
+        </div>
+    </main>
+    <footer>
+        <ul>
+            <li>学分成绩：5</li>
+            <li>英语能力：托福</li>
+            <li>主要课程：web前端：满分</li>
+        </ul>
+    </footer>
+</div>
+</body>
+</html>
