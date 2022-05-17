@@ -22,14 +22,12 @@ feature_id: 6676265876586496
   <button id="close">presentationConnection.close()</button>
   <button id="terminate">presentationConnection.terminate()</button>
 </p>
-{% include output_helper.html initial_output_content=initial_output_content %}
 
 <script>
-  log = ChromeSamples.log;
+  log = console.log;
 </script>
 
-{% capture js %}
-// App ID EF1A139F is registered in the Google Cast SDK Developer
+<script>// App ID EF1A139F is registered in the Google Cast SDK Developer
 // Console and points to the following custom receiver:
 // https://googlechrome.github.io/samples/presentation-api/receiver/index.html
 const presentationRequest = new PresentationRequest('cast:EF1A139F');
@@ -83,6 +81,4 @@ presentationRequest.getAvailability()
   log('Presentation availability not supported, ' + error.name + ': ' +
       error.message);
 });
-
-{% endcapture %}
-{% include js_snippet.html js=js %}
+</script>
