@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220517(presentation API)">
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS字体属性背景图片/CSS练习.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS字体属性背景图片/bgi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS字体属性背景图片/背景图片.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS背景列表文本属性/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS背景列表文本属性/bgi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS背景列表文本属性/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS背景列表文本属性/list-style-image.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS背景列表文本属性/vertical-align.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS背景列表文本属性/文本属性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS背景列表文本属性/文本属性2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Presentation/presentation-api/cast.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Presentation/presentation-api/cast.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/列表和生成的内容/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web lesson/CSS 2/CSS基本样式练习1.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/CSS选择器练习/CSS基本样式练习1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web lesson/CSS 2/CSS基本样式练习2.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/CSS选择器练习/CSS基本样式练习2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web lesson/CSS 2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/CSS选择器练习/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mikimiki/APIs/Presentation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../object" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -57,11 +70,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\test" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\123" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Presentation" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Crypto\基本操作\使用对称密钥加密和解密" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Crypto\构造算法对象初始化参数\RSA-PSS" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\exp1" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
     </key>
   </component>
   <component name="RunManager">
@@ -120,7 +133,10 @@
       <workItem from="1652681584791" duration="31000" />
       <workItem from="1652683035291" duration="2426000" />
       <workItem from="1652702078717" duration="2135000" />
-      <workItem from="1652764890160" duration="4115000" />
+      <workItem from="1652764890160" duration="5796000" />
+      <workItem from="1652867882145" duration="3095000" />
+      <workItem from="1653024019290" duration="6706000" />
+      <workItem from="1653100380025" duration="187000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -227,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652770984229</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="20220517(presentation API)">
+      <created>1652773934476</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1652773934476</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
