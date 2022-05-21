@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      border:red solid 1px;
+    }
+    .container{
+      display: flex;
+      padding:10px;
+      margin:20px 10px;
+      justify-content: center;
+      perspective: 300px;
+    }
+    .container>div{
+      height:100px;
+      width:100px;
+      margin:10px;
+    }
+    div:not(.container){
+
+    }
+    #x{
+      transform: rotateX(45deg);
+    }
+    #y{
+      transform: rotateY(45deg);
+    }
+    #z{
+      transform: rotateZ(45deg);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  改变后
+  <div id="x">1</div>
+  <div id="y">2</div>
+  <div id="z">3</div>
+</div>
+<div class="container">
+  改变前
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border:red solid 1px;
+        }
+        .container{
+            display: flex;
+            padding:10px;
+            margin:20px 10px;
+            perspective: 300px;
+            justify-content: center;
+        }
+        .container>div{
+            height:100px;
+            width:100px;
+            margin:10px;
+        }
+        div:not(.container){
+
+        }
+        #x{
+            transform: scale3d(1,1,3) rotateY(45deg) ;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    改变后
+    <div id="x">1</div>
+</div>
+<div class="container">
+    改变前
+    <div style="transform: rotateY(45deg)">1</div>
+</div>
+
+</body>
+</html>

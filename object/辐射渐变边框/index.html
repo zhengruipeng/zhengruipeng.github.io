@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="form-style.css" />
+</head>
+<body>
+<form>
+    <h2>注册</h2>
+   <fieldset id="username-container" class="input-container">
+     <label>姓名：</label>
+       <div>
+           <input type="text"  class="form-unit" />
+       </div>
+   </fieldset>
+    <fieldset id="gender-container" class="input-container">
+        <label>性别： </label>
+        <div>
+            <label class="form-unit">
+                男：<input type="radio"  />
+                女：<input type="radio"  />
+            </label>
+        </div>
+    </fieldset>
+    <fieldset id="age-container" class="input-container">
+        <label>年龄： </label>
+        <div>
+            <input type="number"  class="form-unit" />
+        </div>
+    </fieldset>
+    <fieldset id="hobby-container" class="input-container">
+        <label>爱好： </label>
+        <div>
+            <label class="form-unit">
+                跑步：<input type="checkbox"  />
+                音乐：<input type="checkbox"  />
+                写代码：<input type="checkbox"  />
+            </label>
+        </div>
+    </fieldset>
+    <fieldset id="hometown-container" class="input-container">
+        <label>故乡： </label>
+        <div>
+            <select class="form-unit">
+                <option>黑龙江</option>
+                <option>内蒙古</option>
+                <option>新疆</option>
+            </select>
+        </div>
+    </fieldset>
+
+   <button id="reset"  class="button">重置</button>
+   <button id="submit" class="button">提交</button>
+</form>
+<script type="module" src="form-UI.js"></script>
+
+</body>
+</html>

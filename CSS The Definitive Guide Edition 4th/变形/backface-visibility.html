@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:150px;
+            width:150px;
+            border:red solid 1px;
+            margin:auto;
+            transition: .3s;
+            display: grid;
+        }
+        div>img{
+            height:100%;
+            width:100%;
+            grid-row: 1/ span 1;
+            grid-column: 1/ span 1;
+        }
+        div>section{
+            height:100%;
+            width:100%;
+            background-color:#ffffff66;
+            backface-visibility: hidden;
+            transform:rotateY(180deg);
+            grid-row: 1/ span 1;
+            grid-column: 1/ span 1;
+        }
+        div:hover{
+            transform-style: preserve-3d;
+            transform:rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="1.jpg" />
+    <section>我是饰演丰崎爱生的赤琦扣扣楼</section>
+</div>
+</body>
+</html>
