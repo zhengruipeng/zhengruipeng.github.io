@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      height:100px;
+      width:100px;
+      transition-duration:1.5s;
+      border:red solid 1px;
+      position:fixed;
+
+    }
+    div:hover{
+      transform: scale(2,2);
+    }
+    div:active{
+      width: 200px;
+      left:calc(50% - 100px);
+    }
+    #start{
+      top:calc(33% - 50px);
+      left:calc(25% - 50px);
+      transition-timing-function: steps(5,start);
+    }
+    #end{
+      top:calc(33% - 50px);
+      left:calc(50% - 50px);
+      transition-timing-function: steps(5,end);
+    }
+    #jump-start{
+      top:calc(33% - 50px);
+      left:calc(75% - 50px);
+      transition-timing-function: steps(5,jump-start);
+    }
+    #jump-end{
+      top:calc(66% - 50px);
+      left:calc(25% - 50px);
+      transition-timing-function: steps(5,jump-end);
+    }
+    #jump-both{
+      top:calc(66% - 50px);
+      left:calc(50% - 50px);
+      transition-timing-function: steps(5,jump-both);
+    }
+    #jump-none{
+      top:calc(66% - 50px);
+      left:calc(75% - 50px);
+      transition-timing-function: steps(5,jump-none);
+    }
+  </style>
+</head>
+<body>
+<div id="start">start Same as jump-start.</div>
+<div id="end">end Same as jump-end.</div>
+<div id="jump-start">jump-start</div>
+<div id="jump-end">jump-end</div>
+<div id="jump-both">jump-both</div>
+<div id="jump-none">jump-none</div>
+</body>
+</html>

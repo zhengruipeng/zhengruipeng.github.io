@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+        div{
+            height:100px;
+            width:100px;
+            transition-duration:1.5s;
+            transition-property: transform;
+            border:red solid 1px;
+            position:fixed;
+            top:calc(50% - 50px);
+            left:calc(50% - 50px);
+            transition-timing-function: linear;
+        }
+        div:hover{
+            transform: scale(2,2);
+        }
+        div:active{
+            width: 200px;
+            left:calc(50% - 100px);
+
+        }
+        svg{
+            border:#bbb solid 1px;
+        }
+        svg>circle{
+            transition:fill .3s;
+            cursor: pointer;
+            fill:darkred;
+        }
+        svg>circle:hover{
+            fill:red;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<select>
+    <option>ease</option>
+    <option selected>linear</option>
+    <option>ease-in</option>
+    <option>ease-out</option>
+    <option>ease-in-out</option>
+    <option>cubic-bezier()</option>
+</select>
+<svg height="600" width="600">
+    <path d="M 0 600 C 200 400,400 200,600 0" style="fill:none;stroke:#000" />
+    <circle r="15" cx="200" cy="400" />
+    <circle r="15" cx="400" cy="200" />
+</svg>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const svg = this.querySelector('svg');
+        const points = Array.from(svg.querySelectorAll("circle"));
+        const ec = svg.querySelector("path");
+        const div = this.querySelector('div');
+        const select = this.querySelector('select');
+        const options = Array.from(select.options);
+
+        let selectCB = function (){
+            let type = this.selectedOptions[0].innerHTML.trim();
+            console.log(type);
+            if(type !== "cubic-bezier()"){
+                div.style.transitionTimingFunction = type;
+                return false;
+            }
+
+        }
+        let changePointPos = function (ev,pointIndex){
+            let parseECPath = function (){
+                let path = ec.getAttribute("d");
+                //M 0 600 C 200 400,400 200,600 0
+                let regexp = /M 0 600 C ([-\d\s\.]+),([-\d\s\.]+),600 0/;
+                return path.match(regexp);
+            }
+            let stringifyECPath = function (p1,p2){
+                let path = "M 0 600 C "+p1[0]+" "+p1[1]+","+p2[0]+" "+p2[1]+",600 0";
+                return path;
+            }
+            let point = this;
+            window.onmousemove = function (ev){
+                let {x,y} = ev;
+                [x,y] = [x-svg.getBoundingClientRect().left,y-svg.getBoundingClientRect().top];
+                let [all,point1,point2] = parseECPath();
+                point1 = point1.split(" ");
+                point2 = point2.split(" ");     //[300,300]
+                // console.log(point1);
+                // console.log(point2);
+                if(pointIndex === 0){
+                    let path = stringifyECPath([x,y],point2);
+                    ec.setAttribute("d",path);
+                }else if(pointIndex === 1){
+                    let path = stringifyECPath(point1,[x,y]);
+                    ec.setAttribute("d",path);
+                }
+                point.setAttribute("cx",x);
+                point.setAttribute("cy",y);
+
+            };
+            window.onmouseup = function (ev){
+                window.onmousemove = null;
+                window.onmouseup = null;
+
+                if(select.selectedOptions[0].innerHTML.trim() !== "cubic-bezier()")return false;
+                console.log(123)
+                let [all,point1,point2] = parseECPath();
+                point1 = point1.split(" ");
+                point2 = point2.split(" ");//[300,300]
+                let x1 = point1[0];
+                let y1 = point1[1];
+                let x2 = point2[0];
+                let y2 = point2[1];
+                console.log(svg.width);
+                x1 = x1 / svg.width.baseVal.value;
+                x2 = x2 / svg.width.baseVal.value;
+                y1 = y1 / svg.height.baseVal.value;
+                y2 = y2 / svg.height.baseVal.value;
+                let cssCB = `cubic-bezier(${x1},${1-y1},${x2},${1-y2})`;
+                div.style.transitionTimingFunction = cssCB;
+                console.log(cssCB)
+            };
+        }
+
+        // options.forEach(option => option.onclick = selectCB);
+        select.onchange = selectCB;
+        points.forEach((point,index) => {
+            point.onmousedown = (ev) => {changePointPos.call(point,ev,index)};
+        });
+
+    })
+    </script>
+</body>
+</html>
