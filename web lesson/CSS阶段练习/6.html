@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table td{
+            text-align: center;
+        }
+        table.tb1,
+        table.tb1 td {
+            border:red solid 1px;
+        }
+        div.div1 #ul1>li{
+            list-style-image: url("./image/bg.png");
+        }
+        #table1 td.td-green{
+            font-style: italic;
+            font-family: "黑体";
+            font-size:18px;
+            line-height:1.5em;
+            font-weight: 900;
+        }
+        #table1 td.td-green{
+            font: italic 900 18px/1.5em "黑体";
+        }
+        </style>
+</head>
+<body>
+<code>
+    <pre>
+    要求：请将以下问题答案写在作业纸上，标明题号，可不抄题。
+    6、请按照以下叙述写出CSS规则。
+    1）选择html页面中所有的table表格所包含的td单元格，将单元格中的文本水平对齐方式设置为居中对齐。
+    2）选择html页面中class属性为tb1的表格，设置该表格的边框，以及该表格下单元格的边框为1px，实线，红色。
+    3）将html页面中class属性为div1的div所包含的id属性为ul1的ul标记的子对象li标记选中，并设置其列表项标记（前导符）为图片bg.png，该图片位于images文件夹下。
+    4）将id属性为table1的表格下的所有class属性为td-green的td单元格中的文本设置为斜体、黑体、字号为18像素、行高为字号的1.5倍，字体浓淡为900.（要求使用两种方式完成，一种方式为分别控制各个属性；另一种方式为使用font优化属性在一条语句中完成。）
+    </pre>
+</code>
+<table class="tb1">
+    <tr>
+        <td class="td-green">123123</td>
+        <td class="td-green">123123</td>
+        <td class="td-green">123123</td>
+    </tr>
+    <tr>
+        <td class="td-green">123123</td>
+        <td class="td-green">123123</td>
+        <td class="td-green">123123</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        code{
+            white-space: pre;
+        }
+        div.div1 {
+            border:#06F 1px solid;
+            width:100px;
+            height:100px;
+            padding:10px 20px;
+            margin:30px 5px 10px;
+        }
+          div.div2 {
+              border:#06F 2px solid;
+              width:200px;
+              height:100px;
+              padding:10px;
+              margin:30px 5px 4px 10px;
+          }
+        </style>
+</head>
+<body>
+<div class="div1">
+    <div class="div2"></div>
+
+</div>
+10、盒子模型，阅读以下代码
+1）判断两个div盒子占据的宽度各是多少？
+2）如果两个盒子上下摆放，div1在上div2在下，两个盒子之间的距离是多少？
+3）如果两个盒子嵌套摆放，div1在外层，div2在内层，则两个盒子左侧边框之间的距离是多少？
+<code>
+    div.div1 {
+        border:#06F 1px solid;
+        width:100px;
+        height:100px;
+        padding:10px 20px;
+        margin:30px 5px 10px;
+    }
+</code>
+<code>
+    div.div2 {
+        border:#06F 2px solid;
+        width:200px;
+        height:100px;
+        padding:10px;
+        margin:30px 5px 4px 0;
+    }
+</code>
+宽度：<br />
+100px + 40px + 2px + 10px === 152px<br />
+200px + 20px + 4px + 10px === 234px;<br />
+上下之间距离:30px;<br />
+左侧边框之间距离是：20px<br />
+</body>
+</html>

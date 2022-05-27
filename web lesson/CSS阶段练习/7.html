@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            text-indent:20px;
+        }
+        code{
+            font-size: 1.5em;
+            margin:.5rem;
+        }
+        </style>
+</head>
+<body>
+<section>
+    <p>
+        7、请阅读以下CSS规则，用语言叙述出来。
+    </p>
+    <details >
+        <summary>
+            1）div.div1  #div2{text-indent:20px;}
+        </summary>
+        <code>
+            id选择器前的div.div1没意义，直接选择#div2，#div2中的content前面空出20px
+        </code>
+    </details>
+    <details>
+        <summary>
+            2）table.tb1  tr#tr1 th , td{vertical-align:middle;}
+        </summary>
+        <code>
+            跟上一题一样，#tr1前面的东西没意义，直接从#tr1看起，id为tr1的元素的后代元素的所有th，
+            还有整个文档中所有的td，把他们的所有垂直对齐设置为居中。
+        </code>
+    </details>
+    <details>
+        <summary>
+            3）ul  ul.ul1>li  a{ text-decoration:none;}
+        </summary>
+        <code>
+            无序列表的后代的class为ul1的无序列表的li子元素的后代的a标签所有的文字装饰全部取消
+        </code>
+    </details>
+    <details>
+        <summary>
+            4）ul.ul1,ol#ol2{ list-style:none;}
+        </summary>
+        <code>
+            class为ul1的无序列表和id为ol2的元素前面的列表标记取消
+        </code>
+    </details>
+    <details>
+        <summary>
+            5）div.nav   ul.ul1  li  a:hover{ color:red;}
+        </summary>
+        <code>
+            所有class为nav的div的后代中的class为ul1的无序列表的后代的所有li列表项
+            的超链接元素当鼠标滑过的时候颜色变成红色
+        </code>
+    </details>
+
+</section>
+</body>
+</html>

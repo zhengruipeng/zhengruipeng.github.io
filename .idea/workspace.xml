@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220522(CSS和特效)">
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/过渡/step-end.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/过渡/step-start.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/过渡/steps.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/过渡/transition-delay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/过渡/transition-duration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/过渡/transition-property.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/过渡/transition-timing-function.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/伪类/伪类.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/伪类/盒模型.html" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220525">
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS定位/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS定位/布局.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/11.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/12.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/bg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web lesson/伪类/伪类.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/CSS伪类/伪类.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web lesson/伪类/盒模型.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/CSS伪类/盒模型.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +59,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/过渡" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web lesson/CSS阶段练习" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -65,11 +68,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\CSS阶段练习" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\过渡" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\变形" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object\meeting" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
@@ -141,7 +144,11 @@
       <workItem from="1653194692297" duration="6781000" />
       <workItem from="1653277004573" duration="1517000" />
       <workItem from="1653306510906" duration="4665000" />
-      <workItem from="1653447779849" duration="10126000" />
+      <workItem from="1653447779849" duration="14554000" />
+      <workItem from="1653478487814" duration="3090000" />
+      <workItem from="1653484754440" duration="1723000" />
+      <workItem from="1653621731714" duration="580000" />
+      <workItem from="1653630715637" duration="2984000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -276,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653203016324</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="20220525">
+      <created>1653461281880</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1653461281880</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +326,7 @@
     <MESSAGE value="20220521" />
     <MESSAGE value="20220521(特效1)" />
     <MESSAGE value="20220522(CSS和特效)" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220522(CSS和特效)" />
+    <MESSAGE value="20220525" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220525" />
   </component>
 </project>

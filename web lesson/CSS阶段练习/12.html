@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #menu{
+            position:absolute;
+            display: flex;
+            width:60vw;
+            margin:0 auto;
+            list-style: none;
+        }
+        #menu>li{
+            --mouseover-color:#ccc;
+            width:15%;
+            margin:3px;
+            line-height:2.5em;
+            font-weight: 900;
+            text-align: center;
+            background-image: linear-gradient(to bottom,#ccc 0,var(--mouseover-color) 25%,#ccc 100%);
+            color:blue;
+            transition: .3s;
+        }
+        #menu>li:hover{
+            background-image: linear-gradient(to bottom,rgb(135,255,135) 0,rgb(135,255,135) 25%,rgb(135,255,135) 100%);
+            font-style: italic;
+            cursor: pointer;
+        }
+        #menu>li:hover>a{
+            color:#000;
+        }
+        #menu>li>a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li><a href="www.baidu.com">百度网站</a></li>
+    <li><a href="www.sina.con">新浪网站</a></li>
+    <li><a href="www.sohu.com">搜狐网站</a></li>
+    <li><a href="www.nepu.edu.cn">东北石油大学</a></li>
+</ul>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        window.CSS.registerProperty({
+            name: '--mouseover-color',
+            syntax: '<color>',
+            inherits: false,
+            initialValue: 'red',
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            display: grid;
+            grid-template-rows: 200px 300px 300px 100px;
+            grid-template-columns: 150px 85px 500px;
+        }
+        header{
+            grid-row: 1/span 1;
+            grid-column: 1/span 3;
+            border:#000 solid 1px;
+            background-color:yellow;
+        }
+        aside:nth-of-type(1){
+            grid-row: 2/span 1;
+            grid-column: 1/span 1;
+            border:#000 solid 1px;
+            background-color:green;
+
+        }
+        main:nth-of-type(1){
+            grid-row: 2/span 1;
+            grid-column: 2/span 2;
+            border:#000 solid 1px;
+            background-color:red;
+
+        }
+        aside:nth-of-type(2){
+            grid-row: 3/span 1;
+            grid-column: 1/span 2;
+            border:#000 solid 1px;
+            background-color:yellow;
+
+        }
+        main:nth-of-type(2){
+            grid-row: 3/span 1;
+            grid-column: 3/span 1;
+            border:#000 solid 1px;
+            background-color:blue;
+
+        }
+        footer{
+            grid-row: 4/span 1;
+            grid-column: 1/span 3;
+            border:#000 solid 1px;
+            background-color:violet;
+
+        }
+        </style>
+</head>
+<body>
+<div>
+    <header></header>
+    <aside></aside>
+    <main></main>
+    <aside></aside>
+    <main></main>
+    <footer></footer>
+</div>
+</body>
+</html>
