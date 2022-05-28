@@ -1,6 +1,3 @@
-(function (){
-
-})();
 let postMessage = function (msg){
     // self.clients.matchAll({includeUncontrolled:true})
     //     .then(clientMatches => clientMatches[0].postMessage(msg));
@@ -28,19 +25,7 @@ self.oninstall = async function (){
             ev.respondWith(fetch(ev.request));
             return false;
         }
-        // console.log(312);
-/*
-        if(await cache.match(request)){
-            // console.log(await cache.match(request));
-            console.log("get cached pages");
-            // console.log(await cache.match(request));
-            ev.respondWith(cache.match(request));
-        }else{
-            let response = await fetch(request);
-            await cache.put(request, response);
-            postMessage("downloaded page "+url + " ");
-            ev.respondWith(response);
-        }*/
+
         ev.respondWith(async function() {
             // Try to get the response from a cache.
             const cachedResponse = await caches.match(ev.request);

@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220525">
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS定位/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS定位/布局.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/CSS阶段练习/bg.png" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220527">
+      <change afterPath="$PROJECT_DIR$/php/exp4/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/css/aside-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/css/indexeddb-panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/css/table-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/favicon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/Student.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/UI-and-network-processing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/aside-UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/editing-table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/fetch-remote-get-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/output-info-into-panel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/table-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/javascript/table-resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/jsp-processing/get-info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/jsp-processing/set-info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/php-processing/get-info.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/php-processing/process.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/exp4/test.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web lesson/伪类/伪类.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/CSS伪类/伪类.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web lesson/伪类/盒模型.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/CSS伪类/盒模型.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/增删改查通用表/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/增删改查通用表/serviceWorker.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,11 +68,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web lesson/CSS阶段练习" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/php/exp4/javascript" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -68,13 +82,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\php\exp4\javascript" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\php" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\CSS阶段练习" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\过渡" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\变形" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object\meeting" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\php\exp4" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
     </key>
   </component>
@@ -148,7 +163,10 @@
       <workItem from="1653478487814" duration="3090000" />
       <workItem from="1653484754440" duration="1723000" />
       <workItem from="1653621731714" duration="580000" />
-      <workItem from="1653630715637" duration="2984000" />
+      <workItem from="1653630715637" duration="3752000" />
+      <workItem from="1653658631474" duration="72000" />
+      <workItem from="1653660510358" duration="1577000" />
+      <workItem from="1653703718368" duration="1482000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -290,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653461281880</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="20220527">
+      <created>1653634875021</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1653634875021</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +352,7 @@
     <MESSAGE value="20220521(特效1)" />
     <MESSAGE value="20220522(CSS和特效)" />
     <MESSAGE value="20220525" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220525" />
+    <MESSAGE value="20220527" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220527" />
   </component>
 </project>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="./jsp-processing/set-info.jsp">
+    <input type="text" name="sname" value="123" />
+    <input type="submit" />
+</form>
+<script>
+    document.addEventListener("DOMContentLoaded",function (){
+        var formData = new FormData(); // Currently empty
+        formData.append('sname', 431);
+        fetch("./jsp-processing/set-info.jsp",{
+            body:formData,
+            // You could add a key/value pair to this using FormData.append:
+            method:"post"
+        }).then(res => res.text())
+        .then(console.log);
+    })
+</script>
+</body>
+</html>
