@@ -1,10 +1,11 @@
 <?php
-/*
-htmlFormElement.appendChild(setupInputElement("id",id));
-htmlFormElement.appendChild(setupInputElement("sname",name));
-htmlFormElement.appendChild(setupInputElement("sage",age));
-htmlFormElement.appendChild(setupInputElement("sdept",dept));
-htmlFormElement.appendChild(setupInputElement("operation-type",type));*/
+    /*
+    htmlFormElement.appendChild(setupInputElement("id",id));
+    htmlFormElement.appendChild(setupInputElement("sname",name));
+    htmlFormElement.appendChild(setupInputElement("sage",age));
+    htmlFormElement.appendChild(setupInputElement("sdept",dept));
+    htmlFormElement.appendChild(setupInputElement("operation-type",type));*/
+    include_once "./MysqlOperation.php";
 
     $id = $_POST['id'];
     $sname = $_POST['sname'];
@@ -12,14 +13,8 @@ htmlFormElement.appendChild(setupInputElement("operation-type",type));*/
     $sdept = $_POST['sdept'];
     $operation_type = $_POST['operation-type'];
 
-    $mysqli = new mysqli("localhost","root","","database essential");  //连接数据库
-    if(mysqli_connect_errno()){
-        echo mysqli_connect_error();
-        exit;
-    }
+    MysqlOperation::connect();
 
-    $mysqli->query("set names utf8");  //设置与数据库连接的通信方式(编码方式)
-    //mysqli_connect_errno()：连接成功返回0,连接失败返回1045
     $sql = "";
     if($operation_type === "update"){
         $sql = "update student set sname='".$sname."',sage='".$sage."',sdept='".$sdept."' where id='".$id."' ";
@@ -33,10 +28,8 @@ htmlFormElement.appendChild(setupInputElement("operation-type",type));*/
         exit();
     }
 
-//    echo $sql;
-    $res = $mysqli->query($sql);
-    $row_num = mysqli_affected_rows($mysqli);
-    echo $row_num."行受到影响";
+    $row_num = MysqlOperation::operate($sql);
+    echo $row_num;
 
-    $mysqli -> close();
+    MysqlOperation::free();
     ?>

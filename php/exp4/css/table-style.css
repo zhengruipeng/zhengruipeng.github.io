@@ -1,5 +1,4 @@
 table{
-
     margin:0 auto;
     border:var(--border-color) solid 1px;
     border-collapse:collapse;
@@ -8,6 +7,8 @@ table{
     border-radius: 10vh;
 }
 table>caption{
+    color:var(--border-color);
+
     font-size:2em;
 }
 
@@ -32,7 +33,7 @@ tr:nth-child(even){
     background-color:rgba(242,165,170,.3);
 }
 .tr-selected{
-    background-color: rgba(226,223,186,1) !important;
+    background-color: #027ea013 !important;
 }
 .select-justify{
     display: block;
