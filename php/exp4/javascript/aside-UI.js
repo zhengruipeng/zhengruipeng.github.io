@@ -1,5 +1,7 @@
 import {MyApp} from "./config.js";
 import {Student} from "./Student.js";
+import {IndexedDBCurd} from "./indexedDB-curd.js";
+
 document.addEventListener("DOMContentLoaded",function (){
 
     let initTrWithStudentInfo = function (student){
@@ -117,7 +119,7 @@ document.addEventListener("DOMContentLoaded",function (){
                         this.style.boxShadow = "";
                     }
                 }
-                let httpReq = function (toURL, id, name, age, score) {
+                let httpReq = function (toURL, id, name, age, sdept) {
                     let setupInputElement = function (name, value) {
                         const input = document.createElement("input");
                         input.name = name;
@@ -127,12 +129,13 @@ document.addEventListener("DOMContentLoaded",function (){
                     };
                     let htmlFormElement = document.createElement("form");
                     htmlFormElement.appendChild(setupInputElement("id", id));
-                    htmlFormElement.appendChild(setupInputElement("name", name));
-                    htmlFormElement.appendChild(setupInputElement("age", age));
-                    htmlFormElement.appendChild(setupInputElement("score", score));
-                    htmlFormElement.appendChild(setupInputElement("operation-type", "create"));
+                    htmlFormElement.appendChild(setupInputElement("sname", name));
+                    htmlFormElement.appendChild(setupInputElement("sage", age));
+                    htmlFormElement.appendChild(setupInputElement("sdept", sdept));
+                    htmlFormElement.appendChild(setupInputElement("operation-type", "insert"));
                     let formData = new FormData(htmlFormElement);
                     let res = true;
+
                     fetch(toURL, {
                         body: formData,
                         method: "post"
@@ -150,19 +153,20 @@ document.addEventListener("DOMContentLoaded",function (){
                 let id = idInput.value;
                 let name = nameInput.value;
                 let age = ageInput.value;
-                let score = scoreInput.value;
+                let sdept = scoreInput.value;
                 redIfEmpty.call(idInput);
                 redIfEmpty.call(nameInput);
                 redIfEmpty.call(ageInput);
                 redIfEmpty.call(scoreInput);
-                if (!id || !name || !age || !score) return false;
-
-                let isHttpSuccess = httpReq("./process.php", id, name, age, score);
+                if (!id || !name || !age || !sdept) return false;
+                IndexedDBCurd.insert({id,sname:name,sage:age,sdept});
+                
+                let isHttpSuccess = httpReq("./php-processing/set-info.php", id, name, age, sdept);
                 if (!isHttpSuccess) {
                     alert("添加操作失败");
                 }
 
-                let student = new Student(id, name, age, score);
+                let student = new Student(id, name, age, sdept);
                 MyApp.data.students.push(student)
                 let tr = initTrWithStudentInfo(student);
                 tbody.appendChild(tr);

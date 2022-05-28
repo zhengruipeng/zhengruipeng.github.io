@@ -30,8 +30,8 @@ let MyApp = {
         }
     },
     data:{},
-    eventFunctions:{},
     database:null,
+    eventFunctions:{},
     studentsInformation:[],
 };
 export {MyApp};

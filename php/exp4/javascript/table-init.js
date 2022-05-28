@@ -1,5 +1,7 @@
 import {MyApp} from "./config.js";
 import {Student} from "./Student.js";
+import {IndexedDBCurd} from "./indexedDB-curd.js";
+
 document.addEventListener("DOMContentLoaded",function (){
 
     let initTrWithStudentInfo = function (student){
@@ -47,6 +49,7 @@ document.addEventListener("DOMContentLoaded",function (){
 
         students.push(new Student("200702940816","郑瑞蓬","17","星见production"))
         // console.log(MyApp.database);
+        
         let iDBTransaction = MyApp.database.transaction("students","readwrite");
         let iDBObjectStore = iDBTransaction.objectStore("students");
         let openCursorIDBRequest = iDBObjectStore.openCursor();

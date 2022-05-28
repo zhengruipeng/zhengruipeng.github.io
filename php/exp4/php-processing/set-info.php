@@ -1,19 +1,42 @@
 <?php
-/*    $mysqli = new mysqli("localhost","root","","database essential");  //连接数据库
+/*
+htmlFormElement.appendChild(setupInputElement("id",id));
+htmlFormElement.appendChild(setupInputElement("sname",name));
+htmlFormElement.appendChild(setupInputElement("sage",age));
+htmlFormElement.appendChild(setupInputElement("sdept",dept));
+htmlFormElement.appendChild(setupInputElement("operation-type",type));*/
+
+    $id = $_POST['id'];
+    $sname = $_POST['sname'];
+    $sage = $_POST['sage'];
+    $sdept = $_POST['sdept'];
+    $operation_type = $_POST['operation-type'];
+
+    $mysqli = new mysqli("localhost","root","","database essential");  //连接数据库
     if(mysqli_connect_errno()){
         echo mysqli_connect_error();
         exit;
     }
+
     $mysqli->query("set names utf8");  //设置与数据库连接的通信方式(编码方式)
     //mysqli_connect_errno()：连接成功返回0,连接失败返回1045
-    $sql = "select * from student";
-    $res = $mysqli->query($sql);  //返回一个资源类型的数据信息(整型/浮点型/字符型/布尔型/数组/资源类型)
-    //$res->fetch_assoc()   专门通过关联数组的方式，获取资源类型的信息
-
-    $count = $res->num_rows; //取数据库中总条数
-    while($row = $res->fetch_assoc()){
-        echo "<pre>";
-        print_r($row);
-        echo "</pre>";
+    $sql = "";
+    if($operation_type === "update"){
+        $sql = "update student set sname='".$sname."',sage='".$sage."',sdept='".$sdept."' where id='".$id."' ";
+    }else if($operation_type === "delete"){
+        $sql = "delete from student where id='".$id."'";
+    }else if($operation_type === "insert"){
+        $sql = "INSERT INTO student (id,sname,sage,sdept) 
+                VALUES ('".$id."','".$sname."','".$sage."','".$sdept."')";
+    }else{
+        echo "get undefined operation ".$operation_type;
+        exit();
     }
-    */?>
+
+//    echo $sql;
+    $res = $mysqli->query($sql);
+    $row_num = mysqli_affected_rows($mysqli);
+    echo $row_num."行受到影响";
+
+    $mysqli -> close();
+    ?>

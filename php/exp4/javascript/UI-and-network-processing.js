@@ -1,5 +1,6 @@
 import {MyApp} from "./config.js";
-
+import {io} from "./output-info-into-panel.js";
+import {IndexedDBCurd} from "./indexedDB-curd.js";
 document.addEventListener("DOMContentLoaded",function (){
     let selected = function (){
         let tbody = this.parentNode;
@@ -46,11 +47,20 @@ document.addEventListener("DOMContentLoaded",function (){
         htmlFormElement.appendChild(setupInputElement("operation-type",type));
         let formData = new FormData(htmlFormElement);
         let data = {id,name,age,dept};
-        fetch("./php-processing/process.php",{
+        if(type === "update"){
+            IndexedDBCurd.update({id,sname:name,sage:age,sdept:dept});
+        }else if(type === "delete"){
+            IndexedDBCurd.delete(id);
+        }
+        fetch("./php-processing/set-info.php",{
             body:formData,
             method:"post"
         }).then(response => response.text())
-            .then(alert)
+            .then(text => {
+                alert(text);
+                return new Promise(resolve => resolve(text));
+            })
+            .then(io.println)
             .then(function (){if(type === "delete")deleteItem.call(tr);})
             .catch(err => {
                 alert("php环境配置错误"+err.message);

@@ -5,21 +5,48 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" action="./jsp-processing/set-info.jsp">
-    <input type="text" name="sname" value="123" />
-    <input type="submit" />
-</form>
-<script>
+<script type="module">
+    import {MyApp} from "./javascript/config.js";
+    import {IndexedDBCurd} from "./javascript/indexedDB-curd.js";
     document.addEventListener("DOMContentLoaded",function (){
-        var formData = new FormData(); // Currently empty
-        formData.append('sname', 431);
-        fetch("./jsp-processing/set-info.jsp",{
-            body:formData,
-            // You could add a key/value pair to this using FormData.append:
-            method:"post"
-        }).then(res => res.text())
-        .then(console.log);
-    })
+        let indexDBReq = indexedDB.open("testDB",4);
+        let db;
+        let store;
+        indexDBReq.onsuccess = function (){
+            console.log("onsuccess");
+            MyApp.database = this.result;
+            // let IDBTransaction = MyApp.database.transaction("students","readwrite");
+            /*let IDBObjectStore = IDBTransaction.objectStore("foo");
+            IDBObjectStore.add({id:1,data:"first"});
+            let req = IDBObjectStore.get(1);
+            req.onsuccess = function (ev){
+                console.log(this.result);
+            }*/
+            IndexedDBCurd.insert({id:1,val:321});
+            IndexedDBCurd.select(1,function (){
+                alert(this.result.val);
+            });
+            IndexedDBCurd.update({id:1,val:123});
+            IndexedDBCurd.select(1,function (){
+                alert(this.result.val);
+            });
+            IndexedDBCurd.getAll(function (res){
+                alert();
+                console.log(res);
+            })
+        };
+        indexDBReq.onerror = function (){
+            document.write("database open request error")
+        }
+        indexDBReq.onupgradeneeded = function (){
+            let db = this.result;
+            store = db.createObjectStore("students",{keyPath:"id"});
+            console.log("onupgradeneeded");
+        };
+    });
+    window.onunload = function (){
+        indexedDB.deleteDatabase("testDB");
+    };
 </script>
 </body>
 </html>

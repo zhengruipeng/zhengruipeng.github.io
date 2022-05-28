@@ -97,5 +97,9 @@
             }
         };
     });
+    window.addEventListener('unload',function (){
+        alert("deleted");
+        MyApp.database.deleteDatabase("managerDB");
+    })
 </script>
 </html>
