@@ -6,6 +6,7 @@
     <link href="css/table-style.css" rel="stylesheet" type="text/css">
     <link href="css/aside-style.css" rel="stylesheet" type="text/css">
     <link href="css/indexeddb-panel.css" rel="stylesheet" type="text/css">
+    <link href="css/notification-style.css" rel="stylesheet" type="text/css">
   <style>
       svg{
           position:absolute;
@@ -64,7 +65,10 @@
 
 <code id="indexeddb-panel"></code>
 
+<div id="notification"></div>
+
 </body>
+
 <script type="module">
     navigator.serviceWorker.register('./service-worker.js',{scope:"./"});
     navigator.serviceWorker.onmessage = function (ev){
@@ -80,22 +84,17 @@
 <script type="module">
     import {MyApp} from "./javascript/config.js";
     import {io} from "./javascript/output-info-into-panel.js";
-
+    import {IndexedDBCurd} from "./javascript/indexedDB-curd.js";
+    import {notify} from "./javascript/notification.js";
     window.addEventListener("dblclick",function (){
         console.log(MyApp);
     });
     window.addEventListener("dblclick",function (){
-        const panel = document.getElementById("indexeddb-panel");
-        let iDBTransaction = MyApp.database.transaction("students","readwrite");
-        let iDBObjectStore = iDBTransaction.objectStore("students");
-        let openCursorIDBRequest = iDBObjectStore.openCursor();
-        openCursorIDBRequest.onsuccess = function (){
-            let cursor = this.result;
-            if(cursor){
-                io.println(`${cursor.key}:id=${cursor.value.id},sname=${cursor.value.sname},sage=${cursor.value.sage},sdept=${cursor.value.sdept}`);
-                cursor.continue();
-            }
-        };
+        IndexedDBCurd.getAll(function (res){
+            res.forEach(res => {
+                io.println(`id=${res.id},sname=${res.sname},sage=${res.sage},sdept=${res.sdept}`);
+            })
+        })
     });
     window.addEventListener('unload',function (){
         alert("deleted");

@@ -1,0 +1,23 @@
+#notification{
+    --height:3.6em;
+    top:-4em;
+
+    background-color:rgba(150,255,150,.2);
+    line-height: var(--height);
+    position:fixed;
+    width:20vw;
+    height:var(--height);
+    left:40vw;
+    transition:.3s;
+    z-index: 3;
+    overflow:hidden;
+    border-radius: 10px;
+    border:rgba(150,255,150,.5) solid 1px;
+    text-align: center;
+    color: cadetblue;
+}
+#notification.open{
+    top:0;
+    box-shadow: 0 0 10px rgba(150,255,150,.5);
+    /*top:0;*/
+}

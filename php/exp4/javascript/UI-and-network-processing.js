@@ -1,5 +1,6 @@
 import {MyApp} from "./config.js";
 import {io} from "./output-info-into-panel.js";
+import {notify} from "./notification.js";
 import {IndexedDBCurd} from "./indexedDB-curd.js";
 document.addEventListener("DOMContentLoaded",function (){
     let selected = function (){
@@ -55,12 +56,21 @@ document.addEventListener("DOMContentLoaded",function (){
         fetch("./php-processing/set-info.php",{
             body:formData,
             method:"post"
-        }).then(response => response.text())
-            .then(text => {
+        })
+            .then(response => response.text())
+            /*.then(text => {
                 alert(text);
                 return new Promise(resolve => resolve(text));
+            })*/
+            .then(text => {
+                io.println(text);
+                return new Promise(resolve => resolve(text));
             })
-            .then(io.println)
+            .then(text => {
+                notify.println(type === "update"?"修改操作":"删除操作");
+                notify.print(text);
+                return new Promise(resolve => resolve(text));
+            })
             .then(function (){if(type === "delete")deleteItem.call(tr);})
             .catch(err => {
                 alert("php环境配置错误"+err.message);

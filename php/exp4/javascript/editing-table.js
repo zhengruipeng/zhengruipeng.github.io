@@ -6,14 +6,18 @@ document.addEventListener("DOMContentLoaded",function main(){
 
     let dblclick = function (){
         const td = this;
+        //第一列不修改
         if(td.children[0])return false;
+        //ID不做修改
+        if(td.parentNode.children[1] === td)return false;
 
-        if(editingEle)editingEle.innerHTML = editingEle.children[0]?.innerHTML?editingEle.children[0].innerHTML:editingEle.innerHTML;
+        //修改元素的时候把上一个修改的元素值确定好
+        if(editingEle)editingEle.innerText = editingEle.children[0]?.innerText?editingEle.children[0].innerText:editingEle.innerText;
 
-        let content = this.innerHTML;
+        let content = this.innerText;
         let input = document.createElement("div");
-        input.innerHTML = content;
-        td.innerHTML = "";
+        input.innerText = content;
+        td.innerText = "";
         td.appendChild(input);
         input.contentEditable = true;
 

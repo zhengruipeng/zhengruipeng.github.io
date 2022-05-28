@@ -48,49 +48,37 @@ document.addEventListener("DOMContentLoaded",function (){
         const colgroup = document.querySelector("table>colgroup");
 
         students.push(new Student("200702940816","郑瑞蓬","17","星见production"))
-        // console.log(MyApp.database);
-        
-        let iDBTransaction = MyApp.database.transaction("students","readwrite");
-        let iDBObjectStore = iDBTransaction.objectStore("students");
-        let openCursorIDBRequest = iDBObjectStore.openCursor();
-        openCursorIDBRequest.onsuccess = function (){
-            let cursor = this.result;
-            if(cursor){
-                // console.log(`${cursor.key}:`,cursor.value);
-                students.push(new Student(cursor.value.id,cursor.value.sname,cursor.value.sage,cursor.value.sdept));
-                // console.log(cursor);
-                cursor.continue();
-            }else{
-                students.forEach(student => {
-                    // console.log(student)
-                    let tr = initTrWithStudentInfo(student);
-                    tbody.appendChild(tr);
-                    tr.style.height = tr.getBoundingClientRect().height+"px";
-                });
 
-                let col1 = document.createElement("col");
-                let col2 = document.createElement("col");
-                let col3 = document.createElement("col");
-                let col4 = document.createElement("col");
-                let col5 = document.createElement("col");
-                let col6 = document.createElement("col");
-                let col7 = document.createElement("col");
+        IndexedDBCurd.getAll(function (res){
 
-                colgroup.appendChild(col1);
-                colgroup.appendChild(col2);
-                colgroup.appendChild(col3);
-                colgroup.appendChild(col4);
-                colgroup.appendChild(col5);
-                colgroup.appendChild(col6);
-                colgroup.appendChild(col7);
+            res.forEach(student => {
+                student = new Student(student.id,student.sname,student.sage,student.sdept);
+                students.push(student);
 
-                MyApp.data.students = students;
-                MyApp.customEvent.dispatchEvent("tableinit");
-            }
-        };
+                let tr = initTrWithStudentInfo(student);
+                tbody.appendChild(tr);
+                tr.style.height = tr.getBoundingClientRect().height+"px";
+            });
 
+            let col1 = document.createElement("col");
+            let col2 = document.createElement("col");
+            let col3 = document.createElement("col");
+            let col4 = document.createElement("col");
+            let col5 = document.createElement("col");
+            let col6 = document.createElement("col");
+            let col7 = document.createElement("col");
 
+            colgroup.appendChild(col1);
+            colgroup.appendChild(col2);
+            colgroup.appendChild(col3);
+            colgroup.appendChild(col4);
+            colgroup.appendChild(col5);
+            colgroup.appendChild(col6);
+            colgroup.appendChild(col7);
 
+            MyApp.data.students = students;
+            MyApp.customEvent.dispatchEvent("tableinit");
+        })
     });
 
 });

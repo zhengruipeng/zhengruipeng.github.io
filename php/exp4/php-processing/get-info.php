@@ -44,13 +44,13 @@ import {MyApp} from "./javascript/config.js";
         $count = $res->num_rows; //取数据库中总条数
         while($row = $res->fetch_assoc()){
         ?>
+            console.log(`{id:"<?=$row['id']?>",sname:"<?=$row['sname']?>",sage:"<?=$row['sage']?>",sdept:"<?=$row['sdept']?>"}`)
             IDBObjectStore.put({
                 id:"<?=$row['id']?>",
                 sname:"<?=$row['sname']?>",
                 sage:"<?=$row['sage']?>",
                 sdept:"<?=$row['sdept']?>"
             });
-            console.log(`{id:"<?=$row['id']?>",sname:"<?=$row['sname']?>",sage:"<?=$row['sage']?>",sdept:"<?=$row['sdept']?>"}`)
         <?php
         }
         ?>

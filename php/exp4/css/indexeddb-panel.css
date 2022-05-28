@@ -5,7 +5,7 @@
     line-height: 1.2em;
     position:fixed;
     height:40vh;
-    width:20vw;
+    width:35vw;
     top:-35vh;
     right:0;
     transition: .3s;
@@ -33,6 +33,4 @@
 
 #indexeddb-panel:hover{
     top:0;
-    /*background-color:#fff;*/
-
 }
