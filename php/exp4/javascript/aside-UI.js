@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded",function (){
                 let isHttpSuccess = httpReq("./php-processing/set-info.php", id, name, age, sdept);
                 if (!isHttpSuccess) {
                     alert("添加操作失败");
+                    return false;
                 }
 
                 let student = new Student(id, name, age, sdept);

@@ -7,7 +7,7 @@
     <link href="css/aside-style.css" rel="stylesheet" type="text/css">
     <link href="css/indexeddb-panel.css" rel="stylesheet" type="text/css">
     <link href="css/notification-style.css" rel="stylesheet" type="text/css">
-  <style>
+    <style>
       svg{
           position:absolute;
           top:0;
