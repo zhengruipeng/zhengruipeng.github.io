@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220528(php项目5)">
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220531">
       <change afterPath="$PROJECT_DIR$/web lesson/CSS布局/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web lesson/exp4/1.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web lesson/exp4/10.html" afterDir="false" />
@@ -182,7 +182,7 @@
       <workItem from="1653885874106" duration="1009000" />
       <workItem from="1653907790929" duration="409000" />
       <workItem from="1653912012333" duration="5130000" />
-      <workItem from="1653956070870" duration="2512000" />
+      <workItem from="1653956070870" duration="3201000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -366,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653730847983</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="20220531">
+      <created>1653964042246</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1653964042246</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,6 +416,7 @@
     <MESSAGE value="20220528(php项目3)" />
     <MESSAGE value="20220528(php项目4)" />
     <MESSAGE value="20220528(php项目5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220528(php项目5)" />
+    <MESSAGE value="20220531" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220531" />
   </component>
 </project>
