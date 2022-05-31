@@ -1,0 +1,20 @@
+h1{
+    text-align: center;
+}
+main{
+    text-align: center;
+}
+p{
+    border:dashed 2px blue;
+    color:red;
+    font-weight: 900;
+}
+section{
+    border:dashed 2px blue;
+    line-height: 1.5rem;
+}
+a{
+    margin:1em 0;
+    border:dashed 2px blue;
+    display: block;
+}

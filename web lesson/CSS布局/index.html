@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      body{
+        display: grid;
+        grid:
+                "... ... "1fr
+                "... ... "1fr/
+                1fr 1fr;
+      }
+      .container{
+        height:50vh;
+        width:50vw;
+        border:red solid 1px;
+        text-align:center;
+        
+      }
+      .container:nth-child(1){
+
+      }
+      .container:nth-child(1)>header{
+        float:left;
+        width:100%;
+        border:#000 solid 1px;
+        height:20%;
+        background-color:rgb(0,130,0);
+      }
+      .container:nth-child(1)>aside{
+        float:left;
+        width:28%;
+        border:#000 solid 1px;
+        height:60%;
+        background-color:rgba(50,255,50,.15);
+
+      }
+      .container:nth-child(1)>main {
+        float:right;
+        width:70%;
+        border:#000 solid 1px;
+        height:60%;
+        background-color:rgba(255,255,0,.3);
+
+      }
+      .container:nth-child(1)>footer{
+        float:left;
+        width:100%;
+        border:#000 solid 1px;
+        height:18%;
+        background-color:rgb(0,200,0);
+
+      }
+
+      .container:nth-child(2)>header{
+        float:left;
+        width:100%;
+        border:#000 solid 1px;
+        height:20%;
+        background-color:rgb(0,130,0);
+      }
+      .container:nth-child(2)>aside:nth-of-type(1){
+        float:left;
+        width:29%;
+        border:#000 solid 1px;
+        height:60%;
+        background-color:rgba(50,255,50,.15);
+
+      }
+      .container:nth-child(2)>aside:nth-of-type(2){
+        float:right;
+        width:29%;
+        border:#000 solid 1px;
+        height:60%;
+        background-color:rgba(50,255,50,.15);
+
+      }
+      .container:nth-child(2)>main {
+        float:left;
+        width:40%;
+        border:#000 solid 1px;
+        height:60%;
+        background-color:rgba(255,255,0,.3);
+        margin: 3px
+      }
+      .container:nth-child(2)>footer{
+        float:left;
+        width:100%;
+        border:#000 solid 1px;
+        height:18%;
+        background-color:rgb(0,200,0);
+
+      }
+
+      .container:nth-child(3)>header{
+        float:left;
+        width:100%;
+        border:#000 solid 1px;
+        height:20%;
+        background-color:rgb(0,130,0);
+      }
+      .container:nth-child(3)>aside{
+        float:right;
+        width:28%;
+        border:#000 solid 1px;
+        height:60%;
+        background-color:rgba(50,255,50,.15);
+
+      }
+      .container:nth-child(3)>main {
+        float:left;
+        width:70%;
+        border:#000 solid 1px;
+        height:60%;
+        background-color:rgba(255,255,0,.3);
+
+      }
+      .container:nth-child(3)>footer{
+        float:left;
+        width:100%;
+        border:#000 solid 1px;
+        height:18%;
+        background-color:rgb(0,200,0);
+
+      }
+
+      .container:nth-child(4)>header{
+        float:left;
+        width:100%;
+        border:#000 solid 1px;
+        height:20%;
+        background-color:rgb(0,130,0);
+      }
+      .container:nth-child(4)>aside{
+        float:left;
+        width:28%;
+        border:#000 solid 1px;
+        height:50%;
+        background-color:rgba(50,255,50,.15);
+
+      }
+      .container:nth-child(4)>main {
+        float:right;
+        width:70%;
+        border:#000 solid 1px;
+        height:60%;
+        background-color:rgba(255,255,0,.3);
+
+      }
+      .container:nth-child(4)>footer{
+        float:left;
+        width:100%;
+        border:#000 solid 1px;
+        height:18%;
+        background-color:rgb(0,200,0);
+
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+  <header></header>
+  <aside></aside>
+  <main></main>
+  <footer></footer>
+</div>
+<div class="container">
+  <header></header>
+  <aside></aside>
+  <main></main>
+  <aside></aside>
+
+  <footer></footer>
+</div>
+<div class="container">
+  <header></header>
+  <aside></aside>
+  <main></main>
+  <footer></footer>
+</div>
+<div class="container">
+  <header></header>
+  <aside></aside>
+  <main></main>
+  <footer></footer>
+</div>
+
+</body>
+</html>

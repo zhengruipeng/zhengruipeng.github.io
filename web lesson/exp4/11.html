@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body>div{
+            width:80vw;
+            height:100vh;
+            margin:auto;
+            display: grid;
+            grid-template-rows: 2fr 3fr 1fr;
+            grid-template-columns: 1fr 2fr;
+        }
+        header{
+            grid-row: 1/span 1;
+            grid-column: 1/span 2;
+            border:#000 solid 1px;
+            background-color:yellow;
+        }
+        aside:nth-of-type(1){
+            grid-row: 2/span 1;
+            grid-column: 1/span 1;
+            border:#000 solid 1px;
+            background-color:green;
+            display: grid;
+            grid-template-columns: 80%;
+
+            grid-auto-rows: 1.5em;
+            grid-gap: 10px;
+            align-content: center;
+            justify-content: center;
+        }
+        aside:nth-of-type(1)>div{
+            background-color:purple;
+        }
+        main:nth-of-type(1){
+            grid-row: 2/span 1;
+            grid-column: 2/span 1;
+            border:#000 solid 1px;
+            background-color:red;
+            display: grid;
+            grid-template-columns: 25% 25% 25%;
+            grid-gap: 10px;
+            grid-auto-rows: 30%;
+            align-content: center;
+            justify-content: center;
+        }
+        main:nth-of-type(1)>div{
+            background-color:purple;
+        }
+        footer{
+            grid-row: 3/span 1;
+            grid-column: 1/span 2;
+            border:#000 solid 1px;
+            background-color:violet;
+
+        }
+        </style>
+</head>
+<body>
+<div>
+    <header></header>
+    <aside>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </aside>
+    <main>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </main>
+    <footer></footer>
+</div>
+</body>
+</html>

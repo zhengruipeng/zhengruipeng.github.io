@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        header{
+            position:absolute;
+            display: flex;
+            width:60vw;
+            margin:0 auto;
+        }
+        nav{
+            --mouseover-color:red;
+            width:25%;
+            line-height:3em;
+            text-align: center;
+            background-image: linear-gradient(to bottom,white 0,var(--mouseover-color) 25%,white 100%);
+            border:red solid 1px;
+            border-radius: 12px;
+            transition: --mouseover-color .3s;
+        }
+        nav:hover{
+            --mouseover-color:rgb(140,150,20);
+            border:rgb(140,150,20) solid 1px;
+            color:aqua;
+        }
+        </style>
+</head>
+<body>
+<header>
+    <nav>超链接1</nav>
+    <nav>超链接2</nav>
+    <nav>超链接3</nav>
+    <nav>超链接4</nav>
+</header>
+1234
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        window.CSS.registerProperty({
+            name: '--mouseover-color',
+            syntax: '<color>',
+            inherits: false,
+            initialValue: 'red',
+        });
+    })
+    </script>
+</body>
+</html>
