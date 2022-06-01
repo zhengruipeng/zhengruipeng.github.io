@@ -1,169 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220531">
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/ControlsUI.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/ControlsUI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/background-blend-mode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/bg1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/bg2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/bg3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/filter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/filter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mix-blend-mode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/!mmexport1641901910403.jpg.JPG.8CE6DFB1CEADBFA89AC39F3A7C38721F.FTN" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/023b5bb5c9ea15ce36d31175cd4b2df33a87e9501431.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/09fa513d269759ee3d6dcaabc9b054166d224f4a7135.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/0bd162d9f2d3572c11df3abaf158742762d0f703650b.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/367C444BBB315C356DB19F606868A8BB_13A42E" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/F50FD9E31DE875B0514DB08829DEA1A0_831D0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220302_113719.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220302_113737.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220309_100037.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220404_211405.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220407_222056.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220407_222126.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220407_222144.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220407_222159.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220421_105443.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220422_084103.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220422_150856.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/IMG_20220422_151323.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-03-02-17-49-41-102_com.lixiangdon.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-02-18-264_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-02-43-225_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-04-56-553_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-05-26-658_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-05-59-994_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-06-04-359_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-06-22-993_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-06-48-931_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-06-51-539_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-05-08-06-59-791_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-07-16-21-37-073_com.microsoft..JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-24-25-014_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-24-32-102_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-25-56-805_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-26-08-087_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-26-22-963_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-26-33-377_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-26-40-131_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-27-04-689_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-27-14-397_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-27-25-546_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-27-33-800_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-28-14-566_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-28-18-933_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-28-38-748_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-30-09-920_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-30-15-490_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-30-17-401_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-30-20-829_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-30-23-766_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-30-47-106_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-30-50-521_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-30-56-670_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-31-03-747_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-31-17-804_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-31-23-628_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-31-33-989_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-31-49-275_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-31-58-874_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-32-16-835_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-32-24-370_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-32-38-708_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-32-52-941_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-33-47-579_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-34-25-824_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-34-32-333_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-34-37-658_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/Screenshot_2022-05-10-08-35-15-493_game.qualiarts.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/VID_20220314_143618.mp4.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/b812c8fcc3cec3fdfc03a524adc3c33f8794a4c28905.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_89411254_20220317_131153.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_89580816_20220317_131034.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_89597665_20220317_131014.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_89831882_20220317_130914.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_90405195_20220317_130841.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_90783600_20220317_130645.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_91405214_20220317_125323.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_91405214_20220317_125330.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_91405214_20220317_125801.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_91405214_20220317_125948.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_91414927_20220317_125107.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_91764278_20220317_124914.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_92118385_20220317_124545.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_92118385_20220317_124549.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_92118385_20220317_124630.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_92225022_20220317_124437.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_92225022_20220317_124438.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93313728_20220317_124119.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93347934_20220317_124205.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93417857_20220317_124109.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93546213_20220317_123937.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93630195_20220317_123813.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93721188_20220317_123801.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93808983_20220317_123706.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93808983_20220317_123708.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93853350_20220317_123631.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93877832_20220317_123618.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_93911120_20220317_123114.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94009506_20220317_122328.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94151571_20220317_121946.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94151611_20220317_121837.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94151611_20220317_121915.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94166479_20220317_121558.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94188478_20220317_121543.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94288360_20220317_121326.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94296380_20220317_121431.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94566783_20220317_121354.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94637828_20220317_121306.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94891945_20220317_121108.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94960417_20220317_121012.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94966078_20220317_121001.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94966078_20220317_121027.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_94993433_20220317_120957.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_95282734_20220317_120835.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_95295641_20220317_120816.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_95396104_20220317_120814.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_95624403_20220317_120749.png.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_96348155_20220317_120624.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_96436394_20220317_120608.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_96565532_20220317_120451.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_96565532_20220317_120453.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/illust_96568200_20220317_120447.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexport10612cecfa000efc386c4bfff0555a15_16511383.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexport159f087afe456852b788df9f22ddf52c_16511396.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexport1641549891264.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexport1641550891587.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexport1641550900650.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexport64bfbd6c90e509bccd42e0dc82ee9f6b_16501010.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexport73218205374bb9e7e31f56a8eb6b28b9_16519138.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexporta5abc1f987e1f91cefc383f225958cd8_16511396.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexportae6961067013ca92c48b806d6b650dbd_16501010.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/mmexportd2600f2e72f461e4e2b92d043d2067f5_16501010.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-07e81937c2bb27b77dc589604a917fb8_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-341f769f207722a4f4b4c897ee1b0f6d_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-6eba9561b1041e21b7505a66ad37667e_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-7887ca8c0a2191c180b0c13fdb811aed_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-8339ca235b56728927fc02688634eaf4_r.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-8c2ca82185db2cfcd7a43ee4cd162e71_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-a45ace9251b39f2888b29ecaa7228099_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-aa845c0d9ded2f76b52d6fd73176493f_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-b26568186bf1cf0cd487a6e10509c73c_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-c029b641e0b0bd58be7ad1981f3e6e4f_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-c362355e893870bf638b7bc38e9a01ca_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MobileFile/thumb/v2-dc47cf9f0991640f7a7cca7f1c796352_1440w.jpg.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/待处理图片/Screenshot_2022-05-31-10-37-50-136_game.qualiarts.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220601">
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/paramsList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-clip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-origin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-position.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-repeat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-size.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片边框.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片边框.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/ControlsUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/ControlsUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-mode.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-mode.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,9 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -321,7 +168,7 @@
       <workItem from="1653912012333" duration="5130000" />
       <workItem from="1653956070870" duration="5363000" />
       <workItem from="1653969338143" duration="7600000" />
-      <workItem from="1654048151997" duration="7784000" />
+      <workItem from="1654048151997" duration="13704000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -519,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653964382634</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="20220601">
+      <created>1654064145799</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1654064145799</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,6 +417,7 @@
     <MESSAGE value="20220528(php项目4)" />
     <MESSAGE value="20220528(php项目5)" />
     <MESSAGE value="20220531" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220531" />
+    <MESSAGE value="20220601" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220601" />
   </component>
 </project>

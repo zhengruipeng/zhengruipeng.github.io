@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #origin{
+            position:fixed;
+            top:0;
+            left:0;
+            border:red solid 1px;
+            font-size: 5em;
+            font-weight: 900;
+            opacity: .1;
+        }
+        #alpha{
+            position:fixed;
+            top:0;
+            left:0;
+            border:red solid 1px;
+            font-size: 5em;
+            font-weight: 900;
+            mask-image:url('./bg1.svg');
+            mask-mode: alpha;
+            mask-size:300px 300px;
+            /*mask-repeat: no-repeat;*/
+            -webkit-mask-image:url('./bg1.svg');
+            -webkit-mask-mode: alpha;
+            -webkit-mask-size:300px 300px;
+            /*-webkit-mask-repeat: no-repeat;*/
+            border:#aaa solid 15px;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+<ol id="alpha">
+    <li>oneoneoneone</li>
+    <li>twotwotwotwo</li>
+    <li>threethreethreethree</li>
+    <li>fourfourfourfour</li>
+    <li>fivefivefivefive</li>
+</ol>
+<ol id="origin">
+    <li>oneoneoneone</li>
+    <li>twotwotwotwo</li>
+    <li>threethreethreethree</li>
+    <li>fourfourfourfour</li>
+    <li>fivefivefivefive</li>
+</ol>
+
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js";
+    import {paramsList} from "../paramsList.js";
+
+    document.addEventListener("DOMContentLoaded",function(){
+        const ol = this.querySelector("ol");
+        let controls = {
+            "content-box":{},
+            "padding-box": {},
+            "border-box":{},
+            "margin-box":{},
+            "fill-box":{},
+            "stroke-box":{},
+            "view-box":{},
+            "no-clip":{},
+        };
+
+
+        let index = 0;
+
+
+        let ui = new ControlsUI(controls);
+
+        ui.initDefaultStyle("../ControlsUI.css",{left:"70vw"}).initControls().bindItemEvent({
+            click(ev,p,ul){
+                let type = p.innerText.trim();
+                ol.style.webkitMaskClip = type;
+                ol.style.maskClip = type;
+            }
+        })
+    })
+</script>
+</body>
+</html>

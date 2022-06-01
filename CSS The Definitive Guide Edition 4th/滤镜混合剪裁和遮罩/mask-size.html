@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #origin{
+            position:fixed;
+            top:0;
+            left:0;
+            border:red solid 1px;
+            font-size: 5em;
+            font-weight: 900;
+            opacity: .1;
+        }
+        #alpha{
+            position:fixed;
+            top:0;
+            left:0;
+            border:red solid 1px;
+            font-size: 5em;
+            font-weight: 900;
+            mask-image:url('./bg1.svg');
+            mask-mode: alpha;
+            -webkit-mask-image:url('./bg1.svg');
+            -webkit-mask-mode: alpha;
+        }
+    </style>
+</head>
+<body>
+<ol id="alpha">
+    <li>oneoneoneone</li>
+    <li>twotwotwotwo</li>
+    <li>threethreethreethree</li>
+    <li>fourfourfourfour</li>
+    <li>fivefivefivefive</li>
+</ol>
+<ol id="origin">
+    <li>oneoneoneone</li>
+    <li>twotwotwotwo</li>
+    <li>threethreethreethree</li>
+    <li>fourfourfourfour</li>
+    <li>fivefivefivefive</li>
+</ol>
+
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js";
+
+    document.addEventListener("DOMContentLoaded",function(){
+        const ol = this.querySelector("ol");
+        let controls = {
+            "x轴宽度":{children:`<label><input type="range" name="x" min="1" max="100" value="100">%</label>`},
+            "y轴宽度":{children:`<label><input type="range" name="y" min="1" max="100" value="100">%</label>`},
+            cover:{},
+            contain:{},
+        };
+        let initBackgroundBlendMode = function (...params){
+            let arr = params;
+            return {
+                getColor(index){
+                    return arr[index] || false;
+                },
+                setColor(index,value){
+                    return arr[index] = value;
+                },
+                getModes (split){
+                    return arr.join(split);
+                }
+            }
+        }
+
+        let xy = initBackgroundBlendMode("100%","100%");
+        let ui = new ControlsUI(controls);
+        ui.initControls().initDefaultStyle("../ControlsUI.css").bindItemEvent({
+            click(ev,p,ul){
+                let header = p.innerText;
+                if(!/^\w*$/.test(header))return false;
+                ol.style.webkitMaskSize = header;
+                ol.style.maskSize = header;
+            }
+        }).bindItemEvent({
+            input(ev,p,ul){
+                let percent = this.value;
+                let name = this.name;
+                xy.setColor(name === "x"?0:1,percent+"%");
+                ol.style.maskSize = xy.getModes(" ");
+                ol.style.webkitMaskSize = xy.getModes(" ");
+            }
+        },"input[type='range']");
+    })
+</script>
+</body>
+</html>

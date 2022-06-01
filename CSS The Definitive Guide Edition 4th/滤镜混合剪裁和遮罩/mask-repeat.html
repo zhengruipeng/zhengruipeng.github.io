@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #origin{
+            position:fixed;
+            top:0;
+            left:0;
+            border:red solid 1px;
+            font-size: 5em;
+            font-weight: 900;
+            opacity: .1;
+        }
+        #alpha{
+            position:fixed;
+            top:0;
+            left:0;
+            border:red solid 1px;
+            font-size: 5em;
+            font-weight: 900;
+            mask-image:url('./bg1.svg');
+            mask-mode: alpha;
+            -webkit-mask-image:url('./bg1.svg');
+            -webkit-mask-mode: alpha;
+        }
+    </style>
+</head>
+<body>
+<ol id="alpha">
+    <li>oneoneoneone</li>
+    <li>twotwotwotwo</li>
+    <li>threethreethreethree</li>
+    <li>fourfourfourfour</li>
+    <li>fivefivefivefive</li>
+</ol>
+<ol id="origin">
+    <li>oneoneoneone</li>
+    <li>twotwotwotwo</li>
+    <li>threethreethreethree</li>
+    <li>fourfourfourfour</li>
+    <li>fivefivefivefive</li>
+</ol>
+
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js";
+    import {paramsList} from "../paramsList.js";
+
+    document.addEventListener("DOMContentLoaded",function(){
+        const ol = this.querySelector("ol");
+        let controls = {
+            "repeat-x":{},
+            "repeat-y": {},
+            repeat:{},
+            round:{},
+            space:{},
+            "no-repeat":{},
+        };
+        let controls2 = {
+            "修改第一个参数":null,
+            "修改第二个参数":null
+        }
+
+        let index = 0;
+
+        let list = paramsList("repeat","repeat");
+
+        let ui = new ControlsUI(controls);
+        let ui2 = new ControlsUI(controls2);
+
+        ui.initControls().initDefaultStyle("../ControlsUI.css").bindItemEvent({
+            click(ev,p,ul){
+                let type = p.innerText.trim();
+                if(type === "repeat-x" ||type === "repeat-y" ){
+                    ol.style.maskRepeat = type;
+                    ol.style.webkitMaskRepeat = type;
+                    return false;
+                }
+                list.setParam(index,type);
+                ol.style.maskRepeat = list.getRes(" ");
+                ol.style.webkitMaskRepeat = list.getRes(" ");
+            }
+        })
+        ui2.initDefaultStyle("../ControlsUI.css", {left:"30vw"}).initControls().bindItemEvent({
+            click(ev,p,ul){
+                index = Array.from(this.parentNode.children).indexOf(this);
+            }
+        })
+    })
+</script>
+</body>
+</html>

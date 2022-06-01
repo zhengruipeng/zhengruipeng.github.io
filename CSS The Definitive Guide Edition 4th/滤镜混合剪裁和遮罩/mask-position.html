@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #origin{
+            position:fixed;
+            top:0;
+            left:0;
+            border:red solid 1px;
+            font-size: 5em;
+            font-weight: 900;
+            opacity: .1;
+        }
+        #alpha{
+            position:fixed;
+            top:0;
+            left:0;
+            border:red solid 1px;
+            font-size: 5em;
+            font-weight: 900;
+            mask-image:url('./bg1.svg');
+            mask-mode: alpha;
+            mask-size:300px 300px;
+            mask-repeat: no-repeat;
+            -webkit-mask-image:url('./bg1.svg');
+            -webkit-mask-mode: alpha;
+            -webkit-mask-size:300px 300px;
+            -webkit-mask-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<ol id="alpha">
+    <li>oneoneoneone</li>
+    <li>twotwotwotwo</li>
+    <li>threethreethreethree</li>
+    <li>fourfourfourfour</li>
+    <li>fivefivefivefive</li>
+</ol>
+<ol id="origin">
+    <li>oneoneoneone</li>
+    <li>twotwotwotwo</li>
+    <li>threethreethreethree</li>
+    <li>fourfourfourfour</li>
+    <li>fivefivefivefive</li>
+</ol>
+
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js";
+    import {paramsList} from "../paramsList.js";
+
+    document.addEventListener("DOMContentLoaded",function(){
+        const ol = this.querySelector("ol");
+        let controls = {
+            "位置":{children:`<label><input type="range" name="x" min="0" max="100" value="100">%</label>`},
+            left:{},
+            center:{},
+            right:null,
+            top:null,
+            bottom:null,
+
+        };
+        let controls2 = {
+            "修改第一个参数":null,
+            "修改第二个参数":null
+        }
+
+        let index = 0;
+
+        let list = paramsList("center","center");
+
+        let ui = new ControlsUI(controls);
+        let ui2 = new ControlsUI(controls2);
+
+        ui.initControls().initDefaultStyle("../ControlsUI.css").bindItemEvent({
+            click(ev,p,ul){
+                let type = p.innerText.trim();
+                if(ul.querySelector("input[type='range']")){
+                    type = ul.querySelector("input[type='range']").value+"%";
+                }
+                list.setParam(index,type);
+                ol.style.maskPosition = list.getRes(" ");
+                ol.style.webkitMaskPosition = list.getRes(" ");
+                console.log(list.getRes(" "))
+            }
+        }).bindItemEvent({
+            input(ev){
+                list.setParam(index,this.value+"%");
+                ol.style.maskPosition = list.getRes(" ");
+                ol.style.webkitMaskPosition = list.getRes(" ");
+            }
+        },"input[type='range']")
+        ui2.initDefaultStyle("../ControlsUI.css", {left:"30vw"}).initControls().bindItemEvent({
+            click(ev,p,ul){
+                index = Array.from(this.parentNode.children).indexOf(this);
+            }
+        })
+
+    })
+</script>
+</body>
+</html>
