@@ -33,7 +33,8 @@ chrome有的时候下载不全，建议用firefox
             dirReader.readEntries(function (entries){
                 entries = entries.map(v => v.fullPath);
                 let counter = 0;
-                let store = [];
+                let store = []
+                console.log(entries);
                 entries.forEach((path,index) => {
                     const image = new Image();
                     image.src = path;

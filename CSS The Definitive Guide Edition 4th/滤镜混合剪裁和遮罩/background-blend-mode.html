@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../ControlsUI.css" rel="stylesheet" type="text/css" />
+    <style>
+        header>nav{
+            width:25vw;
+        }
+        header:nth-of-type(1){
+            left:0vw;
+        }
+        header:nth-of-type(2){
+            left:25vw;
+        }
+        header:nth-of-type(3){
+            left:50vw;
+        }
+        header:nth-of-type(4){
+            left:75vw;
+        }
+        body{
+            padding:0;
+            margin:0;
+            overflow: hidden;
+        }
+        #source{
+            background-image:
+                    url('./bg1.svg'),
+                    url('./bg2.svg'),
+                    url('./bg3.svg');
+            border:red solid 1px;
+            height:500px;
+            width:500px;
+            background-repeat: no-repeat;
+            background-size: 500px 500px;
+        }
+    </style>
+</head>
+<body>
+<div id="source">
+
+</div>
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js"
+    document.addEventListener("DOMContentLoaded",function (){
+        const image = this.querySelector('img');
+        const source = this.querySelector('#source');
+        let initBackgroundBlendMode = function (...params){
+            let arr = params;
+            return {
+                getColor(index){
+                    return arr[index] || false;
+                },
+                setColor(index,value){
+                    return arr[index] = value;
+                },
+                getModes (){
+                    return arr.join();
+                }
+            }
+        }
+        let controls = {
+            normal:{children:`<p>普通混合</p>`},
+            multiply:{children:`<p>像素颜色相乘</p>`},
+            screen:{children:`<p>对两个颜色做反相处理，相乘后，再反相</p>`},
+            overlay:{children:`<p>如果前景中颜色比0.5暗做multiply，否则做screen</p>`},
+            darken:{children:`<p>取rgb中比较暗的一个</p>`},
+            lighten:{children:`<p>取rgb中比较亮的一个</p>`},
+            "color-dodge":{children:`<p>前景颜色反相，乘以背着物颜色</p>`},
+            "color-burn":{children:`<p>背着物颜色反相，乘以前景颜色</p>`},
+            "hard-light":{children:`<p>如果背着物中颜色比0.5暗做multiply，否则做screen</p>`},
+            "soft-light":{children:`<p>hard-light的缓和版本</p>`},
+            "difference":{children:`<p>取rgb中两者颜色差的绝对值</p>`},
+            "exclusion":{children:`<p>difference的温和版本</p>`},
+
+
+        };
+        let controls2 = {
+            "hue":{children:`<p>背着物明度和饱和度与前景中的色相角度合并</p>`},
+            "saturation":{children:`<p>背着物色相角度明度与前景中的饱和度合并</p>`},
+            "color":{children:`<p>背着物的明度与前景中的色相角度和饱和度合并</p>`},
+            "luminosity":{children:`<p>背着物色线角度饱和度与前景中明度合并</p>`},
+        }
+        let controls3 = {
+            "改变第一层混合模式":{},
+            "改变第二层混合模式":{},
+            // "改变第三层混合模式":{},
+        }
+        let controls4 = {
+            "isolation:auto":{},
+            "isolation:isolate":{},
+            // "改变第三层混合模式":{},
+        }
+        let blendMode = initBackgroundBlendMode("normal","normal");
+        let ui = new ControlsUI(controls);
+        ui.initControls().bindItemEvent({
+            click:function  (ev,head,body){
+                blendMode.setColor(changeModeIndex,head.innerText.trim());
+                source.style.backgroundBlendMode = blendMode.getModes();
+            },
+        });
+        let ui2 = new ControlsUI(controls2);
+        ui2.initControls().bindItemEvent({
+            click:function  (ev,head,body){
+                blendMode.setColor(changeModeIndex,head.innerText.trim());
+                source.style.backgroundBlendMode = blendMode.getModes();
+            },
+        });
+        let changeModeIndex = 0;
+        let ui3 = new ControlsUI(controls3);
+        ui3.initControls().bindItemEvent({
+            click:function  (ev,head,body){
+                changeModeIndex = Array.from(this.parentNode.children).indexOf(this);
+            },
+        });
+        let ui4 = new ControlsUI(controls4);
+        ui4.initControls().bindItemEvent({
+            click:function  (ev,head,body){
+                source.style.isolation = head.innerText.trim().substring(
+                    head.innerText.trim().indexOf(":") + 1);
+            },
+        });
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../ControlsUI.css" rel="stylesheet" type="text/css" />
+    <style>
+        nav{
+
+        }
+        nav.selected{
+            background-color:rgba(100,255,100,.4);
+        }
+        body{
+            padding:0;
+            margin:0;
+            overflow: hidden;
+        }
+        img{
+            height:100vh;
+            width:100vw;
+
+        }
+    </style>
+</head>
+<body>
+<img src="./1.jpg" />
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js"
+    document.addEventListener("DOMContentLoaded",function (){
+        const image = this.querySelector('img');
+        let controls = {
+            blur:{children:[`<input type="text" class="filter-input" />`],},
+            brightness:{children:[`<input type="text" class="filter-input" />`],},
+            contrast:{children:[`<input type="text" class="filter-input" />`],},
+            "drop-shadow":{children:[`<input type="text" class="filter-input" />`],},
+            grayscale:{children:[`<input type="text" class="filter-input" />`],},
+            "hue-rotate":{children:[`<input type="text" class="filter-input" />`],},
+            invert:{children:[`<input type="text" class="filter-input" />`],},
+            opacity:{children:[`<input type="text" class="filter-input" />`],},
+            sepia:{children:[`<input type="text" class="filter-input" />`],},
+            saturate:{children:[`<input type="text" class="filter-input" />`],},
+            url:{children:[`<input type="text" class="filter-input" value="./filter.svg#filter" />`],},
+        };
+
+        let ui = new ControlsUI(controls);
+        ui.initControls().bindItemEvent({
+            click:function  (){
+                Array.from(this.parentNode.children).forEach(child => {
+                    child.classList.remove("selected");
+                });
+                this.classList.add("selected");
+            },
+        });
+        const inputs = Array.from(document.querySelectorAll(".filter-input"));
+        inputs.forEach(input => {
+            console.log(input);
+            input.oninput = function (){
+                image.style.filter = `${this.parentNode.parentNode.parentNode.children[0].innerHTML.trim()}(${this.value.trim()})`;
+                console.log(`${this.parentNode.parentNode.parentNode.children[0].innerHTML.trim()}(${this.value.trim()})`);
+            }
+        })
+
+    })
+    </script>
+</body>
+</html>
