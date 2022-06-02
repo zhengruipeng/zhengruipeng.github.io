@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let sum = 0;
+        let fa = 1;
+        for(let i = 1;i<=10;i++){
+            fa *= i;
+            sum+=fa;
+        }
+        console.log(sum);
+        sum = 0;
+        for(let i = 1;i<=10;i++){
+            let fa = 1;
+            for(let j = i;j>1;j--){
+                fa *= j;
+            }
+            sum+=fa;
+        }
+        console.log(sum);
+    })
+    </script>
+</body>
+</html>

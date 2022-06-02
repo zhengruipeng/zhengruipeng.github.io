@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220601">
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/paramsList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-clip.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-origin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-position.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-repeat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-size.html" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220601(2)">
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/bg4.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-composite.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/JavaScript基础/阶乘.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/ControlsUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/ControlsUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-mode.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-mode.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -168,7 +167,10 @@
       <workItem from="1653912012333" duration="5130000" />
       <workItem from="1653956070870" duration="5363000" />
       <workItem from="1653969338143" duration="7600000" />
-      <workItem from="1654048151997" duration="13704000" />
+      <workItem from="1654048151997" duration="15051000" />
+      <workItem from="1654077332223" duration="2029000" />
+      <workItem from="1654140172603" duration="2191000" />
+      <workItem from="1654152495480" duration="2941000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -373,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654064145799</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="20220601(2)">
+      <created>1654069965335</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1654069965335</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +402,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220511" />
     <MESSAGE value="20220511(2)" />
     <MESSAGE value="20220513" />
     <MESSAGE value="20220513(2)" />
@@ -418,6 +426,7 @@
     <MESSAGE value="20220528(php项目5)" />
     <MESSAGE value="20220531" />
     <MESSAGE value="20220601" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220601" />
+    <MESSAGE value="20220601(2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220601(2)" />
   </component>
 </project>
