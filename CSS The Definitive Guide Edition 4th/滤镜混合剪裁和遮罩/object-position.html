@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            height:200px;
+            width:300px;
+            border:red solid 1px;
+            object-fit: none;
+        }
+        </style>
+</head>
+<body>
+<img src="bg1.svg" />
+
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js";
+    import {paramsList} from "../paramsList.js";
+
+    document.addEventListener("DOMContentLoaded",function(){
+        const image = this.querySelector("img");
+        let controls = {
+            "x轴滚动条":{children:`<input type="range" min="0" max="100" id="x-range" />`},
+            "y轴滚动条":{children:`<input type="range" min="0" max="100" id="y-range" />`}
+        };
+
+
+        let ui = new ControlsUI(controls);
+        let list = paramsList('50%',"50%");
+
+        ui.initDefaultStyle("../ControlsUI.css",{left:0}).initControls().bindItemEvent({
+            input(ev,p,ul){
+                console.log(`objectPosition = ${this.value + "%"}`);
+                list.setParam(0,this.value + "%")
+                image.style.objectPosition = list.getRes(" ");
+            }
+        },"#x-range").bindItemEvent({
+            input(ev,p,ul){
+                console.log(`objectPosition = ${this.value + "%"}`);
+                list.setParam(1,this.value + "%")
+                image.style.objectPosition = list.getRes(" ");
+            }
+        },"#y-range");
+
+
+        })
+</script>
+</body>
+</html>

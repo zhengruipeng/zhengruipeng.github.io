@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            height:200px;
+            width:300px;
+            border:red solid 1px;
+        }
+        </style>
+</head>
+<body>
+<img src="bg1.svg" />
+
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js";
+
+    document.addEventListener("DOMContentLoaded",function(){
+        const image = this.querySelector("img");
+        let controls = {
+            none:null,
+            fill:null,
+            cover:null,
+            contain:null,
+            "scale-down":null,
+        };
+
+        let ui = new ControlsUI(controls);
+
+        ui.initDefaultStyle("../ControlsUI.css",{left:0}).initControls().bindItemEvent({
+            click(ev,p,ul){
+                console.log(`maskComposite = ${p.innerText.trim()}`);
+                image.style.objectFit = p.innerText.trim();
+                image.style.webkitObjectFit = p.innerText.trim();
+            }
+        })
+
+    })
+</script>
+</body>
+</html>
