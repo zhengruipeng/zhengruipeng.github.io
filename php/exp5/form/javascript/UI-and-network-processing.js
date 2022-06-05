@@ -16,38 +16,27 @@ document.addEventListener("DOMContentLoaded",function (){
             const input = document.createElement("input");
             input.name = name;
             input.value = value;
+            // console.log(`name = ${name}  value = ${value}`)
             input.type = "text";
             return input;
-        };
-        let haveEditingDiv = function (td){
-            for(let i = 0;i<td.children.length;i++){
-                if(td.children[i].tagName === 'DIV'){
-                    td.innerHTML = td.children[i].innerHTML;
-                    return true;
-                }
-            }
-            return false;
-
         };
         let type = this.classList.contains("update")?"update":"";
         type = this.classList.contains("delete")?"delete":type;
         let tr = this.parentNode.parentNode;
-        haveEditingDiv(tr.children[1]);
-        haveEditingDiv(tr.children[2]);
-        haveEditingDiv(tr.children[3]);
-        haveEditingDiv(tr.children[4]);
-        let id = tr.children[1].innerHTML;
-        let name = tr.children[2].innerHTML;
-        let age = tr.children[3].innerHTML;
-        let dept = tr.children[4].innerHTML;
+
+        let params = {};
         let htmlFormElement = document.createElement("form");
-        htmlFormElement.appendChild(setupInputElement("id",id));
-        htmlFormElement.appendChild(setupInputElement("sname",name));
-        htmlFormElement.appendChild(setupInputElement("sage",age));
-        htmlFormElement.appendChild(setupInputElement("sdept",dept));
+        MyApp.tableCols.forEach((col,index) => {
+            htmlFormElement.appendChild(
+                // setupInputElement(col,tr.children[index + 3].innerText));
+                setupInputElement(col,tr.querySelector("."+col).innerText));
+            params[col] = tr.querySelector("."+col).innerText;
+        });
         htmlFormElement.appendChild(setupInputElement("operation-type",type));
+        htmlFormElement.appendChild(setupInputElement("table-name",MyApp.table));
+        htmlFormElement.appendChild(setupInputElement("table-cols",MyApp.tableCols.join(',')));
+
         let formData = new FormData(htmlFormElement);
-        let data = {id,name,age,dept};
 
         fetch("./php-processing/set-info.php",{
             body:formData,
@@ -64,9 +53,9 @@ document.addEventListener("DOMContentLoaded",function (){
             })
             .then(text => {
                 if(type === "update"){
-                    IndexedDBCurd.update({id,sname:name,sage:age,sdept:dept});
+                    IndexedDBCurd.update(params);
                 }else if(type === "delete"){
-                    IndexedDBCurd.delete(id);
+                    IndexedDBCurd.delete(params[MyApp.tableCols[0]]);
                 }
                 return new Promise(resolve => resolve(text));
             })
@@ -89,7 +78,7 @@ document.addEventListener("DOMContentLoaded",function (){
         for(let i = 0;i<this.children.length;i++){
             this.children[i].innerHTML = "";
         }
-        this.style.transitionDuration = ".3s";
+        this.style.transitionDuration = MyApp.cssAttribute.transitionDuration;
 
         let that = this;
         setTimeout(function (){

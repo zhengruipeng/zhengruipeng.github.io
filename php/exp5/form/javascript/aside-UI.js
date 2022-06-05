@@ -8,29 +8,32 @@ document.addEventListener("DOMContentLoaded",function (){
 
     let initTrWithStudentInfo = function (student){
         let tr = document.createElement("tr");
-        let td1 = document.createElement("td");
-        let td2 = document.createElement("td");
-        let td3 = document.createElement("td");
-        let td4 = document.createElement("td");
-        let td5 = document.createElement("td");
-        let td6 = document.createElement("td");
-        let td7 = document.createElement("td");
-        td1.appendChild(student.selected);
-        td2.appendChild(document.createTextNode(student.id));
-        td3.appendChild(document.createTextNode(student.name));
-        td4.appendChild(document.createTextNode(student.age));
-        td5.appendChild(document.createTextNode(student.score));
-        td6.appendChild(student.operation[0]);
-        td7.appendChild(student.operation[1]);
 
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tr.appendChild(td3);
-        tr.appendChild(td4);
-        tr.appendChild(td5);
-        tr.appendChild(td6);
-        tr.appendChild(td7);
+        for(let name in student){
+            let td = document.createElement("td");
+            if(name === "constructor")continue;
 
+            if(name !== "operation"){
+                td.appendChild((typeof student[name] === "string")?
+                    document.createTextNode(student[name]):
+                    student[name]);
+                td.className = name;
+                tr.appendChild(td);
+            }else{
+                let td2 = document.createElement("td");
+
+                td.appendChild(student.operation[0]);
+                td2.appendChild(student.operation[1]);
+
+                td.className = name;
+                td2.className = name;
+
+                tr.appendChild(td);
+                tr.appendChild(td2);
+                continue;
+            }
+
+        }
 
         return tr;
 
@@ -69,8 +72,8 @@ document.addEventListener("DOMContentLoaded",function (){
             rows.forEach((row, index) => {
                 if (index === 0) return false;
                 let selectedCell = row.cells[0];
-                let deleteBtnInRow = row.cells[6].children[0];
-                let selectedSpan = selectedCell.children[0];
+                let deleteBtnInRow = row.querySelector(".delete");
+                let selectedSpan = selectedCell.querySelector("span");
                 let ifSelected = selectedSpan.classList.contains("select-justify-ensure");
                 if (ifSelected) {
                     deleteBtnInRow.click();
@@ -82,26 +85,16 @@ document.addEventListener("DOMContentLoaded",function (){
             informationForm.classList.add("information-form-open");
             menu.classList.remove("menu-open");
             menu.classList.add("menu-close");
-            let idInput = document.createElement("input");
-            let nameInput = document.createElement("input");
-            let ageInput = document.createElement("input");
-            let scoreInput = document.createElement("input");
-
-            idInput.className = "information-form-item";
-            nameInput.className = "information-form-item";
-            ageInput.className = "information-form-item";
-            scoreInput.className = "information-form-item";
-
-            idInput.required = true;
-            nameInput.required = true;
-            ageInput.required = true;
-            scoreInput.required = true;
 
             informationForm.innerHTML = "";
-            informationForm.appendChild(idInput);
-            informationForm.appendChild(nameInput);
-            informationForm.appendChild(ageInput);
-            informationForm.appendChild(scoreInput);
+            MyApp.tableCols.forEach(col => {
+                let input = document.createElement("input");
+                input.classList.add("information-form-item");
+                input.classList.add(col);
+                input.required = true;
+                informationForm.appendChild(input);
+
+            })
 
             let cancelBtn = document.createElement("button");
             let submitBtn = document.createElement("button");
@@ -121,7 +114,7 @@ document.addEventListener("DOMContentLoaded",function (){
                         this.style.boxShadow = "";
                     }
                 }
-                let httpReq = function (toURL, id, name, age, sdept) {
+                let httpReq = function (toURL,/* id, name, age, sdept*/params) {
                     let setupInputElement = function (name, value) {
                         const input = document.createElement("input");
                         input.name = name;
@@ -130,11 +123,14 @@ document.addEventListener("DOMContentLoaded",function (){
                         return input;
                     };
                     let htmlFormElement = document.createElement("form");
-                    htmlFormElement.appendChild(setupInputElement("id", id));
-                    htmlFormElement.appendChild(setupInputElement("sname", name));
-                    htmlFormElement.appendChild(setupInputElement("sage", age));
-                    htmlFormElement.appendChild(setupInputElement("sdept", sdept));
+                    for (let name in params){
+                        htmlFormElement.appendChild(setupInputElement(name, params[name]));
+                    }
+
                     htmlFormElement.appendChild(setupInputElement("operation-type", "insert"));
+                    htmlFormElement.appendChild(setupInputElement("table-name",MyApp.table));
+                    htmlFormElement.appendChild(setupInputElement("table-cols",MyApp.tableCols.join(',')));
+
                     let formData = new FormData(htmlFormElement);
                     let res = true;
 
@@ -157,7 +153,7 @@ document.addEventListener("DOMContentLoaded",function (){
                             return new Promise(resolve => resolve(text));
                         })
                         .then(text => {
-                            IndexedDBCurd.insert({id,sname:name,sage:age,sdept});
+                            IndexedDBCurd.insert(params);
                             return new Promise(resolve => resolve(text));
                         })
                         .catch(err => {
@@ -168,33 +164,54 @@ document.addEventListener("DOMContentLoaded",function (){
                     return res;
 
                 };
+                let idHasExist = function (id){
+                    let idTds = Array.from(tbody.querySelectorAll("."+MyApp.tableCols[0]));
+                    let idArr = idTds.map(idTd => idTd.innerText);
+                    return idArr.indexOf(id) !== -1;
+                };
+                let params = {};
 
-                let id = idInput.value;
-                let name = nameInput.value;
-                let age = ageInput.value;
-                let sdept = scoreInput.value;
-                redIfEmpty.call(idInput);
-                redIfEmpty.call(nameInput);
-                redIfEmpty.call(ageInput);
-                redIfEmpty.call(scoreInput);
-                if (!id || !name || !age || !sdept) return false;
+                //判断是否有空项
+                MyApp.tableCols.forEach(col => {
+                    let input = informationForm.querySelector("."+col);
+                    redIfEmpty.call(input);
+                    if (!input.value) params["error"] = true;
+                    params[col] = input.value;
+                });
+                if( params["error"])return false;
 
-                let isHttpSuccess = httpReq("./php-processing/set-info.php", id, name, age, sdept);
+                //判断id是不是已经存在
+                let idInput = informationForm.querySelector("."+MyApp.tableCols[0]);
+                if(idHasExist(idInput.value)){
+                    notify.println("id重复");
+                    return false;
+
+                }
+
+                console.log(params);
+
+                let isHttpSuccess = httpReq("./php-processing/set-info.php", params);
                 if (!isHttpSuccess) {
-                    alert("添加操作失败");
+                    notify.print("添加操作失败");
                     return false;
                 }
 
-                let student = new Student(id, name, age, sdept);
-                MyApp.data.students.push(student)
+                let student = new Student();
+
+                for (let name in params){
+                    student[name] = params[name];
+                }
+
+                MyApp.data.students.push(student);
+
                 let tr = initTrWithStudentInfo(student);
                 tbody.appendChild(tr);
 
                 tr.style.height = tr.getBoundingClientRect().height + "px";
                 tr.onclick = MyApp.eventFunctions.selected;
 
-                let updateBtn = tr.cells[5].children[0];
-                let removeBtn = tr.cells[6].children[0];
+                let updateBtn = tr.querySelector(".update");
+                let removeBtn = tr.querySelector(".delete");
                 updateBtn.onclick = MyApp.eventFunctions.update;
                 removeBtn.onclick = function (ev) {
                     MyApp.eventFunctions.update.call(this, ev);
@@ -224,14 +241,14 @@ document.addEventListener("DOMContentLoaded",function (){
                 this.dataset.select = "all";
                 this.innerHTML = "全不选";
                 Array.from(tbody.rows).forEach(tr => {
-                    let selectedSpan = tr.cells[0].children[0];
+                    let selectedSpan = tr.cells[0].querySelector("span");
                     selectedSpan.classList.add("select-justify-ensure");
                 })
             } else if (this.dataset.select === "all") {
                 this.dataset.select = "none";
                 this.innerHTML = "全选";
                 Array.from(tbody.rows).forEach(tr => {
-                    let selectedSpan = tr.cells[0].children[0];
+                    let selectedSpan = tr.cells[0].querySelector("span");
                     selectedSpan.classList.remove("select-justify-ensure");
                 })
             }
