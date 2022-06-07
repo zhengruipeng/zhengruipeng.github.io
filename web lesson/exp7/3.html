@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      let input = prompt();
+      switch (Number.parseInt((input-0)/10) ){
+          case 10:case 9:
+              console.log("excellent");
+              break;
+          case 8:case 7:case 6:
+              console.log("good");
+              break;
+          case 5:case 4:case 3:case 2:case 1:case 0:
+              console.log("fail");
+              break;
+         default:
+             console.log("input error");
+             break;
+      }
+  })
+</script>
+</body>
+</html>

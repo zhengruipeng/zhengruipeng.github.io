@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border:#ccc solid 1px;
+            border-collapse: collapse;
+        }
+        table>tbody>tr:nth-of-type(odd){
+            background-color: yellow;
+        }
+        td{
+            border:#ccc solid 1px;
+            color:red;
+            padding:7px 15px;
+        }
+        </style>
+</head>
+<body>
+<input type="number" id="row" />
+<input type="number" id="col" />
+<input type="button" id="btn" value="submit" />
+<table>
+    <tbody>
+
+    </tbody>
+</table>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const rowEle = this.getElementById("row");
+        const colEle = this.getElementById("col");
+        const btn = this.getElementById("btn");
+        const tbody = this.querySelector("table>tbody");
+        const fragment = document.createDocumentFragment();
+        btn.onclick = function (){
+            tbody.innerHTML = "";
+            let row = rowEle.value -0 ;
+            let col = colEle.value -0 ;
+            for(let i = 0;i<row;i++){
+                let tr = document.createElement("tr");
+                for(let j = 0;j<col;j++){
+                    let td = document.createElement("td");
+                    td.innerHTML = `第${i}行第${j}列`;
+                    tr.appendChild(td);
+                }
+                fragment.appendChild(tr);
+            }
+            tbody.appendChild(fragment);
+        }
+
+    })
+    </script>
+</body>
+</html>

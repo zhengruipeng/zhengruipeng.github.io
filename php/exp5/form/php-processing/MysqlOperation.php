@@ -15,7 +15,6 @@ trait MysqlOperation{
         $res = MysqlOperation::$mysqli -> query($sql);  //返回一个资源类型的数据信息(整型/浮点型/字符型/布尔型/数组/资源类型)
         MysqlOperation::$stmt = $res;
         if(!is_bool($res)){
-//            echo 666;
             return $res;
         }else{
             $row_num = mysqli_affected_rows(MysqlOperation::$mysqli);

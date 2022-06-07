@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border:#ccc solid 1px;
+            border-collapse: collapse;
+        }
+        table>tbody>tr:nth-of-type(odd){
+            background-color: yellow;
+        }
+        td{
+            border:#ccc solid 1px;
+            color:red;
+            padding:7px 15px;
+        }
+        .blue{
+            color:blue !important;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tbody>
+
+    </tbody>
+</table>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const tbody = this.querySelector("table>tbody");
+        const fragment = document.createDocumentFragment();
+        for(let i = 0;i<3;i++){
+            let tr = document.createElement("tr");
+            let name = prompt("姓名");
+            let td = document.createElement("td");
+            td.innerText = name;
+            tr.appendChild(td);
+            name = prompt("学号");
+            td = document.createElement("td");
+            td.innerText = name;
+            tr.appendChild(td);
+            name = prompt("班级");
+            td = document.createElement("td");
+            td.innerText = name;
+            tr.appendChild(td);
+            fragment.appendChild(tr);
+        }
+        tbody.appendChild(fragment);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      let res = Number.parseInt(Math.random()*10)+1;
+      let counter = 0;
+      do{
+          let input = prompt("输入一个数字") - 0;
+          if(input === res){
+              alert("对了，结果为："+res+"共猜"+counter+"次");
+              return false;
+          }else if(input > res){
+              alert("大了");
+          }else{
+              alert("小了");
+          }
+          counter++;
+      }while(counter<=10);
+      alert("不对，正确的是"+res);
+  })
+</script>
+</body>
+</html>
