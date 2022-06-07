@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #switch{
+            display: none;
+
+        }
+        #switch+label{
+            cursor: pointer;
+            font-size: 1.3em;
+            display: block;
+            height:100px;
+            width:100px;
+            background-color: #666;
+            transition:.3s;
+            z-index: 1;
+        }
+        #switch+label>div:nth-of-type(1){
+            border-top:#eee solid 1px;
+            width:70%;
+            margin:auto;
+            transform:translate(0,33px);
+            transition:.3s;
+        }
+        #switch+label>div:nth-of-type(2){
+            border-bottom:#eee solid 1px;
+            width:70%;
+            margin:auto;
+            transform:translate(0,66px);
+            transition:.3s;
+        }
+        #switch:checked+label>div:nth-of-type(1){
+            transform: translate(0,50px) rotateZ(45deg);
+        }
+        #switch:checked+label>div:nth-of-type(2){
+            transform: translate(0,50px) rotateZ(-45deg);
+        }
+        #switch~div#notification{
+            position:fixed;
+            top:-30vh;
+            left:0;
+            width:100%;
+            height:30vh;
+            background-color: #777;
+            transition:.3s;
+            z-index: -1;
+        }
+        #switch:checked~div#notification{
+            top:0vh;
+
+        }
+    </style>
+</head>
+<body>
+<input type="checkbox" id="switch" />
+<label for="switch" onselectstart="event.preventDefault()">
+    <div ></div>
+    <div ></div>
+</label>
+<div id="notification">
+    12341234
+</div>
+</body>
+</html>
