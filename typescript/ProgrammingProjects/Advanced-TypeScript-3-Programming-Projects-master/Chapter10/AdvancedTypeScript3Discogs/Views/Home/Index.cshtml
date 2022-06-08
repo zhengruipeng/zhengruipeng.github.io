@@ -1,0 +1,44 @@
+﻿@{
+  ViewData["Title"] = "Home Page";
+}
+
+<div id="pageRoot">
+  <form asp-controller="Home" asp-action="Index" class="form-inline">
+    <div class="form-group mx-sm-3 mb-10">
+      <input type="text" name="SearchString" class="form-control" placeholder="Enter artist to search for" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
+
+@{ if (ViewBag.Result != null)
+  {
+    <script src="~/js/discogHelper.js"></script>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Artwork</th>
+        </tr>
+      </thead>
+      <tbody>
+        @{
+          int index = 0;
+        }
+        @foreach (var item in ViewBag.Result)
+        {
+          <tr>
+            <td>@item.Title</td>
+            <td>
+              <img id="img_@index" width="150" height="150" />
+              <script type="text/javascript">
+                  searchDiscog('@item.ResourceUrl', 'img_@index');
+              </script>
+            </td>
+          </tr>
+          index++;
+        }
+      </tbody>
+    </table>
+  }
+}

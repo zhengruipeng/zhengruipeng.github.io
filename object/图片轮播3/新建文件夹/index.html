@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <title></title>
+    </head>
+<body>
+<div id="front" style="float:left;margin-top:120px;background-color:silver;opacity:0.5;height:160px;width:50px;line-height:160px;text-align:center;cursor:pointer"><</div>
+<img src="image/1.jpg" id="image" style="height:400px;width:800px;float:left;">
+<div id="back" style="float:left;margin-top:120px;background-color:silver;opacity:0.5;height:160px;width:50px;line-height:160px;text-align:center;cursor:pointer">></div>
+<img src="" id="big_image" style="height:600px;width:1200px;display: none;float:left;" >
+<select>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+    <option>13</option>
+    <option>14</option>
+    <option>15</option>
+    <option>16</option>
+    <option>17</option>
+    <option>18</option>
+    <option>19</option>
+    <option>20</option>
+</select>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let image = document.getElementById("image"),
+            bigImage = document.getElementById("big_image"),
+            front = document.getElementById("front"),
+            back = document.getElementById("back"),
+            option = document.getElementsByTagName("option");
+        let playing = 1;        //当前播放图片
+        let select = function (){
+            playing = this.innerHTML-1;
+            play();
+        };
+        let play = function (){
+            if(playing === 20)playing = 0;
+            image.src = "./image/"+(++playing)+".jpg";
+            option[playing-1].selected = true;
+        };
+        let history = function (){
+            if(playing === 1)playing = 21;
+            image.src = "./image/"+(--playing)+".jpg";
+        };
+        let fade = function (){       //  大图片出现或消失
+            clearInterval(timer);
+            bigImage.src="./image/"+playing+".jpg";
+            if(bigImage.style.display === "none")bigImage.style.display = "block";
+            else {bigImage.style.display = "none";
+                timer = setInterval(play,1500);
+            }
+        };
+
+
+        let timer = setInterval(play,1500);
+        image.onclick = fade;
+        back.onclick = play;
+        front.onclick = history;
+        for(let i=0,len = option.length;i<len;i++){
+            option[i].onclick = select;
+        }
+
+
+
+    })
+</script>
+</body>
+</html>
