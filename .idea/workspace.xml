@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220608">
-      <change afterPath="$PROJECT_DIR$/web lesson/javascript退画板/比较两个数大小.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/favicon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/check-user-can-make-payment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/customize-button-can-make-payment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/feature-detect-support.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/pre-authorize-transaction.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/recommend-payment-app.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/show-additional-ui-after-payment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web lesson/JavaScript退画板第二课/调色盘.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/examples1/payment-request/recommend-payment-app.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/examples1/payment-request/recommend-payment-app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/exp5/form/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/exp5/form/form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/exp5/form/php-processing/get-info.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/exp5/form/php-processing/get-info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/exp5/form/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/php/exp5/form/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web lesson/javascript退画板/比较两个数大小.html" beforeDir="false" afterPath="$PROJECT_DIR$/web lesson/javascript退画板/比较两个数大小.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +71,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/typescript/ProgrammingProjects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -66,11 +82,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\typescript\ProgrammingProjects" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\typescript\ProgrammingProjects\ts基础" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\exp7" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\php" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\滤镜混合剪裁和遮罩" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
@@ -189,7 +205,12 @@
       <workItem from="1654606733300" duration="3156000" />
       <workItem from="1654651135905" duration="4211000" />
       <workItem from="1654657987701" duration="3937000" />
-      <workItem from="1654687391898" duration="260000" />
+      <workItem from="1654687391898" duration="1506000" />
+      <workItem from="1654690391982" duration="2370000" />
+      <workItem from="1654746397764" duration="6025000" />
+      <workItem from="1654775241116" duration="1952000" />
+      <workItem from="1654840510912" duration="5461000" />
+      <workItem from="1654860997416" duration="4124000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -464,7 +485,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654655634321</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="20220608">
+      <created>1654687748716</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1654687748716</updated>
+    </task>
+    <task id="LOCAL-00041" summary="20220608">
+      <created>1654687766493</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1654687766493</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -4,32 +4,65 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        table{
-            width:50vw;
-            border-color:#000;
-            border-style: outset;
-            border-width: 3px;
-            background-color:yellow;
+        h1{
+            text-align: center;
+            font-weight: 500;
         }
-        td{
-            border:#000 solid 1px;
+        dl{
+            display: grid;
+            width:80vw;
+            border:#ccc solid 1px;
+            border-radius: 30px;
+            margin:auto;
+            /*height:100vh;*/
+            grid-template-columns: 3fr 7fr;
+            grid-auto-rows: auto;
+        }
+        dl>dt{
+            border-right:solid #ccc 1px;
+            text-align: center;
+            line-height:3em;
+        }
+        dl>dd{
+            text-align: center;
+            margin:0;
+            line-height:3em;
+
+        }
+        dl>dt:nth-of-type(even){
+            background-color:rgba(100,255,100,.2);
+        }
+        dl>dd:nth-of-type(even){
+            background-color:rgba(100,255,100,.2);
+        }
+        dl>dd>img{
+            height: 150px;
         }
     </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-    <div id="myDiv" class="123"></div>
+<h1>郑瑞蓬：求职网络前端</h1>
+<dl>
+    <dt>照骗</dt><dd><img src="favicon.jpg" /></dd>
+    <dt>联系地址</dt><dd>东京星见市</dd>
+    <dt>电话</dt><dd>114514</dd>
+    <dt>email</dt><dd>HoshiMiki@yandex.ru</dd>
+    <dt>教育经历</dt><dd>
+        <p>2017.9-2020.6 星见市私立第一高中</p>
+        <p>2020.9-2024.6东北石油大学</p>
+    </dd>
+    <dt>实习经验</dt><dd>曾经实习于星见production，维纳斯battle两次第一</dd>
+    <dt>校内工作</dt><dd>无</dd>
+    <dt>获奖情况</dt><dd>维纳斯battle冠军</dd>
+    <dt>个人技能</dt><dd>JavaScript</dd>
+    <dt>个人爱好</dt><dd>JavaScript</dd>
+    <dt>项目经历</dt><dd>基本没有</dd>
+    <dt>学术研究</dt><dd>W3.org,MDN</dd>
+    <dt>专利成果</dt><dd>没有</dd>
+    <dt>竞赛实践</dt><dd>没有</dd>
+
+
+</dl>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded",function (){
 

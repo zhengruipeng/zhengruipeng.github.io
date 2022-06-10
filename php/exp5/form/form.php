@@ -83,8 +83,26 @@
     import {io} from "./javascript/output-info-into-panel.js";
     import {IndexedDBCurd} from "./javascript/indexedDB-curd.js";
     import {notify} from "./javascript/notification.js";
+    document.addEventListener("DOMContentLoaded",async function (){
+
+      /*  await new Promise(resolve => IndexedDBCurd.getAll(function (arr){
+            let delPromises = [];
+            arr.forEach(row => {
+                let key = MyApp.tableCols[0];
+                delPromises.push(new Promise(resolve =>
+                    IndexedDBCurd.delete(row[key]).onsuccess = resolve;
+                ));
+            })
+            Promise.all(delPromises).then(resolve());
+
+        }))*/
+
+    })
     window.addEventListener("dblclick",function (){
         console.log(MyApp);
+        IndexedDBCurd.getAll(function (arr){
+            console.log(arr);
+        })
     });
     window.addEventListener("dblclick",function (){
         IndexedDBCurd.getAll(function (res){
