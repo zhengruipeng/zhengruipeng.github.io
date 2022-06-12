@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        /*navigator.clipboard.writeText("123123");
+        navigator.clipboard.readText().then( (ref) => {
+            console.log(ref);
+        });*/
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET","./image/1.jpg");
+        xhr.onreadystatechange = function (){
+            if(this.status === 200 && this.readyState === 4){
+                // console.log(xhr.responseURL);
+                navigator.clipboard.write([new ClipboardItem({ "text/plain": "123" })]).then( (ref) => {
+                    console.log(ref);
+                    navigator.clipboard.read().then((ref) => {
+                        console.log(ref)
+                    });
+                });
+            }
+        };
+        // xhr.setRequestHeader()
+        xhr.send();
+
+        console.log(this);
+        /*navigator.clipboard.write(new ClipboardItem({"text/image":this})).then( (ref) => {
+            console.log(ref);
+            navigator.clipboard.read().then((ref) => {
+                console.log(ref)
+            });
+        });*/
+
+
+        // console.log(navigator.clipboard.read());
+
+    })
+</script>
+</body>
+</html>

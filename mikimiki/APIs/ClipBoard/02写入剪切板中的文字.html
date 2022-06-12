@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span>测试文本</span>
+<script type='module'>
+    document.addEventListener("DOMContentLoaded",async function (){
+        await navigator.clipboard.writeText("写入剪切板");
+        let b = await navigator.clipboard.readText();
+        console.log(b);
+    })
+</script>
+</body>
+</html>

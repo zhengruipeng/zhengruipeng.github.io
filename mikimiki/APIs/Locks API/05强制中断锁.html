@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let buffer = new ArrayBuffer(1);
+        let u8a = new Uint8Array(buffer);
+        let offset = 0;
+        let readContent = async function (){
+            u8a.forEach(val => {
+                document.writeln(val);
+            });
+            // console.log(u8a);
+        };
+        let writeContent = async function (){
+            await new Promise(resolve =>
+                setTimeout(function (){
+                    u8a[offset++] = 255;
+                    resolve();
+                },1000)
+            );
+        }
+        navigator.locks.request("modeTest",{mode:"shared"},async function (lock){
+            console.log(lock);
+            await readContent();
+        });
+        navigator.locks.request('modeTest', {mode: 'exclusive'}, async lock => {
+            //如果把mode改成shared就不好使，不知道为啥
+            console.log(lock);
+            await writeContent();
+        });
+        navigator.locks.request("modeTest",{mode:"shared"},async function (lock){
+            console.log(lock);
+            await readContent();
+
+
+        });
+        setTimeout(async function (){
+            console.log(await navigator.locks.query())
+        },1000);
+        navigator.locks.query().then(console.log);
+    })
+</script>
+</body>
+</html>

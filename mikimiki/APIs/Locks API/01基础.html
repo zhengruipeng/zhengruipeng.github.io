@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      navigator.locks.request("test",async function (){
+          await Promise.resolve();
+      }).then(res => {
+          console.log(res);
+      });
+
+  })
+</script>
+</body>
+</html>
