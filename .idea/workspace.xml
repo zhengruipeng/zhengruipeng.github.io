@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220610">
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/ClipBoard/01读取剪切板中的文字.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/ClipBoard/02写入剪切板中的文字.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/ClipBoard/03读取剪切板中的二进制文件.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Locks API/01基础.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Locks API/02私有和共享模式.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Locks API/03只有当锁可用的时候才获取.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Locks API/04强制释放其他同名锁并占用锁.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Locks API/05强制中断锁.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220612">
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebAssembly/动态规划/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebAssembly/动态规划/main.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebAssembly/动态规划/test2.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/!clipBoard/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/ClipBoard/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/!clipBoard/information.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/ClipBoard/information.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/!clipBoard/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/ClipBoard/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/exp5/form/问题" beforeDir="false" afterPath="$PROJECT_DIR$/php/exp5/form/问题" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mikimiki/APIs/ClipBoard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mikimiki/APIs/WebAssembly" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -76,13 +63,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebAssembly" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\ClipBoard" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\php\exp5\form\php-processing" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\typescript\ProgrammingProjects" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebAssembly\动态规划" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\php\exp5\form" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\php\exp4" />
@@ -209,7 +197,7 @@
       <workItem from="1654915031353" duration="7485000" />
       <workItem from="1654949684072" duration="121000" />
       <workItem from="1654950145726" duration="2939000" />
-      <workItem from="1654997826968" duration="696000" />
+      <workItem from="1654997826968" duration="2284000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -505,7 +493,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654866492221</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="20220612">
+      <created>1655004276844</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1655004276844</updated>
+    </task>
+    <task id="LOCAL-00044" summary="20220612">
+      <created>1655004300905</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1655004300905</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +527,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220513(6)" />
     <MESSAGE value="20220514(密码学加密算法更新)" />
     <MESSAGE value="20220514(门牌超链接更新)" />
     <MESSAGE value="20220516(presentation API)" />
@@ -550,6 +551,7 @@
     <MESSAGE value="20220607" />
     <MESSAGE value="20220608" />
     <MESSAGE value="20220610" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220610" />
+    <MESSAGE value="20220612" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220612" />
   </component>
 </project>
