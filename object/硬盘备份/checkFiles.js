@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded",function  (){
                 checkFilesEvent.initCheckbox.call(ele,2,function  (file1,file2){
                     checkFilesEvent.initCover(main);
 
+                    if(checkFilesEvent.compare2Files(file1,file2) === false){
+                        alert("请选择包含文件的文件夹");
+                        return false;
+                    }
+
                     let [arrIn1,arrIn2] = checkFilesEvent.compare2Files(file1,file2);
 
                     checkFilesEvent.cover.shadowRoot.children[1].appendChild(checkFilesEvent.arrInToItems(arrIn1));
