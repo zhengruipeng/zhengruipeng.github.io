@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            display: grid;
+            grid:
+                "... ... ..." 70px
+                "... ... ..." 70px
+                "... ... ..." 70px/
+                70px 70px 70px;
+            list-style-type: none;
+        }
+        ul>li:hover{
+            border:blue dashed 1px;
+            cursor: pointer;
+        }
+        h2{
+            font-weight: 500;
+        }
+        </style>
+</head>
+<body>
+<h2>选中的颜色<span></span></h2>
+<ul>
+    <li style="background-color: #F00000"></li>
+    <li style="background-color: #5F0000"></li>
+    <li style="background-color: #00F000"></li>
+    <li style="background-color: #00F000"></li>
+    <li style="background-color: #005F00"></li>
+    <li style="background-color: #0000F0"></li>
+    <li style="background-color: #00005F"></li>
+    <li style="background-color: #F0F000"></li>
+    <li style="background-color: #00F0F0"></li>
+</ul>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const lis = Array.from(this.querySelectorAll("ul>li"));
+        const span = this.querySelector("h2>span");
+        let colors = [];
+        lis.forEach(li => {
+            li.onclick = function (){
+                let reg = /rgb\(([\d\s]+),([\d\s]+),([\d\s]+)\)/;
+                let arr = getComputedStyle(this).backgroundColor.trim().match(reg);
+
+                let [exp,r,g,b] = arr;
+                colors.push([r,g,b]);
+                let aveColor = colors.reduce(function (lv,rv){
+                    return [
+                        (lv[0]-0)+(rv[0]-0),
+                        (lv[1]-0)+(rv[1]-0),
+                        (lv[2]-0)+(rv[2]-0),
+                    ]
+                });
+
+                document.body.style.backgroundColor = `rgb(${aveColor[0]/colors.length},${aveColor[1]/colors.length},${aveColor[2]/colors.length})`;
+            };
+            li.onmouseover = function (){
+                span.innerHTML = this.style.backgroundColor;
+            };
+
+        })
+    })
+</script>
+</body>
+</html>

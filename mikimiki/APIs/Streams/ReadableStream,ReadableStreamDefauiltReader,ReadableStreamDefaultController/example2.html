@@ -9,9 +9,56 @@
 </ul>
 <button id="button" style="height:100px;width:200px;"></button>
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoadded",function (){
+    document.addEventListener("DOMContentLoaded",function (){
         let list1 = this.getElementById("ul");
         let button = this.getElementById("button");
+
+        let randomChars = function () {
+            return Number.parseInt(Math.random()*9) + "";
+        };
+
+        /*let fetchStream = async function () {
+            console.log(stream);
+            var {done,value} = stream.getReader().read();
+            let arr = [];
+            while(true) {
+                if(done)break;
+                arr.push(value);
+                var {done,value} = stream.getReader().read();
+            };
+            console.log(arr);
+        };*/
+        function fetchStream() {
+            const reader = stream.getReader();
+            let charsReceived = 0;
+
+            // read() returns a promise that resolves
+            // when a value has been received
+            reader.read().then(function processText({ done, value }) {
+                // Result objects contain two properties:
+                // done  - true if the stream has already given you all its data.
+                // value - some data. Always undefined when done is true.
+                if (done) {
+                    console.log("Stream complete");
+                    para.textContent = value;
+                    return;
+                }
+
+                // value for fetch streams is a Uint8Array
+                charsReceived += value.length;
+                const chunk = value;
+                let listItem = document.createElement('li');
+                listItem.textContent = 'Received ' + charsReceived + ' characters so far. Current chunk = ' + chunk;
+                list2.appendChild(listItem);
+
+                result += chunk;
+
+                // Read some more, and call this function again
+                return reader.read().then(processText);
+            });
+        }
+
+        let interval;
         const stream = new ReadableStream({
             start(controller) {
                 interval = setInterval(() => {
@@ -25,13 +72,12 @@
                     listItem.textContent = string;
                     list1.appendChild(listItem);
                 }, 1000);
-                console.log(321);
 
-                button.addEventListener('click', function() {
-                    console.log(123);
+                button.addEventListener('click',async function() {
                     clearInterval(interval);
-                    fetchStream();
-                    controller.close();
+                    await controller.close();
+                    // await stream.releaseLock();
+                    await fetchStream();
                 })
             },
             pull(controller) {
@@ -43,6 +89,14 @@
                 clearInterval(interval);
             }
         });
+        let reader = stream.getReader();
+        (async function (){
+            for(let {value,done} = await reader.read();
+                !done;{value,done} = await reader.read()){
+                console.log(value);
+            }
+        })()
+
     })
     </script>
 </body>

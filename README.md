@@ -1,2 +1,4 @@
-测试用
-only in test
+web locks 
+clipboard 
+|-> Blob -> Stream
+|-> File

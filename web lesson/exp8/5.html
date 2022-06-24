@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<code></code>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    const code = this.querySelector("code");
+    setInterval(function (){
+      code.innerText = new Date().getHours() + ":" +
+              new Date().getMinutes() + ":" +
+              new Date().getSeconds();
+    },1000);
+  })
+</script>
+</body>
+</html>

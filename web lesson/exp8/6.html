@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      #ad{
+        padding: 5vh 0;
+        text-align: center;
+        background: antiquewhite;
+        font-size: 2rem;
+        width:100vw;
+        position:absolute;
+        transition:2s;
+      }
+    </style>
+</head>
+<body>
+<div id="main">
+  <p>这里是正文 </p>
+  <p>这里是正文 </p>
+  <p>这里是正文 </p>
+  <p>这里是正文 </p>
+  <p>这里是正文 </p>
+  <p>这里是正文 </p>
+  <p>这里是正文 </p>
+</div>
+
+<div id="ad" style="top:calc(-10vh - 3rem);left:0">我是广告</div>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const ad = this.querySelector("#ad");
+    ad.style.top = "0";
+    ad.ontransitionend = function (){
+      ad.style.display = "none";
+    };
+  })
+</script>
+</body>
+</html>

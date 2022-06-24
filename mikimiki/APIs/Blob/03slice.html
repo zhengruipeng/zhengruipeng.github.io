@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",async function (){
+        const b = new Blob(["text"]);
+        let b2 = b.slice(0,3);
+        let ab = await b2.arrayBuffer();
+        console.log(b2);
+        console.log(ab);
+        let fr = new FileReader();
+        fr.readAsText(b,"utf-8");
+        await new Promise(resolve => fr.onload = resolve);
+        console.log(fr.result);
+        fr.readAsText(b2,"utf-8");
+        await new Promise(resolve => fr.onload = resolve);
+        console.log(fr.result);
+
+    })
+</script>
+</body>
+</html>

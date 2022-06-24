@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" style="font-size:60px">0</div>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const startBtn = document.querySelectorAll("input[type=button]")[0];
+    const stopBtn = document.querySelectorAll("input[type=button]")[1];
+    let timer = null;
+    startBtn.onclick = function () {
+      document.getElementById("div1").innerHTML = parseInt(document.getElementById("div1").innerHTML)+1;
+      timer = window.setTimeout(startBtn.onclick,1000);
+    };
+    stopBtn.onclick = function (){
+      if(timer){
+        clearTimeout(timer);
+      }
+    };
+  })
+</script>
+<input type="button" value="开始计时" />
+<input type="button" value="停止计时" />
+
+</body>
+</html>

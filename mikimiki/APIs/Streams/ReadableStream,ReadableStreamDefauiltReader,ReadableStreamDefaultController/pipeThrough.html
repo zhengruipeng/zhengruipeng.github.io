@@ -34,7 +34,8 @@
         let pipedStreamDefaultReader = pipedStream.getReader();
 
         (async function (){
-            for(let {value,done} = await pipedStreamDefaultReader.read();!done;{value,done} = await pipedStreamDefaultReader.read()){
+            for(let {value,done} = await pipedStreamDefaultReader.read();
+                !done;{value,done} = await pipedStreamDefaultReader.read()){
                 console.log(value);
             }
         })()

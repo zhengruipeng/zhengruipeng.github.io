@@ -1,0 +1,131 @@
+body{
+    --border-color:rgb(242,165,170);
+    --transition-duration:.3s;
+}
+
+main{
+    filter: blur(10px);
+}
+@keyframes aside-logo {
+    from{
+        text-shadow: 0 0 10px var(--border-color);
+    }
+    to{
+        text-shadow: 0 0 20px var(--border-color);
+    }
+}
+aside{
+    position:fixed;
+    top:0;
+    left:0px;
+    width:100vw;
+    transition:var(--transition-duration);
+    height:100vh;
+    margin:0;
+    z-index: 1;
+}
+.menu{
+    position:relative;
+    margin:0;
+    list-style: none;
+    display: inline-grid;
+    grid-auto-rows: 3em;
+    grid-row-gap: 15px;
+    transition:var(--transition-duration);
+    width:100%;
+    height:100%;
+    padding-top: 30px;
+    padding-left:0;
+}
+.menu-item{
+    border-radius: 20px;
+    padding:1em 2em;
+    display: block;
+    transition:var(--transition-duration);
+    width:80%;
+}
+.menu-item:hover{
+    /*background-color: white;*/
+    box-shadow: 0 0 20px var(--border-color);
+    cursor: pointer;
+}
+.information-form{
+    display: inline-grid;
+    grid-auto-rows: 2em;
+    grid-row-gap: 2em;
+    grid-template-columns: 80%;
+    padding:30px 0;
+    position:relative;
+    top:calc(-100% - 30px);
+    left:100%;
+    height:100%;
+    width:100%;
+    margin:0;
+    justify-content: center;
+    transition: var(--transition-duration);
+}
+.information-form-item{
+    background-color: white;
+    border:#cccccc solid 2px;
+    border-radius: 15px;
+    padding:5px 20px;
+    transition: var(--transition-duration);
+}
+#aside-container{
+    width:25%;
+    background-color: rgba(255,255,255,.6);
+    box-shadow: 0 0 40px #ffffff;
+    margin:0;
+    transition:var(--transition-duration);
+    height:100%;
+    padding-top:0px;
+    padding-left:0;
+    overflow: hidden;
+}
+#aside-logo{
+    transition: var(--transition-duration);
+    font-size: 3em;
+    position:fixed;
+    cursor: pointer;
+    background-color:transparent;
+    color:var(--border-color);
+    border:none;
+    animation-name: aside-logo;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    z-index: 2 ;
+}
+.aside-open{
+    left :0%;
+    z-index :1;
+    opacity: 1;
+}
+.aside-close{
+    left :-25%;
+    z-index :-1;
+    opacity: 0;
+}
+.aside-logo-open{
+    top:calc(50% - 1.5em);
+    left:20%;
+    transform:rotateZ(-180deg);
+}
+.aside-logo-close{
+    top:calc(50% - 1.5em);
+    left:3%;
+    transform:rotateZ(-0deg);
+}
+.menu-open{
+    left:0%;
+}
+.menu-close{
+    left:-100%;
+}
+.information-form-open{
+    left:0%;
+}
+.information-form-close{
+    left:100%;
+}

@@ -1,0 +1,41 @@
+html{
+    padding:0;
+}
+body{
+    overflow-x: hidden;
+}
+main{
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 96vw;
+}
+main>div{
+    border-radius: .5em;
+    border:#aaa solid 1px;
+    width:100%;
+    line-height: 2em;
+    padding:0 1em;
+}
+main details,
+main p{
+    border-radius: .5em;
+    border:#ccc solid 1px;
+    width:98%;
+    line-height: 2em;
+    padding:0 1em;
+    margin:0;
+    cursor: pointer;
+}
+main details{
+
+}
+summary>em{
+    color:#777;
+    font-size: .8em;
+    padding: 5em;
+    user-select: none;
+}
+details p{
+    width:30%;
+    display: inline-block;
+}
