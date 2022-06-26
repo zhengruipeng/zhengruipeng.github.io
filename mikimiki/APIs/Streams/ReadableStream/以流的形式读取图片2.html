@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Stream Pump</title>
+</head>
+<body>
+<h1>Simple Stream Pump</h1>
+<p>The left image is the original, the right one is created using a custom stream.</p>
+<img src="./1.jpg" width="150" height="84" alt="Tortoise Original">
+<img src="blob:https://localhost/2ee7957c-50b4-45bb-9baa-50cfff1de9f5" width="150" height="84"  id="target">
+<script>
+    const image = document.getElementById('target');
+
+    // Fetch the original image
+    fetch('./1.jpg')
+        // Retrieve its body as ReadableStream
+        .then(response => response.body)        //ReadableStream
+        .then(rs => {
+            console.log(rs);
+            const reader = rs.getReader();           //ReadableStreamDefaultReader
+            console.log(reader);
+
+            return new ReadableStream({
+                async start(controller) {
+                    console.log(controller);        //ReadableStreamDefaultController
+                    while (true) {
+                        const { done, value } = await reader.read();
+
+                        // When no more data needs to be consumed, break the reading
+                        if (done) {
+                            break;
+                        }
+
+                        // Enqueue the next data chunk into our target stream
+                        controller.enqueue(value);
+                    }
+
+                    // Close the stream
+                    controller.close();
+                    reader.releaseLock();
+                }
+            })
+        })
+        // Create a new response out of the stream
+        .then(rs => new Response(rs))
+        // Create an object URL for the response
+        .then(response => response.blob())
+        .then(blob => URL.createObjectURL(blob))
+        // Update image
+        .then(url => image.src = url)
+        .catch(console.error);
+</script>
+
+
+</body></html>

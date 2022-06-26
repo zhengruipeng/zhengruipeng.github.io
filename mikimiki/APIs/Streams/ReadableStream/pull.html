@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        /*
+        * 可读流通过start存入数据块，如果没有消费者的话会一直暂存，
+        * 如果没到最高水位线（highWaterMark）的情况下，会一直触发pull，
+        * 如果消费者速度不够或者没有的话，就超过最高水位线，就不会触发pull
+        *
+        * readableStreamDefaultReader就是一个消费者，会一直消耗存入的数据，
+        * 之后水位线会不断下降，如果最高水位线比较低的情况下，电脑会自动反馈给输入端，令其停止输入
+        * 在低于最高水位线的情况下继续输入
+        *
+        *
+        * */
+        const stream = new ReadableStream({
+            start(controller){
+                let render = function (timer){
+                    if(timer>1000)return;
+                    controller.enqueue(123)
+                    requestAnimationFrame(render);
+                };
+                render(0);
+            },
+            pull(controller){
+                console.log(controller);
+                return Promise.resolve();
+            }
+        },{
+            highWaterMark:999
+        });
+
+        let readerCB;
+        let defaultReader = stream.getReader();
+        defaultReader.read().then(readerCB = ({done,value}) => {
+            if(done){
+                return;
+            }
+
+            console.log(value);
+            defaultReader.read().then(readerCB);
+        })
+    })
+</script>
+</body>
+</html>

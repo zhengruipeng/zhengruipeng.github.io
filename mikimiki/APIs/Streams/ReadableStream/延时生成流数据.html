@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul">
+</ul>
+<button id="button" style="height:100px;width:200px;"></button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let list1 = this.getElementById("ul");
+        let button = this.getElementById("button");
+
+        let randomChars = function () {
+            return Number.parseInt(Math.random()*9) + "";
+        };
+
+        /*let fetchStream = async function () {
+            console.log(stream);
+            var {done,value} = stream.getReader().read();
+            let arr = [];
+            while(true) {
+                if(done)break;
+                arr.push(value);
+                var {done,value} = stream.getReader().read();
+            };
+            console.log(arr);
+        };*/
+        function fetchStream() {
+            const reader = stream.getReader();
+            let charsReceived = 0;
+
+            // read() returns a promise that resolves
+            // when a value has been received
+            reader.read().then(function processText({ done, value }) {
+                // Result objects contain two properties:
+                // done  - true if the stream has already given you all its data.
+                // value - some data. Always undefined when done is true.
+                if (done) {
+                    console.log("Stream complete");
+                    para.textContent = value;
+                    return;
+                }
+
+                // value for fetch streams is a Uint8Array
+                charsReceived += value.length;
+                const chunk = value;
+                let listItem = document.createElement('li');
+                listItem.textContent = 'Received ' + charsReceived + ' characters so far. Current chunk = ' + chunk;
+                list2.appendChild(listItem);
+
+                result += chunk;
+
+                // Read some more, and call this function again
+                return reader.read().then(processText);
+            });
+        }
+
+        let interval;
+        const stream = new ReadableStream({
+            start(controller) {
+                interval = setInterval(() => {
+                    let string = randomChars();
+
+                    // Add the string to the stream
+                    controller.enqueue(string);
+
+                    // show it on the screen
+                    let listItem = document.createElement('li');
+                    listItem.textContent = string;
+                    list1.appendChild(listItem);
+                }, 1000);
+
+                button.addEventListener('click',async function() {
+                    clearInterval(interval);
+                    await controller.close();
+                    // await stream.releaseLock();
+                    await fetchStream();
+                })
+            },
+            pull(controller) {
+                // We don't really need a pull in this example
+            },
+            cancel() {
+                // This is called if the reader cancels,
+                // so we should stop generating strings
+                clearInterval(interval);
+            }
+        });
+        let reader = stream.getReader();
+        (async function (){
+            for(let {value,done} = await reader.read();
+                !done;{value,done} = await reader.read()){
+                console.log(value);
+            }
+        })()
+
+    })
+    </script>
+</body>
+</html>

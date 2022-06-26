@@ -1,0 +1,18 @@
+div.menu{
+    position: fixed;
+    min-width: 300px;
+    border-radius: 10px;
+    border:#bbb solid 1px;
+    z-index: 3;
+    background: white;
+    display: none;
+}
+div.menu>div{
+    border-bottom:#ccc solid 1px;
+    padding:5px 1.4em;
+    font-family: 微软雅黑;
+    cursor: pointer;
+}
+div.menu>div:hover{
+    background: rgba(150,150,255,.15);
+}

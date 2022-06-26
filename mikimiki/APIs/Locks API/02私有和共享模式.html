@@ -29,7 +29,10 @@
           await readContent();
       });
       navigator.locks.request('modeTest', {mode: 'exclusive'}, async lock => {
-          //如果把mode改成shared就不好使，不知道为啥
+          /*
+          * 如果改成shared的话不会阻塞下面的锁的执行的进程，
+          * 会导致第二次读取发生在改写数值之前，
+          * */
           console.log(lock);
           await writeContent();
       });

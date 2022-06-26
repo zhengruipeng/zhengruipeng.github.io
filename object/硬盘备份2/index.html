@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    ul{
+      padding: 0;
+    }
+      ul>li{
+        line-height: 2em;
+        border-radius: .7em;
+        border:dashed 2px rgba(150,255,100,1);
+        text-align: center;
+        list-style-type: none;
+        margin: 0px;
+      }
+      ul>li:hover {
+        cursor: pointer;
+        background-color: rgba(150,255,100,.2);
+      }
+      ul>li>em{
+        color:#888;
+        font-size: .8em;
+        padding-left: 3em;
+      }
+  </style>
+</head>
+<body>
+<ul>
+  <li id="add">+点击添加新的硬盘</li>
+  <li id="sub">结束添加</li>
+</ul>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const ul = this.querySelector("ul");
+    const addBtn = ul.querySelector("#add");
+    const subBtn = ul.querySelector("#sub");
+    let drive = new Set();
+
+    addBtn.onclick = function (arg1,arg2){
+      const li = document.createElement("li");
+      let name;
+      let add ;
+      if(arg2){
+          name = arg1;
+          add = arg2;
+      }else{
+          name = prompt("硬盘名称");
+          add = prompt("地址（例如：H:/）");
+      }
+      if(!name || !add)return false;
+
+      li.innerHTML = add+"<em>"+name+"</em>";
+      ul.insertAdjacentHTML("afterBegin",li.outerHTML);
+      drive.add(li);
+    };
+
+    subBtn.onclick = function (){
+      const formData = {};
+
+
+      Array.from(ul.children).forEach(child => {
+        if(child === addBtn || child === subBtn)return false;
+
+          formData[child.childNodes[0].data.trim()] = child.childNodes[1].innerText.trim();
+      })
+
+      let formEle = document.createElement("form");
+      document.body.appendChild(formEle);
+      formEle.action = "./main.php";
+      formEle.method = "post";
+      let inputEle = document.createElement("input");
+      inputEle.type = "hidden";
+      inputEle.name = "path";
+      inputEle.value = JSON.stringify(formData);
+      formEle.appendChild(inputEle);
+      formEle.submit();
+
+    };
+
+      addBtn.onclick("如月千早","I:/");
+      addBtn.onclick("杜野凛世","H:/");
+      addBtn.onclick("星井美希","G:/");
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    navigator.serviceWorker.register("./读取HTML文件流.js").then(registration => {
+        console.log(registration);
+    });
+    navigator.serviceWorker.onmessage = function (ev){
+        console.log(ev.data);
+    }
+    window.onload = function (){
+        window.ondblclick = function (){
+            // location = "./以流的形式读取图片.html";
+            fetch("./以流的形式读取图片.html");
+        }
+    }
+    </script>
+</body>
+</html>
