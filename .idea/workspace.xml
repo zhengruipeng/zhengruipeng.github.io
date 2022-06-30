@@ -1,51 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220624">
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/cancel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pull.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/读取HTML文件流.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/CheckFilesEvent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/ParseMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/UnionMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/accessSuffix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/autoMatchAllBackUp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/canOpenDir.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/checkFiles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/contextMenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/dataMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/dataMap2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/dataMap3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/dataMap4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/dataMap5.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/main.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/searchBackUp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份2/selectdir.php" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220626">
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/tee.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Locks API/02私有和共享模式.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Locks API/02私有和共享模式.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/05将流进行分支.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/05将流进行分支.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/example1.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/以流的形式读取图片2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/example2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/延时生成流数据.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/example3.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/读取HTML文件流.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/information.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/information.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/pipeThrough.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pipeThrough.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/pipeTo.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pipeTo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/以流的形式读取图片.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/test2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream,ReadableStreamDefauiltReader,ReadableStreamDefaultController/可读流基础语法.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/可读流基础语法.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份/dataMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份/dataMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份/dataMap3.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份/dataMap3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/type.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/type.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +222,11 @@
       <workItem from="1656035442765" duration="11400000" />
       <workItem from="1656047878191" duration="14071000" />
       <workItem from="1656151314841" duration="11770000" />
-      <workItem from="1656209084538" duration="9000000" />
+      <workItem from="1656209084538" duration="12556000" />
+      <workItem from="1656327319157" duration="1495000" />
+      <workItem from="1656335193915" duration="1246000" />
+      <workItem from="1656597231533" duration="9000" />
+      <workItem from="1656597251240" duration="725000" />
     </task>
     <task id="LOCAL-00001" summary="20220511">
       <created>1652256068502</created>
@@ -590,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656051607531</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="20220626">
+      <created>1656220549155</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1656220549155</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +584,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220514(门牌超链接更新)" />
     <MESSAGE value="20220516(presentation API)" />
     <MESSAGE value="20220516(presentation API)2" />
     <MESSAGE value="20220517(presentation API)" />
@@ -635,6 +608,7 @@
     <MESSAGE value="20220610" />
     <MESSAGE value="20220612" />
     <MESSAGE value="20220624" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220624" />
+    <MESSAGE value="20220626" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220626" />
   </component>
 </project>

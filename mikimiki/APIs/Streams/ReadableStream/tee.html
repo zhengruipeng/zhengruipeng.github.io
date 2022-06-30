@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul id="list2">
+
+</ul>
+<ul id="list3">
+
+</ul>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",async function (){
+    const list2 = this.querySelector("#list2");
+    const list3 = this.querySelector("#list3");
+    function teeStream() {
+      const teedOff = stream.tee();
+      fetchStream(teedOff[0], list2);
+      fetchStream(teedOff[1], list3);
+    }
+
+    function fetchStream(stream, list) {
+      const reader = stream.getReader();
+      let charsReceived = 0;
+
+      // read() returns a promise that resolves
+      // when a value has been received
+      reader.read().then(function processText({ done, value }) {
+        // Result objects contain two properties:
+        // done  - true if the stream has already given you all its data.
+        // value - some data. Always undefined when done is true.
+        if (done) {
+          console.log("Stream complete");
+          return;
+        }
+
+        // value for fetch streams is a Uint8Array
+        charsReceived += value.length;
+        const chunk = value;
+        let listItem = document.createElement('li');
+        listItem.textContent = 'Read ' + charsReceived + ' characters so far. Current chunk = ' + chunk;
+        list.appendChild(listItem);
+
+        // Read some more, and call this function again
+        return reader.read().then(processText);
+      });
+    }
+
+    let blob = new Blob([(new Array(2**20)).fill(2**15).join("")]);
+    console.log(blob);
+    let stream = await blob.stream();
+    teeStream();
+  })
+</script>
+</body>
+</html>
