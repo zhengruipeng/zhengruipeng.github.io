@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220626" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="2022062656" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,21 +219,7 @@
       <workItem from="1656335193915" duration="1246000" />
       <workItem from="1656597231533" duration="9000" />
       <workItem from="1656597251240" duration="725000" />
-      <workItem from="1656600701191" duration="324000" />
-    </task>
-    <task id="LOCAL-00002" summary="20220511">
-      <created>1652256108717</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1652256108717</updated>
-    </task>
-    <task id="LOCAL-00003" summary="20220511(2)">
-      <created>1652273375362</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1652273375363</updated>
+      <workItem from="1656600701191" duration="407000" />
     </task>
     <task id="LOCAL-00004" summary="20220513">
       <created>1652446011849</created>
@@ -564,7 +550,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656600758780</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="202206265">
+      <created>1656601067700</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1656601067700</updated>
+    </task>
+    <task id="LOCAL-00052" summary="2022062656">
+      <created>1656601092158</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1656601092158</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,8 +584,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220516(presentation API)" />
-    <MESSAGE value="20220516(presentation API)2" />
     <MESSAGE value="20220517(presentation API)" />
     <MESSAGE value="20220521" />
     <MESSAGE value="20220521(特效1)" />
@@ -609,6 +607,8 @@
     <MESSAGE value="20220612" />
     <MESSAGE value="20220624" />
     <MESSAGE value="20220626" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220626" />
+    <MESSAGE value="202206265" />
+    <MESSAGE value="2022062656" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022062656" />
   </component>
 </project>
