@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @font-face{
+            font-family:"a1";
+            src:
+                    url("yumindb.ttf"),
+                    url("HGPTY_CNKI.TTF"),
+                    url("hksnwz.ttc"),
+                    url("msyh.ttf");
+            unicode-range: U+4E00-9FFF,U+FF00-FF9F,U+30??;
+            font-weight: bold;
+            font-style: italic;
+            font-stretch: normal;
+        }
+        @font-face{
+            font-family:"a2";
+            src:
+                    url("hksnwz.ttc"),
+                    url("msyh.ttf"),
+                    url("yumindb.ttf"),
+                    url("HGPTY_CNKI.TTF");
+            unicode-range: U+4E00-9FFF,U+FF00-FF9F,U+30??;
+            font-weight: bold;
+            font-style: italic;
+            font-stretch: condensed;
+            ascent-override:300%;
+            descent-override:300%;
+        }
+        @font-face{
+            font-family:"a3";
+            src:
+                    url("hksnwz.ttc"),
+                    url("msyh.ttf"),
+                    url("yumindb.ttf"),
+                    url("HGPTY_CNKI.TTF");
+            unicode-range: U+4E00-9FFF,U+FF00-FF9F,U+30??;
+            font-weight: bold;
+            font-style: italic;
+
+            font-stretch: condensed;
+        }
+        @font-face{
+            font-family:"e";
+            src:
+                    url("SourceCodePro.otf"),
+                    url("HGPTY_CNKI.TTF"),
+                    url("hksnwz.ttc"),
+                    url("msyh.ttf");
+            unicode-range: U+00??;
+            font-weight: bold;
+            font-style: italic;
+            font-stretch: normal;
+
+        }
+        .asia{
+            font-family: "a1";
+        }
+        .erupt{
+            font-family: "e";
+        }
+        </style>
+</head>
+<body>
+<p class="erupt">1234567890</p>
+<p class="erupt">abcdefghijklmnopqrstuvwxyz</p>
+<p class="asia" style="font-family:a1">您好おはようございます</p>
+<p class="asia" style="font-family:a2">您好おはようございます</p>
+<p class="asia" style="font-family:a3">您好おはようございます</p>
+</body>
+</html>

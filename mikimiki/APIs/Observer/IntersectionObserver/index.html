@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .scrollerFooter{
+            border:#ccc solid 1px;
+            height:300px;
+            width:50vw;
+            overflow: scroll;
+        }
+        p{
+            line-height: 50px;
+            width:30px;
+        }
+        body{
+            height:3000px;
+        }
+        #top{
+            position: fixed;
+            top:60vh;
+            right:5vw;
+            height:20vh;
+            width:20vh;
+            border-radius: 10px;
+            background-color: #ddd5;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+<section id="top">back to top</section>
+<div class="scrollerFooter">
+    <p>1234</p>
+    <p>1234</p>
+    <p>1234</p>
+    <p>1234</p>
+    <p>1234</p>
+    <p>1234</p>
+    <p>1234</p>
+</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const topBtn = this.querySelector("#top");
+        const ps = this.querySelectorAll("p");
+
+        const intersectionObserver = new IntersectionObserver(function(entries) {
+            // If intersectionRatio is 0, the target is out of view
+            // and we do not need to do anything.
+            if (entries[0].intersectionRatio <= 0) return;
+
+            console.log(entries)
+        },{threshold: 0.1});
+        // start observing
+        intersectionObserver.observe(document.querySelector('.scrollerFooter'));
+
+        topBtn.onclick = function (){
+            scrollTo(0,0);
+        }
+    })
+</script>
+</body>
+</html>

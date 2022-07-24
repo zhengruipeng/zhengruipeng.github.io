@@ -1,0 +1,10 @@
+@charset "US-ASCII";
+body{
+    background: #fad3;
+}
+body:before{
+    content:"good morning"
+}
+body:after{
+    content:"?????????"
+}

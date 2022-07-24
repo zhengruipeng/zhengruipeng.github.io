@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @property --main-color{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: #55ccff;
+        }
+        @property --sec-color{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: #cc55ff;
+        }
+        @property --timing-function{
+            syntax: "<transform-function>";
+            inherits:false;
+            initial-value: ease-in-out;
+
+        }
+        html{
+            --main-color:#55ccff;
+            --sec-color:#cc55ff;
+            --timing-function:cubic-bezier(0.7,0,0.95,0);
+        }
+        div{
+            height:300px;
+            width:500px;
+            border-radius: 40px;
+            background-image: linear-gradient(to right bottom,var(--main-color),var(--sec-color));
+            transition-duration: 1s;
+            animation-name: test;
+            animation-duration: .5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: var(--timing-function);
+            animation-direction: alternate;
+        }
+        @keyframes test {
+            from{
+                --main-color:#55ccff;
+                --sec-color:#cc55ff;
+            }
+            to{
+                --main-color:#cc55ff;
+                --sec-color:#55ccff;
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

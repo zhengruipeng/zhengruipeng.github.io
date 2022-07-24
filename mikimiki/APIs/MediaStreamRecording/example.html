@@ -57,12 +57,12 @@
                     mediaRecorder.onstop = function(e) {
                         console.log("data available after MediaRecorder.stop() called.");
 
-                        var clipName = prompt('Enter a name for your sound clip');
+                        let clipName = prompt('Enter a name for your sound clip');
 
-                        var clipContainer = document.createElement('article');
-                        var clipLabel = document.createElement('p');
-                        var video = document.createElement('video');
-                        var deleteButton = document.createElement('button');
+                        let clipContainer = document.createElement('article');
+                        let clipLabel = document.createElement('p');
+                        let video = document.createElement('video');
+                        let deleteButton = document.createElement('button');
 
                         clipContainer.classList.add('clip');
                         video.setAttribute('controls', '');
@@ -75,14 +75,31 @@
                         soundClips.appendChild(clipContainer);
 
                         video.controls = true;
-                        var blob = new Blob(chunks, { 'type' : 'video/ogg; codecs=opus' });
+                        console.log(chunks)
+                        const blob = new Blob(chunks,{ mimeType: "video/webm; codecs=vp9" });
+                        //'video/x-matroska;codecs=avc1,opus'
+                        //'video/x-matroska;codecs=avc1,opus'
+                        const file = new File(chunks,"ab");
                         chunks = [];
-                        var videoURL = URL.createObjectURL(blob);
+
+                        console.log(file);
+                       /* file.text().then(text => {
+                            console.log(text);
+                        })
+                        let readerF = null;
+                        let reader = file.stream().getReader();
+                        reader.read().then(readerF = (({value,done}) => {
+                            if(done)return false;
+                            console.log(value);
+                            reader.read().then(readerF);
+                        }))*/
+
+                        const videoURL = URL.createObjectURL(blob);
                         video.src = videoURL;
                         console.log("recorder stopped");
 
                         deleteButton.onclick = function(e) {
-                            evtTgt = e.target;
+                            const evtTgt = e.target;
                             evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
                         }
                     }

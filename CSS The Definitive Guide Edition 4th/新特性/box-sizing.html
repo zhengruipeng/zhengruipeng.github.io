@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    html,body{
+      padding:0;
+      margin: 0;
+      overflow: hidden;
+    }
+    body{
+      display:flex;
+    }
+    pre,div{
+      margin:0;
+      padding:0;
+      border:#ccc solid 3px;
+      height:100vh;
+      width:50vw;
+      transition: .3s;
+    }
+    code{
+      font-family: "Source Code Pro";
+    }
+    select{
+      font-size: 1em;
+    }
+  </style>
+  <style>
+    #container{
+      margin: 10px;
+      width:300px;
+      border:#ccc solid 5px;
+      height:400px
+    }
+    #content{
+      border:#dad solid 5px;
+      box-sizing: content-box;
+      height:100px;width:100%;
+      padding:10px;
+    }
+
+  </style>
+</head>
+<body>
+<pre>
+<code>
+#button{
+      box-sizing: <select>
+        <option>content-box</option>
+        <option>border-box</option>
+    </select>;
+      height:100px;width:100%;
+      padding:10px;
+}
+</code>
+</pre>
+<div>
+  <div id="container">
+  <div id="content">
+    12341234
+  </div>
+  </div>
+</div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    const select = this.querySelector("select");
+    const styleSheets = this.styleSheets[1];
+    const cssRule = styleSheets.cssRules[1];
+    select.onchange = function (){
+      let value = this.selectedOptions[0].innerText.trim();
+      // console.log(cssRule);
+      cssRule.style.boxSizing = value;
+      console.log(cssRule.cssText);
+    }
+  });
+</script>
+</body>
+</html>

@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded",function (){
                     node.parentElement.removeChild(node);
                 }
             }
+            summary.innerHTML += "概率:"+((eleNum/(obj1.length+parseMap.elementObjMap.get(likelyEle).length)*100).toFixed(1))+"%";
 
             if(eleNum/(obj1.length+parseMap.elementObjMap.get(likelyEle).length) < 0.1){
                 // res = "匹配概率小于10%";

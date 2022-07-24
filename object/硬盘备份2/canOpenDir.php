@@ -1,6 +1,8 @@
 <?php
 $canOpenDir = [
     "anime",
+    "アニメ",
+    "アニメ1",
     "game",
     "acgngame",
     "galgame",
@@ -11,11 +13,13 @@ $canOpenDir = [
     "ゲーム",
     "acgngame游戏压缩包",
     '经典街机',
-/*    "I",
+    "I",
     "II",
     "III",
     "IV",
     "V",
     "VI",
-    "VII"*/
+    "VII",
+    "New folder",
+
 ];

@@ -1,0 +1,33 @@
+@font-face {
+    font-family: code;
+    src: local("Source Code Pro"),
+    local("Fira Code");
+}
+html,body{
+    padding:0;
+    margin: 0;
+    overflow: hidden;
+}
+body{
+    display:flex;
+}
+code,#output{
+    margin:0;
+    padding:0;
+    border:#ccc solid 3px;
+    height:100vh;
+    width:50vw;
+}
+code{
+    font-family: code;
+}
+select,input{
+    font-size: 1em;
+}
+#output{
+    padding:20px;
+    overflow:scroll;
+}
+label{
+    line-height:3em;
+}

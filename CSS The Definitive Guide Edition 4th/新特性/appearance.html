@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      html,body{
+          padding:0;
+          margin: 0;
+          overflow: hidden;
+      }
+        body{
+            display:flex;
+        }
+        pre,div{
+            margin:0;
+            padding:0;
+            border:#ccc solid 3px;
+            height:100vh;
+            width:50vw;
+        }
+        code{
+            font-family: "Source Code Pro";
+        }
+        select{
+            font-size: 1em;
+        }
+      </style>
+    <style>
+        #button{
+            appearance: none;
+            height:100px;width:200px;
+            margin:50px;
+        }
+    </style>
+</head>
+<body>
+<pre>
+<code>
+#button{
+      appearance:<select>
+        <option>none</option>
+        <option>auto</option>
+        <option>menulist-button</option>
+        <option>textfield</option>
+        <option>button</option>
+        <option>searchfield</option>
+        <option>textarea</option>
+        <option>push-button</option>
+        <option>slider-horizontal</option>
+        <option>checkbox</option>
+        <option>radio</option>
+        <option>square-button</option>
+        <option>menulist</option>
+        <option>listbox</option>
+        <option>meter</option>
+        <option>progress-bar</option>
+        <option>scrollbarbutton-up</option>
+        <option>button-bevel</option>
+        <option>media-mute-button</option>
+        <option>caret</option>
+        <option>inherit</option>
+        <option>initial</option>
+        <option>revert</option>
+        <option>revert-layer</option>
+        <option>unset</option>
+    </select>;
+      height:100px;width:200px;
+      margin:50px;
+}
+</code>
+</pre>
+<div>
+<button id="button">
+12341234
+</button>
+</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const select = this.querySelector("select");
+        const styleSheets = this.styleSheets[1];
+        const cssRule = styleSheets.cssRules[0];
+        select.onchange = function (){
+            let value = this.selectedOptions[0].innerText.trim();
+            // console.log(cssRule);
+            cssRule.style.appearance = value;
+        }
+    });
+    </script>
+</body>
+</html>

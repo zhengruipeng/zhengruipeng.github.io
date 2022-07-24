@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            padding:0;
+            margin: 0;
+            overflow: hidden;
+        }
+        body{
+            display:flex;
+        }
+        pre,div{
+            margin:0;
+            padding:0;
+            border:#ccc solid 3px;
+            height:100vh;
+            width:50vw;
+            /*transition: .3s;*/
+        }
+        code{
+            font-family: "Source Code Pro";
+        }
+        select{
+            font-size: 1em;
+        }
+    </style>
+    <style>
+        #button{
+            border:#dad solid 5px;
+            resize: none;
+            height:100px;width:100px;
+            padding:10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: clip;
+        }
+    </style>
+</head>
+<body>
+<pre>
+<code>
+#button{
+      text-overflow: <input type="text" list="datalist">;<datalist id="datalist">
+        <option>clip</option>
+        <option>ellipsis</option>
+    </datalist>
+       border:#dad solid 5px;
+       resize: none;
+       height:100px;width:100px;
+       padding:10px;
+       overflow: hidden;
+       white-space: nowrap;
+}
+</code>
+</pre>
+<div>
+        <div id="button">
+            1234123412341234123412341
+        </div>
+</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const select = this.querySelector("input[type='text']");
+        const styleSheets = this.styleSheets[1];
+        const cssRule = styleSheets.cssRules[0];
+        select.onchange = function (){
+            let value = this.value.trim();
+            // console.log(cssRule);
+            cssRule.style.textOverflow = value;
+            console.log(cssRule.cssText);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            display: flex;
+            width:98%;
+            padding:10px;
+            border:#000 solid 1px;
+        }
+        </style>
+</head>
+<body>
+<button id="create-child">创建一个子元素</button>
+<button id="remove-child">删除最后一个子元素</button>
+<div id="container">父元素</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const container = this.querySelector("#container");
+        const createChild = this.querySelector("#create-child");
+        const removeChild = this.querySelector("#remove-child");
+
+        let counter = 0;
+        let searchLeafEle = function (parent,floor,leafArr){
+            if(parent.children.length !== 0 ){
+                let kids = Array.from(parent.children);
+                kids.forEach(kid => {
+                    searchLeafEle(kid,floor + 1,leafArr);
+                });
+            }else{
+                leafArr.push({floor,parent});
+            }
+            return leafArr;
+        };
+
+        let observerCB = function (/*MutationRecode[] */mutationList,observer){
+            mutationList.forEach(mutation => {
+                console.log(mutation);
+            })
+        }
+
+        const observer = new MutationObserver(observerCB);
+        /*
+        * childList
+        * Set to true if mutations to target’s children are to be observed.
+        * attributes
+        * Set to true if mutations to target’s attributes are to be observed. Can be omitted if attributeOldValue or attributeFilter is specified.
+        * characterData
+        * Set to true if mutations to target’s data are to be observed. Can be omitted if characterDataOldValue is specified.
+        * subtree
+        * Set to true if mutations to not just target, but also target’s descendants are to be observed.
+        * attributeOldValue
+        * Set to true if attributes is true or omitted and target’s attribute value before the mutation needs to be recorded.
+        * characterDataOldValue
+        * Set to true if characterData is set to true or omitted and target’s data before the mutation needs to be recorded.
+        * attributeFilter
+        * Set to a list of attribute local names (without namespace) if not all attribute mutations need to be observed and attributes is true or omitted.
+        * */
+        observer.observe(container,{
+            childList:true,
+            characterData:true,
+            attributes:true,
+            subtree:true
+        })
+
+        createChild.onclick = function (){
+            let leafArr = [];
+            searchLeafEle(container,0,leafArr);
+            leafArr = leafArr.sort((a,b) => a.floor>b.floor?1:-1);
+            console.log(leafArr);
+
+            const div = document.createElement("div");
+            div.innerHTML = ++counter;
+            leafArr[0].parent.appendChild(div);
+        };
+
+        removeChild.onclick = function (){
+            let leafArr = [];
+            searchLeafEle(container,0,leafArr);
+            leafArr = leafArr.sort((a,b) => a.floor>b.floor?1:-1);
+            console.log(leafArr);
+
+            leafArr[0].parent.parentElement.removeChild(leafArr[0].parent);
+            --counter;
+        };
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+####
+
+Some CSS Tips(lighting)
+
+when u design the web page and want to get a column by column layout like a newspaper,
+you can use the Multiple-column Layout
+
+↓↓↓
+
+
+Title
+head1           |     head2    |     head3
+content1      |  content2  |  content3
+
+the basic property of multiple layout is column-width and column-count
+the first one is used to aimed the width of the column line
+and the 2nd is used to aimed how many the column are
+you can set the width and height of the container element to adjust their work.
+
+some auxiliary property are listed:
+column-rule: the border between column
+column-span: use if you need to make a element span many columns
+column-gap: the distance between columns
+column-fill:the method of content`s distribution
+
+they are only part of the Multiple-column Layout module ,
+Welcome to point out mistake&add, thank you for watching

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",async function (){
+            const observer = new PerformanceObserver(function(list, obj) {
+                const entries = list.getEntries();
+
+                console.log(list.getEntriesByType("mark"));
+                console.log(list.getEntriesByType("measure"));
+                console.log(entries);
+            });
+            observer.observe({entryTypes: ["mark", "measure"]});
+
+
+            performance.mark("a");
+            await new Promise(resolve => setTimeout(resolve,200));
+            performance.mark("b");
+            performance.measure("c","a","b");
+            console.log(performance.getEntriesByType("measure"));
+        })
+        </script>
+</body>
+</html>

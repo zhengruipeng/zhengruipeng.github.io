@@ -61,8 +61,11 @@ document.addEventListener("DOMContentLoaded",function (){
 
             res = sum.innerHTML;
 
-            if(eleNum === 0)res = "没有备份";
-
+            let noneBackUp = false;
+            if(eleNum === 0) {
+                res = "没有备份";
+                noneBackUp = true;
+            }
 
             let summary = source.querySelector("summary");
             summary.innerHTML += res;
@@ -81,6 +84,14 @@ document.addEventListener("DOMContentLoaded",function (){
                     node.parentElement.removeChild(node);
                 }
             }
+            summary.innerHTML += "概率:"+((eleNum/(obj1.length+parseMap.elementObjMap.get(likelyEle).length)*100).toFixed(1))+"%";
+            if(eleNum/(obj1.length+parseMap.elementObjMap.get(likelyEle).length) < 0.1){
+                // res = "匹配概率小于10%";
+                if(!noneBackUp) summary.innerHTML += "(匹配概率小于10%)";
+
+            }
+
+
 
 
         });

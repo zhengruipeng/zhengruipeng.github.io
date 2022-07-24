@@ -330,9 +330,8 @@ let dataMap2 = {
     },
     "杂项":_ => {return " my document\n" +
         " usr\n" +
-        " システム\n" +
-        " 编程软件\n" +
-        " 陈鹏教学视频"},
+        " 编程软件"
+    },
 }
 Object.defineProperty(dataMap2,"__belongTo",{
     writable:false,
