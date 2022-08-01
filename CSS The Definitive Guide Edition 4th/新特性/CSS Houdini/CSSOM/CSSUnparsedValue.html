@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div style="height:var(--foo);border:red solid 1px;"></div>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let unparsedValues = new CSSUnparsedValue(['1em','30px','40%']);
+        console.log(unparsedValues);
+        unparsedValues.forEach((v,i,a) => {
+            console.log(v,i,a);
+        });
+        for( let value of unparsedValues.entries()){
+            console.log(value);
+        }
+        for( let value of unparsedValues.keys()){
+            console.log(value);
+        }
+        for( let value of unparsedValues.values()){
+            console.log(value);
+        }
+
+        const div = this.querySelector("div");
+        console.log(div.attributeStyleMap.get("height"));
+
+    })
+</script>
+</body>
+</html>

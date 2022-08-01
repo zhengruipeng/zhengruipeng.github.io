@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @property --anime-name{
+            syntax: "<custom-ident>";
+            inherits:false;
+            initial-value:name;
+        }
+        @property --main-color{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: #55ccff;
+        }
+        @property --sec-color{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: #cc55ff;
+        }
+        html{
+            --main-color:#55ccff;
+            --sec-color:#cc55ff;
+            --anime-name:test;
+        }
+        div{
+            height:300px;
+            width:500px;
+            border-radius: 40px;
+            background-image: linear-gradient(to right bottom,var(--main-color),var(--sec-color));
+            transition-duration: 1s;
+            animation-name: var(--anime-name);
+
+            animation-duration: .5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-direction: alternate;
+        }
+        @keyframes test {
+            from{
+                --main-color:#55ccff;
+                --sec-color:#cc55ff;
+            }
+            to{
+                --main-color:#cc55ff;
+                --sec-color:#55ccff;
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

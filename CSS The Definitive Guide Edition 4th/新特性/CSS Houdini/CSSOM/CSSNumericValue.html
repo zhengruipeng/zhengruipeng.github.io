@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div style="height:100px;z-index:1;width:max(100px,200px);border:red solid 1px;"></div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        div.attributeStyleMap.set("height",div.attributeStyleMap.get("height").add(CSS.px(100)));
+        div.attributeStyleMap.set("height",div.attributeStyleMap.get("height").sub(CSS.px(100)));
+        div.attributeStyleMap.set("height",div.attributeStyleMap.get("height").mul(1));
+        div.attributeStyleMap.set("height",div.attributeStyleMap.get("height").div(1));
+        console.log(div.attributeStyleMap.get("height").min(CSS.em(1)));
+        console.log(div.attributeStyleMap.get("height").equals(CSS.em(1)));
+        console.log(div.attributeStyleMap.get("height").to("cm"));
+        console.log(div.attributeStyleMap.get("height").toSum("cm"));
+        console.log(div.attributeStyleMap.get("height").sub(CSS.cm(1)).type())
+
+        console.log(div.attributeStyleMap.get("width"));
+        console.log(div.attributeStyleMap.get("z-index"));
+    });
+</script>
+</body>
+</html>

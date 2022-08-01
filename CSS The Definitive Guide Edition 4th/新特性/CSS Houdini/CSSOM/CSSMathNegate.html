@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<div style="height:calc(10px - 10em + 10vh * 2)"></div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    const div = this.querySelector("div");
+    console.log(div.attributeStyleMap.get("height").values[1]);
+  });
+</script>
+</body>
+</html>

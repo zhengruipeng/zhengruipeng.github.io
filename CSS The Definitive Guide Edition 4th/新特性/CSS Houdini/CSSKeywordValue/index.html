@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @property --main-color{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: #55ccff;
+        }
+        @property --sec-color{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: #cc55ff;
+        }
+        html{
+            --main-color:#55ccff;
+            --sec-color:#cc55ff;
+        }
+        div{
+            color:var(--main-color);
+            height:300px;
+            width:500px;
+            border-radius: 40px;
+            background-image: linear-gradient(to right bottom,var(--main-color),var(--sec-color));
+            transition-duration: 1s;
+            transition-property: --sec-color, --main-color;
+
+        }
+        div:hover{
+            box-shadow: 0 0 10px var(--main-color);
+            border-style: solid;
+            --main-color:#cc55ff;
+            --sec-color:#55ccff;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        let styleMap = document.styleSheets[0].cssRules[4].styleMap;
+        console.log(styleMap);
+        styleMap.forEach(console.log);
+        console.log(styleMap.get("box-shadow"))
+        console.log(styleMap.get("border-left-style"))
+        console.log(styleMap.get("border-left-style").value)
+        console.log(new CSSKeywordValue("dashed"));
+        console.log(styleMap.set("border-color","blue"));
+        console.log(styleMap.set("border-left-style",new CSSKeywordValue("dashed")))
+    })
+</script>
+</body>
+</html>

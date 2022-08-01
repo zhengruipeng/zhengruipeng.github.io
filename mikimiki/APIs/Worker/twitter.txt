@@ -1,0 +1,24 @@
+#javascript#CSS#web设计#webdezain
+
+Worker API(lighting)
+
+This event-base API is used to mount threads on JS to perform complex operations
+You can check the calculation results by sending and receiving information
+↓↓↓
+
+1:
+Pass the JS thread path into the worker constructor to initialize the new thread
+let worker = new Worker(url);
+You can send messages to or receive messages from sub threads
+worker.onmessage = function (e){
+  console.log(e.data);
+};
+worker.postMessage("message")
+
+2:
+In most browsers' implementation of worker, they really mount a new thread to perform operations
+But you should not use them to perform audio and graphics operations,
+because they have their own worklets and shaders
+
+3:see also:
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API

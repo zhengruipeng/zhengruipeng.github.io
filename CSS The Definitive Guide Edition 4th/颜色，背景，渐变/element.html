@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    @property --main-color{
+      syntax: "<color>";
+      inherits: false;
+      initial-value: #55ccff;
+    }
+    @property --sec-color{
+      syntax: "<color>";
+      inherits: false;
+      initial-value: #cc55ff;
+    }
+    @property --timing-function{
+      syntax: "<transform-function>";
+      inherits:false;
+      initial-value: ease-in-out;
+
+    }
+    html{
+      --main-color:#55ccff;
+      --sec-color:#cc55ff;
+      --timing-function: ease-in-out;
+    }
+    #bg{
+      height:300px;
+      width:300px;
+      border-radius: 50%;
+      background-image: linear-gradient(to right bottom,var(--main-color),var(--sec-color));
+      transition-duration: 1s;
+      animation-name: test;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: var(--timing-function);
+      animation-direction: alternate;
+    }
+    @keyframes test {
+      from{
+        --main-color:#55ccff;
+        --sec-color:#cc55ff;
+      }
+      to{
+        --main-color:#cc55ff;
+        --sec-color:#55ccff;
+      }
+    }
+    #target{
+      background-image:
+              /*element(#bg),*/
+              -moz-element(#bg);
+      height:300px;
+      width:300px;
+    }
+  </style>
+</head>
+<body>
+<div id="bg"></div>
+<div id="target"></div>
+</body>
+</html>

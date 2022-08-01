@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        :root{
+            --foo:12px;
+        }
+        div{
+            /*height:var(__foo);*/
+        }
+    </style>
+</head>
+<body>
+<div style="height:var(--foo);border:red solid 1px;"></div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        console.log(div.attributeStyleMap.get("height")[0]);
+    });
+</script>
+</body>
+</html>

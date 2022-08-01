@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 80px;
+            height: 80px;
+            background-color: skyblue;
+        }
+
+        .changed {
+
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div>Normal</div>
+<div class="changed" style="transform: matrix(1, 2, -1, 1, 80, 80);">Changed</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const changed = this.querySelector("div[class~=changed]");
+        console.log(changed.attributeStyleMap.get("transform")[0]);
+    });
+</script>
+</body>
+</html>

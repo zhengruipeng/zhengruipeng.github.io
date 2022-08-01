@@ -1,0 +1,64 @@
+#javascript#CSS#webdesign#webdezain
+
+StylePropertyMap interface in CSS Houdini(lighting)
+
+An important API was drafted in 2018 ---- CSS Houdini
+//this API has defined some concepts of CSS engine and operation between javascript and CSS
+StylePropertyMap interface is used to work in place of CSSStyleDeclaration interface
+which is usually used in JS to change the CSS
+↓↓↓
+
+1:
+the StylePropertyMap interface divided from base interface StylePropertyMapReadOnly
+which is used in read-only context
+these two interfaces are similar with CSSStyleDeclaration
+
+2:
+such as: in past, you should write these code
+ to make the div element`s height into 100px
+htmlDivElement.style.height = "100px";
+now, you can use this new API and rewrite the above code in:
+htmlDivElement.attributeStyleMap.set("height",CSS.px(100));
+
+3:
+There are three ways to access a StylePropertyMapReadOnly object,
+and two of them can access StylePropertyMap Object.
+
+//4:
+the 1st one is: (star)(star)(star)
+Element.attributeStyleMap
+this property will return a StylePropertyMap Object used to change the inline-CSS styles.
+htmlDivElement.attributeStyleMap.set("background-color","blue");
+
+5:
+the 2nd is:(star)(star)(star)
+CSSStyleRule.styleMap
+this property will also return a StylePropertyMap Object used to change the style sheet.
+document.styleSheets[0].cssRules[0].styleMap;
+
+6:
+the 3rd is:(star)(star)(star)
+Element.computedStyleMap
+this property will return a StylePropertyMapReadOnly!!!!!!!!!!! Object
+used to read the computed style like window.getComputedStyle().
+let stylePropertyMapReadOnly = div.computedStyleMap();
+stylePropertyMapReadOnly.forEach(console.log);
+
+7:
+see also:
+MDN: CSS Houdini
+W3.ORG: https://drafts.css-houdini.org/css-typed-om/
+and now W3.ORG`s CSS4 editor group is recruiting
+welcome to participate in.
+
+8:WebIDL in W3.ORG
+partial interface Element {
+    [SameObject] StylePropertyMapReadOnly computedStyleMap();
+};
+partial interface CSSStyleRule {
+    [SameObject] readonly attribute StylePropertyMap styleMap;
+};
+9:
+partial interface mixin ElementCSSInlineStyle {
+    [SameObject] readonly attribute StylePropertyMap attributeStyleMap;
+};

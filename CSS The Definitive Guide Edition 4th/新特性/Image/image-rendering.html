@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+        }
+        img{
+            width:30vw;
+            margin:0;
+        }
+        .auto{
+            image-rendering: auto;
+        }
+        .pixelated{
+            width:50px;
+            image-rendering: pixelated;
+        }
+        .crisp-edges{
+            width:50px;
+            image-rendering: crisp-edges;
+        }
+        .smooth{
+            image-rendering: smooth;
+        }
+        .high-quality{
+            image-rendering: high-quality;
+        }
+    </style>
+</head>
+<body>
+<img src="img_1.png" class="auto" />
+<img src="img_1.png" class="pixelated" />
+<img src="img_1.png" class="crisp-edges" />
+<img src="img_1.png" class="smooth" />
+<img src="img_1.png" class="high-quality" />
+
+</body>
+</html>

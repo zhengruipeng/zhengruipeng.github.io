@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #alpha{
+            mask-border-source:url('./bg1.svg');
+            mask-border-mode: alpha;
+            -webkit-mask-border-source:url('./bg1.svg');
+            -webkit-mask-border-mode: alpha;
+            mask-border-width: 10px;
+            mask-border-outset: 15px;
+            -webkit-mask-border-width: 10px;
+            -webkit-mask-border-outset: 15px;
+        }
+        #luminance{
+            mask-border-source:url('./bg1.svg');
+            mask-border-mode: luminance;
+            -webkit-mask-border-source:url('./bg1.svg');
+            -webkit-mask-border-mode: luminance;
+        }
+        #match-source{
+            mask-border-source:url('./bg1.svg');
+            mask-border-mode:match-source;
+            -webkit-mask-border-source:url('./bg1.svg');
+            -webkit-mask-border-mode: match-source;
+        }
+        </style>
+</head>
+<body>
+<ol id="alpha">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+</ol>
+<ol id="luminance">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+</ol>
+<ol id="match-source">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+</ol>
+</body>
+</html>

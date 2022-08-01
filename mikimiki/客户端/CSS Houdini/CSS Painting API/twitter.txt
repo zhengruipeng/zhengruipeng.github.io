@@ -1,0 +1,43 @@
+#javascript#CSS#webdesign#webdezain
+
+Painting Worklet in CSS Houdini(lighting)
+
+An important API was drafted in 2018 ---- CSS Houdini
+これは重要のAPI，2018年に書かれる、css houdini
+
+there are four worklet APIs in javascript right now,
+Painting worklet is one of them to render painting for CSS
+JavaScript今は4つのworklet apiです、
+painting workletはその一つ
+
+↓↓↓
+
+1:
+worklet is a special lightweight thread in javascript,
+Used to perform specialized complex operations
+workletはJavaScriptの中の特殊な軽量スレッドで
+特殊な複雑な演算を実行します
+
+2:
+First, register the worklet in JavaScript code,
+最初はJavaScriptコードを使え、Workletを登録します
+
+Then write the registration code in the portlet page and rewrite the value of the class
+その後、workletページに登録コードを書き込み、クラスの値を書き換える
+
+3:
+The most critical method is paint, which is used to draw patterns.
+The first parameter is paintRenderingContext2d, similar to canvasRenderingContext2d,
+ which is the canvas 2d drawing context
+その中で最も重要な方法はpaintです、パターンを描画するために使用する
+第一のパラメータはpaintRenderingContext2d、canvasRenderingContext2dと類似し、
+canvas 2dのコンテキストです
+
+The drawn graphics can be accessed in CSS
+描画後の図はCSSでアクセスできます
+
+4:
+see also:
+https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API/Guide
+https://developer.mozilla.org/en-US/docs/Web/API/Worklet
+https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API

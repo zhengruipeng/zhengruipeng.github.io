@@ -1,0 +1,45 @@
+#CSS#javascript#webdesign#webdezain
+
+the @property rule in CSS and javascript(lighting)
+
+An important API was drafted in 2018 ---- CSS Houdini
+this API has defined some concepts of CSS engine and operation between javascript and CSS
+and the @property rule in CSS and JS is one of them.
+↓↓↓
+
+in CSS, you can define a property like this:
+--foo:10px;
+--bar:#fff;
+but, the details of these properties are not clearly,
+and CSS engine can't use transition in it.
+
+you can formally define a CSS property with this new API,
+nowadays, there are 3 details allow to override, they are syntax,inherits,initial-value;
+I think initial-value is the easiest one in them.
+It mains the initial value of the property,
+yes! as same as the word says.
+
+inherits aimed if the property can be inherited, the valid values are true or false
+please don't forget the "s" after the word "inherits"!!
+syntax is the type of the property which contains all of the valid type in CSS standard.
+this is the most important and most difficult one in them,
+if you want to write a color value into property (such as #fff), the syntax of the property is "<color>"
+and "<length>" when you write 30px...
+
+The most difficult of syntax to understand are resolution
+Resolution is not common in CSS, they are usually used in media-query
+(see also:https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
+
+you can defined them in CSS:
+@property --property-name {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: blue;
+}
+or in JS:
+window.CSS.registerProperty({
+  name: '--property-name',
+  syntax: '<color>',
+  inherits: false,
+  initialValue: 'blue',
+});

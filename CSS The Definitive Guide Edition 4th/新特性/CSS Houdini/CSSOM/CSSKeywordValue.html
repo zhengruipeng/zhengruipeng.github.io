@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="height:100vh;width:100vw">
+    <div style="background-color:rgba(230,255,210,.5)"></div>
+</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        div.attributeStyleMap.set("display",new CSSKeywordValue("grid"));
+
+    })
+</script>
+</body>
+</html>

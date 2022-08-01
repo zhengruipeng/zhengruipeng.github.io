@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>fill<input type="radio" min="1" max="500" value="fill" name="obj-fit" /></label>
+<label>contain<input type="radio" min="1" max="500" value="contain" name="obj-fit" /></label>
+<label>cover<input type="radio" min="1" max="500" value="cover" name="obj-fit" /></label>
+<label>none<input type="radio" min="1" max="500" value="none" name="obj-fit" /></label>
+<label>scale-down<input type="radio" min="1" max="500" value="scale-down" name="obj-fit" /></label>
+<img src="1.png" style="height:100vh;width:50vw" />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const image = this.querySelector("img");
+        const inputs = Array.from(this.querySelectorAll("input[type='radio']"));
+        inputs.forEach(input => {
+            input.onchange = function (){
+
+                image.attributeStyleMap.set("object-fit",this.value);
+                // image.style.imageResolution = this.value+"dpi";
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

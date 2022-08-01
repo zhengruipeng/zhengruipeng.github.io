@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:300px;
+            width:300px;
+            float:left;
+            margin:20px;
+            --color1:#fad;
+            --color2:#daf;
+            --color3:#dfa;
+
+        }
+        .no1{
+            background-image: conic-gradient(var(--color1),var(--color2),var(--color3));
+        }
+        .no2{
+            background-image: conic-gradient(at 30% 30%,var(--color1),var(--color2),var(--color3));
+        }
+        .no3{
+            background-image: conic-gradient(from .25turn at 30% 30%,var(--color1),var(--color2),var(--color3));
+        }
+        .no4{
+            background-image: conic-gradient(from .25turn at 30% 30%,var(--color1) 0deg,var(--color2) 90deg,var(--color3) 180deg);
+        }
+        .no5{
+            background-image: conic-gradient(from .25turn at 30% 30%,var(--color1) 0deg 90deg,var(--color2) 90deg 180deg,var(--color3) 180deg 360deg);
+        }
+        </style>
+</head>
+<body>
+<div class="no1"></div>
+<div class="no2"></div>
+<div class="no3"></div>
+<div class="no4"></div>
+<div class="no5"></div>
+<div class="no6"></div>
+</body>
+</html>

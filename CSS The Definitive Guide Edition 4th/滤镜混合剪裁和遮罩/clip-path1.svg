@@ -1,0 +1,8 @@
+<svg height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+    <clipPath id="star-path">
+        <path d="M 0 30 L 100 30 15 90 50 0 85 90 Z"
+              style="fill:rgba(50,150,255,.3);stroke:red" />
+    </clipPath>
+    </defs>
+</svg>

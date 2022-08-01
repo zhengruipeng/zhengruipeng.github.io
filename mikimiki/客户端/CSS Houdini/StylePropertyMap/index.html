@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            border:red solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="div"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        div.attributeStyleMap.append('background-image', 'linear-gradient(to right, #fff, #000)');
+        // div.attributeStyleMap.append('background-color','blue');
+        div.attributeStyleMap.set("width",CSS.percent(90));
+        div.attributeStyleMap.set("height",CSS.px(30));
+        div.attributeStyleMap.set("z-index",CSS.number(1));
+        div.attributeStyleMap.set("background-color","blue");
+        console.log(CSS);
+
+        let stylePropertyMapReadOnly = div.computedStyleMap();
+        console.log(stylePropertyMapReadOnly);
+        stylePropertyMapReadOnly.forEach(console.log);
+        console.log(stylePropertyMapReadOnly.get("border-left-color"));
+        console.log(stylePropertyMapReadOnly.get("border-left-style"));
+        console.log(stylePropertyMapReadOnly.get("border-left-width"));
+        console.log(stylePropertyMapReadOnly.get("border-left"));
+        console.log(stylePropertyMapReadOnly.has("border"));
+    })
+</script>
+</body>
+</html>

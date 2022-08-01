@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @property --main-color{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: #55ccff;
+        }
+        @property --sec-color{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: #cc55ff;
+        }
+        html{
+            --main-color:#55ccff;
+            --sec-color:#cc55ff;
+        }
+        div{
+            height:300px;
+            width:500px;
+            border-radius: 40px;
+            background-image: linear-gradient(to right bottom,var(--main-color),var(--sec-color));
+            transition-duration: 1s;
+            transition-property: --sec-color, --main-color;
+
+        }
+        div:hover{
+            --main-color:#cc55ff;
+            --sec-color:#55ccff;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[Exposed=(Window, Worker, PaintWorklet, LayoutWorklet)]
+interface CSSStyleValue {
+    stringifier;
+    [Exposed=Window] static CSSStyleValue parse(USVString property, USVString cssText);
+    [Exposed=Window] static sequence<CSSStyleValue> parseAll(USVString property, USVString cssText);
+};
+
+[Exposed=(Window, Worker, PaintWorklet, LayoutWorklet)]
+interface StylePropertyMapReadOnly {
+    iterable<USVString, sequence<CSSStyleValue>>;
+    any get(USVString property);
+    /* 'any' means (undefined or CSSStyleValue) here,
+    see https://github.com/heycam/webidl/issues/60 */
+
+    sequence<CSSStyleValue> getAll(USVString property);
+    boolean has(USVString property);
+    readonly attribute unsigned long size;
+};
+
+[Exposed=Window]
+interface StylePropertyMap : StylePropertyMapReadOnly {
+    undefined set(USVString property, (CSSStyleValue or USVString)... values);
+    undefined append(USVString property, (CSSStyleValue or USVString)... values);
+    undefined delete(USVString property);
+    undefined clear();
+};
+
+partial interface Element {
+    [SameObject] StylePropertyMapReadOnly computedStyleMap();
+};
+
+partial interface CSSStyleRule {
+    [SameObject] readonly attribute StylePropertyMap styleMap;
+};
+
+partial interface mixin ElementCSSInlineStyle {
+    [SameObject] readonly attribute StylePropertyMap attributeStyleMap;
+};

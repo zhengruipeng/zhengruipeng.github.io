@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes anime {
+            from{
+                width:100px;
+            }
+            to{
+                width:200px;
+            }
+        }
+        div{
+            border:red solid 1px;
+            animation-name:anime;
+            animation-direction: alternate-reverse;
+            animation-duration: 1s;
+            animation-iteration-count: 20;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: backwards;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        div.onanimationstart = function (ev){
+            console.log(ev);
+        };
+        div.onanimationiteration = function (ev){
+            console.log(ev);
+        }
+    });
+</script>
+</body>
+</html>

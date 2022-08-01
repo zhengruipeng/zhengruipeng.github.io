@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="z-index:calc(1+1)"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        console.log(div.attributeStyleMap.get("z-index"));
+        console.log(div.computedStyleMap().get("z-index"));
+    });
+</script>
+</body>
+</html>

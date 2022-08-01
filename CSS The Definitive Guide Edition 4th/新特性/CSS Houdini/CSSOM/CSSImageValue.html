@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="height:100vh;width:100vw"></div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const div = this.querySelector("div");
+        div.attributeStyleMap.set("background-image","url('1.png')");
+        let stylePropertyReadOnly = div.computedStyleMap();
+        console.log(stylePropertyReadOnly.get("background-image"));
+    })
+</script>
+</body>
+</html>

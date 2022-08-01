@@ -9,8 +9,9 @@
   document.addEventListener("DOMContentLoaded",function (){
     let worker = new Worker("worker.js");
     worker.onmessage = function (e){
-      console.log(e);
+      console.log(e.data);
     };
+    worker.postMessage("123")
   })
 </script>
 </body>

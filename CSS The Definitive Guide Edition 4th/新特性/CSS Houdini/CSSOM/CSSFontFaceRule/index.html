@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @font-face {
+            font-family: MyHelvetica;
+            src: local("Helvetica Neue Bold"),
+            local("HelveticaNeue-Bold");
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let cssRule = this.styleSheets[0].cssRules[0];
+        console.log(cssRule);
+    });
+</script>
+</body>
+</html>
