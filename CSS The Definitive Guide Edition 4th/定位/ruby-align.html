@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ruby{
+            display: ruby;
+            margin:10px 20px;
+        }
+        ruby:after{
+            content: " ";
+            display: block;
+            width:100vw;
+        }
+        ruby:nth-of-type(1) {
+            ruby-align: start;
+        }
+
+        ruby:nth-of-type(2) {
+            ruby-align: center;
+        }
+
+        ruby:nth-of-type(3) {
+            ruby-align: space-around;
+        }
+
+        ruby:nth-of-type(4) {
+            ruby-align: space-between;
+        }
+
+    </style>
+</head>
+<body>
+<ruby>
+    <rb>This is a long text to check</rb>
+    <rp>（</rp><rt>short ruby</rt><rp>）</rp>
+</ruby>
+
+<ruby>
+    <rb>This is a long text to check</rb>
+    <rp>（</rp><rt>short ruby</rt><rp>）</rp>
+</ruby>
+
+<ruby>
+    <rb>This is a long text to check</rb>
+    <rp>（</rp><rt>short ruby</rt><rp>）</rp>
+</ruby>
+
+<ruby>
+    <rb>This is a long text to check</rb>
+    <rp>（</rp><rt>short ruby</rt><rp>）</rp>
+</ruby>
+</body>
+</html>

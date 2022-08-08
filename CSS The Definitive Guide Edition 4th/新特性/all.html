@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: small;
+            background-color: #F0F0F0;
+            color: blue;
+            margin: 0;
+            padding: 0;
+        }
+
+        blockquote {
+            background-color: skyblue;
+            color: red;
+        }
+        #initial{
+            all:initial;
+        }
+        #inherit{
+            all:inherit;
+        }
+        #unset{
+            all:unset;
+        }
+        #revert{
+            all:revert;
+        }
+        #revery-layer{
+            all:revert-layer;
+        }
+        blockquote::after{
+            content: " ";
+            display: block;
+            margin:10px;
+            border:red solid 1px;
+        }
+    </style>
+</head>
+<body>
+Phasellus eget velit sagittis.
+<blockquote id="none">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</blockquote>
+<blockquote id="initial">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</blockquote>
+<blockquote id="inherit">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</blockquote>
+<blockquote id="unset">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</blockquote>
+<blockquote id="revert">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</blockquote>
+<blockquote id="revert-layer">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</blockquote>
+</body>
+</html>

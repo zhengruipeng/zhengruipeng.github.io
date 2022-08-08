@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @namespace svg url(http://www.w3.org/2000/svg);
+        @namespace url(http://www.w3.org/1999/xhtml);
+
+        svg|rect{
+            fill:red;
+            /*stroke:none;*/
+        }
+
+        svg|a:before{
+            content: "svg -- ";
+        }
+        a{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<svg height="300" width="300">
+    <rect height="100" width="100" x="100" y="100">1</rect>
+    <text x="150" y="250">
+        <a xlink:href="./index.html" >anchor in svg</a>
+    </text>
+</svg>
+<a href="index.html">anchor element</a>
+</body>
+</html>

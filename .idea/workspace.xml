@@ -1,314 +1,219 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220725">
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSS Painting API/example/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSS Painting API/example/worklet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSS Painting API/example/worklet.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSKeywordValue/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/AnimationEvent/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSCounterStyleRule/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSFontFaceRule/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSImageValue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSKeywordValue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSMathInvert.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSMathMax.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSMathMin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSMathNegate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSMathProduct.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSMathSum.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSMatrixComponent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSMediaRule/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSNumericArray.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSNumericValue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSPainting/example2/checkerboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSPainting/example2/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSPainting/example3/boxbg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSPainting/example3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSPainting/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSPainting/worklet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSPerspective.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSPositionValue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSRotate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSScale.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSSkew.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSSkewX,CSSSkewY.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSSupportsRule/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSTransformValue,CSSTransformComponent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSTranslate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSUnitValue..html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSUnparsedValue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CSSVariableReferenceValue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/CaretPosition/example.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/StylePropertyMapReadOnly.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSOM/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/parse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/parse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/parse.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/parseAll.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/parseAll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/parseAll.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSUnparsedValue/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/StylePropertyMap/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/StylePropertyMap/spec.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/StylePropertyMap/twitter.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/image-orientation-example.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/image-orientation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/image-rendering.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/image-resolution.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/object-fit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/Image/object-position.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/clip-path.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/clip-path1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-border-mode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/block-size.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/border-block-end.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/border-block-start.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/border-block.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/caption-side.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/inline-size.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/inset-block.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/inset-inline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/inset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/margin-block.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/margin-inline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/max-block-size.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/max-inline-size.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/min-block-size.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/min-inline-size.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/overflow-block.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/overflow-inline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/overscroll-behavior-block.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/padding-block.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/padding-inline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/颜色，背景，渐变/conic-gradient.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/颜色，背景，渐变/element.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/颜色，背景，渐变/image.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/颜色，背景，渐变/repeating-conic-gradient.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Worker/twitter.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/@property/@property.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/@property/custom-ident.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/@property/text" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/@property/transform-function.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSS Painting API/example/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSS Painting API/example/worklet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSS Painting API/example/worklet.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSS Painting API/twitter.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSKeywordValue/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/.bin/tsc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/.bin/tsc.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/.bin/tsc.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/.bin/tsserver" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/.bin/tsserver.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/.bin/tsserver.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/AUTHORS.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/CODE_OF_CONDUCT.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/CopyrightNotice.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/SECURITY.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/ThirdPartyNoticeText.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/bin/tsc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/bin/tsserver" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/cancellationToken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/cs/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/de/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/es/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/fr/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/it/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/ja/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/ko/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.dom.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.dom.iterable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.collection.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.core.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.generator.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.iterable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.promise.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.proxy.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.reflect.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.symbol.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2016.array.include.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2016.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2016.full.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.full.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.intl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.object.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.string.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.full.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.intl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.promise.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.regexp.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.array.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.full.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.object.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.string.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.symbol.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.bigint.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.date.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.full.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.intl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.number.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.promise.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.string.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.full.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.intl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.promise.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.string.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.weakref.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.array.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.error.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.full.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.intl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.object.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.string.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es5.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es6.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.full.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.intl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.promise.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.string.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.weakref.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.scripthost.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.webworker.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.webworker.importscripts.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.webworker.iterable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/pl/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/protocol.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/pt-br/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/ru/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tr/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tsc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tsserver.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tsserverlibrary.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tsserverlibrary.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typesMap.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typescript.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typescript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typescriptServices.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typescriptServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typingsInstaller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/watchGuard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/zh-cn/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/zh-tw/diagnosticMessages.generated.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/node_modules/typescript/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSUnparsedValue/CSSUnparsedValue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSUnparsedValue/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/StylePropertyMap/spec.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/StylePropertyMap/twitter.txt" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220808">
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-anchor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-distance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-path.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-position.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-rotate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/checked menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/定位/ruby-align.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/定位/ruby-position.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/@namespace/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/.bin/tsc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/.bin/tsc.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/.bin/tsc.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/.bin/tsserver" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/.bin/tsserver.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/.bin/tsserver.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/AUTHORS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/CODE_OF_CONDUCT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/CopyrightNotice.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/SECURITY.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/ThirdPartyNoticeText.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/bin/tsc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/bin/tsserver" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/cancellationToken.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/cs/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/de/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/es/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/fr/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/it/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/ja/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/ko/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.dom.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.dom.iterable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.collection.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.core.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.generator.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.iterable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.proxy.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.reflect.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.symbol.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2016.array.include.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2016.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2016.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.object.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2018.regexp.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.array.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.object.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2019.symbol.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.bigint.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.date.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.number.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2021.weakref.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.array.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.error.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.object.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es2022.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es5.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.es6.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.esnext.weakref.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.scripthost.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.webworker.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.webworker.importscripts.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/lib.webworker.iterable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/pl/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/protocol.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/pt-br/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/ru/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tr/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tsc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tsserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tsserverlibrary.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/tsserverlibrary.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typesMap.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typescript.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typescript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typescriptServices.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typescriptServices.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/typingsInstaller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/watchGuard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/zh-cn/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/lib/zh-tw/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHS/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CHT/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/CSY/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/DEU/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ESN/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/FRA/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/ITA/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/JPN/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/KOR/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PLK/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/PTB/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/RUS/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/Targets/ProjectItemsSchema.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/Targets/TypeScriptCompile.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/Targets/TypeScriptProjectProperties.xaml.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/loc/lcl/TRK/TypeScriptTasks/TypeScript.Tasks.dll.lcl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSStyleValue/node_modules/typescript/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-align.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-stop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-type.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/all.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/定位/滞留定位.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/定位/滞留定位.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/resize.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/行内和块/resize.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/bg1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/bg1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-clip.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩/mask-clip.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Worker/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Worker/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/ CSS Typed Object Model API/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/StylePropertyMap/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSS Properties and Values API/CSSUnparsedValue.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Houdini/CSSUnparsedValue/CSSUnparsedValue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSS Properties and Values API/registerProperty,@property.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份2/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,7 +260,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/滤镜混合剪裁和遮罩" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -366,11 +271,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\新特性\CSS Scroll Snap" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\Motion Path Module Level1" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\滤镜混合剪裁和遮罩" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\行内和块" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Worker" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\新特性\Image" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\CSS Houdini\CSS Painting API" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\行内和块" />
@@ -559,13 +464,12 @@
       <workItem from="1659258240166" duration="761000" />
       <workItem from="1659323108543" duration="7665000" />
       <workItem from="1659337515323" duration="1229000" />
-    </task>
-    <task id="LOCAL-00006" summary="20220513(3)">
-      <created>1652447210912</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1652447210912</updated>
+      <workItem from="1659396321468" duration="1601000" />
+      <workItem from="1659412091396" duration="5043000" />
+      <workItem from="1659501923366" duration="1884000" />
+      <workItem from="1659691508432" duration="754000" />
+      <workItem from="1659859954691" duration="1337000" />
+      <workItem from="1659927342611" duration="3674000" />
     </task>
     <task id="LOCAL-00007" summary="20220513(4)">
       <created>1652447964072</created>
@@ -903,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658635381642</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="20220802">
+      <created>1659396648928</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1659396648928</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -923,8 +834,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220522(CSS和特效)" />
-    <MESSAGE value="20220525" />
     <MESSAGE value="20220527" />
     <MESSAGE value="20220528(php项目1)" />
     <MESSAGE value="20220528(php项目2)" />
@@ -948,6 +857,8 @@
     <MESSAGE value="20220701" />
     <MESSAGE value="20220724" />
     <MESSAGE value="20220725" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220725" />
+    <MESSAGE value="20220802" />
+    <MESSAGE value="20220808" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220808" />
   </component>
 </project>

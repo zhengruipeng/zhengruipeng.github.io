@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            --transition-duration:.3s;
+        }
+        input{
+            display: none;
+        }
+        label{
+            display: block;
+            height:50px;
+            width:50px;
+            border-radius: 13px;
+
+            background-color:#adf;
+            transition:var(--transition-duration);
+            cursor:pointer;
+
+            float:right;
+            margin-inline-end: 30px;
+            margin-block-start: 20px;
+        }
+        label:after{
+            content:"switch";
+
+        }
+        input:checked+label{
+            background-color:#fad;
+        }
+        #nav-container{
+            height:100vh;
+            width:30vw;
+            position:fixed;
+            background-image:linear-gradient(to bottom right,#fda,#afd);
+            top:0;
+            left:-30vw;
+            transition:var(--transition-duration);
+            z-index: 0;
+
+        }
+        input:checked~#nav-container{
+            left:0;
+        }
+        nav{
+            border-radius: 12px;
+            border:#ccc solid 1px;
+            line-height:3em;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <input type="checkbox" id="menu-checked" />
+    <label for="menu-checked"></label>
+    <section id="nav-container">
+        <nav>1</nav>
+        <nav>2</nav>
+        <nav>3</nav>
+        <nav>4</nav>
+    </section>
+
+</header>
+</body>
+</html>

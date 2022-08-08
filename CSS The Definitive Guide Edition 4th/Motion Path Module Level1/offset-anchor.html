@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            offset-path: path('M 0,20 L 200,20');
+            animation: move 3000ms infinite alternate ease-in-out;
+            width: 40px;
+            height: 40px;
+        }
+
+        section {
+            background-image: linear-gradient(to bottom, transparent, transparent 49%, #000 50%, #000 51%, transparent 52%);
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .offset-anchor1 {
+            offset-anchor: auto;
+            background: cyan;
+        }
+
+        .offset-anchor2 {
+            offset-anchor: right top;
+            background: purple;
+        }
+
+        .offset-anchor3 {
+            offset-anchor: left bottom;
+            background: magenta;
+        }
+
+        @keyframes move {
+            0% {
+                offset-distance: 0%;
+            }
+            100% {
+                offset-distance: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<section>
+    <div class="offset-anchor1"></div>
+</section>
+<section>
+    <div class="offset-anchor2"></div>
+</section>
+<section>
+    <div class="offset-anchor3"></div>
+</section>
+
+</body>
+</html>

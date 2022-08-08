@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .container{
+      display: flex;
+      height:300px;
+      width:300px;
+      overflow: auto;
+      flex-flow: row nowrap;
+      margin:10px;
+      outline: #daf solid 2px;
+      /*grid-template-columns: repeat(3,300px);*/
+      /*grid-auto-columns: 300px;*/
+    }
+    .container>div{
+      flex: none;
+
+      height:100%;
+      width:80%;
+      font-size:2.4em;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+    }
+    .container>div:nth-of-type(odd) {
+      background-color: #daf;
+      color:white;
+    }
+    .container>div:nth-of-type(even) {
+      color:#daf;
+    }
+
+    .container{
+      scroll-snap-type:x mandatory;
+    }
+
+    .container:nth-of-type(1)>div:nth-of-type(2) {
+      scroll-snap-align: start;
+    }
+
+    .container:nth-of-type(2)>div:nth-of-type(2) {
+      scroll-snap-align: end;
+    }
+
+    .container:nth-of-type(3)>div:nth-of-type(2) {
+      scroll-snap-align: center;
+    }
+
+    .container:nth-of-type(4)>div:nth-of-type(2) {
+      scroll-snap-align: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<div class="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<div class="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<div class="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+</body>
+</html>
