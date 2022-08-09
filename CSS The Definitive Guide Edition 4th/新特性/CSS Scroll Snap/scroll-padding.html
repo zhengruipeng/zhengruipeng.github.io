@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+          display: flex;
+          height:300px;
+          width:300px;
+          overflow: auto;
+          flex-flow: row nowrap;
+          margin:10px;
+          outline: #639 solid 2px;
+          /*grid-template-columns: repeat(3,300px);*/
+          /*grid-auto-columns: 300px;*/
+        }
+        .container>div{
+          flex: none;
+
+          height:100%;
+          width:300px;
+          font-size:2.4em;
+          display: flex;
+
+          align-items: center;
+          justify-content: center;
+        }
+        .container>div:nth-of-type(odd) {
+           background-color: #639;
+          color:white;
+        }
+        .container>div:nth-of-type(even) {
+          color:#639;
+        }
+        .container{
+            scroll-snap-type:x mandatory;
+        }
+
+        .container>div{
+          scroll-snap-align: start;
+        }
+
+        .container:nth-of-type(1) {
+          scroll-padding:0;
+        }
+
+        .container:nth-of-type(2) {
+            scroll-padding:20px;
+        }
+
+        .container:nth-of-type(3) {
+            scroll-padding:2em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<div class="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<div class="container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+</body>
+</html>

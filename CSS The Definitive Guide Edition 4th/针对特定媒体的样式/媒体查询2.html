@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="screen-stylesheet.css" rel="stylesheet" type="text/css" media="screen and (color) and (min-resolution:96dpi),print" />
+  <style>
+    @import url(print-stylesheet.css) print and (color:8);
+    @media screen {
+      body{
+        /*font-family: "Source Code Pro";*/
+        font-weight: 100;
+      }
+    }
+    @media not (min-device-width:800px) {
+      body{
+        font-style: italic;
+      }
+    }
+    div{
+      height:97vh;
+      width:98vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5em;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <p>Welcome</p>
+</div>
+</body>
+</html>

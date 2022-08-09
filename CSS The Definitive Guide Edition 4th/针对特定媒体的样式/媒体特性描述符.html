@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="screen-stylesheet.css" rel="stylesheet" type="text/css" media="screen" />
+    <style>
+        div{
+            height:97vh;
+            width:98vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p>Welcome</p>
+</div>
+<script type="module">
+    import {ControlsUI} from "../ControlsUI.js";
+    import {paramsList} from "../paramsList.js";
+
+    document.addEventListener("DOMContentLoaded",function(){
+        const link = this.querySelector("link");
+
+        let controls = {
+            "width":{children:"<label>10<input type='range' data-unit='px' id='width' max='2000' min='10' />2000px</label>"},
+            "min-width":{children:"<label>10<input type='range' data-unit='px' id='min-width' max='2000' min='10' />2000px</label>"},
+            "max-width":{children:"<label>10<input type='range' data-unit='px' id='max-width' max='2000' min='10' />2000px</label>"},
+            "height":{children:"<label>10<input type='range' data-unit='px' id='height' max='2000' min='10' />2000px</label>"},
+            "min-height":{children:"<label>10<input type='range' data-unit='px' id='min-height' max='2000' min='10' />2000px</label>"},
+            "max-height":{children:"<label>10<input type='range' data-unit='px' id='max-height' max='2000' min='10' />2000px</label>"},
+            "device-width":{children:"<label>10<input type='range' data-unit='px' id='device-width' max='2000' min='10' />2000px</label>"},
+            "min-device-width":{children:"<label>10<input type='range' data-unit='px' id='min-device-width' max='2000' min='10' />2000px</label>"},
+            "max-device-width":{children:"<label>10<input type='range' data-unit='px' id='max-device-width' max='2000' min='10' />2000px</label>"},
+            "device-height":{children:"<label>10<input type='range' data-unit='px' id='device-height' max='2000' min='10' />2000px</label>"},
+            "min-device-height":{children:"<label>10<input type='range' data-unit='px' id='min-device-height' max='2000' min='10' />2000px</label>"},
+            "max-device-height":{children:"<label>10<input type='range' data-unit='px' id='max-device-height' max='2000' min='10' />2000px</label>"},
+
+            "aspect-ratio":{children:"<label><input type='range' data-unit='ratio' id='aspect-ratio-1' max='20' min='1' />/<input type='range' data-unit='ratio' id='aspect-ratio-2' max='20' min='1' /></label>"},
+            "min-aspect-ratio":{children:"<label><input type='range' data-unit='ratio' id='min-aspect-ratio-1' max='20' min='1' />/<input type='range' data-unit='ratio' id='min-aspect-ratio-2' max='20' min='1' /></label>"},
+            "max-aspect-ratio":{children:"<label><input type='range' data-unit='ratio' id='max-aspect-ratio-1' max='20' min='1' />/<input type='range' data-unit='ratio' id='max-aspect-ratio-2' max='20' min='1' /></label>"},
+
+        };
+        let controls2 = {
+            "device-aspect-ratio":{children:"<label><input type='range' data-unit='ratio' id='device-aspect-ratio-1' max='20' min='1' />/<input type='range' data-unit='ratio' id='device-aspect-ratio-2' max='20' min='1' /></label>"},
+            "min-device-aspect-ratio":{children:"<label><input type='range' data-unit='ratio' id='min-device-aspect-ratio-1' max='20' min='1' />/<input type='range' data-unit='ratio' id='min-device-aspect-ratio-2' max='20' min='1' /></label>"},
+            "max-device-aspect-ratio":{children:"<label><input type='range' data-unit='ratio' id='max-device-aspect-ratio-1' max='20' min='1' />/<input type='range' data-unit='ratio' id='max-device-aspect-ratio-2' max='20' min='1' /></label>"},
+
+            "color":{children:"<label>0<input type='range' data-unit='int' id='color' max='32' min='0' />32</label>"},
+            "min-color":{children:"<label>0<input type='range' data-unit='int' id='min-color' max='32' min='0' />32</label>"},
+            "max-color":{children:"<label>0<input type='range' data-unit='int' id='max-color' max='32' min='0' />32</label>"},
+
+            "color-index":{children:"<label>10<input type='range' data-unit='int' id='color-index' max='2000' min='10' />2000</label>"},
+            "min-color-index":{children:"<label>10<input type='range' data-unit='int' id='min-color-index' max='2000' min='10' />2000</label>"},
+            "max-color-index":{children:"<label>10<input type='range' data-unit='int' id='max-color-index' max='2000' min='10' />2000</label>"},
+
+            "monochrome":{children:"<label>0<input type='range' data-unit='int' id='monochrome' max='32' min='0' />32</label>"},
+            "min-monochrome":{children:"<label>0<input type='range' data-unit='int' id='min-monochrome' max='32' min='0' />32</label>"},
+            "max-monochrome":{children:"<label>0<input type='range' data-unit='int' id='max-monochrome' max='32' min='0' />32</label>"},
+
+            "resolution":{children:"<label>0<input type='range' data-unit='dpi' id='resolution' max='300' min='0' />300</label>"},
+            "min-resolution":{children:"<label>0<input type='range' data-unit='dpi' id='min-resolution' max='300' min='0' />300</label>"},
+            "max-resolution":{children:"<label>0<input type='range' data-unit='dpi' id='max-resolution' max='300' min='0' />300</label>"},
+
+            "orientation":{children:"" +
+                    "<select data-unit='enum' id='orientation'>" +
+                    "   <option>landscape</option>" +
+                    "   <option>portrait</option>" +
+                    "</select>"
+            },
+            "scan":{children:"" +
+                    "<select data-unit='enum' id='scan'>" +
+                    "   <option>progressive</option>" +
+                    "   <option>interlace</option>" +
+                    "</select>"
+            },
+            "grid":{children:"" +
+                    "<select data-unit='enum' id='grid'>" +
+                    "   <option>0</option>" +
+                    "   <option>1</option>" +
+                    "</select>"
+            },
+        }
+
+        let index = 0;
+
+
+        let ui = new ControlsUI(controls);
+        let ui2 = new ControlsUI(controls2);
+
+        let clickEv = function (ev,p,ul){
+            let inputs = ul.querySelectorAll("input");
+            let input1 = inputs[0];
+            input1 = input1?input1:ul.querySelector("select");
+            let unit = input1.dataset.unit;
+
+            inputs[1]?.onchange?inputs[1]?.onchange:{} =
+            input1.onchange = function (){
+                if(unit === "ratio"){
+                    link.media = "screen and ("+input1.id+":"+input1.value/inputs[1]?.value +")";
+                    return false;
+                }
+                if(unit === "int" || unit === "enum"){
+                    // alert()
+                    link.media = "screen and ("+input1.id+":"+input1.value+")";
+                    return false;
+                }
+                link.media = "screen and ("+input1.id+":"+input1.value+""+unit+")";
+            }
+        }
+
+        ui.initDefaultStyle("../ControlsUI.css").initControls().bindItemEvent({
+            click:clickEv
+        });
+        ui2.initDefaultStyle("../ControlsUI.css",{left:"30vw",position:"absolute"}).initControls().bindItemEvent({
+            click:clickEv
+        });
+    })
+</script>
+</body>
+</html>
