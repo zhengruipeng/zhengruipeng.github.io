@@ -1,0 +1,33 @@
+#javascript #CSS #web制作 #web design
+
+Some tips of learning CSS Scroll Snap
+
+CSS is closest to introducing a function that
+ can capture scrolling,
+ which belongs to CSS scroll snap module level 2.
+
+ ↓↓↓↓↓
+
+ 1:Three properties need to be set to set the scroll snap,
+ the 1st is:scroll-snap-type---- specified the type of snap
+ 2nd: scroll-snap-stop ---- specified the stop point of snap
+ 3rd: scroll-snap-align ---- specified the alignment of snap
+
+ 2: scroll-snap-type
+Specify an enumeration value, x, y, both, mandatory, proximity, inline, block.
+Mandatory is mandatory to scroll the scroll bar to the specified position.
+Proximity is to scroll to the specified position when approaching.
+The other 5 enumeration values are used to specify which scroll bar.
+
+3: scroll-snap-align
+It is specified on the child element of the scrolling element.
+It is used to specify which element is captured and the captured position.
+After capturing, the element is placed at the leftmost (top) start or middle center of the parent element.
+possible values are:start,end,center,none
+
+4:scroll-snap-stop
+Specifies whether to skip the current element. There are two possible values: normal and always
+
+5: see also
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap
+https://drafts.csswg.org/css-scroll-snap/

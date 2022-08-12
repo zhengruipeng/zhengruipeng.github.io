@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p[class~=c]:before{
+            content:"class包含c";
+            color:blue;
+        }
+        p[class|=a]:before{
+            content:"class包含a-";
+            color:blue;
+
+        }
+    </style>
+</head>
+<body>
+<p class="a c">而现在，乡愁是一条弯弯的海峡，我在这头，大陆在那头</p>
+<p class="a-b c">而现在，乡愁是一条弯弯的海峡，我在这头，大陆在那头</p>
+</body>
+</html>

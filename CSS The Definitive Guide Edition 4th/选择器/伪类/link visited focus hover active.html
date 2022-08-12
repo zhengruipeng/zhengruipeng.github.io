@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a.external:link{
+            color:#555;
+        }
+        a.external:visited{
+            color:#ccc;
+        }   
+        a.external{
+            font-size:1em;
+        }
+        a:link{
+            color:#000;
+        }
+        a:visited{
+            color:#aaa;
+        }
+        a{
+            font-size:2em;
+        }
+        a:focus{
+            color:orange;
+        }
+        a:hover{
+            color:red;
+        }
+        a:active{
+            color:green;
+        }
+        a:focus:after{
+            content:"focus";
+        }
+        a:hover:after{
+            content:"hover";
+        }
+        a:active:after{
+            content:"active";
+        }
+
+        </style>
+</head>
+<body>
+<a href="./nth-child.html" >internal website</a>
+<a href="http://www.baidu.com" class="external">external website</a>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a:before{
+            color: #000 !important;
+            background-color:transparent !important;
+        }
+
+        /* Internal links, beginning with "#" */
+        a[href^="#"]:before{
+            content: "[href^=\"#\"]";
+            background-color: gold;
+        }
+
+        /* Links with "example" anywhere in the URL */
+        a[href*="example"]:before{
+            content: "[href*=\"example\"]";
+            background-color: silver;
+        }
+
+        /* Links with "insensitive" anywhere in the URL,
+           regardless of capitalization */
+        a[href*="insensitive" i]:before{
+            content: "[href*=\"insensitive\" i]";
+            color: cyan;
+        }
+
+        /* Links with "cAsE" anywhere in the URL,
+        with matching capitalization */
+        a[href*="exp2" s]:before{
+            content:"[href*=\"ExP2\" s]";
+            color: pink;
+        }
+
+        /* Links that end in ".org" */
+        a[href$=".org"]:before{
+            content: "[href$=\".org\"]";
+            color: red;
+        }
+
+        /* Links that start with "https" and end in ".org" */
+        a[href^="https"][href$=".org"]:before{
+            content: "[href^=\"https\"][href$=\".org\"]";
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#internal">Internal link</a></li>
+    <li><a href="http://example.com">Example link</a></li>
+    <li><a href="http://exp2.com">Exp2 link</a></li>
+    <li><a href="#InSensitive">Insensitive internal link</a></li>
+    <li><a href="http://example.org">Example org link</a></li>
+    <li><a href="https://example.org">Example https org link</a></li>
+</ul>
+
+</body>
+</html>

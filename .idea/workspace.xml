@@ -1,31 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220808">
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-margin-block-end.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-margin-top.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-padding-inline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-padding.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/@-webkit-resizer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/@-webkit-scrollbar-button.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/@-webkit-scrollbar-corner.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/@-webkit-scrollbar-thumb.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/@-webkit-scrollbar-track-piece.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/@-webkit-scrollbar-track.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/@-webkit-scrollbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/scrollbar-color.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scrollbars/scrollbar-width.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/print-stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/screen-stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/媒体查询.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/媒体查询2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/媒体特性描述符.html" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220809">
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/twitter.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/twitter.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/列选择器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/属性选择器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/属性选择器2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/@first.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/@left.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/@right.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/page-break-after.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/page-break-before.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/page-break-inside.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/page命名.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/size.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/widows.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.at" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.values.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i.len" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-position.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-position.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-rotate.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/Motion Path Module Level1/offset-rotate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/checked menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/checked menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/checked,indeterminate.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/checked,indeterminate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/empty.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/empty.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/enabled.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/enabled.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/first-child.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/first-child.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/first-of-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/first-of-type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/in-range,out-of-range.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/in-range,out-of-range.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/last-child.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/last-child.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/last-of-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/last-of-type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/link visited focus hover active.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/link visited focus hover active.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/nth-child.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/nth-child.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/nth-of-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/nth-of-type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/only-child.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/only-child.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/only-of-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/only-of-type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/read-write,read-only.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/read-write,read-only.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/required,optional.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/required,optional.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/root.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/root.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/target.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/target.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/伪类/valid,invalid.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/valid,invalid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-align.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-align.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-stop.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-stop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-snap-type.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,36 +88,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="mysql&#10;sqlserver" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="D:\phpstorm 2021.2\bin\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\选择器" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\针对特定媒体的样式\@page" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\新特性\CSS Scrollbars" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\新特性\CSS Scroll Snap" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\Motion Path Module Level1" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\滤镜混合剪裁和遮罩" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\行内和块" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\选择器" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\针对特定媒体的样式" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\行内和块" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\CSS Houdini\StylePropertyMap" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\CSS Houdini" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\新特性\CSS Houdini\@property" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\字体" />
     </key>
   </component>
   <component name="RunManager">
@@ -285,20 +295,12 @@
       <workItem from="1659959666783" duration="1715000" />
       <workItem from="1660016873664" duration="953000" />
       <workItem from="1660022281762" duration="9365000" />
-    </task>
-    <task id="LOCAL-00008" summary="20220513(5)">
-      <created>1652448015473</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1652448015473</updated>
-    </task>
-    <task id="LOCAL-00009" summary="20220513(6)">
-      <created>1652448891505</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1652448891505</updated>
+      <workItem from="1660041515509" duration="2940000" />
+      <workItem from="1660101060370" duration="7173000" />
+      <workItem from="1660188257869" duration="3291000" />
+      <workItem from="1660194641798" duration="535000" />
+      <workItem from="1660195207120" duration="613000" />
+      <workItem from="1660276464034" duration="2564000" />
     </task>
     <task id="LOCAL-00010" summary="20220514(密码学加密算法更新)">
       <created>1652505066869</created>
@@ -629,7 +631,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659931503023</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="20220808">
+      <created>1660041577653</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1660041577654</updated>
+    </task>
+    <task id="LOCAL-00058" summary="20220808">
+      <created>1660041626184</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1660041626184</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +665,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220527" />
     <MESSAGE value="20220528(php项目1)" />
     <MESSAGE value="20220528(php项目2)" />
     <MESSAGE value="20220528(php项目3)" />
@@ -674,6 +689,7 @@
     <MESSAGE value="20220725" />
     <MESSAGE value="20220802" />
     <MESSAGE value="20220808" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220808" />
+    <MESSAGE value="20220809" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220809" />
   </component>
 </project>
