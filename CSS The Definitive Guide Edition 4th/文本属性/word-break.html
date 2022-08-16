@@ -9,17 +9,20 @@
         }
         p:first-child{
             hyphens:auto;
+            word-break: normal;
         }
         p:nth-of-type(2){
             hyphens:manual;
+            word-break: break-all;
         }
         p:nth-of-type(3){
             hyphens:none;
+            word-break: keep-all;
         }
     </style>
 </head>
 <body>
-<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfas dfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
+<p>asdfasdfasdfasdfa&#xad;sdfasdfasdfasdfasdfasdfasdfas dfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
 <p>asdfasdfasdfasdfa&#xad;sdfasdfasdfasdfasdfasdfasdfas dfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
 <p>asdfasdfasdfasdfa&#xad;sdfasdfasdfasdfasdfasdfasdfas dfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
 </body>

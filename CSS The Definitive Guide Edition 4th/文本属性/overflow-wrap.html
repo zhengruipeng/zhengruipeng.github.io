@@ -6,7 +6,7 @@
     <style>
         p{
             white-space: pre-wrap;
-            width:100px;
+            width: min-content ;
             border:red solid 1px;
         }
         .normal{
@@ -16,11 +16,15 @@
             overflow-wrap:break-word;
 
         }
+        .anywhere{
+            overflow-wrap: anywhere;
+        }
     </style>
 </head>
 <body>
-<p class="normal">nvafvlkjnasvdiknvafvlkjnasvdiknvafvlkjnasvdik nvafvlkjnasvdiknvafvlkjnasvdik</p>
-<p class="break-word">nvafvlkjnasvdiknvafvlkjnasvdiknvafvlkjnasvdik nvafvlkjnasvdiknvafvlkjnasvdik</p>
+<p class="normal">Most words are short & don't need to break. But Antidisestablishmentarianism is long. The width is set to min-content, with a max-width of 11em.</p>
+<p class="break-word">Most words are short & don't need to break. But Antidisestablishmentarianism is long. The width is set to min-content, with a max-width of 11em.</p>
+<p class="anywhere">Most words are short & don't need to break. But Antidisestablishmentarianism is long. The width is set to min-content, with a max-width of 11em.</p>
 <script type="module">
     document.addEventListener("DOMContentLoaded",function (){
 

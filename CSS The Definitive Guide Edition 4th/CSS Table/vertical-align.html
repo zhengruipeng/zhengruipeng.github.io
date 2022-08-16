@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            border:red solid 1px;
+            line-height:5em;
+        }
+        p{
+            width:200px;
+            margin:20px;
+            float:left;
+        }
+        p:nth-of-type(1)>span{
+            vertical-align: baseline;
+        }
+        p:nth-of-type(2)>span{
+            vertical-align: sub;
+        }
+        p:nth-of-type(3)>span{
+            vertical-align: super;
+        }
+        p:nth-of-type(4)>span{
+            vertical-align: text-top;
+        }
+        p:nth-of-type(5)>span{
+            vertical-align: text-bottom ;
+        }
+        p:nth-of-type(6)>span{
+            vertical-align: middle;
+        }
+        p:nth-of-type(7)>span{
+            vertical-align: top;
+        }
+        p:nth-of-type(8)>span{
+            vertical-align: bottom;
+        }
+
+        p::before{
+            font-size: 2em;
+        }
+        p:nth-of-type(1)::before{
+            content: "baseline";
+        }
+        p:nth-of-type(2)::before{
+            content: "sub";
+        }
+        p:nth-of-type(3)::before{
+            content: "super";
+        }
+        p:nth-of-type(4)::before{
+            content: "text-top";
+        }
+        p:nth-of-type(5)::before{
+            content: "text-bottom" ;
+        }
+        p:nth-of-type(6)::before{
+            content: "middle";
+        }
+        p:nth-of-type(7)::before{
+            content: "top";
+        }
+        p:nth-of-type(8)::before{
+            content: "bottom";
+        }
+    </style>
+</head>
+<body>
+<p>
+    this is <span>text</span>,someof which is emphasized plus other
+    text that is <strong>strong</strong> and <span>tall</span> and
+    is larger than the surrounding text
+</p>
+<p>
+    this is <span>text</span>,someof which is emphasized plus other
+    text that is <strong>strong</strong> and <span>tall</span> and
+    is larger than the surrounding text
+</p>
+<p>
+    this is <span>text</span>,someof which is emphasized plus other
+    text that is <strong>strong</strong> and <span>tall</span> and
+    is larger than the surrounding text
+</p>
+<p>
+    this is <span>text</span>,someof which is emphasized plus other
+    text that is <strong>strong</strong> and <span>tall</span> and
+    is larger than the surrounding text
+</p>
+<p>
+    this is <span>text</span>,someof which is emphasized plus other
+    text that is <strong>strong</strong> and <span>tall</span> and
+    is larger than the surrounding text
+</p>
+<p>
+    this is <span>text</span>,someof which is emphasized plus other
+    text that is <strong>strong</strong> and <span>tall</span> and
+    is larger than the surrounding text
+</p>
+<p>
+    this is <span>text</span>,someof which is emphasized plus other
+    text that is <strong>strong</strong> and <span>tall</span> and
+    is larger than the surrounding text
+</p>
+<p>
+    this is <span>text</span>,someof which is emphasized plus other
+    text that is <strong>strong</strong> and <span>tall</span> and
+    is larger than the surrounding text
+</p>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+
+    })
+</script>
+</body>
+</html>

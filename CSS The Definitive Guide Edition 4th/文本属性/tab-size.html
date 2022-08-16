@@ -7,11 +7,16 @@
     p{
       border:red solid 1px;
       white-space: pre-wrap;
-      tab-size: 300px;
+    }
+    p.custom{
+        tab-size: 3;
     }
   </style>
 </head>
 <body>
-<p> this tex  t with a tab</p>
+<p>no tab</p>
+<p>&#0009;default tab size of 8 characters wide</p>
+<p class="custom">&#0009;custom tab size of 3 characters wide</p>
+<p>&nbsp;&nbsp;&nbsp;3 spaces, equivalent to the custom tab size</p>
 </body>
 </html>

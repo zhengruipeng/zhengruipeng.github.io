@@ -4,12 +4,73 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        p{
-            word-spacing: .5em;
+        section:nth-of-type(1)>p:nth-of-type(1){word-spacing: 0em;}
+        section:nth-of-type(1)>p:nth-of-type(2){word-spacing: .1em;}
+        section:nth-of-type(1)>p:nth-of-type(3){word-spacing: .2em;}
+        section:nth-of-type(1)>p:nth-of-type(4){word-spacing: .3em;}
+        section:nth-of-type(1)>p:nth-of-type(5){word-spacing: .4em;}
+        section:nth-of-type(1)>p:nth-of-type(6){word-spacing: .5em;}
+
+        section:nth-of-type(2)>p:nth-of-type(1){word-spacing: 100%;}
+        section:nth-of-type(2)>p:nth-of-type(2){word-spacing: 110%;}
+        section:nth-of-type(2)>p:nth-of-type(3){word-spacing: 120%;}
+        section:nth-of-type(2)>p:nth-of-type(4){word-spacing: 130%;}
+        section:nth-of-type(2)>p:nth-of-type(5){word-spacing: 140%;}
+        section:nth-of-type(2)>p:nth-of-type(6){word-spacing: 500%;}
+
+        div{
+            border:red solid 1px;
+            position: absolute;
+            left:200px;top:200px;
         }
     </style>
 </head>
 <body>
-<p>word-spacing attribute only use in English .对中文没用</p>
+
+<section>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+</section>
+<section>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+    <p>word-spacing attribute only use in English .对中文没用</p>
+</section>
+<div id="line1"></div>
+<div id="line2"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const line1 = this.querySelector("#line1");
+        const line2 = this.querySelector("#line2");
+        const section = this.querySelectorAll("section");
+        const section1 = section[0];
+        const section2 = section[1];
+
+        let setRect = function (ele,left,top,width,height){
+            ele.attributeStyleMap.set("left",CSS.px(left+width));
+            ele.attributeStyleMap.set("top",CSS.px(top));
+            ele.attributeStyleMap.set("width",CSS.px(0));
+            ele.attributeStyleMap.set("height",CSS.px(height));
+        }
+
+        let {left,width,top} = section1.children[0].getBoundingClientRect();
+        let {height} = section1.getBoundingClientRect();
+        console.log(left,top,width,height)
+        setRect(line1,left,top,400,height);
+
+        ({left,width,top} = section2.children[0].getBoundingClientRect(),
+        {height} = section2.getBoundingClientRect());
+        setRect(line2,left,top,410,height);
+
+
+    })
+</script>
 </body>
 </html>

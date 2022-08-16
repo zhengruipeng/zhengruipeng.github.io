@@ -5,21 +5,43 @@
     <title>Title</title>
     <style>
         p{
-            width:20em;
+            width:30em;
             border:red solid 1px;
         }
-        .center{
-            text-align-last: center;
+        .start{text-align-last: start}
+        .end{text-align-last:end}
+        .left{text-align-last: left}
+        .right{text-align-last:right}
+        .center{text-align-last: center}
+        .justify{text-align-last: justify}
+        .start::before{text-align-last: start;
+            content:"start -- ";
+        }
+        .end::before{text-align-last:end;
+            content:"end -- ";
+        }
+        .left::before{text-align-last: left;
+            content:"left -- ";
+        }
+        .right::before{text-align-last:right;
+            content:"right -- ";
+        }
+        .center::before{text-align-last: center;
+            content:"center -- ";
+        }
+        .justify::before{text-align-last: justify;
+            content:"justify -- ";
+        }
 
-        }
-        .end{
-            text-align-last:end;
-        }
+
     </style>
 </head>
 <body>
-<p class="end">this is a paragraph element,which means that the first line will be indented by 2em.</p>
-<p class="center">this is a paragraph element,which means that the first line will be indented by 2em.</p>
+<p class="start">this is a paragraph element,which means<br /> that the first line will be indented by 2em.</p>
+<p class="end">this is a paragraph element,which means<br /> that the first line will be indented by 2em.</p>
+<p class="left">this is a paragraph element,which means<br /> that the first line will be indented by 2em.</p>
+<p class="right">this is a paragraph element,which means<br /> that the first line will be indented by 2em.</p>
+<p class="center">this is a paragraph element,which means<br /> that the first line will be indented by 2em.</p>
 <p class="justify">this is a paragraph element,which means that the first line will be indented by 2em.</p>
 
 </body>

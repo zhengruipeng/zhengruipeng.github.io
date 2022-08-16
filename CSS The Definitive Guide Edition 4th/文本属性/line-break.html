@@ -5,30 +5,50 @@
     <title>Title</title>
     <style>
         p{
-            width:100px;
+            box-sizing: border-box;
+            font-family: 'Yu Gothic',YuGothic,Meiryo,'ＭＳ ゴシック',sans-serif;
+            text-align: left;
+            width:240px;
+            font-size: 16px;
             border:red solid 1px;
         }
         .loose{
             line-break:loose;
         }
         .auto{
-            line-break:loose;
+            line-break:auto;
         }
         .normal{
-            line-break:loose;
+            line-break:normal;
         }
         .strict{
-            line-break:loose;
+            line-break:strict;
         }
 
 
     </style>
 </head>
 <body>
-<p class="loose">明月几时有，把酒问青天，不知天上宫阙，今夕是何年，我欲乘风归去，又恐琼楼玉宇。高处不胜寒，起舞弄清影，何似在人间。</p>
-<p class="auto">明月几时有，把酒问青天，不知天上宫阙，今夕是何年，我欲乘风归去，又恐琼楼玉宇。高处不胜寒，起舞弄清影，何似在人间。</p>
-<p class="normal">明月几时有，把酒问青天，不知天上宫阙，今夕是何年，我欲乘风归去，又恐琼楼玉宇。高处不胜寒，起舞弄清影，何似在人间。</p>
-<p class="strict">明月几时有，把酒问青天，不知天上宫阙，今夕是何年，我欲乘风归去，又恐琼楼玉宇。高处不胜寒，起舞弄清影，何似在人间。</p>
+<p class="loose">
+    この喫茶店は、いつでもコーヒーの香りを漂わせています。
+    彼女はこの喫茶店で働いて、着々と実力をつけていきました。
+    今では知る人ぞ知る、名人です。
+</p>
+<p class="auto">
+    この喫茶店は、いつでもコーヒーの香りを漂わせています。
+    彼女はこの喫茶店で働いて、着々と実力をつけていきました。
+    今では知る人ぞ知る、名人です。
+</p>
+<p class="normal">
+    この喫茶店は、いつでもコーヒーの香りを漂わせています。
+    彼女はこの喫茶店で働いて、着々と実力をつけていきました。
+    今では知る人ぞ知る、名人です。
+</p>
+<p class="strict">
+    この喫茶店は、いつでもコーヒーの香りを漂わせています。
+    彼女はこの喫茶店で働いて、着々と実力をつけていきました。
+    今では知る人ぞ知る、名人です。
+</p>
 <script type="module">
     document.addEventListener("DOMContentLoaded",function (){
 
