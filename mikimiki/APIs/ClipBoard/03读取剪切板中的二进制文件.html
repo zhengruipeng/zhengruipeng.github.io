@@ -4,31 +4,33 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body style="height:100vh;width:100vw;">
 <script type="module">
     document.addEventListener("DOMContentLoaded",async function (){
-        let offscreenCanvas = new OffscreenCanvas(512,512);
-        let ctx = offscreenCanvas.getContext("2d");
-        ctx.fillRect(100,100,100,100);
+        document.body.onclick = async function (){
+            let offscreenCanvas = new OffscreenCanvas(512,512);
+            let ctx = offscreenCanvas.getContext("2d");
+            ctx.fillRect(100,100,100,100);
 
-        await navigator.clipboard.write([
-            new ClipboardItem({
-                "image/png":await offscreenCanvas.convertToBlob(),
-                "text/plain":new Blob(["text"],{type:"text/plain"}),
+            await navigator.clipboard.write([
+                new ClipboardItem({
+                    "image/png":await offscreenCanvas.convertToBlob(),
+                    "text/plain":new Blob(["text"],{type:"text/plain"}),
+                })
+            ]);
+            let arrOfItem = await navigator.clipboard.read();
+            arrOfItem.forEach(async clipboardItem => {
+                console.log(clipboardItem);
+                if(!clipboardItem.types.includes("image/png")){return false;}
+                let blob = await clipboardItem.getType("image/png");
+                let imageURL = URL.createObjectURL(blob);
+                let image = new Image();
+                image.src = imageURL;
+                await new Promise(resolve => image.onload = resolve);
+                document.body.appendChild(image);
             })
-        ]);
-        let arrOfItem = await navigator.clipboard.read();
-        arrOfItem.forEach(async clipboardItem => {
-            console.log(clipboardItem);
-            if(!clipboardItem.types.includes("image/png")){return false;}
-            let blob = await clipboardItem.getType("image/png");
-            let imageURL = URL.createObjectURL(blob);
-            let image = new Image();
-            image.src = imageURL;
-            await new Promise(resolve => image.onload = resolve);
-            document.body.appendChild(image);
-        })
-
+            // console.log(123);
+        }
     })
 </script>
 </body>
