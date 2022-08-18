@@ -643,7 +643,123 @@ let dataMap = {
             "ＰＲＥＴＴＹ×Ｃ∧ＴＩＯＮ２.part3.rar\n" +
             "ＰＵＲＥＬＹ×Ｃ∧ＴＩＯＮ.part1.rar\n" +
             "ＰＵＲＥＬＹ×Ｃ∧ＴＩＯＮ.part2.rar\n" +
-            "ＰＵＲＥＬＹ×Ｃ∧ＴＩＯＮ.part3.rar"
+            "ＰＵＲＥＬＹ×Ｃ∧ＴＩＯＮ.part3.rar\n" +
+            "AnimalTrailGirlishSquare.rar\n" +
+            "CATION.part1.rar\n" +
+            "CATION.part2.rar\n" +
+            "Dal Segno.rar\n" +
+            "Distant Memorajo.rar\n" +
+            "FLOWERS CH.part3.rar\n" +
+            "Flyable Heart.rar\n" +
+            "Liber7.rar\n" +
+            "Love Ribbon.rar\n" +
+            "NEEDY GIRL OVERDOSE.rar\n" +
+            "NEKO-MIMI SWEET HOUSEMATES Vol. 1.part1.rar\n" +
+            "NEKO-MIMI SWEET HOUSEMATES Vol. 1.part2.rar\n" +
+            "PRIMAL HEARTS2.part1.rar\n" +
+            "PRIMAL HEARTS2.part2.rar\n" +
+            "Shiny Sisters 女装主人公偶像计划.rar\n" +
+            "Sugar＊Style Ver1.2无修正版.rar\n" +
+            "Triangle Love -アプリコットフィズ-.rar\n" +
+            "YOU and ME and HER - A Love Story.part1.rar\n" +
+            "YOU and ME and HER - A Love Story.part2.rar\n" +
+            "YureMaster.rar\n" +
+            "hananono.part1.rar\n" +
+            "hananono.part2.rar\n" +
+            "localove3.rar\n" +
+            "sugaroack.rar\n" +
+            "あにまる☆ぱにっく.rar\n" +
+            "ふゆから、くるる。.part1.rar\n" +
+            "ふゆから、くるる。.part2.rar\n" +
+            "フレラバ ～Friend to Lover～  HD Renewal Edition.rar\n" +
+            "一如她的撒娇方式。.rar\n" +
+            "丘.rar\n" +
+            "乙女系列 主人公小剧场 New Stage.rar\n" +
+            "乙女系列 主人公小剧场3.rar\n" +
+            "候鸟的梦.part1.rar\n" +
+            "候鸟的梦.part2.rar\n" +
+            "共结情缘的剑舞恋曲-椿恋歌-.rar\n" +
+            "助手.part1.rar\n" +
+            "助手.part2.rar\n" +
+            "原版.rar\n" +
+            "图谋不轨的恋爱.rar\n" +
+            "圣域.rar\n" +
+            "夏之.rar\n" +
+            "奇异恩典·圣夜的小镇.part1.rar\n" +
+            "奇异恩典·圣夜的小镇.part2.rar\n" +
+            "奇异恩典·圣夜的小镇.part3.rar\n" +
+            "女装创世纪.rar\n" +
+            "女装学园（妊）.rar\n" +
+            "女装学園（孕）.rar\n" +
+            "女装神话.rar\n" +
+            "好可怕.part1.rar\n" +
+            "好可怕.part2.rar\n" +
+            "妹天堂3(myacgcat).rar\n" +
+            "妹的圣域.rar\n" +
+            "娇小少女的小夜曲.part1.rar\n" +
+            "娇小少女的小夜曲.part2.rar\n" +
+            "少女与野兽.part1.rar\n" +
+            "少女与野兽.part2.rar\n" +
+            "少女缔结的月之光辉.rar\n" +
+            "少女编织爱的画布.part1.rar\n" +
+            "少女编织爱的画布.part2.rar\n" +
+            "恋心如花悄绚烂FD.part1.rar\n" +
+            "恋心如花悄绚烂FD.part2.rar\n" +
+            "恋愛×决胜战FD2.rar\n" +
+            "恋爱成双.part1.rar\n" +
+            "恋爱成双.part2.rar\n" +
+            "恋爱成双.part3.rar\n" +
+            "恋爱成双.part4.rar\n" +
+            "恋爱成双.part5.rar\n" +
+            "想谈个恋爱吗？那就给钱吧_绘未&八纯_迷你小剧场.rar\n" +
+            "时钟机关的Ley-line -朝雾中飘零之花-.rar\n" +
+            "时钟机关的Ley-line -残影之夜将明时-.rar\n" +
+            "晴霁之后，定是菜花盛开的好天气.part1 (1).rar\n" +
+            "晴霁之后，定是菜花盛开的好天气.part1.rar\n" +
+            "晴霁之后，定是菜花盛开的好天气.part2.rar\n" +
+            "有少女唱响的爱之恋曲.rar\n" +
+            "架向星空之桥.part1.rar\n" +
+            "架向星空之桥.part2.rar\n" +
+            "樱舞少女的圆舞曲(lzacg.top).rar\n" +
+            "樱舞少女的圆舞曲_与你一起看冬樱.rar\n" +
+            "樱舞少女的轮舞_我想成为你的恋人_.rar\n" +
+            "樱舞少女的轮舞曲～女装主人公们的受难记～.rar\n" +
+            "樱花裁决Master Magistrate(acg12.us)\n" +
+            "此花绽放季，与君重逢时.part1.rar\n" +
+            "此花绽放季，与君重逢时.part2.rar\n" +
+            "死神之吻乃离别之味.rar\n" +
+            "每日亲吻洛丽塔（量子acg）.rar\n" +
+            "永不落幕的前奏诗.part1.rar\n" +
+            "永不落幕的前奏诗.part2.rar\n" +
+            "永不落幕的前奏诗.part3.rar\n" +
+            "永不落幕的前奏诗（序曲） (1).rar\n" +
+            "滨纷.part1.rar\n" +
+            "滨纷.part2.rar\n" +
+            "滨纷.part3.rar\n" +
+            "爱上火车-Pure Station-.part1.rar\n" +
+            "爱上火车-Pure Station-.part2.rar\n" +
+            "爱上火车r18补丁.rar\n" +
+            "爱莉娅嘉年华FD-花绽晴空 V0830最终版.part1.rar\n" +
+            "爱莉娅嘉年华FD-花绽晴空 V0830最终版.part2 (1).rar\n" +
+            "爱莉娅嘉年华FD-花绽晴空 V0830最终版.part2.rar\n" +
+            "玉响未来.part4.rar\n" +
+            "白熊鈴星群.part1.rar\n" +
+            "白熊鈴星群.part2.rar\n" +
+            "白熊鈴星群.part3.rar\n" +
+            "红月摇曳的恋之星火FD (1).rar\n" +
+            "罪恋×2／3.rar\n" +
+            "花与乙女的祝福(lzacg.top).rar\n" +
+            "若能与你再次相见.part1.rar\n" +
+            "若能与你再次相见.part2.rar\n" +
+            "虫爱少女 幼虫篇.rar\n" +
+            "闪耀青春追逐记.part1.rar\n" +
+            "闪耀青春追逐记.part2.rar\n" +
+            "闪耀青春追逐记.part3.rar\n" +
+            "闪耀青春追逐记.part4.rar\n" +
+            "雪之华.rar\n" +
+            "鯨神のティアスティラ.part1.rar\n" +
+            "鯨神のティアスティラ.part2.rar\n" +
+            "黄昏时刻的境界线.rar"
         }
     },
     "新动漫":_ => {

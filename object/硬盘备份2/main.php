@@ -47,6 +47,7 @@
         const main = this.querySelector("main");
 
         unionMap.forEach(map => {
+            console.log(map)
             parseMap.parse(map,main);
         })
     })
