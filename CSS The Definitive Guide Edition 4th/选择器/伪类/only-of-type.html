@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <style>
-    div>div:only-of-type{
-      background-color:red;
-    }
-    div>p:only-of-type{
-      background-color:blue;
-    }
-    div>span:only-of-type{
-      background-color:green;
-    }
+    <style>
+        ul{
+            counter-reset: li-counter;
+        }
+        li>span{
+            counter-increment: li-counter;
+        }
+        li>span:before{
+            content: counter(li-counter);
+        }
+        ul>li:only-of-type{
+            color: #daf;
+        }
     </style>
 </head>
 <body>
-<div>123123</div>
-<div><div>child div ele</div><p>p ele</p></div>
-<div>asdfasdf<span>span ele.</span>asdf</div>
+<ul>
+    <li>第<span></span>个列表项</li>
+</ul>
+<ul>
+    <li>第<span></span>个列表项</li>
+    <li>第<span></span>个列表项</li>
+    <li>第<span></span>个列表项</li>
+    <li>第<span></span>个列表项</li>
+    <li>第<span></span>个列表项</li>
+</ul>
+<ul>
+    <li>第<span></span>个列表项</li>
+    <div>我是列表中的DIV= =</div>
+</ul>
 </body>
 </html>

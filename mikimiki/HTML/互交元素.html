@@ -20,10 +20,10 @@
                 <option>Spider monkey</option>
             </select>
         </label></p>
-        <menu>
+<!--        <menu>-->
             <button value="cancel">Cancel</button>
             <button id="confirmBtn" value="default">Confirm</button>
-        </menu>
+<!--        </menu>-->
     </form>
 </dialog>
 
@@ -43,6 +43,8 @@
         // “Update details” button opens the <dialog> modally
         updateButton.addEventListener('click', function onOpen() {
             if (typeof favDialog.showModal === "function") {
+                console.log(favDialog);
+                // favDialog.showModal();
                 favDialog.showModal();
             } else {
                 alert("The dialog API is not supported by this browser");

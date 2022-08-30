@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      let Partition = function (R, low, high) {
+          let pivotkey = R[low].key;
+          while (low<high) {
+              while (low<high && R[high].key>=pivotkey)
+                  --high;
+              R[low]=R[high];
+              while (low<high && R[low].key<=pivotkey)
+                  ++low;
+              R[high]=R[low];
+          }
+          R[low].key = pivotkey;
+          return low;          // 返回枢轴所在位置
+      } // Partition
+
+      let QSort = function(R, s, t) {
+          // 对记录序列R[s..t]进行快速排序
+          if (s < t) {             // 长度大于1
+              let pivotloc = Partition(R, s, t);
+              // 对 R[s..t] 进行一次划分
+
+              QSort(R, s, pivotloc-1);
+              // 对低子序列递归排序，pivotloc是枢轴位置
+
+              QSort(R, pivotloc+1, t); // 对高子序列递归排序
+          }
+      } // QSort
+
+      let QuickSort = function ( L){
+          // 对顺序表进行快速排序
+          QSort(L, 0, L.length-1);
+      } // QuickSort
+
+      let Data = function (key){
+          this.key = key;
+      }
+      Data.prototype = {};
+      Data.prototype.constructor = Data;
+
+      let arr = new Array(20);
+      for(let i = 0;i<arr.length;i++){
+          arr[i] = new Data(Math.floor(Math.random()*20))
+      }
+      console.log(arr);
+      QuickSort(arr);
+      console.log(arr);
+
+
+  })
+</script>
+</body>
+</html>

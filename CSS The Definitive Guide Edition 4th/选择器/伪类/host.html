@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div:host {
+            color:red;
+
+        }
+    </style>
+</head>
+<body>
+<h1 class="footer">Host selectors <a href="#"><context-span>example</context-span></a></h1>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        /*const div = this.querySelector("div");
+
+        const styleEle = this.createElement('style');
+        styleEle.innerHTML = `
+            :host{
+                color:red;
+
+            }
+        `;
+        div.appendChild(styleEle)
+
+        const span = this.createElement("span");
+        span.appendChild(this.createTextNode("我是影子节点下的span"));
+        div.attachShadow({mode:"open"}).appendChild(span);
+*/
+
+        let style = document.createElement('style');
+        let span = document.createElement('span');
+        span.textContent = document.querySelector("h1").textContent;
+
+        const shadowRoot = document.querySelector("h1").attachShadow({mode: 'open'});
+        shadowRoot.appendChild(style);
+        shadowRoot.appendChild(span);
+
+        style.textContent = 'span:hover { text-decoration: underline; }' +
+            ':host-context(h1) { font-style: italic; }' +
+            ':host-context(h1):after { content: " - no links in headers!" }' +
+            ':host-context(article, aside) { color: gray; }' +
+            ':host(.footer) { color : red; }' +
+            ':host { background: rgba(0,0,0,0.1); padding: 2px 5px; }';
+
+    })
+</script>
+</body>
+</html>

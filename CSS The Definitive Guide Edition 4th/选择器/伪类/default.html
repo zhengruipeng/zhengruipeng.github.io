@@ -4,27 +4,32 @@
     <meta charset="UTF-8">
     <title>Title</title>
   <style>
-    :default{
-      box-shadow: gold 0 0 30px;
+    label,
+    input[type='submit'] {
+      display: block;
+      margin-top: 1em;
     }
-    :default + label{
-      background-color:rgba(0,0,0,0);
+
+    input:default {
+      border: none;
+      outline: 2px solid deeppink;
     }
-    </style>
+
+  </style>
 </head>
 <body>
 <form>
-  <input type="checkbox" id="fir" /><label for="fir">I</label>
-  <input type="text" id="sec" /><label for="sec">II</label>
-  <input type="radio" name="radio" />
-  <input type="radio" id="thi" name="radio" /><label for="thi">III</label>
-  <input type="password" id="fou" /><label for="fou">IV</label>
-  <input type="color" id="fif" /><label for="fif">V</label>
-  <select >
-    <option>123</option>
-    <option>333</option>
-    <option>312</option>
-  </select>
+  <p>How did you find out about us?</p>
+  <label><input name="origin" type="radio" value="google" checked> Google</label>
+  <label><input name="origin" type="radio" value="facebook"> Facebook</label>
+  <p>Please agree to our terms:</p>
+
+  <label><input name="newsletter" type="checkbox" checked> I want to subscribe to a personalized newsletter.</label>
+
+  <label><input name="privacy" type="checkbox"> I have read and I agree to the Privacy Policy.</label>
+
+  <input type="submit" value="Submit form">
 </form>
+
 </body>
 </html>

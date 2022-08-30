@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let arr = [];
+        let hasSearched = [];
+        let initArr = function (m,n){
+            arr.length = n;
+            for(let i = 0;i<arr.length;i++){
+                arr[i] = new Array(m);
+            }
+            for(let i=0;i<arr.length;i++){
+                for(let j = 0;j<arr[i].length;j++){
+                    // console.log(i,j);
+                    arr[i][j] = Math.round(Math.random());
+                }
+            }
+
+            hasSearched.length = n;
+            for(let i = 0;i<hasSearched.length;i++){
+                hasSearched[i] = new Array(m);
+            }
+            for(let i=0;i<hasSearched.length;i++){
+                for(let j = 0;j<hasSearched[i].length;j++){
+                    // console.log(i,j);
+                    hasSearched[i][j] = 0;
+                }
+            }
+            return arr;
+        };
+
+        let searchOne = function (x,y){
+            if(y>=arr.length || x >= arr[0].length)return 0;
+            if(x<0||y<0)return 0;
+            if(arr[y][x] === 0)return 0;
+            if(hasSearched[y][x] === 1)return 0;
+            if(arr[y][x] === 1) {
+                console.log(x,y);
+                hasSearched[y][x] = 1;
+                console.log(hasSearched.join("\n"))
+
+                return 1+
+                    searchOne(x+1,y)+
+                    searchOne(x-1,y)+
+                    searchOne(x,y+1)+
+                    searchOne(x,y-1);
+
+            }
+
+        };
+        initArr(4,4);
+        console.log(arr.join("\n"));
+        console.log(searchOne(0,0));
+    })
+</script>
+</body>
+</html>

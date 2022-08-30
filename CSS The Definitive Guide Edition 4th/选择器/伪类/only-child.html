@@ -3,16 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <style>
-    div > span:only-child{
-      font-style:italic;
-    }
+    <style>
+        ul{
+            counter-reset: li-counter;
+        }
+        li>span{
+            counter-increment: li-counter;
+        }
+        li>span:before{
+            content: counter(li-counter);
+        }
+        ul>li:only-child{
+            color: #daf;
+        }
     </style>
 </head>
 <body>
-<div>123</div>
-<div><span>span ele.</span></div>
-<div>123123<span>span ele.</span></div>
-
+<ul>
+    <li>第<span></span>个列表项</li>
+</ul>
+<ul>
+    <li>第<span></span>个列表项</li>
+    <li>第<span></span>个列表项</li>
+    <li>第<span></span>个列表项</li>
+    <li>第<span></span>个列表项</li>
+    <li>第<span></span>个列表项</li>
+</ul>
+<ul>
+    <li>第<span></span>个列表项</li>
+    <div>第<span></span>个列表项</div>
+</ul>
 </body>
 </html>

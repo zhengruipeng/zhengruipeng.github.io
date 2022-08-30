@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let perm = function (data, k, n) {
+            let i;
+            if(k === n-1){
+                let res = "";
+                for(i=0;i<n;i++)
+                    res += data[i]+" ";
+                console.log(res);
+            }
+            else{
+                for(i=k;i<n;i++){
+                    swap(data,k,i);
+                    perm(data,k+1,n);
+                    swap(data,i,k);
+                }
+            }
+        }
+        let swap = function (data,x, y){
+            let temp = data[x];
+            data[x] = data[y];
+            data[y] = temp;
+        }
+
+        let i;
+        let data = new Array(20);
+        for(i=0;i<20;i++)
+            data[i]=i+1;
+        perm(data,0,4);
+    })
+</script>
+</body>
+</html>

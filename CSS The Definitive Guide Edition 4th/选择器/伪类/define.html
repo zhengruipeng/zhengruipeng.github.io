@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /* Both the custom and the built-in element are given italic text */
+        :defined {
+            font-style: italic;
+        }
+        simple-custom:not(:defined),
+        p:not(:defined){
+            color:purple !important;
+        }
+
+        simple-custom:defined {
+            display: block;
+            color:blue !important;
+        }
+
+    </style>
+</head>
+<body>
+<simple-custom text="test1">1234</simple-custom>
+<p>test1</p>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        customElements.define("simple-custom",class extends HTMLElement{
+            htmlStyle = {
+                color:"red",
+                "font-size":CSS.em(2),
+            };
+            setStyle(ele){
+                for(let name in this.htmlStyle){
+                    if(!this.htmlStyle.hasOwnProperty(name))continue;
+                    ele.attributeStyleMap.set(name,this.htmlStyle[name]);
+                }
+            }
+            constructor(){
+                super();
+                const div = document.createElement("div");
+                const shadowRoot = div.attachShadow({mode:"open"});
+
+                const text = document.createTextNode(this.getAttribute("text"));
+                const p = document.createElement("p");
+                p.appendChild(text);
+                shadowRoot.appendChild(p);
+
+                this.setStyle(p);
+
+                this.appendChild(div);
+            }
+        })
+    })
+</script>
+</body>
+</html>

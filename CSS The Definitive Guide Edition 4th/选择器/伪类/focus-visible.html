@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input, button {
+            margin: 10px;
+        }
+
+        .focus-only:focus {
+            border-radius: 10px;
+            outline: 3px solid #fad;
+        }
+
+        .focus-visible-only:focus-visible {
+            outline: 4px dashed darkorange;
+        }
+
+    </style>
+</head>
+<body>
+<button>可以尝试用tab聚焦</button>
+<input value="Default styles"><br>
+<button>Default styles</button><br>
+<input class="focus-only" value=":focus only"><br>
+<button class="focus-only">:focus only</button><br>
+<input class="focus-visible-only" value=":focus-visible only"><br>
+<button class="focus-visible-only">:focus-visible only</button>
+
+</body>
+</html>
