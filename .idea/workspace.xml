@@ -1,91 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220818">
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/EVERYDAY! SUNNYDAY! - サニーピース.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/shining future.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/文本属性/text-combine-upright.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/文本属性/unicode-bidi.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/新特性/CSS Scroll Snap/scroll-behavior.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/active,any-link,autofill.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/define.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/dir.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/first.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/focus-visible.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/focus-within.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/fullscreen.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/has.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/host.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/is.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/lang.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/modal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/not.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/optional.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/paused.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/picture-in-picture.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/placeholder-shown.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/playing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/scope.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/去除图片背景/Kanno_Mai_2022.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/00test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/01列表渲染.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/02条件渲染.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/02条件渲染.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/03多条件渲染.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/03多条件渲染.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/04脚本化inlineCSS.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/05用className脚本化CSS.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/06函数组件.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/06函数组件.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/07类组件.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/07类组件.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/09状态.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/09状态.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/10状态2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/11受控组件.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/12非受控表单组件.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/default-test.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/.idea/算法.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/全排列问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/小苹果.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/快排.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/排队买票问题.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/整数划分问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/棋盘覆盖.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/棋盘覆盖.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/红与黑.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/走楼梯问题.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/递归与分治.iml" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220908">
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/after.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/backdrop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/before.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/cue-region.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/cue.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/file-selector-button.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/first-letter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/first-line.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/grammar-error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/marker.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/part.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/placeholder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/selection.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/slotted.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/spelling-error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪元素/zimu.vtt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/Privacy and the visited selector.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/user-invalid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/user-valid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/where.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/01打开蓝牙.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/02配对设备.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/03忘记设备.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/04访问GATT服务器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/Bluetooth类图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/create-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/MIDI/Gaining access to the MIDI port.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/动态规划/最优三角剖分的递归结构.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/贪心/地铁站问题.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/文本属性/writing-mode.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/文本属性/writing-mode.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/default.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/only-child.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/only-child.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/only-of-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/only-of-type.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/root.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/选择器/伪类/root.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/@left.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/@left.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/@right.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/针对特定媒体的样式/@page/@right.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/HTML/互交元素.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/HTML/互交元素.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片背景/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,11 +47,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -131,20 +80,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/object/去除图片背景" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mikimiki/APIs/Bluetooth" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="ts.external.directory.path" value="D:\phpstorm 2021.2\bin\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Bluetooth" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\选择器\伪元素" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object\去除图片背景" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\选择器\伪类" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\react\test\react-test\src" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\react\test\react-test\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\react\test\react-test\src" />
@@ -389,13 +338,21 @@
       <workItem from="1661745278666" duration="2250000" />
       <workItem from="1661768826796" duration="888000" />
       <workItem from="1661815453082" duration="4887000" />
-    </task>
-    <task id="LOCAL-00014" summary="20220517(presentation API)">
-      <created>1652770883126</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1652770883126</updated>
+      <workItem from="1661865045052" duration="1454000" />
+      <workItem from="1661903175441" duration="2587000" />
+      <workItem from="1661990758855" duration="1659000" />
+      <workItem from="1662009268779" duration="14000" />
+      <workItem from="1662081355439" duration="3251000" />
+      <workItem from="1662169468007" duration="1208000" />
+      <workItem from="1662204308891" duration="80000" />
+      <workItem from="1662258403464" duration="8636000" />
+      <workItem from="1662338824634" duration="7784000" />
+      <workItem from="1662386398887" duration="646000" />
+      <workItem from="1662421605067" duration="6911000" />
+      <workItem from="1662456574274" duration="1694000" />
+      <workItem from="1662468575285" duration="500000" />
+      <workItem from="1662523126016" duration="8538000" />
+      <workItem from="1662603249613" duration="2614000" />
     </task>
     <task id="LOCAL-00015" summary="20220517(presentation API)">
       <created>1652770984229</created>
@@ -733,7 +690,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660798252095</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="20220830">
+      <created>1661865086195</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1661865086196</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -753,8 +717,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220528(php项目5)" />
-    <MESSAGE value="20220531" />
     <MESSAGE value="20220601" />
     <MESSAGE value="20220601(2)" />
     <MESSAGE value="20220602" />
@@ -778,6 +740,8 @@
     <MESSAGE value="20220816" />
     <MESSAGE value="20220817" />
     <MESSAGE value="20220818" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220818" />
+    <MESSAGE value="20220830" />
+    <MESSAGE value="20220908" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220908" />
   </component>
 </project>

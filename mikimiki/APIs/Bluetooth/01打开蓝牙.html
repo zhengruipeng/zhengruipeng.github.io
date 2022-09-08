@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="requestDevice">requestDevice</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const requestDeviceBtn = this.querySelector("#requestDevice");
+
+        console.log(navigator.bluetooth)
+        console.log(navigator.bluetooth.referringDevice)
+
+
+        requestDeviceBtn.onclick = function (){
+
+
+
+            /*navigator.bluetooth.requestDevice().then(v => {
+                console.log(v);
+            });*/
+            let options = {
+                /*filters: [
+                    // {services: ['heart_rate']},
+                    // {services: [0x1802, 0x1803]},
+                    // {services: ['c48e6067-5295-48d3-8d5c-0395f61792b1']},
+                    {name: 'miki'},
+                    // {namePrefix: ''}
+                ],
+                optionalServices: ['battery_service']*/
+                acceptAllDevices:true,
+            }
+
+            navigator.bluetooth.requestDevice(options).then((device) => {
+                console.log(`Name: ${device}`);
+                // Do something with the device.
+            }).catch(console.log);
+
+
+
+        }
+    })
+</script>
+</body>
+</html>

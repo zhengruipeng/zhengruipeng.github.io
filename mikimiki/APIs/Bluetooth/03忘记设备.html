@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="list.css" rel="stylesheet" type="text/css" />
+    <style>
+        button{
+            padding:5px 14px;
+            background-color: #fff;
+            border-radius: 5px;
+            border:#639 solid 2px;
+            color:#639;
+            margin:auto;
+            transition: .3s;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #639;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<button id="requestDevice">搜索</button>
+<button id="forgetDevice">忘记</button>
+<script type="module">
+
+</script>
+<script type="module">
+    import {listInstance} from "./create-list.js"
+
+    document.addEventListener("DOMContentLoaded",function (){
+
+
+        const requestDeviceBtn = this.querySelector("#requestDevice");
+        const forgetDeviceBtn = this.querySelector("#forgetDevice");
+
+        console.log(navigator.bluetooth)
+
+
+        navigator.bluetooth.getDevices().then(bluetoothdevices => {
+            console.log(bluetoothdevices)
+
+            bluetoothdevices.forEach(bluetoothdevice => {
+                bluetoothdevice.createItem(bluetoothdevice.name);
+            })
+
+        });
+
+        requestDeviceBtn.onclick = function (){
+            let options = {
+                acceptAllDevices:true,
+            }
+
+            navigator.bluetooth.requestDevice(options).then((device) => {
+                console.log(device);
+                listInstance.createItem(device.name);
+            }).catch(console.log);
+
+
+        };
+        forgetDeviceBtn.onclick = function (){
+            const num = prompt("忘记第几个？")-0;
+            navigator.bluetooth.getDevices().then(async bluetoothdevice => {
+                bluetoothdevice[num].forget();
+
+                listInstance.removeItem(num);
+
+                console.log(await navigator.bluetooth.getDevices())
+
+            });
+
+
+        };
+
+    })
+</script>
+</body>
+</html>

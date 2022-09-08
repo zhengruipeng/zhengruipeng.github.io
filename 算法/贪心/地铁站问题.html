@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const Point = class extends Object{
+            name = "";
+            lines = [];
+
+            linkToAnotherPoint(p){
+                let line = new Line(1);
+                p.lines.push(line);
+                this.lines.push(line);
+                line.p1 = this;
+                line.p2 = p;
+            }
+            constructor(name) {
+                super();
+                this.name = name;
+            }
+        };
+        Point.points = [];
+        Point.getPointByName = function (name){
+            let res = []
+            for(let i=0;i<Point.points.length;i++){
+                Point.points[i].name === name && res.push (Point.points[i]);
+            }
+            if(res.length === 1)return res[0];
+            return res;
+
+        }
+        Point.prototype.distanceTo = function  (target){
+            let visited = [this];
+
+            let res = [];
+
+            let fun = function (p,length){
+                for(let i = 0;i<p.lines.length;i++){
+                    let line = p.lines[i];
+
+                    let p2 = line.getAnotherPoint(p);
+
+                    if(target === p2) {
+                        length += line.length
+                        res.push(length);
+                        return false;
+                    }
+                    if(!visited.includes(p2)){
+                        visited.push(p2);
+
+                        fun(p2,length+=line.length);
+                    }
+                }
+                return undefined;
+            };
+            fun(this,0)
+
+            return res;
+        };
+
+        const Line = class extends Object{
+            p1 = null;
+            p2 = null;
+
+            length=0;
+
+            getAnotherPoint(p){
+                if(p === this.p1)return this.p2;
+                else if(p === this.p2)return this.p1;
+                else return ;
+            }
+            constructor(length) {
+                super();
+                this.length = length;
+            }
+
+        };
+
+
+        let station = ["a10" , 'a11' , 'a12' , 'a13' , 'a14' , 'a15' , 'a16' , 'a17' , 'b1' , 'b2' , 'b3' , 'b4' , 'b5' , 'b6'];
+
+        Point.points = [];
+        station.forEach(stationName => {
+            Point.points.push(new Point(stationName));
+        })
+
+
+        Point.getPointByName("a10").linkToAnotherPoint(Point.getPointByName("a11"));
+        Point.getPointByName("a11").linkToAnotherPoint(Point.getPointByName("a12"));
+        Point.getPointByName("a12").linkToAnotherPoint(Point.getPointByName("a13"));
+        Point.getPointByName("a13").linkToAnotherPoint(Point.getPointByName("a14"));
+        Point.getPointByName("a14").linkToAnotherPoint(Point.getPointByName("a15"));
+        Point.getPointByName("a15").linkToAnotherPoint(Point.getPointByName("a16"));
+        Point.getPointByName("a16").linkToAnotherPoint(Point.getPointByName("a17"));
+        Point.getPointByName("a12").linkToAnotherPoint(Point.getPointByName("b1"));
+        Point.getPointByName("b1").linkToAnotherPoint(Point.getPointByName("b2"));
+        Point.getPointByName("b2").linkToAnotherPoint(Point.getPointByName("b3"));
+        Point.getPointByName("b3").linkToAnotherPoint(Point.getPointByName("a15"));
+        Point.getPointByName("a15").linkToAnotherPoint(Point.getPointByName("b4"));
+        Point.getPointByName("b4").linkToAnotherPoint(Point.getPointByName("b5"));
+        Point.getPointByName("b5").linkToAnotherPoint(Point.getPointByName("b6"));
+        Point.getPointByName("b6").linkToAnotherPoint(Point.getPointByName("a12"));
+
+        console.log(Point.getPointByName("a12").lines[2].getAnotherPoint(Point.getPointByName("a12")))
+        console.log(Point.getPointByName("a12").lines[3].getAnotherPoint(Point.getPointByName("a12")))
+
+        console.log(Point.getPointByName("a10").distanceTo(Point.getPointByName("a17")))
+
+    })
+</script>
+</body>
+</html>

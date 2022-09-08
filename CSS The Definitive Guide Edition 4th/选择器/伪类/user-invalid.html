@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      input:user-invalid {
+          border: 2px solid red;
+      }
+
+      input:user-invalid + span::before {
+          content: '✖';
+          color: red;
+      }
+
+  </style>
+</head>
+<body>
+<form>
+  <label for="email">Email *: </label>
+  <input id="email" type="email" required />
+  <span></span>
+</form>
+</body>
+</html>

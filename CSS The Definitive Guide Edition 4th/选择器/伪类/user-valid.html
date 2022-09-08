@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    input:user-valid {
+      border: 2px solid green;
+    }
+
+    input:user-valid + span::before {
+      content: '✓';
+      color: green;
+    }
+
+  </style>
+</head>
+<body>
+<form>
+  <label for="email">Email *: </label>
+  <input id="email" name="email" type="email" value="test@example.com" required>
+  <span></span>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+            is和where的区别在于
+            where中的选择器不算优先级，
+            而is中的选择器算优先级，
+            例如如果footer a中把颜色改成蓝色，
+            where中的颜色会被覆盖，而is则不会，
+            因为is中的类选择器比标签选择器优先级高
+        */
+        html {
+            font-family: sans-serif;
+            font-size: 150%;
+        }
+
+        :is(section.is-styling, aside.is-styling, footer.is-styling) a {
+            color: red;
+        }
+
+        :where(section.where-styling, aside.where-styling, footer.where-styling) a {
+            color: orange;
+        }
+
+        footer a{
+            color:blue;
+        }
+
+    </style>
+</head>
+<body>
+<article>
+    <h2>:is()-styled links</h2>
+    <section class="is-styling">
+        <p>Here is my main content. This <a href="https://mozilla.org">contains a link</a>.</p>
+    </section>
+
+    <aside class="is-styling">
+        <p>Here is my aside content. This <a href="https://developer.mozilla.org">also contains a link</a>.</p>
+    </aside>
+
+    <footer class="is-styling">
+        <p>This is my footer, also containing <a href="https://github.com/mdn">a link</a>.</p>
+    </footer>
+</article>
+
+<article>
+    <h2>:where()-styled links</h2>
+    <section class="where-styling">
+        <p>Here is my main content. This <a href="https://mozilla.org">contains a link</a>.</p>
+    </section>
+
+    <aside class="where-styling">
+        <p>Here is my aside content. This <a href="https://developer.mozilla.org">also contains a link</a>.</p>
+    </aside>
+
+    <footer class="where-styling">
+        <p>This is my footer, also containing <a href="https://github.com/mdn">a link</a>.</p>
+    </footer>
+</article>
+
+</body>
+</html>

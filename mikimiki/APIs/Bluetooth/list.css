@@ -1,0 +1,21 @@
+#controller{
+    border-radius: 13px;
+    border:#bbb solid 1px;
+    min-height:300px;
+    width:60vw;
+    margin:auto;
+    margin-top: 2em;
+    padding:0;
+    display: flex;
+
+    list-style-type: none;
+
+    flex-flow: column;
+}
+#controller>li{
+    padding:8px 2em;
+    border-bottom:#bbb solid 1px;
+}
+#controller>li:last-child {
+    border-bottom-style: none;
+}

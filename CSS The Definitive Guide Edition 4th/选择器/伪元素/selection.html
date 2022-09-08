@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      /* Make selected text gold on a red background */
+      ::selection {
+          background-color: white;
+          color: #639;
+      }
+
+      /* Make selected text in a paragraph white on a blue background */
+      p::selection {
+          color: white;
+          background-color: #639;
+      }
+
+  </style>
+</head>
+<body>
+This text has special styles when you highlight it.
+<p>Also try selecting text in this paragraph.</p>
+
+</body>
+</html>
