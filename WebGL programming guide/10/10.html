@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="webgl" style="position:absolute;top:0;left:0;z-index:0"></canvas>
+<script type="text/javascript" src="../../libs/cuon-matrix.js"></script>
+<script type="text/javascript" src="../../libs/cuon-utils.js"></script>
+<script type="x-webgl/x-vertex-shader" id="vertex">
+attribute vec4 a_position;
+varying vec2 v_texture;
+attribute vec2 a_texture;
+uniform mat4 u_perspective;
+void main(){
+    gl_Position = u_perspective * a_position;
+    v_texture = a_texture;
+}
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">
+precision mediump float;
+uniform sampler2D u_sampler0;
+varying vec2 v_texture;
+void main(){
+    gl_FragColor = texture2D(u_sampler0,v_texture);
+}
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function  (){
+        let canvas = document.getElementById("webgl");
+        let vertex = document.getElementById("vertex");
+        let fragment = document.getElementById("fragment");
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+        let gl = canvas.getContext("webgl");
+        /*let vertices = new Float32Array([   // Vertex coordinates
+            -.5,.5,.5,.5,-.5,-.5,.5,-.5
+        ]);*/
+        let texture_vertices = new Float32Array([0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0]);
+        let createShader = function (shader,type){
+            let shaderB = gl.createShader(type);
+            gl.shaderSource(shaderB,shader);
+            gl.compileShader(shaderB);
+            gl.getShaderParameter(shaderB,gl.COMPILE_STATUS);
+            gl.getShaderInfoLog(shaderB);
+            return shaderB;
+
+        };
+        let initShader = function (vertex,fragment){
+            var vertex = createShader(vertex,gl.VERTEX_SHADER);
+            var fragment = createShader(fragment,gl.FRAGMENT_SHADER);
+            let program = gl.createProgram();
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,fragment);
+            gl.linkProgram(program);
+            gl.getProgramParameter(program,gl.LINK_STATUS);
+            gl.getProgramInfoLog(program);
+            gl.useProgram(program);
+            gl.program = program;
+
+        };
+        let initAttrib = function (name,f32a){
+            let attribute = gl.getAttribLocation(gl.program,name);
+            let buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,2,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute);
+        };
+        let vertices = new Float32Array([   // Vertex coordinates
+            1.0, 1.0, 1.0,  -1.0, 1.0, 1.0,  -1.0,-1.0, 1.0,   1.0,-1.0, 1.0,  // v0-v1-v2-v3 front
+            1.0, 1.0, 1.0,   1.0,-1.0, 1.0,   1.0,-1.0,-1.0,   1.0, 1.0,-1.0,  // v0-v3-v4-v5 right
+            1.0, 1.0, 1.0,   1.0, 1.0,-1.0,  -1.0, 1.0,-1.0,  -1.0, 1.0, 1.0,  // v0-v5-v6-v1 up
+            -1.0, 1.0, 1.0,  -1.0, 1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0,-1.0, 1.0,  // v1-v6-v7-v2 left
+            -1.0,-1.0,-1.0,   1.0,-1.0,-1.0,   1.0,-1.0, 1.0,  -1.0,-1.0, 1.0,  // v7-v4-v3-v2 down
+            1.0,-1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0, 1.0,-1.0,   1.0, 1.0,-1.0   // v4-v7-v6-v5 back
+        ]);
+        let indices = new Uint8Array([
+            0, 1, 2,   0, 2, 3,    // front
+            4, 5, 6,   4, 6, 7,    // right
+            8, 9,10,   8,10,11,    // up
+            12,13,14,  12,14,15,    // left
+            16,17,18,  16,18,19,    // down
+            20,21,22,  20,22,23     // back
+        ]);
+        let loadTexture = function (){
+            let u_sampler0 = gl.getUniformLocation(gl.program,"u_sampler0");
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,1);
+            let texture = gl.createTexture();
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D,texture);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,this);
+            gl.uniform1i(u_sampler0,0);
+            reDraw();
+        };
+        let initTexture = function (src){
+            initAttrib("a_texture",texture_vertices);
+            let image = new Image();
+            image.src = src;
+            image.onload = loadTexture;
+        };
+        let reDraw = function  (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_BYTE,0);
+        };
+        let initIndices = function(){
+            let buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buffer);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,indices,gl.STATIC_DRAW);
+        };
+        let initPerspective = function (pos,lookAt ){
+            let u_perspective = gl.getUniformLocation(gl.program,"u_perspective");
+            let matrix = new Matrix4();
+            matrix.setPerspective(45,canvas.width/canvas.height,.1,1000);
+            matrix.lookAt(...pos,...lookAt,0,1,0);
+            gl.uniformMatrix4fv(u_perspective,false,matrix.elements);
+        };
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.enable(gl.DEPTH_TEST);
+        initShaders(gl,vertex.innerText,fragment.innerText);
+        initAttrib("a_position",vertices);
+        initPerspective([3,3,5,1],[0,0,0,1]);
+        initIndices();
+        reDraw();
+
+        // initTexture("../image/sky.jpg");
+
+    })
+</script>
+</body>
+</html>

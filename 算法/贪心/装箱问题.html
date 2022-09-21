@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="items">物品：<span></span></p>
+<p id="bag">背包：<br /><span></span></p>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const itemsContainer = this.querySelector("#items").querySelector("span");
+        const bagContainer = this.querySelector("#bag").querySelector("span");
+
+        const V = 15;
+        const items = [];
+        const bag = [];
+
+        let Item = class {
+            v = 0;
+
+            constructor(v) {
+                this.v = v;
+
+            }
+
+        };
+
+        let initItems = function (n){
+            for(let i=0;i<n;i++){
+                items.push(new Item(Math.floor(Math.random()*10)));
+            }
+        };
+
+        initItems(10);
+        items.sort((a,b) => {
+            if(a.v>b.v)return -1;
+            else if(a.v<b.v)return 1;
+            else return 0;
+
+        });
+
+        let sum = function (arr){
+            return arr.reduce((lv,rv) => lv+rv.v,0);
+        }
+
+        itemsContainer.innerText = items.map(v => v.v)
+
+        for(let i = 0;i<items.length;i++){
+            if(!items[i])continue;
+
+            bag.push([items[i]]);
+            items[i] = undefined;
+            let current = bag.length-1;
+            for(let j = i;j<items.length;j++){
+                if(!items[j])continue;
+
+                // console.log(sum(bag[current]))
+                // console.log(items[j].v);
+                if(sum(bag[current]) + items[j].v < V){
+
+                    bag[current].push(items[j])
+                    items[j] = undefined;
+                }else{
+
+                }
+
+            }
+        }
+
+        bagContainer.innerHTML = bag.map(arr => arr.map(v => v.v).join(", ")).join(" <br />")
+
+    })
+</script>
+</body>
+</html>

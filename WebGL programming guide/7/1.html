@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas height="400" width="400" id="canvas"></canvas>
+    <script type="text/javascript" src="../../libs/超级实用の小工具.js"></script>
+    <script src="../../libs/webgl-utils.js"></script>
+    <script src="../../libs/webgl-debug.js"></script>
+    <script src="../../libs/cuon-utils.js"></script>
+    <script src="../../libs/cuon-matrix.js"></script>
+    <script type="x-webgl/x-shader" id="shader">
+    uniform mat4 a_camera;
+    attribute vec4 a_position;
+    attribute vec4 a_color;
+    uniform mat4 u_rotating;
+    varying vec4 v_color;
+        void main(){
+            gl_Position = a_camera * a_position *u_rotating;
+            gl_PointSize = 10.0;
+            v_color = a_color;
+        }
+    </script>
+    <script type="x-webgl/x-fragment" id="fragment">
+    precision highp float;
+    varying vec4 v_color;
+        void main(){
+            gl_FragColor = v_color;
+
+        }
+    </script>
+    <script type="text/javascript" >
+        document.addEventListener("DOMContentLoaded", function () {
+            let canvas = ele("#canvas");
+            let shader = ele("#shader");
+            let fragment = ele("#fragment");
+            let gl = getWebGLContext(canvas);
+            initShaders(gl,shader.innerText,fragment.innerText);
+            let f32a = new Float32Array([
+                0.0,  0.5,  -0.4,  0.4,  1.0,  0.4,
+                -0.5, -0.5,  -0.4,  0.4,  1.0,  0.4,
+                0.5, -0.5,  -0.4,  1.0,  0.4,  0.4,
+                0.5,  0.4,  -0.2,  1.0,  0.4,  0.4,
+                -0.5,  0.4,  -0.2,  1.0,  1.0,  0.4,
+                0.0, -0.6,  -0.2,  1.0,  1.0,  0.4,
+                0.0,  0.5,   0.0,  0.4,  0.4,  1.0,
+                -0.5, -0.5,   0.0,  0.4,  0.4,  1.0,
+                0.5, -0.5,   0.0,  1.0,  0.4,  0.4
+            ]);
+            let FSIZE = f32a.BYTES_PER_ELEMENT;
+            let a_position = gl.getAttribLocation(gl.program,"a_position");
+            let texBuf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,texBuf);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(a_position,3,gl.FLOAT,false,FSIZE*6,0);
+            gl.enableVertexAttribArray(a_position);
+            let a_color = gl.getAttribLocation(gl.program,"a_color");
+            let colorBuf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,colorBuf);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(a_color,3,gl.FLOAT,false,FSIZE*6,FSIZE*3);
+            gl.enableVertexAttribArray(a_color);
+            let u_rotating = gl.getUniformLocation(gl.program,"u_rotating");
+            let rotate = new Matrix4();
+            let angle = 0;
+            let render = function (){
+                gl.clear(gl.COLOR_BUFFER_BIT);
+                rotate.setRotate(angle%360,0,1,0);
+                angle++;
+                gl.uniformMatrix4fv(u_rotating,false,rotate.elements);
+                gl.drawArrays(gl.TRIANGLES,0,9);
+                requestAnimationFrame(render);
+            };
+            let a_camera = gl.getUniformLocation(gl.program,"a_camera");
+            let camera = new Matrix4();
+            camera.setLookAt(0.20, 0.25, 0.25, 0, 0, 0, 0, 1, 0);
+            gl.uniformMatrix4fv(a_camera, false, camera.elements);
+            gl.clearColor(0.0,0.0,0.0,1.0);
+            render();
+
+        })
+    </script>
+</body>
+</html>

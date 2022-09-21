@@ -1,0 +1,30 @@
+#controller{
+    border-radius: 13px;
+    border:#6b9 solid 3px;
+    color:#396;
+    min-height:300px;
+    width:60vw;
+    margin:auto;
+    margin-top: 2em;
+    padding:0;
+    display: flex;
+
+    list-style-type: none;
+
+    flex-flow: column;
+}
+#controller>li{
+    padding:8px 2em;
+    border-bottom:#6b9 solid 3px;
+    transition: .3s;
+    cursor: pointer;
+}
+#controller>li:last-child {
+    border-bottom-style: none;
+}
+#controller>li:hover{
+    background-color: #afd7;
+}
+#controller>li.selected{
+    background-color: #afda;
+}

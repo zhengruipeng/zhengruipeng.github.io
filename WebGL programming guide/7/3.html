@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="400" height="400" id="canvas"></canvas>
+<script type="text/javascript" src="../../libs/超级实用の小工具.js"></script>
+<script src="../../libs/webgl-utils.js"></script>
+<script src="../../libs/webgl-debug.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script src="../../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-shader" id="shader">
+uniform mat4 u_camera;
+uniform mat4 u_chance;
+uniform mat4 u_perspective;
+attribute vec4 a_position;
+varying vec4 v_color;
+attribute vec4 a_color;
+void main(){
+    gl_Position = u_perspective * u_camera * u_chance * a_position;
+    gl_PointSize = 10.0;
+    v_color = a_color;
+}
+</script>
+<script type="x-webgl/x-fragment" id="fragment">
+precision highp float;
+varying vec4 v_color;
+void main(){
+    gl_FragColor = v_color;
+}
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        var f32a = new Float32Array(
+            [
+                // Three triangles on the right side
+                0.75,  1.0,  -4.0,  0.4,  1.0,  0.4, // The back green one
+                0.25, -1.0,  -4.0,  0.4,  1.0,  0.4,
+                1.25, -1.0,  -4.0,  1.0,  0.4,  0.4,
+
+                0.75,  1.0,  -2.0,  1.0,  1.0,  0.4, // The middle yellow one
+                0.25, -1.0,  -2.0,  1.0,  1.0,  0.4,
+                1.25, -1.0,  -2.0,  1.0,  0.4,  0.4,
+
+                0.75,  1.0,   0.0,  0.4,  0.4,  1.0,  // The front blue one
+                0.25, -1.0,   0.0,  0.4,  0.4,  1.0,
+                1.25, -1.0,   0.0,  1.0,  0.4,  0.4,
+
+                // Three triangles on the left side
+                -0.75,  1.0,  -4.0,  0.4,  1.0,  0.4, // The back green one
+                -1.25, -1.0,  -4.0,  0.4,  1.0,  0.4,
+                -0.25, -1.0,  -4.0,  1.0,  0.4,  0.4,
+
+                -0.75,  1.0,   0.0,  0.4,  0.4,  1.0,  // The front blue one
+                -1.25, -1.0,   0.0,  0.4,  0.4,  1.0,
+                -0.25, -1.0,   0.0,  1.0,  0.4,  0.4,
+
+                -0.75,  1.0,  -2.0,  1.0,  1.0,  0.4, // The middle yellow one
+                -1.25, -1.0,  -2.0,  1.0,  1.0,  0.4,
+                -0.25, -1.0,  -2.0,  1.0,  0.4,  0.4,
+
+
+            ]);
+        let n = 18;
+        let FSIZE = f32a.BYTES_PER_ELEMENT;
+        let canvas = ele("#canvas");
+        let shader = ele("#shader");
+        let fragment = ele("#fragment");
+        let gl = getWebGLContext(canvas);
+        initShaders(gl,shader.innerHTML,fragment.innerHTML);
+        let a_position = gl.getAttribLocation(gl.program,"a_position");
+        let vecBuf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,vecBuf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(a_position,3,gl.FLOAT,false,FSIZE*6,0);
+        gl.enableVertexAttribArray(a_position);
+        let a_color = gl.getAttribLocation(gl.program,"a_color");
+        let colorBuf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,colorBuf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(a_color,3,gl.FLOAT,false,FSIZE*6,FSIZE*3);
+        gl.enableVertexAttribArray(a_color);
+        let u_chance = gl.getUniformLocation(gl.program,"u_chance");
+        let chance = new Matrix4();
+        chance.setTranslate(0,0,-1);
+        gl.uniformMatrix4fv(u_chance,false,chance.elements);
+        let u_perspective = gl.getUniformLocation(gl.program,"u_perspective");
+        let perspective = new Matrix4();
+        perspective.perspective(45,1,0.1,100);
+        gl.uniformMatrix4fv(u_perspective,false,perspective.elements);
+       let u_camera = gl.getUniformLocation(gl.program,"u_camera");
+
+        var viewMatrix = new Matrix4();
+        viewMatrix.setLookAt(0, 0, 3, 0, 0, -100, 0, 1, 0);
+        gl.uniformMatrix4fv(u_camera, false, viewMatrix.elements);
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.enable(gl.DEPTH_TEST);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLES,0,n);
+    })
+</script>
+</body>
+</html>

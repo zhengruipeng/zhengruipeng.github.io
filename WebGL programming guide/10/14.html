@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="400" height="400" id="canvas"></canvas>
+<script type="text/javascript" src="../../libs/超级实用の小工具.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script src="../../libs/cuon-matrix.js"></script>
+<script type="x-vertex/x-shader" id="shader">
+    attribute vec4 a_position;
+    attribute vec4 a_normal;
+    uniform mat4 u_perspective;
+    varying vec3 v_Normal;
+    varying vec3 v_Position;
+    varying vec4 v_Color;
+    varying vec2 v_texture;
+    attribute vec2 a_texture;
+void main() {
+    vec4 a_color = vec4(1.0,1.0,1.0,1.0);
+    gl_Position = u_perspective * a_position;
+    v_Position = vec3(a_position);
+    v_Normal = normalize(vec3(a_normal));
+    v_Color = a_color;
+    v_texture = a_texture;
+}
+
+</script>
+<script type="x-fragment/x-fragment" id="fragment">
+#ifdef GL_ES
+    precision highp float;
+    #endif
+    uniform vec3 u_directional_color;
+    uniform vec3 u_directional_pos;
+    uniform vec3 u_ambient;
+    varying vec3 v_Normal;
+    varying vec3 v_Position;
+    varying vec4 v_Color;
+    uniform sampler2D u_sampler0;
+    varying vec2 v_texture;
+    void main() {
+        vec3 normal = normalize(v_Normal);
+        vec3 lightDirection = normalize(u_directional_pos - v_Position);
+        float nDotL = max(dot(lightDirection, normal), 0.0);
+        vec3 diffuse = u_directional_color * v_Color.rgb * nDotL;
+        vec3 ambient = u_ambient * v_Color.rgb;
+        gl_FragColor = vec4(texture2D(u_sampler0,v_texture).rgb + diffuse + ambient, v_Color.a);
+    }
+</script>
+<script type="x-webgl/x-shader" >
+attribute vec4 a_position;
+uniform mat4 u_perspective;
+uniform mat4 u_translate_change;
+varying vec2 v_texture;
+attribute vec2 a_texture;
+void main (){
+    gl_Position = u_perspective * u_translate_change * a_position;
+    v_texture = a_texture;
+}
+</script>
+<script type="x-webgl/x-fragment" >
+precision highp float;
+uniform sampler2D u_sampler0;
+varying vec2 v_texture;
+void main(){
+    gl_FragColor = texture2D(u_sampler0,v_texture);
+}
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = ele("#canvas");
+        canvas.width=document.documentElement.clientWidth;
+        canvas.height=document.documentElement.clientHeight;
+        let shader = ele("#shader");
+        let fragment = ele("#fragment");
+        let gl = canvas.getContext("webgl");
+        let vertices = [   // Vertex coordinates
+            1.0, 1.0, 1.0,  -1.0, 1.0, 1.0,  -1.0,-1.0, 1.0,   1.0,-1.0, 1.0,  // v0-v1-v2-v3 front
+            1.0, 1.0, 1.0,   1.0,-1.0, 1.0,   1.0,-1.0,-1.0,   1.0, 1.0,-1.0,  // v0-v3-v4-v5 right
+            1.0, 1.0, 1.0,   1.0, 1.0,-1.0,  -1.0, 1.0,-1.0,  -1.0, 1.0, 1.0,  // v0-v5-v6-v1 up
+            -1.0, 1.0, 1.0,  -1.0, 1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0,-1.0, 1.0,  // v1-v6-v7-v2 left
+            -1.0,-1.0,-1.0,   1.0,-1.0,-1.0,   1.0,-1.0, 1.0,  -1.0,-1.0, 1.0,  // v7-v4-v3-v2 down
+            1.0,-1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0, 1.0,-1.0,   1.0, 1.0,-1.0   // v4-v7-v6-v5 back
+        ];
+        let texture_vertices = [
+            1,1,1, 0,1,1, 0,0,1, 1,0,1,
+            0,1,1, 0,0,1, 1,0,-1, 1,1,-1,
+            1,1,1, 0,1,-1, 0,0,-1, 1,0,1,
+            1,1,1, 0,1,-1, 0,0,-1, 1,0,1,
+            1,1,-1, 0,1,-1, 0,0,1, 1,0,1,
+            0,0,-1, 1,0,-1, 1,1,-1, 0,1,-1
+        ];
+        let normal = [
+            0.0, 0.0, 1.0,  0.0, 0.0, 1.0,  0.0, 0.0, 1.0,  0.0, 0.0, 1.0, // v0-v1-v2-v3 front
+            1.0, 0.0, 0.0,  1.0, 0.0, 0.0,  1.0, 0.0, 0.0,  1.0, 0.0, 0.0, // v0-v3-v4-v5 right
+            0.0, 1.0, 0.0,  0.0, 1.0, 0.0,  0.0, 1.0, 0.0,  0.0, 1.0, 0.0, // v0-v5-v6-v1 up
+            -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, // v1-v6-v7-v2 left
+            0.0,-1.0, 0.0,  0.0,-1.0, 0.0,  0.0,-1.0, 0.0,  0.0,-1.0, 0.0, // v7-v4-v3-v2 down
+            0.0, 0.0,-1.0,  0.0, 0.0,-1.0,  0.0, 0.0,-1.0,  0.0, 0.0,-1.0  // v4-v7-v6-v5 back
+        ];
+        let indices = [       // Indices of the vertices
+            0, 1, 2,   0, 2, 3,    // front
+            4, 5, 6,   4, 6, 7,    // right
+            8, 9,10,   8,10,11,    // up
+            12,13,14,  12,14,15,    // left
+            16,17,18,  16,18,19,    // down
+            20,21,22,  20,22,23     // back
+        ];
+        let initBuffer = function (name,f32a){
+            let attribute = gl.getAttribLocation(gl.program,name);
+            let buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute);
+        };
+        let initPerspective = function (pos,lookAt){
+            let u_camera = gl.getUniformLocation(gl.program,"u_perspective");
+            var mvpMatrix = new Matrix4();
+            mvpMatrix.setPerspective(30, canvas.offsetWidth/canvas.offsetHeight, 1 ,100);
+            mvpMatrix.lookAt(...pos, ...lookAt, 0, 1, 0);
+            gl.uniformMatrix4fv(u_camera, false, mvpMatrix.elements);
+        };
+        let initAmbient = function (color){
+            let u_ambient_color = gl.getUniformLocation(gl.program,"u_ambient");
+            gl.uniform3f(u_ambient_color,...color);
+        };
+        let loadTexture = function (){
+            let u_sampler0 = gl.getUniformLocation(gl.program,"u_sampler0");
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,1);
+            let texture = gl.createTexture();
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D,texture);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,this);
+            gl.uniform1i(u_sampler0,0);
+        };
+        let initTexture = function (src){
+            initBuffer("a_texture",new Float32Array(texture_vertices));
+            let image = new Image();
+            image.src = src;
+            image.onload = loadTexture;
+        };
+        let initDirectional = function (color,pos){
+            let u_directional_color = gl.getUniformLocation(gl.program,"u_directional_color");
+            let u_directional_pos = gl.getUniformLocation(gl.program,"u_directional_pos" );
+            gl.uniform3f(u_directional_pos,...pos);
+            gl.uniform3f(u_directional_color,...color);
+
+        };
+        let initIndices = function  (){
+            let indexBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexBuffer);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indices),gl.STATIC_DRAW);
+        };
+        let render = function (){
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            gl.drawElements( gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0 );
+            requestAnimationFrame(render);
+        };
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.enable(gl.DEPTH_TEST);
+        initShaders(gl,shader.innerHTML,fragment.innerText);
+        initPerspective([3,2,5],[0,0,0]);
+        initBuffer("a_position",new Float32Array(vertices));
+        initBuffer("a_normal",new Float32Array(normal));
+        initDirectional([1,1,1],[3,8,2]);
+        initAmbient([0,0,0]);
+        initTexture("../image/sky.jpg");
+        initIndices();
+        render();
+
+    })
+</script>
+</body>
+</html>

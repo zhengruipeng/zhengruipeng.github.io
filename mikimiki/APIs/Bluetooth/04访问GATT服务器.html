@@ -24,6 +24,10 @@
 <body>
 <button id="requestDevice">搜索</button>
 <button id="forgetDevice">忘记</button>
+
+<button id="gattServer">查看GATT服务器</button>
+<button id="connectgattServer">连接GATT服务器</button>
+<button id="disconnectgattServer">断开连接GATT服务器</button>
 <script type="module">
 
 </script>
@@ -36,6 +40,10 @@
         const requestDeviceBtn = this.querySelector("#requestDevice");
         const forgetDeviceBtn = this.querySelector("#forgetDevice");
 
+        const gattServerBtn = this.querySelector("#gattServer");
+        const connectgattServerBtn = this.querySelector("#connectgattServer");
+        const disconnectgattServerBtn = this.querySelector("#disconnectgattServer");
+
         console.log(navigator.bluetooth)
 
 
@@ -43,7 +51,7 @@
             console.log(bluetoothdevices)
 
             bluetoothdevices.forEach(bluetoothdevice => {
-                bluetoothdevice.createItem(bluetoothdevice.name);
+                listInstance.createItem(bluetoothdevice.name);
             })
 
         });
@@ -68,6 +76,34 @@
                 listInstance.removeItem(num);
 
                 console.log(await navigator.bluetooth.getDevices())
+
+            });
+
+
+        };
+        gattServerBtn.onclick = function (){
+            const num = prompt("查看第几个？")-0;
+            navigator.bluetooth.getDevices().then(async bluetoothdevice => {
+                console.log(bluetoothdevice[num].gatt);
+
+            });
+
+
+        };
+        connectgattServerBtn.onclick = function (){
+            const num = prompt("连接第几个？")-0;
+            navigator.bluetooth.getDevices().then(async bluetoothdevice => {
+                // console.log(bluetoothdevice[num].gatt);
+                bluetoothdevice[num].gatt.connect().then(bluetoothRemoteGATTService => console.log(bluetoothRemoteGATTService))
+            });
+
+
+        };
+        disconnectgattServerBtn.onclick = function (){
+            const num = prompt("断开第几个？")-0;
+            navigator.bluetooth.getDevices().then(async bluetoothdevice => {
+                // console.log(bluetoothdevice[num].gatt);
+                bluetoothdevice[num].gatt.disconnect()
 
             });
 

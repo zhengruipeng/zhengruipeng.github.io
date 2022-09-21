@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="text/javascript" src="../../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-vertex-shader" id="vertex" >
+attribute vec4 a_position;
+attribute vec4 a_normal;
+attribute vec4 a_color;
+varying vec4 v_color;
+uniform vec4 u_ambient_color;
+uniform vec4 u_directional_color;
+uniform vec4 u_directional_pos;
+uniform mat4 u_perspective;
+uniform bool u_clicked;
+uniform mat4 u_chance;
+void main(){
+    vec4 color;
+    gl_Position = u_chance * u_perspective * a_position;
+    color = a_color;
+    vec4 directional_pos = normalize(u_directional_pos);
+    float theta = max(dot(a_normal,directional_pos),0.0);
+    vec4 directional = color * u_directional_color * theta;
+    vec4 ambient = u_ambient_color * color;
+    v_color = ambient + directional;
+}
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 v_color;
+void main(){
+    gl_FragColor = v_color;
+}
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = document.getElementById("canvas");
+        let vertex = document.getElementById("vertex");
+        let fragment = document.getElementById("fragment");
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+        let gl = canvas.getContext("webgl");
+        let createShader = function (vertex,type){
+            let shader = gl.createShader(type);
+            gl.shaderSource(shader,vertex);
+            gl.compileShader(shader);
+            gl.getShaderParameter(shader,gl.COMPILE_STATUS);
+            gl.getShaderInfoLog(shader);
+            return shader;
+        };
+        let initShader = function (vertex,fragment) {
+            let ver = createShader(vertex,gl.VERTEX_SHADER);
+            let frag = createShader(fragment,gl.FRAGMENT_SHADER);
+            let program = gl.createProgram();
+            gl.attachShader(program,ver);
+            gl.attachShader(program,frag);
+            gl.linkProgram(program);
+            gl.getProgramParameter(program,gl.LINK_STATUS);
+            gl.getProgramInfoLog(program);
+            gl.useProgram(program);
+            gl.program = program;
+
+        };
+        let vertices = new Float32Array([   // Vertex coordinates
+            1.0, 1.0, 1.0,  -1.0, 1.0, 1.0,  -1.0,-1.0, 1.0,   1.0,-1.0, 1.0,  // v0-v1-v2-v3 front
+            1.0, 1.0, 1.0,   1.0,-1.0, 1.0,   1.0,-1.0,-1.0,   1.0, 1.0,-1.0,  // v0-v3-v4-v5 right
+            1.0, 1.0, 1.0,   1.0, 1.0,-1.0,  -1.0, 1.0,-1.0,  -1.0, 1.0, 1.0,  // v0-v5-v6-v1 up
+            -1.0, 1.0, 1.0,  -1.0, 1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0,-1.0, 1.0,  // v1-v6-v7-v2 left
+            -1.0,-1.0,-1.0,   1.0,-1.0,-1.0,   1.0,-1.0, 1.0,  -1.0,-1.0, 1.0,  // v7-v4-v3-v2 down
+            1.0,-1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0, 1.0,-1.0,   1.0, 1.0,-1.0   // v4-v7-v6-v5 back
+        ]);
+        let normals = new Float32Array([
+            0.0, 0.0, 1.0,  0.0, 0.0, 1.0,  0.0, 0.0, 1.0,  0.0, 0.0, 1.0, // v0-v1-v2-v3 front
+            1.0, 0.0, 0.0,  1.0, 0.0, 0.0,  1.0, 0.0, 0.0,  1.0, 0.0, 0.0, // v0-v3-v4-v5 right
+            0.0, 1.0, 0.0,  0.0, 1.0, 0.0,  0.0, 1.0, 0.0,  0.0, 1.0, 0.0, // v0-v5-v6-v1 up
+            -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, // v1-v6-v7-v2 left
+            0.0,-1.0, 0.0,  0.0,-1.0, 0.0,  0.0,-1.0, 0.0,  0.0,-1.0, 0.0, // v7-v4-v3-v2 down
+            0.0, 0.0,-1.0,  0.0, 0.0,-1.0,  0.0, 0.0,-1.0,  0.0, 0.0,-1.0  // v4-v7-v6-v5 back
+        ]);
+        let indices = new Uint8Array([
+            0, 1, 2,   0, 2, 3,    // front
+            4, 5, 6,   4, 6, 7,    // right
+            8, 9,10,   8,10,11,    // up
+            12,13,14,  12,14,15,    // left
+            16,17,18,  16,18,19,    // down
+            20,21,22,  20,22,23     // back
+        ]);
+        let initAttrib = function (name,f32a){
+            let attribute = gl.getAttribLocation(gl.program,name);
+            let buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute);
+        };
+        let initAmbient = function(color){
+            let u_ambient_color = gl.getUniformLocation(gl.program,"u_ambient_color");
+            gl.uniform4f(u_ambient_color,...color);
+        };
+        let initDirectional = function(pos,color){
+            let u_directional_color = gl.getUniformLocation(gl.program,"u_directional_color");
+            let u_directional_pos = gl.getUniformLocation(gl.program,"u_directional_pos");
+            gl.uniform4f(u_directional_pos,...pos);
+            gl.uniform4f(u_directional_color,...color);
+
+        };
+        let initPerspective = function (pos,lookAt){
+            let matrix = new Matrix4();
+            let u_perspective = gl.getUniformLocation(gl.program,"u_perspective");
+            matrix.perspective(45,canvas.width/canvas.height,.1,1000);
+            matrix.lookAt(...pos,...lookAt,0,1,0);
+            gl.uniformMatrix4fv(u_perspective,false,matrix.elements);
+        };
+        let reDraw = function (config){
+            let scale = config.scale || [1,1,1];
+            let rotate = config.rotate || [0,1,0,0];
+            let translate = config.translate || [0,0,0];
+            let color = config.color || [1.0,1.0,1.0,1.0];
+            let matrix = new Matrix4();
+            matrix.translate(...translate);
+            matrix.scale(...scale);
+            matrix.rotate(...rotate);
+            let u_chance = gl.getUniformLocation(gl.program,"u_chance");
+            let a_color = gl.getAttribLocation(gl.program,"a_color");
+            gl.uniformMatrix4fv(u_chance,false,matrix.elements);
+            gl.vertexAttrib4f(a_color,...color);
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_BYTE,0);
+        };
+        // gl.enable(gl.BLEND);
+        // gl.blendFunc(gl.DST_ALPHA,gl.ONE_MINUS_DST_ALPHA);
+        // gl.depthMask(gl.FALSE);
+        initShader(vertex.innerText,fragment.innerText);
+        initAttrib("a_position",vertices);
+        initAttrib("a_normal",normals);
+        initAmbient([.2,.2,.2,1]);
+        initDirectional([10,22,30,1],[1.0,1.0,1.0,1.0]);
+        initPerspective([4,3,5],[0,0,0]);
+       /* gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+
+        gl.enable(gl.DEPTH_TEST);*/
+
+        gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,1);
+        gl.clearColor(0,0,0,1);
+        let index = gl.createBuffer();
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,index);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,indices,gl.STATIC_DRAW);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT );
+
+        reDraw({
+            translate:[ 0.5,0.0,0.0],
+            color:[1.0,0.0,0.0,1.0]
+        });
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.DST_ALPHA,gl.ONE_MINUS_DST_ALPHA);
+        gl.depthMask(gl.FALSE);
+        reDraw({
+            translate:[ -0.5,0.0,0.0],
+            color:[1.0,0.0,0.0,0.5],
+            rotate:[360,0,1,0]
+        });
+        // gl.depthMask(true);
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" height="400" width="400"></canvas>
+<script src="../../libs/webgl-utils.js"></script>
+<script src="../../libs/webgl-debug.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script src="../../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-shader" id="shader">
+attribute vec4 glPosition;
+attribute vec4 aColor;
+varying vec4 vColor;
+    void main(){
+        vColor = aColor;
+        gl_Position = glPosition;
+        gl_PointSize = 10.0;
+    }
+</script>
+<script type="x-webgl/x-fragment" id="fragment">
+precision mediump float;
+varying vec4 vColor;
+    void main (){
+        gl_FragColor = vColor;
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = this.getElementById("canvas");
+        let shader = this.getElementById("shader");
+        let fragment = this.getElementById("fragment");
+        let gl = getWebGLContext(canvas);
+        initShaders(gl,shader.innerText,fragment.innerText);
+        let glPosition = gl.getAttribLocation(gl.program,"glPosition");
+        let buf = gl.createBuffer();
+        let f32a = new Float32Array(
+            [   0.0,0.5,1.0,0.0,0.0,
+                0.5,-0.35,0.0,1.0,0.0,
+                -0.5,-0.35,0.0,0.0,1.0]
+        );
+        let FSIZE = f32a.BYTES_PER_ELEMENT;
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(glPosition,2,gl.FLOAT,false,FSIZE*5,0);
+        gl.enableVertexAttribArray(glPosition);
+        let aColor = gl.getAttribLocation(gl.program,"aColor");
+        buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aColor,3,gl.FLOAT,false,FSIZE*5,FSIZE*2);
+        gl.enableVertexAttribArray(aColor);
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLE_STRIP,0,3);
+    })
+</script>
+</body>
+</html>

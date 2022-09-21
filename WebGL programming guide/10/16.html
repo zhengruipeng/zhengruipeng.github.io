@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="webgl"></canvas>
+<script type="text/javascript" src="../../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-vertex-shader" id="vertex">#version 300 es
+in vec4 a_position;
+in vec4 a_normal;
+uniform mat4 u_perspective;
+uniform mat4 u_chance;
+uniform vec4 u_ambient;
+uniform vec4 u_directional_pos;
+uniform vec4 u_directional_color;
+out vec4 v_position;
+out vec4 v_normal;
+out vec4 v_ambient;
+out vec4 v_directional_pos;
+out vec4 v_directional_color;
+void main(){
+        gl_Position = u_perspective*u_chance * a_position;
+        v_position = a_position;
+        v_normal = a_normal;
+        v_ambient = u_ambient;
+        v_directional_pos = u_directional_pos;
+        v_directional_color = u_directional_color;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">#version 300 es
+precision highp float;
+in vec4 v_position;
+in vec4 v_normal;
+in vec4 v_ambient;
+in vec4 v_directional_pos;
+in vec4 v_directional_color;
+out vec4 frag_color;
+void main(){
+    vec3 color = vec3(1.0,1.0,0.0);
+    vec3 ambient = vec3(v_ambient) * color;
+    vec3 directional_pos = vec3(normalize(v_directional_pos-v_position));
+    vec3 normal = vec3(normalize(v_normal));
+    float theta = max(dot(normal,directional_pos),0.0);
+    vec3 directional = color * vec3(v_directional_color) * theta;
+    frag_color = vec4(ambient + directional,1.0);
+}
+</script>
+<script type="x-webgl/x-vertex-shader" id="texture_vertex">#version 300 es
+in vec4 a_position;
+in vec2 a_texture_position;
+uniform mat4 u_perspective;
+out vec2 v_texture_position;
+    void main(){
+        gl_Position = u_perspective * a_position;
+        v_texture_position = a_texture_position;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="texture_fragment">#version 300 es
+precision highp float;
+in vec2 v_texture_position;
+out vec4 frag_color;
+uniform sampler2D u_sampler;
+void main(){
+    frag_color = texture(u_sampler,v_texture_position);
+}
+</script>
+</body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let webgl = document.getElementById("webgl");
+        let vertex = document.getElementById("vertex");
+        let fragment = document.getElementById("fragment");
+        let vertex2 = document.getElementById("texture_vertex");
+        let fragment2 = document.getElementById("texture_fragment");
+        webgl.height = document.documentElement.clientHeight;
+        webgl.width = document.documentElement.clientWidth;
+        let gl = webgl.getContext("webgl2");
+        let vertices = new Float32Array([   // Vertex coordinates
+            1.0, 1.0, 1.0,  -1.0, 1.0, 1.0,  -1.0,-1.0, 1.0,   1.0,-1.0, 1.0,  // v0-v1-v2-v3 front
+            1.0, 1.0, 1.0,   1.0,-1.0, 1.0,   1.0,-1.0,-1.0,   1.0, 1.0,-1.0,  // v0-v3-v4-v5 right
+            1.0, 1.0, 1.0,   1.0, 1.0,-1.0,  -1.0, 1.0,-1.0,  -1.0, 1.0, 1.0,  // v0-v5-v6-v1 up
+            -1.0, 1.0, 1.0,  -1.0, 1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0,-1.0, 1.0,  // v1-v6-v7-v2 left
+            -1.0,-1.0,-1.0,   1.0,-1.0,-1.0,   1.0,-1.0, 1.0,  -1.0,-1.0, 1.0,  // v7-v4-v3-v2 down
+            1.0,-1.0,-1.0,  -1.0,-1.0,-1.0,  -1.0, 1.0,-1.0,   1.0, 1.0,-1.0   // v4-v7-v6-v5 back
+        ]);
+        let indices = new Uint8Array([       // Indices of the vertices
+            0, 1, 2,   0, 2, 3,    // front
+            4, 5, 6,   4, 6, 7,    // right
+            8, 9,10,   8,10,11,    // up
+            12,13,14,  12,14,15,    // left
+            16,17,18,  16,18,19,    // down
+            20,21,22,  20,22,23     // back
+        ]);
+        let normals = new Float32Array([    // Normal
+            0.0, 0.0, 1.0,   0.0, 0.0, 1.0,   0.0, 0.0, 1.0,   0.0, 0.0, 1.0,  // v0-v1-v2-v3 front
+            1.0, 0.0, 0.0,   1.0, 0.0, 0.0,   1.0, 0.0, 0.0,   1.0, 0.0, 0.0,  // v0-v3-v4-v5 right
+            0.0, 1.0, 0.0,   0.0, 1.0, 0.0,   0.0, 1.0, 0.0,   0.0, 1.0, 0.0,  // v0-v5-v6-v1 up
+            -1.0, 0.0, 0.0,  -1.0, 0.0, 0.0,  -1.0, 0.0, 0.0,  -1.0, 0.0, 0.0,  // v1-v6-v7-v2 left
+            0.0,-1.0, 0.0,   0.0,-1.0, 0.0,   0.0,-1.0, 0.0,   0.0,-1.0, 0.0,  // v7-v4-v3-v2 down
+            0.0, 0.0,-1.0,   0.0, 0.0,-1.0,   0.0, 0.0,-1.0,   0.0, 0.0,-1.0   // v4-v7-v6-v5 back
+        ]);
+        let plane_vertices = [1,1,0,-1,1,0,-1,-1,0,1,-1,0];
+        let texture_vertices = [1,1,0,0,1,0,0,0,0,1,0,0];
+        let OFFSETWIDTH = 512,OFFSETHEIGHT = 512;
+
+        let loadShader = function (type,text){
+            let shader = gl.createShader(type);
+            gl.shaderSource(shader,text);
+            gl.compileShader(shader);
+            return shader;
+        };
+        let initShader = function (vertex,fragment,vertex2,framgent2){
+            vertex2 = loadShader(gl.VERTEX_SHADER,vertex2);
+            framgent2 = loadShader(gl.FRAGMENT_SHADER,framgent2);
+            let program2 = gl.createProgram();
+            gl.attachShader(program2,vertex2);
+            gl.attachShader(program2,framgent2);
+            gl.linkProgram(program2);
+            vertex = loadShader(gl.VERTEX_SHADER,vertex);
+            fragment = loadShader(gl.FRAGMENT_SHADER,fragment);
+            let program = gl.createProgram();
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,fragment);
+            gl.linkProgram(program);
+            gl.useProgram(program);
+            gl.SHADER_PROGRAM = program;
+            gl.SHADER_PROGRAM2 = program2;
+        };
+        let initBuffer = function (name,typeArr,type){
+            let attribute = gl.getAttribLocation(type,name);
+            let buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+            gl.bufferData(gl.ARRAY_BUFFER,typeArr,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute);
+        };
+        let initElementBuffer = function (typeArr){
+            let buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buffer);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,typeArr,gl.STATIC_DRAW);
+        };
+        let initUniform = function(name,value){
+            let uniform = gl.getUniformLocation(gl.SHADER_PROGRAM,name);
+            gl.uniform4f(uniform,...value);
+        };
+        let initPerspective = function (pos,lookAt,type){
+            let matrix = new Matrix4();
+            if(type === gl.SHADER_PROGRAM){
+                matrix.perspective(45,1,.1,1000);
+            }else{
+                matrix.perspective(45,webgl.width/webgl.height,.1,1000);
+            }
+            matrix.lookAt(...pos,...lookAt,0,1,0);
+            let u_perspective = gl.getUniformLocation(type,"u_perspective");
+            gl.uniformMatrix4fv(u_perspective,false,matrix.elements)
+        };
+        let initChance = function (){
+            let matrix = new Matrix4();
+            matrix.scale(1,1,1);
+            let u_chance = gl.getUniformLocation(gl.SHADER_PROGRAM,"u_chance");
+            gl.uniformMatrix4fv(u_chance,false,matrix.elements)
+        };
+
+        let drawCube = function (){
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
+        };
+        let drawPlane = function (){
+            gl.useProgram(gl.SHADER_PROGRAM2);
+            initPerspective([0,0,5],[0,0,0],gl.SHADER_PROGRAM2);
+            initBuffer("a_position",new Float32Array(plane_vertices),gl.SHADER_PROGRAM2);
+            initBuffer("a_texture_position",new Float32Array(texture_vertices),gl.SHADER_PROGRAM2);
+            initChance();
+            gl.drawArrays(gl.TRIANGLE_FAN,0,4);
+
+        };
+        let initFrameBufferObject = function(){
+            let frameBuffer = gl.createFramebuffer();
+            let texture = gl.createTexture();
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,1);
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D,texture);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,OFFSETWIDTH,OFFSETHEIGHT,0,gl.RGB,gl.UNSIGNED_BYTE,null);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+            let depthBuffer = gl.createRenderbuffer();
+            gl.bindRenderbuffer(gl.RENDERBUFFER,depthBuffer);
+            gl.renderbufferStorage(gl.RENDERBUFFER,gl.DEPTH_COMPONENT16,OFFSETWIDTH,OFFSETHEIGHT);
+            gl.bindFramebuffer(gl.FRAMEBUFFER,frameBuffer);
+            gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,texture,0);
+            gl.framebufferRenderbuffer(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.RENDERBUFFER,depthBuffer);
+            return frameBuffer;
+        };
+        let render = function (){
+            gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);
+            gl.viewport(0,0,OFFSETWIDTH,OFFSETHEIGHT);
+            gl.clearColor(.2,.2,.2,1);
+            gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+            drawCube();
+            gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+            gl.viewport(0,0,webgl.width,webgl.height);
+            gl.clearColor(0,0,0,1);
+            gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+            drawPlane();
+        };
+        gl.clearColor(0,0,0,1);
+        gl.enable(gl.DEPTH_TEST);
+
+        initShader(vertex.innerText,fragment.innerText,vertex2.innerText,fragment2.innerText);
+        initBuffer("a_position",new Float32Array(vertices),gl.SHADER_PROGRAM);
+        initBuffer("a_normal",new Float32Array(normals),gl.SHADER_PROGRAM);
+        initElementBuffer(new Uint16Array(indices));
+        initPerspective([3,4,5],[-3,-4,-5],gl.SHADER_PROGRAM);
+        initChance();
+        initUniform("u_ambient",[.2,.2,.2,1.0]);
+        initUniform("u_directional_pos",[2,4,5,1]);
+        initUniform("u_directional_color",[1,1,1,1]);
+        let fbo = initFrameBufferObject();
+        render();
+    })
+
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" height="400" width="400"></canvas>
+<script src="../../libs/webgl-utils.js"></script>
+<script src="../../libs/webgl-debug.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script type="x-webgl/x-shader" id="shader">
+attribute vec4 aPosition;
+uniform mat4 uMatrix;
+    void main(){
+        gl_Position = aPosition*uMatrix;
+        gl_PointSize = 10.0;
+    }
+</script>
+<script type="x-webgl/x-fragment" id="fragment">
+    void main(){
+        gl_FragColor = vec4(1.0,1.0,1.0,1.0);
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = document.getElementById("canvas");
+        let shader = document.getElementById("shader");
+        let fragment = document.getElementById("fragment");
+        let gl = getWebGLContext(canvas);
+        initShaders(gl,shader.innerHTML,fragment.innerHTML);
+        let aPosition = gl.getAttribLocation(gl.program,"aPosition");
+        let uMatrix = gl.getUniformLocation(gl.program,"uMatrix");
+        let rotation = Math.PI/180*30;
+        let sinB = Math.sin(rotation),cosB = Math.cos(rotation);
+        let f32a = new Float32Array(
+                    [cosB,sinB,0.0,0.0,
+                        -sinB,cosB,0.0,0.0,
+                        0.0,0.0,1.0,0.0,
+                        0.0,0.0,0.0,1.0]);
+        let f32a2 = new Float32Array([0.5,0.0,0.0,0.5,-0.5,0.0]);
+        let buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a2,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPosition,2,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(aPosition);
+        gl.uniformMatrix4fv(uMatrix,false,f32a);
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLE_FAN,0,3);
+
+    })
+
+</script>
+</body>
+</html>

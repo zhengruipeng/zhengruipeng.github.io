@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./list.css">
+    <style>
+        button{
+            padding:5px 14px;
+            background-color: #fff;
+            border-radius: 5px;
+            border:#639 solid 2px;
+            color:#639;
+            margin:auto;
+            transition: .3s;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #639;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<button id="request">尝试获取USB</button>
+<script type="module">
+    import {listInstance} from "./create-list.js"
+
+    document.addEventListener("DOMContentLoaded",function (){
+        const requestBtn = this.querySelector("#request");
+
+        const filters = [
+/*            { vendorId: 0x1209, productId: 0xa800 },
+            { vendorId: 0x1209, productId: 0xa850 },*/
+        ];
+
+        navigator.usb.getDevices().then(devices => {
+            console.log(`Total devices: ${devices.length}`);
+            devices.forEach((device) => {
+                console.log(`Product name: ${device.productName}, serial number ${device.serialNumber}`);
+                listInstance.createItem(device.productName);
+
+            });
+        })
+
+        requestBtn.onclick = function (){
+            navigator.usb.requestDevice({ filters })
+                .then((usbDevice) => {
+                    console.log(usbDevice)
+                    console.log(`Product name: ${usbDevice.productName}`);
+                })
+                .catch((e) => {
+                    console.error(`There is no device. ${e}`);
+                });
+        }
+    })
+</script>
+</body>
+</html>

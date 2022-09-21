@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="400" height="400" id="canvas"></canvas>
+<script type="text/javascript" src="../../libs/超级实用の小工具.js"></script>
+<script src="../../libs/webgl-utils.js"></script>
+<script src="../../libs/webgl-debug.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script src="../../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-shader" id="shader">
+uniform mat4 u_camera;
+uniform mat4 u_model;
+attribute vec4 a_position;
+attribute vec4 a_color;
+varying vec4 v_color;
+void main(){
+    gl_Position = u_camera * u_model * a_position;
+    v_color = a_color;
+}
+</script>
+<script type="x-webgl/x-fragment" id="fragment">
+precision highp float;
+varying vec4 v_color;
+void main(){
+    gl_FragColor = v_color;
+}
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = ele("#canvas");
+        let shader = ele("#shader");
+        let fragment = ele("#fragment");
+        let GL = getWebGLContext(canvas);
+        let f32a = new Float32Array([
+            0.0,  0.5,  -0.4,  0.4,  1.0,  0.4,
+            -0.5, -0.5,  -0.4,  0.4,  1.0,  0.4,
+            0.5, -0.5,  -0.4,  1.0,  0.4,  0.4,
+            0.5,  0.4,  -0.2,  1.0,  0.4,  0.4,
+            -0.5,  0.4,  -0.2,  1.0,  1.0,  0.4,
+            0.0, -0.6,  -0.2,  1.0,  1.0,  0.4,
+            0.0,  0.5,   0.0,  0.4,  0.4,  1.0,
+            -0.5, -0.5,   0.0,  0.4,  0.4,  1.0,
+            0.5, -0.5,   0.0,  1.0,  0.4,  0.4
+        ]);
+        let FSIZE = f32a.BYTES_PER_ELEMENT;
+        initShaders(GL,shader.innerHTML,fragment.innerHTML);
+        let u_camera = GL.getUniformLocation(GL.program,"u_camera");
+        let u_model = GL.getUniformLocation(GL.program,"u_model");
+        let a_position = GL.getAttribLocation(GL.program,"a_position");
+        let a_color = GL.getAttribLocation(GL.program,"a_color");
+        let verBuf = GL.createBuffer();
+        GL.bindBuffer(GL.ARRAY_BUFFER,verBuf);
+        GL.bufferData(GL.ARRAY_BUFFER,f32a,GL.STATIC_DRAW);
+        GL.vertexAttribPointer(a_position,3,GL.FLOAT,false,FSIZE*6,0);
+        GL.enableVertexAttribArray(a_position);
+        let colorBuf = GL.createBuffer();
+        GL.bindBuffer(GL.ARRAY_BUFFER,colorBuf);
+        GL.bufferData(GL.ARRAY_BUFFER,f32a,GL.STATIC_DRAW);
+        GL.vertexAttribPointer(a_color,3,GL.FLOAT,false,FSIZE*6,FSIZE*3);
+        GL.enableVertexAttribArray(a_color);
+        let cameraMatrix = new Matrix4();
+        cameraMatrix.setLookAt(0.20, 0.25, 0.25, 0, 0, 0, 0, 1, 0);
+        GL.uniformMatrix4fv(u_camera,false,cameraMatrix.elements);
+        let modelMatrix = new Matrix4();
+        modelMatrix.setRotate(0,0,1,0);
+        modelMatrix.setRotate(0,1,0,0);
+
+        let keypress = function (e){
+            if(e.keyCode === 37){
+                modelMatrix.rotate(1,0,1,0);
+            }else if(e.keyCode === 39){
+                modelMatrix.rotate(-1,0,1,0);
+            }else if(e.keyCode === 38){
+                modelMatrix.rotate(1,1,0,0);
+            }else if(e.keyCode === 40){
+                modelMatrix.rotate(-1,1,0,0);
+            }else return ;
+            render();
+
+        };
+        let render = function (){
+            GL.uniformMatrix4fv(u_model,false,modelMatrix.elements);
+            GL.clear(GL.COLOR_BUFFER_BIT);
+            GL.drawArrays(GL.TRIANGLES,0,9);
+
+        };
+        GL.clearColor(0.0,0.0,0.0,1.0);
+        render();
+        window.onkeypress = keypress;
+
+    })
+</script>
+</body>
+</html>

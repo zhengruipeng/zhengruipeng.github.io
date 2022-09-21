@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" height="400" width="400"></canvas>
+<script src="../../libs/webgl-utils.js"></script>
+<script src="../../libs/webgl-debug.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script src="../../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-shader" id="shader">
+attribute vec4 aPosition;
+attribute vec2 aTexture;
+varying vec2 v_TexCoord;
+    void main(){
+        gl_Position = aPosition;
+        v_TexCoord = aTexture;
+    }
+</script>
+<script type="x-webgl/x-fragment" id="fragment">
+#ifdef GL_ES
+precision mediump float;
+#endif
+uniform sampler2D u_Sampler;
+varying vec2 v_TexCoord;
+    void main(){
+        gl_FragColor = texture2D(u_Sampler, v_TexCoord);
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = document.getElementById("canvas");
+        let shader = document.getElementById("shader");
+        let fragment = document.getElementById("fragment");
+        let gl = getWebGLContext(canvas);
+        let url = "../image/sky.jpg";
+        initShaders(gl,shader.innerText,fragment.innerText);
+        let f32a = new Float32Array(
+            [
+                -0.5, 0.5, 0.0, 1.0,
+                -0.5, -0.5, 0.0, 0.0,
+                0.5, 0.5, 1.0, 1.0,
+                0.5, -0.5, 1.0, 0.0,
+            ]
+        );
+        let FSIZE = f32a.BYTES_PER_ELEMENT;
+        let aPosition = gl.getAttribLocation(gl.program,"aPosition");
+        let buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPosition,2,gl.FLOAT,false,FSIZE*4,0);
+        gl.enableVertexAttribArray(aPosition);
+        let aTexture = gl.getAttribLocation(gl.program,"aTexture");
+        buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aTexture,2,gl.FLOAT,false,FSIZE*4,FSIZE*2);
+        gl.enableVertexAttribArray(aTexture);
+        let texture = gl.createTexture();
+        let u_Sampler = gl.getUniformLocation(gl.program,"u_Sampler");
+        let image = new Image();
+        image.src = url;
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        image.onload = function (){
+            load(this);
+        };
+        function load(img){
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);//对纹理图像进行y轴反转
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
+            gl.uniform1i(u_Sampler, 0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        }
+
+    })
+</script>
+</body>
+</html>

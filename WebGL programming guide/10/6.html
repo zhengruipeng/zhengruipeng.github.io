@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="x-webgl/x-vertex-shader" id="vertex">
+attribute vec4 a_position;
+varying vec4 v_position;
+
+    void main(){
+        gl_Position = a_position;
+        gl_PointSize = 50.0;
+    }
+</script>
+<script type="x-webgl/x-fragment-shader" id="fragment">
+precision highp float;
+varying vec4 v_position;
+
+    void main(){
+        float dist = distance(gl_PointCoord,vec2(0.5,0.5));
+        if(dist<0.5){
+                gl_FragColor = vec4(1.0,1.0,1.0,1.0);
+
+        }else{
+            discard;
+        }
+    }
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = document.getElementById("canvas");
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+        let gl = canvas.getContext("webgl");
+        let vertex = document.getElementById("vertex");
+        let fragment = document.getElementById("fragment");
+        let createShader = function (s,type){
+            let shader = gl.createShader(type);
+            gl.shaderSource(shader,s);
+            gl.compileShader(shader);
+            gl.getShaderParameter(shader,gl.COMPILE_STATUS);
+            gl.getShaderInfoLog(shader);
+            return shader;
+
+        };
+        let initShader = function (vertex,fragment){
+            vertex = createShader(vertex,gl.VERTEX_SHADER);
+            fragment = createShader(fragment,gl.FRAGMENT_SHADER);
+            let program = gl.createProgram();
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,fragment);
+            gl.linkProgram(program);
+            gl.getProgramParameter(program,gl.LINK_STATUS);
+            gl.getProgramInfoLog(program);
+            gl.useProgram(program);
+            gl.program = program;
+        };
+        initShader(vertex.innerText,fragment.innerText);
+        let initAttrib = function (name,f32a){
+            let attribute = gl.getAttribLocation(gl.program,name);
+            let buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(attribute,2,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(attribute);
+        };
+        initAttrib("a_position",new Float32Array([0.0,0.5,0.5,-0.5,-0.5,-0.5]));
+        gl.enable(gl.DEPTH_TEST);
+        gl.clearColor(0,0,0,1);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        gl.drawArrays(gl.POINTS,0,3);
+    })
+</script>
+</body>
+</html>

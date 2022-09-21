@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" height="400" width="400"></canvas>
+<script src="../../libs/webgl-utils.js"></script>
+<script src="../../libs/webgl-debug.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script src="../../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-shader" id="shader">
+attribute float glPointSize;
+attribute vec4 glPosition;
+    void main(){
+        gl_Position = glPosition;
+        gl_PointSize = glPointSize;
+    }
+</script>
+<script type="x-webgl/x-fragment" id="fragment">
+    void main(){
+        gl_FragColor = vec4(1.0,1.0,1.0,1.0);
+    }
+</script>
+<script type="text/javascript"> n
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = document.getElementById("canvas");
+        let shader = document.getElementById("shader");
+        let fragment = document.getElementById("fragment");
+        let gl = getWebGLContext(canvas);
+        initShaders(gl,shader.innerText,fragment.innerText);
+        let glPointSize = gl.getAttribLocation(gl.program,"glPointSize");
+        let buf = gl.createBuffer();
+        let f32a = new Float32Array([10.0,20.0,30.0]);
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(glPointSize,1,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(glPointSize);
+        let glPosition = gl.getAttribLocation(gl.program,"glPosition");
+        f32a = new Float32Array([0.5,0.0,0.0,0.5,-0.5,0.0]);
+        buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(glPosition,2,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(glPosition);
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.POINTS,0,3);
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+        body{
+          column-count: 3;
+          column-gap: 25px;
+          column-rule: #639 solid 3px;
+        }
+        table{
+          margin:15px auto;
+          border-collapse: collapse;
+          border:#639 solid 1px;
+          text-align: center;
+        }
+        td{
+          border:#639 solid 1px;
+          padding:10px 20px;
+          color:#639;
+        }
+        td>input{
+          color:#639;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <td>类型</td>
+      <td>样式</td>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+
+    const tbody = this.querySelector("table>tbody")
+
+    let initInput = function (type/*String*/){
+      let input = document.createElement("input")
+      input.type = type;
+      return input;
+    }
+
+    let initTable = function (arr){
+      let fragment = document.createDocumentFragment();
+
+      arr.forEach(row => {
+        let tr = document.createElement("tr");
+        let typeName = document.createElement("td");
+        let inputContainer = document.createElement("td");
+
+        typeName.innerHTML = row;
+        inputContainer.appendChild(initInput(row));
+
+        tr.appendChild(typeName)
+        tr.appendChild(inputContainer);
+
+        fragment.appendChild(tr);
+      });
+
+      tbody.appendChild(fragment);
+
+    }
+
+    let arr = ["checkbox","color","date","datetime-local","email","file","hidden","image","month","number","password","radio","range","reset","search","submit","tel","text","time","url","week","datetime"];
+
+    initTable(arr);
+
+
+
+
+  })
+</script>
+</body>
+</html>

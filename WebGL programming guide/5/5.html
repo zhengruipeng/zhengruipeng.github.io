@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>Indexed Database Example</title>
+</head>
+<body>
+<canvas height="400" width="400" id="canvas"></canvas>
+<script src="../../libs/webgl-utils.js"></script>
+<script src="../../libs/webgl-debug.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script src="../../libs/cuon-matrix.js"></script>
+<script type="x-webgl/x-shader" id="shader">
+attribute vec4 aPosition;
+varying vec2 vTexture;
+attribute vec2 aTexture;
+void main(){
+    gl_Position = aPosition;
+    gl_PointSize = 10.0;
+    vTexture = aTexture;
+}
+</script>
+<script type="x-webgl/x-fragment" id="fragment">
+precision mediump float;
+varying vec2 vTexture;
+uniform sampler2D uSampler0;
+uniform sampler2D uSampler1;
+void main(){
+    vec4 color0 = texture2D(uSampler0,vTexture);
+    vec4 color1 = texture2D(uSampler1,vTexture);
+    gl_FragColor = color0* color1;
+}
+
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let canvas = document.getElementById("canvas");
+        let shader = document.getElementById("shader");
+        let fragment = document.getElementById("fragment");
+        let gl = getWebGLContext(canvas);
+        initShaders(gl,shader.innerText,fragment.innerText);
+        let f32a = new Float32Array(
+            [-0.5,0.5,0.0,1.0,
+                0.5,0.5,1.0,1.0,
+                -0.5,-0.5,0.0,0.0,
+                0.5,-0.5,1.0,0.0]);
+        let FSIZE = f32a.BYTES_PER_ELEMENT;
+        let aPosition = gl.getAttribLocation(gl.program,"aPosition");
+        let vertexBuf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPosition,2,gl.FLOAT,false,FSIZE*4,0);
+        gl.enableVertexAttribArray(aPosition);
+
+        let aTexture = gl.getAttribLocation(gl.program,"aTexture");
+        let textureBuf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,textureBuf);
+        gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aTexture,2,gl.FLOAT,false,FSIZE*4,FSIZE*2);
+        gl.enableVertexAttribArray(aTexture);
+
+        let loaded = function (){
+            let uSampler = gl.getUniformLocation(gl.program,"uSampler"+this.name);
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,1);
+            let texture = gl.createTexture();
+            gl.activeTexture(gl["TEXTURE"+this.name]);
+            gl.bindTexture(gl.TEXTURE_2D,texture);
+            gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+            gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,this);
+            gl.uniform1i(uSampler,this.name);
+            temp[this.name] = true;
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            if(temp.every((e) => {return e===true;}))gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+
+
+        };
+
+        let temp = [false,false];
+        let image = new Image();
+        image.src="../image/sky.jpg";
+        image.name = 0;
+        image.onload = loaded;
+        let image1 = new Image();
+        image1.src = "../image/circle.gif";
+        image1.name = 1;
+        image1.onload = loaded;
+        gl.clearColor(0.0,0.0,0.0,1.0);
+    })
+</script>
+</body>
+</html>

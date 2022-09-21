@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let arr = [];
+        let initArr = function (n){
+            for(let i = 0;i<n;i++){
+                arr.push(i+1);
+            }
+        };
+        let allNull = function (arr){
+            return arr.every(v => v === undefined)
+        }
+        initArr(10);
+        let res = [];
+        let current = 0;
+        console.log(arr);
+
+        while(!allNull(arr)){
+            for(let i = 1;i<=arr.length;i++){
+
+                if(i&1 === 1){
+                    res[current] = arr[i-1]
+                    arr[i-1] = undefined;
+                }
+                arr = arr.map(v => v!== undefined);
+            }
+            current++;
+        }
+        console.log(res);
+        console.log(arr);
+
+    })
+</script>
+</body>
+</html>

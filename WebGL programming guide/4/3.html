@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas height="400" width="400" id="canvas"></canvas>
+<input type="text" id="text" value="1"/>
+<script src="../../libs/webgl-utils.js"></script>
+<script src="../../libs/webgl-debug.js"></script>
+<script src="../../libs/cuon-utils.js"></script>
+<script src="../../libs/cuon-matrix.js"></script>
+<script src="../../libs/stats.js"></script>
+<script type="x-webgl/x-shader" id="shader">
+attribute vec4 aPosition;
+uniform mat4 uChance;
+void main(){
+    gl_Position = aPosition * uChance;
+    gl_PointSize = 10.0;
+}
+</script>
+<script type="x-webgl/x-fragment" id="fragment">
+void main(){
+    gl_FragColor = vec4(1.0,1.0,1.0,1.0);
+}
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let initBuf = function (){
+            let aPosition = gl.getAttribLocation(gl.program,"aPosition");
+            let buf = gl.createBuffer();
+            let f32a = new Float32Array([0.5,0.0,0.0,0.5,-0.5,0.0]);
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+            gl.bufferData(gl.ARRAY_BUFFER,f32a,gl.STATIC_DRAW);
+            gl.vertexAttribPointer(aPosition,2,gl.FLOAT,false,0,0);
+            gl.enableVertexAttribArray(aPosition);
+        };
+        let render = function (){
+            stats.update();
+            let value = Number(v.value) || 1;
+            matrix.setRotate(i+=value,0,0,1);
+            gl.uniformMatrix4fv(uChance,false,matrix.elements);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.drawArrays(gl.TRIANGLE_FAN,0,3);
+            requestAnimationFrame(render);
+        };
+        let initState = function (){
+            stats.setMode(0);
+            stats.domElement.style.position = "absolute";
+            stats.domElement.style.left = "0";
+            stats.domElement.style.top = "0";
+            document.body.appendChild(stats.domElement);
+        };
+        let stats = new Stats();
+        let canvas = document.getElementById("canvas");
+        let shader = document.getElementById("shader");
+        let fragment = document.getElementById("fragment");
+        let v = document.getElementById("text");
+        let i = 0;
+        let gl = getWebGLContext(canvas);
+        let matrix = new Matrix4();
+        initShaders(gl,shader.innerHTML,fragment.innerHTML);
+        let uChance = gl.getUniformLocation(gl.program,"uChance");
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        initState();
+        initBuf();
+        render();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            column-count:3;
+            column-rule: #639 solid 3px;
+            column-gap: 25px
+        }
+        table {
+            margin:30px auto;
+            border-collapse: collapse;
+            caption-side: bottom;
+
+            page-break-inside: avoid;
+        }
+
+        table caption {
+            color: #639;
+            font-size: 1.2em;
+            margin: 20px;
+            font-family: "微软雅黑"
+        }
+
+        td {
+            border: 1px #639 solid;
+            padding: 10px 20px;
+            color: #639;
+            transition: .3s;
+        }
+
+        td:hover {
+            background-color: #639;
+            color: white;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", async function () {
+        let response = await fetch("input.txt")
+        let text = await response.text();
+        let initArray = function (n/*阶数*/, text/*内容*/) {
+
+            let res = new Array(n);
+
+            let rows = text.split('\r\n');
+            let cols = rows.map(row => row.split(" ").map(parseFloat));
+            rows.map(row => console.log(row.split(" ").map(parseFloat)))
+
+            for (let i = 0; i < n; i++) {
+                res[i] = cols[i]
+
+                res[i].length = n;
+            }
+
+            let path = new Array(n);
+            for (let i = 0; i < n; i++) {
+                path[i] = new Array(5);
+            }
+
+            return {
+                data: res,
+                path
+            };
+
+        };
+
+        let takeArr2IntoTable = function (arr, caption = "") {
+            let fragment = document.createDocumentFragment();
+
+            let table = document.createElement("table");
+
+            let captionEle = document.createElement("caption");
+            captionEle.innerText = caption;
+            table.appendChild(captionEle)
+
+            let thead = document.createElement("thead");
+            table.appendChild(thead)
+
+            let tbody = document.createElement("tbody");
+            table.appendChild(tbody);
+
+            fragment.appendChild(table);
+            arr.forEach(row => {
+                let tr = document.createElement("tr");
+
+                row.forEach(col => {
+                    let td = document.createElement("td");
+                    td.innerText = col;
+                    tr.appendChild(td);
+                });
+
+                tbody.appendChild(tr);
+            });
+            document.body.appendChild(fragment);
+        }
+
+        let {data, path} = initArray(text.substring(0, text.indexOf("\n")),
+            text.substring(text.indexOf("\n") + 1));
+
+
+        console.log(data);
+
+        takeArr2IntoTable(data, "原始数据");
+
+        let originalData = structuredClone(data);
+
+        console.log(path);
+
+        for (let currentRowNum = data.length - 2; currentRowNum >= 0; currentRowNum--) {
+
+            let currentRow = data[currentRowNum];
+
+            currentRow.forEach((v, i, arr) => {
+
+                if (data[currentRowNum + 1][i] > data[currentRowNum + 1][i + 1]) {
+                    path[currentRowNum][i] = 0;   //左面大是0
+                } else {
+                    path[currentRowNum][i] = 1;   //右面大是1
+                }
+
+                arr[i] = v + Math.max(data[currentRowNum + 1][i], data[currentRowNum + 1][i + 1])
+            });
+        }
+
+        takeArr2IntoTable(data, "计算后数据");
+        takeArr2IntoTable(path, "路径数据");
+
+        let pathRes = [];
+
+        console.log(originalData);
+
+        let pathPointer = 0;
+
+        pathRes.push(originalData[0][0]);
+
+        originalData.forEach((row, i) => {
+            if (i === 0) return false;
+
+            pathRes.push(row[pathPointer += path[i - 1][pathPointer]]);
+        });
+
+
+        console.log(pathRes);
+
+        takeArr2IntoTable([pathRes], "计算出的路径");
+        takeArr2IntoTable([[data[0][0]]], "计算出的最大数字");
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./list.css">
+    <style>
+        button{
+            padding:5px 14px;
+            background-color: #fff;
+            border-radius: 5px;
+            border:#639 solid 2px;
+            color:#639;
+            margin:auto;
+            transition: .3s;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #639;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<button id="request">尝试获取USB</button>
+<button id="info">获取选中项的信息</button>
+<script type="module">
+    import {listInstance} from "./create-list.js"
+
+    document.addEventListener("DOMContentLoaded",function (){
+        const requestBtn = this.querySelector("#request");
+        const infoBtn = this.querySelector("#info");
+
+        const filters = [
+            /*            { vendorId: 0x1209, productId: 0xa800 },
+                        { vendorId: 0x1209, productId: 0xa850 },*/
+        ];
+
+
+        navigator.usb.getDevices().then(devices => {
+            console.log(`Total devices: ${devices.length}`);
+            devices.forEach((usbDevice) => {
+                console.log(`Product name: ${usbDevice.productName}, serial number ${usbDevice.serialNumber}`);
+                console.log(usbDevice);
+
+
+                let item = listInstance.createItem(usbDevice.productName);
+                item.usbDevice = usbDevice;
+
+            });
+        })
+
+        requestBtn.onclick = function (){
+            navigator.usb.requestDevice({ filters })
+                .then((usbDevice) => {
+                    console.log(usbDevice)
+                    console.log(`Product name: ${usbDevice.productName}`);
+
+
+                    let item = listInstance.createItem(usbDevice.productName);
+                    item.usbDevice = usbDevice;
+                })
+                .catch((e) => {
+                    console.error(`There is no device. ${e}`);
+                });
+        }
+        infoBtn.onclick = function (){
+            listInstance.getSelectedItems().forEach( item => {
+                console.log(item.usbDevice);
+                console.log(item.usbDevice.configuration);
+            })
+        };
+    })
+</script>
+</body>
+</html>
