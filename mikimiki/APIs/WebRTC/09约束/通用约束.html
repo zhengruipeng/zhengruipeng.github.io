@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video controls muted></video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const video = this.querySelector("video");
+        navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(async mediaStream => {
+            video.srcObject = mediaStream;
+
+            let mediaStreamTrack = mediaStream.getVideoTracks()[0];
+
+            console.log(mediaStreamTrack)
+
+
+            let constrain = {
+                deviceId: "communications",
+                groupId:"9d2cf3ad22c613f018029f2ccd360b6a9200fbbc42766401ef2bdad3322e07e2"
+            };
+
+            mediaStreamTrack.applyConstraints(constrain);
+
+            console.log(mediaStream);
+            console.log(await navigator.mediaDevices.enumerateDevices());
+
+            video.play();
+
+            console.log(mediaStream.getTrackById("123456"))
+        })
+    })
+</script>
+</body>
+</html>

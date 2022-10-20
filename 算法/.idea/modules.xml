@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/算法.iml" filepath="$PROJECT_DIR$/.idea/算法.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/算法2.iml" filepath="$PROJECT_DIR$/.idea/算法2.iml" />
       <module fileurl="file://$PROJECT_DIR$/递归与分治/递归与分治.iml" filepath="$PROJECT_DIR$/递归与分治/递归与分治.iml" />
     </modules>
   </component>

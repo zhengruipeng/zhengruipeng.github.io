@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #container{
+        position:absolute;
+        top:50px;
+        left:50px;
+        width:600px;
+        border-top:#96b 4px solid;
+    }
+    #container>.item{
+        position:absolute;
+        top:-6px;
+        border:#639 5px solid;
+        border-radius: 50%;
+
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+<!--    <div class="item"></div>-->
+</div>
+<footer>红色的为邮局坐标，紫色的为居民坐标</footer>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+        const container = this.querySelector("#container");
+
+        let width = 600;
+
+        let data = []
+
+      let createPoint = function (x,isTarget = false){
+          const item = document.createElement("div")
+          item.className = "item";
+          // data[i] = x;
+          item.style.left = x +"px";
+          if(isTarget){
+              item.style.borderColor = "red";
+          }
+
+          container.appendChild(item);
+      }
+
+        for(let i = 0;i<100;i++){
+            let x = Math.random()*width;
+            createPoint(x);
+            data[i] = x;
+        }
+
+        let distance = function (a,b){
+            return Math.abs(a-b);
+        }
+
+        let x,y;
+
+        x = 0;
+        y = width;
+
+      let xWeight = 1;
+      let yWeight = 1;
+
+        data.forEach((v,i,a) => {
+            if(distance(v,x)>distance(v,y)){        //离y近
+                console.log(distance(v,y) / (yWeight++))
+                y = y - (y-v) / (yWeight++);
+            }else{      //离x近
+                x = x - (x-v) / (xWeight++);
+            }
+        });
+
+      console.log(x,y);
+
+      createPoint(x,true);
+      createPoint(y,true);
+
+  })
+</script>
+</body>
+</html>

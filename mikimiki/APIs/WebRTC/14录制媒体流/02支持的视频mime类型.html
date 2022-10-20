@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    import {JSONParser} from "../JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded",async function () {
+        let types = [
+            "video/mp4",
+            "audio/mp3",
+            "video/webm",
+        "audio/webm",
+            "video/webm\;codecs=vp8",
+            "video/webm\;codecs=daala",
+            "audio/webm\;codecs=opus",
+            "video/mpeg"
+        ];
+
+        types.forEach(type => {
+            console.log(type,MediaRecorder.isTypeSupported(type));
+
+        })
+        // console.log(MediaRecorder.isTypeSupported());
+    });
+</script>
+</body>
+</html>

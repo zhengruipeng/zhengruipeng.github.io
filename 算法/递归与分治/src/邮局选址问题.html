@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    svg{
+      height: 600px;
+      width: 600px;
+      border:#639 solid 1px;
+    }
+    svg>circle{
+      fill:#639;
+    }
+    footer{
+        position: relative;
+
+        content: "";
+        border-radius: 15px;
+        background-color: #639;
+        color:white;
+
+        padding: 10px 20px;
+
+
+    }
+  </style>
+</head>
+<body>
+<svg id="container">
+    <g>
+
+    </g>
+  <circle r="5" cx="100" cy="100"></circle>
+
+</svg>
+<footer>红色的为邮局坐标，紫色的为居民坐标</footer>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      const svg = this.querySelector("svg");
+      const netGroup = this.querySelector("svg>g");
+
+      let initXLines = function (start,end,sugment){
+          let {width,height} = svg.getBoundingClientRect();
+          let scale = 1;
+
+          let group = netGroup;
+          for(let i=start;i<=end;i+=sugment){
+              let path = document.createElementNS("http://www.w3.org/2000/svg","path");
+              path.setAttribute("d","M "+((i-width/2)+width/2)+" 0 "+ ((i-width/2)+width/2) + " "+ height);
+              path.style.stroke = "#639";
+              path.style.fill = "none";
+              group.appendChild(path);
+              if(scale.value >2){
+                  let text = document.createElementNS("http://www.w3.org/2000/svg","text");
+                  text.appendChild(document.createTextNode(i-width/2));
+                  text.setAttribute("x",(i-width/2)*scale.value+width/2);
+                  text.setAttribute("y",height/2);
+                  text.style.fill = "white";
+                  group.appendChild(text);
+              }
+          }
+      };
+      let initYLines = function (start,end,sugment){
+          let {width,height} = svg.getBoundingClientRect();
+          let scale = 1;
+
+          let group = netGroup;
+
+          for(let i=start;i<=end;i+=sugment){
+              let path = document.createElementNS("http://www.w3.org/2000/svg","path");
+              path.setAttribute("d", "M 0 " + ((i-height/2) + height / 2) + " " + width + " " + ((i-height/2) + height / 2));
+              path.style.stroke = "#96b";
+              path.style.fill = "none";
+              group.appendChild(path);
+              if(scale.value >2) {
+                  let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                  text.appendChild(document.createTextNode(height / 2 - i));
+                  text.setAttribute("x", width / 2);
+                  text.setAttribute("y", (i - height / 2) * scale.value + height / 2);
+                  text.style.fill = "white";
+                  group.appendChild(text);
+              }
+          }
+      };
+      let initNet = function (){
+          let {width,height} = svg.getBoundingClientRect();
+          netGroup.innerHTML = "";
+
+          initXLines(0,width,20)
+          initYLines(0,height,20);
+      };
+      initNet();
+
+      let getCenter = function (arr){
+          if(arr.length & 1){
+              return arr[Math.floor(arr.length/2)];
+          }else{
+              return (arr[arr.length/2-1] + arr[arr.length/2]) /2;
+
+          }
+      }
+
+      let data = [];
+      let xData = [],
+          yData = [];
+      let disData = [];
+      data.length = 20;
+
+
+
+      for(let i = 0;i<data.length;i++){
+          data[i] = new DOMPoint(Math.random() * 600,Math.random() * 600);
+
+          let tempCircle = document.createElementNS("http://www.w3.org/2000/svg","circle")
+          tempCircle.r.baseVal.value = 5;
+          tempCircle.cx.baseVal.value = data[i].x;
+          tempCircle.cy.baseVal.value = data[i].y;
+
+          svg.appendChild(tempCircle);
+
+          xData.push(data[i].x);
+          yData.push(data[i].y);
+
+      }
+
+        xData.sort();
+      yData.sort();
+
+      let cx = getCenter(xData);
+      let cy = getCenter(yData);
+
+      let tempCircle = document.createElementNS("http://www.w3.org/2000/svg","circle")
+      tempCircle.r.baseVal.value = 5;
+      tempCircle.cx.baseVal.value = cx;
+      tempCircle.cy.baseVal.value = cy;
+      tempCircle.style.fill = "red";
+      svg.appendChild(tempCircle);
+
+
+  })
+</script>
+</body>
+</html>

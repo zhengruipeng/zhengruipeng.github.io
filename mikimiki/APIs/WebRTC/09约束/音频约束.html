@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <link rel="stylesheet" type="text/css" href="" />-->
+</head>
+<body>
+<video controls ></video>
+<script type="module">
+    import {JSONParser} from "../JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded",function (){
+        const video = this.querySelector("video");
+        navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(async mediaStream => {
+            video.srcObject = mediaStream;
+
+            let audioStreamTrack = mediaStream.getAudioTracks()[0];
+
+            console.log(audioStreamTrack)
+
+
+            let constrain = {
+                autoGainControl: true,
+                channelCount: 2,
+                echoCancellation: true,
+                latency: 1,
+                noiseSuppression: true,
+                sampleRate: 44100,
+                sampleSize: 16
+            };
+
+            const jsonParser = new JSONParser(constrain);
+            jsonParser.import("../table-default-style.css");
+            jsonParser.initTable();
+            jsonParser.onJsonChange = async function (ev){
+                // console.log(ev)
+                try{
+                    await audioStreamTrack.applyConstraints(ev.json)
+                    console.log(audioStreamTrack.getConstraints());
+                }catch (e){
+                    let p = document.createElement("p");
+                    p.innerHTML = `${e.name},${e.message}`;
+                    document.body.appendChild(p)
+                }
+            };
+            jsonParser.children.forEach(child => {
+                child.jsonParser.onJsonChange = function (ev){
+                    jsonParser.jsonChange();
+                };
+            });
+
+            await audioStreamTrack.applyConstraints(constrain)
+
+            video.play();
+
+        })
+    })
+</script>
+</body>
+</html>

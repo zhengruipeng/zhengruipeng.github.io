@@ -70,8 +70,15 @@
       var shouldCallPaymentRequest = true;
 
       // Make a dummy payment request to check if user can make payment
-      new PaymentRequest(buildSupportedPaymentMethodData(),
-          {total: {label: 'Stub', amount: {currency: 'USD', value: '0.01'}}})
+      new PaymentRequest(buildSupportedPaymentMethodData(), {
+            total: {
+              label: 'Stub',
+              amount: {
+                currency: 'USD',
+                value: '0.01'
+              }
+            }
+          })
         .canMakePayment()
         .then(function(result) {
           shouldCallPaymentRequest = result;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="notification"></p>
+<button id="startRecord">开始录制</button>
+<button id="stopRecord">停止录制</button>
+<button id="view">预览</button>
+<button id="download">下载</button>
+<hr/>
+<canvas height="480" width="640" id="canvas" style="border:#000 solid 1px;cursor:crosshair"></canvas>
+<video height="480" width="640" id="video" style="border:#000 solid 1px;" autoplay muted playsinline></video>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const notification = this.getElementById("notification");
+    const startRecordBtn = this.getElementById("startRecord");
+    const stopRecordBtn = this.getElementById("stopRecord");
+    const viewBtn = this.getElementById("view");
+    const downloadBtn = this.getElementById("download");
+    const canvas = this.getElementById("canvas");
+    const video = this.getElementById("video");
+    const c = canvas.getContext("2d");
+    c.strokeStyle = "#000";
+    if(!canvas.captureStream){
+      canvas.captureStream = canvas.mozCaptureStream;
+    }
+    canvas.onmousedown = function (e){
+      let x = e.x-this.offsetLeft;
+      let y = e.y-this.offsetTop;
+      c.moveTo(x,y);
+      c.lineTo(x,y);
+      c.stroke();
+      this.onmousemove = function (e){
+        let x = e.x-this.offsetLeft;
+        let y = e.y-this.offsetTop;
+        c.lineTo(x,y);
+        c.stroke();
+      };
+      this.onmouseup = function (e){
+        // c.stroke();
+        this.onmousemove = null;
+      }
+    };
+    let mediaRecord = null;
+    let recordBlob = [];
+    startRecordBtn.onclick = function (){
+      let fps = 30;
+      let options = {mimeType:"video/mp4;codecs=vp8"}
+      let recordTime = 10;
+      let mediaStream = canvas.captureStream(fps);
+      video.srcObject = mediaStream;
+
+      mediaRecord = new MediaRecorder(mediaStream,options);
+      mediaRecord.start(recordTime);
+      mediaRecord.ondataavailable = function (e){
+        // console.log(e.data);
+        recordBlob.push(e.data);
+        notification.innerHTML = "开始记录";
+      };
+      mediaRecord.onstop = function (e){
+        notification.innerHTML = "已停止";
+      }
+    };
+    stopRecordBtn.onclick = function (){
+      mediaRecord.stop();
+    };
+    viewBtn.onclick = function (){
+      video.src = URL.createObjectURL(new Blob(recordBlob,{type:"video/webm"}));
+    };
+    downloadBtn.onclick = function (){
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob(recordBlob,{type:"video/webm"}));
+      a.download = "test.webm";
+      a.style.display = "none";
+      a.click();''
+      notification.innerHTML = "下载开始";
+
+    };
+  })
+</script>
+</body>
+</html>

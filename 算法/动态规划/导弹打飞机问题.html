@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let arr = [389,207,155,300,299,170,158,65];
+
+        let missiles = [];
+
+        let searchHeightNearest = function (height/*number*/){
+            let res = undefined;
+            missiles.forEach(missile => {
+                if(missile.height<height && (!res || res<missile.height)){
+                    res = missile;
+                }
+            });
+            return res;
+
+        };
+
+        let Missile = class extends Object{
+            height = undefined;
+            constructor(height) {
+                super();
+                this.height = height;
+            }
+        };
+
+        arr.forEach(v => {
+            let missile = searchHeightNearest(v);
+            if(missile){
+                missile.height = v;
+            }else{
+                missiles.push(new Missile(v));
+            }
+        });
+
+        console.log(missiles);
+    })
+</script>
+</body>
+</html>

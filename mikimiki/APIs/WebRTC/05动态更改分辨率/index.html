@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="obtainCamera">获取摄像头</button>
+<form>
+  <label for="clarity"></label>
+  <select id="clarity">
+    <option data-height="1" data-width="1">640*480</option>
+    <option data-height="480" data-width="640">640*480</option>
+    <option data-height="720" data-width="1280">1280*720</option>
+    <option data-height="1080" data-width="1920">1920*1080</option>
+  </select>
+</form>
+<p id="notification"></p>
+<video autoplay playsinline id="video">
+
+</video>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    let clarity = this.getElementById("clarity");
+    let obtainCamera = this.getElementById("obtainCamera");
+    let video = this.getElementById("video");
+    let notification = this.getElementById("notification");
+
+    obtainCamera.onclick = function (){
+      navigator.mediaDevices.getUserMedia({audio:false,video:true}).then( mediaStream => {
+        video.srcObject = mediaStream;
+        let track = mediaStream.getVideoTracks()[0];
+        clarity.onchange = function (e){
+          const that = this;
+          track.applyConstraints({
+            video:
+                    {
+                      width:that.selectedOptions[0].dataset.width-0,
+                      height:that.selectedOptions[0].dataset.height-0
+                    }
+          }).then(res => {
+            notification.innerHTML = "修改成功";
+          }).catch(err => {
+            console.log(err.name);
+          });
+        }
+      })
+    }
+  })
+  </script>
+</body>
+</html>

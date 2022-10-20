@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;margin:0;
+        }
+    </style>
+</head>
+<body>
+<!--一个画布-->
+<canvas id="webgl"></canvas>
+<!--点着色器-->
+<script type="x-webgl/x-vertex-shader" id="vertex">#version 300 es
+//in为缓冲类型变量，每次执行着色器都会变
+//vec4为四维向量，
+//创建三个缓冲类型的四维向量，分别代表当前点的坐标，法向量，和颜色
+in vec4 a_position;
+in vec4 a_normal;
+in vec4 a_color;
+
+//uniform为常规变量，每次执行着色器不会变
+//mat4为四维矩阵，
+//创建两个四维矩阵一个用于存储透视矩阵，一个存储变换矩阵
+uniform mat4 u_perspective;
+uniform mat4 u_change;
+
+
+uniform vec4 u_ambient;     //常规环境光四维向量
+uniform vec4 u_point_pos;       //常规点光源坐标四维向量
+uniform vec4 u_point_color;     //常规点光源颜色四维向量
+uniform vec4 u_perspective_pos;     //常规观察者位置四维向量
+//a,b,c光衰减因子
+uniform float u_reduction_a;
+uniform float u_reduction_b;
+uniform float u_reduction_c;
+
+//漫反射光强
+uniform float u_diffuse_intensity;
+//镜面反射光强
+uniform float u_mirror_intensity;
+
+//漫反射反射光百分比
+uniform float u_diffuse_reflection;
+//镜面反射反射光百分比
+uniform float u_mirror_reflection;
+//高光
+uniform float u_highLight;
+
+//以下同名变量类型和上面的有不一样的，用于向片元着色器传变量
+out vec4 v_position;
+out vec4 v_normal;
+out vec4 v_color;
+out vec4 v_ambient;
+out vec4 v_point_pos;
+out vec4 v_point_color;
+out float v_reduction_a;
+out float v_reduction_b;
+out float v_reduction_c;
+out float v_diffuse_intensity;
+out float v_mirror_intensity;
+out float v_diffuse_reflection;
+out float v_mirror_reflection;
+out float v_highLight;
+out vec4 v_perspective_pos;
+
+//初始加载函数
+    void main(){
+        //最终坐标就是透视下的变换点坐标，相当于眼睛中看到的不断变化的物体
+        gl_Position = u_perspective * u_change * a_position;
+        //客观坐标就是变换矩阵乘以点坐标，也就是物体的客观的位置
+        v_position = u_change * a_position;
+
+        //赋值传变量值
+        v_normal = a_normal;
+        v_color = a_color;
+        v_ambient = u_ambient;
+        v_point_pos = u_point_pos;
+        v_point_color = u_point_color;
+        v_reduction_a = u_reduction_a;
+        v_reduction_b = u_reduction_b;
+        v_reduction_c = u_reduction_c;
+        v_diffuse_intensity = u_diffuse_intensity;
+        v_mirror_intensity = u_mirror_intensity;
+        v_diffuse_reflection = u_diffuse_reflection;
+        v_mirror_reflection = u_mirror_reflection;
+        v_highLight = u_highLight;
+        v_perspective_pos = u_perspective_pos;
+    }
+</script>
+<!--片元着色器-->
+<script type="x-webgl/x-fragment-shader" id="fragment">#version 300 es
+//高精度浮点数
+precision highp float;
+//接受点着色器的传入的数据，意义和上面的一样
+in vec4 v_position;
+in vec4 v_normal;
+in vec4 v_color;
+in vec4 v_ambient;
+in vec4 v_point_pos;
+in vec4 v_point_color;
+in float v_reduction_a;
+in float v_reduction_b;
+in float v_reduction_c;
+in float v_diffuse_intensity;
+in float v_mirror_intensity;
+in float v_diffuse_reflection;
+in float v_mirror_reflection;
+in float v_highLight;
+in vec4 v_perspective_pos;
+out vec4 fragColor;
+    //初始加载
+    void main(){
+        //将四维向量转换成三维向量进行操作，可保证操作正确性
+        vec3 normal = vec3(v_normal);
+        vec3 point_pos = vec3(v_point_pos);
+        vec3 position = vec3(v_position);
+
+        //光位置的向量减去当前点位置的向量
+        vec3 point_relative_pos = point_pos - position;
+
+        //光和当前点的距离
+        float length = length(point_relative_pos);
+
+        //半角向量
+        //就是将光和当前点的向量归一化后
+        //再计算观察点和当前点的差的向量归一化后相加
+        //就是向量和，再进行归一化
+        //就是光和当前点向量的观察点和当前点向量的半角的归一化向量
+        vec3 halfangle = normalize(normalize(vec3(point_relative_pos))+normalize(vec3(v_perspective_pos - v_position)));
+
+        //Lambert光照模型核心，即是用光的向量和法向量求内积，必须大于零
+        float theta = max(dot(normalize(point_relative_pos),normalize(normal)),0.0);
+
+        //光衰减公式：1/(a+b*l+c*l*l)
+        float reduction = 1.0/(v_reduction_a+v_reduction_b*length+v_reduction_c*length*length);
+
+        //漫反射最终光强 = 漫反射光强 * 漫反射光的反射率 * 光和法向量角度的内积
+        float diffuse = v_diffuse_intensity * v_diffuse_reflection * theta;
+
+        //镜面反射最终光强 = 镜面反射光强 * 镜面射光的反射率 * 半角向量和法向量的内积与高光系数做幂运算，必须大于零
+        //做幂运算的原因是高光区域半角向量会和法向量比较接近，取一个幂运算根据幂函数的图像可知
+        //幂函数距离0近的地方函数值高，之后会骤降，从而模拟光照效果
+        float mirror = v_mirror_intensity * v_mirror_reflection * max(pow(dot(normalize(normal),halfangle),v_highLight),0.0);
+
+        //Phong光照模型核心：光衰减 * (漫反射 + 镜面反射)
+        float phong = reduction * (diffuse + mirror);
+
+        //最终得出的点光源和环境光的颜色的贡献：
+        //点光源对于颜色的贡献是点光源的光和物质本身的光相乘，加上phong氏模型的计算结果
+        vec3 point = vec3(v_point_color) * vec3(v_color) * phong;
+
+        //环境光对于颜色的贡献是环境光的光和物质本身的光相乘
+        vec3 ambient = vec3(v_ambient) * vec3(v_color);
+
+        //将所有的光源贡献加在一起，类型转换得出最终结果
+        fragColor = vec4(ambient + point,1.0);
+    }
+</script>
+<script type="text/javascript">
+    //初始加载
+    document.addEventListener("DOMContentLoaded",function (){
+        //获取HTML元素
+        let webgl = this.getElementById("webgl");
+        let vertex = this.getElementById("vertex");
+        let fragment = this.getElementById("fragment");
+
+        //设置画布大小为屏幕大小
+        webgl.width = this.documentElement.clientWidth;
+        webgl.height = this.documentElement.clientHeight-3;
+
+        //获取webgl2绘图上下文对象
+        let gl = webgl.getContext("webgl2");
+
+        //对数学对象新增一个余切运算
+        Math.cot = function (x){
+            return 1/Math.tan(x);
+        };
+
+        //添加着色器工具函数，
+        //第一个参数是点着色器
+        //第二个是片元着色器
+        let initShader = function (vertex,frag){
+            //加载着色器，
+            // 第一个参数是着色器代码，
+            // 第二个参数是着色器类型，
+            // 绑定着色器对象并编译
+            let loadShader = function (text,type){
+                let shader = gl.createShader(type);
+                gl.shaderSource(shader,text);
+                gl.compileShader(shader);
+                return shader;
+            };
+            //分别加载点着色器和片元着色器
+            vertex = loadShader(vertex,gl.VERTEX_SHADER);
+            frag = loadShader(frag,gl.FRAGMENT_SHADER);
+
+            //新建一个着色器程序
+            let program = gl.createProgram();
+
+            //将加载好的着色器贴到程序上
+            gl.attachShader(program,vertex);
+            gl.attachShader(program,frag);
+
+            //连接着色器程序并返回
+            gl.linkProgram(program);
+            return program;
+
+        };
+        //添加buffer缓冲内存块变量，
+        // 第一个参数是变量名称，
+        // 第二个是buffer变量值，为类型化数组，
+        // 第三个是要加入的着色器
+        let initBuffer = function (name,value,shader){
+            //从着色器中取出想要修改的变量的地址
+            let attribute = gl.getAttribLocation(shader,name);
+
+            //添加缓存
+            let buf = gl.createBuffer();
+
+            //将需要操作的缓存绑定到ARRAY_BUFFER，为固定操作
+            gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+
+            //基于该对象进行操作后绑定用户传过来的value值，方式为静态绘制
+            gl.bufferData(gl.ARRAY_BUFFER,value,gl.STATIC_DRAW);
+
+            //设置变量的类型和要绑定到的变量值，以及对于缓存对象是否需要偏移量
+            gl.vertexAttribPointer(attribute,3,gl.FLOAT,false,0,0);
+
+            //激活变量和缓冲
+            gl.enableVertexAttribArray(attribute)
+        };
+
+        //添加Uniform类型的变量，也就是普通的不变化的变量
+        // 第一个参数是变量名称，
+        // 第二个是uniform变量值，为类型化数组，
+        //第三个是类型，是指定uniform变量是什么类型的变量时使用
+        // 第四个是要加入的着色器
+        let initUniform = function (name,value,type,shader){
+            //从着色器中取出想要修改的变量的地址
+            let uniform = gl.getUniformLocation(shader,name);
+
+            //判断类型是否为矩阵类型，
+            // 如果是矩阵类型的话执行矩阵赋值的方法
+            //否则执行向量类型赋值的方法
+            //矩阵类型通常以Matrix开头所以判断是否有M，
+            // 如果是矩阵类型的话需要指定矩阵是否转置，设置为false就是不需要
+            // 向量直接给过去就好，
+            type.slice(0,1) === "M"?gl['uniform'+type](uniform,false,value):gl['uniform'+type](uniform,...value);
+
+        };
+
+        //创建点，法向量，点顺序，颜色，纹理的向量缓存数组
+        let vertices = [],normals = [],indices = [],colors = [],texture = [];
+
+        //绘制球的函数
+        // 第一个参数是用于指定球的半径
+        // 第二个参数是指定球的x轴细分
+        // 第三个参数是指定球的y轴细分
+        let drawSphere = function(radius,segmentX,segmentY) {
+            let lats = segmentX,
+                longs = segmentY;
+
+            //绘制方法为三维极坐标绘制方法，也就是球形坐标
+            //将球形参数方程设置成变量按照细分程度每次加一点后算出新的坐标
+            for (let latNumber = 0; latNumber <= lats; ++latNumber) {
+                for (let longNumber = 0; longNumber <= longs; ++longNumber) {
+                    var u = longNumber / segmentX;
+                    var v = latNumber / segmentY;
+                    let theta = latNumber * Math.PI / lats;
+                    let phi = longNumber / longs * 2 * Math.PI ;
+                    let sinTheta = Math.sin(theta);
+                    let sinPhi = Math.sin(phi);
+                    let cosTheta = Math.cos(theta);
+                    let cosPhi = Math.cos(phi);
+                    let x = cosPhi * sinTheta;
+                    let y = cosTheta;
+                    let z = sinPhi * sinTheta;
+                    // let s, t ,u;
+
+                    //计算过后可以将数据传入之前创建好的缓冲区
+                    vertices.push(radius * x);
+                    vertices.push(radius * y);
+                    vertices.push(radius * z);
+
+                    //梯度方程定义，等势面的法向量永远跟当前点坐标相等
+                    normals.push(x);
+                    normals.push(y);
+                    normals.push(z);
+
+                    //颜色RGB均为1的意思是设置为白色
+                    colors.push(1.0);
+                    colors.push(1.0);
+                    colors.push(1.0);
+
+
+                    texture.push(u);
+                    texture.push(1-v);
+                    texture.push(0);
+                }
+            }
+
+            //再将所有的点的顺序按照一定规则进行排列
+            for (let latNumberI = 0; latNumberI < lats; ++latNumberI) {
+                for (let longNumberI = 0; longNumberI < longs; ++longNumberI) {
+                    let first = (latNumberI * (longs+1)) + longNumberI;
+                    let second = first + longs + 1;
+                    indices.push(first);
+                    indices.push(second);
+                    indices.push(first+1);
+                    indices.push(second);
+                    indices.push(second+1);
+                    indices.push(first+1);
+                }
+            }
+            vertices = new Float32Array(vertices);
+            normals = new Float32Array(normals);
+            colors = new Float32Array(colors);
+            texture = new Float32Array(texture);
+            indices = new Uint16Array(indices);
+        };
+
+        //工具函数，传入一个向量数组，返回向量的长度
+        let distance = function (arr){
+            return Math.hypot(...arr);
+        };
+
+        //工具函数，传入两个三维向量，
+        // 也就是有三个元素的数组，
+        // 返回两个三维向量的叉积，也就是向量积，即法向量
+        let normal = function(arr1,arr2){
+            return [
+                arr1[1]*arr2[2]-arr2[1]*arr1[2],
+                arr2[0]*arr1[2]-arr2[2]*arr1[0],
+                arr2[1]*arr1[0]-arr2[0]*arr1[1],
+            ];
+        };
+
+        //工具函数，两个四维矩阵相乘，返回计算好的四维矩阵
+        let times = function(mat1 ,mat2) {
+            var i, e, a, b, ai0, ai1, ai2, ai3;
+            // Calculate e = a * b
+            e = mat1;
+            a = mat1;
+            b = mat2;
+
+            if (e === b) {
+                b = new Float32Array(16);
+                for (i = 0; i < 16; ++i) {
+                    b[i] = e[i];
+                }
+            }
+
+            for (i = 0; i < 4; i++) {
+                ai0=a[i];  ai1=a[i+4];  ai2=a[i+8];  ai3=a[i+12];
+                e[i]    = ai0 * b[0]  + ai1 * b[1]  + ai2 * b[2]  + ai3 * b[3];
+                e[i+4]  = ai0 * b[4]  + ai1 * b[5]  + ai2 * b[6]  + ai3 * b[7];
+                e[i+8]  = ai0 * b[8]  + ai1 * b[9]  + ai2 * b[10] + ai3 * b[11];
+                e[i+12] = ai0 * b[12] + ai1 * b[13] + ai2 * b[14] + ai3 * b[15];
+            }
+
+            return mat1;
+        };
+
+        //工具函数，三维向量归一化，如果零向量的话返回零向量
+        let normalize = function (vec){
+            return distance(vec) !== 0?[vec[0]/distance(vec),vec[1]/distance(vec),vec[2]/distance(vec)]:[0,0,0];
+        };
+
+        //工具函数，三维向量相减
+        let minus = function (vec1,vec2){
+            return [vec2[0]-vec1[0],vec2[1]-vec1[1],vec2[2]-vec1[2]];
+        };
+
+        //工具函数，平移，把当前向量乘以一个平移矩阵之后返回
+        let translate = function(mat1,x, y, z){
+            var e = mat1;
+            e[12] += e[0] * x + e[4] * y + e[8]  * z;
+            e[13] += e[1] * x + e[5] * y + e[9]  * z;
+            e[14] += e[2] * x + e[6] * y + e[10] * z;
+            e[15] += e[3] * x + e[7] * y + e[11] * z;
+            return mat1;
+        };
+
+        //透视相机矩阵
+        // 前三个参数是代表观察者的眼睛的坐标
+        // 4-6个参数是观察者观察方向的坐标
+        // 7-9个是观察者头顶的方向
+        // 第十个参数是观看者的视角
+        // 第十一个是观看者眼睛的横纵比
+        // 第十二个是眼睛能看到的最近距离
+        // 第十三个是眼睛能看到的最远距离，
+        let initPerspective = function (eyeX,eyeY,eyeZ,centerX,centerY,centerZ,topX,topY,topZ, fovy, ascept, near, far) {
+
+            //视角转弧度
+            fovy = Math.PI/180*fovy;
+
+            //透视矩阵
+            let perspective = new Float32Array([
+                Math.cot(fovy)/ascept,0,0,0,
+                0,Math.cot(fovy),0,0,
+                0,0,-(near+far)/(far-near),-1,
+                0,0,-(2*far*near)/(far-near),0
+            ]);
+
+            //眼坐标系，用于构建观察点和观察方向和头顶方向的位置信息矩阵的框架
+            let fe = [eyeX,eyeY,eyeZ];
+            let fc = [centerX,centerY,centerZ];
+            let ft = [topX,topY,topZ];
+
+            //将看的位置和当前方向进行相减并归一化就可以得出观察者正在往哪里看，也就是z轴向量
+            let fn = normalize(minus(fe,fc));          //z
+
+            //将观察方向和头顶的方向组成一个平面，做一个法向量就是观察者正右面的向量，也就是x轴向量
+            let fu = normalize(normal(fn,ft));        //x
+
+            //将已经确定的两个向量组成的平面做一个法向量就是y轴
+            let fv = normalize(normal(fn,fu));        //y
+
+            //通过x,y,z轴得出一个矩阵框架，webgl矩阵默认转置
+            let lookAt = new Float32Array([
+                fu[0],-fv[0],-fn[0],0,
+                fu[1],-fv[1],-fn[1],0,
+                fu[2],-fv[2],-fn[2],0,
+                0,0,0,1
+            ]);
+
+            //按照眼睛的坐标进行平移
+            lookAt = translate(lookAt,-eyeX,-eyeY,-eyeZ);
+
+            //将目前的视坐标系与透视矩阵坐标系进行叠加，在数学上反应就是矩阵的相乘
+            lookAt = times(perspective,lookAt);
+            return lookAt;
+        };
+
+        //添加数组缓存，用于指定程序绘制点的顺序
+        let initArrayBuffer = function (b){
+            //创建一个缓存
+            let buf = gl.createBuffer();
+            //绑定到缓存区进行操作
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,buf);
+            //绑定传过来的点顺序的类型化数组
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,b,gl.STATIC_DRAW);
+        };
+
+
+        //渲染函数
+        let render = function (){
+
+            //每一帧开始前清空画布
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+            //绘制三角形
+            // 将所有刚才生成的球体三角形全部进行绘制，
+            //缓存类型为short
+            //从第0个点开始
+            gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);
+
+            //刷新屏幕
+            requestAnimationFrame(render);
+        };
+
+        //开启绘图深度测试，防止后绘制的在上的bug
+        gl.enable(gl.DEPTH_TEST);
+
+        //将屏幕清空为RGBA = 0,0,0,1的颜色，也就是不透明黑色
+        gl.clearColor(0,0,0,1);
+
+        //创建着色器对象，将上面的着色器代码全穿进去，返回的着色器程序存入属性中
+        gl.SHADER_PROGRAM0 = initShader(vertex.innerText,fragment.innerText);
+
+        //使用刚才创建的程序对象
+        gl.useProgram(gl.SHADER_PROGRAM0);
+
+        //绘制一个球，半径为1，细分均为32
+        drawSphere(1,32,32);
+
+        //眼睛的位置，0,0,5
+        let perspective_pos = [0,0,5];
+
+        //生成一个透视矩阵，传入指定数据
+        // 位置在0,0,5
+        // 看向0,0,0，也就是中心
+        // 头顶朝向0,1,0，也就是上面
+        // 视角为20度
+        // 横纵比为屏幕的横纵比
+        // 最近能看到.1的距离
+        // 最远能看到1000，
+        let perspectiveMatrix = initPerspective(...perspective_pos,0,0,0,0,1,0,20,webgl.width/webgl.height,.1,1000);
+
+        //将创建好的位置坐标传入着色器缓冲变量
+        initBuffer("a_position",vertices,gl.SHADER_PROGRAM0);
+
+        //将创建好的法向量传入着色器缓冲变量
+        initBuffer("a_normal",normals,gl.SHADER_PROGRAM0);
+
+        //将创建好的颜色向量传入着色器缓冲变量
+        initBuffer("a_color",colors,gl.SHADER_PROGRAM0);
+
+        //将创建好的点绘制顺序传入着色器缓冲
+        initArrayBuffer(indices);
+
+        //将透视矩阵传入着色器四维矩阵变量
+        initUniform("u_perspective",perspectiveMatrix,"Matrix4fv",gl.SHADER_PROGRAM0);
+
+        //将球的变换矩阵传入着色器四维矩阵变量
+        initUniform("u_change",new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]),"Matrix4fv",gl.SHADER_PROGRAM0);
+
+        //设置环境光在着色器中的变量的向量
+        initUniform("u_ambient",[0,0,0,1],"4f",gl.SHADER_PROGRAM0);
+
+        //设置点光源位置在着色器中的变量的向量
+        initUniform("u_point_pos",[2,3,5,1],"4f",gl.SHADER_PROGRAM0);
+
+        //设置点光源颜色在着色器中的变量的向量
+        initUniform("u_point_color",[1,1,1,1],"4f",gl.SHADER_PROGRAM0);
+
+        //设置光能量衰减系数在着色器中的变量的浮点数
+        initUniform("u_reduction_a",[1],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_reduction_b",[1],"1f",gl.SHADER_PROGRAM0);
+        initUniform("u_reduction_c",[1],"1f",gl.SHADER_PROGRAM0);
+
+        //设置光强度在着色器中的变量的浮点数
+        //漫反射
+        initUniform("u_diffuse_intensity",[20],"1f",gl.SHADER_PROGRAM0);
+        //镜面反射
+        initUniform("u_mirror_intensity",[20],"1f",gl.SHADER_PROGRAM0);
+
+        //设置光反射在着色器中的变量的浮点数
+        //漫反射
+        initUniform("u_diffuse_reflection",[1],"1f",gl.SHADER_PROGRAM0);
+        //镜面反射
+        initUniform("u_mirror_reflection",[1],"1f",gl.SHADER_PROGRAM0);
+
+        //设置高光在着色器中的变量的浮点数
+        initUniform("u_highLight",[100],"1f",gl.SHADER_PROGRAM0);
+        //设置观察者位置在着色器中的变量的向量
+        initUniform("u_perspective_pos",perspective_pos.concat([1]),"4f",gl.SHADER_PROGRAM0);
+        //开始渲染
+        render();
+    })
+</script>
+</body>
+</html>

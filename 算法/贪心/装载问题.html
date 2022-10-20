@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let c1,c2,n;
+        let goods = [];
+
+        [c1,c2,n] = prompt("输入轮船1,2的限重和货物个数").split(" ");
+
+        goods = prompt("输入货物的重量").split(" ").map(Number.parseFloat)
+
+        goods.length = n;
+
+
+
+        console.log(c1,c2,n,goods);
+
+
+
+    });
+</script>
+</body>
+</html>

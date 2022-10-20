@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="UTF-8">
+    <title>Check Whether User Can Make Payment Before All Prices Are Known</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        async function processPayment() {
+            try {
+                const payRequest = new PaymentRequest(methodData, details, options);
+
+                payRequest.onshippingaddresschange = (ev) => ev.updateWith(checkAddress(payRequest));
+                payRequest.onshippingoptionchange = (ev) => ev.updateWith(checkShipping(payRequest));
+
+                const response = await payRequest.show();
+                await validateResponse(response);
+            } catch (err) {
+                /* handle the error; AbortError usually means a user cancellation */
+            }
+        }
+
+        async function validateResponse(response) {
+            try {
+                if (await checkAllValues(response)) {
+                    await response.complete("success");
+                } else {
+                    await response.complete("fail");
+                }
+            } catch (err) {
+                await response.complete("fail");
+            }
+        }
+
+
+
+
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<audio src="../EVERYDAY!%20SUNNYDAY!%20-%20サニーピース.mp3"
+        controls ></audio>
+
+<button id="pause">暂停/开始</button>
+<button id="mute">静音/取消</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const audioEle = this.querySelector("audio");
+        const pauseEle = this.querySelector("#pause");
+        const muteEle = this.querySelector("#mute");
+
+        let mediaStream = null;
+
+        let endedCb = function (){
+            console.log("已结束");
+        };
+        let muteCb = function (){
+            console.log("静音")
+        };
+        let unmuteCb = function (){
+            console.log("取消静音")
+        };
+
+
+        let audio = new Audio();
+
+        audio.src = "../EVERYDAY!%20SUNNYDAY!%20-%20サニーピース.mp3";
+        audio.oncanplay = function (){
+            mediaStream = this.captureStream();
+            console.log(mediaStream);
+
+            audioEle.srcObject = mediaStream;
+
+            let mediaStreamTrack = mediaStream.getAudioTracks()[0];
+
+
+            mediaStreamTrack.onended = endedCb;
+            mediaStreamTrack.onmute = muteCb;
+            mediaStreamTrack.onunmute = unmuteCb;
+
+            this.play();
+
+            console.log(mediaStreamTrack)
+
+            console.log(mediaStreamTrack.readyState);
+
+
+        }
+
+        pauseEle.onclick = function (){
+            if(audio.paused)audio.play();
+            else audio.pause();
+
+            console.log(mediaStream.getAudioTracks()[0].readyState);
+
+        };
+
+        muteEle.onclick= function (){
+            audio.muted = !audio.muted;
+
+            console.log(mediaStream.getAudioTracks()[0].readyState);
+
+        };
+
+    })
+</script>
+</body>
+</html>

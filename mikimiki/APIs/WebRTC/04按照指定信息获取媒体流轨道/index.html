@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(mediaStream => {
+            let tracks = mediaStream.getTracks();
+            console.log(tracks);
+
+            let audioTracks = mediaStream.getAudioTracks();
+            console.log(audioTracks);
+ 
+            let videoTracks = mediaStream.getVideoTracks();
+            console.log(videoTracks);
+
+            let track1 = mediaStream.getTrackById(audioTracks[0].id);
+            console.log(track1);
+
+            let track2 = mediaStream.getTrackById(videoTracks[0].id);
+            console.log(track2);
+
+        })
+    })
+</script>
+</body>
+</html>

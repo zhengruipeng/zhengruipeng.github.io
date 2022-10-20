@@ -45,7 +45,7 @@
             else return A(n,m)/A(m,m);
         };
         let math = function (x){
-            return  ( 1 + 1*x ) * Math.E**(2*x);
+            return  x - Math.log10(x**2 +1) / Math.log10(Math.E);
         };
         let initPoints = function (){
             path.setAttribute("d","M");

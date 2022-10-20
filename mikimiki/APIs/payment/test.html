@@ -5,13 +5,18 @@
     <title>Title</title>
 </head>
 <body>
+<button id="request-pay">request payment</button>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded",function (){
-      var supportedInstruments = [{
-          supportedMethods: "http://127.0.0.1:8888/"
-      }];
+      const requestPay = this.querySelector("#request-pay");
 
-      var details = {
+      const supportedInstruments = [
+          // {supportedMethods: 'basic-card'},
+          // {supportedMethods: 'https://example.com/pay'},
+          {supportedMethods: 'http://localhost:81/mikimiki/APIs/payment/payment.php'},
+      ];
+
+      const details = {
           total: {label: 'Donation', amount: {currency: 'USD', value: '65.00'}},
           displayItems: [
               {
@@ -29,21 +34,26 @@
           ]
       };
 
-      var options = {requestShipping: true};
+      const options = {
+          requestShipping: true
+      };
 
-      try {
-          var request = new PaymentRequest(supportedInstruments, details, options);
+      requestPay.onclick = function (){
+          const request = new PaymentRequest(supportedInstruments, details, options);
           // Add event listeners here.
           // Call show() to trigger the browser's payment flow.
-          request.show().then(function(instrumentResponse) {
+          request.show().then((instrumentResponse) => {
+              console.log(instrumentResponse)
               // Do something with the response from the UI.
-          })
-              .catch(function(err) {
-                  // Do something with the error from request.show().
-              });
-      } catch (e) {
-          // Catch any other errors.
+          }).catch((err) => {
+              console.log(err)
+
+              // Do something with the error from request.show().
+          });
+
       }
+
+
 
   })
 </script>

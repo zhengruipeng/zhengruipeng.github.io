@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="speaker">speaker</label>
+    <select id="speaker" disabled>    </select>
+
+    <label for="camera">camera</label>
+    <select id="camera" disabled></select>
+
+
+</form>
+<video playsinline autoplay id="video"></video>
+<audio autoplay id="audio"></audio>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const speaker = this.getElementById("speaker");
+        const camera = this.getElementById("camera");
+        const video = this.getElementById("video");
+        const audio = this.getElementById("audio");
+
+        let initDevices = function (){
+            speaker.innerHTML = "";
+            camera.innerHTML = "";
+
+            navigator.mediaDevices.enumerateDevices().then( res => {
+
+                for(let value of res){
+                    let option = document.createElement("option");
+
+                    switch(value.kind){
+                        case"audioinput":
+                            option.value = value.devicesID;
+                            option.innerHTML = value.label;
+                            speaker.appendChild(option);
+                            break;
+                        case"videoinput":
+                            option.value = value.devicesID;
+                            option.innerHTML = value.label;
+                            camera.appendChild(option);
+                            break;
+                    }
+                }
+            })
+
+        }
+
+        let audioMediaStreamTrack = null;
+        let videoMediaStreamTrack = null;
+        let audioLoad = navigator.mediaDevices.getUserMedia({audio:true,video:false}).then(audioMediaStream => {
+            audio.srcObject = audioMediaStream;
+             audioMediaStreamTrack = audioMediaStream.getAudioTracks()[0];
+        });
+        let videoLoad = navigator.mediaDevices.getUserMedia({audio:false,video:true}).then(videoMediaStream => {
+            video.srcObject = videoMediaStream;
+            videoMediaStreamTrack = videoMediaStream.getVideoTracks()[0];
+        });
+        Promise.all([audioLoad,videoLoad]).then(res => {
+            speaker.disabled = false;
+            camera.disabled = false;
+        })
+        speaker.onchange = function (){
+            let id = this.selectedOptions[0];
+            audioMediaStreamTrack.applyConstraints({deviceId:id}).then( _ => {
+                console.log("更换麦克风已结束");
+            })
+        };
+        camera.onchange = function (){
+
+
+            let id = this.selectedOptions[0];
+            videoMediaStreamTrack.applyConstraints({deviceId:id}).then( _ => {
+                console.log("更换摄像头已结束");
+            })
+        };
+
+        navigator.mediaDevices.ondevicechange = function (ev){
+            initDevices();
+            console.log(ev);
+        };
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video controls muted></video>
+<script type="module">
+    import {JSONParser} from "../JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded",function (){
+        const video = this.querySelector("video");
+        navigator.mediaDevices.getDisplayMedia({audio:true,video:true}).then(async mediaStream => {
+            video.srcObject = mediaStream;
+
+            let videoStreamTrack = mediaStream.getVideoTracks()[0];
+
+            console.log(videoStreamTrack)
+
+
+            let constrain = {
+                cursor: "motion",
+                displaySurface:"window",
+                logicalSurface:true
+            };
+
+            const jsonParser = new JSONParser(constrain);
+            jsonParser.import("../table-default-style.css");
+            jsonParser.initTable();
+            jsonParser.onJsonChange = async function (ev){
+                console.log(ev);
+                try{
+                    await videoStreamTrack.applyConstraints(ev.json);
+                    console.log(await videoStreamTrack.getConstraints());
+                }catch (e){
+                    let p = document.createElement("p");
+                    p.innerHTML = `${e.name},${e.message}`;
+                    document.body.appendChild(p)
+                }
+            };
+
+
+            await videoStreamTrack.applyConstraints(constrain)
+
+            video.play();
+
+        })
+    })
+</script>
+</body>
+</html>

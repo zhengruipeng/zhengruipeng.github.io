@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<audio controls id="player" autoplay>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const player = this.querySelector("#player");
+
+        let audio = new Audio();
+        audio.src = "../EVERYDAY!%20SUNNYDAY!%20-%20サニーピース.mp3";
+        // audio.muted = true;
+        audio.oncanplay = function (){
+            player.srcObject = audio.captureStream();
+            this.play()
+        };
+    })
+</script>
+</body>
+</html>

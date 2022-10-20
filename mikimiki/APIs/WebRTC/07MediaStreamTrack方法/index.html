@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="speaker">speaker</label>
+    <select id="speaker" disabled>    </select>
+
+    <label for="camera">camera</label>
+    <select id="camera" disabled></select>
+
+    <label for="clarity"></label>
+    <select id="clarity" disabled>
+        <option data-height="1" data-width="1">640*480</option>
+        <option data-height="480" data-width="640">640*480</option>
+        <option data-height="720" data-width="1280">1280*720</option>
+        <option data-height="1080" data-width="1920">1920*1080</option>
+    </select>
+</form>
+<video playsinline autoplay id="video"></video>
+<audio autoplay id="audio"></audio>
+<button id="getInfo">获取信息</button>
+<button id="reConnect">切断当前通道并重新复制一个</button>
+<button id="reConnectStream">切断当前媒体流并重新复制一个</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const speaker = this.getElementById("speaker");
+        const camera = this.getElementById("camera");
+        const clarify = this.getElementById("clarity");
+        const video = this.getElementById("video");
+        const audio = this.getElementById("audio");
+        const getInfoBtn = this.querySelector("#getInfo");
+        const reConnectBtn = this.querySelector("#reConnect");
+        const reConnectStreamBtn = this.querySelector("#reConnectStream");
+
+        navigator.mediaDevices.enumerateDevices().then( res => {
+
+            for(let value of res){
+                let option = document.createElement("option");
+
+                switch(value.kind){
+                    case"audioinput":
+                        option.value = value.devicesID;
+                        option.innerHTML = value.label;
+                        speaker.appendChild(option);
+                        break;
+                    case"videoinput":
+                        option.value = value.devicesID;
+                        option.innerHTML = value.label;
+                        camera.appendChild(option);
+                        break;
+                }
+            }
+        })
+        let videoMediaStream = null;
+        let audioMediaStreamTrack = null;
+        let videoMediaStreamTrack = null;
+        let audioLoad = navigator.mediaDevices.getUserMedia({audio:true,video:false}).then(audioMediaStream => {
+            audio.srcObject = audioMediaStream;
+             audioMediaStreamTrack = audioMediaStream.getAudioTracks()[0];
+        });
+        let videoLoad = navigator.mediaDevices.getUserMedia({audio:false,video:true}).then(videoMediaStream1 => {
+            videoMediaStream = videoMediaStream1;
+            video.srcObject = videoMediaStream1;
+
+            videoMediaStreamTrack = videoMediaStream1.getVideoTracks()[0];
+        });
+        Promise.all([audioLoad,videoLoad]).then(res => {
+            console.log()
+            speaker.disabled = false;
+            camera.disabled = false;
+            clarify.disabled = false;
+        })
+        speaker.onchange = function (){
+            let id = this.selectedOptions[0];
+            audioMediaStreamTrack.applyConstraints({deviceId:id}).then( _ => {
+                console.log("更换麦克风已结束");
+            })
+        };
+        camera.onchange = function (){
+
+
+            let id = this.selectedOptions[0];
+            videoMediaStreamTrack.applyConstraints({deviceId:id}).then( _ => {
+                console.log("更换摄像头已结束");
+            })
+        };
+        clarify.onchange = function (){
+            let width = this.selectedOptions[0].dataset.width;
+            let height = this.selectedOptions[0].dataset.height;
+            let constraints = {
+                width: {min: 640, ideal: width},
+                height: {min: 480, ideal: height},
+                advanced: [
+                    {width: 1920, height: 1280},
+                    {aspectRatio: 1.333}
+                ]
+            };
+            videoMediaStreamTrack.applyConstraints(constraints).then( _ => {
+                console.log("清晰度已更改");
+            });
+        };
+        getInfoBtn.onclick = function (){
+            console.log("video");
+            console.table(videoMediaStreamTrack.getCapabilities());
+            console.table(videoMediaStreamTrack.getConstraints());
+            console.table(videoMediaStreamTrack.getSettings());
+
+            console.log("audio");
+            console.table(audioMediaStreamTrack.getCapabilities());
+            console.table(audioMediaStreamTrack.getConstraints());
+            console.table(audioMediaStreamTrack.getSettings());
+        }
+
+        reConnectBtn.onclick = function (){
+            let clonedTrack = videoMediaStreamTrack.clone();
+
+            videoMediaStreamTrack.stop();
+
+            console.log("已停止")
+
+            videoMediaStream.removeTrack(videoMediaStreamTrack)
+            videoMediaStream.addTrack(clonedTrack)
+
+            console.log(clonedTrack)
+            video.srcObject = videoMediaStream
+            console.log("更换通道完毕")
+        };
+
+
+        reConnectStreamBtn.onclick = function (){
+            let stream = videoMediaStream.clone();
+
+            video.srcObject = stream;
+
+            videoMediaStream = stream;
+
+
+
+        }
+    })
+    </script>
+</body>
+</html>

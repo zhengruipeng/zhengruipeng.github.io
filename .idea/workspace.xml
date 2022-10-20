@@ -1,260 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220908(2)">
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/13.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/14.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/15.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/16.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/10/9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/2/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/2/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/2/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/2/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/2/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/3/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/3/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/3/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/3/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/3/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/3/6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/4/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/4/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/4/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/5/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/5/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/5/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/5/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/5/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/6/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/7/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/7/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/7/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/7/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/8/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/8/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/8/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/8/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/8/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/8/6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/9/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/9/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/9/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/9/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/9/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/00HelloCanvas2d/HelloCanvas2d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/00HelloCanvas2d/HelloCanvas2d.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/01HelloCanvas/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/01HelloCanvas/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/01HelloCanvas/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/01HelloCanvas/HelloCanvas.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/01HelloCanvas/HelloCanvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/01HelloCanvas/debug.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/02HelloPoint1/HelloPoint1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/02HelloPoint1/HelloPoint1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/03HelloPoint2/HelloPoint2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/03HelloPoint2/HelloPoint2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/04ColoredPoints/ColoredPoints.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/04ColoredPoints/ColoredPoints.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/05ClickedPoints/ClickedPoints.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/05ClickedPoints/ClickedPoints.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/06MultiPoints/MultiPoints.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/06MultiPoints/MultiPoints.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/07HelloTriangle/HelloTriangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/07HelloTriangle/HelloTriangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/08DrawingRectangle/DrawRectangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/08DrawingRectangle/DrawRectangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/09HelloRectangle/HelloRectangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/09HelloRectangle/HelloRectangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/10TranslatedTriangle/TranslatedTriangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/10TranslatedTriangle/TranslatedTriangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/11RotatedTriangle/RotatedTriangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/11RotatedTriangle/RotatedTriangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/12RotatedTriangle_Matrix/RotatedTriangle_Matrix.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/12RotatedTriangle_Matrix/RotatedTriangle_Matrix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/12RotatedTriangle_Matrix/debug.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/13RotatedTriangle_Matrix4/RotatedTriangle_Matrix4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/13RotatedTriangle_Matrix4/RotatedTriangle_Matrix4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/14RotatedTranslatedTriangle/RotatedTranslatedTriangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/14RotatedTranslatedTriangle/RotatedTranslatedTriangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/15RotatingTriangle/RotatingTriangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/15RotatingTriangle/RotatingTriangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/16MultiAttributeSize/MultiAttributeSize.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/16MultiAttributeSize/MultiAttributeSize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/17MultiAttributeSize_Interleaved/MultiAttributeSize_Interleaved.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/17MultiAttributeSize_Interleaved/MultiAttributeSize_Interleaved.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/18MultiAttributeColor/MultiAttributeColor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/18MultiAttributeColor/MultiAttributeColor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/19ColoredTriangle/ColoredTriangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/19ColoredTriangle/ColoredTriangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/20TexturedQuad/TexturedQuad.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/20TexturedQuad/TexturedQuad.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/21MultiTexture/MultiTexture.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/21MultiTexture/MultiTexture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/22LookAtTriangles/LookAtTriangles.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/22LookAtTriangles/LookAtTriangles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/23LookAtRotatedTriangles/LookAtRotatedTriangles.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/23LookAtRotatedTriangles/LookAtRotatedTriangles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/24LookAtRotatedTriangles_mvMatrix/LookAtRotatedTriangles_mvMatrix.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/24LookAtRotatedTriangles_mvMatrix/LookAtRotatedTriangles_mvMatrix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/25LookAtTrianglesWithKeys/LookAtTrianglesWithKeys.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/25LookAtTrianglesWithKeys/LookAtTrianglesWithKeys.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/26OrthoView/OrthoView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/26OrthoView/OrthoView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/27LookAtTrianglesWithKeys_ViewVolume/LookAtTrianglesWithKeys_ViewVolume.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/27LookAtTrianglesWithKeys_ViewVolume/LookAtTrianglesWithKeys_ViewVolume.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/28perspectiveview/perspectiveview.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/28perspectiveview/perspectiveview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/29perspectiveview_mvp/perspectiveview_mvp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/29perspectiveview_mvp/perspectiveview_mvp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/30perspectiveview_mvpMatrix/perspectiveview_mvpMatrix.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/30perspectiveview_mvpMatrix/perspectiveview_mvpMatrix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/31DepthBuffer/DepthBuffer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/31DepthBuffer/DepthBuffer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/32Zfighting/Zfighting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/32Zfighting/Zfighting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/33HelloCube/HelloCube.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/33HelloCube/HelloCube.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/34ColoredCube/ColoredCube.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/34ColoredCube/ColoredCube.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/35ColoredCub_singleColor/ColoredCub_singleColor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/35ColoredCub_singleColor/ColoredCub_singleColor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/36LightedCube/LightedCube.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/36LightedCube/LightedCube.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/37LightedCube_animation/LightedCube_animation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/37LightedCube_animation/LightedCube_animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/38LightedCube_ambient/LightedCube_ambient.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/38LightedCube_ambient/LightedCube_ambient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/39LightedTranslatedRotatedCube/LightedTranslatedRotatedCube.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/39LightedTranslatedRotatedCube/LightedTranslatedRotatedCube.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/40PointLightedCube/PointLightedCube.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/40PointLightedCube/PointLightedCube.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/41PointLightedCube_animation/PointLightedCube_animation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/41PointLightedCube_animation/PointLightedCube_animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/42PointLightedCube_perFragment/PointLightedCube_perFragment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/42PointLightedCube_perFragment/PointLightedCube_perFragment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/43JointMode/JointModel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/43JointMode/JointModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/44MultiJointModel/MultiJointModel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/44MultiJointModel/MultiJointModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/45MultiJointModel_segment/MultiJointModel_segment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/45MultiJointModel_segment/MultiJointModel_segment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/lib/cuon-matrix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/lib/cuon-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/lib/webgl-debug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/lib/webgl-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/3objects.mqo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/7herbs.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/blueflower.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/blueflower2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/circle.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/cube.mqo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/cube.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/cube.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/kaeru.mqo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/lightblueflower.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/numbers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/orange.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/parasol.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/particle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/pinkflower.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/redflower.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/sky.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/sky_cloud.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/sky_roof.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/sphere.mqo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/vase.mqo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/WebGL-Programming-Guide-master/resources/yellowflower.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/image/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/image/circle.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebGL programming guide/image/sky.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Gamepad/1获取游戏手柄.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/01获取USB设备.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/02检测已连接USB设备连接或断开.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/03USB信息及设置.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/04打开关闭USB设备.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/05声明接口.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/05查看USB设备输入.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/create-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/USB/list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/HTML/表单类型.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/CheckFilesEvent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/ParseMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/UnionMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/accessSuffix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/autoMatchAllBackUp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/canOpenDir.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/checkFiles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/contextMenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/handleFiles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/main.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/notification-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/notification.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/searchBackUp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/selectdir.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/星井美希1T.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/杜野凛世2T.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/TexturesCom_FloorStreets0079_3_S.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/bathroom-normal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/bathroom.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/brick-wall.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/darker_wood.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/floor-wood.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/metal-floor-normal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/metal-floor.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/metal-rust.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/negx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/negy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/negz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/plaster-diffuse.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/plaster-normal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/plaster.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/posx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/posy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/posz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/stone-bump.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/stone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/weave-bump.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/weave.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/texture/wood-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/计科web前端/作业1表单/demo1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/计科web前端/作业1表单/demo2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/计科web前端/作业1表单/form-UI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/计科web前端/作业1表单/form-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/计科web前端/作业1表单/form2-init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web lesson/计科web前端/作业1表单/表单类型.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/动态规划/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/动态规划/数字三角形.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/报数问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/贪心/装箱问题.html" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220921">
+      <change afterPath="$PROJECT_DIR$/Interactive Computer Graphics/phong表面2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Battery Status API/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/04按照指定信息获取媒体流轨道/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/06媒体流设置/约束条件汇总.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/07MediaStreamTrack方法/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/08MediaStreamTrack事件/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/屏幕共享约束.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/视频约束.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/通用约束.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/音频约束.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/高级约束.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/11查询媒体设备/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/11查询媒体设备/约束条件汇总.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/13从媒体捕获流/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/01定义录制媒体流.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/02支持的视频mime类型.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/03取出目前已经录制好的数据.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/04开始录像并每秒更换blob.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/05停止录像.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/06继续录像.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/07事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/媒体记录/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/15各类对象属性测试/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/16RTCConfiguration/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/EVERYDAY! SUNNYDAY! - サニーピース.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/JSONParser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/table-default-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/canMakePayment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/去除图片背景/flower.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test/JSONParser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test/JSONParser2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test/table-default-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/.idea/算法2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/动态规划/导弹打飞机问题.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/动态规划/找零问题.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/动态规划/找零问题.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/贪心/装载问题.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/堡垒问题.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/堡垒问题.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/堡垒问题.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/归并排序.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/求子集.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/邮局选址问题.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/邮局选址问题2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/!Geolocation/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Geolocation/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/04访问GATT服务器.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Bluetooth/04访问GATT服务器.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interactive Computer Graphics/光线追踪（多面体）.html" beforeDir="false" afterPath="$PROJECT_DIR$/Interactive Computer Graphics/光线追踪（多面体）.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/共享屏幕/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/10共享屏幕/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/动态更改分辨率/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/05动态更改分辨率/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/媒体流设置/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/06媒体流设置/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/媒体记录/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/屏幕录制记录/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/屏幕录制记录/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/打开摄像头和麦克风/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/01打开摄像头和麦克风/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/捕获电子白板/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/12捕获画布/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/捕获视频再播放/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/捕获视频再播放/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/本地连接对话/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/本地连接对话/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/电子白板视频记录/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/电子白板视频记录/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/视频截图/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/02视频截图/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/设备枚举/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/03设备枚举/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/payment/check-user-can-make-payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/check-user-can-make-payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/payment/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/函数绘制工具.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/函数绘制工具.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/去除图片背景/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片背景/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/算法/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/算法/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/算法/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/算法/.idea/modules.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,8 +91,8 @@
       <list>
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -300,30 +122,35 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web lesson/计科web前端/作业1表单" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mikimiki/APIs/WebRTC" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="D:\phpstorm 2021.2\bin\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\计科web前端\作业1表单" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\计科web前端\作业1表单\gradient-form" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\计科web前端\作业1表单\login2" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\web lesson\计科web前端\作业1表单\login" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\USB" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\12捕获画布" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\14录制媒体流" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\09约束" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object\硬盘备份3\test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\14录制媒体流" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object\硬盘备份3\test" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\react\test\react-test\src" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\变形\perspective-origin" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\CSS Table" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\选择器" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\针对特定媒体的样式" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="JavaScript Debug.归并排序.html">
+    <configuration name="归并排序.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/User.php/算法/递归与分治/src/归并排序.html?_ij_reload" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="payment.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/User.php/mikimiki/APIs/payment/payment.php?_ij_reload" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
       <method v="2" />
     </configuration>
@@ -339,7 +166,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.归并排序.html" />
         <item itemvalue="npm.start" />
+        <item itemvalue="JavaScript Debug.payment.php" />
       </list>
     </recent_temporary>
   </component>
@@ -590,14 +419,45 @@
       <workItem from="1663669180650" duration="557000" />
       <workItem from="1663673371870" duration="472000" />
       <workItem from="1663728800609" duration="3938000" />
-      <workItem from="1663733465514" duration="968000" />
-    </task>
-    <task id="LOCAL-00017" summary="20220521">
-      <created>1653100870752</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1653100870752</updated>
+      <workItem from="1663733465514" duration="17279000" />
+      <workItem from="1663816482262" duration="4165000" />
+      <workItem from="1663907426859" duration="5316000" />
+      <workItem from="1663994590119" duration="653000" />
+      <workItem from="1663996596122" duration="1231000" />
+      <workItem from="1663997870260" duration="16000" />
+      <workItem from="1663997899881" duration="18000" />
+      <workItem from="1663997933102" duration="25000" />
+      <workItem from="1663998144891" duration="5000" />
+      <workItem from="1664000492490" duration="639000" />
+      <workItem from="1664077433196" duration="8873000" />
+      <workItem from="1664158461251" duration="668000" />
+      <workItem from="1664327183898" duration="773000" />
+      <workItem from="1664338954271" duration="4431000" />
+      <workItem from="1664365932903" duration="4600000" />
+      <workItem from="1664504342074" duration="9846000" />
+      <workItem from="1664591917945" duration="251000" />
+      <workItem from="1664601438538" duration="4819000" />
+      <workItem from="1664676753440" duration="857000" />
+      <workItem from="1664864650428" duration="14000" />
+      <workItem from="1664864683177" duration="542000" />
+      <workItem from="1664865920717" duration="503000" />
+      <workItem from="1664933182508" duration="10058000" />
+      <workItem from="1665028749927" duration="9981000" />
+      <workItem from="1665057813051" duration="1736000" />
+      <workItem from="1665108116874" duration="20503000" />
+      <workItem from="1665281964066" duration="2514000" />
+      <workItem from="1665313304583" duration="4868000" />
+      <workItem from="1665324878168" duration="619000" />
+      <workItem from="1665464487780" duration="174000" />
+      <workItem from="1665485041509" duration="4203000" />
+      <workItem from="1665494922665" duration="56000" />
+      <workItem from="1665632137159" duration="232000" />
+      <workItem from="1665814603931" duration="1235000" />
+      <workItem from="1665980841216" duration="5782000" />
+      <workItem from="1666000115720" duration="4680000" />
+      <workItem from="1666093177106" duration="4524000" />
+      <workItem from="1666157629074" duration="3148000" />
+      <workItem from="1666234496617" duration="2962000" />
     </task>
     <task id="LOCAL-00018" summary="20220521(特效1)">
       <created>1653100902210</created>
@@ -935,7 +795,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662608558712</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="20220921">
+      <created>1663734531472</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1663734531473</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -955,7 +822,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220601(2)" />
     <MESSAGE value="20220602" />
     <MESSAGE value="20220603" />
     <MESSAGE value="20220605" />
@@ -980,6 +846,7 @@
     <MESSAGE value="20220830" />
     <MESSAGE value="20220908" />
     <MESSAGE value="20220908(2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220908(2)" />
+    <MESSAGE value="20220921" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220921" />
   </component>
 </project>

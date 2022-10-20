@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video controls muted></video>
+<h2>目前的约束对象</h2>
+
+<div id="container" style="display: inline-block">
+</div>
+<script type="module">
+    import {JSONParser} from "../JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded",function (){
+        const video = this.querySelector("video");
+        const container = this.querySelector("#container");
+        navigator.mediaDevices.getUserMedia({audio:true,video:true}).then(async mediaStream => {
+            video.srcObject = mediaStream;
+
+            let videoStreamTrack = mediaStream.getVideoTracks()[0];
+
+            console.log(videoStreamTrack)
+
+
+            let constrain = {
+                width: {
+                    min: 640,
+                    ideal: 1280
+                },
+                height: {
+                    min: 480,
+                    ideal: 720,
+                },
+                advanced: [
+                    {width:1920,height:1280},
+                    {aspectRatio:4/3}
+                ]
+            };
+
+            const jsonParser = new JSONParser(constrain);
+            jsonParser.import("../table-default-style.css");
+            jsonParser.initTable();
+            jsonParser.onJsonChange = async function (ev){
+                ev.stopPropagation();
+                console.log(constrain);
+                try{
+                    await videoStreamTrack.applyConstraints(constrain);
+                    let parser2 = new JSONParser(await videoStreamTrack.getConstraints());
+                    container.innerHTML = "";
+                    parser2.initTable(container);
+
+                }catch (e){
+                    let p = document.createElement("p");
+                    p.innerHTML = `${e.name},${e.message}`;
+                    document.body.appendChild(p)
+                }
+            };
+
+
+            await videoStreamTrack.applyConstraints(constrain)
+
+            video.play();
+
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+D:\CLion\bin\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\算法
+CMake Error at CMakeLists.txt:2 (project):
+  project PROJECT called with incorrect number of arguments
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  The target name "锟斤拷态锟芥划/锟斤拷锟斤拷锟斤拷锟斤拷.c" is reserved or
+  not valid for certain CMake features, such as generator expressions, and
+  may result in undefined behavior.
+
+
+-- Configuring incomplete, errors occurred!

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      canvas{
+        cursor: crosshair;
+      }
+      </style>
+</head>
+<body>
+<canvas height="480" width="640" id="canvas"></canvas>
+<video height="480" width="640" id="canvasCatch"  controls autoplay muted playsinline loop></video>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const canvas = this.getElementById("canvas");
+    const canvasCatch = this.getElementById("canvasCatch");
+    const c = canvas.getContext("2d");
+
+    c.strokeStyle = "#000";
+    let mousemove = function (e){
+      c.lineTo(e.x-5,e.y-5);
+      c.stroke();
+    };
+    let mouseup = function (){
+      this.onmousemove = null;
+    }
+    canvas.onmousedown = function (e){
+      c.moveTo(e.x-5,e.y-5);
+      this.onmousemove = mousemove;
+      this.onmouseup = mouseup;
+    }
+    if(canvas.captureStream){
+      canvasCatch.srcObject = canvas.captureStream(30);
+    }else if(canvas.mozCaptureStream){
+      canvasCatch.srcObject = canvas.mozCaptureStream(30);
+    }
+  })
+</script>
+</body>
+</html>

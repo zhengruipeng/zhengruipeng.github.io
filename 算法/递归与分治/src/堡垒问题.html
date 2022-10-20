@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border: #639 solid 2px;
+            padding: 30px;
+            transition: .3s;
+        }
+
+        td:hover {
+            background-color: #6396;
+            cursor: pointer;
+        }
+
+        tr:hover {
+            background-color: #6392;
+        }
+
+        .selected {
+            background-color: #639b;
+
+        }
+        #res{
+            border-radius: 10px;
+            padding:10px;
+            margin:5%;
+            border:#639 solid 3px;
+
+
+        }
+    </style>
+</head>
+<body>
+<table>
+    <colgroup>
+
+    </colgroup>
+    <thead>
+
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<button id="start">start</button>
+<p id="res"></p>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const startBtn = this.querySelector("#start");
+        const output = this.querySelector("#res");
+        const table = this.querySelector("table");
+        const thead = table.querySelector("thead");
+        const tbody = table.querySelector("tbody");
+        const colgroup = table.querySelector("colgroup");
+
+        let wall = [];
+        let max = 0;
+
+        let initTable = function (row, col) {
+            //create columns
+            for (let i = 0; i <= col; i++) {
+                const col = document.createElement("col");
+                col.span = "1";
+                colgroup.appendChild(col);
+            }
+            //create header
+
+            const header = document.createElement("tr");
+            const th = document.createElement("th");
+            header.appendChild(th);
+            for (let i = 0; i < col; i++) {
+                const th = document.createElement("th");
+                th.innerHTML = i + 1;
+                th.scope = "row";
+
+                header.appendChild(th);
+            }
+            thead.appendChild(header);
+
+            //create body
+            for (let j = 0; j < row; j++) {
+                const tableRow = document.createElement("tr");
+                const th = document.createElement("th");
+                th.innerHTML = j + 1;
+                th.scope = "row";
+
+                tableRow.appendChild(th);
+                for (let i = 0; i < col; i++) {
+                    const td = document.createElement("td");
+                    td.innerHTML = "";
+                    td.dataset.row = j;
+                    td.dataset.col = i;
+
+                    if (row === 0)
+                        td.scope = "col";
+                    tableRow.appendChild(td);
+                }
+                tbody.appendChild(tableRow);
+            }
+        };
+
+        let selectCell = function () {
+            this.classList.toggle("selected");
+            wall.push([this.dataset.row, this.dataset.col]);
+            console.log(wall)
+            // console.log(initArr(wall, row, col));
+        };
+
+        let initArr = function (points, row, col) {
+            let arr = [];
+            for (let i = 0; i < row; i++) {
+                let temp = [];
+                for (let j = 0; j < col; j++) {
+                    temp.push(0)
+                }
+                arr.push(temp);
+            }
+
+            points.forEach(([x, y]) => {
+                arr[x][y] = 1;
+            });
+            return arr;
+        };
+
+        let canplace = function (row, col,maze) {
+            if(row>=num){return false;}
+
+            for (let i = col; i >= 0; i--) {
+                if (maze[row][i] === 2) {
+                    return 0;
+                }
+                if (maze[row][i] === 1) {
+                    break;
+                }
+            }
+            for (let i = row; i >= 0; i--) {
+                if (maze[i][col] === 2) {
+                    return 0;
+                }
+                if (maze[i][col] === 1) {
+                    break;
+                }
+            }
+            if (maze[row][col] === 1) return 0;
+            return 1;
+        }
+
+        let search = function (m,n, maze) {
+            let row = Math.floor(m / n);
+            let col = m % n;
+
+
+            // console.log(m,n,row,col)
+            if (m > n * n) {
+                let num = 0;
+                for (let i = 0; i < n; i++) {
+                    for (let j = 0; j < n; j++) {
+                        if (maze[i][j] === 2) num++;
+                    }
+                }
+                if (num > max) max = num;
+            } else {
+                search(m + 1,num,maze);
+                if (canplace(row, col,maze)) {
+                    maze[row][col] = 2;
+                    search(m + 1,num,maze);
+                    maze[row][col] = 0;
+                }
+            }
+        }
+
+
+        let num = prompt("几行几列？") - 0 ;
+        initTable(num, num);
+
+        const tds = Array.from(tbody.querySelectorAll("td"));
+
+        tds.forEach(td => {
+            td.onclick = selectCell;
+        });
+
+        startBtn.onclick = function () {
+            search(0,num-1, initArr(wall, num, num));
+            output.innerHTML = max;
+
+        }
+    })
+</script>
+</body>
+</html>

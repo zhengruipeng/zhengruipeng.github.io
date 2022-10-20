@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="start">开始录制</button>
+<button id="end">结束录制</button>
+<script type="module">
+    import {JSONParser} from "../JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded",async function (){
+        const startBtn = this.querySelector("#start");
+        const endBtn = this.querySelector("#end");
+        let mediaStream = await navigator.mediaDevices.getUserMedia({audio:true,video:true});
+
+        const video = document.createElement("video");
+        video.srcObject = mediaStream;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+
+        document.body.appendChild(video);
+
+        let recorderOptions = {
+            mimeType: "video/webm",
+            audioBitsPerSecond: 44210,
+            videoBitPerSecond: 2.5e6,
+            bitsPerSecond: 128000,
+            audioBitrateMode: "constant"
+        };
+
+        let jsonParser = new JSONParser(recorderOptions);
+        jsonParser.import("../table-default-style.css");
+        jsonParser.initTable();
+        jsonParser.onJsonChange = function (ev){
+            console.log(ev.json);
+        }
+
+        let mediaRecorder = null;
+
+        startBtn.onclick = function (){
+            mediaRecorder = new MediaRecorder(mediaStream,recorderOptions);
+            let mediaRecorderParser = new JSONParser(mediaRecorder);
+            mediaRecorderParser.initTable();
+        };
+        endBtn.onclick = function (){
+
+        };
+    })
+</script>
+</body>
+</html>

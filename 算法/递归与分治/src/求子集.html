@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let data = [];
+
+        let total = 0;
+        let input = 0;
+        do{
+            input = prompt("输入数组元素");
+            data.push(input - 0);
+            console.log(input - 0)
+        }while(input !== "")
+        total = prompt("输入和") - 0;
+
+        data.pop();
+
+        data.sort((x,y) => x>y?1:-1);
+
+        console.log(data);
+        console.log(total);
+  /*      let data = [1, 2, 3, 4, 7, 10];
+        let total = 4;*/
+
+        let stack = [];
+        let res = [];
+        let hasInsertedIndex = [];
+
+        let sum = function (arr) {
+            return arr.reduce((lv, rv) => lv + rv, 0);
+        };
+
+        let foo = function () {
+            if (sum(stack) > total) return false;
+            if (sum(stack) === total) {
+                res.push(structuredClone(stack));
+                // structureClone
+                return false;
+            }
+
+            for (let i = 0; i < data.length; i++) {
+                if (hasInsertedIndex.includes(i)) continue;
+                let ele = data[i];
+                stack.push(ele);
+                hasInsertedIndex.push(i)
+                foo();
+                stack.pop();
+                hasInsertedIndex.pop()
+
+            }
+
+        };
+
+        foo();
+
+        console.log(res)
+
+        let isSameArr = function (arr1, arr2) {
+            if (arr1.length !== arr2.length) return false;
+
+            arr1.sort();
+            arr2.sort();
+
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr1[i] !== arr2[i]) {
+                    return false;
+                }
+            }
+
+            return true;
+
+        };
+
+        res.forEach((arr,i,v) => {
+            // debugger;
+            for(let j = i+1;j<res.length;j++){
+                if(!res[j])continue;
+                if(isSameArr(res[j],arr))delete res[j];
+            }
+        });
+
+        console.log(res);
+
+        let closeArr = function  (arr){
+            let res = []
+            for(let i = 0;i<arr.length;i++){
+                if(arr[i])
+                    res.push(arr[i])
+            }
+            return res;
+
+        }
+
+        console.log(closeArr(res));
+
+
+    })
+</script>
+</body>
+</html>

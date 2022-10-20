@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video id="local" autoplay playsinline controls></video>
+<video id="remote" autoplay playsinline controls></video>
+<button id="start">开始</button>
+<button id="call">呼叫</button>
+<button id="finish">挂断</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const localVideo = this.getElementById("local");
+        const remoteVideo = this.getElementById("remote");
+        const startBtn = this.getElementById("start");
+        const callBtn = this.getElementById("call");
+        const finishBtn = this.getElementById("finish");
+
+        let disableBtn = function () {
+            startBtn.disabled = true;
+            callBtn.disabled = true;
+            finishBtn.disabled = true;
+        };
+        let enableBtn = function () {
+            startBtn.disabled = false;
+            callBtn.disabled = false;
+            finishBtn.disabled = false;
+        };
+
+        let localStream = null;
+        let start = async function () {
+            let mediaStream = await navigator.mediaDevices.getUserMedia({audio: true, video: true});
+            localStream = mediaStream;
+            localVideo.srcObject = mediaStream;
+        };
+
+        let iceServerConfig = {"iceServer": [{"urls": "stun:stun.l.google.com:19302"}]};
+        let peerConnA = null;
+        let peerConnB = null;
+
+        let createOffer = async function (desc) {
+            console.log("create offer successful");
+
+            await peerConnA.setLocalDescription(desc);
+            await peerConnB.setRemoteDescription(desc);
+            let answer = await peerConnB.createAnswer();
+            //debugger;
+            // console.log(answer)
+            await peerConnB.setLocalDescription(answer);
+            await peerConnA.setRemoteDescription(answer);
+            //console.log(desc.sdp);
+        };
+        let iceCandidateA = async function (e) {
+            await peerConnB.addIceCandidate(e.candidate);
+            console.log("candidateA data", e.candidate);
+        };
+        let iceCandidateB = async function (e) {
+            await peerConnA.addIceCandidate(e.candidate);
+            console.log("candidateB data", e.candidate);
+        };
+        let iceConnectionStateChangeA = function () {
+            console.log("iceConnectionStateChangeA");
+        };
+        let iceConnectionStateChangeB = function () {
+            console.log("iceConnectionStateChangeB");
+        };
+        let gotRemoteStream = function (e) {
+            console.log("track", e);
+            remoteVideo.srcObject = e.streams[0];
+        };
+
+        let call = function () {
+            peerConnA = new RTCPeerConnection(iceServerConfig);
+            peerConnB = new RTCPeerConnection(iceServerConfig);
+            peerConnA.addEventListener("icecandidate", iceCandidateA);
+            peerConnB.addEventListener("icecandidate", iceCandidateB);
+            peerConnA.addEventListener("iceconnectionstatechange", iceConnectionStateChangeA);
+            peerConnB.addEventListener("iceconnectionstatechange", iceConnectionStateChangeB);
+            peerConnB.addEventListener("track", gotRemoteStream);
+
+            console.log(peerConnA)
+            console.log(peerConnB)
+
+            for (let v of localStream.getTracks()) {
+                peerConnA.addTrack(v, localStream);
+                console.log(v);
+            }
+
+            peerConnA.createOffer().then(res => {
+                createOffer(res);
+            })
+        };
+        let hungup = function () {
+            console.log("hung up");
+            peerConnA.close();
+            peerConnB.close();
+            peerConnA = null;
+            peerConnB = null;
+        };
+        startBtn.onclick = start;
+        callBtn.onclick = call;
+        finishBtn.onclick = hungup;
+
+
+    })
+</script>
+</body>
+</html>
