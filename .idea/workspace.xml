@@ -1,82 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20220921">
-      <change afterPath="$PROJECT_DIR$/Interactive Computer Graphics/phong表面2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Battery Status API/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/04按照指定信息获取媒体流轨道/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/06媒体流设置/约束条件汇总.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/07MediaStreamTrack方法/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/08MediaStreamTrack事件/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/屏幕共享约束.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/视频约束.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/通用约束.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/音频约束.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/09约束/高级约束.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/11查询媒体设备/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/11查询媒体设备/约束条件汇总.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/13从媒体捕获流/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/01定义录制媒体流.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/02支持的视频mime类型.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/03取出目前已经录制好的数据.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/04开始录像并每秒更换blob.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/05停止录像.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/06继续录像.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/07事件.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/媒体记录/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/15各类对象属性测试/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/16RTCConfiguration/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/EVERYDAY! SUNNYDAY! - サニーピース.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/JSONParser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/table-default-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/canMakePayment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/show.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/去除图片背景/flower.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test/JSONParser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test/JSONParser2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test/table-default-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份3/test/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/.idea/算法2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/动态规划/导弹打飞机问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/动态规划/找零问题.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/动态规划/找零问题.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/贪心/装载问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/堡垒问题.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/堡垒问题.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/堡垒问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/归并排序.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/求子集.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/邮局选址问题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/算法/递归与分治/src/邮局选址问题2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20221020">
+      <change afterPath="$PROJECT_DIR$/.fleet/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/callpage-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/image/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/AppGlobal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/CallingState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/ConstantObserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/MessagePackage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/MessageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call-operation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call-timer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/callpage-UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/Peer2peerService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/TwoPeers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/WSConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/message/MessageOutput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/message/SendMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/websocket-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeFiles/Makefile2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeFiles/install-runtime.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeFiles/install-runtime.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeFiles/install-runtime.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeFiles/progress.marks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/CMakeFiles/uninstall.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/cmake/CacheLog.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/cmake/FindLibevent.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/cmake/FindSQLite.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/cmake/cmake_uninstall.cmake.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/docker/coturn/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/docker/coturn/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/docker/coturn/debian/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/docker/docker-compose-all.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/docker/docker-compose-mysql.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/docker/docker-compose-redis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/docker/mongodb/mongodb.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/ca/CA/crlnumber" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/ca/CA/index.txt.attr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/ca/CA/newcerts/4C9BEC95D121491D5D65A71A614667DD42186548.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/ca/CA/private/cakey.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/ca/turn_server_cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/etc/cacert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/run_tests.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/basic/dos_attack.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/basic/tcp_client.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/basic/udp_client.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/loadbalance/slave_relay_1.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/loadbalance/udp_c2c.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/longtermsecure/secure_relay_cert.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/longtermsecure/secure_sctp_client.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/longtermsecure/secure_tls_client_c2c_tcp_relay.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/longtermsecuredb/secure_relay_with_db_mysql_ssl.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/restapi/secure_relay_secret_with_db_mongo.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/restapi/secure_relay_secret_with_db_psql.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/examples/scripts/restapi/secure_relay_secret_with_db_redis.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/postinstall.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/rpm/CentOS6.pre.build.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/rpm/build.instructions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/CMakeFiles/3.16.3/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/CMakeFiles/3.16.3/CompilerIdC/a.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/CMakeFiles/progress.marks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/common/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/common/ns_turn_openssl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/common/ns_turn_utils.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/natdiscovery/CMakeFiles/turnutils_natdiscovery.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/oauth/CMakeFiles/turnutils_oauth.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/oauth/oauth.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/peer/CMakeFiles/turnutils_peer.dir/depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/relay/CMakeFiles/turnadmin.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/relay/CMakeFiles/turnserver.dir/link.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/relay/dbdrivers/dbd_mysql.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/relay/dbdrivers/dbd_pgsql.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/relay/dbdrivers/dbd_sqlite.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/relay/netengine.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/relay/ns_ioalib_engine_impl.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/rfc5769/CMakeFiles/turnutils_rfc5769check.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/rfc5769/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/stunclient/CMakeFiles/turnutils_stunclient.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/stunclient/CMakeFiles/turnutils_stunclient.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/uclient/CMakeFiles/turnutils_uclient.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/uclient/CMakeFiles/turnutils_uclient.dir/depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/apps/uclient/CMakeFiles/turnutils_uclient.dir/flags.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/client/CMakeFiles/progress.marks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/client/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/client/ns_turn_ioaddr.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/client/ns_turn_msg_addr.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/client/ns_turn_msg_addr.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/ns_turn_defs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/server/CMakeFiles/turn_server.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/server/ns_turn_allocation.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/server/ns_turn_server.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/src/server/ns_turn_session.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/turnclientConfig.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/turndb/testmongosetup.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/coturn service/coturn-master/turndb/testsqldbsetup.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/去除图片背景/tet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interactive Computer Graphics/光线追踪（多面体）.html" beforeDir="false" afterPath="$PROJECT_DIR$/Interactive Computer Graphics/光线追踪（多面体）.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/共享屏幕/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/10共享屏幕/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/动态更改分辨率/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/05动态更改分辨率/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/媒体流设置/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/06媒体流设置/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/媒体记录/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/屏幕录制记录/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/屏幕录制记录/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/打开摄像头和麦克风/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/01打开摄像头和麦克风/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/捕获电子白板/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/12捕获画布/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/捕获视频再播放/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/捕获视频再播放/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/本地连接对话/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/本地连接对话/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/电子白板视频记录/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/14录制媒体流/电子白板视频记录/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/视频截图/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/02视频截图/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/设备枚举/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/03设备枚举/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/payment/check-user-can-make-payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/check-user-can-make-payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/payment/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/payment/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/函数绘制工具.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/函数绘制工具.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebSocket/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebSocket/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/object/去除图片背景/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片背景/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/算法/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/算法/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/算法/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/算法/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +128,8 @@
       <list>
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -108,6 +145,17 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="13163de0-ccb5-45a2-83bb-fa9e8c9e9a76" />
+        <option name="url" value="git@github.com:/zhengruipeng/zhengruipeng.github.io.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="28dDivJAoD7UcS3fqB50bcSnuX4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -117,38 +165,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mikimiki/APIs/WebRTC" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\12捕获画布" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\14录制媒体流" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\09约束" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object\硬盘备份3\test" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object\去除图片背景" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\17远程通话模拟\image" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\17远程通话模拟" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\信令通道发送文件" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\webSocket service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\WebSocket服务器\Peer2peerService" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\17远程通话模拟\js" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\14录制媒体流" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\object\硬盘备份3\test" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\react\test\react-test\src" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\变形\perspective-origin" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.归并排序.html">
+  <component name="RunManager" selected="Node.js.websocket-server.js">
     <configuration name="归并排序.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/User.php/算法/递归与分治/src/归并排序.html?_ij_reload" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="payment.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/User.php/mikimiki/APIs/payment/payment.php?_ij_reload" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="websocket-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebSocket/websocket-server.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebSocket">
       <method v="2" />
     </configuration>
     <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
@@ -166,9 +214,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.归并排序.html" />
         <item itemvalue="npm.start" />
+        <item itemvalue="Node.js.websocket-server.js" />
         <item itemvalue="JavaScript Debug.payment.php" />
+        <item itemvalue="JavaScript Debug.归并排序.html" />
       </list>
     </recent_temporary>
   </component>
@@ -457,14 +506,24 @@
       <workItem from="1666000115720" duration="4680000" />
       <workItem from="1666093177106" duration="4524000" />
       <workItem from="1666157629074" duration="3148000" />
-      <workItem from="1666234496617" duration="2962000" />
-    </task>
-    <task id="LOCAL-00018" summary="20220521(特效1)">
-      <created>1653100902210</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1653100902210</updated>
+      <workItem from="1666234496617" duration="11685000" />
+      <workItem from="1666320671028" duration="339000" />
+      <workItem from="1666350056912" duration="705000" />
+      <workItem from="1666439559738" duration="35000" />
+      <workItem from="1666505154844" duration="113000" />
+      <workItem from="1666581704585" duration="1204000" />
+      <workItem from="1666751067336" duration="13525000" />
+      <workItem from="1666849355447" duration="5569000" />
+      <workItem from="1667188292906" duration="8000" />
+      <workItem from="1667188319849" duration="12099000" />
+      <workItem from="1667211563032" duration="5191000" />
+      <workItem from="1667311990430" duration="1117000" />
+      <workItem from="1667360928204" duration="142000" />
+      <workItem from="1667361079027" duration="128000" />
+      <workItem from="1667361268205" duration="638000" />
+      <workItem from="1667362988508" duration="6970000" />
+      <workItem from="1667443382480" duration="790000" />
+      <workItem from="1667450700831" duration="1910000" />
     </task>
     <task id="LOCAL-00019" summary="20220522(CSS和特效)">
       <created>1653203016324</created>
@@ -802,7 +861,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663734531473</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="20221020">
+      <created>1666238449978</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1666238449978</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -818,11 +884,9 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220602" />
     <MESSAGE value="20220603" />
     <MESSAGE value="20220605" />
     <MESSAGE value="20220607" />
@@ -847,6 +911,11 @@
     <MESSAGE value="20220908" />
     <MESSAGE value="20220908(2)" />
     <MESSAGE value="20220921" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220921" />
+    <MESSAGE value="20221020" />
+    <option name="LAST_COMMIT_MESSAGE" value="20221020" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

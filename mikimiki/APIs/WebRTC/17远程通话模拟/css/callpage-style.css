@@ -1,0 +1,89 @@
+#videophone-container{
+    --receive-color:#66ff66;
+    --finish-color:#f22;
+    /*--hungup-point-x:0px;*/
+    /*--hungup-point-y:0px;*/
+    position: fixed;
+    top:0;
+    left:0;
+    transition: .3s;
+    display: grid;
+    grid:
+        "...        logo        ...        " 6fr
+        "...         timer     ...        "1fr
+        "finish   hungup  receive"3fr/
+        35%       30%   35%;
+
+}
+#videophone-container.start{
+    height:100%;
+    width:100%;
+    border-radius: 0;
+    background-color: #555f;
+    z-index: 1;
+    display: grid;
+}
+#videophone-container.end{
+    left:-40%;
+    top:-40%;
+    height:0;
+    width:0;
+    border-radius: 50%;
+    background-color: #7772;
+    z-index: -1;
+    opacity:0;
+}
+#videophone-container>#caller-timer{
+    grid-area: timer;
+    margin:auto;
+    font-size: 1.5em;
+    font-weight: 100;
+    font-family: et-line;
+    text-align: center;
+}
+#videophone-container>img,
+#videophone-container>button{
+    border:none;
+    border-radius: 50%;
+    background-color: #fff;
+    color:white;
+    text-align: center;
+    margin:auto;
+    font-size:1.5em;
+    font-family: 微软雅黑;
+    font-weight: 200;
+    transition: .3s;
+}
+#videophone-container>button{
+    height:150px;
+    width:150px;
+    position: relative;
+    transition: .3s;
+    left:0;
+}
+#videophone-container>#caller-logo{
+    grid-area: logo;
+    height:250px;
+    width:250px;
+}
+#videophone-container>#receive{
+    background-color: var(--receive-color);
+    grid-area: receive;
+}
+#videophone-container>#finish{
+    background-color: var(--finish-color);
+    grid-area:finish;
+}
+#videophone-container>#receive.calling{
+    left:calc(-1 * var(--hungup-point-x));
+    opacity: 0;
+    z-index: -1;
+}
+#videophone-container>#finish.calling{
+    left:var(--hungup-point-x);
+    z-index: 1;
+}
+#videophone-container>button:hover{
+    cursor: pointer;
+    transform: scale(1.2,1.2);
+}

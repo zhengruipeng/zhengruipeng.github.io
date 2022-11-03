@@ -1,0 +1,12 @@
+1:
+Uncaught (in promise) DOMException:
+Failed to execute 'setRemoteDescription'
+on 'RTCPeerConnection':
+Failed to set remote offer sdp:
+The order of m-lines in subsequent offer
+doesn't match order from previous offer/answer.
+此错误出现在163,183两行
+没有其他信息
+大概因为RTCPeerCon对象用的是老信息
+2:
+应改进服务器
