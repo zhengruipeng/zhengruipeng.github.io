@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    (async function (){
+      let algoIdentifier = "AES-CBC";
+      let keyParams = {
+        name:algoIdentifier,
+        length:256,
+      };
+      let keyUsages = ["encrypt","decrypt"];
+
+      let key = await crypto.subtle.generateKey(keyParams,true,keyUsages);
+      let originalPlaintext = (new TextEncoder()).encode("abcd");
+
+      let encryptDecryptParams = {
+        name:algoIdentifier,
+        iv:crypto.getRandomValues(new Uint8Array(16)),
+      };
+      let ciphertext = await crypto.subtle.encrypt(encryptDecryptParams,key,originalPlaintext);
+      console.log(new Uint32Array(ciphertext));
+
+      let decryptedPlaintext = await crypto.subtle.decrypt(encryptDecryptParams,key,ciphertext);
+
+      console.log((new TextDecoder()).decode(decryptedPlaintext));
+
+    })();
+    console.log(new TextEncoder());
+    console.log(new TextDecoder());
+  });
+</script>
+</body>
+</html>

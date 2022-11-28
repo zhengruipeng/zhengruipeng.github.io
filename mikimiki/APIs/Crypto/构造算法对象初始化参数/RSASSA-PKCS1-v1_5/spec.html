@@ -49,6 +49,12 @@
         dictionary Algorithm {
           required DOMString name;
         };
+        dictionary RsaKeyGenParams : Algorithm {
+          // The length, in bits, of the RSA modulus
+          [EnforceRange] required unsigned long modulusLength;
+          // The RSA public exponent
+          required BigInteger publicExponent;
+        };
         dictionary RsaHashedKeyGenParams : RsaKeyGenParams {
             // The hash algorithm to use
             required HashAlgorithmIdentifier hash;

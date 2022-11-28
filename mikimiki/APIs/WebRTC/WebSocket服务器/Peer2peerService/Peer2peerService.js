@@ -10,9 +10,6 @@ var ws = require("nodejs-websocket");
 let SendMessage = require("../message/SendMessage")
 let MessageOutput = require("../message/MessageOutput")
 let TwoPeers = require("./TwoPeers")
-// import {SendMessage} from ;
-// import {MessageOutput} from "../message/MessageOutput";
-// import {TwoPeers} from "./TwoPeers";
 
 var httpserver = new http.Server();
 httpserver.on("request",function (req,res){
@@ -31,7 +28,7 @@ let wsserver = ws.createServer({server:httpserver},function (con/*Connection*/){
         SendMessage.sendMsg(peers.getAnotherPeer(this),str);
     })
     con.on("error",function (code,reason){
-        // console.log("error code: " + code + "reason: " + reason);
+
     })
     con.on("close",function (){
         console.log("Peer"+peers.indexOf(this)+": closed");

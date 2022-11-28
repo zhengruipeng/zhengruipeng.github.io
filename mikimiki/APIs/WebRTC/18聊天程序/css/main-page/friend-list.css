@@ -1,0 +1,56 @@
+#container>aside{
+    border-right:var(--main-color) solid 2px;
+    --header-height:5em;
+    --header-color:white;
+}
+#container>aside>header{
+    height:var(--header-height);
+    display: flex;
+    background-color:var(--main-color-alpha4);
+}
+#container>aside>header>#head-pic {
+    height:calc(var(--header-height) * 0.85);
+    width:calc(var(--header-height) * 0.85);
+    border-radius: 50%;
+    margin:calc(var(--header-height) * 0.07);
+    margin-left:1em;
+}
+#container>aside>header>#nickname {
+    display: inline-block;
+    margin:auto 0 auto 1em;
+    color:var(--header-color);
+}
+#container>aside>ul{
+    --item-height:4em;
+    display: flex;
+    flex-flow: column;
+    padding:0;
+    margin:0;
+    height:calc(100% - var(--header-height));
+    overflow-y: scroll;
+}
+#container>aside>ul::-webkit-scrollbar {
+    background: white;
+    width:10px;
+    height:10px;
+    transition: var(--transition-duration);
+    cursor: pointer;
+}
+#container>aside>ul::-webkit-scrollbar:hover {
+    background: #ddd;
+}
+#container>aside>ul::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+}
+#container>aside>ul>li{
+    line-height: var(--item-height);
+    text-indent: 2em;
+    transition: var(--transition-duration);
+    cursor: pointer;
+    color:var(--main-color);
+}
+#container>aside>ul>li:hover {
+    background-color:var(--main-color-alpha3);
+}
+
+

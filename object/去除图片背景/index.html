@@ -11,11 +11,11 @@
     document.addEventListener("DOMContentLoaded",function () {
         const canvas = document.getElementById("canvas");
 
-        const EPSILON = 15;
+        const EPSILON = 2;
 
         const image = new Image();
         image.src = "" +
-            "tet.png" +
+            "res3.png" +
             "";
         image.onload = function (){
             canvas.width = this.width;
@@ -31,11 +31,11 @@
                     imageData.data[i + 2] === 255 ){
                     imageData.data[i + 3] = 0;
                 }*/
-                if(Math.hypot(imageData.data[i + 0]-175,imageData.data[i + 1]-168,imageData.data[i + 2]-158)<EPSILON){
-                    imageData.data[i + 0] = 255;
-                    imageData.data[i + 1] = 255;
-                    imageData.data[i + 2] = 255;
-                    imageData.data[i + 3] = 255;
+                if(Math.hypot(imageData.data[i + 0]-255,imageData.data[i + 1]-255,imageData.data[i + 2]-255)<EPSILON){
+                    imageData.data[i + 0] = 0;
+                    imageData.data[i + 1] = 0;
+                    imageData.data[i + 2] = 0;
+                    imageData.data[i + 3] = 0;
                 }
                 /*if(Math.hypot(imageData.data[i + 0]-106,imageData.data[i + 1]-79,imageData.data[i + 2]-70)<EPSILON){
                     imageData.data[i + 0] = 255;

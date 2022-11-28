@@ -1,0 +1,99 @@
+#container>main{
+    display: grid;
+    grid-template-rows: 4em 1fr;
+}
+
+#container>main>section{
+    --my-message-color:#fff;
+    --friends-message-color:var(--main-color);
+    --my-message-background-color:var(--main-color);
+    --friends-message-background-color:#fff;
+
+    --logo-height:4em;
+    --logo-width:4em;
+
+    overflow-y: scroll;
+    height:var(--message-page-max-height);
+
+}
+#container>main>section::-webkit-scrollbar {
+    background: white;
+    width:10px;
+    height:10px;
+    transition: var(--transition-duration);
+    cursor: pointer;
+}
+#container>main>section::-webkit-scrollbar:hover {
+    background: #ddd;
+}
+#container>main>section::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+}
+#container>main>section>ul{
+    display: grid;
+    grid:
+        "friends-pic friends-message adjust-area my-message my-pic" /
+        1fr               3fr             2fr             3fr                   1fr;
+    grid-auto-rows: min-content;
+    margin:0;
+    padding:0;
+}
+#container>main>section>ul>li{
+    /*padding:1em;*/
+    /*margin:1em;*/
+}
+
+#container>main>section>ul>li.friends-message{
+    grid-column-start: friends-pic-start;
+    grid-column-end: adjust-area-end;
+
+    display: grid;
+    grid:
+        "friends-pic friends-message" /
+        1fr               5fr;
+
+}
+
+#container>main>section>ul>li.my-message{
+    grid-column-end: my-pic-end;
+    grid-column-start: adjust-area-start;
+
+    display: grid;
+    grid:
+        "my-message my-pic" /
+        5fr                   1fr;
+
+}
+#container>main>section>ul>li>img {
+    margin:auto;
+}
+
+#container>main>section>ul>li.friends-message>img {
+    height:var(--logo-height);
+    width:var(--logo-width);
+    border-radius: 50%;
+    grid-area: friends-pic;
+}
+
+#container>main>section>ul>li.my-message>img {
+     height:var(--logo-height);
+     width:var(--logo-width);
+     border-radius: 50%;
+     grid-area: my-pic;
+ }
+#container>main>section>ul>li>p {
+    border-radius: 2em;
+    padding:1em;
+}
+#container>main>section>ul>li.friends-message>p {
+    background-color:var(--friends-message-background-color);
+    color:var(--friends-message-color);
+    border:var(--main-color) solid 1px;
+    border-top-left-radius: 1em;
+}
+#container>main>section>ul>li.my-message>p {
+    background-color:var(--my-message-background-color);
+    color:var(--my-message-color);
+    border-top-right-radius: 1em;
+
+}
