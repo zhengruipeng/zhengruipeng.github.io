@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "php",
+            "name": "miki",
+            "workingDir": "D:/XAMPP/php/",
+            "allowParallelRun": true,
+        },
+
+    ]
+}
