@@ -1,166 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20221103">
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/基本操作/生成秘钥/RSASSA-PKCS1-v1_5/example.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/indexeddb-panel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/main-page/friend-list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/main-page/message-box.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/main-page/message-page-header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/main-page/message-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/main-page/whole-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/design-drawing/主页面/主页面设计图.vsdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/image/logo2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/model/CallingState.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/model/ObserverCallBackType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/module/AppGlobal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/module/ConstantObserver.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/module/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/module/output-info-into-panel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/mainPage/ui/aside-controller-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/message/module/friend-join.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/p2p-calling.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/css/callpage-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/css/main-page/friend-list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/css/main-page/message-box.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/css/main-page/message-page-header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/css/main-page/message-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/css/main-page/whole-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/design-drawing/主页面/主页面设计图.vsdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/image/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/image/logo2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/call/model/CallingState.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/call/module/call-operation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/call/script/call-timer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/call/script/callpage-UI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/environment/call.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/environment/message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/environment/model/MessagePackage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/environment/model/MessageType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/libs/ConstantObserver/ConstantObserver.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/libs/ConstantObserver/ObserverCallBackType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/libs/WSConnection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/mainPage/link-server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/mainPage/ui/aside-controller-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/message/model/MemberInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/js/message/module/friend-join.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/p2p-calling.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/18聊天程序/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/css/callpage-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/css/indexeddb-panel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/css/main-page/friend-list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/css/main-page/message-box.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/css/main-page/message-page-header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/css/main-page/message-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/css/main-page/whole-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/design-drawing/主页面/主页面设计图.vsdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/image/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/image/logo2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/model/CallingState.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/model/MessagePackage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/model/MessageType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/model/ObserverCallBackType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/module/AppGlobal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/module/ConstantObserver.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/module/call-operation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/module/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/module/custom2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/module/output-info-into-panel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/script/Object-prototype-toString2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/script/call-timer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/call/script/callpage-UI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/mainPage/ui/aside-controller-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/js/message/module/friend-join.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/p2p-calling.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/19RTCPeerConnection属性方法/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/css/callpage-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/css/indexeddb-panel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/css/main-page/friend-list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/css/main-page/message-box.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/css/main-page/message-page-header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/css/main-page/message-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/css/main-page/whole-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/design-drawing/主页面/主页面设计图.vsdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/image/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/image/logo2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/model/CallingState.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/model/MessagePackage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/model/MessageType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/model/ObserverCallBackType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/AppGlobal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/ConstantObserver.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/RTCRtpCodecCapability.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/RTCRtpCodecParameters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/call-operation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/custom3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/custom4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/output-info-into-panel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/script/Object-prototype-toString2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/script/call-timer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/script/callpage-UI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/mainPage/ui/aside-controller-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/message/module/friend-join.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/p2p-calling.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/MultiterminalService/Member.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/MultiterminalService/Peers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/MultiterminalService/model/MemberInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/message/model/MessagePackage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/message/model/MessageType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/去除图片背景/res.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/去除图片背景/res3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/entities/entities.dat_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/storage_v2/_src_/schema/database_essential.6UqJzQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/storage_v2/_src_/schema/database_essential.6UqJzQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9c962bba-b4be-4709-a82a-b636f522e488/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="202211282">
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module/RTCRtpEncodingParameters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/css/callpage-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/css/indexeddb-panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/css/main-page/friend-list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/css/main-page/message-box.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/css/main-page/message-page-header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/css/main-page/message-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/css/main-page/whole-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/design-drawing/主页面/主页面设计图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/image/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/image/logo2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/model/CallingState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/model/MessagePackage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/model/MessageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/model/ObserverCallBackType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/AppGlobal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/ConstantObserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/RTCRtpCodecCapability.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/RTCRtpCodecParameters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/RTCRtpEncodingParameters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/call-operation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/custom3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/custom4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/module/output-info-into-panel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/script/Object-prototype-toString2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/script/call-timer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/call/script/callpage-UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/mainPage/ui/aside-controller-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/js/message/module/friend-join.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/p2p-calling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/21RTP扩展/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSASSA-PKCS1-v1_5/spec.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/构造算法对象初始化参数/RSASSA-PKCS1-v1_5/spec.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/AesKeyGenParams/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/AesKeyGenParams/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/EcKeyGenParams/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/EcKeyGenParams/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/HmacKeyGenParams/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/HmacKeyGenParams/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/RsaHashedKeyGenParams/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/RsaHashedKeyGenParams/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/encrypt,decrypt/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/encrypt,decrypt/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/example/aes-cbc.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/example/aes-cbc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/example/aes-ctr.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/example/aes-ctr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/example/aes-gcm.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/example/aes-gcm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/example/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/example/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/example/rsa-oaep.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/example/rsa-oaep.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/example/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/example/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/example1.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/example1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/example2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/example2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/getRandomValues/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/getRandomValues/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/sign,verify/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/sign,verify/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/test/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/test/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/SubtleCrypto/wrapKey,unwrapKey/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Crypto/SubtleCrypto/wrapKey,unwrapKey/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/README" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/callpage-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/css/callpage-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/AppGlobal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/CallingState.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/ConstantObserver.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/MessagePackage.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/model/MessagePackage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/MessageType.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/model/MessageType.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call-operation.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/module/call-operation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call-timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/script/call-timer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/callpage-UI.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/17远程通话模拟/js/call/script/callpage-UI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/Peer2peerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/Peer2peerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/message/SendMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/message/SendMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/websocket-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/MultiterminalService/websocket-server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片背景/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/p2p-calling.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/20RTP媒体管理/p2p-calling.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,29 +88,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/mikimiki/APIs/WebRTC/20RTP媒体管理/js/call/module&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/mikimiki/APIs/WebRTC",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\20RTP媒体管理\js\call\module" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\20RTP媒体管理\js\call\module" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\19RTCPeerConnection属性方法\js\call\module" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Crypto\基本操作\生成秘钥" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\17远程通话模拟\js\call\module" />
@@ -247,11 +123,14 @@
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\WebSocket服务器\MultiterminalService" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.payment.php">
+  <component name="RunManager" selected="Node.js.Peer2peerService.js">
     <configuration name="归并排序.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/User.php/算法/递归与分治/src/归并排序.html?_ij_reload" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="payment.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/User.php/mikimiki/APIs/payment/payment.php?_ij_reload" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Peer2peerService.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService">
       <method v="2" />
     </configuration>
     <configuration name="websocket-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebSocket/websocket-server.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebSocket">
@@ -273,6 +152,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.Peer2peerService.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -594,13 +478,8 @@
       <workItem from="1669175969064" duration="6189000" />
       <workItem from="1669346617033" duration="7329000" />
       <workItem from="1669608340522" duration="1402000" />
-    </task>
-    <task id="LOCAL-00019" summary="20220522(CSS和特效)">
-      <created>1653203016324</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1653203016324</updated>
+      <workItem from="1669610890382" duration="6035000" />
+      <workItem from="1669863841606" duration="2835000" />
     </task>
     <task id="LOCAL-00020" summary="20220525">
       <created>1653461281880</created>
@@ -938,7 +817,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666238449978</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="20221128">
+      <created>1669611032644</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1669611032644</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -957,8 +843,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220605" />
-    <MESSAGE value="20220607" />
     <MESSAGE value="20220608" />
     <MESSAGE value="20220610" />
     <MESSAGE value="20220612" />
@@ -982,7 +866,9 @@
     <MESSAGE value="20220921" />
     <MESSAGE value="20221020" />
     <MESSAGE value="20221103" />
-    <option name="LAST_COMMIT_MESSAGE" value="20221103" />
+    <MESSAGE value="20221128" />
+    <MESSAGE value="202211282" />
+    <option name="LAST_COMMIT_MESSAGE" value="202211282" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">
