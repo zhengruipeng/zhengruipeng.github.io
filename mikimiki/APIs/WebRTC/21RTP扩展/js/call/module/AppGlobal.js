@@ -24,6 +24,7 @@ let AppGlobal = {
     wsConnection:null,
     callingState:null,
 
+    beforeAddTrack:null,
 };
 
 export {AppGlobal}

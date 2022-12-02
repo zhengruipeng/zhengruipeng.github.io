@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //采用默认stun和turn服务器
     let iceServerConfig = {"iceServer": [{"urls": "stun:stun.l.google.com:19302"}]};
     // let peerConnA;
+    AppGlobal.beforeAddTrack = new ConstantObserver(false);
 
     //ice处理的事件
     let iceCandidateA = async function (e) {
@@ -68,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
         finishBtn.classList.add("calling");
 
         //开始添加本地麦克风到待传输媒体流中
+
+        AppGlobal.beforeAddTrack.value = true;
         for (let v of mediaStream.getTracks()) {
             peerConnA.addTrack(v, mediaStream);
         }
