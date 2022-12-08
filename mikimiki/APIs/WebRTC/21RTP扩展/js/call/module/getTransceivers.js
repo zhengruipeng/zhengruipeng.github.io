@@ -9,20 +9,20 @@ document.addEventListener("DOMContentLoaded",function (){
 
         let rtcConnection = AppGlobal.RTCConnection;
 
-        PanelOutput.println("transceiversを出力する");
-        PanelOutput.println(rtcConnection.getTransceivers().toString2("<br />",-1,"&nbsp;&nbsp;"));
+        // PanelOutput.println("transceiversを出力する");
+        // PanelOutput.println(rtcConnection.getTransceivers().toString2("<br />",-1,"&nbsp;&nbsp;"));
         console.log(rtcConnection.getTransceivers())
 
-        PanelOutput.println("sendersを出力する");
-        PanelOutput.println("<p style='color:orangered'>"+
-            rtcConnection.getSenders().toString2("<br />",-1,"&nbsp;&nbsp;")+
-        "</p>");
+        // PanelOutput.println("sendersを出力する");
+        // PanelOutput.println("<p style='color:orangered'>"+
+        //     rtcConnection.getSenders().toString2("<br />",-1,"&nbsp;&nbsp;")+
+        // "</p>");
         console.log(rtcConnection.getSenders())
 
-        PanelOutput.println("receiversを出力する");
-        PanelOutput.println("<p style='color:cadetblue'>"+
-            rtcConnection.getReceivers().toString2("<br />",-1,"&nbsp;&nbsp;")+
-        "</p>");
+        // PanelOutput.println("receiversを出力する");
+        // PanelOutput.println("<p style='color:cadetblue'>"+
+        //     rtcConnection.getReceivers().toString2("<br />",-1,"&nbsp;&nbsp;")+
+        // "</p>");
         console.log(rtcConnection.getReceivers())
 
     })

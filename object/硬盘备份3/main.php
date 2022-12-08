@@ -63,9 +63,9 @@
             parseMap.parse(map,main);
 
 
-            /*for(let name in map){
-                console.log(map[name].join ? map[name].join("\n"):undefined);
-            }*/
+            // for(let name in map){
+            //     console.log(map[name].join ? map[name].join("\n"):undefined);
+            // }
         })
     })
 </script>
