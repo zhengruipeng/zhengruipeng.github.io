@@ -7,23 +7,26 @@ document.addEventListener("DOMContentLoaded",function (){
     AppGlobal.callingState.addEventListener(ObserverCallBackType.change,async function (){
         if(this.value !== CallingState.CALLING)return false;
 
-        let rtcPeerConnection = AppGlobal.RTCConnection;
+        let rtcPeerConnection = AppGlobal.RTCConnection.value;
 
         let rtpSenders = rtcPeerConnection.getSenders()[0];
 
-        PanelOutput.println("<span style='color:#00A8EF'>iceTransport: </span><br />",
+        let rtcDTMFSender = rtpSenders.dtmf;
+        console.log(rtcDTMFSender)
+        if(!rtcDTMFSender)return false;
+
+        PanelOutput.println("<span style='color:#00A8EF'>canInsertDTMF: </span><br />",
             "<span style='color:palevioletred'>"+
-            rtpSenders.transport?.iceTransport?.toString2("<br />",-1,"&nbsp;&nbsp;")+
+            rtcDTMFSender.canInsertDTMF+
             "</span>"
         )
 
-        PanelOutput.println("<span style='color:#00A8EF'>state</span>",
+        PanelOutput.println("<span style='color:#00A8EF'>toneBuffer: </span><br />",
             "<span style='color:palevioletred'>"+
-            rtpSenders.transport?.state?.toString2("<br />",-1,"&nbsp;&nbsp;")+
+            rtcDTMFSender.toneBuffer.toString2("<br />",-1,"&nbsp;&nbsp;")+
             "</span>"
-        )
-        // console.log(rtpSenders)
-        // console.log(rtpSenders.transport);
+        );
+        console.log(rtcDTMFSender.toneBuffer)
 
     })
 })

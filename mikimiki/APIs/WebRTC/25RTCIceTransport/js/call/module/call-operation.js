@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let iceServerConfig;
 
     let generatingCertificate = new ConstantObserver(false);
-
+    AppGlobal.RTCConnection = new ConstantObserver(null);
     //采用默认stun和turn服务器
     RTCPeerConnection.generateCertificate({
         name: "RSASSA-PKCS1-v1_5",
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //电话已经接通，设置为通话中
         // callingState.value = CallingState.CALLING
 
-        AppGlobal.RTCConnection?.addEventListener("iceconnectionstatechange",function (){
+        AppGlobal.RTCConnection.value?.addEventListener("connectionstatechange",function (){
             // console.log(this.iceConnectionState)
             if(this.iceConnectionState === "connected"){
                 callingState.value = CallingState.CALLING
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        let peerConnA = AppGlobal.RTCConnection = new RTCPeerConnection(iceServerConfig);
+        let peerConnA = AppGlobal.RTCConnection.value = new RTCPeerConnection(iceServerConfig);
 
         //重新注册事件
         peerConnA.addEventListener("icecandidate", iceCandidateA);
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentAudio.remote = null;
 
         //关闭当前的连接通道
-        AppGlobal.RTCConnection.close();
+        AppGlobal.RTCConnection.value.close();
 
         //关闭通话页面
         videophoneContainer.className = "end";
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
 
         }
-        let peerConnA = AppGlobal.RTCConnection = new RTCPeerConnection(iceServerConfig);
+        let peerConnA = AppGlobal.RTCConnection.value = new RTCPeerConnection(iceServerConfig);
 
         // console.log("收到DESCRIPTION类型方法")
 
@@ -239,11 +239,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // 也就是远程描述已经准备就绪的时候自动执行
             //如果不这样的话会出错
             remoteDescriptionIsReady.addEventListener(ObserverCallBackType.change, async function () {
-                await AppGlobal.RTCConnection.addIceCandidate(messagePackage.data);
+                await AppGlobal.RTCConnection.value.addIceCandidate(messagePackage.data);
             });
         } else {
             //如果已经为true则直接执行
-            await AppGlobal.RTCConnection.addIceCandidate(messagePackage.data);
+            await AppGlobal.RTCConnection.value.addIceCandidate(messagePackage.data);
         }
     })
     //对方请求了关闭
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 之后等待对方回应的描述时，收到对方的描述
     //也就是远程描述时使用
     wsConnection.messageMap.addMap(MessageType.REMOTE, async function (messagePackage) {
-        await AppGlobal.RTCConnection.setRemoteDescription(messagePackage.data);
+        await AppGlobal.RTCConnection.value.setRemoteDescription(messagePackage.data);
         // callingState.value = CallingState.CALLING
     });
     //采用默认触发事件方式
