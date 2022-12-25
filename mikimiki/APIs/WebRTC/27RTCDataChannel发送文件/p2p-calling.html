@@ -9,19 +9,26 @@
 <body>
 <div id="indexeddb-panel" class="stay light"></div>
 <button id="call">呼叫视频电话</button>
+<label>发送文件<input type="file" id="send-file" /></label>
 
 <main id="videophone-container" class="end">
+    <button id="close">×</button>
     <img src="image/logo.jpg" id="caller-logo" />
     <time id="caller-timer"><span>--</span> : <span>--</span></time>
     <button id="receive">接听</button>
     <button id="hidden"></button>
     <button id="finish">挂断</button>
 </main>
+
 <script type="text/javascript" src="./js/call/script/Object-prototype-toString2.js"></script>
 <script type="text/javascript" src="./js/call/script/callpage-UI.js"></script>
+<script type="text/javascript" src="./js/call/script/event-register.js"></script>
 <script type="module" src="./js/call/script/call-timer.js"></script>
 <script type="module" src="./js/call/module/call-operation.js"></script>
-<script type="module" src="js/call/module/RTCDataChannel.js"></script>
+<script type="module" src="js/call/module/文件传输通道.js"></script>
+<!--<script type="module" src="js/call/module/无序传输通道.js"></script>
+<script type="module" src="js/call/module/不可靠传输模式.js"></script>
+<script type="module" src="js/call/module/带外协商.js"></script>-->
 
 
 </body>
