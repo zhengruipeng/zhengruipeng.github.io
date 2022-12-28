@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        class Secret {
+            #secret;
+
+            constructor(secret) {
+                this.#secret = secret;
+            }
+
+            get secret() {
+                return this.#secret.replace(/\d+/, "[REDACTED]") + `(${this.#secret})`;
+            }
+
+            /*          set secret(v) {
+                          this.#secret = v;
+                      }*/
+        }
+
+        const aSecret = new Secret("123456");
+        console.log(aSecret.secret); // [REDACTED]
+        aSecret.secret = "aa123"
+        console.log(aSecret.secret); // [REDACTED]
+
+
+// Looks like a no-op forwarding...
+        const proxy = new Proxy(aSecret, {
+            get(target, prop, receiver) {
+                // By default, it looks like Reflect.get(target, prop, receiver)
+                // which has a different value of `this`
+                console.log(...arguments)
+                //因为当利用proxy来访问属性和方法的时候会把访问时的this改为proxy，
+                //在访问之前需要将this值改为被监听对象也就是target对象本身
+                return target[prop];
+            },
+        });
+        // console.log(proxy.secret)
+        console.log(proxy.secret); // TypeError: Cannot read private member #secret from an object whose class did not declare it
+
+    })
+</script>
+</body>
+</html>

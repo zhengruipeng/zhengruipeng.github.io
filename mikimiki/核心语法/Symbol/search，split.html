@@ -18,8 +18,9 @@
         console.log(o[Symbol.search]("123123"));
         o = {
             [Symbol.split](string){
-                const index = string.indexOf("2");
-                return `${string.substr(0, index)}/${string.substr(index + "2".length)}`;
+                const splitor = "2"
+                const index = string.indexOf(splitor);
+                return `${string.substring(0, index)}/${string.substring(index + splitor.length)}`;
             }
         };
         console.log("123123".split("2"));

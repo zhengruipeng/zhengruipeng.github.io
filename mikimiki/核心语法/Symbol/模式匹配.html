@@ -13,24 +13,25 @@
     class Glob{
       constructor(glob){
         this.glob = glob;
-        let regexpText = glob.replace("?","([^/])").replace("*","([^/]*)");
+        //设置两个关键字，?代表有一个字符作为通配符，*代表0-多
+        let regexpText = glob.replace("?","([^/])").replace("*","([^/]*?)");
         this.regexp = new RegExp(`^${regexpText}$`,'u');
       }
 
       toString (){
         return this.glob;
       }
-      [Symbol.match](s){return s.search(this.regexp)};
+      [Symbol.search](s){return s.search(this.regexp)};
       [Symbol.match](s){return s.match(this.regexp)};
       [Symbol.replace](s,replacement){return s.replace(this.regexp,replacement)};
     }
     let pattern = new Glob("docs/*.txt");
     console.log(pattern);
-    "docs/js.txt".search(pattern);
-    "docs/js.htm".search(pattern);
+    console.log("docs/js.txt".search(pattern));
+    console.log("docs/js.htm".search(pattern));
     let match = "docs/js.txt".match(pattern);
     console.log(match);
-    "docs/js.txt".replace(pattern,"web/$1.htm");
+    console.log("docs/js.txt".replace(pattern,"web/$1.htm"));
   });
 </script>
 </body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        class Secret {
+            #x = 1;
+            x() {
+                return this.#x;
+            }
+        }
+
+        const aSecret = new Secret();
+        const proxy = new Proxy(aSecret, {
+            get(target, prop, receiver) {
+                const value = target[prop];
+                if (value instanceof Function) {
+                    return function (...args) {
+                        console.log(this)
+                        return value.apply(this === receiver ? target : this, args);
+                    };
+                }
+                return value;
+            },
+        });
+        console.log(proxy.x());
+        let x = proxy.x;
+        x()
+
+    })
+</script>
+</body>
+</html>

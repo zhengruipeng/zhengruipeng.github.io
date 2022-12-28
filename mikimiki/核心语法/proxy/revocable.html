@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let revocableProxy = Proxy.revocable({
+            a:1
+        },{
+            get(target,name,proxy){
+                return target[name]
+            }
+        });
+
+        let {revoke,proxy} = revocableProxy;
+        console.log(proxy.a)
+        revoke();
+        console.log(proxy.a)
+
+
+    })
+</script>
+</body>
+</html>

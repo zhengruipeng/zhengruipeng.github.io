@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const map = new Map();
+        // const proxy = new Proxy(map, {});
+        // console.log(proxy.size);
+        //
+        const proxy2 = new Proxy(map, {
+            get(target, prop, receiver) {
+                const value = target[prop];
+                if (value instanceof Function) {
+                    return function (...args) {
+                        console.log(this)
+                        return value.apply(this === receiver ? target : this, args);
+                    };
+                }
+                return value;
+            },
+        });
+        console.log(map)
+        console.log(proxy2.size);
+
+
+
+    })
+</script>
+</body>
+</html>
