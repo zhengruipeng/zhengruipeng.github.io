@@ -17,7 +17,9 @@
             writable:true,
             configurable:true,
         });
+        let arr = [];
         console.log(Reflect.getOwnPropertyDescriptor(o,'a'))
+        console.log(Reflect.getOwnPropertyDescriptor(arr,'length'))
     });
 </script>
 </body>

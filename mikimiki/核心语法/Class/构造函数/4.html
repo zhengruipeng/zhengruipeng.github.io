@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        class Polygon {
+            line = 11;
+            constructor() {
+                console.log("polygon")
+                this.name = "Polygon";
+            }
+        }
+
+        class Rectangle {
+            rect = 22;
+            constructor() {
+                console.log("rectangle")
+                this.name = "Rectangle";
+            }
+        }
+
+        class Square extends Polygon {
+            constructor() {
+                super();        //指代Rectangle的构造函数
+            }
+        }
+
+        // Make Square extend Rectangle (which is a base class) instead of Polygon
+
+        Object.setPrototypeOf(Square, Array);
+        //Square -> Rectangle -> Function.prototype -> Object.prototype
+
+        const newInstance = new Square();
+
+        // newInstance is still an instance of Polygon, because we didn't
+        // change the prototype of Square.prototype, so the prototype chain
+        // of newInstance is still
+        //   newInstance --> Square.prototype --> Polygon.prototype
+        console.log(Square)
+        console.log(newInstance)
+        console.log(newInstance instanceof Polygon); // true
+        console.log(newInstance instanceof Rectangle); // false
+
+        // However, because super() calls Rectangle as constructor, the name property
+        // of newInstance is initialized with the logic in Rectangle
+        console.log(newInstance.name); // Rectangle
+
+    })
+</script>
+
+</body>
+</html>

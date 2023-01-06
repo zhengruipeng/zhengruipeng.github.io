@@ -18,5 +18,46 @@
         console.log(a.__proto__);
     });
 </script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        Reflect.setPrototypeOf({}, Object.prototype); // true
+
+        // It can change an object's [[Prototype]] to null.
+        Reflect.setPrototypeOf({}, null); // true
+
+        // Returns false if target is not extensible.
+        Reflect.setPrototypeOf(Object.freeze({}), null); // false
+
+        // Returns false if it cause a prototype chain cycle.
+        const target = {};
+        const proto = Object.create(target);
+        Reflect.setPrototypeOf(target, proto); // false
+
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let o = {
+            a:123
+        };
+        let p = new Proxy(o, {
+            setPrototypeOf(target, v) {
+                console.log(target,v.name)
+                return Reflect.setPrototypeOf(target,v);
+            },
+        });
+
+        let A = function (){};
+        // A.prototype = function (){};
+
+
+        console.log(p)      //o -> Object.prototpe
+        // debugger
+        console.log(Object.setPrototypeOf(p,new A));
+        console.log(p)      //o -> A`s instance -> Object.prototype
+        console.log(p instanceof A)
+        console.log(p === o)
+    });
+</script>
 </body>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        //期大概内容主要是判断一个对象的原型对象prototype的地址是否存在于被判断对象的原型链中，
+        // defining constructors
+        function C() {
+        }
+
+        function D() {
+        }
+
+        const o = new C();
+
+// true, because: Object.getPrototypeOf(o) === C.prototype
+        console.log("o instanceof C: ",o instanceof C);
+
+// false, because D.prototype is nowhere in o's prototype chain
+        console.log("o instanceof D: ",o instanceof D);
+
+        console.log("o instanceof Object: ",o instanceof Object); // true, because:
+        console.log("C.prototype instanceof Object: ",C.prototype instanceof Object); // true
+
+// Re-assign `constructor.prototype`: you should
+// rarely do this in practice.
+        C.prototype = {};
+        const o2 = new C();
+
+        console.log("o2 instanceof C: ",o2 instanceof C); // true
+
+// false, because C.prototype is nowhere in
+// o's prototype chain anymore
+//         console.log(o)
+        console.log("o instanceof C: ",o instanceof C);
+//true, add the prototype of C to o manually
+        Object.setPrototypeOf(o,C.prototype)
+        console.log("o instanceof C:(after changing the prototype) ",o instanceof C);
+
+
+        D.prototype = new C(); // add C to [[Prototype]] linkage of D
+        const o3 = new D();
+        console.log("o3 instanceof D: ",o3 instanceof D); // true
+        console.log("o3 instanceof C: ",o3 instanceof C); // true since C.prototype is now in o3's prototype chain
+
+    });
+</script>
+</body>
+</html>

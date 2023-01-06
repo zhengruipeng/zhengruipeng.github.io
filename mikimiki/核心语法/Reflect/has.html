@@ -9,13 +9,28 @@
 </head>
 <body>
 <script type="module">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         let o = {
-            foo:1
+            foo: 1
         };
 
-        console.log(Reflect.has(o,'foo'));
-        console.log(Reflect.has(o,'baz'));
+        console.log(Reflect.has(o, 'foo'));
+        console.log(Reflect.has(o, 'baz'));
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {
+            foo: 1
+        };
+        let p = new Proxy(o, {
+            has(target, p) {
+                console.log(target, p)
+                return Reflect.has(target,p)
+            }
+        });
+
+        console.log("foo" in p)
     });
 </script>
 </body>

@@ -18,5 +18,17 @@
         console.log(a.__proto__);
     });
 </script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        let o = {};
+        let p = new Proxy(o,{
+            getPrototypeOf(target) {
+                return Reflect.getPrototypeOf(target);
+            }
+        });
+
+        console.log(Object.getPrototypeOf(p))
+    });
+</script>
 </body>
 </html>

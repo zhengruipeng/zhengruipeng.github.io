@@ -9,17 +9,75 @@
 </head>
 <body>
 <script type="module">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         let o = {
-            set baz(value){
+            set baz(value) {
                 return this.foo = value;
             }
         };
         let ro = {
-            foo:1,
-            bar:2
+            foo: 1,
+            bar: 2
         };
-        console.log(Reflect.set(o,'baz',123,ro));
+        console.log(Reflect.set(o, 'baz', 123, ro));//{foo:123,bar:2}
+        console.log(ro)
+
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {
+            set baz(value) {
+                return this.foo = value;
+            }
+        };
+        let ro = {
+            foo: 1,
+            bar: 2,
+
+        };
+
+        let p = new Proxy(o, {
+            set(target, p, newValue, receiver) {
+                console.log(target === o?"o对象":(target === ro?"ro对象":target),
+                    ...Array.prototype.slice.call(arguments,1,3),
+                    receiver === o?"o对象":(receiver === ro?"ro对象":receiver))
+                return Reflect.set(target, p, newValue, receiver);
+            }
+        });
+        // p = structuredClone(p);
+        p.baz = 321
+        console.log(p);
+        console.log(o);
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {
+            set baz(value) {
+                return this.foo = value;
+            }
+        };
+        let ro = {
+            foo: 1,
+            bar: 2,
+            set baz(value){
+                return o.baz = value
+            }
+        };
+
+        let p = new Proxy(ro, {
+            set(target, p, newValue, receiver) {
+                console.log(target === o?"o对象":(target === ro?"ro对象":target),
+                    ...Array.prototype.slice.call(arguments,1,3),
+                    receiver === o?"o对象":(receiver === ro?"ro对象":receiver))
+                return Reflect.set(target, p, newValue, receiver);
+            }
+        });
+        // p = structuredClone(p);
+        p.baz = 321
+        console.log(p);
+        console.log(o);
     });
 </script>
 </body>

@@ -22,5 +22,37 @@
     console.log(Reflect.get(o,'baz',ro));
   });
 </script>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    // Object
+    let obj = { x: 1, y: 2 }
+    Reflect.get(obj, 'x')  // 1
+
+// Array
+    Reflect.get(['zero', 'one'], 1)  // "one"
+
+// Proxy with a get handler
+    let x = {p: 1};
+
+    obj = new Proxy(x, {
+      get(t, k, r) {
+        return k + 'bar'
+      }
+    })
+    Reflect.get(obj, 'foo')  // "foobar"
+
+//Proxy with get handler and receiver
+    x = {p: 1, foo: 2};
+    let y = {foo: 3};
+
+    obj = new Proxy(x, {
+      get(t, prop, receiver) {
+        return receiver[prop] + 'bar'
+      }
+    })
+    Reflect.get(obj, 'foo', y) // "3bar"
+
+  });
+</script>
 </body>
 </html>

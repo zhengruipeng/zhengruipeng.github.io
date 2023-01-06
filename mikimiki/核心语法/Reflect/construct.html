@@ -9,11 +9,123 @@
 </head>
 <body>
 <script type="module">
-    document.addEventListener("DOMContentLoaded",function (){
-        let Fun = function (a){
+    document.addEventListener("DOMContentLoaded", function () {
+        let getFunctionName = function (func){
+            return func.name+"函数";
+        }
+        let Prototype = function (){
+            console.log("Prototype构造函数正在被实例化，new.target指向：", typeof new.target === "function"?getFunctionName(new.target):new.target)
+            this.a = "default";
+        };
+
+        let Fun = function (a) {
+            console.log("Fun构造函数正在被实例化，new.target指向：", typeof new.target === "function"?getFunctionName(new.target):new.target)
             this.a = a;
         };
-        console.log(Reflect.construct(Fun,[123]))
+        // console.log(Reflect.construct(Fun,[123]))
+
+        let proxy = new Proxy(Fun, {
+            construct(target, argArray, newTarget) {
+                console.log("proxy的construct方法已触发\n",
+                    typeof target === "function"?getFunctionName(target):target,
+                    argArray,
+                    newTarget)
+                return Reflect.construct(target, argArray, newTarget)
+            }
+        });
+
+        console.log(getFunctionName(proxy.prototype.constructor),proxy.prototype);
+
+        // debugger
+        //本身其prototype指向Fun，后将其改为指向Prototype，所以Fun的prototype也跟着一起指向了Prototype
+        //而instanceof的本质是检测对象的所属类的constructor和被检测类的constructor，示例代码如下：
+        (function (){
+            let A = function (){};
+            A.prototype = Array.prototype
+            console.log("(new A) instanceof Array: ",(new A) instanceof Array,new A)
+        })();
+
+        //所以当添加以下一行代码的时候，所有objx instanceof Fun的输出等价于objx instanceof Prototype
+        //而所有objx都变成了由Prototype派生出来的对象，所以均输出true
+        // proxy.prototype = Prototype.prototype;
+
+
+        //而proxy.prototype和Fun.prototype理应指向不同内存地址
+        //但是在转换proxy.prototype的时候同时会将Fun.prototype的地址转换
+        //所以可以断定proxy.prototype === Fun.prototype
+        console.log("proxy.prototype === Fun.prototype: ",proxy.prototype === Fun.prototype)      //true
+        //所以可以得出结论，proxy在构造的时候会同时继承被监听对象所属类的prototype
+
+        // console.log(getFunctionName(proxy.prototype.constructor))
+        // console.log(getFunctionName(Fun.prototype.constructor))
+
+        // proxy.prototype.constructor = proxy;
+
+
+        let funPrototype = proxy.prototype;
+        proxy.prototype = new Prototype();
+        let obj0 = new Fun(1234);
+        let obj1 = new proxy(1234);
+        // let obj1 = null;
+
+        console.log("obj0: ",obj0)
+        console.log("obj1: ",obj1)
+
+        console.log("obj0 instanceof Fun: ",obj0 instanceof Fun); // true
+        console.log("obj1 instanceof Fun: ",obj1 instanceof Fun); // true
+
+        console.log("obj0 instanceof Prototype: ",obj0 instanceof Prototype); // false
+        console.log("obj1 instanceof Prototype: ",obj1 instanceof Prototype); // false
+
+        proxy.prototype = funPrototype;
+
+        let obj2 = Object.create(Prototype.prototype);
+        // Object.getPrototypeOf(obj2).constructor = proxy;
+        Fun.apply(obj2,[1234])
+
+        let obj3 = Reflect.construct(Fun, [1234], Prototype);
+        let obj4 = Reflect.construct(Prototype, [1234], Object);
+
+
+        console.log("obj2: ",obj2)
+        console.log("obj3: ",obj3)
+        console.log("obj4: ",obj4)
+
+
+        //当Fun.prototype === Prototype.prototype的时候
+        //obj2是Object.create(Prototype.prototype)产生的对象
+        //本身就继承了Prototype类，再加上Fun的原型对象是Prototype
+        //所以本行代码就相当于：prototype的实例对象 instanceof Prototype，返回true
+        //而利用proxy.prototype = funPrototype;代码复原之后
+        //本行代码就相当于：prototype的实例对象 instanceof Fun，返回false
+        console.log("obj2 instanceof Fun: ",obj2 instanceof Fun); // false
+        console.log("obj3 instanceof Fun: ",obj3 instanceof Fun); // false
+        console.log("obj4 instanceof Fun: ",obj4 instanceof Fun); // false
+
+
+        console.log("obj2 instanceof Prototype: ",obj2 instanceof Prototype); // true
+        console.log("obj3 instanceof Prototype: ",obj3 instanceof Prototype); // true
+        console.log("obj4 instanceof Prototype: ",obj4 instanceof Prototype); // false
+
+
+
+        let A = function (){};
+        let B = function (){};
+
+        console.log(Reflect.construct(B,[],A))
+
+        //Reflect在三个参数的时候，有点类似于以下写法，
+        //这种不调用父类构造函数的继承方法（只继承prototype原型对象）
+        B.prototype = A.prototype
+        console.log(new B())
+        //两者之间继承链上差一层
+        B.prototype = new A();
+        console.log(new B);
+
+        B = function (){};
+        console.log(Reflect.construct(B,[]))
+        //Reflect在一，两个参数的时候，有点类似于以下写法，
+        console.log(new B)
     });
 </script>
 </body>

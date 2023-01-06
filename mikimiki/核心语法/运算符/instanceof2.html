@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+      /*  class Base {
+            constructor() {
+                console.log(this,...arguments)
+            }
+        }*/
+
+        let Base = function (){
+            console.log(this,...arguments)
+
+        }
+        /*
+        * For bound functions,
+        * instanceof looks up for the prototype property on the target function,
+        * since bound functions don't have prototype.
+        * 对于被绑定的函数而言
+        * instanceof运算符会寻找目标函数的Prototype属性
+        * 如果被绑定函数没有prototype的话
+        *
+        * 大概就是会先找当前函数的继承链之后找绑定函数的继承链
+        * */
+        console.log(new Base())
+        const BoundBase = Base.bind(null, 1, 2);
+        console.log(BoundBase)
+
+        console.log(new BoundBase() instanceof BoundBase); // true
+        console.log(new Base() instanceof BoundBase); // true
+
+        let o = []
+        Base.prototype = o
+
+        console.log(new Base() instanceof Array); // true
+        console.log(new Base() instanceof BoundBase); // true
+    });
+</script>
+</body>
+</html>

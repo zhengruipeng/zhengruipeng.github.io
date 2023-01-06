@@ -1,20 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
 
-  </style>
+    </style>
 </head>
 <body>
 <script type="module">
-  document.addEventListener("DOMContentLoaded",function (){
-    let o = {};
-    console.log(Reflect.isExtensible(o));
-    Reflect.preventExtensions(o);
-    console.log(Reflect.isExtensible(o));
-  });
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {};
+        console.log(Reflect.isExtensible(o));
+        Reflect.preventExtensions(o);
+        console.log(Reflect.isExtensible(o));
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {};
+        let p = new Proxy(o,{
+            preventExtensions(target) {
+                console.log(target)
+                return Reflect.preventExtensions(target)
+            },
+            isExtensible(target) {
+                return Reflect.isExtensible(target)
+            }
+        });
+
+
+        console.log(Reflect.isExtensible(p)); // true
+
+        // ...but that can be changed.
+        console.log(Reflect.preventExtensions(p));
+        console.log(Reflect.isExtensible(p)); // false
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        //Difference with Object.preventExtensions()
+        //If the target argument to this method is not an object (a primitive),
+        // then it will cause a TypeError. With Object.preventExtensions(),
+        // a non-object target will be returned as-is without any errors.
+
+        console.log(Object.preventExtensions(1));
+        // 1
+
+        console.log(Reflect.preventExtensions(1));
+        // TypeError: 1 is not an object
+
+    });
 </script>
 </body>
 </html>

@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
 
-  </style>
+    </style>
 </head>
 <body>
 <script type="module">
-  document.addEventListener("DOMContentLoaded",function (){
-    let o = {
-      a:1,
-      b:2,
-      [Symbol.for('foo')]:3,
-      [Symbol.for('baz')]:4,
-    };
-    console.log(Reflect.ownKeys(o));
-  });
+    document.addEventListener("DOMContentLoaded", function () {
+        //Its return value is equivalent to
+        // Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target)).
+        let o = {
+            a: 1,
+            b: 2,
+            [Symbol.for('foo')]: 3,
+            [Symbol.for('baz')]: 4,
+        };
+        console.log(Reflect.ownKeys(o));
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {
+            a: 1,
+            b: 2,
+            [Symbol.for('foo')]: 3,
+            [Symbol.for('baz')]: 4,
+        };
+        let p = new Proxy(o, {
+            ownKeys(target) {
+                console.log(target)
+                return Reflect.ownKeys(target);
+            }
+        });
+
+        console.log(Object.getOwnPropertyNames(p));
+        console.log(Object.getOwnPropertySymbols(p));
+        console.log(Object.getOwnPropertyDescriptors(p));
+        // console.log(Object.getOwnPropertyDescriptor(p,Symbol.for("foo")));
+
+    });
 </script>
 </body>
 </html>

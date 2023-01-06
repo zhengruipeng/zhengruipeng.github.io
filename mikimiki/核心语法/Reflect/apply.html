@@ -13,7 +13,18 @@
         let func = function (){
             return this.a;
         };
-        console.log(Reflect.apply(func,{a:123},[]));
+        // console.log(Reflect.apply(func,{a:123},[]));
+
+        let p = new Proxy(func,{
+            apply(target, thisArg = {}, argArray = []) {
+                console.log(target, thisArg, argArray)
+                return Reflect.apply(target,thisArg,argArray)
+            }
+        });
+
+        console.log(p())
+        console.log(p.apply({a:123},[]))
+        console.log(({a:123,p}).p())
 
         /*{
             姓名:郑瑞蓬

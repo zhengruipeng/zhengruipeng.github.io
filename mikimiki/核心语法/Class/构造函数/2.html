@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        class ParentClass {
+            constructor() {
+                // return Object.prototype;
+                // return 1;
+                //如果父类返回一个对象的话，那么其派生类的属性和方法会直接在这个对象上进行定义
+                return {
+                    b:123,
+                };
+            }
+        }
+
+        class ChildClass extends ParentClass {
+            constructor() {
+                super();
+                console.log(this)
+                this.a = 123;
+
+            }
+        }
+
+        let cc = new ChildClass();
+        console.log(cc)
+        // console.log(cc === Object.prototype)
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
 
-  </style>
+    </style>
 </head>
 <body>
 <script type="module">
-  document.addEventListener("DOMContentLoaded",function (){
-    let o = {
-      foo:1
-    };
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {
+            foo: 1
+        };
 
-    console.log(Reflect.has(o,'foo'));
-    Reflect.deleteProperty(o,'foo');
-    console.log(Reflect.has(o,'foo'));
-  });
+        console.log(Reflect.has(o, 'foo'));
+        Reflect.deleteProperty(o, 'foo');
+        console.log(Reflect.has(o, 'foo'));
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let a = [1, 2, 3, 4, 5]
+        let p = new Proxy(a,{
+            deleteProperty(target, p) {
+                console.log(target,p)
+                let res = Reflect.deleteProperty(target,p)
+                console.log(res)
+                return res;
+            }
+        });
+
+        console.log(delete p[1])
+        console.log(p)
+    });
 </script>
 </body>
 </html>

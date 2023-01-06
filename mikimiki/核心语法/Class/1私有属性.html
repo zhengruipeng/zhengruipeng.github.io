@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <script type="text/javascript">
-  document.addEventListener("DOMContentLoaded",function (){
-    class Secret {
-      #secret;  //私有变量写法
-      constructor(secret) {
-        this.#secret = secret;
-      }
-      printSecret(){
-        console.log(this.#secret)
-      }
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        class Secret {
+            #secret;  //私有变量写法
+            constructor(secret) {
+                this.#secret = secret;
+            }
 
-    class WSecret extends Secret{
-      printSecret(){
-        //Uncaught SyntaxError: Private field '#secret' must be declared in an enclosing class
-        // console.log("devided :"+this.#secret)
-      }
-    }
+            printSecret() {
+                console.log(this.#secret)
+            }
+        }
 
-    let ws = new WSecret(1234)
-    console.log(ws)
-    let s = new Secret(1234)
-    s.printSecret()
+        class WSecret extends Secret {
+            printSecret() {
+                //Uncaught SyntaxError: Private field '#secret' must be declared in an enclosing class
+                // console.log("devided :"+this.#secret)
+            }
+        }
 
-  })
+        let ws = new WSecret(1234)
+        console.log(ws)
+        let s = new Secret(1234)
+        s.printSecret()
+
+    })
 </script>
 </body>
 </html>

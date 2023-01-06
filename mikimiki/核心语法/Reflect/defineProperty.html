@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
 
-  </style>
+    </style>
 </head>
 <body>
 <script type="module">
-  document.addEventListener("DOMContentLoaded",function (){
-    let o = {
-      a:123
-    }
-    Reflect.defineProperty(o,'a',{
-      value:321
-    })
-    console.log(Reflect.get(o,'a'));
-  });
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {
+            a: 123
+        }
+        Reflect.defineProperty(o, 'a', {
+            value: 321
+        })
+        // console.log(Reflect.get(o, 'a'));
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {
+            a: 123
+        }
+        let p = new Proxy(o, {
+            /*
+            * target: 操作对象
+            * property: 属性名
+            * attributes: 属性描述
+            *
+            * */
+            defineProperty(target, property, attributes) {
+                console.log(...arguments)
+                let res = Reflect.defineProperty(target, property, attributes)
+                console.log("Reflect.defineProperty(target, property, attributes): ",res)
+                return res
+            }
+        });
+        console.log("Object.defineProperty: ",Object.defineProperty(p, "key", {
+            configurable: true,
+            writable: false,
+            enumerable: false,
+            value: "value"
+        }));
+
+        console.log(p)
+
+
+    });
 </script>
 </body>
 </html>

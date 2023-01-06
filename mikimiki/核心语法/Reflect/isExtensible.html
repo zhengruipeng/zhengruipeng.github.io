@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
 
-  </style>
+    </style>
 </head>
 <body>
 <script type="module">
-  document.addEventListener("DOMContentLoaded",function (){
-    let o = {};
-    console.log(Reflect.isExtensible(o));
-    Reflect.preventExtensions(o);
-    console.log(Reflect.isExtensible(o));
-  });
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {};
+        // console.log(Reflect.isExtensible(o));
+        Reflect.preventExtensions(o);
+        // console.log(Reflect.isExtensible(o));
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let o = {};
+        let p = new Proxy(o, {
+            isExtensible(target) {
+                console.log(target)
+                return Reflect.isExtensible(target)
+            }
+        });
+
+        console.log(Object.isExtensible(p))
+        Object.preventExtensions(p)
+        console.log(Object.isExtensible(p))
+
+        p = new Proxy(o, {
+            isExtensible(target) {
+                console.log(target)
+                return Reflect.isExtensible(target)
+            }
+        });
+        Object.seal(p)
+        console.log(Object.isExtensible(p))
+
+        p = new Proxy(o, {
+            isExtensible(target) {
+                console.log(target)
+                return Reflect.isExtensible(target)
+            }
+        });
+        Object.freeze(p)
+        console.log(Object.isExtensible(p))
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        // Difference with Object.isExtensible()
+        // If the target argument to this method is not an object (a primitive),
+        // then it will cause a TypeError. With Object.isExtensible(),
+        // a non-object target will return false without any errors.
+
+        Object.isExtensible(1);
+        // false
+
+        Reflect.isExtensible(1);
+        // TypeError: 1 is not an object
+
+    });
 </script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        new (class C extends class B {
+            constructor() {
+                console.log(this.foo());
+            }
+        } {
+            #a = 1;
+
+            foo() {
+                return this.#a; // TypeError: Cannot read private member #a from an object whose class did not declare it
+                // It's not really because the class didn't declare it,
+                // but because the private field isn't initialized yet
+                // when the superclass constructor is running
+            }
+        })();
+    })
+</script>
+</body>
+</html>
