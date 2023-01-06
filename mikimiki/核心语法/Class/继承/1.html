@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        /*
+        Any constructor that can be called with new and
+        has the prototype property can be the candidate for the parent class.
+        The two conditions must both hold — for example,
+        bound functions and Proxy can be constructed,
+        but they don't have a prototype property,
+        so they cannot be subclassed.
+        */
+        let P = new Proxy(function (){
+            console.log("proxy function ");
+            this.a = 123;
+
+        },{
+            construct(target, argArray, newTarget) {
+                console.log(...arguments);
+                return Reflect.construct(target, argArray, newTarget);
+            }
+        });
+
+        let A = class extends P{
+            b = 2;
+        }
+
+        console.log(new A)
+
+
+
+    })
+</script>
+</body>
+</html>
