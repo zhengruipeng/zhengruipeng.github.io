@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "service default",
+            "program": "$WORKSPACE_DIR$/defaultservice.js",
+        },
+
+    ]
+}
