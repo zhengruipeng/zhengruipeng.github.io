@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class Base {
+            constructor() {
+                /*
+                * Using new on a class goes through the following steps:
+                * (If it's a derived class)
+                * The constructor body before the super() call is evaluated.
+                * This part should not access this because it's not yet initialized.
+                * (If it's a derived class) The super() call is evaluated,
+                * which initializes the parent class through the same process.
+                * The current class's fields are initialized.
+                * The constructor body after the super() call
+                * (or the entire body, if it's a base class) is evaluated.
+                * */
+                console.log(this)
+                console.log("Base constructor:", this.field);
+            }
+        }
+
+        class Derived extends Base {
+            field = 1;
+
+            constructor() {
+                super();
+
+                console.log("Derived constructor:", this.field);
+                this.field = 2;
+            }
+        }
+
+        const instance = new Derived();
+// Base constructor: undefined
+// Derived constructor: 1
+        console.log(instance.field); // 2
+
+    })
+</script>
+</body>
+</html>

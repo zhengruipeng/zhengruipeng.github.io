@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class MyClass {
+            static field1 = console.log('field1 called');
+            static {
+                console.log('Class static block #1 called');
+            }
+            static field2 = console.log('field2 called');
+            static {
+                console.log('Class static block #2 called');
+            }
+        }
+
+        /*
+        > "field1 called"
+        > "Class static block #1 called"
+        > "field2 called"
+        > "Class static block #2 called"
+        */
+
+    })
+</script>
+</body>
+</html>

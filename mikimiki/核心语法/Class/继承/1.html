@@ -15,7 +15,8 @@
         but they don't have a prototype property,
         so they cannot be subclassed.
         */
-        let P = new Proxy(function (){
+        let foo;
+        let P = new Proxy(foo = function (){
             console.log("proxy function ");
             this.a = 123;
 
@@ -26,14 +27,23 @@
             }
         });
 
-        let A = class extends P{
+
+        //父类构造函数返回一个对象会直接当成此类的this指向
+        class A extends P{
             b = 2;
         }
 
         console.log(new A)
+        console.log(A)
+        console.log(P)
 
 
+        let B = function (){};
+        let P2 = new Proxy(class extends B{},{})
+        console.log(new P2)
 
+        let P3 = new Proxy(class extends P{},{})
+        console.log(new P3)
     })
 </script>
 </body>

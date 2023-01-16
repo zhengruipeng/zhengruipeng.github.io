@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        /*
+        * It is a syntax error to refer to # names from outside of the class.
+        * It is also a syntax error to refer to private properties that
+        * were not declared in the class body,
+        * or to attempt to remove declared properties with delete.
+        * */
+        class BaseClassWithPrivateStaticField {
+            static #PRIVATE_STATIC_FIELD;
+
+            static basePublicStaticMethod() {
+                // When invoked through super, `this` still refers to Subclass
+                return this.#PRIVATE_STATIC_FIELD;
+            }
+        }
+
+        class SubClass extends BaseClassWithPrivateStaticField {
+            static callSuperBaseMethod() {
+                return super.basePublicStaticMethod();
+            }
+        }
+
+        SubClass.callSuperBaseMethod(); // TypeError: Cannot read private member #PRIVATE_STATIC_FIELD from an object whose class did not declare it
+
+    })
+</script>
+</body>
+</html>

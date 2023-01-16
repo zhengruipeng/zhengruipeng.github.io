@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            animation-iteration-count: 4;
+            animation-duration: 2s;
+            animation-name: a;
+            border:solid 1px;
+            height:100px;
+            width:100px;
+        }
+        @keyframes a {
+            from{
+                height:100px;
+                width:100px;
+            }
+            to{
+                height:150px;
+                width:150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script type="text/javascript">
+    window.addEventListener("DOMContentContent",function (){
+
+    })
+    window.addEventListener("animationstart",function (e) {
+        console.log("start");
+        console.log(e);
+    });
+    window.addEventListener("animationend",function (e) {
+        console.log("end");
+        console.log(e);
+    });
+    window.addEventListener("animationiteration",function (e) {
+        console.log("iteration");
+        console.log(e);
+    })
+</script>
+</body>
+</html>

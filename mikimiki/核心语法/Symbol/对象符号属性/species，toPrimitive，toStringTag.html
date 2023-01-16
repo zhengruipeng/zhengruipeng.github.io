@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Symbol.species，作用貌似是通过return后制定的构造函数
+修改通过类似于map和concat等对象返回的新对象的类型
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        class MyArray2 extends Array{}
+        class MyArray extends Array {
+            // 主要用途就是更改当前类的种类(species)，
+            //如果一个类的种类被修改，则他所生成的实例对象属于什么类也会随之更改，但是类不会修改
+            //实例对象通过concat或map生成的对象会直接更改类
+            static get [Symbol.species]() { return MyArray2; }
+        }
+    /*    let  MyArray = {
+            // 覆盖 species 到父级的 Array 构造函数上
+            [Symbol.species](){ return Array; }
+        };
+        MyArray.prototype = Array;*/
+        let a = new MyArray(1,2,3);
+        let mapped = a.map(x => x);
+        console.log(mapped instanceof MyArray2); // true
+        console.log(mapped instanceof MyArray); // false
+        console.log(mapped instanceof Array);   // true
+        console.log(a)
+
+        let concated = a.concat([1]);
+        console.log(concated)
+        console.log(mapped instanceof MyArray2); // true
+        console.log(concated instanceof MyArray); // false
+        console.log(concated instanceof Array);   // true
+
+        /*let F = function (){
+            this[Symbol.species] = function (){ alert(132); }
+        };
+        let a = new F();
+        console.log(a)*/
+
+        const object1 = {
+            [Symbol.toPrimitive](hint) {
+                console.log(hint)
+                if (hint === 'number') {
+                    return 42;
+                }else if (hint === 'string') {
+                    return "43";
+                }else if (hint === 'boolean') {
+                    return false;
+                }else if (hint === 'symbol') {
+                    return 45;
+                }
+                return null;
+            }
+        };
+
+        console.log(+object1);
+// expected output: 42
+        console.log(object1+"");
+// expected output: 42
+        console.log(!!object1);
+// expected output: 42
+        console.log(Symbol(object1));
+// expected output: 42
+
+
+        class ValidatorClass {
+            get [Symbol.toStringTag]() {
+                return 'Validator';
+            }
+        }
+        console.log(Object.prototype.toString.call(new ValidatorClass()));
+// expected output: "[object Validator]"
+
+    })
+</script>
+</body>
+</html>

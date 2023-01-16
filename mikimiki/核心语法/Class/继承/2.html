@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        class ParentClass {
+            a = 1
+
+            constructor() {
+                console.log(123)
+            }
+        }
+
+        class ChildClass extends ParentClass {
+            b = 2
+        };
+
+        // Allows inheritance of static properties
+        console.log(Object.getPrototypeOf(ChildClass) === ParentClass);
+        // Allows inheritance of instance properties
+        console.log(Object.getPrototypeOf(ChildClass.prototype) === ParentClass.prototype);
+
+        console.log(ParentClass)
+        console.log(ChildClass)
+
+        //extends大概完成了以下步骤
+        let ChildClass2 = function () {
+            this.c = 3;
+        };
+
+        Object.setPrototypeOf(ChildClass2, ParentClass);
+        Object.setPrototypeOf(ChildClass2.prototype, ParentClass.prototype);
+
+        console.log(ChildClass2)
+
+
+    })
+</script>
+</body>
+</html>

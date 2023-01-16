@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        //When a Symbol wrapper object is used as a property key,
+        //this object will be coerced to its wrapped Symbol:
+        const sym = Symbol("foo");
+        const obj = { [sym]: 1 };
+        console.log(obj[sym]); // 1
+        console.log(obj[Object(sym)]); // still 1
+
+    })
+</script>
+</body>
+</html>

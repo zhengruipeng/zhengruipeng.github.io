@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let s = Symbol("foo");
+        String = function (args){
+            console.log(args)
+            if(this && this !== window){
+                //构造函数
+                let res = {
+                    string:args + ""
+                }
+                return res;
+
+            }
+            //工厂函数
+            return args + "";
+        };
+
+        console.log(s.toString());
+        console.log(new String(123))
+    })
+</script>
+</body>
+</html>

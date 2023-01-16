@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        /*
+        * 静态方法中this指向当前类
+        * 静态class field中this指向当前类
+        * */
+        class ClassWithStaticField {
+            static baseStaticField = "base static field";
+            static anotherBaseStaticField = this.baseStaticField;
+
+            static baseStaticMethod() {
+                return "base static method output";
+            }
+        }
+
+        class SubClassWithStaticField extends ClassWithStaticField {
+            static subStaticField = super.baseStaticMethod();
+        }
+
+        console.log(ClassWithStaticField.anotherBaseStaticField); // "base static field"
+        console.log(SubClassWithStaticField.subStaticField); // "base static method output"
+
+    })
+</script>
+</body>
+</html>

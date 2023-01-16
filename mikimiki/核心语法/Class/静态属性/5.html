@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class StaticMethodCall {
+            constructor() {
+                console.log(StaticMethodCall.staticProperty); // 'static property'
+                console.log(this.constructor.staticProperty); // 'static property'
+                console.log(StaticMethodCall.staticMethod()); // 'static method has been called.'
+                console.log(this.constructor.staticMethod()); // 'static method has been called.'
+            }
+
+            static staticProperty = "static property";
+            static staticMethod() {
+                return "static method has been called.";
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parent Frame</title>
+</head>
+<body>
+<iframe src="2.html"></iframe>
+<script>
+    window.addEventListener('beforeunload', function(event) {
+        console.log('I am the 1st one.');
+    });
+    window.addEventListener("DOMContentLoaded",function (){
+        console.log(window.localStorage.getItem("a"));
+    });
+    window.addEventListener('unload', function(event) {
+        window.localStorage.setItem("a",123);
+
+        console.log('I am the 3rd one.');
+    });
+</script>
+</body>
+</html>

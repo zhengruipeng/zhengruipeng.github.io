@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let CustomerMap = class extends Map {
+            set(key, value) {
+                super.set(key, value);
+                console.log(key, value);
+                return key + "is set";
+            }
+        };
+        let cm = new CustomerMap();
+        let res = cm.set(1, 3);
+        console.log(res);
+        console.log(cm);
+
+    })
+</script>
+</body>
+</html>

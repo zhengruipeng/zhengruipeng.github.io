@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class MyPRNG {
+            constructor(seed) {
+                if (seed === undefined) {
+                    if (MyPRNG.entropyPool.length === 0) {
+                        throw new Error('Entropy pool exhausted');
+                    }
+                    seed = MyPRNG.entropyPool.pop();
+                }
+                this.seed = seed;
+            }
+
+            static getRandom() {
+                return crypto.getRandomValues(new Uint32Array(1))[0];
+            }
+
+            static entropyPool = [];
+            static {
+                for (let i = 0; i < 512; i++) {
+                    this.entropyPool.push(this.getRandom());
+                }
+            }
+        }
+
+        console.log(MyPRNG.entropyPool);
+        let o1 = new MyPRNG();
+        let o2 = new MyPRNG();
+        let o3 = new MyPRNG();
+        console.log(o1, o2, o3)
+    })
+</script>
+</body>
+</html>

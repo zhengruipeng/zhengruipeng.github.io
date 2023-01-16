@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            transition-duration: 1s;
+            transition-delay: .5s;
+            height:100px;
+            width:100px;
+            margin-left:10px;
+            border:solid 1px;
+        }
+        div:hover{
+            height:150px;
+
+        }
+    </style>
+</head>
+<body>
+<div ></div>
+<script type="text/javascript">
+    window.addEventListener("transitionstart",function (e) {
+        console.log("transitionstart");
+        console.log(e)
+    });
+    window.addEventListener("transitionend",function (e) {
+        console.log("transitionend");
+        console.log(e)
+    });
+    window.addEventListener("transitionrun",function (e) {
+        console.log("transitionrun");
+        console.log(e)
+    });
+    window.addEventListener("transitioncancel",function (e) {
+        console.log("transitioncancel");
+        console.log(e)
+    })
+</script>
+</body>
+</html>

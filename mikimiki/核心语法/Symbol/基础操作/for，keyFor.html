@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Symbol.for(key) 方法会根据给定的键 key，来从运行时的 symbol 注册表中找到对应的 symbol，
+如果找到了，则返回它，否则，新建一个与该键关联的 symbol，并放入全局 symbol 注册表中。
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        console.log(Symbol.for("123") === Symbol.for("123"));
+    })
+</script>
+</body>
+</html>

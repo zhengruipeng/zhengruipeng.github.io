@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let A = class extends Array {
+            foo() {
+                return this.map(_ => _);
+            }
+        };
+
+        let a = new A();
+        a.push(1,2,3,4,5);
+
+        let r1 = a.foo();
+        console.log(r1)
+
+    })
+</script>
+</body>
+</html>

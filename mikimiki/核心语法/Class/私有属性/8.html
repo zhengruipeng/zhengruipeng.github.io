@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class ClassWithPrivateStaticMethod {
+            static #privateStaticMethod() {
+                return 42;
+            }
+
+            static publicStaticMethod1() {
+                return ClassWithPrivateStaticMethod.#privateStaticMethod();
+            }
+
+            static publicStaticMethod2() {
+                return this.#privateStaticMethod();
+            }
+        }
+
+        class B extends ClassWithPrivateStaticMethod{}
+        console.log(ClassWithPrivateStaticMethod.publicStaticMethod1() === 42);
+// true
+        console.log(ClassWithPrivateStaticMethod.publicStaticMethod2() === 42);
+// true
+        console.log(B.publicStaticMethod2() === 42);
+// Uncaught TypeError: Receiver must be class ClassWithPrivateStaticMethod
+    })
+</script>
+</body>
+</html>

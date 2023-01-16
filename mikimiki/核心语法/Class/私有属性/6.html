@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class BaseClassWithPrivateStaticField {
+            static #PRIVATE_STATIC_FIELD = 12;
+
+            static basePublicStaticMethod() {
+                console.log(this)
+                return this.#PRIVATE_STATIC_FIELD;
+            }
+        }
+
+        class SubClass extends BaseClassWithPrivateStaticField {}
+
+        console.log(BaseClassWithPrivateStaticField.basePublicStaticMethod());
+        let bpsm = BaseClassWithPrivateStaticField.basePublicStaticMethod;
+        bpsm();
+        SubClass.basePublicStaticMethod(); // TypeError: Cannot read private member #PRIVATE_STATIC_FIELD from an object whose class did not declare it
+
+    })
+</script>
+</body>
+</html>

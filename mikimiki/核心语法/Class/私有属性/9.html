@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class PrivateConstructor {
+            static #isInternalConstructing = false;
+
+            constructor() {
+                if (!PrivateConstructor.#isInternalConstructing) {
+                    throw new TypeError("PrivateConstructor is not constructable");
+                }
+            }
+
+            static create() {
+                PrivateConstructor.#isInternalConstructing = true;
+                const instance = new PrivateConstructor();
+                PrivateConstructor.#isInternalConstructing = false;
+                return instance;
+            }
+        }
+
+        PrivateConstructor.create(); // PrivateConstructor {}
+        new PrivateConstructor(); // TypeError: PrivateConstructor is not constructable
+
+    })
+</script>
+</body>
+</html>

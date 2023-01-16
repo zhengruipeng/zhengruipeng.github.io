@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class Base {
+            set field(val) {
+                console.log(val);
+            }
+        }
+
+        let BaseProxy = new Proxy(Base, {
+            defineProperty(target, property, attributes) {
+                console.log(target, property, attributes)
+                return Reflect.defineProperty(target, property, attributes)
+            },
+            construct(target, argArray, newTarget) {
+                // console.log(target, argArray, newTarget)
+                return Reflect.construct(target, argArray, newTarget)
+            }
+        });
+
+        class DerivedWithField extends BaseProxy {
+            field = 1;
+        }
+
+
+        const instance = new DerivedWithField(); // No log
+        console.log(instance)
+
+
+    })
+</script>
+</body>
+</html>

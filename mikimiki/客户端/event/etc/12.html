@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="height:1300px;">
+<video width="320" height="240" controls>
+    <source src="../../image/1.mp4" type="video/mp4">
+    <!--<source src="movie.ogg" type="video/ogg">
+    <source src="movie.webm" type="video/webm">
+    <object data="movie.mp4" width="320" height="240">
+        <embed src="movie.swf" width="320" height="240">
+    </object>-->
+</video>
+
+<script type="text/javascript">
+    window.addEventListener("fullscreenchange",function (e) {
+        console.log("fullscreenchange");
+        console.log(e);
+    });
+    window.addEventListener("fullscreenerror",function (e) {
+        console.log("fullscreenerror");
+        console.log(e);
+    });
+    window.addEventListener("resize",function (e) {
+        console.log("resize");
+        console.log(e);
+    });
+    window.addEventListener("scroll",function (e) {
+        console.log("scroll");
+        console.log(e);
+    });
+</script>
+</body>
+</html>

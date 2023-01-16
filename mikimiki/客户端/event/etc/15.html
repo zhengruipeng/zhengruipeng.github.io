@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video id="video" height="600" width="1300" controls >
+    <source src="../../image/1.mp4" type="video/mp4">
+</video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        let video = this.getElementById("video");
+        let count = 11;
+        video.addEventListener("canplay",function (e) {
+            console.log("canplay");
+            console.log(e);
+        });
+        video.addEventListener("canplaythrough",function (e) {
+            console.log("canplaythrough");
+            console.log(e);
+        });
+       /* video.addEventListener("complete",function (e) {
+            console.log("complete");
+            console.log(e);
+        });*/
+        video.addEventListener("ended",function (e) {
+            console.log("ended");
+            console.log(e);
+        });
+        video.addEventListener("loadeddata",function (e) {
+            console.log("loadeddata");
+            console.log(e);
+        });
+        video.addEventListener("loadedmetadata",function (e) {
+            console.log("loadedmetadata ");
+            console.log(e);
+        });
+        video.addEventListener("pause",function (e) {
+            console.log("pause");
+            console.log(e);
+        });
+        video.addEventListener("play",function (e) {
+            console.log("play");
+            console.log(e);
+        });
+        video.addEventListener("playing",function (e) {
+            console.log("playing");
+            console.log(e);
+        });
+        video.addEventListener("ratechange",function (e) {
+            console.log("ratechange");
+            console.log(e);
+        });
+        video.addEventListener("seeked",function (e) {
+            console.log("seeked");
+            console.log(e);
+        });
+        video.addEventListener("seeking",function (e) {
+            console.log("seeking");
+            console.log(e);
+        });
+        video.addEventListener("suspend",function (e) {
+            console.log("suspend");
+            console.log(e);
+        });
+        video.addEventListener("timeupdate",function (e) {
+            if(count>10){
+                console.log("timeupdate");
+                console.log(e);
+                count = 0;
+            }
+            count++;
+        });
+        video.addEventListener("volumechange",function (e) {
+            console.log("volumechange");
+            console.log(e);
+        });
+      /*  video.addEventListener("waiting",function (e) {
+            console.log("waiting");
+            console.log(e);
+        });*/
+        /*video.addEventListener("progress",function (e) {
+            console.log("progress");
+            console.log(e);
+        });*/
+        window.ondblclick = function () {
+            video.playbackRate+=.1;
+        }
+        window.oncontextmenu = function (e) {
+            e.preventDefault();
+            video.playbackRate-=.1;
+        }
+
+    })
+</script>
+</body>
+</html>

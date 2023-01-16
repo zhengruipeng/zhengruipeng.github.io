@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const sym = Symbol("foo");
+        typeof sym; // "symbol"
+        console.log(sym)
+        const symObj = Object(sym);
+        typeof symObj; // "object"
+        console.log(symObj)
+        console.log(new Symbol("bar"))
+    })
+</script>
+</body>
+</html>

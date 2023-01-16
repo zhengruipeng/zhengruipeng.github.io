@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    /*
+    * While the base class may return anything from its constructor,
+    * the derived class must return an object or undefined,
+    * or a TypeError will be thrown.
+    * */
+    class ParentClass {
+      constructor() {
+        return 1;
+      }
+    }
+
+    console.log(new ParentClass()); // ParentClass {}
+  // The return value is ignored because it's not an object
+  // This is consistent with function constructors
+
+    class ChildClass extends ParentClass {
+      constructor() {
+        return 1;
+      }
+    }
+
+    console.log(new ChildClass()); // TypeError: Derived constructors may only return object or undefined
+
+  })
+</script>
+</body>
+</html>

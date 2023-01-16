@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+firefox目前出现未知错误，chrome应该是不支持，ie也是未知错误，
+已知：pointerlockchange在指针锁定时触发，pointerlockerror在智者怒搜定出错时触发，
+指针锁定需要请求全屏显示，HTMLElement.requestFullScreen(config?)，此全屏显示是异步的，当全屏时才可以用
+HTMLElement.requestPointerLock()锁定鼠标指针，之后方可触发pointerlockchange
+<a href="../etc/14.html">实验代码文档</a>
+</body>
+</html>

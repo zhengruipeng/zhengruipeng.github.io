@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let A = class extends Array{
+            foo(){
+                return Array.from(this);
+            }
+        }
+        console.log((new A).foo())
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        var y = 'Outer y';
+
+        class A {
+            static field = 'Inner y';
+            static {
+                var y = this.field;
+            }
+        }
+
+        // var defined in static block is not hoisted
+        console.log(y); // 'Outer y'
+
+    })
+</script>
+</body>
+</html>

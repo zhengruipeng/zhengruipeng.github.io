@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        class ClassWithPrivateStaticField {
+            static #PRIVATE_STATIC_FIELD;
+
+            static publicStaticMethod() {
+                ClassWithPrivateStaticField.#PRIVATE_STATIC_FIELD = 42;
+                return ClassWithPrivateStaticField.#PRIVATE_STATIC_FIELD;
+            }
+
+            publicInstanceMethod() {
+                ClassWithPrivateStaticField.#PRIVATE_STATIC_FIELD = 43;
+                return ClassWithPrivateStaticField.#PRIVATE_STATIC_FIELD;
+            }
+        }
+
+        console.log(ClassWithPrivateStaticField.publicStaticMethod()); // 42
+        console.log(new ClassWithPrivateStaticField().publicInstanceMethod()); // 43
+
+    })
+</script>
+</body>
+</html>

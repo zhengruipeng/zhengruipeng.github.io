@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log(typeof Symbol() === "symbol");
+        console.log(typeof Symbol("foo") === "symbol");
+        console.log(typeof Symbol.iterator === "symbol");
+        console.log(Symbol.iterator)
+        console.log(Object(Symbol.iterator))
+    })
+</script>
+</body>
+</html>

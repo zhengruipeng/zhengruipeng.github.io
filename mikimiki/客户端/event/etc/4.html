@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<script>
+    window.addEventListener("DOMContentLoaded",function () {
+        let ws = new EventSource("1.php");
+        ws.onopen = () => {console.log("start")};
+        ws.onmessage = (e) => {console.log(e.data)};
+        window.onclick = function (){ws.close()};
+    });
+</script>
+</body>
+</html>
