@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- y.html -->
+<iframe src="x.html"></iframe>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function (){
+            console.log(frames)
+            const bound = frames[0].postMessage.bind(frames[0], "some data", "*");
+            Promise.resolve(undefined).then(() => {
+                console.log("start")
+                bound();
+                frames[0].postMessage("some data2");
+            });
+        },500)
+
+    });
+</script>
+
+</body>
+</html>

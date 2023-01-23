@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let myPromise = new Promise(function (resolve){
+            resolve();
+        });
+
+
+        myPromise
+            .then((value) => `${value} and bar`)
+            .then((value) => `${value} and bar again`)
+            .then((value) => `${value} and again`)
+            .then((value) => `${value} and again`)
+            .then((value) => {
+                console.log(value);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+
+
+    })
+</script>
+</body>
+</html>

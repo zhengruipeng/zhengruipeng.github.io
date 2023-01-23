@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let MyPromise = (function () {
+            //私有变量
+            let internalPromise = null;
+            let MyPromiseClosure;
+            return MyPromiseClosure = function (executor) {
+                /*private*/
+                internalPromise = new Promise(executor);
+                this.info = "这是Promise子类"
+
+                MyPromise.resolve = function (promiseLike) {
+                    console.log("resolved");
+                    return Promise.resolve(internalPromise);
+                };
+
+                console.log("myPromise constructor");
+            }
+        })();
+
+        Object.setPrototypeOf(MyPromise, Promise);
+        Object.setPrototypeOf(MyPromise.prototype, Promise.prototype);
+        // MyPromise.resolve;
+
+        let MyPromise2_resolve;
+        let MyPromise2 = class extends Promise {
+            #internalPromise = null;
+
+            constructor(executor) {
+                super(executor);
+                this.#internalPromise = new Promise(executor);
+                this.info = "这是Promise子类2"
+
+                // console.log("myPromise2 constructor");
+            }
+
+            then(resolve, reject = _ => {}) {
+                return this.#internalPromise.then(resolve, reject)
+            }
+
+            catch(cb) {
+                return this.#internalPromise.catch(cb)
+            }
+
+            static {
+                MyPromise2_resolve = (promiseLike) => {
+                    // console.log(123)
+                    return Promise.resolve(promiseLike.#internalPromise)
+                }
+            }
+        }
+
+        console.log(MyPromise2_resolve(new MyPromise2((resolve) => resolve(123))))
+        MyPromise2_resolve(new MyPromise2((resolve) => resolve(123))).then(res => {
+            console.log(res)
+        })
+
+
+        console.log(Promise.resolve(new MyPromise2((resolve) => resolve(123))))
+        Promise.resolve(new MyPromise2((resolve) => resolve(123))).then(res => {
+            console.log(res)
+        })
+
+        console.log(MyPromise2.resolve(new MyPromise2((resolve) => resolve(123))))
+        MyPromise2.resolve(new MyPromise2((resolve) => resolve(123))).then(res => {
+            console.log(res)
+        })
+    })
+
+</script>
+</body>
+</html>

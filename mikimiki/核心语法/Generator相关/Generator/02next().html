@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let g = function *(){
+            yield 1;
+            yield 2;
+            yield 3;
+        };
+        console.log(g);
+        let res = g();
+        console.log(res);
+        console.log(res.next());
+        console.log(res.next());
+        console.log(res.next());
+        // console.log(res.next(123));
+        console.log(res.next());
+
+        let h = function *(){
+            yield 1;
+            res = yield 2;
+            console.log(res)
+            yield 3;
+        };
+        // console.log(h);
+        let res2 = h();
+        console.log(res2);
+        console.log(res2.next());
+        console.log(res2.next());
+        console.log(res2.next(123));
+    })
+</script>
+</body>
+</html>

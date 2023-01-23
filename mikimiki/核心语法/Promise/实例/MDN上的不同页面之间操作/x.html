@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- x.html -->
+<p id="text"></p>
+<script>
+    console.log(123)
+    window.addEventListener(
+        "message",
+        (event) => {
+            document.querySelector("#text").textContent = "hello";
+            // this code will only run in browsers that track the incumbent settings object
+            console.log(event);
+        },
+        false
+    );
+</script>
+
+</body>
+</html>

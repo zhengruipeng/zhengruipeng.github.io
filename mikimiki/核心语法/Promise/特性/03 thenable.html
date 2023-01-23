@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        /*
+        * 因为历史遗留原因，为了兼容过去的Promise实现，
+        * 于是将一种类Promise对象，也就是含有then方法的对象
+        * 也列入Promise.resolve可处理的范围之内
+        * 这种含有Promise类特征的对象被称之为Thenable接口的实现对象
+        * 重写then方法即可
+        * 两个参数类似于Promise的resolve和reject
+        * */
+        const aThenable = {
+            then(onFulfilled, onRejected) {
+                onFulfilled({
+                    // The thenable is fulfilled with another thenable
+                    then(onFulfilled, onRejected) {
+                        onFulfilled(42)
+                    },
+                });
+            },
+        };
+        const aThenable2 = {
+            then(onFulfilled, onRejected) {
+                console.log(1)
+                onFulfilled({
+                    // The thenable is fulfilled with another thenable
+                    then(onFulfilled, onRejected) {
+                        console.log(2)
+                        onFulfilled({
+                            // The thenable is fulfilled with another thenable
+                            then(onFulfilled, onRejected) {
+                                console.log(3)
+                                onFulfilled({
+                                    // The thenable is fulfilled with another thenable
+                                    then(onFulfilled, onRejected) {
+                                        console.log(4)
+                                        onFulfilled({
+                                            // The thenable is fulfilled with another thenable
+                                            then(resolve, reject) {
+                                                console.log(5)
+                                                resolve(42);
+
+                                            },
+                                        });
+                                    },
+                                });
+                            },
+                        });
+                    },
+                });
+            },
+        };
+
+        console.log(aThenable)
+        Promise.resolve(aThenable2).then(console.log)
+        // console.log(Promise.reject(aThenable2)); // A promise fulfilled with 42
+
+
+    })
+</script>
+</body>
+</html>

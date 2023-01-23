@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const promiseA = new Promise((resolve, reject) => {
+            resolve(777);
+        });
+        console.log(promiseA)
+        debugger
+        // At this point, "promiseA" is already settled.
+        promiseA.then((val) => console.log("asynchronous logging has val:", val));
+        console.log("immediate logging");
+
+        // produces output in this order:
+        // immediate logging
+        // asynchronous logging has val: 777
+
+
+    })
+</script>
+</body>
+</html>

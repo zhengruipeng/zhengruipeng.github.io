@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function () {
+    let promise1 = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        resolve(1);
+      }, 100)
+    });
+
+    let promise2 = {
+      then(resolve, reject) {
+        setTimeout(function () {
+          resolve(2);
+        }, 200)
+      },
+    };
+
+
+    let MyPromise = class extends Promise {
+      constructor(executor) {
+        super(executor);
+        this.info = "这是Promise子类2"
+      }
+    }
+    let promise3 = new MyPromise(function (resolve) {
+      setTimeout(function () {
+        resolve(3);
+      }, 300)
+    });
+
+    console.log(MyPromise.resolve(promise1));
+    console.log(Promise.resolve(promise2));
+    console.log(MyPromise.resolve(promise3));
+  })
+</script>
+</body>
+</html>

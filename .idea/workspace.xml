@@ -4,99 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230106">
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/共有属性/0.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/共有属性/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/共有属性/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/共有属性/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/共有属性/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/私有属性/9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/0.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性块/0.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性块/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性块/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性块/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/静态属性块/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/基础操作/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/基础操作/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/基础操作/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/基础操作/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/基础操作/5.html" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230116">
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/FinalizationRegistry/01注册回收监听器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/Generator/01创建Generator对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/Generator/02next().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/Generator/03return().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/Generator/04throw().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/GeneratorFunction/constructor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/实例/MDN上的不同页面之间操作/x.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/实例/MDN上的不同页面之间操作/y.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/实例方法属性/@@toStringTag.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/实例方法属性/then.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/特性/01 promise链.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/特性/02 上来就结束了的承诺.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/特性/03 thenable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/特性/04 promise的衍生类.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/all.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/allSettled.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/any.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/race.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/reject.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/resolve.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/for，keyFor.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/基础操作/for，keyFor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/hasInstance，isConcatSpreadable，unscopables.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/对象符号属性/hasInstance，isConcatSpreadable，unscopables.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/iterator，asyncIterator.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/对象符号属性/iterator，asyncIterator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/replace，match.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/对象符号属性/replace，match.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/search，split.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/对象符号属性/search，split.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/species，toPrimitive，toStringTag.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Symbol/对象符号属性/species，toPrimitive，toStringTag.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/1.php" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/10.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/11.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/12.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/13.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/13.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/14.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/14.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/15.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/16.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/16.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/17.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/17.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/18.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/18.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/19.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/19.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/2.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/20.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/20.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/21.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/21.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/22.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/22.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/23.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/23.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/24.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/24.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/25.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/25.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/26.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/26.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/27.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/27.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/28.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/28.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/29.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/29.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/3.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/30.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/30.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/31.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/31.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/4.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/5.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/6.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/7.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/8.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/etc/9.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/etc/9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/afterprint beforeprint.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/afterprint beforeprint.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/animationstart animationend animationiteration.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/animationstart animationend animationiteration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/composition.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/composition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/cut copy paste.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/cut copy paste.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/emptied.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/emptied.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/fullscreenchange fullscreenerror resize scroll.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/fullscreenchange fullscreenerror resize scroll.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/online offline.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/online offline.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/onopen onmessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/onopen onmessage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/pageshow pagehide popstate.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/pageshow pagehide popstate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/pointerlockchange pointerlockerror.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/pointerlockchange pointerlockerror.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/reset submit.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/reset submit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/transition.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/transition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/unload beforeunload.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/unload beforeunload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/event/媒体事件（非错误）.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/event/媒体事件（非错误）.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份3/杜野凛世2T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份3/杜野凛世2T.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,10 +45,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
-        <option value="TypeScript File" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -153,53 +88,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/mikimiki/核心语法/Symbol/基础操作&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "javascript.nodejs.core.library.configured.version": "14.15.5",
+    "javascript.nodejs.core.library.typings.version": "14.18.36",
+    "last_opened_file_path": "C:/Users/Administrator/AppData/Roaming/npm/node_modules/typescript",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.typescriptcompiler",
+    "ts.external.directory.path": "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Generator" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Promise\实例方法属性" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Promise\静态方法" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Promise\特性" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Symbol\基础操作" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Class\静态属性块" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Class\静态属性" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Class\共有属性" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Class\私有属性" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Generator相关\Generator" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Generator相关" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Symbol\基础操作" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Symbol\对象符号属性" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Class\静态属性块" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\event" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.payment.php">
-    <configuration name="归并排序.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/User.php/算法/递归与分治/src/归并排序.html?_ij_reload" useBuiltInWebServerPort="true">
+  <component name="RunManager" selected="Node.js.2.js">
+    <configuration name="2.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" working-dir="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function">
       <method v="2" />
     </configuration>
-    <configuration name="payment.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/User.php/mikimiki/APIs/payment/payment.php?_ij_reload" useBuiltInWebServerPort="true">
+    <configuration name="3.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/3.js" working-dir="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function">
       <method v="2" />
     </configuration>
-    <configuration name="Peer2peerService.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService">
+    <configuration name="4.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/4.js" working-dir="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function">
       <method v="2" />
     </configuration>
     <configuration name="websocket-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebSocket/websocket-server.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebSocket">
@@ -221,6 +160,15 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.2.js" />
+        <item itemvalue="Node.js.3.js" />
+        <item itemvalue="Node.js.4.js" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="Node.js.websocket-server.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -616,13 +564,14 @@
       <workItem from="1673495963286" duration="1980000" />
       <workItem from="1673577753719" duration="6573000" />
       <workItem from="1673836283559" duration="1793000" />
-    </task>
-    <task id="LOCAL-00030" summary="20220601(2)">
-      <created>1654069965335</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1654069965335</updated>
+      <workItem from="1673838089353" duration="9969000" />
+      <workItem from="1673924075984" duration="2583000" />
+      <workItem from="1674015112225" duration="1682000" />
+      <workItem from="1674100933331" duration="3025000" />
+      <workItem from="1674363408890" duration="3139000" />
+      <workItem from="1674447024305" duration="5419000" />
+      <workItem from="1674457665484" duration="917000" />
+      <workItem from="1674458761186" duration="1112000" />
     </task>
     <task id="LOCAL-00031" summary="20220602">
       <created>1654156392142</created>
@@ -960,11 +909,23 @@
       <option name="project" value="LOCAL" />
       <updated>1672967095668</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="20230116">
+      <created>1673838173312</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1673838173312</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -979,7 +940,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220802" />
     <MESSAGE value="20220808" />
     <MESSAGE value="20220809" />
     <MESSAGE value="20220812" />
@@ -1004,7 +964,8 @@
     <MESSAGE value="20221225" />
     <MESSAGE value="20221228" />
     <MESSAGE value="20230106" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230106" />
+    <MESSAGE value="20230116" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230116" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">

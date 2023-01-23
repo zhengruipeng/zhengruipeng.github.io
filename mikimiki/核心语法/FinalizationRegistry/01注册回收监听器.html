@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded",function (){
+        const registry = new FinalizationRegistry((heldValue) => {
+            console.log(heldValue)
+        });
+        (function (){
+            let theObject = {};
+
+            registry.register(theObject, "some value",theObject);
+            // registry.unregister(theObject);
+        })()
+        console.log(registry)
+
+    })
+</script>
+</body>
+</html>
