@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const formatter = Intl.NumberFormat.call(
+            {__proto__: Intl.NumberFormat.prototype},
+            "en-US",
+            {dateStyle: "full"},
+        );
+        console.log(formatter)
+        console.log(Object.getOwnPropertyDescriptors(formatter));
+// {
+//   [Symbol(IntlLegacyConstructedSymbol)]: {
+//     value: DateTimeFormat [Intl.NumberFormat] {},
+//     writable: false,
+//     enumerable: false,
+//     configurable: false
+//   }
+// }
+
+    });
+</script>
+</body>
+</html>

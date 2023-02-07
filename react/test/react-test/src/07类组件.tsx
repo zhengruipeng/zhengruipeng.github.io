@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import React = require("react");
+import * as React from "react";
+import {ReactNode} from "react";
 
 let ClassComponent = class extends React.Component{
     render():ReactNode{

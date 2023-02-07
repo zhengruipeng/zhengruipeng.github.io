@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const date = new Date(Date.UTC(2023, 0, 30, 4, 0, 5, 738));
+        const now = new Date();
+// Results below assume UTC timezone - your results may vary
+
+// Specify default date formatting for language (locale)
+        console.log(new Intl.DateTimeFormat('en-US',{
+            dateStyle: "full",
+            timeStyle: "full"
+        }).formatRange(now,date));
+// Expected output: "12/20/2020"
+
+
+    });
+</script>
+</body>
+</html>

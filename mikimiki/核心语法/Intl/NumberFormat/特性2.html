@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const formatter = Intl.NumberFormat.call(
+            {__proto__: Intl.NumberFormat.prototype},
+            "en-US",
+            {dateStyle: "full"},
+        );
+        console.log(formatter)
+        // console.log(Object.getOwnPropertyDescriptors(formatter));
+// {
+//   [Symbol(IntlLegacyConstructedSymbol)]: {
+//     value: NumberFormat [Intl.NumberFormat] {},
+//     writable: false,
+//     enumerable: false,
+//     configurable: false
+//   }
+// }
+        const date = 1234.1234;
+        console.log(formatter.format(date));
+        console.log(formatter.resolvedOptions());
+
+        // because those methods don't consult the hidden instance's options.
+        // console.log(formatter.formatToParts(date));  TypeError
+
+        let NumberFormat = formatter[Object.getOwnPropertySymbols(formatter)[0]];
+        console.log(NumberFormat.formatToParts(date));
+    });
+</script>
+</body>
+</html>

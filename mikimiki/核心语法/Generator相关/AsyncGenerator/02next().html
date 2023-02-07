@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let g = async function *(){
+            yield 1;
+            yield 2;
+            yield 3;
+        };
+        console.log(g);
+        let res = g();
+        console.log(res);
+        res.next().then(console.log);
+        res.next().then(console.log);
+        res.next().then(console.log);
+        res.next().then(console.log);
+
+        let h = async function *(){
+            yield 4;
+            res = yield 5;
+            console.log(res)
+            yield 6;
+        };
+        let res2 = h();
+        console.log(res2);
+        res2.next().then(console.log);
+        res2.next().then(console.log);
+        res2.next(123).then(console.log);
+    })
+</script>
+</body>
+</html>

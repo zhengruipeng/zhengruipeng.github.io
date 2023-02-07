@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const formatter = Intl.DateTimeFormat.call(
+            {__proto__: Intl.DateTimeFormat.prototype},
+            "en-US",
+            {dateStyle: "full"},
+        );
+        console.log(formatter)
+        // console.log(Object.getOwnPropertyDescriptors(formatter));
+// {
+//   [Symbol(IntlLegacyConstructedSymbol)]: {
+//     value: DateTimeFormat [Intl.DateTimeFormat] {},
+//     writable: false,
+//     enumerable: false,
+//     configurable: false
+//   }
+// }
+        const date = new Date(Date.UTC(2023, 0, 30, 12, 4, 5, 738));
+        console.log(formatter.format(date));
+        console.log(formatter.resolvedOptions());
+
+        // because those methods don't consult the hidden instance's options.
+        // console.log(formatter.formatToParts(date));  TypeError
+
+        let DateTimeFormat = formatter[Object.getOwnPropertySymbols(formatter)[0]];
+        console.log(DateTimeFormat.formatToParts(date));
+    });
+</script>
+</body>
+</html>

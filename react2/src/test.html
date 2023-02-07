@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+      let A = class extends Object{
+          a = 1;
+          arrow = _ => {
+              console.log(this);
+          }
+          fun(){
+              console.log(this);
+          }
+          fun2 = function (){
+              console.log(this);
+          }
+          constructor() {
+              super();
+          }
+
+      }
+      let a = new A();
+      a.arrow();
+      a.fun()
+      a.fun2()
+  })
+</script>
+</body>
+</html>

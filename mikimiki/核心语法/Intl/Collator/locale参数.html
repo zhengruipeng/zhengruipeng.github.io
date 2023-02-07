@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let englishLetters = [
+            "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m",
+        ];
+
+        Intl.Collator.supportedLocalesOf("en-US");
+        let collator = new Intl.Collator("en-US");
+        console.log(englishLetters.sort(collator.compare));
+
+        let chineseCharacters = [
+            "大", "学", "之", "道", "在", "明", "明", "德", "在", "中", "庸", "止", "于", "至", "善"
+        ];
+
+        let localesArr = [
+            "zh-CN",
+            "zh-CN-u-co-zhuyin",
+            "zh-CN-u-co-pinyin",
+            "zh-CN-u-co-gb2312",
+            "zh-CN-u-co-stroke",
+            "zh-CN-u-co-unihan",
+            "zh-CN-u-co-big5han",
+        ];
+
+        localesArr.forEach(locale => {
+            console.log(Intl.Collator.supportedLocalesOf(locale));
+
+            let collator3 = new Intl.Collator(locale);
+            console.log(chineseCharacters.sort(collator3.compare));
+        });
+
+        let korean = [
+            "망", "고", "나", "무", "는", "내", "친", "구", "가", "을", "이", "되", "자",
+        ];
+        console.log(Intl.Collator.supportedLocalesOf("ko"));
+        let collator3 = new Intl.Collator("ko-u-co-searchjl");
+        console.log(korean.sort(collator3.compare));
+
+
+        //kn扩展
+        let charWithNum = [
+            "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s",
+            "4", "3", "8", "1", "2", "0", "5", "7", "9","15","21","22","45"
+        ];
+        let collator4 = new Intl.Collator("en-US-u-kn-true");
+        console.log(charWithNum.sort(collator4.compare));
+        collator4 = new Intl.Collator("en-US-u-kn-false");
+        console.log(charWithNum.sort(collator4.compare));
+
+        //kf
+        let englishLettersWithLowerCaseAndUpperCase = [
+            "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m",
+            "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M",
+        ];
+        let collator5 = new Intl.Collator("en-US-u-kf-upper");
+        console.log(englishLettersWithLowerCaseAndUpperCase.sort(collator5.compare));
+        collator5 = new Intl.Collator("en-US-u-kf-lower");
+        console.log(englishLettersWithLowerCaseAndUpperCase.sort(collator5.compare));
+        collator5 = new Intl.Collator("en-US-u-kf-false");
+        console.log(englishLettersWithLowerCaseAndUpperCase.sort(collator5.compare));
+
+        //多个unicode扩展使用
+        let ascii = [
+            "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m",
+            "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M",
+            "4", "3", "8", "1", "2", "0", "5", "7", "9","15","21","22","45"
+        ];
+        let collator6 = new Intl.Collator("en-US-u-kf-upper-kn-true");
+        console.log(ascii.sort(collator6.compare));
+        collator6 = new Intl.Collator("en-US-u-kf-lower-kn-false");
+        console.log(ascii.sort(collator6.compare));
+
+    });
+</script>
+</body>
+</html>

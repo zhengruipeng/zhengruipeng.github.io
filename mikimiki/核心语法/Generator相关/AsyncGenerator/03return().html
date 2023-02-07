@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let test1 = async function () {
+            console.log(arguments.callee.name + "函数运行中");
+            let g = async function* () {
+                yield 1;
+                yield 2;
+                yield 3;
+            };
+            console.log(g)
+            let res = g();
+            console.log(res);
+            res.next().then(console.log);
+            res.return().then(console.log);
+            res.next().then(console.log);
+            res.return(12).then(console.log);
+            await new Promise(resolve => {setTimeout(resolve,500);});
+        };
+
+        let test2 = async function () {
+            console.log(arguments.callee.name + "函数运行中");
+
+            async function* gen() {
+                yield 1;
+                try {
+                    yield 2;
+                    yield 3;
+                } finally {
+                    yield 'cleanup';
+                }
+            }
+
+            const g1 = gen();
+            g1.next().then(console.log); // { value: 1, done: false }
+
+// Execution is suspended before the try...finally.
+            g1.return('early return').then(console.log); // { value: 'early return', done: true }
+
+            const g2 = gen();
+            g2.next().then(console.log); // { value: 1, done: false }
+            g2.next().then(console.log); // { value: 2, done: false }
+
+// Execution is suspended within the try...finally.
+            g2.return('early return').then(console.log); // { value: 'cleanup', done: false }
+
+// The completion value is preserved
+            g2.next().then(console.log); // { value: 'early return', done: true }
+
+// Generator is in the completed state
+            g2.return('not so early return').then(console.log); // { value: 'not so early return', done: true }
+
+            await new Promise(resolve => {setTimeout(resolve,500);});
+
+        }
+
+        let test3 = async function () {
+            console.log(arguments.callee.name + "函数运行中");
+
+            async function* gen2() {
+                try {
+                    yield 1;
+                } finally {
+                    return 'cleanup';
+                }
+            }
+
+            const g3 = gen2();
+            g3.next().then(console.log); // { value: 1, done: false }
+            g3.return('early return').then(console.log); // { value: 'cleanup', done: true }
+            await new Promise(resolve => {setTimeout(resolve,500);});
+
+        };
+
+
+        test1().then(test2).then(test3)
+    })
+</script>
+</body>
+</html>

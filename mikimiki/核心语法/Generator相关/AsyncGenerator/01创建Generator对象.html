@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let g = async function *(){
+            yield 1;
+            yield 2;
+            yield 3;
+        };
+        console.log(g)
+        let res = g();
+        res.next().then(console.log);
+        res.next().then(console.log);
+        res.next().then(console.log);
+    })
+</script>
+</body>
+</html>

@@ -4,34 +4,130 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230116">
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/FinalizationRegistry/01注册回收监听器.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/Generator/01创建Generator对象.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/Generator/02next().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/Generator/03return().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/Generator/04throw().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/GeneratorFunction/constructor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/实例/MDN上的不同页面之间操作/x.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/实例/MDN上的不同页面之间操作/y.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/实例方法属性/@@toStringTag.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/实例方法属性/then.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/特性/01 promise链.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/特性/02 上来就结束了的承诺.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/特性/03 thenable.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/特性/04 promise的衍生类.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/allSettled.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/any.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/race.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/reject.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Promise/静态方法/resolve.html" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230123">
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Function/bind/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/AsyncGenerator/01创建Generator对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/AsyncGenerator/02next().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/AsyncGenerator/03return().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/AsyncGenerator/04throw().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Collator/compare/用于查找.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Collator/locale参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Collator/option参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Collator/resolvedOptions().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Collator/supportedLocalesOf().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/locales参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/method/format.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/method/formatRange().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/method/formatRangeToParts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/method/formatToParts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/method/resolvedOptions().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/option参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/supportedLocalesOf().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/CONTRIBUTING" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/NEWS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/SECURITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/africa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/antarctica" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/asia" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/australasia" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/backward" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/backzone" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/calendars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/checklinks.awk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/checktab.awk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/etcetera" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/europe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/factory" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/iso3166.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/leap-seconds.list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/leapseconds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/leapseconds.awk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/northamerica" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/southamerica" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/theory.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/version" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/ziguard.awk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/zishrink.awk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/zone.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/tzdata2022g/zone1970.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/特性1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/DateTimeFormat/特性2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/JSONParser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/ListFormat/locales参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/ListFormat/method/format.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/ListFormat/method/formatToParts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/ListFormat/method/resolvedOptions().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/ListFormat/option参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/ldmlSupplemental.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/locales参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/method/format.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/method/formatToParts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/method/resolvedOptions().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/options参数unit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/option参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/特性1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/特性2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/NumberFormat/特性3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Object-prototype-toString2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/locales参数语言取值.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/model.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/table-default-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/13-5父子关系子组件.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/13父子关系父组件.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/14子传父.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/15兄弟元素之间传值.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/16祖先关系传递信息.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/00test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/01列表渲染.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/02条件渲染.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/03多条件渲染.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/04脚本化inlineCSS.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/05用className脚本化CSS.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/06函数组件.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/075构造函数类组件.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/07类组件.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/08组件事件绑定.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/09状态.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/10状态2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/11受控组件.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/12非受控表单组件.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/13-5父子关系子组件.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/13父子关系父组件.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/default-test.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react2/src/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/User.php.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/User.php.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份3/如月千早5T.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份3/星井美希1T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份3/星井美希1T.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/02条件渲染.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/02条件渲染.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/03多条件渲染.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/03多条件渲染.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/04脚本化inlineCSS.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/04脚本化inlineCSS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/05用className脚本化CSS.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/05用className脚本化CSS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/06函数组件.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/06函数组件.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/07类组件.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/07类组件.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/07类组件.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/07类组件.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/09状态.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/09状态.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/12非受控表单组件.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/12非受控表单组件.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +140,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -79,6 +175,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="28dDivJAoD7UcS3fqB50bcSnuX4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -88,50 +185,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "javascript.nodejs.core.library.configured.version": "14.15.5",
-    "javascript.nodejs.core.library.typings.version": "14.18.36",
-    "last_opened_file_path": "C:/Users/Administrator/AppData/Roaming/npm/node_modules/typescript",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.11.18&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/mikimiki/核心语法/Intl/NumberFormat&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Generator" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Promise\实例方法属性" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Promise\静态方法" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Promise\特性" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Symbol\基础操作" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\NumberFormat" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\ListFormat" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\react\test\react-test\src" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\DateTimeFormat\method" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\Collator" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\Collator\compare" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Generator相关\Generator" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Generator相关" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Symbol\基础操作" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Symbol\对象符号属性" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.2.js">
+  <component name="RunManager" selected="Node.js.index.js">
     <configuration name="2.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" working-dir="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function">
       <method v="2" />
     </configuration>
@@ -141,7 +239,7 @@
     <configuration name="4.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/4.js" working-dir="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function">
       <method v="2" />
     </configuration>
-    <configuration name="websocket-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebSocket/websocket-server.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebSocket">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/react/test/react-test/src/index.js" working-dir="$PROJECT_DIR$/react/test/react-test/src">
       <method v="2" />
     </configuration>
     <configuration name="websocket-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/MultiterminalService/websocket-server.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器">
@@ -162,11 +260,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.2.js" />
-        <item itemvalue="Node.js.3.js" />
-        <item itemvalue="Node.js.4.js" />
         <item itemvalue="npm.start" />
         <item itemvalue="Node.js.websocket-server.js" />
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="Node.js.4.js" />
+        <item itemvalue="Node.js.3.js" />
       </list>
     </recent_temporary>
   </component>
@@ -571,14 +669,25 @@
       <workItem from="1674363408890" duration="3139000" />
       <workItem from="1674447024305" duration="5419000" />
       <workItem from="1674457665484" duration="917000" />
-      <workItem from="1674458761186" duration="1112000" />
-    </task>
-    <task id="LOCAL-00031" summary="20220602">
-      <created>1654156392142</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1654156392142</updated>
+      <workItem from="1674458761186" duration="3197000" />
+      <workItem from="1674529171017" duration="1744000" />
+      <workItem from="1674616059183" duration="3773000" />
+      <workItem from="1674702035218" duration="2385000" />
+      <workItem from="1674794947120" duration="4167000" />
+      <workItem from="1674873576950" duration="9310000" />
+      <workItem from="1674885690784" duration="3736000" />
+      <workItem from="1674889507246" duration="1003000" />
+      <workItem from="1674994541013" duration="847000" />
+      <workItem from="1675047273288" duration="10992000" />
+      <workItem from="1675137414405" duration="5345000" />
+      <workItem from="1675143693104" duration="5095000" />
+      <workItem from="1675308922229" duration="1166000" />
+      <workItem from="1675390526794" duration="9472000" />
+      <workItem from="1675486051532" duration="5971000" />
+      <workItem from="1675494321988" duration="1219000" />
+      <workItem from="1675651995665" duration="6479000" />
+      <workItem from="1675659390017" duration="3856000" />
+      <workItem from="1675742411316" duration="3831000" />
     </task>
     <task id="LOCAL-00032" summary="20220603">
       <created>1654223721225</created>
@@ -916,7 +1025,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673838173312</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="20230123">
+      <created>1674459916005</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1674459916005</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -924,6 +1040,25 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
+        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.js" />
+        <option value="$PROJECT_DIR$/react2/src/02条件渲染.js" />
+        <option value="$PROJECT_DIR$/react2/src/13父子关系父组件.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.jsx" />
+        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/09状态.js" />
+        <option value="$PROJECT_DIR$/react2/src/09状态.jsx" />
+        <option value="$PROJECT_DIR$/react2/src/06函数组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/13-5父子关系子组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.jsx" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/09状态.jsx" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/13-5父子关系子组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/05用className脚本化CSS.js" />
+        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.jsx" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/13父子关系父组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/07类组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/04脚本化inlineCSS.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.jsx" />
+        <option value="$PROJECT_DIR$/react2/src/03多条件渲染.js" />
       </list>
     </option>
   </component>
@@ -940,7 +1075,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220808" />
     <MESSAGE value="20220809" />
     <MESSAGE value="20220812" />
     <MESSAGE value="20220816" />
@@ -965,7 +1099,8 @@
     <MESSAGE value="20221228" />
     <MESSAGE value="20230106" />
     <MESSAGE value="20230116" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230116" />
+    <MESSAGE value="20230123" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230123" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">

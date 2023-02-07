@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #output {
+            font-size: 1.8em;
+            position: fixed;
+
+            font-weight: bold;
+            color: red;
+
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+<pre id="output">
+
+</pre>
+<script type="text/javascript" src="../Object-prototype-toString2.js"></script>
+<script type="module">
+    import {JSONParser} from "../JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const output = this.getElementById("output");
+
+        let options = {
+            compactDisplay: ["short", "long"],
+            currency: ["USD", "EUR", "CNY", "JPY"],
+            currencyDisplay: ["symbol", "narrowSymbol", "code", "name"],
+            currencySign: ["accounting", "standard"],
+            localeMatcher: ["lookup", "best fit"],
+            notation: ["standard", "scientific", "engineering", "compact"],
+            numberingSystem: ["latn", "arab", "arabext", "bali", "beng", "deva", "fullwide", "gujr", "guru", "hanidec", "khmr", "knda", "laoo", "limb", "mlym", "mong", "mymr", "orya", "tamldec", "telu", "thai", "tibt"],
+            signDisplay: ["auto", "always", "exceptZero", "negative", "never"],
+            style: ["currency", "decimal", "percent", "unit"],
+            unit: "liter",
+            unitDisplay: ["long", "short", "narrow"],
+            //是否使用数字的分割号（逗号）
+            useGrouping: ["always", "auto", false, "min2", true],
+            //不同的四舍五入方法
+            //ceil: 向上取整
+            //floor：向下取整
+            //expand：向远离0的方向取整
+            //trunc：向靠近0的方向取整
+            //halfCeil：四舍五入，在5的时候向上取整
+            //halfFloor：四舍五入，在5的时候向下取整
+            //halfExpand：四舍五入，在向远离0的方向取整
+            //halfTrunc：四舍五入，在向靠近0的方向取整
+            //halfEven：取决于四舍五入的结果的两个可能的数字是偶数 ~ 奇数还是奇数 ~ 偶数，
+            // 前者：行为类似于halfTrunc
+            // 后者：行为类似于halfExpand
+            roundingMode: ["ceil", "floor", "expand", "trunc", "halfCeil", "halfFloor", "halfExpand", "halfTrunc", "halfEven"],
+            //当小数位数和有效位数发生冲突的时候，会通过此属性进行调节
+            //auto：忽略小数位数
+            //morePrecision：默认取两者中精度比较高的那个
+            //lessPrecision：跟上面那个相反
+            roundingPriority: ["auto", "morePrecision", "lessPrecision"],
+            //此属性必须在roundingPriority为auto的时候使用
+            //并且minimumFractionDigits 和 maximumFractionDigits必须相等
+            roundingIncrement: [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, 5000],
+            //当目前数字是一个整数的时候，
+            // auto：根据最小小数位数（minimumFractionDigits）和
+            // 最小有效数字数量（maximumSignificantDigits）决定用多少0填充
+            // stripIfInteger：不填充，无视上述属性，小数为空
+            trailingZeroDisplay: ["auto", "stripIfInteger"],
+            //最小整数位数
+            minimumIntegerDigits: 1,
+            //最小小数位数
+            minimumFractionDigits: 0,
+            //最大小数位数
+            maximumFractionDigits: 3,
+            //最小有效数字位数
+            minimumSignificantDigits: 1,
+            //最大有效数字位数
+            maximumSignificantDigits: 21,
+        };
+        const number = -123456.789;
+
+        let operation = {
+            number,
+            lang: ["en-US", "zh-CN"],
+            options,
+        }
+
+
+        let jsonParser = new JSONParser(operation);
+        jsonParser.import("../table-default-style.css");
+        jsonParser.initTable();
+
+        jsonParser.onJsonChange = function (ev) {
+            let {number, lang, options} = this.toJSON();
+
+            try {
+                console.log(number, lang, options);
+
+                output.innerHTML = new Intl.NumberFormat(
+                    lang,
+                    options
+                )
+                    .format(number);
+            } catch (e) {
+                output.innerHTML = "出了问题：" + e.message;
+                console.error(e);
+            }
+        };
+
+        jsonParser.jsonChange();
+    });
+</script>
+</body>
+</html>

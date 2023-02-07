@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log(Intl.Collator.supportedLocalesOf())
+        console.log(Intl.Collator.supportedLocalesOf("zh-CN"))
+        console.log(Intl.Collator.supportedLocalesOf("zh-CN",{localeMatcher:"lookup"}))
+        console.log(Intl.Collator.supportedLocalesOf("zh-Hans",{localeMatcher:"best fit"}))
+
+
+    });
+</script>
+</body>
+</html>

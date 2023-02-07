@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let ascii = [
+            "大", "学", "之", "道", "在", "明", "明", "德", "在", "中", "庸", "止", "于", "至", "善",
+            "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m",
+            "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M",
+            "4", "3", "8", "1", "2", "0", "5", "7", "9", "15", "21", "22", "45"
+        ];
+
+        let collator = new Intl.Collator("zh-CN-u-co-pinyin", {
+            localeMatcher: "lookup",        //"lookup" | "best fit"
+            usage: "sort",       //"sort" | "search"
+            sensitivity: "base",     //"base"|"accent"|"case"|"variant"
+            ignorePunctuation: false,
+            numeric: true,
+            caseFirst: "lower",     //"upper"| "lower"| "false"
+            collation: "zhuyin"     //跟-u-co取值一样
+        });
+
+
+        console.log(collator.resolvedOptions());
+    });
+</script>
+</body>
+</html>

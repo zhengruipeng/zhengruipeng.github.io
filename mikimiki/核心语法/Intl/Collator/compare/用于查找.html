@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const a = ["Congrès", "congres", "Assemblée", "poisson"];
+        const collator = new Intl.Collator("fr", {
+            usage: "search",
+            sensitivity: "base",
+        });
+        const s = "congres";
+        const matches = a.filter((v) => collator.compare(v, s) === 0);
+        console.log(matches.join(", ")); // "Congrès, congres"
+
+    });
+</script>
+</body>
+</html>

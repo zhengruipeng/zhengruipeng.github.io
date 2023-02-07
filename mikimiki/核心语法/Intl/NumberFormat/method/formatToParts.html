@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    <link href="../table-default-style.css" rel="stylesheet" type="text/css"/>-->
+    <style>
+        pre {
+            font-size: 1.4em;
+        }
+    </style>
+</head>
+<body>
+<pre id="output">
+
+</pre>
+<script type="text/javascript" src="../../Object-prototype-toString2.js"></script>
+<script type="module">
+    import {JSONParser} from "../../JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const output = this.getElementById("output");
+
+        let lang = {
+            "语言选择": ["zh-CN", "en-US"]
+        }
+        let option = {
+            localeMatcher: ["lookup", "best fit"],       //"lookup" and "best fit";
+            type: ["conjunction", "disjunction", "unit"],
+            style: ["long", "short", "narrow"]
+        };
+
+        let jsonParser = new JSONParser(lang);
+        jsonParser.import("../../table-default-style.css")
+        jsonParser.initTable();
+
+        let jsonParser2 = new JSONParser(option);
+        jsonParser2.initTable();
+
+        let list = ["论语", "孟子", "礼记", "朱子", "王阳明"]
+        jsonParser.onJsonChange = function (ev) {
+            output.innerHTML = new Intl.ListFormat(jsonParser.toJSON()["语言选择"], jsonParser2.toJSON()).formatToParts(list).toString2("<br />",-1,"&nbsp;")
+        };
+        jsonParser2.onJsonChange = function (ev) {
+            output.innerHTML = new Intl.ListFormat(jsonParser.toJSON()["语言选择"], jsonParser2.toJSON()).formatToParts(list).toString2("<br />",-1,"&nbsp;")
+        };
+    });
+</script>
+</body>
+</html>

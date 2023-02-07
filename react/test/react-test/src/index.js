@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './12非受控表单组件';
+import App from './16祖先关系传递信息.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -10,4 +10,6 @@ root.render(
   </React.StrictMode>
 );
 
+
+export {}
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+
+        let list = ["论语","孟子","礼记"]
+        console.log(new Intl.ListFormat('zh-CN').format(list));
+        console.log(new Intl.ListFormat('en-US').format(list));
+        console.log(new Intl.ListFormat('ja').format(list));
+        console.log(new Intl.ListFormat('ko').format(list));
+        console.log(new Intl.ListFormat('ru').format(list));
+
+
+
+    });
+</script>
+</body>
+</html>

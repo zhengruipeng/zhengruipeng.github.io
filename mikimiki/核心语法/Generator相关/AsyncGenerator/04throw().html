@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let g = async function *(){
+            try{
+                yield 1;
+                yield 2;
+                yield 3;
+            }catch (e){
+                console.warn("获取到错误：",e);
+            }finally {
+
+            }
+        };
+        console.log(g)
+        let res = g();
+        console.log(res);
+        res.next().then(console.log);
+
+        res.throw("第一个错误").then(console.warn);
+        res.throw("第二个错误").then(console.warn);
+    })
+</script>
+</body>
+</html>

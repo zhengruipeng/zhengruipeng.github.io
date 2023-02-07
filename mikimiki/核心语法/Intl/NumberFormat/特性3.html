@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        /*
+        *
+        * The reason for this is that only the "maximum precision"
+        * values are used for the calculation,
+        * and the default value of maximumSignificantDigits
+        * is much higher than maximumFractionDigits.
+        * */
+        const bothLess = new Intl.NumberFormat("en", {
+            roundingPriority: "lessPrecision",
+            minimumFractionDigits: 2,
+            minimumSignificantDigits: 2,
+        });
+        console.log(bothLess.resolvedOptions())
+        console.log(`lessPrecision - ${bothLess.format(1)}`);
+// "lessPrecision - 1.00"
+
+        const bothMore = new Intl.NumberFormat("en", {
+            roundingPriority: "morePrecision",
+            minimumFractionDigits: 2,
+            minimumSignificantDigits: 2,
+        });
+        console.log(bothMore.resolvedOptions())
+        console.log(`morePrecision - ${bothMore.format(1)}`);
+// "morePrecision - 1.0"
+
+    })
+</script>
+</body>
+</html>

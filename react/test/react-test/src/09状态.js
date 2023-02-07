@@ -1,61 +1,63 @@
-// import React = require("react");
-import React from "react"
-
-class App extends React.Component{
-    state = {
-        a:1,
-        b:2,
-        innerHTML:<p>123</p>,
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
     };
-
-    changeA = (that) => {
-        this.setState({
-            a:this.state.a+1,
-            b:this.state.b,
-            innerHTML: this.state.innerHTML
-        });
-
-        console.log(this);
-        document.getElementById("a").innerText = "a的值已经改成"+this.state.a;
-    }
-
-    delB = function (that){
-        console.log(this);
-
-        let temp = {
-            a:this.state.a,
-            innerHTML: this.state.innerHTML
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+exports.__esModule = true;
+var React = require("react");
+var App = /** @class */ (function (_super) {
+    __extends(App, _super);
+    function App() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            a: 1,
+            b: 2,
+            innerHTML: <p>123</p>
         };
-
+        return _this;
+    }
+    App.prototype.changeA = function () {
+        this.setState(__assign(__assign({}, this.state), { a: this.state.a + 1 }));
+        document.getElementById("a").innerText = "a的值已经改成" + this.state.a;
+    };
+    App.prototype.delB = function () {
+        var temp = __assign({}, this.state);
+        // @ts-ignore
+        delete temp.b;
         this.setState(temp);
-
         document.getElementById("b").innerText = "b的值已经删除";
-    }
-
-    bindEvent(){
-        const buttona = document.getElementById("buttona");
-        const buttonb = document.getElementById("buttonb");
-
-        let that = this;
-        buttona.addEventListener("click",function (){
-            that.changeA.call(that,this);
-        });
-        buttonb.addEventListener("click",function (){
-            that.delB.call(that,this);
-        });
-    }
-
-    render(){
-        return (
-            <div>
+    };
+    App.prototype.render = function () {
+        return (<div>
                 <span id="a">a{this.state.a}</span>
                 <span id="b">b{this.state.b}</span>
                 {this.state.innerHTML}
-                <button id="buttona" onClick={this.changeA}>更改A</button>
-                <button id="buttonb" onClick={this.delB.bind(this)}>删除B</button>
-            </div>
-        );
-    }
-}
-
-export default App
+                <button onClick={this.changeA}>更改A</button>
+                <button onClick={this.delB}>删除B</button>
+            </div>);
+    };
+    return App;
+}(React.Component));
+exports["default"] = App;
