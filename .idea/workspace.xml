@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="202302072">
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/PluralRules/locales参数.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/PluralRules/method/resolvedOptions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/PluralRules/method/select.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/PluralRules/method/selectRange.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/PluralRules/option参数.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/PluralRules/特性1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/17children属性.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/18prop-types包学习.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/src/19prop-types包学习2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react/test/react-test/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230210">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Intl/JSONParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/JSONParser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Object-prototype-toString2.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Object-prototype-toString2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/test/react-test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/test/react-test/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/test/react-test/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -588,13 +573,7 @@
       <workItem from="1675916943543" duration="2698000" />
       <workItem from="1676024928642" duration="24000" />
       <workItem from="1676024964244" duration="995000" />
-    </task>
-    <task id="LOCAL-00034" summary="20220605">
-      <created>1654404691709</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1654404691709</updated>
+      <workItem from="1676029488285" duration="1146000" />
     </task>
     <task id="LOCAL-00035" summary="20220607">
       <created>1654569234038</created>
@@ -932,7 +911,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675746527961</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="20230210">
+      <created>1676029634982</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1676029634982</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -975,7 +961,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220816" />
     <MESSAGE value="20220817" />
     <MESSAGE value="20220818" />
     <MESSAGE value="20220830" />
@@ -1000,7 +985,8 @@
     <MESSAGE value="20230123" />
     <MESSAGE value="20230207" />
     <MESSAGE value="202302072" />
-    <option name="LAST_COMMIT_MESSAGE" value="202302072" />
+    <MESSAGE value="20230210" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230210" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">
