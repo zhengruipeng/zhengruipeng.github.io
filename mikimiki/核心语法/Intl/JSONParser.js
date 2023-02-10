@@ -1,3 +1,34 @@
+let JSONParseRangeController = class extends Object {
+    min = 0;
+    max = 5;
+    step = 1;
+
+    props = {};
+
+    node = null
+
+    constructor(min, max, step) {
+        super();
+        this.min = min;
+        this.max = max;
+        this.step = step;
+    }
+
+    render() {
+        let div = document.createElement("div");
+        div.innerHTML = `
+            <input type="range" min="${this.min}" max="${this.max}" step="${this.step}" />
+        `;
+        this.node = div.children[0];
+
+        for (let name in this.props) {
+            this.node[name] = this.props[name];
+        }
+        return this.node;
+    }
+};
+
+
 let JSONParserEvent = class extends Object {
     key;
     value;
@@ -111,8 +142,19 @@ let JSONParser = class extends JSONParserEventTarget {
 
             let tdValue = document.createElement("td");
 
-            //当当前值为数组的时候则创建一个下拉菜单
-            if (this.json[name] instanceof Array) {
+            //当当前值为JSONParserRangeController的时候则创建一个下拉菜单
+            if (this.json[name] instanceof JSONParseRangeController) {
+                let rangeNode = this.json[name];
+                
+                tdValue.innerHTML = rangeNode.render();
+                
+                console.log(tdValue.inner)
+                let that = this;
+                tdValue.children[0].addEventListener("input", function (ev) {
+                    defaultInputEvent.call(this, ev, that);
+                });
+
+            } else if (this.json[name] instanceof Array) {
                 tdValue.innerHTML = `
                         <select name="${name}" class="json-input">
                             ${(function (data) {
@@ -134,8 +176,7 @@ let JSONParser = class extends JSONParserEventTarget {
                     defaultInputEvent.call(this, ev, that);
                 });
 
-            }
-            else if (this.json[name] instanceof Object) {
+            } else if (this.json[name] instanceof Object) {
 
                 //当json值为对象的时候就再建一张表
                 const jsonParser = new JSONParser(this.json[name]);
@@ -228,7 +269,7 @@ let JSONParser = class extends JSONParserEventTarget {
             //监听是否选用当前条目的多选框
             let that = this;
             let usingCheck = tdName.children[0];
-            usingCheck.onchange = function (ev){
+            usingCheck.onchange = function (ev) {
                 defaultInputEvent.call(tdValue.children[0], ev, that);
             }
 
@@ -254,7 +295,7 @@ let JSONParser = class extends JSONParserEventTarget {
                 let key = tr.cells[0].innerText;
                 let value;
 
-                if (!usingChecked.checked)return false;
+                if (!usingChecked.checked) return false;
 
                 //当当前值是一个数组或者是一个字符串可以直接取值的时候
                 if (tr.cells[1].querySelector("table") === null) {
@@ -297,10 +338,11 @@ let JSONParser = class extends JSONParserEventTarget {
     }
 
     //用于处理冒泡时存储用户设置的JsonChange事件处理函数时使用
-    [Symbol.for("customJsonChangeEvent")]() {}
+    [Symbol.for("customJsonChangeEvent")]() {
+    }
 };
 
-export {JSONParser}
+export {JSONParser, JSONParseRangeController}
 
 
 /*

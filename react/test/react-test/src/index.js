@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './16祖先关系传递信息.js';
+import App from './19prop-types包学习2.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

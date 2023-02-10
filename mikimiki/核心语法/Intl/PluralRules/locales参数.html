@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+
+        let list = [0,1,2,3,4,5,6,7,8]
+
+        let pr1 = new Intl.PluralRules('zh-CN');
+        let pr2 = new Intl.PluralRules('en-US');
+        let pr3 = new Intl.PluralRules('ja');
+        let pr4 = new Intl.PluralRules('ko');
+        let pr5 = new Intl.PluralRules('ru');
+
+        console.log('zh-CN')
+        list.forEach(n => console.log(pr1.select(n)));
+        console.log('en-US')
+        list.forEach(n => console.log(pr2.select(n)));
+        console.log('ja')
+        list.forEach(n => console.log(pr3.select(n)));
+        console.log('ko')
+        list.forEach(n => console.log(pr4.select(n)));
+        console.log('ru')
+        list.forEach(n => console.log(pr5.select(n)));
+    });
+</script>
+</body>
+</html>

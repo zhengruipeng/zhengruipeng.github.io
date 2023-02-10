@@ -20,8 +20,9 @@
                         /* res += space.repeat(loopNum);
 
                          res +=  "{" + splitter;*/
+                        console.log(this[name].constructor.name)
                         res += space.repeat(loopNum);
-                        res += name + ":" + "{" + splitter;
+                        res += name + ":" + this[name].constructor.name + "{" + splitter;
                         res += this[name]?.toString2(splitter, len, space, loopNum + 1);
                         res += space.repeat(loopNum);
                         res += "}," + splitter;
