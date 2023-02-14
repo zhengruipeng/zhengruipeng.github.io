@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log(new Intl.RelativeTimeFormat('zh-CN').format(3,"years"));
+        console.log(new Intl.RelativeTimeFormat('en-US').format(3,"years"));
+        console.log(new Intl.RelativeTimeFormat('ja').format(3,"years"));
+        console.log(new Intl.RelativeTimeFormat('ko').format(3,"years"));
+        console.log(new Intl.RelativeTimeFormat('ru').format(3,"years"));
+    });
+</script>
+</body>
+</html>

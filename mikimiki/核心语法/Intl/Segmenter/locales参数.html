@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const zh = "吾辈有一只猫，名字是狸"
+        const en = "I`ve a cat, named tanuki"
+        const ja = "吾輩は猫である。名前はたぬき。";
+
+        let iterable = new Intl.Segmenter('zh-CN', { granularity: "word" }).segment(zh);
+        console.log(Array.from(iterable))
+        console.log(Array.from(new Intl.Segmenter('en-US', { granularity: "word" }).segment(en)));
+        console.log(Array.from(new Intl.Segmenter('ja', { granularity: "word" }).segment(ja)));
+    });
+</script>
+</body>
+</html>

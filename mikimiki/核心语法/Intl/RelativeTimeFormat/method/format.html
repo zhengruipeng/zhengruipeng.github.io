@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #output {
+            font-size: 1.8em;
+            position: fixed;
+            right:10px;
+
+            font-weight: bold;
+            color: red;
+
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+<pre id="output">
+
+</pre>
+<script type="text/javascript" src="../../Object-prototype-toString2.js"></script>
+<script type="module">
+    import {JSONParser} from "../../JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const output = this.getElementById("output");
+
+        let options = {
+            localeMatcher: ["lookup", "best fit"],
+            numeric: ["always", "auto"],
+            style: ["long", "short", "narrow"],
+        };
+        const number = 1;
+        const unit = ["year", "quarter", "month", "week", "day", "hour", "minute", "second"]
+
+        let operation = {
+            number,
+            unit,
+            lang: ["en-US", "zh-CN", 'ja', 'ko', 'ru'],
+            options,
+        }
+
+
+        let jsonParser = new JSONParser(operation);
+        jsonParser.import("../../table-default-style.css");
+        jsonParser.initTable();
+
+        jsonParser.onJsonChange = function (ev) {
+            let {number, unit, lang, options} = this.toJSON();
+
+            try {
+                console.log(number, unit, lang, options);
+
+                output.innerHTML = new Intl.RelativeTimeFormat(
+                    lang,
+                    options
+                )
+                    .format(number, unit);
+            } catch (e) {
+                output.innerHTML = "出了问题：" + e.message;
+                console.error(e);
+            }
+        };
+
+        jsonParser.jsonChange();
+    });
+</script>
+</body>
+</html>

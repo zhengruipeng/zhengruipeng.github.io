@@ -6,8 +6,13 @@ td{
     padding:.5em 1em;
 }
 
+body>section>table>thead>tr>th{
+    border: #639 solid 3px;
+}
+
 td:nth-child(2)>input,
 td:nth-child(2)>select{
     padding:0 .5em;
     min-width:100px;
 }
+

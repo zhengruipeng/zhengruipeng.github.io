@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="202302102" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="202302102">
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/VisualViewport/Instance properties.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/VisualViewport/example.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/RelativeTimeFormat/locales参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/RelativeTimeFormat/method/format.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/RelativeTimeFormat/method/formatToParts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/RelativeTimeFormat/method/resolvedOptions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/RelativeTimeFormat/option参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Segmenter/locales参数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Segmenter/method/resolvedOptions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Segmenter/method/segment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/Segmenter/option参数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/Intl/table-default-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/Intl/table-default-style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +33,8 @@
         <option value="CSS File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -52,6 +66,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2" />
   <component name="ProjectId" id="28dDivJAoD7UcS3fqB50bcSnuX4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -60,41 +75,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "19.4.0",
-    "javascript.nodejs.core.library.typings.version": "18.13.0",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "ts.external.directory.path": "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.13.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/mikimiki/核心语法/Intl/Segmenter/method&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\PluralRules\method" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\Segmenter\method" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\RelativeTimeFormat\method" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\PluralRules\method" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\PluralRules" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\react\test\react-test\src" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\NumberFormat" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\Collator" />
@@ -571,7 +586,11 @@
       <workItem from="1675916943543" duration="2698000" />
       <workItem from="1676024928642" duration="24000" />
       <workItem from="1676024964244" duration="995000" />
-      <workItem from="1676029488285" duration="1404000" />
+      <workItem from="1676029488285" duration="2282000" />
+      <workItem from="1676257502244" duration="7524000" />
+      <workItem from="1676268866884" duration="277000" />
+      <workItem from="1676349565184" duration="1521000" />
+      <workItem from="1676359280767" duration="2476000" />
     </task>
     <task id="LOCAL-00036" summary="20220607">
       <created>1654573139772</created>

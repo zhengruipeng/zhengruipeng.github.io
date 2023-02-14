@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            border:solid 1px;
+        }
+        html{
+            border-color:red;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body style="height:200vh;width:150vw;">
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let viewportHandler = function (){
+            console.log(this);
+        };
+
+        window.visualViewport.addEventListener('scroll', viewportHandler);
+        window.visualViewport.addEventListener('resize', viewportHandler);
+    });
+</script>
+</body>
+</html>
