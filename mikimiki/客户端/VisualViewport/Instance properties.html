@@ -14,11 +14,17 @@
     </style>
 </head>
 <body style="height:200vh;width:150vw;">
+<pre id="output">
 
+</pre>
+<script type="module" src="Object-prototype-toString2.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
+        const output = this.getElementById("output");
+
         let viewportHandler = function (){
             console.log(this);
+            output.innerHTML = this.toString2("<br />",-1,"&nbsp;")
         };
 
         window.visualViewport.addEventListener('scroll', viewportHandler);
