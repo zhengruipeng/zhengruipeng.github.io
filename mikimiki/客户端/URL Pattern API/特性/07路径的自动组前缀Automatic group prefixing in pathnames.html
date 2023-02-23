@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        // A pattern with an optional group, preceded by a slash
+        const pattern = new URLPattern('/books/:id?', 'https://example.com');
+        console.log(pattern.test('https://example.com/books/123')); // true
+        console.log(pattern.test('https://example.com/books')); // true
+        console.log(pattern.test('https://example.com/books/')); // false
+
+// A pattern with a repeating group, preceded by a slash
+        const pattern2 = new URLPattern('/books/:id+', 'https://example.com');
+        console.log(pattern2.test('https://example.com/books/123')); // true
+        console.log(pattern2.test('https://example.com/books/123/456')); // true
+        console.log(pattern2.test('https://example.com/books/123/')); // false
+        console.log(pattern2.test('https://example.com/books/123/456/')); // false
+
+// Segment prefixing does not occur outside of pathname patterns
+        const pattern3 = new URLPattern({ hash: '/books/:id?' });
+        console.log(pattern3.test('https://example.com#/books/123')); // true
+        console.log(pattern3.test('https://example.com#/books')); // false
+        console.log(pattern3.test('https://example.com#/books/')); // true
+
+// Disabling segment prefixing for a group using a group delimiter
+        const pattern4 = new URLPattern({ pathname: '/books/{:id}?' });
+        console.log(pattern4.test('https://example.com/books/123')); // true
+        console.log(pattern4.test('https://example.com/books')); // false
+        console.log(pattern4.test('https://example.com/books/')); // true
+    })
+</script>
+</body>
+</html>

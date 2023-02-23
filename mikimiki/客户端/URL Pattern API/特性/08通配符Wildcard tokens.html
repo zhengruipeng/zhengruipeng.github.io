@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function () {
+// A wildcard at the end of a pattern
+    const pattern = new URLPattern('/books/*', 'https://example.com');
+    console.log(pattern.test('https://example.com/books/123')); // true
+    console.log(pattern.test('https://example.com/books')); // false
+    console.log(pattern.test('https://example.com/books/')); // true
+    console.log(pattern.test('https://example.com/books/123/456')); // true
+
+// A wildcard in the middle of a pattern
+    const pattern2 = new URLPattern('/*.png', 'https://example.com');
+    console.log(pattern2.test('https://example.com/image.png')); // true
+    console.log(pattern2.test('https://example.com/image.png/123')); // false
+    console.log(pattern2.test('https://example.com/folder/image.png')); // true
+    console.log(pattern2.test('https://example.com/.png')); // true
+    console.log(pattern2.exec('https://example.com/folder/image.png')); // true
+
+  })
+</script>
+</body>
+</html>

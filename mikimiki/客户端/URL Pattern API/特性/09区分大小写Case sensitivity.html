@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function () {
+    // Case-sensitive matching by default
+    const pattern = new URLPattern('https://events.com/2022/feb/*');
+    console.log(pattern.test('https://events.com/2022/feb/xc44rsz')); // true
+    console.log(pattern.test('https://events.com/2022/Feb/xc44rsz')); // false
+
+
+    // Case-insensitive matching
+    const pattern2 = new URLPattern('https://events.com/2022/feb/*', { ignoreCase : true });
+    console.log(pattern2.test('https://events.com/2022/feb/xc44rsz')); // true
+    console.log(pattern2.test('https://events.com/2022/Feb/xc44rsz')); // true
+  })
+</script>
+</body>
+</html>

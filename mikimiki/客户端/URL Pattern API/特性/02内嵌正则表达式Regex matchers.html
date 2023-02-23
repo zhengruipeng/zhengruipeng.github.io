@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const pattern = new URLPattern('/books/:id(\\d+)', 'https://example.com');
+        console.log(pattern.test('https://example.com/books/123')); // true
+        console.log(pattern.test('https://example.com/books/abc')); // false
+        console.log(pattern.test('https://example.com/books/')); // false
+        console.log(pattern.exec('https://example.com/books/123')); // true
+
+    })
+</script>
+</body>
+</html>

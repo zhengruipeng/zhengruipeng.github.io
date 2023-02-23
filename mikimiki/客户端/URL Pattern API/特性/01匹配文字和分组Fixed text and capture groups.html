@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        // A pattern matching some fixed text
+        let pattern = new URLPattern({pathname: '/books'});
+        console.log(pattern.test('https://example.com/books')); // true
+        console.log(pattern.exec('https://example.com/books').pathname.groups); // {}
+
+        // A pattern matching with a named group
+        pattern = new URLPattern({pathname: '/books/:id'});
+        console.log(pattern.test('https://example.com/books/123')); // true
+        console.log(pattern.exec('https://example.com/books/123'))
+        console.log(pattern.exec('https://example.com/books/123').pathname.groups); // { id: '123' }
+
+    })
+</script>
+</body>
+</html>

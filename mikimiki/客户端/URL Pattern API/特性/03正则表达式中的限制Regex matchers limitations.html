@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        // Starts with ^ will only match if used at the start of the protocol portion of the URLPattern and is redundant if used.
+// with `^` in pathname
+        let pattern = new URLPattern({pathname: '(^b)'});
+        console.log(pattern.test('https://example.com/ba')); // false
+        console.log(pattern.test('https://example.com/xa')); // false
+// with `^` in protocol
+        pattern = new URLPattern({protocol: '(^https?)'});
+        console.log(pattern.test('https://example.com/index.html')); // true
+        console.log(pattern.test('xhttps://example.com/index.html')); // false
+// without `^` in protocol
+        pattern = new URLPattern({protocol: '(https?)'});
+        console.log(pattern.test('https://example.com/index.html')); // true
+        console.log(pattern.test('xhttps://example.com/index.html')); // false
+
+        // Ends with $ will only match if used at the end of the hash portion of the URLPattern and is redundant if used.
+// with `$` in pathname
+        pattern = new URLPattern({pathname: '(path$)'});
+        console.log(pattern.test('https://example.com/path')); // false
+        console.log(pattern.test('https://example.com/other')); // false
+// with `$` in hash
+        pattern = new URLPattern({hash: '(hash$)'});
+        console.log(pattern.test('https://example.com/#hash')); // true
+        console.log(pattern.test('xhttps://example.com/#otherhash')); // false
+// without `$` in hash
+        pattern = new URLPattern({hash: '(hash)'});
+        console.log(pattern.test('https://example.com/#hash')); // true
+        console.log(pattern.test('xhttps://example.com/#otherhash')); // false
+
+        // Lookaheads, and lookbehinds will never match any portion of the URLPattern.
+// lookahead
+        pattern = new URLPattern({pathname: '(a(?=b))'});
+        console.log(pattern.test('https://example.com/ab')); // false
+        console.log(pattern.test('https://example.com/ax')); // false
+// negative-lookahead
+        pattern = new URLPattern({pathname: '(a(?!b))'});
+        console.log(pattern.test('https://example.com/ab')); // false
+        console.log(pattern.test('https://example.com/ax')); // false
+// lookbehind
+        pattern = new URLPattern({pathname: '((?<=b)a)'});
+        console.log(pattern.test('https://example.com/ba')); // false
+        console.log(pattern.test('https://example.com/xa')); // false
+// negative-lookbehind
+        pattern = new URLPattern({pathname: '((?<!b)a)'});
+        console.log(pattern.test('https://example.com/ba')); // false
+        console.log(pattern.test('https://example.com/xa')); // false
+
+        // Parentheses need to be escaped in range expressions within URLPattern even though they don't in RegExp.
+
+
+        new RegExp('[()]'); // ok
+        new RegExp('[\\(\\)]'); // ok
+
+        new URLPattern({pathname: '([\\(\\)])'}); // ok
+        new URLPattern({pathname: '([()])'}); // throws
+    })
+</script>
+</body>
+</html>

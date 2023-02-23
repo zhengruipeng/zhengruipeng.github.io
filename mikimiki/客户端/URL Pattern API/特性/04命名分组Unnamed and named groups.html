@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+// A named group
+        const pattern = new URLPattern('/books/:id(\\d+)', 'https://example.com');
+        console.log(pattern.exec('https://example.com/books/123').pathname.groups); // { id: '123' }
+// An unnamed group
+        const pattern2 = new URLPattern('/books/(\\d+)', 'https://example.com');
+        console.log(pattern2.exec('https://example.com/books/123').pathname.groups); // { '0': '123' }
+    })
+</script>
+</body>
+</html>

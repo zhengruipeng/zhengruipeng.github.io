@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+// A group delimiter with a ? (optional) modifier
+        const pattern = new URLPattern('/book{s}?', 'https://example.com');
+        console.log(pattern.test('https://example.com/books')); // true
+        console.log(pattern.test('https://example.com/book')); // true
+        console.log(pattern.exec('https://example.com/books').pathname.groups); // {}
+
+        const pattern4 = new URLPattern('/book(s)?', 'https://example.com');
+        console.log(pattern4.test('https://example.com/books')); // true
+        console.log(pattern4.test('https://example.com/book')); // true
+        console.log(pattern4.exec('https://example.com/books').pathname.groups); // {}
+
+// A group delimiter without a modifier
+        const pattern2 = new URLPattern('/book{s}', 'https://example.com');
+        console.log(pattern2.pathname); // /books
+        console.log(pattern2.test('https://example.com/books')); // true
+        console.log(pattern2.test('https://example.com/book')); // false
+
+// A group delimiter containing a capturing group
+        const pattern3 = new URLPattern({pathname: '/blog/:id(\\d+){-:title}?'});
+        console.log(pattern3.exec('https://example.com/blog/123-my-blog')); // true
+        console.log(pattern3.test('https://example.com/blog/123-my-blog')); // true
+        console.log(pattern3.test('https://example.com/blog/123')); // true
+        console.log(pattern3.test('https://example.com/blog/my-blog')); // false
+    })
+</script>
+</body>
+</html>

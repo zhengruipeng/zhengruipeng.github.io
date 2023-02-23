@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+// Constructs a URLPattern treating the `:` as the protocol suffix.
+        const pattern = new URLPattern('data\\:foo*');
+
+        console.log(pattern.protocol); // 'data'
+
+        console.log(pattern.pathname); // 'foo*'
+
+        console.log(pattern.username); // ''
+        console.log(pattern.password); // ''
+        console.log(pattern.hostname); // ''
+        console.log(pattern.port); // ''
+        console.log(pattern.search); // ''
+        console.log(pattern.hash); // ''
+
+        console.log(pattern.test('data:foobar')); // true
+
+        // Throws because this is interpreted as a single relative pathname pattern
+// with a ":foo" named group and there is no base URL.
+        const pattern2 = new URLPattern('data:foo*');
+
+
+    })
+</script>
+</body>
+</html>

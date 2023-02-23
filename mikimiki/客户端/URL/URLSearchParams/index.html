@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        // Base URLs:
+        let baseUrl = 'https://developer.mozilla.org';
+
+        let url = "https://admin:pwd@developer.mozilla.org:1003/docs/en/index.html?q=abc&method=get&user=admin&pwd=123456#target"
+        url = new URL(url);
+
+        let searchParams = url.searchParams;
+        searchParams.append("a", "321");
+        console.log(url.toString());
+
+        searchParams.delete("user");
+        console.log(url.toString());
+
+        console.log(searchParams.get("q"));
+        console.log(searchParams.getAll("q"));
+
+        searchParams.set("q", "222");
+        console.log(url.toString());
+
+        searchParams.sort()
+        console.log(url.toString());
+
+        console.log(searchParams.has("q"));
+
+        for (let [key, value] of searchParams.entries()) {
+            console.log(key, value);
+        }
+
+        searchParams.forEach((value, key, map) => {
+            console.log(value, key, map);
+        });
+
+        for (let key of searchParams.keys()) {
+            console.log(key);
+        }
+
+        for (let value of searchParams.values()) {
+            console.log(value);
+        }
+
+
+    });
+</script>
+</body>
+</html>

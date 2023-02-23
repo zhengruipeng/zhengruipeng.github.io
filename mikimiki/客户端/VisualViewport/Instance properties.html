@@ -29,6 +29,7 @@
             console.log(this);
             output.innerHTML = this.toString2("<br />",-1,"&nbsp;")
         };
+        //这些api通常用在手机上，手机上屏幕缩放他们就会相对的起反应
 
         window.visualViewport.addEventListener('scroll', viewportHandler);
         window.visualViewport.addEventListener('resize', viewportHandler);

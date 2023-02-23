@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="202302142" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="202302143">
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/model.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/实例/01默认填充Filter on a specific URL component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/实例/02转义可能产生异议的字符Escaping characters to disambiguate URLPattern constructor strings.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/实例/03在exec和test中使用baseURLUsing base URLs for test() and exec().html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/01匹配文字和分组Fixed text and capture groups.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/02内嵌正则表达式Regex matchers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/03正则表达式中的限制Regex matchers limitations.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/04命名分组Unnamed and named groups.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/05组修饰符Group modifiers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/06组分隔符Group delimiters.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/07路径的自动组前缀Automatic group prefixing in pathnames.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/08通配符Wildcard tokens.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL Pattern API/特性/09区分大小写Case sensitivity.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL/URLSearchParams/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/URL/constructor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/客户端/VisualViewport/Instance properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/VisualViewport/Instance properties.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,48 +79,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "19.4.0",
-    "javascript.nodejs.core.library.typings.version": "18.13.0",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/mikimiki/客户端/VisualViewport",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
-    "ts.external.directory.path": "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.13.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/mikimiki/客户端/URL Pattern API/实例&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\URL Pattern API\实例" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\URL Pattern API" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\VisualViewport" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\Segmenter\method" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\RelativeTimeFormat\method" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\PluralRules\method" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\URL Pattern API\特性" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\Collator" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Intl\Collator\compare" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Generator相关\Generator" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法\Generator相关" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\核心语法" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.index.js">
@@ -576,14 +594,13 @@
       <workItem from="1676257502244" duration="7524000" />
       <workItem from="1676268866884" duration="277000" />
       <workItem from="1676349565184" duration="1521000" />
-      <workItem from="1676359280767" duration="3316000" />
-    </task>
-    <task id="LOCAL-00038" summary="20220608">
-      <created>1654655536094</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1654655536094</updated>
+      <workItem from="1676359280767" duration="3656000" />
+      <workItem from="1676450468262" duration="4000" />
+      <workItem from="1676517173338" duration="5086000" />
+      <workItem from="1676604494348" duration="3696000" />
+      <workItem from="1676780187222" duration="4982000" />
+      <workItem from="1676953026014" duration="2618000" />
+      <workItem from="1677128468986" duration="1510000" />
     </task>
     <task id="LOCAL-00039" summary="20220608">
       <created>1654655634321</created>
@@ -921,7 +938,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676363521942</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="202302143">
+      <created>1676364421119</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1676364421119</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -964,7 +988,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20220908" />
     <MESSAGE value="20220908(2)" />
     <MESSAGE value="20220921" />
     <MESSAGE value="20221020" />
@@ -989,7 +1012,8 @@
     <MESSAGE value="202302102" />
     <MESSAGE value="20230214" />
     <MESSAGE value="202302142" />
-    <option name="LAST_COMMIT_MESSAGE" value="202302142" />
+    <MESSAGE value="202302143" />
+    <option name="LAST_COMMIT_MESSAGE" value="202302143" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">

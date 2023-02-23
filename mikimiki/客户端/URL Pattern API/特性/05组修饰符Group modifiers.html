@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        // An optional group
+        const pattern = new URLPattern('/books/:id?', 'https://example.com');
+        console.log(pattern.test('https://example.com/books/123')); // true
+        console.log(pattern.test('https://example.com/books')); // true
+        console.log(pattern.test('https://example.com/books/')); // false
+        console.log(pattern.test('https://example.com/books/123/456')); // false
+        console.log(pattern.test('https://example.com/books/123/456/789')); // false
+
+// A repeating group with a minimum of one
+        const pattern2 = new URLPattern('/books/:id+', 'https://example.com');
+        console.log(pattern2.test('https://example.com/books/123')); // true
+        console.log(pattern2.test('https://example.com/books')); // false
+        console.log(pattern2.test('https://example.com/books/')); // false
+        console.log(pattern2.test('https://example.com/books/123/456')); // true
+        console.log(pattern2.test('https://example.com/books/123/456/789')); // true
+
+// A repeating group with a minimum of zero
+        const pattern3 = new URLPattern('/books/:id*', 'https://example.com');
+        console.log(pattern3.test('https://example.com/books/123')); // true
+        console.log(pattern3.test('https://example.com/books')); // true
+        console.log(pattern3.test('https://example.com/books/')); // false
+        console.log(pattern3.test('https://example.com/books/123/456')); // true
+        console.log(pattern3.test('https://example.com/books/123/456/789')); // true
+    })
+</script>
+</body>
+</html>
