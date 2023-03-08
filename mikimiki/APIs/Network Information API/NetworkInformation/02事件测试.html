@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="Object-prototype-toString2.js"></script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let output = function (...msgs){
+            msgs.forEach(msg => {
+                let p = document.createElement("p");
+                p.innerHTML = msg;
+                document.body.appendChild(p);
+            });
+
+        }
+        console.log(navigator.connection);
+        output(navigator.connection.toString2("<br />"));
+        navigator.connection.onchange = function (ev){
+            console.log(this);
+            console.log(ev);
+            output(this.toString2("<br />"));
+            output(ev.toString2("<br />"));
+        };
+    });
+</script>
+</body>
+</html>

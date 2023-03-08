@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const pattern = new URLPattern({
+            protocol: 'http{s}?',
+            username: ':user?',
+            password: ':pass?',
+            hostname: '{:subdomain.}*example.com',
+            pathname: '/product/:action*',
+        });
+
+        const result = pattern.exec(
+            'http://foo:bar@sub.example.com/product/view?q=12345',
+        );
+
+        console.log(result.username.groups.user); // 'foo'
+        console.log(result.password.groups.pass); // 'bar'
+        console.log(result.hostname.groups.subdomain); // 'sub'
+        console.log(result.pathname.groups.action); // 'view'
+
+    })
+</script>
+</body>
+</html>

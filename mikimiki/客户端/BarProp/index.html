@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="btn">click here</p>
+<output id="output"></output>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const button = this.querySelector("#btn");
+        const output = this.querySelector("#output");
+
+        button.onclick = function () {
+            window.open("./index.html", "testWindow", "popup");
+        };
+
+        console.log(window.locationbar)
+        output.innerHTML = window.locationbar.visible ?
+            "this.locationbar.visible的值为true" :
+            "this.locationbar.visible的值为false";
+        output.innerHTML += ";<br />";
+
+        console.log(window.menubar)
+        output.innerHTML += window.menubar.visible ?
+            "this.menubar.visible的值为true" :
+            "this.menubar.visible的值为false";
+        output.innerHTML += ";<br />";
+
+        console.log(window.personalbar)
+        output.innerHTML += window.personalbar.visible ?
+            "this.personalbar.visible的值为true" :
+            "this.personalbar.visible的值为false";
+        output.innerHTML += ";<br />";
+
+        console.log(window.scrollbars)
+        output.innerHTML += window.scrollbars.visible ?
+            "this.scrollbars.visible的值为true" :
+            "this.scrollbars.visible的值为false";
+        output.innerHTML += ";<br />";
+
+        console.log(window.statusbar)
+        output.innerHTML += window.statusbar.visible ?
+            "this.statusbar.visible的值为true" :
+            "this.statusbar.visible的值为false";
+        output.innerHTML += ";<br />";
+
+        console.log(window.toolbar)
+        output.innerHTML += window.toolbar.visible ?
+            "this.toolbar.visible的值为true" :
+            "this.toolbar.visible的值为false";
+        output.innerHTML += ";<br />";
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input:before {
+            content: attr(min);
+        }
+
+        input:after {
+            content: attr(max);
+        }
+    </style>
+</head>
+<body>
+<label for="height">生成窗口高度:</label><input type="range" min="0" max="" id="height"/><br/>
+<label for="width">生成窗口宽度:</label><input type="range" min="0" max="0" id="width"/><br/>
+<label for="left">生成窗口左上角x轴坐标:</label><input type="range" min="0" max="" id="left"/><br/>
+<label for="top">生成窗口左上角y轴坐标:</label><input type="range" min="0" max="" id="top"/><br/>
+<p>opener:<span id="opener"></span></p>
+<script type="text/javascript" src="Object-prototype-toString2.js"></script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let heightRange = this.getElementById("height");
+        let widthRange = this.getElementById("width");
+        let leftRange = this.getElementById("left");
+        let topRange = this.getElementById("top");
+
+        heightRange.max = screen.height - topRange.value;
+        widthRange.max = screen.width - leftRange.value;
+
+        topRange.max = screen.height;
+        leftRange.max = screen.width;
+
+        topRange.onchange = leftRange.onchange = function () {
+
+            heightRange.max = screen.height - topRange.value;
+            widthRange.max = screen.width - leftRange.value;
+
+        }
+    });
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let heightRange = this.getElementById("height");
+        let widthRange = this.getElementById("width");
+        let leftRange = this.getElementById("left");
+        let topRange = this.getElementById("top");
+        let opener = this.getElementById("opener");
+
+        let counter = 1;
+        let init = function (clickCB, content) {
+            let button = document.createElement("button");
+            button.innerHTML = content || counter;
+            button.onclick = clickCB;
+            document.body.appendChild(button);
+
+            counter++;
+        };
+
+        init(function () {
+            window.open("03windowFeatures参数.html", "", "popup");
+        }, "popup");
+
+        init(function () {
+            window.open("03windowFeatures参数.html", "", "popup=yes");
+        }, "popup2");
+        init(function () {
+            window.open("03windowFeatures参数.html", "", "popup=yes,height=" + heightRange.value + ",width=" + widthRange.value + ",left=" + leftRange.value + ",top=" + topRange.value + "");
+        }, "window with size");
+
+        init(function () {
+            window.open("03windowFeatures参数.html", "", "popup=yes,noopener");
+        }, "noopener");
+
+        init(function () {
+            window.open("receiveRequest.php", "", "popup=yes");
+        }, "receiveRequest.php");
+        opener.innerHTML = window.opener;
+
+        init(function () {
+            window.open("receiveRequest.php", "", "popup=yes,noreferrer");
+        }, "receiveRequest.php noreferrer");
+        opener.innerHTML = window.opener;
+    });
+</script>
+</body>
+</html>

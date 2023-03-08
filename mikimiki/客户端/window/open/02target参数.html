@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02target参数</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<button id="btn1">没有标题</button>
+<button id="btn2">有标题</button>
+<button id="btn3">_self</button>
+<button id="btn4">_blank</button>
+<button id="btn5">_parent</button>
+<button id="btn6">_top</button>
+<iframe src="02target参数.html">
+
+</iframe>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const p = this.querySelector("p");
+        const button1 = this.querySelector("#btn1");
+        const button2 = this.querySelector("#btn2");
+        const button3 = this.querySelector("#btn3");
+        const button4 = this.querySelector("#btn4");
+        const button5 = this.querySelector("#btn5");
+        const button6 = this.querySelector("#btn6");
+
+        button1.onclick = function () {
+            window.open("02target参数.html");
+        };
+
+        button2.onclick = function () {
+            window.open("02target参数.html","02target参数");
+        };
+
+        button3.onclick = function () {
+            window.open("02target参数.html","_self");
+        };
+
+        button4.onclick = function () {
+            window.open("02target参数.html","_blank");
+        };
+        button5.onclick = function () {
+            window.open("02target参数.html","_parent");
+        };
+
+        button6.onclick = function () {
+            window.open("02target参数.html","_top");
+        };
+
+    });
+</script>
+</body>
+</html>
