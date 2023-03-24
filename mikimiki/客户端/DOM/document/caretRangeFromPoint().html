@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<p>
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+  voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+  kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+</p>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    const p = this.querySelector("p");
+    p.onclick = function (ev) {
+      let {x, y} = ev;
+
+      console.log(document.caretRangeFromPoint(x, y));
+
+      let {startContainer,startOffset} = document.caretRangeFromPoint(x, y);
+      if(startContainer.nodeType === 3){
+        let replacement = startContainer.splitText(startOffset);
+        let br = document.createElement("br");
+        startContainer.parentNode.insertBefore(br, replacement);
+      }
+
+    }
+  });
+</script>
+</body>
+</html>

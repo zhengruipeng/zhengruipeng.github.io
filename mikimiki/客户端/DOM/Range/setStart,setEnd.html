@@ -11,9 +11,9 @@
 <div>
     <p><b>Hello</b> World!</p>
     <ul>
-        <li>List Items</li>
-        <li>List Items</li>
-        <li>List Items</li>
+        <li>List Items1</li>
+        <li>List Items2</li>
+        <li>List Items3</li>
     </ul>
 </div>
 <script type="module">
@@ -40,6 +40,21 @@
         range2.setStart(helloNode,2);
         range2.setEnd(worldNode,3);
         console.log(range2);
+
+
+        let fieldset = this.createElement("fieldset");
+        let legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("范围1中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range.cloneContents());
+        this.body.appendChild(fieldset);
+
+        fieldset = this.createElement("fieldset");
+        legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("范围2中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range2.cloneContents());
+        this.body.appendChild(fieldset);
     });
 </script>
 </body>

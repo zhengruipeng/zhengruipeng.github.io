@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    document.onreadystatechange = () => {
+        console.log(document.readyState)
+    }
+    console.log(document.readyState)
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log(document.readyState)
+    });
+    window.onload = function () {
+        console.log(document.readyState)
+    };
+</script>
+</body>
+</html>

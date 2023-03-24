@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <link href="./test/test.css" rel="stylesheet" type="text/css">-->
+    <style>
+        a:link{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div>123123</div>
+<section id="1">1234</section>
+<template>
+    <div>content: <slot name="content"></slot></div>
+
+</template>
+<section id="2">
+    <span slot="content">内容</span>
+</section>
+
+<script type="module">
+    /**
+     * 此属性用于在js中创建一个样式表的时候，将样式表赋给文档对象或者是影子节点
+     * 可以通过管理js代码中创建的样式表直接管理所有应用此样式表的东西的样式
+     * 此属性只能赋值不能修改
+     * */
+    document.addEventListener("DOMContentLoaded", function () {
+        const template = this.querySelector("template");
+        const s1 = this.getElementById("1");
+        const s2 = this.getElementById("2");
+
+        let stylesheet = new CSSStyleSheet();
+        stylesheet.replaceSync("div{border:red solid 4px;}");
+        document.adoptedStyleSheets = [stylesheet];
+        console.log(document.adoptedStyleSheets);
+
+        let s1Shadow = s1.attachShadow({mode:"open"});
+        s1Shadow.innerHTML = "<div>1234</div>";
+        s1Shadow.adoptedStyleSheets = [stylesheet];
+
+        let s2Shadow = s2.attachShadow({mode:"open"});
+        s2Shadow.appendChild(template.content);
+        s2Shadow.adoptedStyleSheets = [stylesheet];
+
+
+        stylesheet.insertRule("div{box-shadow:2px 2px 4px #000;margin:10px;border-radius:10px;padding:10px;}")
+    });
+</script>
+</body>
+</html>

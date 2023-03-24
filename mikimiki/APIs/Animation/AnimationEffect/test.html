@@ -7,80 +7,83 @@
 <body>
 <div style="border-radius: 20px;"></div>
 <script type="text/javascript">
-  document.addEventListener("DOMContentLoaded",function (){
-      const div = this.querySelector("div");
-      let keyFrameEffect = new KeyframeEffect(div,[
-          {width:0,borderTop:"red solid 10px"},
-          {width:"1520px",borderTop:"blue solid 10px"},
-      ],{
-          duration:2000,
-          fill:"forwards",
-          composite:"accumulate",       //帧与帧过度方式
-          iterationComposite:"accumulate",
-          playbackRate:2,
-      });
-      console.log(keyFrameEffect);
-      console.log(keyFrameEffect.getTiming());
-      console.log(keyFrameEffect.getKeyframes());
-      console.log(keyFrameEffect.getComputedTiming());
-      keyFrameEffect.setKeyframes([
-          {width:0,borderTop:"red solid 10px"},
-          {width:"50vw",borderTop:"blue solid 10px"},
-      ]);
-      window.oncontextmenu = function (e){e.preventDefault();
-          keyFrameEffect.updateTiming({
-              timing:0,
-          });
-          console.log(123);
-      }
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
 
-      let timeline = new DocumentTimeline({originTime:0});
-      let animation = new Animation(keyFrameEffect,timeline);
-      animation.currentTime = 0;
-      animation.playbackRate = 1;
-      /*WebIDL
-       dictionary EffectTiming {
-            double                             delay = 0;
-            double                             endDelay = 0;
-            FillMode                           fill = "auto";
-            double                             iterationStart = 0.0;
-            unrestricted double                iterations = 1.0;
-            (unrestricted double or DOMString) duration = "auto";
-            PlaybackDirection                  direction = "normal";
-            DOMString                          easing = "linear";
-        };
+        let keyFrameEffect = new KeyframeEffect(div, [
+            {width: 0, borderTop: "red solid 10px"},
+            {width: "1520px", borderTop: "blue solid 10px"},
+        ], {
+            duration: 2000,
+            fill: "forwards",
+            composite: "accumulate",       //帧与帧过度方式
+            iterationComposite: "accumulate",
+            playbackRate: 2,
+        });
 
-        dictionary OptionalEffectTiming {
-            double                             delay;
-            double                             endDelay;
-            FillMode                           fill;
-            double                             iterationStart;
-            unrestricted double                iterations;
-            (unrestricted double or DOMString) duration;
-            PlaybackDirection                  direction;
-            DOMString                          easing;
-        };*/
+        console.log(keyFrameEffect);
+        console.log(keyFrameEffect.getTiming());
+        console.log(keyFrameEffect.getKeyframes());
+        console.log(keyFrameEffect.getComputedTiming());
+        keyFrameEffect.setKeyframes([
+            {width: 0, borderTop: "red solid 10px"},
+            {width: "50vw", borderTop: "blue solid 10px"},
+        ]);
+        window.oncontextmenu = function (e) {
+            e.preventDefault();
+            keyFrameEffect.updateTiming({
+                timing: 0,
+            });
+            console.log(123);
+        }
 
-      animation.effect.updateTiming({           //OptionalEffectTiming
-          iterations:2,
-          duration:1000,
-          fill:"both"
-      });
-      window.onclick = function (){
-          animation.play()
-      }
+        let timeline = new DocumentTimeline({originTime: 0});
+        let animation = new Animation(keyFrameEffect, timeline);
+        animation.currentTime = 0;
+        animation.playbackRate = 1;
+        /*WebIDL
+         dictionary EffectTiming {
+              double                             delay = 0;
+              double                             endDelay = 0;
+              FillMode                           fill = "auto";
+              double                             iterationStart = 0.0;
+              unrestricted double                iterations = 1.0;
+              (unrestricted double or DOMString) duration = "auto";
+              PlaybackDirection                  direction = "normal";
+              DOMString                          easing = "linear";
+          };
+
+          dictionary OptionalEffectTiming {
+              double                             delay;
+              double                             endDelay;
+              FillMode                           fill;
+              double                             iterationStart;
+              unrestricted double                iterations;
+              (unrestricted double or DOMString) duration;
+              PlaybackDirection                  direction;
+              DOMString                          easing;
+          };*/
+
+        animation.effect.updateTiming({           //OptionalEffectTiming
+            iterations: 2,
+            duration: 1000,
+            fill: "both"
+        });
+        window.onclick = function () {
+            animation.play()
+        }
 
 
-      /*let keyFrameEffect = div.animate([
-          {width:0,borderTop:"red solid 10px"},
-          {width:"1520px",borderTop:"blue solid 10px"},
-      ],{
-          duration:2000,
-          fill:"forwards",
-      });*/
-      // let animation = new Animation(keyFrameEffect,timeline);
-      // keyFrameEffect.play()
-  })
+        /*let keyFrameEffect = div.animate([
+            {width:0,borderTop:"red solid 10px"},
+            {width:"1520px",borderTop:"blue solid 10px"},
+        ],{
+            duration:2000,
+            fill:"forwards",
+        });*/
+        // let animation = new Animation(keyFrameEffect,timeline);
+        // keyFrameEffect.play()
+    })
 </script>
 </body>
 </html>

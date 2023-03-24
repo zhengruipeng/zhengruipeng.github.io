@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div {
+            height: 100px;
+            width: 100px;
+            border: #000;
+            border-radius: 0;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let div = document.getElementById("div");
+
+        let animationEffect = new KeyframeEffect(div, [
+            {height: '100px', width: '100px', borderRadius: '0', backgroundColor: 'lightpink'},
+            {height: '200px', width: '200px', borderRadius: '50%', backgroundColor: 'skyblue'},
+        ], {
+            duration: 10000,
+        });
+
+        let documentTimeline = new DocumentTimeline({originTime:5000});
+
+        let anime = new Animation(animationEffect,documentTimeline);
+
+        anime.play();
+
+
+
+    });
+</script>
+</body>
+</html>

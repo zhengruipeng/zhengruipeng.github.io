@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:100px;
+            width:100px;
+            border:red dashed 3px;
+            float:left;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p id="p">p</p>
+</div>
+<div id="div2">
+</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const p = this.getElementById("p");
+        const div2 = this.getElementById("div2");
+        div2.appendChild(document.adoptNode(p))
+
+    });
+</script>
+</body>
+</html>

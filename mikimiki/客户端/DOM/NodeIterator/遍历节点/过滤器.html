@@ -17,13 +17,15 @@
     </ul>
 </div>
 <script type="module">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         const div = this.querySelector("div");
-        let iterator = this.createNodeIterator(div,NodeFilter.SHOW_ELEMENT,_ => {return _.tagName === "LI"?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT},false);
+        let iterator = this.createNodeIterator(div, NodeFilter.SHOW_ELEMENT, _ => {
+            return _.tagName === "LI" ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+        });
         let node;
-        while(node = iterator.nextNode()){
-            console.log(node.innerHTML);
 
+        while (node = iterator.nextNode()) {
+            console.log(node.innerHTML);
         }
     });
 </script>

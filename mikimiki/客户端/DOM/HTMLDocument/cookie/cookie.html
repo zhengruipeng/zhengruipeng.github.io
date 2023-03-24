@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {Cookie} from "./Cookie.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let cookie = new Cookie(this);
+
+        cookie.set("a", 1);
+        cookie.set("b", 2);
+        cookie.set("c", 3);
+
+        cookie.set("domain", "example.com");
+        cookie.set("expires", new Date().toUTCString());
+        cookie.set("max-age", 1000);
+        cookie.set("partitioned");
+        cookie.set("secure");
+        cookie.set("path", "/");
+        cookie.set("samesite", "none");
+
+        console.log(cookie.toString());
+        fetch("cookie.php")
+            .then(response => response.text())
+            .then(console.log);
+    });
+</script>
+</body>
+</html>

@@ -25,6 +25,21 @@
         range2.selectNodeContents(div);
         console.log(range)
         console.log(range2)
+
+
+        let fieldset = this.createElement("fieldset");
+        let legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("范围1中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range.cloneContents());
+        this.body.appendChild(fieldset);
+
+        fieldset = this.createElement("fieldset");
+        legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("范围2中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range2.cloneContents());
+        this.body.appendChild(fieldset);
         // console.log(range.selectNodeContents(div));
     });
 </script>

@@ -19,11 +19,11 @@
             </aside>
         </section>
     </article>
-    <pre id="log"></pre>
+    <strong id="log"></strong>
 </div>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded",function (){
-        const pre = this.querySelector("pre");
+        const pre = this.querySelector("#log");
         let range = this.createRange();
         range.selectNode(pre);
         let fragment = range.createContextualFragment("<ins>ins elem.</ins>")

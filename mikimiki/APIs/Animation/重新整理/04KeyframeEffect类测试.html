@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div {
+            height: 100px;
+            width: 100px;
+            border: #000;
+            border-radius: 0;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script type="module">
+    import {JSONParser} from "../../../../packages/JSONParser.js";
+    import {CubicBezierTimingFunctionBuilder} from "../../../../packages/CubicBezierTimingFunctionBuilder.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let div = document.getElementById("div");
+
+        let options = {
+            delay: 0,
+            endDelay: 0,
+            fill: ["backwards", "forwards", "none"],
+            iterationStart: 0.0,
+            iterations: 1.0,
+            duration: 10000,
+            direction: ["normal", "reverse", "alternate", "alternate-reverse"],
+            easing: ["linear", "ease-in", "step-end", "cubic-bezier(0.42, 0, 0.58, 1)","custom-cubic-bezier"],
+            composite: ["add", "accumulate", 'replace'],
+            iterationComposite: ["accumulate", "replace"],
+        };
+
+        let parser = new JSONParser(options);
+        parser.import("../../../../packages/table-default-style.css")
+        parser.initTable();
+        parser.onJsonChange = function (ev) {
+            options = this.toJSON();
+            console.log(options);
+        };
+
+        let button = this.createElement("button");
+        button.innerHTML = "创建动画";
+        button.onclick = function () {
+            if(options.easing === "custom-cubic-bezier" && exp !== ""){
+                options.easing = exp;
+            }else if(exp === ""){
+                alert("先设定曲线");
+                return false;
+            }
+
+            let animationEffect = new KeyframeEffect(div, [
+                {height: '100px', width: '100px', borderRadius: '0', backgroundColor: 'lightpink'},
+                {height: '200px', width: '200px', borderRadius: '50%', backgroundColor: 'skyblue'},
+            ], options);
+            let documentTimeline = new DocumentTimeline({originTime: 0});
+
+            let anime = new Animation(animationEffect, documentTimeline);
+
+            anime.play();
+        };
+        this.body.appendChild(button);
+
+
+        let exp = "";
+        let c = new CubicBezierTimingFunctionBuilder();
+        c.initSVGElement(this.body, 300, 300);
+        c.addEventListener("generate", function (ev) {
+            console.log(123, ev);
+            exp = ev.expression;
+            console.log(exp)
+
+        });
+
+    });
+</script>
+</body>
+</html>

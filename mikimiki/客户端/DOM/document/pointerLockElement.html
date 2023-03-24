@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="div1" style="height:200px;width:400px;border:#000 solid 1px;"></div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
+        div.onclick = function () {
+            this.requestPointerLock();
+            this.innerText = "当前已经请求获得鼠标的元素是: " +
+                document.pointerLockElement.tagName +
+                "(#" + document.pointerLockElement.id + ")";
+        };
+    });
+</script>
+</body>
+</html>

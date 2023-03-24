@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
 
-  </style>
+    </style>
 </head>
 <body>
 <div>
-  <p>Hello world!</p>
-  <ul>
-    <li>list item 1</li>
-    <li>list item 2</li>
-    <li>list item 3</li>
-  </ul>
+    <p>Hello world!</p>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+    </ul>
 </div>
 <script type="module">
-  document.addEventListener("DOMContentLoaded",function (){
-    const div = this.querySelector("div");
-    let iterator = this.createNodeIterator(div,NodeFilter.SHOW_ELEMENT,null,false);
-    let node;
-    while(node = iterator.nextNode()){
-      console.log(node.tagName);
-    }
-    while(node = iterator.previousNode()){
-      console.log(node.tagName);
-    }
-  });
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
+        let iterator = this.createNodeIterator(div, NodeFilter.SHOW_ELEMENT, null);
+        let node;
+
+        while (node = iterator.nextNode()) {
+            console.log(node.tagName);
+        }
+
+        while (node = iterator.previousNode()) {
+            console.log(node.tagName);
+        }
+    });
 </script>
 </body>
 </html>

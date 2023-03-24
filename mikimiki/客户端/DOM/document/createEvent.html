@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div {
+            height:100px;
+            width:100px;
+            border:solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const elem = this.getElementById("div");
+// Create the event.
+        const event = document.createEvent("Event");
+
+// Define that the event name is 'build'.
+        event.initEvent("build", true, true);
+
+// Listen for the event.
+        elem.addEventListener(
+            "build",
+            (e) => {
+                console.log(e);
+
+                // e.target matches elem
+            },
+            false
+        );
+
+// Target can be any Element or other EventTarget.
+        elem.dispatchEvent(event);
+
+    });
+</script>
+</body>
+</html>

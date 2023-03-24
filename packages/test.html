@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {CubicBezierTimingFunctionBuilder} from "./CubicBezierTimingFunctionBuilder.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let c = new CubicBezierTimingFunctionBuilder();
+        c.initSVGElement(this.body, 300, 300);
+        c.addEventListener("generate",function (ev){
+            console.log(123,ev)
+        })
+    });
+</script>
+</body>
+</html>

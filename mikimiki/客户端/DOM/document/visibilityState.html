@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    console.log(document.visibilityState);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let ws = new WebSocket("ws://localhost:3000");
+        ws.onopen = function (){
+            console.log("ws建立连接成功");
+        };
+
+        document.addEventListener("visibilitychange", () => {
+            console.log(document.visibilityState);
+            ws.send(document.visibilityState);
+            // Modify behavior…
+        });
+
+        window.onunload = function (){
+            ws.send(document.visibilityState);
+            ws.close();
+        }
+    });
+</script>
+</body>
+</html>

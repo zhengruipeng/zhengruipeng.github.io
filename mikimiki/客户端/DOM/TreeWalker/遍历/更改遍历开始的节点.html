@@ -17,13 +17,14 @@
     </ul>
 </div>
 <script type="module">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         const div = this.querySelector("div");
-        let iterator = this.createTreeWalker(div,NodeFilter.SHOW_ELEMENT,null,false);
+        let iterator = this.createTreeWalker(div, NodeFilter.SHOW_ELEMENT, null);
         iterator.firstChild();
         iterator.nextSibling();
         let node;
-        while(node = iterator.nextNode()){
+
+        while (node = iterator.nextNode()) {
             console.log(node.tagName);
         }
     });

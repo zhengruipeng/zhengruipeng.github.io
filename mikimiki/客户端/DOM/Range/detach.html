@@ -28,7 +28,7 @@
         let range = this.createRange();
         range.setStartBefore(b);
         range.setEndAfter(li);
-        range.detach();
+        range.detach();         //什么也不做，释放资源并保持兼容性
         range = undefined;
 
     });

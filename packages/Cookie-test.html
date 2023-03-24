@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {Cookie} from "./Cookie.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.cookie = "";
+
+        let cookie = new Cookie(this);
+
+        cookie.set("a", "1");
+        cookie.set("b", "2");
+        cookie.set("c", "3");
+        cookie.set("d", "4");
+
+        console.log(this.cookie);
+        for (let key of cookie.keys()) {
+            console.log(key);
+        }
+
+        for (let value of cookie.values()) {
+            console.log(value);
+        }
+
+        for (let [key, value] of cookie.entries()) {
+            console.log(key, value);
+        }
+
+        for (let [key, value] of cookie) {
+            console.log(key, value);
+        }
+
+        console.log(cookie.get("d"));
+        console.log(cookie.has("a"))
+        console.log(cookie.has("d"))
+        console.log(cookie.has("e"))
+
+
+        cookie.set("e",true);
+        cookie.set("f");
+        console.log(document.cookie);
+
+        console.log(cookie.get("f"));
+        console.log(cookie.has("f"))
+
+        for (let [key, value] of cookie) {
+            console.log(key, value);
+        }
+      /*  cookie.delete('c');
+        for (let [key, value] of cookie) {
+            console.log(key, value);
+        }
+
+        cookie.clear();
+
+        for (let [key, value] of cookie) {
+            console.log(key, value);
+        }*/
+
+    });
+</script>
+</body>
+</html>

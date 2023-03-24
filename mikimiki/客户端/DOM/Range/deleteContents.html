@@ -33,7 +33,15 @@
         range2.setEnd(worldNode,3);
         console.log(range2);
 
+        let fieldset = this.createElement("fieldset");
+        let legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("范围2中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range2.cloneContents());
+        this.body.appendChild(fieldset);
+
         range2.deleteContents();
+
     });
 </script>
 </body>

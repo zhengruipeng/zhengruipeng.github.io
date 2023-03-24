@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<a></a>
+<svg>
+    <a xlink:href="#">
+    <circle r="50" cx="60" cy="60" style="stroke: #639;stroke-width:7px;fill: #ddd"></circle>
+    <text x="35" y="65" style="fill: #639;font-weight: bold">Im svg</text>
+    </a>
+</svg>
+<script type="module">
+    import {ControlsUI} from "../../packages/ControlsUI.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let controlsData = {
+            "pointer-events": {
+                children:`<select>
+                    <option>auto</option>
+                    <option>none</option>
+                    <option>visiblePainted</option>
+                    <option>visibleFill</option>
+                    <option>visibleStroke</option>
+                    <option>visible</option>
+                    <option>fill</option>
+                    <option>stroke</option>
+                    <option>all</option>
+                </select>`
+            }
+        };
+
+
+        let controlsUI = new ControlsUI(controlsData);
+        controlsUI.initDefaultStyle("../../packages/ControlsUI.css",{left:"33%"});
+        controlsUI.initControls(this.body);
+        controlsUI.bindItemEvent({
+            change(ev){
+                console.log(this.value);
+                document.body.style.pointerEvents = this.value;
+            }
+        }, "select")
+    });
+</script>
+</body>
+</html>

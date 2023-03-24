@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div {
+            height: 100px;
+            width: 100px;
+            border: #000;
+            border-radius: 0;
+            background-color: lightpink;
+            transform: translate(0,0);
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let div = document.getElementById("div");
+
+        let animationEffect = new KeyframeEffect(div, [
+            {height: '100px', width: '100px', borderRadius: '0', backgroundColor: 'lightpink'},
+            {height: '200px', width: '200px', borderRadius: '50%', backgroundColor: 'skyblue'},
+        ], {
+            duration: 10000,
+        });
+
+        let documentTimeline = new DocumentTimeline({originTime: 5000});
+
+        window.anime = new Animation(animationEffect, documentTimeline);
+
+        //动画的诸多属性
+        console.log("currentTime", anime.currentTime);
+        console.log("effect", anime.effect);
+        console.log("startTime", anime.startTime);
+        console.log("timeline ", anime.timeline);
+
+        //监听动画状态
+        anime.ready.then(anime => console.log(anime, "动画准备结束"));
+        anime.finished.then(anime => console.log(anime, "动画已经结束"));
+
+    });
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let div = document.getElementById("div");
+
+
+        let button = this.createElement("button");
+        button.innerHTML = "获取当前状态";
+        button.onclick = function () {
+            console.log("currentTime: " + anime.currentTime);
+            console.log("pending: " + anime.pending);
+            console.log("playState: " + anime.playState);
+            console.log("replaceState: " + anime.replaceState);
+
+        };
+        this.body.appendChild(button);
+
+        button = this.createElement("button");
+        button.innerHTML = "暂停动画";
+        button.onclick = function () {
+            anime.pause();
+        };
+        this.body.appendChild(button);
+
+
+        button = this.createElement("button");
+        button.innerHTML = "开始动画";
+        button.onclick = function () {
+            anime.play();
+        };
+        this.body.appendChild(button);
+
+
+        button = this.createElement("button");
+        button.innerHTML = "取消动画";
+        button.onclick = function () {
+            anime.cancel();
+        };
+        this.body.appendChild(button);
+
+
+        button = this.createElement("button");
+        button.innerHTML = "结束动画";
+        button.onclick = function () {
+            anime.finish();
+        };
+
+        this.body.appendChild(button);
+
+
+        button = this.createElement("button");
+        button.innerHTML = "翻转动画";
+        button.onclick = function () {
+            anime.reverse();
+        };
+        this.body.appendChild(button);
+
+
+        let accelerate = false;
+        button = this.createElement("button");
+        button.innerHTML = "二倍速";
+        button.onclick = function () {
+            accelerate ?
+                anime.updatePlaybackRate(anime.playbackRate / 2) :
+                anime.updatePlaybackRate(anime.playbackRate * 2);
+            accelerate = !accelerate;
+        };
+        this.body.appendChild(button);
+
+
+        button = this.createElement("button");
+        button.innerHTML = "设置结束填充效果";
+        button.onclick = function () {
+            anime.commitStyles();
+        };
+        this.body.appendChild(button);
+
+        button = this.createElement("button");
+        button.innerHTML = "同时设置多个类似动画";
+        button.onclick = function () {
+            for (let i = 0; i < 2; i++) {
+                const anim = div.animate(
+                    {transform: `translate(50px, 50px)`},
+                    {duration: 500, fill: "forwards"}
+                );
+
+                anim.commitStyles();
+
+                anim.persist()
+
+                anim.onremove = (event) => {
+                    console.log("Animation removed");
+                };
+
+                console.log(anim.replaceState);
+            }
+        };
+        this.body.appendChild(button);
+
+    })
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        anime.oncancel = anime.onfinish = anime.onremove = function (ev) {
+            console.log("触发了" + ev.type);
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @media screen {
+            div {
+                color: #fff;
+                background: #000;
+            }
+
+        }
+        ::backdrop{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div>双击我触发全屏</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
+        div.ondblclick = function () {
+            this.requestFullscreen().then(res => {
+                console.log(res);
+                console.log(document.fullscreenElement)
+
+            });
+        };
+    });
+</script>
+</body>
+</html>
