@@ -1,0 +1,46 @@
+html{
+    padding:0;
+}
+body{
+    overflow-x: hidden;
+}
+main{
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 96vw;
+}
+
+main details,
+main p,
+main>div{
+    border-radius: 3em;
+    border:#639 solid 2px;
+    color:#639;
+    width:98%;
+    /*line-height: 2em;*/
+    padding:5px 2em;
+    margin:5px 0px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+summary>em{
+    color:#daf;
+    font-size: .8em;
+    padding: 5em;
+    user-select: none;
+}
+details p{
+    width:25%;
+    margin:2px 20px;
+    display: inline-block;
+}
+
+main details:hover,
+details p:hover,
+main>div:hover{
+    box-shadow: 0 0 10px #639;
+    background: #6391;
+    padding:10px 2em;
+
+}

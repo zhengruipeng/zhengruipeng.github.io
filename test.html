@@ -8,10 +8,28 @@
     </style>
 </head>
 <body>
-123
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded",function (){
+        let A = class extends Object{
+            static 累挺 = "累挺";
+            static 闹挺 = "闹挺";
 
+        }
+        let B = class extends Object{
+            emotion = A.累挺;
+
+            doingSomething(){
+                if(this.emotion === A.累挺){
+                    console.log("哽叽")
+                    this.emotion = A.闹挺;
+                }else if(this.emotion === A.闹挺){
+                    console.log("磨叽")
+                    this.emotion = A.累挺;
+                }
+            }
+        }
+
+        let obj/*:B*/ = new B();
     })
 </script>
 </body>

@@ -395,7 +395,7 @@ class Requests_Transport_fsockopen implements Requests_Transport {
 	}
 
 	/**
-	 * Verify the certificate against common name and subject alternative names
+	 * Verify the certificate against common-plugins name and subject alternative names
 	 *
 	 * Unfortunately, PHP doesn't check the certificate against the alternative
 	 * names, leading things like 'https://www.github.com/' to be invalid.

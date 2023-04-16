@@ -51,7 +51,7 @@ wp_enqueue_script( 'wp-edit-post' );
 
 $rest_path = rest_get_route_for_post( $post );
 
-// Preload common data.
+// Preload common-plugins data.
 $preload_paths = array(
 	'/wp/v2/types?context=view',
 	'/wp/v2/taxonomies?context=view',

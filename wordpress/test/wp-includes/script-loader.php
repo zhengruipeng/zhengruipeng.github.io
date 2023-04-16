@@ -684,8 +684,8 @@ function wp_default_scripts( $scripts ) {
 		)
 	);
 
-	$scripts->add( 'common', "/wp-admin/js/common$suffix.js", array( 'jquery', 'hoverIntent', 'utils' ), false, 1 );
-	$scripts->set_translations( 'common' );
+	$scripts->add( 'common-plugins', "/wp-admin/js/common-plugins$suffix.js", array( 'jquery', 'hoverIntent', 'utils' ), false, 1 );
+	$scripts->set_translations( 'common-plugins' );
 
 	$scripts->add( 'wp-sanitize', "/wp-includes/js/wp-sanitize$suffix.js", array(), false, 1 );
 
@@ -1107,7 +1107,7 @@ function wp_default_scripts( $scripts ) {
 	$scripts->add( 'htmlhint', '/wp-includes/js/codemirror/htmlhint.js', array(), '0.9.14-xwp' );
 	$scripts->add( 'htmlhint-kses', '/wp-includes/js/codemirror/htmlhint-kses.js', array( 'htmlhint' ) );
 	$scripts->add( 'code-editor', "/wp-admin/js/code-editor$suffix.js", array( 'jquery', 'wp-codemirror', 'underscore' ) );
-	$scripts->add( 'wp-theme-plugin-editor', "/wp-admin/js/theme-plugin-editor$suffix.js", array( 'common', 'wp-util', 'wp-sanitize', 'jquery', 'jquery-ui-core', 'wp-a11y', 'underscore' ) );
+	$scripts->add( 'wp-theme-plugin-editor', "/wp-admin/js/theme-plugin-editor$suffix.js", array( 'common-plugins', 'wp-util', 'wp-sanitize', 'jquery', 'jquery-ui-core', 'wp-a11y', 'underscore' ) );
 	$scripts->set_translations( 'wp-theme-plugin-editor' );
 
 	$scripts->add( 'wp-playlist', "/wp-includes/js/mediaelement/wp-playlist$suffix.js", array( 'wp-util', 'backbone', 'mediaelement' ), false, 1 );
@@ -1380,7 +1380,7 @@ function wp_default_scripts( $scripts ) {
 		$scripts->add( 'privacy-tools', "/wp-admin/js/privacy-tools$suffix.js", array( 'jquery', 'wp-a11y' ), false, 1 );
 		$scripts->set_translations( 'privacy-tools' );
 
-		$scripts->add( 'updates', "/wp-admin/js/updates$suffix.js", array( 'common', 'jquery', 'wp-util', 'wp-a11y', 'wp-sanitize', 'wp-i18n' ), false, 1 );
+		$scripts->add( 'updates', "/wp-admin/js/updates$suffix.js", array( 'common-plugins', 'jquery', 'wp-util', 'wp-a11y', 'wp-sanitize', 'wp-i18n' ), false, 1 );
 		$scripts->set_translations( 'updates' );
 		did_action( 'init' ) && $scripts->localize(
 			'updates',
@@ -1499,7 +1499,7 @@ function wp_default_styles( $styles ) {
 	$suffix = SCRIPT_DEBUG ? '' : '.min';
 
 	// Admin CSS.
-	$styles->add( 'common', "/wp-admin/css/common$suffix.css" );
+	$styles->add( 'common-plugins', "/wp-admin/css/common-plugins$suffix.css" );
 	$styles->add( 'forms', "/wp-admin/css/forms$suffix.css" );
 	$styles->add( 'admin-menu', "/wp-admin/css/admin-menu$suffix.css" );
 	$styles->add( 'dashboard', "/wp-admin/css/dashboard$suffix.css" );
@@ -1516,7 +1516,7 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", array( 'wp-codemirror' ) );
 	$styles->add( 'site-health', "/wp-admin/css/site-health$suffix.css" );
 
-	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ) );
+	$styles->add( 'wp-admin', false, array( 'dashicons', 'common-plugins', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ) );
 
 	$styles->add( 'login', "/wp-admin/css/login$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n' ) );
 	$styles->add( 'install', "/wp-admin/css/install$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n' ) );
@@ -1574,7 +1574,7 @@ function wp_default_styles( $styles ) {
 	$styles->add(
 		'wp-reset-editor-styles',
 		"/wp-includes/css/dist/block-library/reset$suffix.css",
-		array( 'common', 'forms' ) // Make sure the reset is loaded after the default WP Admin styles.
+		array( 'common-plugins', 'forms' ) // Make sure the reset is loaded after the default WP Admin styles.
 	);
 
 	$styles->add(
@@ -1661,7 +1661,7 @@ function wp_default_styles( $styles ) {
 		$path   = "/wp-includes/css/dist/$package/style$suffix.css";
 
 		if ( 'block-library' === $package && wp_should_load_separate_core_block_assets() ) {
-			$path = "/wp-includes/css/dist/$package/common$suffix.css";
+			$path = "/wp-includes/css/dist/$package/common-plugins$suffix.css";
 		}
 		$styles->add( $handle, $path, $dependencies );
 		$styles->add_data( $handle, 'path', ABSPATH . $path );
@@ -1670,7 +1670,7 @@ function wp_default_styles( $styles ) {
 	// RTL CSS.
 	$rtl_styles = array(
 		// Admin CSS.
-		'common',
+		'common-plugins',
 		'forms',
 		'admin-menu',
 		'dashboard',
@@ -2311,7 +2311,7 @@ function script_concat_settings() {
 }
 
 /**
- * Handles the enqueueing of block scripts and styles that are common to both
+ * Handles the enqueueing of block scripts and styles that are common-plugins to both
  * the editor and the front-end.
  *
  * @since 5.0.0

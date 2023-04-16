@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            padding: 0;
+        }
+
+        ul > li {
+            line-height: 2em;
+            border-radius: 30px;
+            border: solid 2px #639;
+            text-align: center;
+            list-style-type: none;
+            margin: 3px;
+            color: #639;
+            transition: .3s;
+
+        }
+
+        ul > li:hover {
+            cursor: pointer;
+            background-color: #6391;
+            box-shadow: 0 0 10px #639;
+            line-height: 2.5em;
+        }
+
+        ul > li > em {
+            color: #daf;
+            font-size: .8em;
+            padding-left: 3em;
+
+        }
+
+        ul > li.selected {
+            background-color: #6392;
+            box-shadow: 0 0 10px #639;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="operation" id="add">+点击添加新的硬盘</li>
+    <li class="operation" id="del">-删除硬盘</li>
+    <li class="operation" id="sub">结束添加</li>
+</ul>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const ul = this.querySelector("ul");
+        const addBtn = ul.querySelector("#add");
+        const delBtn = ul.querySelector("#del");
+        const subBtn = ul.querySelector("#sub");
+
+        let drive = new Set();
+
+        let createItem = function (add, name) {
+            const li = document.createElement("li");
+            li.onclick = function () {
+                li.classList.toggle("selected");
+            }
+
+            li.innerHTML = add + "<em>" + name + "</em>";
+            ul.insertAdjacentElement("afterBegin", li);
+            return li;
+        }
+
+        addBtn.onclick = function (arg1, arg2) {
+            let name;
+            let add;
+            if (arg2) {
+                name = arg1;
+                add = arg2;
+            } else {
+                name = prompt("硬盘名称");
+                add = prompt("地址（例如：H:/）");
+            }
+            if (!name || !add) return false;
+
+
+            let li = createItem(add, name);
+            drive.add(li);
+        };
+
+        delBtn.onclick = function () {
+            Array.from(ul.children).forEach(li => {
+                if (li.classList.contains("operation")) return false;
+                if (!li.classList.contains("selected")) return false;
+                li.style.lineHeight = "0em";
+                li.style.opacity = "0";
+                li.style.margin = "0";
+                li.style.borderWidth = "0";
+
+                li.ontransitionend = function () {
+                    li.parentElement.removeChild(li);
+                    this.ontransitionend = null;
+                }
+            })
+        };
+
+        subBtn.onclick = function () {
+            const formData = {};
+
+
+            Array.from(ul.children).forEach(child => {
+                if (child.classList.contains("operation")) return false;
+
+                formData[child.childNodes[0].data.trim()] = child.childNodes[1].innerText.trim();
+            })
+
+            let formEle = document.createElement("form");
+            document.body.appendChild(formEle);
+            formEle.action = "./main.php";
+            formEle.method = "post";
+
+            //设置传输路径
+            let inputEle = document.createElement("input");
+            inputEle.type = "hidden";
+            inputEle.name = "path";
+            inputEle.value = JSON.stringify(formData);
+            formEle.appendChild(inputEle);
+
+
+            formEle.submit();
+
+        };
+
+
+        addBtn.onclick("百度网盘", "百度云盘");
+        addBtn.onclick("如月千早5T", "H:/");
+        addBtn.onclick("杜野凛世2T", "I:/");
+        addBtn.onclick("樱木真乃2T", "J:/");
+        addBtn.onclick("星井美希1T", "G:/");
+
+        // addBtn.onclick("test","I:/");
+
+    })
+</script>
+</body>
+</html>

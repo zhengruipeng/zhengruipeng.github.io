@@ -46062,7 +46062,7 @@ const video = (0,external_wp_element_namespaceObject.createElement)(external_wp_
 }));
 /* harmony default export */ var library_video = (video);
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/video/edit-common-settings.js
+;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/video/edit-common-plugins-settings.js
 
 
 /**

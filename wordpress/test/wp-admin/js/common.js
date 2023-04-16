@@ -1,12 +1,12 @@
 /**
- * @output wp-admin/js/common.js
+ * @output wp-admin/js/common-plugins.js
  */
 
 /* global setUserSetting, ajaxurl, alert, confirm, pagenow */
 /* global columns, screenMeta */
 
 /**
- *  Adds common WordPress functionality to the window.
+ *  Adds common-plugins WordPress functionality to the window.
  *
  *  @param {jQuery} $        jQuery object.
  *  @param {Object} window   The window object.
@@ -689,7 +689,7 @@ var permalinkStructureFocused = false,
     $permalinkCustomSelection = $( '#custom_selection' ),
     $availableStructureTags   = $( '.form-table.permalink-structure .available-structure-tags button' );
 
-// Change permalink structure input when selecting one of the common structures.
+// Change permalink structure input when selecting one of the common-plugins structures.
 $permalinkStructureInputs.on( 'change', function() {
 	if ( 'custom' === this.value ) {
 		return;

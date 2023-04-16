@@ -576,7 +576,7 @@ class getid3_quicktime extends getid3_handler
 														if (function_exists('getimagesizefromstring') && ($getimagesize = getimagesizefromstring($atom_structure['data'])) && !empty($getimagesize['mime'])) {
 															$atom_structure['image_mime'] = $getimagesize['mime'];
 														} else {
-															// if getimagesizefromstring is not available, or fails for some reason, fall back to simple detection of common image formats
+															// if getimagesizefromstring is not available, or fails for some reason, fall back to simple detection of common-plugins image formats
 															$ImageFormatSignatures = array(
 																'image/jpeg' => "\xFF\xD8\xFF",
 																'image/png'  => "\x89\x50\x4E\x47\x0D\x0A\x1A\x0A",

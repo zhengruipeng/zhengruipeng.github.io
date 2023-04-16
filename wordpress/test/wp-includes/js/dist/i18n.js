@@ -1178,7 +1178,7 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * Check if current locale is RTL.
  *
  * **RTL (Right To Left)** is a locale property indicating that text is written from right to left.
- * For example, the `he` locale (for Hebrew) specifies right-to-left. Arabic (ar) is another common
+ * For example, the `he` locale (for Hebrew) specifies right-to-left. Arabic (ar) is another common-plugins
  * language written RTL. The opposite of RTL, LTR (Left To Right) is used in other languages,
  * including English (`en`, `en-US`, `en-GB`, etc.), Spanish (`es`), and French (`fr`).
  */
@@ -1681,7 +1681,7 @@ const _nx = i18n._nx.bind(i18n);
  * Check if current locale is RTL.
  *
  * **RTL (Right To Left)** is a locale property indicating that text is written from right to left.
- * For example, the `he` locale (for Hebrew) specifies right-to-left. Arabic (ar) is another common
+ * For example, the `he` locale (for Hebrew) specifies right-to-left. Arabic (ar) is another common-plugins
  * language written RTL. The opposite of RTL, LTR (Left To Right) is used in other languages,
  * including English (`en`, `en-US`, `en-GB`, etc.), Spanish (`es`), and French (`fr`).
  *

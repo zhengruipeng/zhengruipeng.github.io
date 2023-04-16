@@ -233,12 +233,12 @@
     });
   };
 
-  // Convenience version of a common use case of `map`: fetching a property.
+  // Convenience version of a common-plugins use case of `map`: fetching a property.
   _.pluck = function(obj, key) {
     return _.map(obj, function(value){ return value[key]; });
   };
 
-  // Convenience version of a common use case of `filter`: selecting only objects
+  // Convenience version of a common-plugins use case of `filter`: selecting only objects
   // with specific `key:value` pairs.
   _.where = function(obj, attrs) {
     if (_.isEmpty(attrs)) return [];

@@ -16,7 +16,7 @@
  */
 class Requests_SSL {
 	/**
-	 * Verify the certificate against common name and subject alternative names
+	 * Verify the certificate against common-plugins name and subject alternative names
 	 *
 	 * Unfortunately, PHP doesn't check the certificate against the alternative
 	 * names, leading things like 'https://www.github.com/' to be invalid.
@@ -52,7 +52,7 @@ class Requests_SSL {
 			}
 		}
 
-		// Fall back to checking the common name if we didn't get any dNSName
+		// Fall back to checking the common-plugins name if we didn't get any dNSName
 		// alt names, as per RFC2818
 		if (!$has_dns_alt && !empty($cert['subject']['CN'])) {
 			// Check for a match

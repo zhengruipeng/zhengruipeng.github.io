@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ::view-transition-image-pair(root) {
+            /*isolation: auto;*/
+        }
+
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation: none;
+            mix-blend-mode: normal;
+            display: block;
+        }
+
+        .slideshow {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+<script type="module">
+    import {SlideShow} from "../../../packages/SlideShow.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let hrefs = [];
+        for (let i = 1; i < 20; i++) {
+            hrefs.push(`../../../image/ricorico/${i}.jpg`);
+        }
+
+        let pic = new SlideShow(hrefs);
+        pic.init();
+        pic.image.className = "slideshow";
+        pic.image.onclick = function (ev) {
+            // Fallback for browsers that don’t support this API:
+            if (!document.startViewTransition) {
+                this.next();
+                return;
+            }
+
+            // Get the click position, or fallback to the middle of the screen
+            const x = ev?.clientX ?? innerWidth / 2;
+            const y = ev?.clientY ?? innerHeight / 2;
+
+            // Get the distance to the furthest corner
+            const endRadius = Math.hypot(
+                Math.max(x, innerWidth - x),
+                Math.max(y, innerHeight - y)
+            );
+
+            // Create a transition:
+            const transition = document.startViewTransition(() => {
+                pic.next();
+            });
+
+            // Wait for the pseudo-elements to be created:
+            transition.ready.then(() => {
+                // Animate the root’s new view
+                document.documentElement.animate(
+                    {
+                        clipPath: [
+                            `circle(0 at ${x}px ${y}px)`,
+                            `circle(${endRadius}px at ${x}px ${y}px)`,
+                        ],
+                    },
+                    {
+                        duration: 500,
+                        easing: "ease-in",
+                        // Specify which pseudo-element to animate
+                        pseudoElement: "::view-transition-new(root)",
+                    }
+                );
+            });
+        };
+
+
+
+    });
+</script>
+</body>
+</html>

@@ -37,7 +37,7 @@ var listen_default = /*#__PURE__*/__nested_webpack_require_623__.n(listen);
 // EXTERNAL MODULE: ./node_modules/select/src/select.js
 var src_select = __nested_webpack_require_623__(817);
 var select_default = /*#__PURE__*/__nested_webpack_require_623__.n(src_select);
-;// CONCATENATED MODULE: ./src/common/command.js
+;// CONCATENATED MODULE: ./src/common-plugins/command.js
 /**
  * Executes a given operation type.
  * @param {String} type
@@ -66,7 +66,7 @@ var ClipboardActionCut = function ClipboardActionCut(target) {
 };
 
 /* harmony default export */ var actions_cut = (ClipboardActionCut);
-;// CONCATENATED MODULE: ./src/common/create-fake-element.js
+;// CONCATENATED MODULE: ./src/common-plugins/create-fake-element.js
 /**
  * Creates a fake textarea element with a value.
  * @param {String} value
@@ -1927,7 +1927,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
     // expose mousetrap to the global object
     window.Mousetrap = Mousetrap;
 
-    // expose as a common js module
+    // expose as a common-plugins js module
     if ( true && module.exports) {
         module.exports = Mousetrap;
     }

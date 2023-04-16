@@ -313,7 +313,7 @@ When seeking help with this issue, you may be asked for some of the following in
 
 		$plugins = get_plugins();
 
-		// Assume plugin main file name first since it is a common convention.
+		// Assume plugin main file name first since it is a common-plugins convention.
 		if ( isset( $plugins[ "{$extension['slug']}/{$extension['slug']}.php" ] ) ) {
 			return $plugins[ "{$extension['slug']}/{$extension['slug']}.php" ];
 		} else {

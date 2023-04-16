@@ -475,7 +475,7 @@ $.widget( "ui.tooltip", {
 		// Close open tooltips
 		$.each( this.tooltips, function( id, tooltipData ) {
 
-			// Delegate to close method to handle common cleanup
+			// Delegate to close method to handle common-plugins cleanup
 			var event = $.Event( "blur" ),
 				element = tooltipData.element;
 			event.target = event.currentTarget = element[ 0 ];

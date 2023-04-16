@@ -9,7 +9,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { FileuploadComponent } from './components/fileupload/fileupload.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PageBodyComponent } from './components/page-body/page-body.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common-plugins/http';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

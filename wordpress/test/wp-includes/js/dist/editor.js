@@ -10251,7 +10251,7 @@ function PostSavedState(_ref) {
     text = label;
   } else if (showIconLabels) {
     text = shortLabel;
-  } // Use common Button instance for all saved states so that focus is not
+  } // Use common-plugins Button instance for all saved states so that focus is not
   // lost.
 
 

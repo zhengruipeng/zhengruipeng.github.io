@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>XPath example</div>
+<div>Number of &lt;div&gt;s:
+    <output></output>
+</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        var xpath = "//div";
+        var evaluator = new XPathEvaluator();
+        var expression = evaluator.createExpression(xpath);
+        var result = expression.evaluate(document, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+        document.querySelector("output").textContent = result.snapshotLength;
+    })
+</script>
+</body>
+</html>

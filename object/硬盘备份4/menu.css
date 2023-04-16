@@ -1,0 +1,29 @@
+div.menu{
+    position: fixed;
+    min-width: 300px;
+    border-radius: 30px;
+    border:#6395 solid 3px;
+    /*border-image-source:linear-gradient(to bottom,#daf5,#daf1);*/
+    /*border-image-width: 3px;*/
+    z-index: 3;
+    background: white;
+    display: none;
+    /*box-shadow: 0 0 10px #639;*/
+    transition: .3s;
+    color:#639;
+    clip-path: content-box;
+
+}
+div.menu>div{
+    border-bottom:#6395 solid 2px;
+    padding:5px 1.4em;
+    font-family: 微软雅黑;
+    cursor: pointer;
+    transition: .3s;
+}
+div.menu>div:last-of-type{
+    border-bottom:none;
+}
+div.menu>div:hover{
+    background: #6392;
+}

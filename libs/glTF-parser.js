@@ -353,7 +353,7 @@ var global = window;
             }
         },
 
-        //this is meant to be global and common for all instances
+        //this is meant to be global and common-plugins for all instances
         _knownURLs: { writable: true, value: {} },
 
         //to be invoked by subclass, so that ids can be ensured to not overlap

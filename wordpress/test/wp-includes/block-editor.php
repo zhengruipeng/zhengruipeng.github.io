@@ -525,7 +525,7 @@ function get_block_editor_settings( array $custom_settings, $block_editor_contex
 }
 
 /**
- * Preloads common data used with the block editor by specifying an array of
+ * Preloads common-plugins data used with the block editor by specifying an array of
  * REST API paths that will be preloaded for a given block editor context.
  *
  * @since 5.8.0
@@ -541,7 +541,7 @@ function block_editor_rest_api_preload( array $preload_paths, $block_editor_cont
 	global $post, $wp_scripts, $wp_styles;
 
 	/**
-	 * Filters the array of REST API paths that will be used to preloaded common data for the block editor.
+	 * Filters the array of REST API paths that will be used to preloaded common-plugins data for the block editor.
 	 *
 	 * @since 5.8.0
 	 *
@@ -556,7 +556,7 @@ function block_editor_rest_api_preload( array $preload_paths, $block_editor_cont
 		/**
 		 * Filters the array of paths that will be preloaded.
 		 *
-		 * Preload common data by specifying an array of REST API paths that will be preloaded.
+		 * Preload common-plugins data by specifying an array of REST API paths that will be preloaded.
 		 *
 		 * @since 5.0.0
 		 * @deprecated 5.8.0 Use the {@see 'block_editor_rest_api_preload_paths'} filter instead.

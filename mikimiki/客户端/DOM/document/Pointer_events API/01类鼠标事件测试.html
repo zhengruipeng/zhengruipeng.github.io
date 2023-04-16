@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            height: 40vh;
+            width: 40vh;
+            border: red solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div>123123</div>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
+
+        div.onpointerover = function (ev) {
+            console.log("pointerover", ev);
+        };
+
+        div.onpointerenter = function (ev) {
+            console.log("pointerenter", ev);
+        }
+
+        div.onpointerdown = function (ev) {
+            console.log("pointerdown", ev);
+        }
+
+        div.onpointermove = function (ev) {
+            console.log("pointermove", ev);
+        }
+
+        div.onpointerup = function (ev) {
+            console.log("pointerup", ev);
+        }
+
+        div.onpointerleave = function (ev) {
+            console.log("pointerleave", ev);
+        }
+        div.onpointerout = function (ev) {
+            console.log("pointerout", ev);
+        }
+
+    });
+</script>
+</body>
+</html>

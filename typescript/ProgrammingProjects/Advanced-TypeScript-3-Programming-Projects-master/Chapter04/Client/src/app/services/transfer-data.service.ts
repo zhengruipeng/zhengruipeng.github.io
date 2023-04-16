@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common-plugins/http';
 import { AddImageService } from './add-image.service';
 import { IPictureModel } from '../types';
 import { LoadImageService } from './load-image.service';

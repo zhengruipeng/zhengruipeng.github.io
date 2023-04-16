@@ -3476,7 +3476,7 @@ class wpdb {
 		// Strip everything between parentheses except nested selects.
 		$query = preg_replace( '/\((?!\s*select)[^(]*?\)/is', '()', $query );
 
-		// Quickly match most common queries.
+		// Quickly match most common-plugins queries.
 		if ( preg_match(
 			'/^\s*(?:'
 				. 'SELECT.*?\s+FROM'

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            background-image: -moz-element(#canvasbg);
+            background-image: element(#canvasbg);
+            text-align: center;
+            width: 400px;
+            height: 400px;
+            cursor: pointer;
+            border:red 1px solid;
+        }
+        canvas{
+            cursor: pointer;
+            border:red 1px solid;
+        }
+    </style>
+</head>
+<body>
+<div>div</div>
+<canvas id="canvas"></canvas>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const canvas = this.querySelector("#canvas");
+
+        let c = 0x00;
+        function clicked() {
+            canvas.setAttribute("width", 100);
+            canvas.setAttribute("height", 100);
+
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = `#${c.toString(16)}0000`;
+            ctx.fillRect(25, 25, 75, 75);
+
+            c += 0x11;
+            if (c > 0xff) {
+                c = 0x00;
+            }
+            if (document.mozSetImageElement)
+                document.mozSetImageElement("canvasbg", canvas);
+            else if (document.setImageElement){
+                console.log("setImageElement");
+                document.setImageElement("canvasbg", canvas);
+
+            }
+        }
+
+        canvas.onclick = clicked;
+    });
+</script>
+</body>
+</html>

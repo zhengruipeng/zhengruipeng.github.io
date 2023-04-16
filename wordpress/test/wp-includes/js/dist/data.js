@@ -687,7 +687,7 @@ function kindOf(val) {
  * **https://redux.js.org/introduction/why-rtk-is-redux-today**
  *
  * `configureStore` from Redux Toolkit is an improved version of `createStore` that
- * simplifies setup and helps avoid common bugs.
+ * simplifies setup and helps avoid common-plugins bugs.
  *
  * You should not be using the `redux` core package by itself today, except for learning purposes.
  * The `createStore` method from the core `redux` package will not be removed, but we encourage

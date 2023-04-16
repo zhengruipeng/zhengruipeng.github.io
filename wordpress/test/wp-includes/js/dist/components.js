@@ -18178,7 +18178,7 @@ var useTabbable = createHook({
       var raf = requestAnimationFrame(function () {
         element.removeEventListener("mouseup", focusImmediately, true);
         focusIfNeeded(element);
-      }); // If mouseUp happens before the next animation frame (which is common
+      }); // If mouseUp happens before the next animation frame (which is common-plugins
       // on touch screens or by just tapping the trackpad on MacBook's), we
       // cancel the animation frame and immediately focus on the element.
 
@@ -29359,7 +29359,7 @@ var numberValueTypes = {
 
 
 /**
- * A map of default value types for common values
+ * A map of default value types for common-plugins values
  */
 var defaultValueTypes = __assign(__assign({}, numberValueTypes), { 
     // Color props
@@ -31735,7 +31735,7 @@ function motion_createMotionComponent(_a) {
         var visualState = useVisualState(props, config.isStatic);
         if (!config.isStatic && is_browser_isBrowser) {
             /**
-             * Create a VisualElement for this component. A VisualElement provides a common
+             * Create a VisualElement for this component. A VisualElement provides a common-plugins
              * interface to renderer-specific APIs (ie DOM/Three.js etc) as well as
              * providing a way of rendering to these APIs outside of the React render loop
              * for more performant animations and interactions
@@ -44963,7 +44963,7 @@ function getContainingBlock(element) {
   }
 
   while (isHTMLElement(currentNode) && ['html', 'body'].indexOf(getNodeName(currentNode)) < 0) {
-    var css = getComputedStyle_getComputedStyle(currentNode); // This is non-exhaustive but covers the most common CSS properties that
+    var css = getComputedStyle_getComputedStyle(currentNode); // This is non-exhaustive but covers the most common-plugins CSS properties that
     // create a containing block.
     // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
 
@@ -45213,7 +45213,7 @@ function popperGenerator(generatorOptions) {
           reference: getCompositeRect(reference, getOffsetParent(popper), state.options.strategy === 'fixed'),
           popper: getLayoutRect(popper)
         }; // Modifiers have the ability to reset the current update cycle. The
-        // most common use case for this is the `flip` modifier changing the
+        // most common-plugins use case for this is the `flip` modifier changing the
         // placement, which then needs to re-run all the modifiers, because the
         // logic was previously ran for the previous placement and is therefore
         // stale/incorrect
@@ -50881,10 +50881,10 @@ function getAllValue() {
   return [commonQuantity, commonUnit].join('');
 }
 /**
- * Determine the most common unit selection to use as a fallback option.
+ * Determine the most common-plugins unit selection to use as a fallback option.
  *
  * @param {Object} selectedUnits Current unit selections for individual sides.
- * @return {string} Most common unit selection.
+ * @return {string} Most common-plugins unit selection.
  */
 
 function getAllUnitFallback(selectedUnits) {
@@ -57257,7 +57257,7 @@ var Downshift = /*#__PURE__*/(/* unused pure expression or super */ null && (fun
           onMouseDown: callAllEventHandlers(onMouseDown, function (event) {
             // This prevents the activeElement from being changed
             // to the item so it can remain with the current activeElement
-            // which is a more common use case.
+            // which is a more common-plugins use case.
             event.preventDefault();
           })
         }, _enabledEventHandlers[onSelectKey] = callAllEventHandlers(customClickHandler, function () {
@@ -59086,7 +59086,7 @@ var propTypes$1 = {
  * The useCombobox version of useControlledReducer, which also
  * checks if the controlled prop selectedItem changed between
  * renders. If so, it will also update inputValue with its
- * string equivalent. It uses the common useEnhancedReducer to
+ * string equivalent. It uses the common-plugins useEnhancedReducer to
  * compute the rest of the state.
  *
  * @param {Function} reducer Reducer function from downshift.

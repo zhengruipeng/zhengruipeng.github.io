@@ -9846,7 +9846,7 @@ msgid "Hello Dolly"
 msgstr "你好多莉"
 
 #: wp-admin/index.php:78
-msgid "<strong>Welcome</strong> &mdash; Shows links for some of the most common tasks when setting up a new site."
+msgid "<strong>Welcome</strong> &mdash; Shows links for some of the most common-plugins tasks when setting up a new site."
 msgstr "<strong>欢迎</strong>——显示配置新站点的实用功能。"
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link
@@ -10134,7 +10134,7 @@ msgid "WordPress can also attempt to optimize the database. This improves perfor
 msgstr "WordPress还可以尝试优化数据库，这在某些情况下能提高数据库性能。修复和优化数据库的过程需要一段时间，请耐心等待——在此期间我们会锁定（lock）数据表。"
 
 #: wp-admin/maint/repair.php:164
-msgid "WordPress can automatically look for some common database problems and repair them. Repairing can take a while, so please be patient."
+msgid "WordPress can automatically look for some common-plugins database problems and repair them. Repairing can take a while, so please be patient."
 msgstr "WordPress能自动检测并修复一些常见数据库问题。修复过程需要一段时间，请耐心等待。"
 
 #: wp-admin/maint/repair.php:155
@@ -10207,7 +10207,7 @@ msgid "What&#8217;s New"
 msgstr "更新内容"
 
 #: wp-admin/options-permalink.php:25
-msgid "This screen allows you to choose your permalink structure. You can choose from common settings or create custom URL structures."
+msgid "This screen allows you to choose your permalink structure. You can choose from common-plugins settings or create custom URL structures."
 msgstr "此界面可以让您选择您的固定链接结构。您可以选择常见的设置或建立自定义URL结构。"
 
 #. translators: 1: WordPress version, 2: URL to About screen.
@@ -13142,7 +13142,7 @@ msgstr "当评论者的内容、名称、网址、电邮、IP或浏览器用户�
 
 #. translators: %s: Number of links.
 #: wp-admin/options-discussion.php:195
-msgid "Hold a comment in the queue if it contains %s or more links. (A common characteristic of comment spam is a large number of hyperlinks.)"
+msgid "Hold a comment in the queue if it contains %s or more links. (A common-plugins characteristic of comment spam is a large number of hyperlinks.)"
 msgstr "当某条评论包含超过%s个超链接时，将其放入待审队列（垃圾评论通常含有许多超链接）。"
 
 #: wp-admin/options-discussion.php:189 wp-admin/options-discussion.php:190

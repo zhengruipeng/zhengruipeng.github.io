@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes grow-x {
+            from {
+                transform: scaleX(0);
+                opacity: 0;
+
+            }
+            to {
+                transform: scaleX(1);
+                opacity: 1;
+
+            }
+        }
+
+        @keyframes shrink-x {
+            from {
+                transform: scaleX(1);
+                opacity: 1;
+            }
+            to {
+                transform: scaleX(0);
+                opacity: 0;
+
+            }
+        }
+
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            transform-origin: right center;
+            height:100%;
+        }
+
+        ::view-transition-old(root) {
+            animation-duration: 0.25s;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+            animation-name: shrink-x;
+        }
+
+
+        .slideshow {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+<script type="module">
+    import {SlideShow} from "../../../../packages/SlideShow.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let hrefs = [];
+        for (let i = 1; i < 20; i++) {
+            hrefs.push(`../../../../image/ricorico/${i}.jpg`);
+        }
+
+        let pic = new SlideShow(hrefs);
+        pic.init();
+        pic.image.className = "slideshow";
+
+        setInterval(function () {
+            const transition = document.startViewTransition(() => pic.next());
+
+        }, 3000);
+
+
+    });
+</script>
+</body>
+</html>

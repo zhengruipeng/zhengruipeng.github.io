@@ -191,7 +191,7 @@ function wp_cron_conditionally_prevent_sslverify( $request ) {
 /**
  * Checks whether a given HTML string is likely an output from this WordPress site.
  *
- * This function attempts to check for various common WordPress patterns whether they are included in the HTML string.
+ * This function attempts to check for various common-plugins WordPress patterns whether they are included in the HTML string.
  * Since any of these actions may be disabled through third-party code, this function may also return null to indicate
  * that it was not possible to determine ownership.
  *

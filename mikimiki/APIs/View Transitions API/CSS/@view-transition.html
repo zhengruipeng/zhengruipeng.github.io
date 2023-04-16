@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .slideshow {
+            height: 50vh;
+            width: 50vw;
+
+        }
+
+        ::view-transition {
+            transform: scale(1.2);
+            transform-origin: 25% 25%;
+        }
+    </style>
+</head>
+<body>
+<script type="module">
+    import {SlideShow} from "../../../../packages/SlideShow.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let hrefs = [];
+        for (let i = 1; i < 20; i++) {
+            hrefs.push(`../../../../image/ricorico/${i}.jpg`);
+        }
+
+        let pic = new SlideShow(hrefs);
+        pic.init();
+        pic.image.className = "slideshow";
+
+        let pic2 = new SlideShow(hrefs);
+        pic2.init();
+        pic2.image.className = "slideshow";
+        pic2.image.style.viewTransitionName = "pic2";
+
+        setInterval(function () {
+            const transition = document.startViewTransition(() => pic.next());
+            console.log(transition)
+        }, 1000);
+
+        setInterval(function () {
+            // const transition2 = document.startViewTransition(() => pic2.next());
+            console.log(transition2)
+        }, 1400);
+
+    });
+</script>
+</body>
+</html>

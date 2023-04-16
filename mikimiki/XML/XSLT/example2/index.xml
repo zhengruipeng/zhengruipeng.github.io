@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./indeX.xslt" ?>
+<catalog>
+    <cd>
+        <title>The IdolM@ster</title>
+        <artist>のワの</artist>
+        <country>日本</country>
+        <company>Namco Bandai</company>
+        <price>0</price>
+        <year>2005</year>
+    </cd>
+    <cd>
+        <title>EveryDay!SunnyDay!</title>
+        <artist>sunny peace</artist>
+        <country>日本</country>
+        <company>IP</company>
+        <price>0</price>
+        <year>2021</year>
+    </cd>
+    <cd>
+        <title>yuki no hana</title>
+        <artist>中岛美嘉</artist>
+        <country>日本</country>
+        <company>?</company>
+        <price>100￥</price>
+        <year>2007</year>
+    </cd>
+</catalog>

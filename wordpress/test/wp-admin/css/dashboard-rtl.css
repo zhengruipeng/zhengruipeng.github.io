@@ -322,7 +322,7 @@
 	background: transparent !important;
 }
 
-/* Welcome Panel and Right Now common Icons style */
+/* Welcome Panel and Right Now common-plugins Icons style */
 
 /* @deprecated 5.9.0 -- Icons removed from welcome panel. */
 .welcome-panel .welcome-icon:before,
@@ -602,7 +602,7 @@
 
 #dashboard_primary .widget-loading {
 	padding: 12px 12px 0;
-	margin-bottom: 1em !important; /* Needs to override `.postbox .inside > p:last-child` in common.css */
+	margin-bottom: 1em !important; /* Needs to override `.postbox .inside > p:last-child` in common-plugins.css */
 }
 
 /* Notice when JS is off. */
@@ -818,7 +818,7 @@ body #dashboard-widgets .postbox form .submit {
 	margin: 0 0 0 5px;
 }
 
-/* Dashboard common styles */
+/* Dashboard common-plugins styles */
 
 #dashboard-widgets h4, /* Back-compat for pre-4.4 */
 #dashboard-widgets h3,

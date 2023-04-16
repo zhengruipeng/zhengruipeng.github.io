@@ -3415,7 +3415,7 @@ img {
 	margin: 25px;
 }
 
-/* @todo: can we use a common class for these? */
+/* @todo: can we use a common-plugins class for these? */
 .nav-menus-php .item-edit:before,
 .widget-top .widget-action .toggle-indicator:before,
 .control-section .accordion-section-title:after,

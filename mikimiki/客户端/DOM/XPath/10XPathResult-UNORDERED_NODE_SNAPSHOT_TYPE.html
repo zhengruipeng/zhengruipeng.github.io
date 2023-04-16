@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+<table border="1" cellpadding="10px">
+    <thead>
+    <tr>
+        <th>title1</th>
+        <th>title2</th>
+        <th>title3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>content11</td>
+        <td>content12</td>
+        <td>content13</td>
+    </tr>
+    <tr>
+        <td>content21</td>
+        <td>content22</td>
+        <td>content23</td>
+    </tr>
+    <tr>
+        <td colspan="2">content31</td>
+        <td>content33</td>
+    </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+
+
+        //选取根目录
+        var xpath = "//tbody/tr/td";
+        var evaluator = new XPathEvaluator();
+        var expression = evaluator.createExpression(xpath);
+        var result = expression.evaluate(document, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+        console.log(result, result.snapshotLength);
+
+        // let node = result.iterateNext();
+        // while (node) {
+        //     console.log(node);
+        //     node = result.iterateNext();
+        // }
+
+        for (let i = 0; i < result.snapshotLength; i++) {
+            console.log(result.snapshotItem(i));
+        }
+
+    })
+</script>
+</body>
+</html>

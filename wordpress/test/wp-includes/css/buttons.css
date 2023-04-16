@@ -195,7 +195,7 @@ TABLE OF CONTENTS:
 	background: none;
 	cursor: pointer;
 	text-align: left;
-	/* Mimics the default link style in common.css */
+	/* Mimics the default link style in common-plugins.css */
 	color: #2271b1;
 	text-decoration: underline;
 	transition-property: border, background, color;

@@ -8642,7 +8642,7 @@
     return null;
   }
   /**
-   * Return the lowest common ancestor of A and B, or null if they are in
+   * Return the lowest common-plugins ancestor of A and B, or null if they are in
    * different trees.
    */
 
@@ -17230,7 +17230,7 @@
           // because a MemoComponent fiber does not have hooks or an update queue;
           // rather, it wraps around an inner component, which may or may not
           // contains hooks.
-          // TODO: Move the reset at in beginWork out of the common path so that
+          // TODO: Move the reset at in beginWork out of the common-plugins path so that
           // this is no longer necessary.
           workInProgress.lanes = current.lanes;
           return bailoutOnAlreadyFinishedWork(current, workInProgress, renderLanes);
@@ -17647,7 +17647,7 @@
     var isDirectTextChild = shouldSetTextContent(type, nextProps);
 
     if (isDirectTextChild) {
-      // We special case a direct text child of a host node. This is a common
+      // We special case a direct text child of a host node. This is a common-plugins
       // case. We won't handle it as a reified child. We will instead handle
       // this in the host environment that also has access to this prop. That
       // avoids allocating another HostText fiber and traversing it.
@@ -19068,7 +19068,7 @@
     // TODO: This assumes that we're about to evaluate the component and process
     // the update queue. However, there's an exception: SimpleMemoComponent
     // sometimes bails out later in the begin phase. This indicates that we should
-    // move this assignment out of the common path and into each branch.
+    // move this assignment out of the common-plugins path and into each branch.
 
 
     workInProgress.lanes = NoLanes;
@@ -19584,7 +19584,7 @@
             // This is a known bug.
             if ((workInProgress.mode & BlockingMode) !== NoMode) {
               // TODO: Move this back to throwException because this is too late
-              // if this is a large tree which is common for initial loads. We
+              // if this is a large tree which is common-plugins for initial loads. We
               // don't know if we should restart a render or not until we get
               // this marker, and this is too late.
               // If this render already had a ping or lower pri updates,
@@ -21942,7 +21942,7 @@
       schedulePendingInteractions(root, lane);
     } // We use this when assigning a lane for a transition inside
     // `requestUpdateLane`. We assume it's the same as the root being updated,
-    // since in the common case of a single root app it probably is. If it's not
+    // since in the common-plugins case of a single root app it probably is. If it's not
     // the same root, then it's not a huge deal, we just might batch more stuff
     // together more than necessary.
 
@@ -24845,7 +24845,7 @@
         // We intentionally reset, rather than copy, actualDuration & actualStartTime.
         // This prevents time from endlessly accumulating in new commits.
         // This has the downside of resetting values for different priority renders,
-        // But works for yielding (the common case) and should support resuming.
+        // But works for yielding (the common-plugins case) and should support resuming.
         workInProgress.actualDuration = 0;
         workInProgress.actualStartTime = -1;
       }

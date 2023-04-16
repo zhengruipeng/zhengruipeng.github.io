@@ -2583,7 +2583,7 @@ function getMergedItemIds(itemIds, nextItemIds, page, perPage) {
 }
 /**
  * Reducer tracking items state, keyed by ID. Items are assumed to be normal,
- * where identifiers are common across all queries.
+ * where identifiers are common-plugins across all queries.
  *
  * @param {Object} state  Current state.
  * @param {Object} action Dispatched action.

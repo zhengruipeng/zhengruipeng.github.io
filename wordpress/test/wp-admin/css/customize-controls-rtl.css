@@ -1141,7 +1141,7 @@ p.customize-section-description {
  * Notifications
  */
 
-#customize-controls .customize-control-notifications-container { /* Scoped to #customize-controls for specificity over notification styles in common.css. */
+#customize-controls .customize-control-notifications-container { /* Scoped to #customize-controls for specificity over notification styles in common-plugins.css. */
 	margin: 4px 0 8px;
 	padding: 0;
 	cursor: default;
@@ -2417,7 +2417,7 @@ body.cheatin p {
 }
 
 /**
- * Widgets and Menus common styles
+ * Widgets and Menus common-plugins styles
  */
 
 /* higher specificity than .wp-core-ui .button */

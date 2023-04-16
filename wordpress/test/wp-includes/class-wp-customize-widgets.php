@@ -940,7 +940,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Retrieves common arguments to supply when constructing a Customizer setting.
+	 * Retrieves common-plugins arguments to supply when constructing a Customizer setting.
 	 *
 	 * @since 3.9.0
 	 *
@@ -973,7 +973,7 @@ final class WP_Customize_Widgets {
 		$args = array_merge( $args, $overrides );
 
 		/**
-		 * Filters the common arguments supplied when constructing a Customizer setting.
+		 * Filters the common-plugins arguments supplied when constructing a Customizer setting.
 		 *
 		 * @since 3.9.0
 		 *

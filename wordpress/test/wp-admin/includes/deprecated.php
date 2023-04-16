@@ -1371,7 +1371,7 @@ function wp_dashboard_plugins_output( $rss, $args = array() ) {
 			break;
 		}
 
-		// Eliminate some common badly formed plugin descriptions.
+		// Eliminate some common-plugins badly formed plugin descriptions.
 		while ( ( null !== $item_key = array_rand($items) ) && false !== strpos( $items[$item_key]->get_description(), 'Plugin Name:' ) )
 			unset($items[$item_key]);
 

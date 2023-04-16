@@ -22180,7 +22180,7 @@ THREE.WebGLRenderer = function ( parameters ) {
 
 		if ( refreshMaterial ) {
 
-			// refresh uniforms common to several materials
+			// refresh uniforms common-plugins to several materials
 
 			if ( fog && material.fog ) {
 
@@ -22257,7 +22257,7 @@ THREE.WebGLRenderer = function ( parameters ) {
 
 			}
 
-			// load common uniforms
+			// load common-plugins uniforms
 
 			loadUniformsGeneric( material.uniformsList );
 
@@ -25022,7 +25022,7 @@ THREE.LensFlarePlugin = function ( renderer, flares ) {
 		gl.enableVertexAttribArray( attributes.uv );
 
 		// loop through all lens flares to update their occlusion and positions
-		// setup gl and common used attribs/unforms
+		// setup gl and common-plugins used attribs/unforms
 
 		gl.uniform1i( uniforms.occlusionMap, 0 );
 		gl.uniform1i( uniforms.map, 1 );
@@ -26999,7 +26999,7 @@ THREE.AudioListener.prototype.updateMatrixWorld = ( function () {
  * @author zz85 / http://www.lab4games.net/zz85/blog
  * Extensible curve object
  *
- * Some common of Curve methods
+ * Some common-plugins of Curve methods
  * .getPoint(t), getTangent(t)
  * .getPointAt(u), getTagentAt(u)
  * .getPoints(), .getSpacedPoints()

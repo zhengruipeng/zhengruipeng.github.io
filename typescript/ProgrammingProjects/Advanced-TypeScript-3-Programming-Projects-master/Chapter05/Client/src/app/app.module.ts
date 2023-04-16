@@ -8,7 +8,7 @@ import {MatNativeDateModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 import { ApolloModule, Apollo } from 'apollo-angular';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common-plugins/http';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

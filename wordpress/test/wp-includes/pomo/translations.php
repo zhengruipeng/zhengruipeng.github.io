@@ -110,7 +110,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Given the number of items, returns the 0-based index of the plural form to use
 		 *
-		 * Here, in the base Translations class, the common logic for English is implemented:
+		 * Here, in the base Translations class, the common-plugins logic for English is implemented:
 		 *  0 if there is one element, 1 otherwise
 		 *
 		 * This function should be overridden by the subclasses. For example MO/PO can derive the logic

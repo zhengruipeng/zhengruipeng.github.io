@@ -3144,7 +3144,7 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 		} elseif ( 0 === strpos( $real_mime, 'video/' ) || 0 === strpos( $real_mime, 'audio/' ) ) {
 			/*
 			 * For these types, only the major type must match the real value.
-			 * This means that common mismatches are forgiven: application/vnd.apple.numbers is often misidentified as application/zip,
+			 * This means that common-plugins mismatches are forgiven: application/vnd.apple.numbers is often misidentified as application/zip,
 			 * and some media files are commonly named with the wrong extension (.mov instead of .mp4)
 			 */
 			if ( substr( $real_mime, 0, strcspn( $real_mime, '/' ) ) !== substr( $type, 0, strcspn( $type, '/' ) ) ) {
@@ -3152,7 +3152,7 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 				$ext  = false;
 			}
 		} elseif ( 'text/plain' === $real_mime ) {
-			// A few common file types are occasionally detected as text/plain; allow those.
+			// A few common-plugins file types are occasionally detected as text/plain; allow those.
 			if ( ! in_array(
 				$type,
 				array(
@@ -3445,7 +3445,7 @@ function wp_get_mime_types() {
 }
 
 /**
- * Retrieves the list of common file extensions and their types.
+ * Retrieves the list of common-plugins file extensions and their types.
  *
  * @since 4.6.0
  *
@@ -6893,7 +6893,7 @@ function send_frame_options_header() {
  * @return string[] Array of allowed protocols. Defaults to an array containing 'http', 'https',
  *                  'ftp', 'ftps', 'mailto', 'news', 'irc', 'irc6', 'ircs', 'gopher', 'nntp', 'feed',
  *                  'telnet', 'mms', 'rtsp', 'sms', 'svn', 'tel', 'fax', 'xmpp', 'webcal', and 'urn'.
- *                  This covers all common link protocols, except for 'javascript' which should not
+ *                  This covers all common-plugins link protocols, except for 'javascript' which should not
  *                  be allowed for untrusted users.
  */
 function wp_allowed_protocols() {

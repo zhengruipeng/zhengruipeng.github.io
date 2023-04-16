@@ -1273,7 +1273,7 @@ class getid3_asf extends getid3_handler
 																					//   1 = Nearest Past Data Packet - indexes point to the data packet whose presentation time is closest to the index entry time.
 																					//   2 = Nearest Past Media Object - indexes point to the closest data packet containing an entire object or first fragment of an object.
 																					//   3 = Nearest Past Cleanpoint. - indexes point to the closest data packet containing an entire object (or first fragment of an object) that has the Cleanpoint Flag set.
-																					//   Nearest Past Cleanpoint is the most common type of index.
+																					//   Nearest Past Cleanpoint is the most common-plugins type of index.
 					// Index Entry Count                DWORD        32              // Specifies the number of Index Entries in the block.
 					// * Block Positions                QWORD        varies          // Specifies a list of byte offsets of the beginnings of the blocks relative to the beginning of the first Data Packet (i.e., the beginning of the Data Object + 50 bytes). The number of entries in this list is specified by the value of the Index Specifiers Count field. The order of those byte offsets is tied to the order in which Index Specifiers are listed.
 					// * Index Entries                  array of:    varies          //

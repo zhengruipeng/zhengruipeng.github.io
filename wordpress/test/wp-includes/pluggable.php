@@ -2358,7 +2358,7 @@ if ( ! function_exists( 'wp_salt' ) ) :
 	 *     define('NONCE_SALT',       'h`GXHhD>SLWVfg1(1(N{;.V!MoE(SfbA_ksP@&`+AycHcAV$+?@3q+rxV{%^VyKT');
 	 *
 	 * Salting passwords helps against tools which has stored hashed values of
-	 * common dictionary strings. The added values makes it harder to crack.
+	 * common-plugins dictionary strings. The added values makes it harder to crack.
 	 *
 	 * @since 2.5.0
 	 *

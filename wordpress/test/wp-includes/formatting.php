@@ -8,7 +8,7 @@
  */
 
 /**
- * Replaces common plain text characters with formatted entities.
+ * Replaces common-plugins plain text characters with formatted entities.
  *
  * Returns given text with transformations of quotes into smart quotes, apostrophes,
  * dashes, ellipses, the trademark symbol, and the multiplication symbol.
@@ -27,7 +27,7 @@
  *
  * @since 0.71
  *
- * @global array $wp_cockneyreplace Array of formatted entities for certain common phrases.
+ * @global array $wp_cockneyreplace Array of formatted entities for certain common-plugins phrases.
  * @global array $shortcode_tags
  *
  * @param string $text  The text to be formatted.
@@ -5655,7 +5655,7 @@ function get_url_in_content( $content ) {
 }
 
 /**
- * Returns the regexp for common whitespace characters.
+ * Returns the regexp for common-plugins whitespace characters.
  *
  * By default, spaces include new lines, tabs, nbsp entities, and the UTF-8 nbsp.
  * This is designed to replace the PCRE \s sequence. In ticket #22692, that
@@ -5670,7 +5670,7 @@ function wp_spaces_regexp() {
 
 	if ( empty( $spaces ) ) {
 		/**
-		 * Filters the regexp for common whitespace characters.
+		 * Filters the regexp for common-plugins whitespace characters.
 		 *
 		 * This string is substituted for the \s sequence as needed in regular
 		 * expressions. For websites not written in English, different characters
@@ -5679,7 +5679,7 @@ function wp_spaces_regexp() {
 		 *
 		 * @since 4.0.0
 		 *
-		 * @param string $spaces Regexp pattern for matching common whitespace characters.
+		 * @param string $spaces Regexp pattern for matching common-plugins whitespace characters.
 		 */
 		$spaces = apply_filters( 'wp_spaces_regexp', '[\r\n\t ]|\xC2\xA0|&nbsp;' );
 	}

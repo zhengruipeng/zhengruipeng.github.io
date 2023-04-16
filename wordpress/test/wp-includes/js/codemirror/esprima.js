@@ -5589,7 +5589,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // https://tc39.github.io/ecma262/#sec-punctuators
 	    Scanner.prototype.scanPunctuator = function () {
 	        var start = this.index;
-	        // Check for most common single-character punctuators.
+	        // Check for most common-plugins single-character punctuators.
 	        var str = this.source[this.index];
 	        switch (str) {
 	            case '(':
@@ -6222,7 +6222,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (character_1.Character.isIdentifierStart(cp)) {
 	            return this.scanIdentifier();
 	        }
-	        // Very common: ( and ) and ;
+	        // Very common-plugins: ( and ) and ;
 	        if (cp === 0x28 || cp === 0x29 || cp === 0x3B) {
 	            return this.scanPunctuator();
 	        }

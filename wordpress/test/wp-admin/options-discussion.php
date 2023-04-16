@@ -192,7 +192,7 @@ printf( __( 'Comments should be displayed with the %s comments at the top of eac
 <?php
 printf(
 	/* translators: %s: Number of links. */
-	__( 'Hold a comment in the queue if it contains %s or more links. (A common characteristic of comment spam is a large number of hyperlinks.)' ),
+	__( 'Hold a comment in the queue if it contains %s or more links. (A common-plugins characteristic of comment spam is a large number of hyperlinks.)' ),
 	'<input name="comment_max_links" type="number" step="1" min="0" id="comment_max_links" value="' . esc_attr( get_option( 'comment_max_links' ) ) . '" class="small-text" />'
 );
 ?>

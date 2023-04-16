@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./index-xslt.xslt" ?>
+<living-room>
+    <table>
+        <furnature>
+            <name>青花瓷</name>
+            <brand>景德镇</brand>
+        </furnature>
+        <furnature>
+            <name>花</name>
+            <brand>三角梅</brand>
+        </furnature>
+        <furnature>
+            <name>茶</name>
+            <brand>西湖龙井</brand>
+        </furnature>
+    </table>
+    <TV>
+        <remote>苹果</remote>
+    </TV>
+</living-room>

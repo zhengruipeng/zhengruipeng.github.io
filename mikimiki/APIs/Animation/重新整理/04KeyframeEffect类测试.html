@@ -10,13 +10,16 @@
             border: #000;
             border-radius: 0;
             background-color: lightpink;
+            position: fixed;
+            top: 0;
+            right: 0;
         }
     </style>
 </head>
 <body>
 <div id="div"></div>
 <script type="module">
-    import {JSONParser} from "../../../../packages/JSONParser.js";
+    import {JSONParser, JSONParseCustomController, JSONParseRangeController} from "../../../../packages/JSONParser.js";
     import {CubicBezierTimingFunctionBuilder} from "../../../../packages/CubicBezierTimingFunctionBuilder.js";
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -25,15 +28,16 @@
         let options = {
             delay: 0,
             endDelay: 0,
-            fill: ["backwards", "forwards", "none"],
+            fill: ["forwards", "backwards", "none"],
             iterationStart: 0.0,
-            iterations: 1.0,
-            duration: 10000,
+            iterations: "1.0",
+            duration: 5000,
             direction: ["normal", "reverse", "alternate", "alternate-reverse"],
-            easing: ["linear", "ease-in", "step-end", "cubic-bezier(0.42, 0, 0.58, 1)","custom-cubic-bezier"],
-            composite: ["add", "accumulate", 'replace'],
+            easing: ["linear", "ease-in", "step-end", "cubic-bezier(0.42, 0, 0.58, 1)", "custom-cubic-bezier"],
+            composite: ['replace', "add", "accumulate"],
             iterationComposite: ["accumulate", "replace"],
         };
+
 
         let parser = new JSONParser(options);
         parser.import("../../../../packages/table-default-style.css")
@@ -43,12 +47,62 @@
             console.log(options);
         };
 
+        let cubicBezier = {
+            cb: new (class extends JSONParseCustomController {
+                render() {
+                    let cb = new CubicBezierTimingFunctionBuilder();
+                    this.node = cb.initSVGElement(200, 200);
+                    this.node.classList.add("provider");
+                    let that = this;
+
+                    cb.addEventListener("generate", function () {
+                        let inputEv = new Event("input");
+                        that.node.value = cb.generatedExpression;
+
+                        that.node.dispatchEvent(inputEv)
+                    });
+                    return super.render();
+                }
+            }),
+        };
+
+        let exp = "";
+
+        let parser2 = new JSONParser(cubicBezier);
+        parser2.initTable();
+        parser2.onJsonChange = function (ev) {
+            let cb = this.toJSON().cb;
+            console.log(cb);
+            exp = cb;
+        };
+
+
+        let updateTiming = {
+            updateTime: new JSONParseRangeController(0, 10, 1)
+        };
+
+        let parser3 = new JSONParser(updateTiming);
+        parser3.initTable();
+        parser3.onJsonChange = function (ev) {
+            let updateTime = this.toJSON().updateTime * 1000;
+            console.log(document.timeline.currentTime - updateTime);
+
+            let effect = anime.effect;
+            effect.updateTiming(
+                new DocumentTimeline({
+                    originTime: document.timeline.currentTime - updateTime
+                }));
+            console.log(effect.getTiming())
+        };
+
+        let anime;
         let button = this.createElement("button");
         button.innerHTML = "创建动画";
         button.onclick = function () {
-            if(options.easing === "custom-cubic-bezier" && exp !== ""){
+            options = parser.toJSON();
+            if (options.easing === "custom-cubic-bezier" && exp !== "") {
                 options.easing = exp;
-            }else if(exp === ""){
+            } else if (options.easing === "custom-cubic-bezier" && exp === "") {
                 alert("先设定曲线");
                 return false;
             }
@@ -59,22 +113,23 @@
             ], options);
             let documentTimeline = new DocumentTimeline({originTime: 0});
 
-            let anime = new Animation(animationEffect, documentTimeline);
+            anime = new Animation(animationEffect, documentTimeline);
 
             anime.play();
         };
         this.body.appendChild(button);
 
 
-        let exp = "";
-        let c = new CubicBezierTimingFunctionBuilder();
-        c.initSVGElement(this.body, 300, 300);
-        c.addEventListener("generate", function (ev) {
-            console.log(123, ev);
-            exp = ev.expression;
-            console.log(exp)
+        let button2 = this.createElement("button");
+        button2.innerHTML = "获取信息";
+        button2.onclick = function () {
+            let keyFrameEffect = anime.effect;
 
-        });
+            console.log(`keyFrameEffect.getComputedTiming()`, keyFrameEffect.getComputedTiming());
+            console.log(`keyFrameEffect.getKeyframes()`, keyFrameEffect.getKeyframes());
+            console.log(`keyFrameEffect.getTiming()`, keyFrameEffect.getTiming());
+        };
+        this.body.appendChild(button2);
 
     });
 </script>

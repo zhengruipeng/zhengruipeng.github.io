@@ -1543,7 +1543,7 @@ class getid3_lib
 	 * @return bool
 	 */
 	public static function CopyTagsToComments(&$ThisFileInfo, $option_tags_html=true) {
-		// Copy all entries from ['tags'] into common ['comments']
+		// Copy all entries from ['tags'] into common-plugins ['comments']
 		if (!empty($ThisFileInfo['tags'])) {
 
 			// Some tag types can only support limited character sets and may contain data in non-standard encoding (usually ID3v1)

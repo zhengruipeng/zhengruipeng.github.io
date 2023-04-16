@@ -40,7 +40,7 @@
   // restored later on, if `noConflict` is used.
   var previousBackbone = root.Backbone;
 
-  // Create a local reference to a common array method we'll want to use later.
+  // Create a local reference to a common-plugins array method we'll want to use later.
   var slice = Array.prototype.slice;
 
   // Current version of the library. Keep in sync with `package.json`.

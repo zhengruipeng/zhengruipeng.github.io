@@ -36,7 +36,7 @@ var listen_default = /*#__PURE__*/__webpack_require__.n(listen);
 // EXTERNAL MODULE: ./node_modules/select/src/select.js
 var src_select = __webpack_require__(817);
 var select_default = /*#__PURE__*/__webpack_require__.n(src_select);
-;// CONCATENATED MODULE: ./src/common/command.js
+;// CONCATENATED MODULE: ./src/common-plugins/command.js
 /**
  * Executes a given operation type.
  * @param {String} type
@@ -65,7 +65,7 @@ var ClipboardActionCut = function ClipboardActionCut(target) {
 };
 
 /* harmony default export */ var actions_cut = (ClipboardActionCut);
-;// CONCATENATED MODULE: ./src/common/create-fake-element.js
+;// CONCATENATED MODULE: ./src/common-plugins/create-fake-element.js
 /**
  * Creates a fake textarea element with a value.
  * @param {String} value

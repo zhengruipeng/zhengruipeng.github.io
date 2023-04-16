@@ -1163,7 +1163,7 @@ if (typeof console === 'undefined') {
 
 /**
  * Common regexes.
- * We declare some common regexes to improve performance
+ * We declare some common-plugins regexes to improve performance
  */
 showdown.helper.regexes = {
   asteriskDashAndColon: /([*_:~])/g
@@ -5101,7 +5101,7 @@ showdown.subParser('makeMarkdown.node', function (node, globals, spansOnly) {
       txt = node.outerHTML + '\n\n';
   }
 
-  // common normalization
+  // common-plugins normalization
   // TODO eventually
 
   return txt;

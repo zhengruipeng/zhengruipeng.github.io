@@ -869,7 +869,7 @@ class WP_Date_Query {
 		if ( ! is_array( $datetime ) ) {
 
 			/*
-			 * Try to parse some common date formats, so we can detect
+			 * Try to parse some common-plugins date formats, so we can detect
 			 * the level of precision and support the 'inclusive' parameter.
 			 */
 			if ( preg_match( '/^(\d{4})$/', $datetime, $matches ) ) {

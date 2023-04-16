@@ -217,7 +217,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 		html = '<img src="' + tinymce.Env.transparentSrc + '" alt="" title="' + title + '" class="' + classname + '" ' +
 			'data-wp-more="' + tag + '" data-mce-resize="false" data-mce-placeholder="1" />';
 
-		// Most common case.
+		// Most common-plugins case.
 		if ( node === rootNode || ( node.nodeName === 'P' && node.parentNode === rootNode ) ) {
 			editor.insertContent( html );
 			return;

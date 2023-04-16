@@ -1606,9 +1606,9 @@ class getid3_matroska extends getid3_handler
 		if (empty($TargetTypeValue)) {
 			$TargetTypeValue[10] = 'A: ~ V:shot';                                           // the lowest hierarchy found in music or movies
 			$TargetTypeValue[20] = 'A:subtrack/part/movement ~ V:scene';                    // corresponds to parts of a track for audio (like a movement)
-			$TargetTypeValue[30] = 'A:track/song ~ V:chapter';                              // the common parts of an album or a movie
+			$TargetTypeValue[30] = 'A:track/song ~ V:chapter';                              // the common-plugins parts of an album or a movie
 			$TargetTypeValue[40] = 'A:part/session ~ V:part/session';                       // when an album or episode has different logical parts
-			$TargetTypeValue[50] = 'A:album/opera/concert ~ V:movie/episode/concert';       // the most common grouping level of music and video (equals to an episode for TV series)
+			$TargetTypeValue[50] = 'A:album/opera/concert ~ V:movie/episode/concert';       // the most common-plugins grouping level of music and video (equals to an episode for TV series)
 			$TargetTypeValue[60] = 'A:edition/issue/volume/opus ~ V:season/sequel/volume';  // a list of lower levels grouped together
 			$TargetTypeValue[70] = 'A:collection ~ V:collection';                           // the high hierarchy consisting of many different lower items
 		}

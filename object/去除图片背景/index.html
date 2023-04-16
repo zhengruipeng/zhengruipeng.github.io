@@ -8,30 +8,34 @@
 <canvas id="canvas"></canvas>
 <!--<img src="Kanno_Mai_2022.jpg">-->
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function () {
+    document.addEventListener("DOMContentLoaded", function () {
         const canvas = document.getElementById("canvas");
 
         const EPSILON = 2;
 
         const image = new Image();
         image.src = "" +
-            "res3.png" +
+            "action3.jpg" +
             "";
-        image.onload = function (){
+        image.onload = function () {
             canvas.width = this.width;
             canvas.height = this.height;
             const c = canvas.getContext("2d");
 
-            c.drawImage(this,0,0);
+            c.drawImage(this, 0, 0);
 
-            let imageData = c.getImageData(0,0,canvas.width,canvas.height);
-            for(let i = 0,len = imageData.data.length;i<len;i+=4){
+            let imageData = c.getImageData(0, 0, canvas.width, canvas.height);
+            for (let i = 0, len = imageData.data.length; i < len; i += 4) {
                 /*if(imageData.data[i + 0] === 255 &&
                     imageData.data[i + 1] === 255 &&
                     imageData.data[i + 2] === 255 ){
                     imageData.data[i + 3] = 0;
                 }*/
-                if(Math.hypot(imageData.data[i + 0]-255,imageData.data[i + 1]-255,imageData.data[i + 2]-255)<EPSILON){
+                if (Math.hypot(
+                    imageData.data[i + 0] - 255,
+                    imageData.data[i + 1] - 255,
+                    imageData.data[i + 2] - 255) < EPSILON) {
+
                     imageData.data[i + 0] = 0;
                     imageData.data[i + 1] = 0;
                     imageData.data[i + 2] = 0;
@@ -51,7 +55,7 @@
                 }*/
             }
 
-            c.putImageData(imageData,0,0);
+            c.putImageData(imageData, 0, 0);
 
         };
     })

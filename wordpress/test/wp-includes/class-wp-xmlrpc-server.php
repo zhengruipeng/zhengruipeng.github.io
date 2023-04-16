@@ -904,7 +904,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		// Holds the data for this post. built up based on $fields.
 		$_post = array( 'post_id' => (string) $post['ID'] );
 
-		// Prepare common post fields.
+		// Prepare common-plugins post fields.
 		$post_fields = array(
 			'post_title'        => $post['post_title'],
 			'post_date'         => $this->_convert_date( $post['post_date'] ),
@@ -3596,7 +3596,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieve comments.
 	 *
-	 * Besides the common blog_id (unused), username, and password arguments, it takes a filter
+	 * Besides the common-plugins blog_id (unused), username, and password arguments, it takes a filter
 	 * array as last argument.
 	 *
 	 * Accepted 'filter' keys are 'status', 'post_id', 'offset', and 'number'.
@@ -3749,7 +3749,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Edit comment.
 	 *
-	 * Besides the common blog_id (unused), username, and password arguments, it takes a
+	 * Besides the common-plugins blog_id (unused), username, and password arguments, it takes a
 	 * comment_id integer and a content_struct array as last argument.
 	 *
 	 * The allowed keys in the content_struct array are:
@@ -4367,7 +4367,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a collection of media library items (or attachments)
 	 *
-	 * Besides the common blog_id (unused), username, and password arguments, it takes a filter
+	 * Besides the common-plugins blog_id (unused), username, and password arguments, it takes a filter
 	 * array as last argument.
 	 *
 	 * Accepted 'filter' keys are 'parent_id', 'mime_type', 'offset', and 'number'.

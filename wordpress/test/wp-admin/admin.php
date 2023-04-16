@@ -113,7 +113,7 @@ set_screen_options();
 $date_format = __( 'F j, Y' );
 $time_format = __( 'g:i a' );
 
-wp_enqueue_script( 'common' );
+wp_enqueue_script( 'common-plugins' );
 
 /**
  * $pagenow is set in vars.php.

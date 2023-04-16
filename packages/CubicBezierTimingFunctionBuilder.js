@@ -25,10 +25,10 @@ class CubicBezierTimingFunctionBuilder extends EventTarget {
             fill:red;
         }`;
 
-    initSVGElement(container = document.body, width = 600, height = 600) {
+    initSVGElement(width = 600, height = 600) {
         //设置宽高大于300小于4000
-        width = Math.min(Math.max(300, width), 4000);
-        height = Math.min(Math.max(300, height), 4000);
+        width = Math.min(Math.max(100, width), 4000);
+        height = Math.min(Math.max(100, height), 4000);
 
         //创建svg过程
         this.svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -57,7 +57,7 @@ class CubicBezierTimingFunctionBuilder extends EventTarget {
             });
         });
 
-        container.appendChild(this.svg);
+        return this.svg;
     };
 
     defaultEvent(ev, pointIndex, that) {
@@ -97,8 +97,8 @@ class CubicBezierTimingFunctionBuilder extends EventTarget {
         };
 
         let mouseup = function (ev) {
-            window.removeEventListener("mousemove", mousemove);
-            window.removeEventListener("mouseup", mouseup);
+            svg.removeEventListener("mousemove", mousemove);
+            svg.removeEventListener("mouseup", mouseup);
 
             let [all, point1, point2] = parseECPath();
             point1 = point1.split(" ");
@@ -122,8 +122,8 @@ class CubicBezierTimingFunctionBuilder extends EventTarget {
             generateEvent.expression = cssCB;
             that.dispatchEvent(generateEvent);
         };
-        window.addEventListener("mousemove", mousemove);
-        window.addEventListener("mouseup", mouseup);
+        svg.addEventListener("mousemove", mousemove);
+        svg.addEventListener("mouseup", mouseup);
     }
 };
 

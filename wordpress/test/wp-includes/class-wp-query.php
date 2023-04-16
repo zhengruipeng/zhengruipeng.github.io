@@ -1483,7 +1483,7 @@ class WP_Query {
 		}
 
 		/*
-		 * translators: This is a comma-separated list of very common words that should be excluded from a search,
+		 * translators: This is a comma-separated list of very common-plugins words that should be excluded from a search,
 		 * like a, an, and the. These are usually called "stopwords". You should not simply translate these individual
 		 * words into your language. Instead, look for and provide commonly accepted stopwords in your language.
 		 */

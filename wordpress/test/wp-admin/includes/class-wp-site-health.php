@@ -1514,7 +1514,7 @@ class WP_Site_Health {
 	/**
 	 * Test if your site is serving content over HTTPS.
 	 *
-	 * Many sites have varying degrees of HTTPS support, the most common of which is sites that have it
+	 * Many sites have varying degrees of HTTPS support, the most common-plugins of which is sites that have it
 	 * enabled, but only if you visit the right site address.
 	 *
 	 * @since 5.2.0

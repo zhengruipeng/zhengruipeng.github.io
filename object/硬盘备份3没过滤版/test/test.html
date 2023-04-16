@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    import {JSONParser} from "./JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded",async function (){
+        let response = await fetch("../如月千早5T.data")
+        let json = await response.json();
+        json = {
+            a:{
+                b:{
+                    c:{
+                        h: 10,
+                        i: 11,
+                        j: {
+                            k:12
+                        }
+                    },
+                    d:4
+                },
+                e:[5,6,7],
+                g:true
+            },
+            f(){}
+        }
+
+        let jsonParser = new JSONParser(json);
+        jsonParser.import("./table-default-style.css");
+        jsonParser.initTable();
+        jsonParser.onJsonChange = console.log;
+
+        console.log("\/\u90d1\u745e\u84ec's \u8bef\u5220\/\u52a8\u6f2b")
+        console.log("\/\u90d1\u745e\u84ec's \u8bef\u5220\/\u7535\u89c6\u5267")
+        console.log("\/\u90d1\u745e\u84ec's \u8bef\u5220\/\u5171\u4eab")
+        console.log("\u5171\u4eab")
+    })
+</script>
+</body>
+</html>

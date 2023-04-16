@@ -6291,8 +6291,8 @@ copy(ValidationTypes, {
             "annotation()",
 
         "<font-variant-ligatures>":
-            // <common-lig-values>
-            "[ common-ligatures | no-common-ligatures ] || " +
+            // <common-plugins-lig-values>
+            "[ common-plugins-ligatures | no-common-plugins-ligatures ] || " +
             // <discretionary-lig-values>
             "[ discretionary-ligatures | no-discretionary-ligatures ] || " +
             // <historical-lig-values>
@@ -8725,7 +8725,7 @@ CSSLint.addRule({
     // rule information
     id: "duplicate-background-images",
     name: "Disallow duplicate background images",
-    desc: "Every background-image should be unique. Use a common class for e.g. sprites.",
+    desc: "Every background-image should be unique. Use a common-plugins class for e.g. sprites.",
     url: "https://github.com/CSSLint/csslint/wiki/Disallow-duplicate-background-images",
     browsers: "All",
 

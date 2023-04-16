@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        window.onfocus = window.onblur = function (){
+            console.log(document.hasFocus())
+        }
+    });
+</script>
+</body>
+</html>

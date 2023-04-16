@@ -7939,7 +7939,7 @@ const StylesPreview = _ref => {
       color
     } = _ref2;
     return color !== backgroundColor && color !== headingColor;
-  }).slice(0, 2); // Reset leaked styles from WP common.css.
+  }).slice(0, 2); // Reset leaked styles from WP common-plugins.css.
 
   const editorStyles = (0,external_wp_element_namespaceObject.useMemo)(() => {
     if (styles) {

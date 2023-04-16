@@ -36,6 +36,7 @@
       animation-iteration-count: infinite;
       animation-timing-function: var(--timing-function);
       animation-direction: alternate;
+      border: red solid 1px;
     }
     @keyframes test {
       from{
@@ -53,11 +54,13 @@
               -moz-element(#bg);
       height:300px;
       width:300px;
+      border: red solid 1px;
+
     }
   </style>
 </head>
 <body>
-<div id="bg"></div>
-<div id="target"></div>
+<div id="bg">bg</div>
+<div id="target">target</div>
 </body>
 </html>

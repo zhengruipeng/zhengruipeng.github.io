@@ -664,7 +664,7 @@ function buildValues(diff, components, newString, oldString, useLongestToken) {
       }
     } else {
       component.value = diff.join(oldString.slice(oldPos, oldPos + component.count));
-      oldPos += component.count; // Reverse add and remove so removes are output first to match common convention
+      oldPos += component.count; // Reverse add and remove so removes are output first to match common-plugins convention
       // The diffing algorithm is tied to add then remove output and this is the simplest
       // route to get the desired output with minimal overhead.
 
@@ -5896,10 +5896,10 @@ function getBlockHierarchyRootClientId(state, clientId) {
   return parent;
 }
 /**
- * Given a block client ID, returns the lowest common ancestor with selected client ID.
+ * Given a block client ID, returns the lowest common-plugins ancestor with selected client ID.
  *
  * @param {Object} state    Editor state.
- * @param {string} clientId Block from which to find common ancestor client ID.
+ * @param {string} clientId Block from which to find common-plugins ancestor client ID.
  *
  * @return {string} Common ancestor client ID or undefined
  */
@@ -26794,7 +26794,7 @@ function focusFirstTabbableIn(container) {
 function useIsAccessibleToolbar(ref) {
   /*
    * By default, we'll assume the starting accessible state of the Toolbar
-   * is true, as it seems to be the most common case.
+   * is true, as it seems to be the most common-plugins case.
    *
    * Transitioning from an (initial) false to true state causes the
    * <Toolbar /> component to mount twice, which is causing undesired
@@ -31849,7 +31849,7 @@ function ColorGradientSettingsDropdown(_ref) {
   })));
 }
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/colors-gradients/use-common-single-multiple-selects.js
+;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/colors-gradients/use-common-plugins-single-multiple-selects.js
 /**
  * Internal dependencies
  */
@@ -32336,11 +32336,11 @@ function mode(inputArray) {
   return arr.sort((a, b) => inputArray.filter(v => v === b).length - inputArray.filter(v => v === a).length).shift();
 }
 /**
- * Returns the most common CSS unit in the radius values.
+ * Returns the most common-plugins CSS unit in the radius values.
  * Falls back to `px` as a default unit.
  *
  * @param {Object|string} values Radius values.
- * @return {string}              Most common CSS unit in values. Default: `px`.
+ * @return {string}              Most common-plugins CSS unit in values. Default: `px`.
  */
 
 function getAllUnit() {
@@ -38806,7 +38806,7 @@ const getBlockPositionDescription = (position, siblingCount, level) => (0,extern
 const isClientIdSelected = (clientId, selectedBlockClientIds) => (0,external_lodash_namespaceObject.isArray)(selectedBlockClientIds) && selectedBlockClientIds.length ? selectedBlockClientIds.indexOf(clientId) !== -1 : selectedBlockClientIds === clientId;
 /**
  * From a start and end clientId of potentially different nesting levels,
- * return the nearest-depth ids that have a common level of depth in the
+ * return the nearest-depth ids that have a common-plugins level of depth in the
  * nesting hierarchy. For multiple block selection, this ensure that the
  * selection is always at the same nesting level, and not split across
  * separate levels.

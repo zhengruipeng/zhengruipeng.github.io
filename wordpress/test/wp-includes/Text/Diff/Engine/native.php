@@ -43,7 +43,7 @@ class Text_Diff_Engine_native {
         unset($this->in_seq);
         unset($this->lcs);
 
-        // Skip leading common lines.
+        // Skip leading common-plugins lines.
         for ($skip = 0; $skip < $n_from && $skip < $n_to; $skip++) {
             if ($from_lines[$skip] !== $to_lines[$skip]) {
                 break;
@@ -51,7 +51,7 @@ class Text_Diff_Engine_native {
             $this->xchanged[$skip] = $this->ychanged[$skip] = false;
         }
 
-        // Skip trailing common lines.
+        // Skip trailing common-plugins lines.
         $xi = $n_from; $yi = $n_to;
         for ($endskip = 0; --$xi > $skip && --$yi > $skip; $endskip++) {
             if ($from_lines[$xi] !== $to_lines[$yi]) {
@@ -202,7 +202,7 @@ class Text_Diff_Engine_native {
                 while ($y = current($matches)) {
                     if ($y > $this->seq[$k - 1]) {
                         assert($y <= $this->seq[$k]);
-                        /* Optimization: this is a common case: next match is
+                        /* Optimization: this is a common-plugins case: next match is
                          * just replacing previous match. */
                         $this->in_seq[$this->seq[$k]] = false;
                         $this->seq[$k] = $y;
@@ -296,7 +296,7 @@ class Text_Diff_Engine_native {
         }
 
         if ($lcs == 0) {
-            /* X and Y sequences have no common subsequence: mark all
+            /* X and Y sequences have no common-plugins subsequence: mark all
              * changed. */
             while ($yoff < $ylim) {
                 $this->ychanged[$this->yind[$yoff++]] = 1;

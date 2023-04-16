@@ -424,7 +424,7 @@
     // Replace instances of \r\n and \n followed by at least one space or horizontal tab with a space
     // https://tools.ietf.org/html/rfc7230#section-3.2
     var preProcessedHeaders = rawHeaders.replace(/\r?\n[\t ]+/g, ' ');
-    // Avoiding split via regex to work around a common IE11 bug with the core-js 3.6.0 regex polyfill
+    // Avoiding split via regex to work around a common-plugins IE11 bug with the core-js 3.6.0 regex polyfill
     // https://github.com/github/fetch/issues/748
     // https://github.com/zloirock/core-js/issues/751
     preProcessedHeaders

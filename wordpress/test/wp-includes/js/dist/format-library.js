@@ -521,7 +521,7 @@ function isValidHref(href) {
 
     if (!(0,external_wp_url_namespaceObject.isValidProtocol)(protocol)) {
       return false;
-    } // Add some extra checks for http(s) URIs, since these are the most common use-case.
+    } // Add some extra checks for http(s) URIs, since these are the most common-plugins use-case.
     // This ensures URIs with an http protocol have exactly two forward slashes following the protocol.
 
 

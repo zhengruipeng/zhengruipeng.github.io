@@ -677,7 +677,7 @@ class Snoopy
 
 		// I didn't use preg eval (//e) since that is only available in PHP 4.0.
 		// so, list your entities one by one here. I included some of the
-		// more common ones.
+		// more common-plugins ones.
 
 		$search = array("'<script[^>]*?>.*?</script>'si",	// strip out javascript
 						"'<[\/\!]*?[^<>]*?>'si",			// strip out html tags

@@ -1,6 +1,6 @@
 <?php
 /**
- * Used to set up and fix common variables and include
+ * Used to set up and fix common-plugins variables and include
  * the WordPress procedural and class library.
  *
  * Allows for some configuration in wp-config.php (see default-constants.php)
@@ -402,7 +402,7 @@ wp_cookie_constants();
 // Define and enforce our SSL constants.
 wp_ssl_constants();
 
-// Create common globals.
+// Create common-plugins globals.
 require ABSPATH . WPINC . '/vars.php';
 
 // Make taxonomies and posts available to plugins and themes.

@@ -480,7 +480,7 @@ $_old_files = array(
 	'wp-admin/js/media-gallery.dev.js',
 	'wp-admin/js/custom-fields.dev.js',
 	'wp-admin/js/custom-background.dev.js',
-	'wp-admin/js/common.dev.js',
+	'wp-admin/js/common-plugins.dev.js',
 	'wp-admin/js/inline-edit-tax.dev.js',
 	'wp-admin/js/gallery.dev.js',
 	'wp-admin/js/utils.dev.js',

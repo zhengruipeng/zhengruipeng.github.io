@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common-plugins/http';
 import { FilePreviewService } from 'src/app/services/file-preview-service.service';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup } from '@angular/forms';

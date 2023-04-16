@@ -11,7 +11,7 @@
  */
 
 /**
- * Structure that store common Atom Feed Properties
+ * Structure that store common-plugins Atom Feed Properties
  *
  * @package AtomLib
  */
