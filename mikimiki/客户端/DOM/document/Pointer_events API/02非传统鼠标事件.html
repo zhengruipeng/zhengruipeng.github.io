@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            height: 40vh;
+            width: 40vh;
+            border: red solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div>123123</div>
+<button id="setPointerCapture">setPointerCapture</button>
+<button id="releasePointerCapture">releasePointerCapture</button>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
+        const btn1 = this.querySelector("#setPointerCapture");
+        const btn2 = this.querySelector("#releasePointerCapture");
+        div.onpointerover = function (ev) {console.log("pointerover", ev);};
+        div.onpointerenter = function (ev) {console.log("pointerenter", ev);}
+        div.onpointerup = function (ev) {console.log("pointerup", ev);}
+        div.onpointerleave = function (ev) {console.log("pointerleave", ev);}
+        div.onpointerout = function (ev) {console.log("pointerout", ev);}
+
+
+
+
+
+        div.onpointercancel = function (ev) {
+            console.log("pointercancel", ev);
+        }
+        div.ongotpointercapture = function (ev) {
+            console.log("gotpointercapture", ev);
+        };
+        div.onlostpointercapture = function (ev) {
+            console.log("lostpointercapture", ev);
+        };
+
+        btn1.onpointerdown = function (ev) {
+            div.setPointerCapture(ev.pointerId);
+        };
+        btn2.onpointerdown = function (ev) {
+            div.releasePointerCapture(ev.pointerId);
+        };
+    });
+</script>
+</body>
+</html>

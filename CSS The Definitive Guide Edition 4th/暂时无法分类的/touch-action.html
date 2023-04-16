@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {JSONParser} from "../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let option = {
+            "touch-action": [" auto", "none", "pan-x", "pan-left", "pan-right", "pan-y", "pan-up", "pan-down", "pinch-zoom", "manipulation"]
+        };
+
+        let jsonParser = new JSONParser(option);
+        jsonParser.import("../../packages/table-default-style.css")
+        jsonParser.initTable();
+        jsonParser.onJsonChange = function (ev) {
+            document.body.style.touchAction = ev.value;
+        };
+    });
+</script>
+</body>
+</html>

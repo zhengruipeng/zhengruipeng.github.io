@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 50vh;
+            width: 90vw;
+            border: red solid 1px;
+        }
+    </style>
+</head>
+<body>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        /*
+        *  PointerEvent <- MouseEvnet <- UIEvent <- Event <- Object
+        * */
+        document.body.onpointerdown = function (ev){
+
+            console.log(ev);
+        }
+    });
+</script>
+</body>
+</html>
