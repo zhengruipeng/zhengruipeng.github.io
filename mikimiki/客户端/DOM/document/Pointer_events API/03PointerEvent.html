@@ -11,6 +11,7 @@
             touch-action: none;
         }
     </style>
+    <link href="../../../../../packages/table-default-style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -65,11 +66,10 @@
 
             let pm = new PointModel(ev);
 
-            let table = this.querySelector("table");
+            let table = this.querySelector(".table-container");
             table?.parentElement?.removeChild(table);
 
             let jsonParser = new JSONParser(pm);
-            jsonParser.import("../../../../../packages/table-default-style.css")
             jsonParser.initTable();
         }
     });
