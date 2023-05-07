@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        //依据题干可以这么写，但是一般写多个对象的话通常用模型类，
+        //比如：
+        /*
+        * class Student{
+        *   stuID;
+        *   name;
+        *   chineseGrade;
+        *   mathGrade;
+        *   engGrade;
+        * }
+        *
+        * */
+        //之后对象全用类实例化就行了
+        //否则当开发应用的时候如果需要更改键值对的时候会需要更改所有对象，难以修改
+        const student = {
+            stuID: 14,
+            name: "any",
+            chineseGrade: 114,
+            mathGrade: 81,
+            engGrade: 51
+        }
+        const student1 = {
+            stuID: 15,
+            name: "any",
+            chineseGrade: 191,
+            mathGrade: 114,
+            engGrade: 81
+        }
+        const student2 = {
+            stuID: 16,
+            name: "any",
+            chineseGrade: 195,
+            mathGrade: 119,
+            engGrade: 87
+        }
+
+        //对
+        let Grade = class {
+            constructor() {
+            }
+
+            //可以这么写
+            static stuGrade;
+            static chineseGrade = 0;
+            static mathGrade = 0;
+            static engGrade = 0
+
+            /*
+            * @name: stuAver
+            * @param: Student obj
+            * @return: int 求出的平均分数
+            * @desc: 传入一个对象，求出对象里面的
+            *  语文成绩数学成绩英语成绩的平均分，并返回
+            * */
+            static stuAver(obj) {
+                //好
+                for (let num in obj) {
+                    //对
+                    this.stuGrade = (obj.chineseGrade + obj.mathGrade + obj.engGrade) / 3;
+                    //每个学生的平均分
+                }
+                //酌情扣五分（笑）
+                //可以，但是可以不需要声明静态属性，直接返回就行
+                //因为通常能返回的就不存入属性了
+                //就像这么写：
+                /*
+                * static stuAver(obj) {
+                *   let stuGrade = 0;
+                *   for (let num in obj) {
+                *       stuGrade = (obj.chineseGrade + obj.mathGrade + obj.engGrade) / 3;
+                *   }
+                *   return stuGrade;
+                * }
+                *
+                * */
+                //其次就是一般像这种操作对象的工具方法通常数字不直接写死
+                //就是不能直接写3
+                // 尽量写个什么什么.length或者是什么属性，或者是Object.keys(obj).length
+                //现在不用过多苛求也行。
+
+                return this.stuGrade;
+
+            }
+
+            /*
+             * @name: courAver
+             * @param: ...Student arguments
+             * @return: 求出的各科平均分
+             * @desc: 遍历所有传入函数的参数的对象，
+             * 求出每个科目的成绩平均值
+            */
+            static courAver() {
+                //知道用arguments，非常好！终于没白背，加五分
+                for (let i = 0; i < arguments.length; i++) {
+                    //可以，把平均值公式简化成比较好求的形式了
+                    this.chineseGrade += arguments[i].chineseGrade / arguments.length;
+                    this.mathGrade += arguments[i].mathGrade / arguments.length;
+                    this.engGrade += arguments[i].engGrade / arguments.length;
+                    //每科平均分
+                }
+                //唯一缺点是返回值不太好，不应该返回字符串，
+                // 应该返回一个对象，因为如果你要是用字符串的话
+                // 之后再用这个方法求出科目平均数据就很难利用
+                // 比如有一个需求是用户根据算出来的科目平均值，求出平均分最高的一个科目
+                // 如果返回的是一个对象的话直接就写：
+                /*
+                * highest(obj){
+                *   let t = Math.max(obj.chineseGrade,obj.mathGrade,obj.engGrade);
+                *   let res = "";
+                *   switch(t){
+                *       case obj.chineseGrade:
+                *           res = "语文";
+                *           break;
+                *       case obj.mathGrade:
+                *           res = "数学";
+                *           break;
+                *       case obj.engGrade:
+                *           res = "英语";
+                *           break;
+                *   }
+                *   return res;
+                * }
+                * */
+                //这样就行，如果你要是返回一个字符串的话，可能就得这么写：
+                /*
+                * highest(str){
+                *   let arr = str.match(/语文平均分:(\d+)数学平均分:(\d+)英语平均分:(\d+)/u);
+                *   let chineseGrade = arr[1];
+                *   let mathGrade = arr[2];
+                *   let engGrade = arr[3];
+                *   let t = Math.max(chineseGrade,mathGrade,engGrade);
+                *   let res = "";
+                *   switch(t){
+                *       case obj.chineseGrade:
+                *           res = "语文";
+                *           break;
+                *       case obj.mathGrade:
+                *           res = "数学";
+                *           break;
+                *       case obj.engGrade:
+                *           res = "英语";
+                *           break;
+                *   }
+                *   return res;
+                * }
+                * */
+                //笑，得麻烦很多，所以注意一下，扣五分
+                return "语文平均分:" + this.chineseGrade + "数学平均分:" + this.mathGrade + "英语平均分:" + this.engGrade;
+            }
+        }
+        console.log(Grade.stuAver(student));
+        console.log(Grade.courAver(student, student1, student2));
+        //总体来说，还是强多了比之前，95分吧
+    })
+</script>
+</body>
+</html>

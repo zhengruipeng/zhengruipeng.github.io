@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let mony = 10000
+        while (true) {
+            let re = +prompt(`
+            请选择你的操作：
+            1.存钱
+            2.取钱
+            3.查看余额
+            4.退出
+            `)
+            if (re === 4) {
+                break
+            }
+            switch (re) {
+                case 1:
+                    let cun = +prompt('请输入要存款的金额')
+                    mony += cun
+                    break
+                case 2:
+                    let qu = +prompt('请输入要取出的金额')
+                    mony -= qu
+                    break
+                case 3:
+                    alert(`当前余额:${mony}元`)
+                    break
+            }
+        }
+    </script>
+</body>
+
+</html>

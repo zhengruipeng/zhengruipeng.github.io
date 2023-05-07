@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <title>Title</title>
     <style>
 
     </style>
 </head>
 <body>
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function (){
-        let A = class extends Object{
-            static 累挺 = "累挺";
-            static 闹挺 = "闹挺";
 
+<script type="module">
+    import {Console} from "./packages/Console.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        let con = new Console();
+        con.renderAsConsoleApp();
+
+        let arr = [];
+
+        let range = (await con.input("输入阶数"))[0] - 0;
+        if(Number.isNaN(range)){
+            con.output("输入不合法");
+            return ;
         }
-        let B = class extends Object{
-            emotion = A.累挺;
 
-            doingSomething(){
-                if(this.emotion === A.累挺){
-                    console.log("哽叽")
-                    this.emotion = A.闹挺;
-                }else if(this.emotion === A.闹挺){
-                    console.log("磨叽")
-                    this.emotion = A.累挺;
-                }
+        for (let i = 0; i < range; i++) {
+            arr[i] = [];
+            arr[i][0] = 1;
+        }
+
+        for (let i = 0; i < range; i++) {
+            arr[i][i] = 1;
+        }
+
+        for (let i = 2; i < range; i++) {
+            for (let j = 1; j < i; j++) {
+                arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
             }
         }
 
-        let obj/*:B*/ = new B();
-    })
+        let res = "<pre>";
+        for (let i = 0; i < range; i++) {
+            for (let j = 0; j <= i; j++) {
+                res += arr[i][j].toString().padEnd(5);
+            }
+            res += "<br />"
+        }
+        res += "</pre>"
+
+        con.output(res);
+
+        // con.end();
+
+
+    });
 </script>
 </body>
 </html>

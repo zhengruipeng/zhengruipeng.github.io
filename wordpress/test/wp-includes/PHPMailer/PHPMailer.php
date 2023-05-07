@@ -423,7 +423,7 @@ class PHPMailer
      *
      * @see SMTP::$Debugoutput
      *
-     * @var string|callable|\Psr\Log\LoggerInterface
+     * @var string|callable|\php\webman\test\webman\vendor\psr\log\src\LoggerInterface
      */
     public $Debugoutput = 'echo';
 
@@ -895,7 +895,7 @@ class PHPMailer
             return;
         }
         //Is this a PSR-3 logger?
-        if ($this->Debugoutput instanceof \Psr\Log\LoggerInterface) {
+        if ($this->Debugoutput instanceof \php\webman\test\webman\vendor\psr\log\src\LoggerInterface) {
             $this->Debugoutput->debug($str);
 
             return;

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            font-family: "微軟正黑體 Light";
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            line-height: 1em;
+            font-size: 20px;
+            text-indent: 2em;
+        }
+
+        li {
+            font-size: 20px;
+
+        }
+
+        button {
+            height: 18vh;
+            width: 18vh;
+            border: none;
+            border-radius: 100px;
+            margin-left: 15%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #live {
+            background-color: aqua;
+        }
+
+        #join {
+            background-color: palegreen;
+        }
+
+        #H {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<h1>偶像游戏</h1>
+<section>
+    <p>
+        恭喜你，你成功的应聘上了星见事务所的制作人职位，现在你已经成功的转生成为了一个普罗丢人！请带领你们家的偶像走向胜利口八！</p>
+    <p>你需要做的事是
+        <del>压榨偶像的利用价值</del>
+        带领着偶像们赚钱开演唱会~让偶像们实现自己的理想吧~
+    </p>
+    <p>事务所的社长给了你1000円的启动资金，让你启动偶像组合，并且免费为你招募好了三名偶像~</p>
+    <p>
+        成功赚到越来越多的钱吧，赚到10000块钱社长会奖励你的，如果偶像全部散尽了，或者是所有资金都没了，你就会被社长叫过去喝茶</p>
+    <p>每天需要给偶像开工资，开演唱会也需要硬件费用，赚的钱取决于来的客人的多少，或许会赔本（笑）</p>
+    <p>你可以干三件事：</p>
+    <ol>
+        <li>让偶像们在舞台上尽情地挥洒汗水；（偶像信赖度+10 ，获得金钱数是一个从-100到偶像数量的随机数 ，加一天）</li>
+        <li>招募新的偶像，招募成本为300円；（增加一个偶像 ，消耗700円 ，加一天）</li>
+        <li>把自己的偶像拱手献给肥胖的中年大叔，让他给你资金支持（笑）（损失一个偶像 ，偶像信赖度-50 ，获得金钱1000 ，加一天）
+        </li>
+    </ol>
+    <p>当偶像的信赖度低于0就会有一个偶像选择逃跑，信赖度重回到50，信赖度最高250</p>
+    <p>赚钱到10000円为止，加油努力吧！！！</p>
+    <p>当前天数:<span id="day">1</span></p>
+    <p>目前资金:<span id="money">1000</span></p>
+    <p>目前偶像数量:<span id="idolNum">3</span></p>
+    <p>目前偶像们的信任程度:<span id="idolTrust">100</span></p>
+</section>
+<button id="live">ライブ</button>
+<button id="join">募集</button>
+<button id="H">えちのこと❤</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const showDay = document.getElementById("day")
+        const showMoney = document.getElementById("money");
+        const showIdolNum = document.getElementById("idolNum");
+        const showIdolTrust = document.getElementById("idolTrust");
+        const live = document.getElementById("live");
+        const join = document.getElementById("join");
+        const H = document.getElementById("H");
+
+        let Day = 1;
+        let Money = 1000;
+        let IdolNum = 3;
+        let IdolTrust = 100;
+
+        let off = function () {
+            live.onclick = null;
+            join.onclick = null;
+            H.onclick = null;
+        }
+        let random = function (max, min) {
+            let ran;
+            ran = Math.random() * (max - min) + min;
+            return Math.floor(ran);
+        }
+        let judge = function () {
+
+
+            if (Money >= 10000) {
+                alert("呦西呦西");
+                off();
+            } else if (Money < 0) {
+                alert("你被开除了");
+                off();
+            }
+            if (IdolNum < 0) {
+                IdolNum = 0;
+                off();
+                alert("玩没人了，滚蛋吧");
+            }
+            if (IdolTrust >= 250) {
+                IdolTrust = 250;
+            } else if (IdolTrust < 0) {
+                IdolNum -= 1;
+                IdolTrust = 50;
+            }
+        }
+        let show = function () {
+            showDay.innerText = Day;
+            showMoney.innerText = Money;
+            showIdolNum.innerText = IdolNum;
+            showIdolTrust.innerText = IdolTrust;
+        }
+        live.onclick = function () {
+            IdolTrust += 10;
+            Money += random(IdolNum * 100, -100);
+            Day += 1;
+            judge();
+            show();
+        }
+        join.onclick = function () {
+            IdolNum += 1;
+            Money -= 700;
+            Day += 1;
+            judge();
+            show();
+        }
+        H.onclick = function () {
+            IdolNum -= 1;
+            IdolTrust -= 50;
+            Money += 1000;
+            Day += 1;
+            judge();
+            show();
+        }
+
+    })
+</script>
+</body>
+</html>

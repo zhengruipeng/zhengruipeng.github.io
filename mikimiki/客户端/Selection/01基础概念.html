@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<p>
+    Selection对象指代用户选择的内容，用户鼠标落下的点叫锚点，用户鼠标抬起的点叫焦点
+</p>
+<p>
+    注意，锚点和焦点和开始和结束并不总一样，因为用户往往可以往反方向滑动鼠标
+</p>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        this.addEventListener("mousedown", function () {
+            this.addEventListener("mouseup", function () {
+                let selection = window.getSelection();
+
+                console.log(selection.anchorNode, selection.anchorOffset);
+                console.log(selection.focusNode, selection.focusOffset);
+            })
+        })
+    });
+</script>
+</body>
+</html>

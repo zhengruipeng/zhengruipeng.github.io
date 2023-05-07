@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        pre {
+            font-size: 1.2em;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            width: 60vw;
+
+        }
+
+        table th,
+        table td {
+            border: #639 solid 3px;
+            padding: 7px 15px;
+            text-align: center;
+        }
+
+        table td {
+            transition: .3s;
+        }
+
+        table td:hover {
+            background-color: #6392;
+        }
+
+        table tfoot {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<pre>规则：
+    简单来说就是一套标准增删改查，但是要体现在表格上
+    增加：如效果所示，单击按钮，增加一行，里面内容双击可编辑
+    删除：右键单击一行，显示是否删除，确定的话就删除
+    改：要求所有单元格均双击可编辑，点击回车或失去交点的时候改为不可编辑
+    查：尽量保障数据的一致性，例如如果你用一个数组存这些数据的话必须保证用户改过的和你存的是一样的
+    如有余力希望你能做的可扩张性强一点（估计是没有，笑）
+</pre>
+<table>
+    <thead>
+    <tr>
+        <th>商品名称</th>
+        <th>商品价格</th>
+        <th>商品数量</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <tfoot>
+    <tr>
+        <td id="create-item" colspan="3">添加一个货物</td>
+    </tr>
+    </tfoot>
+</table>
+<script type="module">
+    import {CommodityTableRow} from "./CommodityTableRow.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const tbody = this.querySelector("table tbody");
+        const createBtn = this.querySelector("#create-item");
+
+        let commodities = []
+
+        let remove = function (commodityTableRow) {
+            if (confirm("确定删除？")) {
+                commodityTableRow.row.parentElement.removeChild(commodityTableRow.row);
+                commodities.splice(commodities.indexOf(commodityTableRow), 1);
+            }
+        }
+        let create = function (name, price, num) {
+            let commodityTableRow = new CommodityTableRow(name, price, num);
+            let tr = commodityTableRow.initTr();
+            tr.addEventListener("contextmenu", function (ev) {
+                ev.preventDefault();
+                remove(commodityTableRow);
+            })
+            tbody.appendChild(tr);
+            commodities.push(commodityTableRow);
+        }
+
+
+        createBtn.onclick = function () {
+            create("请输入姓名", "请输入价钱", "请输入个数");
+
+        };
+
+
+        let data = ["星见偶像头子长濑麻奈", 200, 1];
+        create(...data);
+
+        data = ["廉价偶像星野爱", -180, 1];
+        create(...data);
+
+        data = ["765偶像", 150, 10];
+        create(...data);
+
+        data = ["标准樱花妹", 100, 100];
+        create(...data);
+
+        window.onkeydown = function (ev) {
+            if (ev.key === "d") {
+                console.log(commodities)
+            }
+        }
+    });
+</script>
+</body>
+</html>

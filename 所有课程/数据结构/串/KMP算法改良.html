@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {Console} from "../../../packages/Console.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        let con = new Console();
+        con.renderAsConsoleApp();
+
+        let Str = class {
+            length = 0;
+            ch = [];
+
+            constructor(ch) {
+                this.ch = ([undefined]).concat(ch);
+                this.length = ch.length;
+            }
+        }
+
+        let get_nextVal = function (t, nextVal) {
+            let i = 1, j = 0;
+            nextVal[1] = 0;
+            con.output(`i=${i},j=${j},nextVal=${nextVal},t.ch[i]=${t.ch[i]},t.ch[j]=${t.ch[j]}`)
+
+            while (i < t.length) {
+                if (j === 0 || t.ch[i] === t.ch[j]) {
+                    ++i;
+                    ++j;
+                    if (t.ch[i] !== t.ch[j]) {
+                        con.output(`t.ch[i]的值不等于t.ch[j]的值，故nextVal[i]等于${j}`);
+                        nextVal[i] = j;
+                    } else {
+                        con.output(`t.ch[i]的值等于t.ch[j]的值，故nextVal[i]等于nextVal[j]: ${nextVal[j]}，j为${j}`);
+                        nextVal[i] = nextVal[j];
+                    }
+                } else{
+                    con.output(`t.ch[i] !== t.ch[j]，故执行：j = ${nextVal[j]};`);
+                    j = nextVal[j];
+
+                }
+
+                con.output(`i=${i},j=${j},nextVal=${nextVal},t.ch[i]=${t.ch[i]},t.ch[j]=${t.ch[j]}`)
+            }
+        };
+
+        let index_KMP = function (s, t, nextVal) {
+            let i = 1, j = 1;
+            con.output(`i=${i},j=${j},s.ch[i]=${s.ch[i]},t.ch[j]=${t.ch[j]},nextVal=${nextVal}`)
+
+            while (i <= s.length && j <= t.length) {
+                if (j === 0 || s.ch[i] === t.ch[j]) {
+                    i++;
+                    j++;
+                } else {
+                    con.output(`检测到不匹配，${j}对应${t.ch[j]}字符，nextVal中值为${nextVal[j]}`);
+
+                    j = nextVal[j];
+                }
+
+                con.output(s.ch.slice(1).join(""));
+                con.output("&nbsp;".repeat(i - j) + t.ch.slice(1).join(""));
+                con.output("&nbsp;".repeat(i - 1) + "△")
+
+                con.output(`i=${i},j=${j},s.ch[i]=${s.ch[i]},t.ch[j]=${t.ch[j]},nextVal=${nextVal}`)
+            }
+            if (j > t.length)
+                return i - t.length;
+            else
+                return 0;
+        };
+
+        let s = new Str('ababcabcacbab'.split(""));
+        let t = new Str('abcac'.split(""));
+        // let s = new Str('hello world!'.split(""));
+        // let t = new Str('orl'.split(""));
+        let nextVal = [];
+
+        con.output(s.ch.slice(1).join(""));
+        con.output(t.ch.slice(1).join(""));
+        get_nextVal(t, nextVal);
+        con.output(nextVal);
+        con.output("<hr />");
+        con.output(index_KMP(s, t, nextVal))
+
+    });
+</script>
+</body>
+</html>

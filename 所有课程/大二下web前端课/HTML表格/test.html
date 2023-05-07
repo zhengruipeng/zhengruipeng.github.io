@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: yellow;
+            /*overflow-x: hidden;*/
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            color: red;
+
+        }
+
+        header:after {
+            border-top: red solid 2px;
+            content: "";
+            display: block;
+            width: 95vw;
+            margin: auto;
+            height: 0;
+        }
+
+        header:link {
+            color: blue;
+        }
+
+        header:active {
+            color: purple;
+        }
+
+        main > h1 {
+            font-family: 宋体;
+            color: blue;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>东北石油大学</h1>
+    <nav>
+        <a href="#" name="head">简介</a>
+        <a href="#">历史</a>
+        <a href="#">内涵</a>
+        <a href="#">师资</a>
+    </nav>
+</header>
+<main>
+    <h1>东北石油大学简介</h1>
+    <p>
+        简介<br/>
+        <strong>简介</strong><br/>
+        <ins>简介</ins>
+        <br/>
+        <del>简介</del>
+        <br/>
+        东北石油大学（Northeast Petroleum
+        University），简称东油（NEPU），坐落于中国最大的石油石化基地黑龙江省大庆市龙凤区高新技术产业开发区，是伴随中国最大油田大庆油田的发现而诞生的一所全国重点大学，是黑龙江省与中国石油天然气集团公司、中国石油化工集团公司、中国海洋石油总公司共建高校，是黑龙江省重点建设的高水平大学，还是国家“卓越工程师教育培养计划”、“国家大学生创新性实验计划”实施高校，国家“特色重点学科项目”建设高校，“国家建设高水平大学公派研究生项目”实施高校，CDIO工程教育联盟成员单位。
+    </p>
+</main>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+
+    });
+</script>
+</body>
+</html>

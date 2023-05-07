@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {Console} from "../../packages/Console.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        let con = new Console();
+        con.renderAsConsoleApp();
+
+        let check = function (a, b, c) {
+            if (a <= 0 || b <= 0 || c <= 0) return false;
+
+            if (a >= b + c ||
+                b >= a + c ||
+                c >= a + b) {
+                return false;
+            }
+
+            if (a <= Math.abs(b - c) ||
+                b <= Math.abs(a - c) ||
+                c <= Math.abs(a - b))
+                return false;
+
+
+            return true;
+
+        }
+
+        let checkTriangleType = function (a, b, c) {
+            if (a === b && b === c) return "等边三角形";
+
+            if (a === b ||
+                b === c ||
+                c === a) {
+                return "等腰三角形"
+            }
+
+            return "普通三角形"
+        }
+
+        while (1) {
+            let inputs = await con.input();
+
+            if (inputs[0] === "exit") break;
+            if (inputs.length !== 3) {
+                con.output("非法输入");
+                continue;
+            }
+            inputs = inputs.map(Number.parseFloat);
+
+            if (check(...inputs)) {
+                con.output(checkTriangleType(...inputs));
+            } else
+                con.output("不是三角形");
+        }
+
+        con.end();
+    });
+</script>
+</body>
+</html>

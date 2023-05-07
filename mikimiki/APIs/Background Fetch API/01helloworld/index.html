@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<video src="../../../../resources/1.mp4" controls muted autoplay></video>
+<script type="module">
+    import {ConstantObserver, ObserverCallBackType} from "../../../../packages/ConstantObserver.js";
+
+    let serviceWorkerRegister = new ConstantObserver(null);
+
+    navigator.serviceWorker.register("./swbgf.js", {scope: "./"}).then(register => {
+        console.log("注册service worker成功", register);
+        serviceWorkerRegister.value = register;
+    })
+    document.addEventListener("DOMContentLoaded", function () {
+        let video = this.querySelector("video");
+
+        serviceWorkerRegister.addEventListener(ObserverCallBackType.change, function () {
+            console.log(serviceWorkerRegister.value.backgroundFetch)
+            let backgroundFetchManager = serviceWorkerRegister.value.backgroundFetch;
+
+            window.onkeydown = async function (ev) {
+                if(ev.key !== "d")return false;
+
+                let backgroundFetchRegistration = await backgroundFetchManager.fetch("id", [video.src], {title: "video"});
+                console.log(backgroundFetchRegistration)
+
+            };
+        });
+    });
+</script>
+</body>
+</html>

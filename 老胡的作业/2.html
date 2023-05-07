@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        //类写的不错，是这回事
+        let Student = class {
+            //设置的也对
+            id;
+            name;
+            gender;
+            grade;
+
+            //构造函数也对
+            constructor(id, name, gender, grade) {
+                this.id = id;
+                this.name = name;
+                this.gender = gender;
+                this.grade = grade;
+            }
+        }
+        //不错
+        let Control = class {
+            //怎么能写静态的呢？
+            //一个控制一个管理用的数组，肯定要写成非静态的啊
+            //并不是所有控制类型的全要写静态的
+            //这种一个数组专门被一个类所控制的肯定是非静态，只有依赖于外界的变量运行的才用静态的
+            //比如：
+            /*
+            * class {
+            *   value = 0;
+            *   add(a){
+            *       this.value += a;
+            *   }
+            *   times(a){
+            *       this.value *= a;
+            *   }
+            * }
+            *
+            * */
+            //上面的代码没有依赖外界的，都是自己的value自己操作，
+            //肯定是要写成非静态的
+            //写成静态的如下：
+            /*
+            * class{
+            *   static add(a,b){
+            *       return a+b;
+            *   }
+            *   static times(a,b){
+            *       return a*b;
+            *   }
+            * }
+            * */
+            //这种全靠外部参数运行的，就是静态的
+            //先按照静态的来看吧
+            static data = [];
+
+            //应该是非静态的
+            static addStu(stu) {
+                //不能用arguments
+                //这样数组岂不是成了Arguments[]类型的数组了？
+                //咱们管理Student的实例对象
+                //肯定要写成Student[]类型的数组啊
+                //很简单：
+                //添加一个形参，让他的类型为Student，接受Student类的实例对象
+                //之后添加就行了
+                //return this.data.push(stu);
+                return this.data.push(arguments);
+            }
+
+            //应该是非静态的
+            static indexDel(index) {
+                //这是根据学号删除
+                //思路对了，整个数组做存储
+                let del = [];
+
+                //之后做一个循环遍历数据，思维是对的
+                for (let i = 0; i < this.data.length; i++) {
+                    //用判断找一个id对的，思路是对的
+                    if (index === this.data[i][0]) {
+                        //数组刚开始创立的时候应该是用来存储数据的，怎么你还给人家覆盖了？
+                        //删除这句话是对的，但是这样的话不是出来了一个空插槽了吗
+                        //一般通常是用splice作
+                        //不是有一个方法是根据索引值删除吗
+                        //直接调用那个方法不就得了
+                        //this.deleteByIndex(index)
+                        //这么写就行了
+                        //大概就是：
+                        /*
+                        * del.push(this.data[i]);
+                        * this.deleteByIndex(index);
+                        * */
+                        del = this.data[i];
+                        delete this.data[i];
+                        //根据学号
+                    }
+                }
+                //测试用输出是吧（笑）
+                console.log(del);
+                /*
+                这个是对的，但是记得返回del
+                直接简略点写成：
+                return this.data.splice(index,1);
+                就可以了
+                * let del;
+                * del = this.data.splice(index,1);
+                * console.log(del)
+                * //根据索引值
+                * */
+            }
+
+            //应该是非静态的
+            static sortID() {
+                //正确
+                this.data.sort(function (a, b) {
+                    return a[0] - b[0];
+                })
+            }
+        }
+        //不能直接添加参数，应该添加实例对象
+        // Control.addStu(new Student(13, "王五", "认为自己可能是男性", 82));
+        //写错的原因在于对于类型的把握不够准确
+        //但是好就好在味道是对的
+        Control.addStu(13, "王五", "认为自己可能是男性", 82);
+        Control.addStu(11, "张三", "自己认为是男性", 99);
+        Control.addStu(18, "马六", "认为第二个人格是女性", 87);
+        Control.addStu(12, "李四", "认为自己是汉堡", 100);
+        //排序也是对的
+        Control.sortID();
+        //对的
+        Control.indexDel(11);
+        //对的
+        console.log(Control.data);
+        /*
+        let stu1 = new Student(13,"王五","认为自己可能是男性",82);
+        let stu2 = new Student(11,"张三","自己认为是男性",99);
+        let stu3 = new Student(18,"马六","认为第二个人格是女性",87);
+        let stu4 = new Student(12,"李四","认为自己是汉堡",100);
+        Control.addStu(stu1.id,stu1.name,stu1.gender,stu1.grade);
+        Control.addStu(stu2.id,stu2.name,stu2.gender,stu2.grade);
+        Control.addStu(stu3.id,stu3.name,stu3.gender,stu3.grade);
+        Control.addStu(stu4.id,stu4.name,stu4.gender,stu4.grade);
+        Control.sortID();
+        Control.indexDel(11);
+        console.log(Control.data);
+        //耦合性极强的shit山写法，已抛，笑笑，你把人家对象实例化出来了你不用，非得给人家掰开用，笑笑
+        * */
+    })
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        let Student = class extends Object {
+            id;
+            name;
+            gender;
+            grade;
+
+            constructor(id, name, gender, grade) {
+                super();
+                this.id = id;
+                this.name = name;
+                this.gender = gender;
+                this.grade = grade;
+            }
+        };
+
+        let StudentController = class extends Object {
+            studentList = [];
+
+            /*
+            * @name: addStudent
+            * @param: Student stu
+            * @return: Student stu
+            * @desc: 添加一个student实例对象到数组中
+            * */
+            addStudent(/*Student*/ stu) {
+                return this.studentList.push(stu);
+            }
+
+            /*
+             * @name: deleteStudentByIndex
+             * @param: int index
+             * @return: Student stu
+             * @desc: 删除指定索引值上的元素，并将删除的元素返回
+             * */
+            deleteStudentByIndex(/*int*/ index) {
+                return this.studentList.splice(index, 1);
+            }
+
+            /*
+             * @name: sortById
+             * @param:
+             * @return:
+             * @desc: 根据Student实例对象的id属性排序
+             * */
+            sortById() {
+                this.studentList.sort((a, b) => a.id - b.id);
+            }
+
+            /*
+             * @name: deleteStudentById
+             * @param: int id
+             * @return: Student[] stu
+             * @desc: 删除指定id的所有元素，并将所有删除的元素按照数组形式返回
+             * */
+            deleteStudentById(/*int*/ id) {
+                //写一个数组用来保存删除的元素
+                let res = [];
+                //开始遍历元素，注意，没写i++
+                for (let i = 0; i < this.studentList.length;) {
+                    //如果id想等的话
+                    if (id === this.studentList[i].id) {
+                        //将当前的元素删除，并将其放到res数组中
+                        res.push(this.deleteStudentByIndex(i));
+
+                        //如果id不相等的话执行i++
+                        //之所以相等的时候不写i++不相等的时候写i++的原因是：
+                        //如果删掉第i项的话，原本的第i+1项会向前移动一个格
+                        //但是i本身却+1了，所以说原本的第i+1个项会被跳过去
+                        //所以如果当删除一个项的话就不用写i++
+                        //删除之后原本的i+1的元素会穿到第i项
+                        //之后下一次的i就会自动指向下一项
+                        //如果没删除东西的话就写i++跳到下一项
+                    } else i++;
+                }
+                //返回数组
+                return res;
+
+            }
+        };
+
+        //创建新实例对象
+        let controller = new StudentController();
+
+        controller.addStudent(new Student(13, "王五", "认为自己可能是男性", 82));
+        controller.addStudent(new Student(11, "张三", "自己认为是男性", 99));
+        controller.addStudent(new Student(18, "马六", "认为第二个人格是女性", 87));
+        controller.addStudent(new Student(12, "李四", "认为自己是汉堡", 100));
+        controller.addStudent(new Student(11, "李四", "认为自己是汉堡", 100));
+
+        controller.sortById();
+
+        console.log("controller.studentList", controller.studentList);
+
+        console.log("controller.deleteStudentByIndex(2)", controller.deleteStudentByIndex(2));
+
+        console.log("controller.studentList", controller.studentList);
+
+        console.log("controller.deleteStudentById(11)", controller.deleteStudentById(11));
+        console.log("controller.studentList", controller.studentList);
+
+    })
+</script>
+</body>
+</html>

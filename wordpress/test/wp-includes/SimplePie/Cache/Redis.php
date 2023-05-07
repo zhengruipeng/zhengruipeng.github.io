@@ -10,6 +10,8 @@
  * @version 0.2.9
  */
 
+use php\webman\test\webman\vendor\workerman\webman
+
 
 /**
  * Caches data to redis

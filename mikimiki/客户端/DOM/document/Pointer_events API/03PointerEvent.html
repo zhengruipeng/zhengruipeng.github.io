@@ -61,7 +61,6 @@
         *  PointerEvent <- MouseEvnet <- UIEvent <- Event <- Object
         * */
         document.body.onpointerdown = document.body.onpointermove = function (ev) {
-
             console.log(ev);
 
             let pm = new PointModel(ev);

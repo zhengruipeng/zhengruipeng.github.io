@@ -218,7 +218,7 @@ let JSONParser = class extends EventTarget {
                 let that = this;
                 let provider = tdValue.querySelector('.provider') || tdValue.children[0];
                 // console.log(provider)
-
+                provider.name = name;
                 provider.addEventListener("input", function (ev) {
                     defaultInputEvent.call(this, ev, that);
                 });
@@ -432,10 +432,12 @@ let JSONParser = class extends EventTarget {
     }
 };
 
-export {JSONParser,
+export {
+    JSONParser,
     JSONParseCustomController,
     JSONParserEvent,
-    JSONParseRangeController}
+    JSONParseRangeController
+}
 
 
 /*

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {Console} from "../../../packages/Console.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        let con = new Console();
+        con.renderAsConsoleApp();
+
+        let Str = class {
+            length = 0;
+            ch = [];
+
+            constructor(ch) {
+                this.ch = ([undefined]).concat(ch);
+                this.length = ch.length;
+            }
+        }
+
+        let get_next = function (t, next) {
+            let i = 1, j = 0;
+            next[1] = 0;
+            con.output(`i=${i},j=${j},next=${next},t.ch[i]=${t.ch[i]},t.ch[j]=${t.ch[j]}`)
+
+            while (i < t.length) {
+                if (j === 0 || t.ch[i] === t.ch[j]) {
+                    ++i;
+                    ++j;
+                    next[i] = j;
+                } else
+                    j = next[j];
+
+                con.output(`i=${i},j=${j},next=${next},t.ch[i]=${t.ch[i]},t.ch[j]=${t.ch[j]}`)
+            }
+        };
+
+        let index_KMP = function (s, t, next) {
+            let i = 1, j = 1;
+            con.output(`i=${i},j=${j},s.ch[i]=${s.ch[i]},t.ch[j]=${t.ch[j]},next=${next}`)
+
+            while (i <= s.length && j <= t.length) {
+                if (j === 0 || s.ch[i] === t.ch[j]) {
+                    i++;
+                    j++;
+                } else {
+                    con.output(`检测到不匹配，${j}对应${t.ch[j]}字符，next中值为${next[j]}`);
+
+                    j = next[j];
+                }
+
+                con.output(s.ch.slice(1).join(""));
+                con.output("&nbsp;".repeat(i - j) + t.ch.slice(1).join(""));
+                con.output("&nbsp;".repeat(i - 1) + "△")
+
+                con.output(`i=${i},j=${j},s.ch[i]=${s.ch[i]},t.ch[j]=${t.ch[j]},next=${next}`)
+            }
+            if (j > t.length)
+                return i - t.length;
+            else
+                return 0;
+        };
+
+        let s = new Str('ababcabcacbab'.split(""));
+        let t = new Str('abcac'.split(""));
+        // let s = new Str('hello world!'.split(""));
+        // let t = new Str('orl'.split(""));
+        let next = [];
+
+        con.output(s.ch.slice(1).join(""));
+        con.output(t.ch.slice(1).join(""));
+        get_next(t, next);
+        con.output(next);
+        con.output("<hr />");
+        con.output(index_KMP(s, t, next))
+
+    });
+</script>
+</body>
+</html>

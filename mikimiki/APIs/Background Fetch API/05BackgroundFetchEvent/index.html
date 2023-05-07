@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        video {
+            height: 50vh;
+            width: 50vw;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<video src="../../../../resources/1.mp4" controls muted autoplay></video>
+<script type="module">
+    import {ConstantObserver, ObserverCallBackType} from "../../../../packages/ConstantObserver.js";
+
+    let serviceWorkerRegister = new ConstantObserver(null);
+
+    navigator.serviceWorker.register("./swbgf.js", {scope: "./"}).then(register => {
+        console.log("注册service worker成功", register);
+        serviceWorkerRegister.value = register;
+    })
+    document.addEventListener("DOMContentLoaded", function () {
+        let video = this.querySelector("video");
+
+        serviceWorkerRegister.addEventListener(ObserverCallBackType.change, function () {
+            console.log(serviceWorkerRegister.value.backgroundFetch)
+            let backgroundFetchManager = serviceWorkerRegister.value.backgroundFetch;
+
+            window.onkeydown = async function (ev) {
+                if (ev.key !== "d") return false;
+
+                let backgroundFetchRegistration = await backgroundFetchManager.fetch("id", [video.src], {title: "video"});
+
+                createBtn("abort", function () {
+                    backgroundFetchRegistration.abort();
+                });
+                let bgfRecord = await backgroundFetchRegistration.match(video.src);
+
+                console.log(bgfRecord.request);
+                let response = await bgfRecord.responseReady;
+                console.log(response);
+
+
+            };
+            createBtn("发送错误请求", async function () {
+                let backgroundFetchRegistration = await backgroundFetchManager.fetch("id", [video.src + "y"], {title: "video"});
+
+            })
+
+            createBtn("发送信息", function () {
+                navigator.serviceWorker.controller.postMessage("发送测试信息");
+                navigator.serviceWorker.onmessage = function (ev) {
+                    console.log(ev);
+                }
+            });
+        });
+
+        let createBtn = function (content, clickCB) {
+            let button = document.createElement("button");
+            button.innerText = content;
+            button.onclick = clickCB;
+            document.body.appendChild(button);
+
+        };
+
+
+    });
+</script>
+</body>
+</html>
