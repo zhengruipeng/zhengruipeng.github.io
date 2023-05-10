@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<p>
+    Selection对象指代用户选择的内容，用户鼠标落下的点叫锚点，用户鼠标抬起的点叫焦点
+</p>
+<p>
+    注意，锚点和焦点和开始和结束并不总一样，因为用户往往可以往反方向滑动鼠标
+</p>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        this.addEventListener("mousedown", function () {
+            this.addEventListener("mouseup", function () {
+                let selection = window.getSelection();
+
+                //当一个范围里没有一个文字即为true，就是什么都没选择
+                console.log(selection.isCollapsed);
+                //firefox专用，firefox可以通过ctrl按键选择多个范围，从而使此属性发挥作用
+                console.log(selection.rangeCount);
+                //枚举值：None，Caret，Range
+                //None:没有选择
+                //Caret：选择文本为空
+                //Range：选择了一部分文本
+                console.log(selection.type);
+
+
+
+            })
+        })
+    });
+</script>
+</body>
+</html>

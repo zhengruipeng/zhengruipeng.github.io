@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <p><b>Hello</b> World !</p>
+    <ul>
+        <li>List Items1</li>
+        <li>List Items2</li>
+        <li>List Items3</li>
+    </ul>
+</div>
+<script type="module">
+    /*
+    * setStart(startNode, startOffset)
+    *
+    * Parameters
+    * startNode
+    * The Node where the Range should start.
+    *
+    * startOffset
+    * An integer greater than or equal to zero representing the offset for the start of the Range from the start of startNode.
+    *
+    * Return value
+    * None (undefined).
+    *
+    * */
+    document.addEventListener("DOMContentLoaded", function () {
+        let div = this.querySelector("div");
+        let p = this.querySelector("p");
+        let b = this.querySelector("b");
+        let ul = this.querySelector("ul");
+        let li = this.querySelector("li");
+        let liEnd = this.querySelectorAll("li")[2];
+
+        let helloNode = b.firstChild;
+        let worldNode = p.lastChild;
+
+        let range = this.createRange();
+        let range2 = this.createRange();
+
+        range.setStart(ul, 0);
+        range.setEnd(ul, 2);
+
+        // range2.setStart(li,0);
+        // range2.setEnd(li,2);
+        console.log(range)
+        // console.log(range2)
+        // console.log(range.selectNodeContents(div));
+
+        range2.setStart(helloNode, 2);
+        range2.setEnd(worldNode, 3);
+        console.log(range2);
+
+
+        let fieldset = this.createElement("fieldset");
+        let legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("范围1中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range.cloneContents());
+        this.body.appendChild(fieldset);
+
+        fieldset = this.createElement("fieldset");
+        legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("范围2中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range2.cloneContents());
+        this.body.appendChild(fieldset);
+    });
+</script>
+</body>
+</html>

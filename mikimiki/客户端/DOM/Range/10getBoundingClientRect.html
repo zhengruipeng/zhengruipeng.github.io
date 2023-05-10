@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #highlight {
+            background: yellow;
+            position: absolute;
+            z-index: -1;
+        }
+
+        p {
+            width: 200px;
+        }
+        </style>
+</head>
+<body>
+<div id="highlight"></div>
+<div class="container">
+    <div class="header">
+        <h1>The Ultimate Website</h1>
+    </div>
+    <article>
+        <section class="entry" id="entry1">
+            <h2>Section 1: An interesting thing...</h2>
+            <p>A <em>very</em> interesting thing happened on the way to the forum...</p>
+            <aside class="callout">
+                <h2>Aside</h2>
+                <p>An interesting aside to share with you...</p>
+            </aside>
+        </section>
+    </article>
+    <pre id="log"></pre>
+</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const range = document.createRange();
+        const p = this.querySelector("section>p");
+        const h2 = this.querySelector("aside h2");
+        range.setStartBefore(p, 0);
+        range.setEndAfter(h2, 0);
+
+        //与getClientRect()的主要区别在于后者会返回DOMRectList对象，
+        // 其中有多个DOMRect对象，前者只会返回一个DOMRect
+        const clientRect = range.getBoundingClientRect();
+        const highlight = document.getElementById('highlight');
+        highlight.style.left = `${clientRect.x}px`;
+        highlight.style.top = `${clientRect.y}px`;
+        highlight.style.width = `${clientRect.width}px`;
+        highlight.style.height = `${clientRect.height}px`;
+
+        console.log(clientRect);
+
+    })
+</script>
+</body>
+</html>

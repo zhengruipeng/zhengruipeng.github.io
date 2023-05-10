@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {Console} from "./package/Console.js"
+    import {config} from "./config.js";
+    import {InputListFactory} from "./InputListFactory.js";
+
+    //main function
+    document.addEventListener("DOMContentLoaded", async function () {
+        let con = new Console();
+        con.renderAsConsoleApp();
+
+        let factory = new config.factory();
+
+        let sale = factory.createSale(1,100);
+        let purchase = factory.createPurchase(2,200);
+        let stock = factory.createStock(3,300);
+
+        con.output(factory instanceof InputListFactory ? "目前是入账账单的工厂" : "目前是出账账单的工厂")
+        con.output(sale.getInfo());
+        con.output(purchase.getInfo());
+        con.output(stock.getInfo());
+
+    });
+</script>
+</body>
+</html>

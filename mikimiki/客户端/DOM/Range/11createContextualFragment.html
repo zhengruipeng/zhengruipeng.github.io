@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>The Ultimate Website</h1>
+    </div>
+    <article>
+        <section class="entry" id="entry1">
+            <h2>Section 1: An interesting thing...</h2>
+            <p>A <em>very</em> interesting thing happened on the way to the forum...</p>
+            <aside class="callout">
+                <h2>Aside</h2>
+                <p>An interesting aside to share with you...</p>
+            </aside>
+        </section>
+    </article>
+    <em id="log"></em>
+</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const log = this.querySelector("#log");
+        let range = this.createRange();
+        range.selectNode(log);
+        let fragment = range.createContextualFragment("<ins>ins elem.</ins>")
+        this.body.appendChild(fragment);
+    })
+</script>
+</body>
+</html>

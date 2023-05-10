@@ -1,19 +1,25 @@
 let Console = class extends Object {
     //default Style Sheet
     #consoleStyleSheet = `
-        *{
-            padding:0;
-            margin:0;
-        }
         #console-panel{
             background-color: #000;
             color:#fff;
             index: 10;
-            height:100vh;
-            width:100vw;
+            position:fixed;
+            top:0;
+            right:0;
+            height:30%;
+            width:30%;
             overflow-y:scroll;
         }
-
+                #console-panel:after{
+            content:">>";
+            display:block;
+            width:100px;
+            height:10px;
+            background-color:#aaa;
+            border:red solid 1px;
+        }
         #console-panel>p{
             word-break:break-all;
             font-family: Source Code Pro;
@@ -64,20 +70,19 @@ let Console = class extends Object {
     #editingInput = null;
 
     //the timer of operate duration
-    timer = null;
+    // timer = null;
 
     //clear the past timer and bind a new timer
     updateTimer() {
-        if (this.timer) clearTimeout(this.timer);
-        this.timer = setTimeout(this.end.bind(this), 10);
+        // if (this.timer) clearTimeout(this.timer);
+        // this.timer = setTimeout(this.end.bind(this), 10);
     }
 
     //cancel timer
     cancelTimer() {
-        clearTimeout(this.timer);
-        this.timer = null;
+        // clearTimeout(this.timer);
+        // this.timer = null;
     }
-
     /*
     * @name: setEditingInput;
     * @params: HTMLParagraphElement|null htmlPElement

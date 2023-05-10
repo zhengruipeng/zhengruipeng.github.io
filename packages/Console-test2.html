@@ -11,14 +11,14 @@
 <body>
 
 <script type="module">
-    import {Console} from "./Console.js";
+    import {Console} from "./Console-inline.js";
 
     document.addEventListener("DOMContentLoaded", async function () {
         let con = new Console();
         con.renderAsConsoleApp();
 
         let res = "";
-        for (let i = 0; i < 1e7; i++) res += i;
+        for (let i = 0; i < 1e3; i++) res += i;
 
         con.output(res)
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>The Ultimate Website</h1>
+    </div>
+    <article>
+        <section class="entry" id="entry1">
+            <h2>Section 1: An interesting thing...</h2>
+            <p>A <em>very</em> interesting thing happened on the way to the forum...</p>
+            <aside class="callout">
+                <h2>Aside</h2>
+                <p>An interesting aside to share with you...</p>
+            </aside>
+        </section>
+    </article>
+    <pre id="log"></pre>
+</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        const section = this.querySelector("article>section");
+        const h2 = this.querySelector("section>h2");
+        const callout = this.querySelector(".callout");
+        const h22 = this.querySelector(".callout>h2");
+        const p = this.querySelector(".callout>p");
+        const div= this.querySelector(".header");
+
+        const range = this.createRange();
+        range.selectNode(section);
+        range.setStartAfter(h22);
+
+        console.log(range.intersectsNode(p));
+        console.log(range.intersectsNode(div));
+        console.log(range.intersectsNode(callout));
+
+        let fieldset = this.createElement("fieldset");
+        legend = this.createElement("legend");
+        legend.appendChild(this.createTextNode("范围中含有"));
+        fieldset.appendChild(legend);
+        fieldset.appendChild(range.cloneContents());
+        this.body.appendChild(fieldset);
+    });
+</script>
+</body>
+</html>

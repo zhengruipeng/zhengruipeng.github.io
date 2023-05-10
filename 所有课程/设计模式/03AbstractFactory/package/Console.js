@@ -13,7 +13,6 @@ let Console = class extends Object {
             width:100vw;
             overflow-y:scroll;
         }
-
         #console-panel>p{
             word-break:break-all;
             font-family: Source Code Pro;
@@ -69,7 +68,7 @@ let Console = class extends Object {
     //clear the past timer and bind a new timer
     updateTimer() {
         if (this.timer) clearTimeout(this.timer);
-        this.timer = setTimeout(this.end.bind(this), 10);
+        this.timer = setTimeout(this.end.bind(this), 300);
     }
 
     //cancel timer
