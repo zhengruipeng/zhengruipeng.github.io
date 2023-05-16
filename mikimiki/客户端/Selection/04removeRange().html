@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <p><b>Hello</b> World!</p>
+    <ul>
+        <li>List Items</li>
+        <li>List Items</li>
+        <li>List Items</li>
+    </ul>
+</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let p = this.querySelector("p");
+        let b = this.querySelector("b");
+        let li = this.querySelector("li");
+        let liEnd = this.querySelectorAll("li")[2];
+        let div = this.querySelector("div");
+
+        let selection = window.getSelection();
+        selection.removeAllRanges();
+
+        let range = new Range();
+        range.setStart(li.childNodes[0], 2);
+        range.setEnd(li.childNodes[0], 5);
+
+        selection.addRange(range);
+
+        let range2 = new Range();
+        range2.setStart(li.childNodes[0], 6);
+        range2.setEnd(li.childNodes[0], 10);
+
+        //其作用并不在于新创建一个范围之后利用removeRange方法将其中涵盖的内容取消选中
+        //而是更接近于内部维护一个集合，每次调用removeRange时在其中进行查找
+        // 如果这个range存储在集合之中的话，
+        // 就删除选中的那个range并将这个range所指代的选中取消选中
+        // selection.removeRange(range2);
+
+
+        // 而addRange的作用更像是将一个范围存放在集合中
+        // 每次更新集合时，都会按照集合中有的范围依次对内容进行选中
+        // 当然，只有firefox支持此操作
+        // chrome不可以选中多个范围
+        selection.addRange(range2)
+        selection.removeRange(range);
+
+        //如果两个选中的范围相交了的话，删除一个范围会导致一个错误
+        //其中大致原理如下：
+        Selection.prototype.allRange = []
+        Selection.prototype.addRange = function (range) {
+            this.allRange.push(range);
+            this.render();
+        };
+        Selection.prototype.removeRange = function (range) {
+            this.allRange.splice(this.allRange.indexOf(range), 1);
+            this.render();
+        };
+        Selection.prototype.render = function () {
+            this.allRange.forEach(range => {
+                //执行选中操作
+            });
+        };
+
+        //
+
+
+    });
+</script>
+</body>
+</html>

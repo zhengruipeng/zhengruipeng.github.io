@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <p><b>Hello</b> World!</p>
+    <ul>
+        <li>List Items</li>
+        <li>List Items</li>
+        <li>List Items</li>
+    </ul>
+</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
+        let selection = window.getSelection();
+
+        selection.selectAllChildren(div);
+    });
+</script>
+</body>
+</html>

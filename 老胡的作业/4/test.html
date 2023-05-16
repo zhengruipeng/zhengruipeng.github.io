@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color:red;
+        }
+        .yellow{
+            color:yellow;
+        }
+        .disappear{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+Hello world;
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        // document.body.className = "red";
+        // document.body.classList.add("red");
+        document.body.classList.toggle("red");
+
+    });
+</script>
+</body>
+</html>

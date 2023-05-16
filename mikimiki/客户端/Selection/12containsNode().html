@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div contentEditable="true">
+    <p><b>Hello</b> World!</p>
+    <ul>
+        <li>List Items</li>
+        <li>List Items</li>
+        <li>List Items</li>
+    </ul>
+    <p id="footer">footer</p>
+</div>
+<script type="module">
+    import {Console} from "../../../packages/Console.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
+        const b = this.querySelector("b");
+        const ul = this.querySelector("ul");
+        const li1 = this.querySelector("li:nth-of-type(1)");
+        const li2 = this.querySelector("li:nth-of-type(2)");
+        const li3 = this.querySelector("li:nth-of-type(3)");
+        const footer = this.querySelector("#footer");
+
+        let selection = getSelection();
+
+        let range = new Range();
+        range.setStartBefore(ul);
+        range.setEndAfter(ul);
+        selection.addRange(range);
+
+        let con = new Console();
+        con.renderAsConsoleInline();
+
+        //所谓包含范围必须涵盖一点节点前的内容和一点节点后的内容
+        con.output("range 1: ");
+        con.output("selection.containsNode(li1): "+ selection.containsNode(li1));
+        con.output("selection.containsNode(li2): "+ selection.containsNode(li2));
+        con.output("selection.containsNode(li3): "+ selection.containsNode(li3));
+        con.output("selection.containsNode(b)  : "+ selection.containsNode(b));
+        con.output("selection.containsNode(div): "+ selection.containsNode(div));
+
+        range = new Range();
+        range.setStartBefore(b);
+        range.setEndAfter(footer);
+
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        con.output("range 2: ");
+        con.output("selection.containsNode(li1): "+ selection.containsNode(li1));
+        con.output("selection.containsNode(li2): "+ selection.containsNode(li2));
+        con.output("selection.containsNode(li3): "+ selection.containsNode(li3));
+        con.output("selection.containsNode(b)  : "+ selection.containsNode(b));
+        con.output("selection.containsNode(div): "+ selection.containsNode(div));
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<div>
+  <p><b>Hello</b> World!</p>
+  <ul>
+    <li>List Items</li>
+    <li>List Items</li>
+    <li>List Items</li>
+  </ul>
+</div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function () {
+    let p = this.querySelector("p");
+    let b = this.querySelector("b");
+    let li = this.querySelector("li");
+    let liEnd = this.querySelectorAll("li")[2];
+    let div = this.querySelector("div");
+
+    let selection = window.getSelection();
+    selection.removeAllRanges();
+
+    let range = new Range();
+    range.setStart(li.childNodes[0], 2);
+    range.setEnd(li.childNodes[0], 5);
+
+    selection.addRange(range);
+
+    let range2 = new Range();
+    range2.setStart(li.childNodes[0], 6);
+    range2.setEnd(li.childNodes[0], 10);
+
+    selection.addRange(range2)
+
+    selection.removeAllRanges();
+
+
+
+  });
+</script>
+</body>
+</html>

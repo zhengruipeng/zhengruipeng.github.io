@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <p><b>Hello</b> World!</p>
+    <ul>
+        <li>List Items</li>
+        <li>List Items</li>
+        <li>List Items</li>
+    </ul>
+</div>
+<script type="module">
+    import {JSONParser} from "../../../packages/JSONParser.js";
+    import {JSONParseRangeController} from "../../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let div = this.querySelector("div");
+
+        let jsonParser = new JSONParser({
+            offset: new JSONParseRangeController(0, 5, 1),
+        });
+        jsonParser.import("../../../packages/JSONParser.css");
+        document.body.appendChild(jsonParser.initTable());
+
+
+        div.onclick = function (ev) {
+            let {x, y} = ev;
+            let ele = document.elementFromPoint(x, y);
+            console.log(ele);
+
+            let selection = getSelection();
+
+            //获取用户选中区域的末尾的节点
+            let range = selection.getRangeAt(0);
+            range.collapse(false);
+            let node = range.endContainer;
+
+            //将此节点选中后压缩至尾部，并且重写选中区域
+            selection.removeAllRanges();
+            range = new Range();
+            range.selectNode(node);
+            range.collapse(false);
+            selection.addRange(range);
+
+            //将压缩至尾部的范围扩展至最开始
+            selection.extend(ele, jsonParser.toJSON().offset);
+        };
+        //这个extend方法和下一个setBaseAndExtent方法
+        // 的offset属性的意思是跳过几个节点，
+        // 比如选中p标签，offset等于0代表跳过0个节点
+        //也就是从b的前面开始选择
+        //offset等于1代表跳过1个节点
+        //也就是从b的后面开始选择
+        //offset等于2代表跳过2个节点
+        //也就是从p的第二个textNode的末尾开始选择
+    });
+</script>
+</body>
+</html>

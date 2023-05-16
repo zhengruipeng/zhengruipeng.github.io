@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {TreeRenderer} from "./TreeRenderer.js";
+    import {initBinaryTreeWithJSON} from "./initBinaryTreeWithJSON.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let json = {
+            value: 1,
+            lChild: {
+                value: 2,
+                lChild: {
+                    value: 4,
+                    lChild: {
+                        value: 11,
+                        lChild: {
+                            value: 12,
+                        },
+                        rChild: {
+                            value: 13
+                        }
+                    },
+                },
+                rChild: {
+                    value: 5,
+                    lChild: {
+                        value: 15
+                    }
+                }
+            },
+            rChild: {
+                value: 3,
+                rChild: {
+                    value: 7,
+                    rChild: {
+                        value: 9,
+                        rChild: {
+                            value: 10,
+                        }
+                    },
+                    lChild: {
+                        value: 8
+                    }
+                },
+                lChild: {
+                    value: 6,
+                    lChild: {
+                        value: 14
+                    }
+                }
+            }
+        };
+
+
+        let renderer = new TreeRenderer(document.documentElement.clientWidth, document.documentElement.clientHeight);
+        document.body.appendChild(renderer.svg);
+        renderer.svg.style.border = "red solid 1px";
+        renderer.render(initBinaryTreeWithJSON(json))
+
+    });
+</script>
+
+</body>
+</html>

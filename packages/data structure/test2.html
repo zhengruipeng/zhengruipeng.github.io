@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {Console} from "../Console.js";
+    import {BinaryTree} from "./BinaryTree.js";
+    import {TreeRenderer} from "./TreeRenderer.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        let con = new Console();
+        con.renderAsConsoleInline();
+
+        let renderer = new TreeRenderer(800, 500);
+        document.body.appendChild(renderer.svg);
+
+        while(1){
+            let input = await con.input();
+
+            let i = 0;
+            let generateTree = function () {
+                if (i > input.length) return null;
+                if (input[i] === " " || !input[i]) return null;
+
+                let tree = new BinaryTree(input[i]);
+
+                i++;
+                tree.lChild = generateTree();
+                i++;
+                tree.rChild = generateTree();
+
+                return tree;
+            }
+
+            let tree = generateTree();
+
+            renderer.clearAll();
+            renderer.render(tree);
+        }
+
+
+
+    });
+</script>
+</body>
+</html>

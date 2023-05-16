@@ -59,8 +59,8 @@
         };
 
         let jsonparser = new JSONParser(obj)
-        jsonparser.import("./table-default-style.css");
-        jsonparser.initTable();
+        jsonparser.import("./JSONParser.css");
+        document.body.appendChild(jsonparser.initTable());
         jsonparser.onJsonChange = function (ev) {
             console.log(jsonparser, ev)
             display(jsonparser.toJSON())

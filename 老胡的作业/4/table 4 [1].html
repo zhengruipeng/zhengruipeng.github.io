@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            margin-left: 25em;
+            border-collapse:collapse;
+        }
+        tr,th{
+            border: 1px solid black;
+            height: 2em;
+            width: 20em;
+            vertical-align:middle;
+        }
+        #add{
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>名称</th>
+        <th>价格</th>
+        <th>数量</th>
+    </tr>
+    <tr id="add">
+        <td></td>
+        <td>添加一个</td>
+        <td></td>
+    </tr>
+</table>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const addNew = document.getElementById("add");
+        const outTbody = document.querySelector("tbody");
+        let Model = class extends Object{
+            cell1_1;
+            cell1_2;
+            cell1_3;
+            constructor(cell1_1,cell1_2,cell1_3) {
+                super()
+                this.cell1_1 = cell1_1
+                this.cell1_2 = cell1_2
+                this.cell1_3 = cell1_3
+            }
+        }
+        new Model(1,2,3);
+        let funcClass = class extends Object{
+            rowS;
+            cell1;
+            cell2;
+            cell3;
+            constructor() {
+                super();
+            }
+            addTr(){
+                const rows = document.createElement("tr")
+                const cell1_1 = document.createElement("td");
+                const cell1_2 = document.createElement("td");
+                const cell1_3 = document.createElement("td");
+                this.rowS = rows;
+                this.cell1 = cell1_1;
+                this.cell2 = cell1_2;
+                this.cell3 = cell1_3;
+                this.cell1.style.border = "1px solid black";
+                this.cell2.style.border = "1px solid black";
+                this.cell3.style.border = "1px solid black";
+                this.cell1.style.textAlign = "center";
+                this.cell2.style.textAlign = "center";
+                this.cell3.style.textAlign = "center";
+                this.cell1.innerHTML = "请输入名称";
+                this.cell2.innerHTML = "请输入价格";
+                this.cell3.innerHTML = "请输入数量";
+                rows.appendChild(cell1_1);
+                rows.appendChild(cell1_2);
+                rows.appendChild(cell1_3);
+                outTbody.appendChild(rows);
+                outTbody.insertBefore(rows,addNew);
+            }
+            delTr(tr){
+                let con = window.confirm("确认要删除么");
+                if (con === true){
+                    this.rowS.parentNode.removeChild(tr);
+                }
+            }
+        }
+        let test = new funcClass();
+        addNew.onclick = function () {
+            test.addTr();
+            let that = this;
+            test.rowS.oncontextmenu = function (ev){
+
+                console.log(this === test.rowS,that === addNew);
+                ev.preventDefault();
+                test.delTr(this);
+            }
+        }
+
+
+    })
+</script>
+</body>
+</html>

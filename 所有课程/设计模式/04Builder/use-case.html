@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body > div {
+            border: #ccc solid 1px;
+            border-radius: 7px;
+            margin: 20px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {config} from "./config.js";
+    import {UIProvider} from "./UIProvider.js";
+
+    //main function
+    document.addEventListener("DOMContentLoaded", async function () {
+        let uiProvider = new UIProvider(config.mode);
+        let ui = uiProvider.construct();
+
+        this.body.appendChild(ui);
+    });
+</script>
+</body>
+</html>

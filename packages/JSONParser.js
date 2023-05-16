@@ -165,7 +165,7 @@ let JSONParser = class extends EventTarget {
     };
 
     //生成表格
-    initTable(outside = document.body) {
+    initTable() {
         //首先创建一个容器装载表格
         let container = document.createElement("section");
         container.className = "table-container";
@@ -253,7 +253,7 @@ let JSONParser = class extends EventTarget {
                 //当json值为对象的时候就再建一张表
                 //再根据当前对象值创建一个JSONParser对象并且生成表格
                 const jsonParser = new JSONParser(this.json[name]);
-                jsonParser.initTable(tdValue);
+                tdValue.appendChild(jsonParser.initTable());
                 //设置新生成的表格的父表格为当前表格
                 jsonParser.parent = this;
 
@@ -357,7 +357,8 @@ let JSONParser = class extends EventTarget {
             tbody.appendChild(tr);
         }
 
-        outside.appendChild(container);
+        // outside.appendChild(container);
+        return container;
     };
 
     toJSON() {
@@ -445,7 +446,7 @@ export {
 *
 * let jsonParser = new JSONParser(option);
         jsonParser.import("../table-default-style.css")
-        jsonParser.initTable();
+        document.body.appendChild(jsonParser.initTable());
         // console.log(jsonParser.toJSON());
         // console.log(jsonParser.cellToKey);
         // console.log(jsonParser.json)

@@ -9,18 +9,19 @@
     </style>
 </head>
 <body>
-
+<input type="text"/>
 <script type="module">
-    import {Console} from "./Console-inline.js";
+    import {Console} from "./Console.js";
 
     document.addEventListener("DOMContentLoaded", async function () {
         let con = new Console();
-        con.renderAsConsoleApp();
+        con.renderAsConsoleInline();
 
-        let res = "";
-        for (let i = 0; i < 1e3; i++) res += i;
+        let arr = await con.inputs();
+        con.output(arr.join(", "));
 
-        con.output(res)
+        let str = await con.input();
+        con.output(str);
 
 
     });
