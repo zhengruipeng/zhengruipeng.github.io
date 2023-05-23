@@ -62,7 +62,41 @@ let JSONParseRangeController = class extends JSONParseCustomController {
         return super.render();
     }
 };
+let JSONParseDateController = class extends JSONParseCustomController {
+    constructor(props = {}) {
+        super(null, props);
+    }
 
+    render() {
+        let div = document.createElement("div");
+        div.innerHTML = `
+            <label>
+                <input type="date" class="provider" />
+            </label>
+        `;
+        this.node = div.children[0];
+
+        return super.render();
+    }
+};
+
+let JSONParseTimeController = class extends JSONParseCustomController {
+    constructor(props = {}) {
+        super(null, props);
+    }
+
+    render() {
+        let div = document.createElement("div");
+        div.innerHTML = `
+            <label>
+                <input type="time" class="provider" />
+            </label>
+        `;
+        this.node = div.children[0];
+
+        return super.render();
+    }
+};
 
 //描述JSONChange事件的Event对象
 let JSONParserEvent = class extends Object {
@@ -125,28 +159,6 @@ let defaultInputEvent = function (ev, that) {
         jsonParser: that
     }));
 };
-
-/*let JSONParserEventTarget = class extends Object {
-    #events = [];
-
-    addEventListener(callback, bubble) {
-        this.#events.push(callback);
-    }
-
-    removeEventListener(callback) {
-        let index = this.#events.indexOf(callback);
-        if (index === -1) return false;
-
-        //删除传入的函数
-        this.#events = this.#events.splice(index, 1);
-    }
-
-    runEvents() {
-        this.#events.forEach(event => {
-            event()
-        })
-    }
-}*/
 
 //核心解析类
 let JSONParser = class extends EventTarget {
@@ -312,11 +324,14 @@ let JSONParser = class extends EventTarget {
                 //如果是布尔值的话生成一个多选框
                 else if (typeof this.json[name] === "boolean") {
                     tdValue.innerHTML = `
-                       
-                         <input type="checkbox" value="${this.json[name]}" name="${name}"
-                          class="json-input" id="${this.json[name]}1" />
+                           <label>
+                             <input type="checkbox" value="${this.json[name]}" name="${name}"
+                              class="json-input provider" id="${this.json[name]}1" />
+                             <span>${this.json[name]}</span>
+                          </label>
                      `;
-                    let checkbox = tdValue.children[0];
+                    let checkbox = tdValue.children[0].querySelector("input");
+                    let display = tdValue.children[0].querySelector("span");
                     //把初始的布尔值设定成选中情况
                     if (this.json[name]) checkbox.checked = true;
 
@@ -324,6 +339,7 @@ let JSONParser = class extends EventTarget {
                     checkbox.addEventListener("change", function () {
                         //当更改时值会相反
                         this.value = !this.checked;
+                        display.innerText = this.checked;
                     })
                 }
                 //如果是字符串的话生成一个普通的文字输入框
@@ -437,7 +453,9 @@ export {
     JSONParser,
     JSONParseCustomController,
     JSONParserEvent,
-    JSONParseRangeController
+    JSONParseRangeController,
+    JSONParseDateController,
+    JSONParseTimeController,
 }
 
 

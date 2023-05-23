@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        header {
+            --center-x: 0;
+            --center-y: 0;
+            width: 50vw;
+            height: 20vh;
+            display: flex;
+        }
+
+        header > nav {
+            --transform-scale: 1.0;
+
+            flex: 1 1 content;
+            border: #000 solid 1px;
+            margin: 30px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(var(--transform-scale));
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<code>
+    写一个与之类似的特效，手法任意
+</code>
+<header>
+    <nav>1</nav>
+    <nav>2</nav>
+    <nav>3</nav>
+    <nav>4</nav>
+    <nav>5</nav>
+</header>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const navs = Array.from(this.querySelectorAll("nav"));
+
+        window.onmousemove = function (ev) {
+
+            navs.forEach(nav => {
+                let rect = nav.getBoundingClientRect();
+                /*
+                * 计算过程：
+                * 给出元素的中点坐标element→向量
+                * 给出鼠标的当前坐标center→向量
+                * 给出作用半径r标量
+                * 勾股定理可知：dis = sqrt(element→ - center→);
+                * 放大倍数 = 最大放大倍数 * (1 - dis / r) + 1
+                * 于1取一个最大值即可
+                * */
+                let elementX = rect.x + rect.width / 2;
+                let elementY = rect.y + rect.height / 2;
+                let centerX = ev.x;
+                let centerY = ev.y;
+                const r = 300;
+
+                let dis = Math.hypot(centerX - elementX, centerY - elementY);
+                let scale = Math.max(0.3 * (1 - dis / r) + 1, 1);
+                nav.style.setProperty("--transform-scale", scale);
+
+            });
+
+        };
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../packages/JSONParser.css" rel="stylesheet" type="text/css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+<label>
+    <input type="text" />
+</label>
+<script type="module">
+    import {JSONParser} from "../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const input = this.querySelector("input");
+
+        let parser = new JSONParser({
+            autocapitalize: ['off', "none", "on", "sentences", "words", "characters"],
+        });
+        let table = parser.initTable();
+        this.body.appendChild(table);
+
+        parser.onJsonChange = function () {
+            input.setAttribute("autocapitalize", this.toJSON().autocapitalize);
+        }
+    });
+</script>
+</body>
+</html>

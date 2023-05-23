@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import {Config} from "./config.js";
+    import {Console} from "./libs/Console.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let con = new Console();
+        con.renderAsConsoleApp();
+
+        let arr = [4, 2, 3, 1, 5];
+
+        let adapter = new Config.Adapter();
+        arr = adapter.sort(arr);
+        con.output(arr.join(", "));
+
+        let index = adapter.search(arr, 3);
+        con.output(index);
+
+    });
+</script>
+</body>
+</html>

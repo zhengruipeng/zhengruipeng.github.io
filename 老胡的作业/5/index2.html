@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<code>手写一个Array.prototype.indexOf方法，实现方法任意</code>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+        let indexOf = function (arr, val) {
+            let min = 0;
+            let max = arr.length;
+
+            while (min < max) {
+                let index = Math.floor((min + max) / 2);
+                let c = arr[index]
+
+                if (c === val) {
+                    return index;
+                } else if (c < val) {
+                    min = index;
+                } else if (c > val) {
+                    max = index;
+                }
+            }
+            return -1;
+        };
+
+        arr.forEach(v => {
+            console.log(indexOf(arr, v));
+        })
+    });
+</script>
+</body>
+</html>

@@ -70,8 +70,12 @@
             con.output("4：exit");
 
             con.output("please select a option");
-            let mood = (await con.input())[0];
+            let mood = await con.input();
 
+            if(mood === "clear"){
+                con.clear();
+                continue;
+            }
 
             switch (Number.parseInt(mood)) {
                 case 1:

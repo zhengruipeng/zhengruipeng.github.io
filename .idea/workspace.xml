@@ -4,51 +4,114 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230510">
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/CookieStore/delete().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/CookieStore/set().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/webgpu/学习路线.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/03addRange().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/04removeRange().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/05removeAllRanges().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/06modify().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/07getRangeAt().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/08selectAllChildren().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/09collapse().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/10collapseToStart().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/11collapseToEnd().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/12containsNode().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/13deleteFromDocument().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/14extend().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/15setBaseAndExtent().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/Selection/16toString().html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodeJS/学习路线.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/Console-test3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/data structure/BinaryTree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/data structure/TreeRenderer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/data structure/initBinaryTreeWithJSON.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/data structure/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/data structure/test2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/CompactMode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/CompleteMode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/ComponentLib.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/ListMode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/UIMode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/UIProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/use-case.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/老胡的作业/4/table 4 [1].html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/老胡的作业/4/test.html" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230516">
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/accesskey.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/autocapitalize.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/abbr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/address.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/02CookieStoreManager/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/02CookieStoreManager/service-worker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/03CookieChangeEvent/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/03CookieChangeEvent/service-worker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/04ExtendableCookieChangeEvent/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/04ExtendableCookieChangeEvent/service-worker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodeJS/express/express入门.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/Mapper-test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/Mapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple/DBUtil.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple/LoginForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple/UserDao.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple/use-case.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtil.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtil.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtilModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/LoginForm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserDao.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserDao.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/pathMap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/use-case.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/bin/www" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/LoginForm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/stylesheets/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/use-case.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/DBUtil.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/DBUtilModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/UserDao.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/UserModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/pathMap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/views/error.jade" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/views/index.jade" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/views/layout.jade" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/DBUtil.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/DBUtilModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/UserDao.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/UserModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/pathMap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/LoginForm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/use-case.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/Adapter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/BinarySearch.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/DataOperation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/QuickSort.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/libs/Console.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/bin/www" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/public/stylesheets/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/routes/ejs.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/routes/users.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/views/error.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/views/error.jade" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/views/index.jade" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/views/layout.jade" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/views/test.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/expressTest/views/test.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/4/table 4 [1]2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/5/4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/5/index2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/5/index3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Console-inline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/CookieStore/delete().html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/CookieStore/set().html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/01CookieStore/set().html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Observer/MutationObserver/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Observer/MutationObserver/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/Console-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Console-test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Console-test2.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Console-test2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/Console.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Console.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/JSONParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/JSONParser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/JSONParserTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/JSONParserTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/table-default-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/JSONParser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/数据结构/二叉树/Tree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/数据结构/二叉树/TreeRenderer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/老胡的作业/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/老胡的作业/1/1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/老胡的作业/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/老胡的作业/1/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/老胡的作业/2.html" beforeDir="false" afterPath="$PROJECT_DIR$/老胡的作业/2/2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/老胡的作业/3(idol).html" beforeDir="false" afterPath="$PROJECT_DIR$/老胡的作业/3/3(idol).html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/老胡的作业/3.html" beforeDir="false" afterPath="$PROJECT_DIR$/老胡的作业/3/3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/老胡的作业/4/table 4 [1].html" beforeDir="false" afterPath="$PROJECT_DIR$/老胡的作业/4/table 4 [1].html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +124,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
-        <option value="TypeScript JSX File" />
         <option value="HTTP Request" />
         <option value="CSS File" />
+        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -111,81 +174,105 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "19.4.0",
-    "javascript.nodejs.core.library.typings.version": "18.15.11",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/mikimiki/APIs/Cookie Store API/CookieStore",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.15.11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/所有课程/设计模式/expressTest/views&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\apps\\apps\\PhpStorm\\ch-0\\231.9011.38\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "XHTML",
-      "PLAIN_TEXT"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;XHTML&quot;,
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Cookie Store API\CookieStore" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\Selection" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\04Builder" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\expressTest\views" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\4" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\Cookie Store API" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\09Adapter\libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\Selection\package" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\张浩博" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\DOM" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\3" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\2" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\1" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\08SingleResponsibilityPrinciple" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\07SingleResponsibilityPrinciple\public" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Peer2peerService.js">
-    <configuration name="Peer2peerService.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService">
+  <component name="RunManager" selected="Node.js.main.js">
+    <configuration name="main.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/设计模式/expressTest/main.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/expressTest">
       <method v="2" />
     </configuration>
-    <configuration name="UseCase1.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/设计模式/02Factory/UseCase1.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/02Factory">
-      <method v="2" />
-    </configuration>
-    <configuration name="UseCase1.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/设计模式/03AbstractFactory/UseCase1.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/03AbstractFactory">
-      <method v="2" />
-    </configuration>
-    <configuration name="UseCase1.js (3)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/设计模式/03AbstractFactory2/UseCase1.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/03AbstractFactory2">
-      <method v="2" />
-    </configuration>
-    <configuration name="UseCase1.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/设计模式/01SimpleFactory/UseCase1.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/01SimpleFactory">
+    <configuration name="pathMap.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/pathMap.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple">
       <method v="2" />
     </configuration>
     <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
       <method v="2" />
     </configuration>
+    <configuration name="test.ts" type="TypeScriptProgramRunner" factoryName="TypeScript" temporary="true">
+      <module name="User.php" />
+      <option name="interpreterRef" value="project" />
+      <option name="enabledTsNodeEsmLoader" value="false" />
+      <option name="interpreterOptions" value="" />
+      <option name="workingDirectory" value="$PROJECT_DIR$/所有课程/设计模式/ts" />
+      <option name="tsconfigFile" value="" />
+      <option name="extraTypeScriptOptions" value="" />
+      <option name="scriptName" value="$PROJECT_DIR$/所有课程/设计模式/ts/test.ts" />
+      <option name="programParameters" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/所有课程/设计模式/expressTest/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/所有课程/设计模式/ts/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.Peer2peerService.js" />
-        <item itemvalue="Node.js.UseCase1.js (3)" />
-        <item itemvalue="Node.js.UseCase1.js (2)" />
-        <item itemvalue="Node.js.UseCase1.js (1)" />
-        <item itemvalue="Node.js.UseCase1.js" />
+        <item itemvalue="Node.js.main.js" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="TypeScript.test.ts" />
+        <item itemvalue="Node.js.pathMap.js" />
       </list>
     </recent_temporary>
   </component>
@@ -729,14 +816,27 @@
       <workItem from="1684108292507" duration="3928000" />
       <workItem from="1684112452839" duration="131000" />
       <workItem from="1684145165215" duration="6810000" />
-      <workItem from="1684232234869" duration="8832000" />
-    </task>
-    <task id="LOCAL-00048" summary="20220626">
-      <created>1656220549155</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1656220549155</updated>
+      <workItem from="1684232234869" duration="9435000" />
+      <workItem from="1684281223057" duration="6500000" />
+      <workItem from="1684290415551" duration="942000" />
+      <workItem from="1684293133333" duration="500000" />
+      <workItem from="1684388256221" duration="546000" />
+      <workItem from="1684388819518" duration="4250000" />
+      <workItem from="1684407477379" duration="390000" />
+      <workItem from="1684407874685" duration="166000" />
+      <workItem from="1684408052583" duration="8448000" />
+      <workItem from="1684462517980" duration="1038000" />
+      <workItem from="1684483028841" duration="1024000" />
+      <workItem from="1684496814600" duration="5891000" />
+      <workItem from="1684502931055" duration="757000" />
+      <workItem from="1684549723251" duration="2501000" />
+      <workItem from="1684554047104" duration="11715000" />
+      <workItem from="1684586082996" duration="11000" />
+      <workItem from="1684587362208" duration="3393000" />
+      <workItem from="1684712922181" duration="3267000" />
+      <workItem from="1684716753905" duration="2088000" />
+      <workItem from="1684724581626" duration="12500000" />
+      <workItem from="1684835244688" duration="5221000" />
     </task>
     <task id="LOCAL-00049" summary="20220626">
       <created>1656600713635</created>
@@ -1074,26 +1174,38 @@
       <option name="project" value="LOCAL" />
       <updated>1683701456650</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="20230516">
+      <created>1684243333105</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1684243333105</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
-        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.js" />
-        <option value="$PROJECT_DIR$/react2/src/02条件渲染.js" />
-        <option value="$PROJECT_DIR$/react2/src/13父子关系父组件.js" />
         <option value="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.jsx" />
         <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.js" />
         <option value="$PROJECT_DIR$/react2/src/09状态.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/LoginForm.js" />
         <option value="$PROJECT_DIR$/react2/src/09状态.jsx" />
         <option value="$PROJECT_DIR$/react2/src/06函数组件.js" />
         <option value="$PROJECT_DIR$/react2/src/13-5父子关系子组件.js" />
         <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.jsx" />
         <option value="$PROJECT_DIR$/react/test/react-test/src/09状态.jsx" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserDao.js" />
         <option value="$PROJECT_DIR$/react/test/react-test/src/13-5父子关系子组件.js" />
+        <option value="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/CookieStoreManager/service-worker.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtil.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtilModel.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserModel.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/pathMap.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/main.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/LoginForm.js" />
         <option value="$PROJECT_DIR$/react2/src/05用className脚本化CSS.js" />
         <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.jsx" />
         <option value="$PROJECT_DIR$/react/test/react-test/src/13父子关系父组件.js" />
@@ -1101,6 +1213,20 @@
         <option value="$PROJECT_DIR$/react2/src/04脚本化inlineCSS.js" />
         <option value="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.jsx" />
         <option value="$PROJECT_DIR$/react2/src/03多条件渲染.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/pathMap.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/routes/ejs.js" />
+        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
+        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.js" />
+        <option value="$PROJECT_DIR$/react2/src/02条件渲染.js" />
+        <option value="$PROJECT_DIR$/react2/src/13父子关系父组件.js" />
+        <option value="$PROJECT_DIR$/packages/Mapper.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/DataOperation.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/QuickSort.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/BinarySearch.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/Adapter.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/config.js" />
+        <option value="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/CookieChangeEvent/service-worker.js" />
+        <option value="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/04ExtendableCookieChangeEvent/service-worker.js" />
       </list>
     </option>
   </component>
@@ -1117,7 +1243,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="202212013" />
     <MESSAGE value="202212014" />
     <MESSAGE value="202212015" />
     <MESSAGE value="202212016" />
@@ -1142,7 +1267,8 @@
     <MESSAGE value="20230416(2)" />
     <MESSAGE value="20230507" />
     <MESSAGE value="20230510" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230510" />
+    <MESSAGE value="20230516" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230516" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">

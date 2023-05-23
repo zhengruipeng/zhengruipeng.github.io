@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            margin-left: 25em;
+            border-collapse: collapse;
+        }
+
+        tr, th {
+            border: 1px solid black;
+            height: 2em;
+            width: 20em;
+            vertical-align: middle;
+        }
+
+        #add {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .cellFir {
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .cellSec {
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .cellThr {
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>名称</th>
+        <th>价格</th>
+        <th>数量</th>
+    </tr>
+    <tr id="add">
+        <td></td>
+        <td>添加一个</td>
+        <td></td>
+    </tr>
+</table>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const addNew = document.getElementById("add");
+        const outTbody = document.querySelector("tbody");
+        let Model = class extends Object {
+            name;
+            price;
+            number;
+
+            constructor(name, price, number) {
+                super()
+                this.name = name;
+                this.price = price;
+                this.number = number;
+            }
+        }
+        let funcClass = class extends Object {
+            rowS;   //tr
+            cell1;  //td
+            cell2;  //td
+            cell3;  //td
+            data = [];
+
+            addTr() {
+                const rows = document.createElement("tr");
+                const tdI = document.createElement("td");
+                const tdII = document.createElement("td");
+                const tdIII = document.createElement("td");
+                this.rowS = rows;
+                this.cell1 = tdI;
+                this.cell2 = tdII;
+                this.cell3 = tdIII;
+                this.cell1.className = "cellFir";
+                this.cell2.className = "cellSec";
+                this.cell3.className = "cellThr";
+                rows.appendChild(tdI);
+                rows.appendChild(tdII);
+                rows.appendChild(tdIII);
+                outTbody.insertBefore(rows, addNew);
+
+
+                //这里
+                rows.oncontextmenu = function (ev) {
+                    test.delTr(ev.target);
+                    ev.preventDefault();
+                };
+
+                Array.from(rows.cells).forEach(td => {
+                    td.ondblclick = function () {
+                        td.contentEditable = "true";
+                    }
+                    td.onkeydown = function (ev) {
+                        if (ev.key === "Enter") {
+                            ev.preventDefault();
+                            td.contentEditable = "false";
+                        }
+                    }
+                    td.onblur = function () {
+                        td.contentEditable = "false";
+                    }
+
+                })
+            }
+
+            delTr(rows) {
+                let con = window.confirm("确认要删除么");
+                if (con === true) {
+                    rows.parentNode.remove();
+                }
+            }
+
+            show(obj) {
+                this.notification
+                this.addTr();
+                this.cell1.innerText = obj.name;
+                this.cell2.innerText = obj.price;
+                this.cell3.innerText = obj.number;
+            }
+        }
+        let test = new funcClass();
+
+        addNew.onclick = function () {
+            test.addTr();
+            test.cell1.innerText = "请输入名称";
+            test.cell2.innerText = "请输入价格";
+            test.cell3.innerText = "请输入数量";
+        }
+        let idol = new Model(...["野兽前辈", 24, 114]);
+        test.show(idol);
+    })
+</script>
+</body>
+</html>

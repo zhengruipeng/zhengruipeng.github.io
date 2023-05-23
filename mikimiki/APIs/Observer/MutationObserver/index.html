@@ -4,38 +4,38 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        div{
+        div {
             display: flex;
-            width:98%;
-            padding:10px;
-            border:#000 solid 1px;
+            width: 98%;
+            padding: 10px;
+            border: #000 solid 1px;
         }
-        </style>
+    </style>
 </head>
 <body>
 <button id="create-child">创建一个子元素</button>
 <button id="remove-child">删除最后一个子元素</button>
 <div id="container">父元素</div>
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         const container = this.querySelector("#container");
         const createChild = this.querySelector("#create-child");
         const removeChild = this.querySelector("#remove-child");
 
         let counter = 0;
-        let searchLeafEle = function (parent,floor,leafArr){
-            if(parent.children.length !== 0 ){
+        let searchLeafEle = function (parent, floor, leafArr) {
+            if (parent.children.length !== 0) {
                 let kids = Array.from(parent.children);
                 kids.forEach(kid => {
-                    searchLeafEle(kid,floor + 1,leafArr);
+                    searchLeafEle(kid, floor + 1, leafArr);
                 });
-            }else{
-                leafArr.push({floor,parent});
+            } else {
+                leafArr.push({floor, parent});
             }
             return leafArr;
         };
 
-        let observerCB = function (/*MutationRecode[] */mutationList,observer){
+        let observerCB = function (/*MutationRecode[] */mutationList, observer) {
             mutationList.forEach(mutation => {
                 console.log(mutation);
             })
@@ -58,17 +58,17 @@
         * attributeFilter
         * Set to a list of attribute local names (without namespace) if not all attribute mutations need to be observed and attributes is true or omitted.
         * */
-        observer.observe(container,{
-            childList:true,
-            characterData:true,
-            attributes:true,
-            subtree:true
+        observer.observe(container, {
+            childList: true,
+            characterData: true,
+            attributes: true,
+            subtree: true
         })
 
-        createChild.onclick = function (){
+        createChild.onclick = function () {
             let leafArr = [];
-            searchLeafEle(container,0,leafArr);
-            leafArr = leafArr.sort((a,b) => a.floor>b.floor?1:-1);
+            searchLeafEle(container, 0, leafArr);
+            leafArr = leafArr.sort((a, b) => a.floor > b.floor ? 1 : -1);
             console.log(leafArr);
 
             const div = document.createElement("div");
@@ -76,10 +76,10 @@
             leafArr[0].parent.appendChild(div);
         };
 
-        removeChild.onclick = function (){
+        removeChild.onclick = function () {
             let leafArr = [];
-            searchLeafEle(container,0,leafArr);
-            leafArr = leafArr.sort((a,b) => a.floor>b.floor?1:-1);
+            searchLeafEle(container, 0, leafArr);
+            leafArr = leafArr.sort((a, b) => a.floor > b.floor ? 1 : -1);
             console.log(leafArr);
 
             leafArr[0].parent.parentElement.removeChild(leafArr[0].parent);

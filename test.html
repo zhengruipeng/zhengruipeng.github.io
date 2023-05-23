@@ -10,49 +10,52 @@
 <body>
 
 <script type="module">
-    import {Console} from "./packages/Console.js";
+    import {Mapper, MapperObserveKey} from "./packages/Mapper.js";
 
     document.addEventListener("DOMContentLoaded", async function () {
-        let con = new Console();
-        con.renderAsConsoleApp();
-
-        let arr = [];
-
-        let range = (await con.input("输入阶数"))[0] - 0;
-        if(Number.isNaN(range)){
-            con.output("输入不合法");
-            return ;
-        }
-
-        for (let i = 0; i < range; i++) {
-            arr[i] = [];
-            arr[i][0] = 1;
-        }
-
-        for (let i = 0; i < range; i++) {
-            arr[i][i] = 1;
-        }
-
-        for (let i = 2; i < range; i++) {
-            for (let j = 1; j < i; j++) {
-                arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
-            }
-        }
-
-        let res = "<pre>";
-        for (let i = 0; i < range; i++) {
-            for (let j = 0; j <= i; j++) {
-                res += arr[i][j].toString().padEnd(5);
-            }
-            res += "<br />"
-        }
-        res += "</pre>"
-
-        con.output(res);
-
-        // con.end();
+        let obj = {a: 123, b: {c: 3}};
 
 
+        let ok = new MapperObserveKey();
+        ok.addKey("b");
+        ok.addKey("c");
+
+
+        let mapper = new Mapper(obj, {observeKey: ok});
+        // mapper.target = obj;
+        // mapper.options.observeKey = ok;
+
+        let callback = function (ev) {
+            console.log(ev);
+            // console.log(ev.key)
+
+        };
+
+        mapper.map(1, callback);
+        mapper.map(2, callback);
+        mapper.map(3, callback);
+
+        mapper.call();
+
+        // let observer = new ConstantObserver(obj);
+        obj.b.c = 1;
+        mapper.call();
+        obj.b.c = 2;
+        mapper.call();
+
+
+        let mapper2 = new Mapper("123");
+        mapper2.map("123", callback);
+        mapper2.map("321", callback);
+        mapper2.map("222", callback);
+
+        mapper2.call();
+
+        mapper2.target = "321";
+        mapper2.call();
+
+        mapper2.target = "222";
+        mapper2.call();
     });
 </script>
 </body>

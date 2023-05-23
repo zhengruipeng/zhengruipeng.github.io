@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="../../../../packages/JSONParser.css"/>
+
+</head>
+<body>
+
+<script type="module">
+    import {JSONParser, JSONParseTimeController} from "../../../../packages/JSONParser.js";
+    import {Console} from "../../../../packages/Console.js";
+    import {Mapper} from "../../../../packages/Mapper.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        //控制台
+        let con = new Console();
+        con.renderAsConsoleInline();
+
+        let serviceWorkerRegister = null;
+        navigator.serviceWorker.register("./service-worker.js", {scope: "./"}).then(register => {
+            console.log(register);
+            serviceWorkerRegister = register;
+        });
+        navigator.serviceWorker.addEventListener("message", function (ev) {
+            con.output(ev.data);
+        })
+
+
+        let params = {
+            option1: {
+                name: "name",
+                value: "value"
+            },
+            option2: {
+                domain: "localhost",
+                expires: new JSONParseTimeController(),
+                name: "name",
+                //这个写上的话会出错
+                partitioned: true,
+                path: "/",
+                sameSite: ["strict", "lax", "none"],
+                value: "value"
+            }
+        };
+
+        //JSON解析器
+        const parser = new JSONParser(params);
+        let table = parser.initTable();
+        document.body.appendChild(table);
+
+        //指令映射
+        let mapper = new Mapper();
+        mapper.map("set", function () {
+            let param = parser.toJSON();
+            if (param.option1) {
+                con.output(JSON.stringify(param.option1));
+                let {name, value} = param.option1;
+                cookieStore.set(name, value).then(con.output.bind(con), con.error.bind(con))
+            } else if (param.option2) {
+                let time = param.option2.expires;
+                let date = new Date()
+                date.setHours(time.substring(0, time.indexOf(":")));
+                date.setMinutes(time.substring(time.indexOf(":") + 1));
+                param.option2.expires = date.valueOf();
+
+                con.output(JSON.stringify(param.option2));
+                cookieStore.set(param.option2).then(con.output.bind(con), con.error.bind(con))
+            }
+        });
+        mapper.map("getAll", async function (ev) {
+            let command = ev.customData[0];
+            let name = command[1] || undefined;
+            let url = command[2] || undefined;
+            let arr = await cookieStore.getAll(name, url);
+            arr = arr.map(v => JSON.stringify(v));
+            con.output(...arr);
+        });
+        mapper.map("delete", async function (ev) {
+            let command = ev.customData[0];
+            let name = command[1];
+            await cookieStore.delete(name);
+        });
+        mapper.map("get", async function (ev) {
+            let command = ev.customData[0];
+            let name = command[1];
+            let url = command[2] || undefined;
+            con.output(name, url);
+            con.output(JSON.stringify(await cookieStore.get(name, url)));
+        });
+        mapper.map("subscribe", async function (ev) {
+            if (!serviceWorkerRegister) return false;
+
+            let command = ev.customData[0];
+            let name = command[1];
+            let url = command[2];
+            con.output(`subscribe name=${name},url=${url}`);
+            serviceWorkerRegister.active.postMessage({name, url, type: "subscribe"});
+        });
+        mapper.map("unsubscribe", function (ev) {
+            if (!serviceWorkerRegister) return false;
+
+            let command = ev.customData[0];
+            let name = command[1];
+            let url = command[2];
+            con.output(`unsubscribe name=${name},url=${url}`);
+            serviceWorkerRegister.active.postMessage({name, url, type: "unsubscribe"});
+        });
+        mapper.map("getSubscriptions", function () {
+            if (!serviceWorkerRegister) return false;
+
+            con.output(`getSubscriptions`);
+            serviceWorkerRegister.active.postMessage({type: "getSubscriptions"});
+        });
+        mapper.map("message", function (ev) {
+            if (!serviceWorkerRegister) return false;
+
+            let command = ev.customData[0];
+            let data = command[1];
+            console.log(ev);
+            serviceWorkerRegister.active.postMessage(data);
+        });
+
+
+        while (true) {
+            let command = await con.inputs();
+            mapper.target = command[0];
+            mapper.call(command);
+
+            if (command[0] === "exit") break;
+
+            con.output("OK")
+
+        }
+
+    });
+
+</script>
+</body>
+</html>

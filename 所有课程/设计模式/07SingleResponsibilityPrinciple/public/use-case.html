@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="notification-style.css" rel="stylesheet" type="text/css" />
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            border: 1px solid #ccc;
+            margin-bottom: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #96b;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #639;
+        }
+    </style>
+</head>
+<body>
+<div id="notification" ></div>
+<script type="module">
+    import {LoginForm} from "./LoginForm.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let loginForm = new LoginForm();
+        loginForm.init();
+        loginForm.display();
+    });
+</script>
+</body>
+</html>

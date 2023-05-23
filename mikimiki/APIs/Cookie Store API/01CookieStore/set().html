@@ -10,7 +10,7 @@
 </head>
 <body>
 <script type="module">
-    import {JSONParser} from "../../../../packages/JSONParser.js";
+    import {JSONParser, JSONParseDateController, JSONParseTimeController} from "../../../../packages/JSONParser.js";
     import {Console} from "../../../../packages/Console.js";
 
     document.addEventListener("DOMContentLoaded", async function () {
@@ -23,13 +23,14 @@
                 value: "value"
             },
             option2: {
-                domain: "A string containing the domain of the cookie.",
-                expires: " A timestamp, given as Unix time in milliseconds, containing the expiration date of the cookie.",
-                name: "A string with the name of a cookie.",
-                partitioned: "A boolean value that defaults to false. If set to true, the set cookie will be a partitioned cookie. See Cookies Having Independent Partitioned State (CHIPS) for more information.",
-                path: "A string containing the path of the cookie.",
+                domain: "localhost",
+                expires: new JSONParseTimeController(),
+                name: "name",
+                //这个写上的话会出错
+                partitioned: true,
+                path: "/",
                 sameSite: ["strict", "lax", "none"],
-                value: "A string with the value of the cookie."
+                value: "value"
             }
         };
 
@@ -39,6 +40,7 @@
 
         while (true) {
             let command = await con.inputs();
+
             if (command[0] === "set") {
                 let param = parser.toJSON();
                 if (param.option1) {
@@ -46,19 +48,33 @@
                     let {name, value} = param.option1;
                     cookieStore.set(name, value).then(con.output.bind(con), con.error.bind(con))
                 } else if (param.option2) {
+                    let time = param.option2.expires;
+                    let date = new Date()
+                    date.setHours(time.substring(0, time.indexOf(":")));
+                    date.setMinutes(time.substring(time.indexOf(":") + 1));
+                    param.option2.expires = date.valueOf();
+
                     con.output(JSON.stringify(param.option2));
                     cookieStore.set(param.option2).then(con.output.bind(con), con.error.bind(con))
                 }
+
             } else if (command[0] === "getAll") {
-                let arr = await cookieStore.getAll();
+                let name = command[1] || undefined;
+                let url = command[2] || undefined;
+                let arr = await cookieStore.getAll(name, url);
                 arr = arr.map(v => JSON.stringify(v));
                 con.output(...arr);
+
             } else if (command[0] === "delete") {
                 let name = command[1];
                 await cookieStore.delete(name);
+
             } else if (command[0] === "get") {
                 let name = command[1];
-                con.output(JSON.stringify(await cookieStore.get(name)));
+                let url = command[2] || undefined;
+                con.output(name, url);
+                con.output(JSON.stringify(await cookieStore.get(name, url)));
+
             } else if (command[0] === "exit") {
                 break;
             }

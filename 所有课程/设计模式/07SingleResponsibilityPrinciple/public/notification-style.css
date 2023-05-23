@@ -1,0 +1,33 @@
+#notification{
+    --height:5vw;
+    top:-10vw;
+
+    background-image:linear-gradient(to bottom,#daf5,#daf1);
+    padding:3em 0;
+    position:fixed;
+    width:100%;
+    height:var(--height);
+    left:0vw;
+    transition:.3s;
+    z-index: 3;
+    overflow:hidden;
+    border-radius: 0  0 15px 15px;
+    /*border:#639 solid 3px;*/
+    text-align: center;
+    color: #639;
+
+    filter: motionBlur(10px);
+}
+#notification.open{
+    top:0;
+    /*box-shadow: 0 0 10px #639;*/
+    /*top:0;*/
+}
+#notification.is-confirm{
+    height:calc(var(--height) * 2) !important;
+}
+#notification.is-confirm>button{
+    margin:0 10px;
+    background-color: white;
+    padding:3px 6px;
+}

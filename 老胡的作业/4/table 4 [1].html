@@ -4,19 +4,42 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        table{
+        table {
             margin-left: 25em;
-            border-collapse:collapse;
+            /*
+                水平居中用margin:0 auto;
+            */
+            border-collapse: collapse;
         }
-        tr,th{
+
+        tr, th {
             border: 1px solid black;
             height: 2em;
             width: 20em;
-            vertical-align:middle;
+            /*一般不这么写，一般写padding效果好，因为padding写完了还自带居中*/
+            vertical-align: middle;
+            /*homo特有的无意义属性*/
         }
-        #add{
+
+        #add {
             text-align: center;
             cursor: pointer;
+        }
+
+        /*有没有一种可能就是这三个可以写成一个（笑）*/
+        .cellFir {
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .cellSec {
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .cellThr {
+            text-align: center;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -28,78 +51,121 @@
         <th>数量</th>
     </tr>
     <tr id="add">
-        <td></td>
-        <td>添加一个</td>
-        <td></td>
+        <td colspan="3">添加一个</td>
     </tr>
 </table>
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         const addNew = document.getElementById("add");
+        //你这个表格没写tbody，之所以你这个不报错是因为浏览器自动补全了
         const outTbody = document.querySelector("tbody");
+        /*
         let Model = class extends Object{
-            cell1_1;
-            cell1_2;
-            cell1_3;
-            constructor(cell1_1,cell1_2,cell1_3) {
+            name;
+            price;
+            number;
+            constructor(name,price,number) {
                 super()
-                this.cell1_1 = cell1_1
-                this.cell1_2 = cell1_2
-                this.cell1_3 = cell1_3
+                this.name = name;
+                this.price = price;
+                this.number = number;
             }
         }
-        new Model(1,2,3);
-        let funcClass = class extends Object{
-            rowS;
-            cell1;
-            cell2;
-            cell3;
-            constructor() {
-                super();
-            }
-            addTr(){
-                const rows = document.createElement("tr")
-                const cell1_1 = document.createElement("td");
-                const cell1_2 = document.createElement("td");
-                const cell1_3 = document.createElement("td");
+        */
+        let funcClass = class extends Object {
+            rowS;   //tr
+            //这种个数不定的属性通常用数组进行统一存储
+            //比如：
+            //cells = [];
+            cell1;  //td
+            cell2;  //td
+            cell3;  //td
+            data = [];
+
+            addTr() {
+                //这里写的都不错
+                const rows = document.createElement("tr");
+                const tdI = document.createElement("td");
+                const tdII = document.createElement("td");
+                const tdIII = document.createElement("td");
+
                 this.rowS = rows;
-                this.cell1 = cell1_1;
-                this.cell2 = cell1_2;
-                this.cell3 = cell1_3;
-                this.cell1.style.border = "1px solid black";
-                this.cell2.style.border = "1px solid black";
-                this.cell3.style.border = "1px solid black";
-                this.cell1.style.textAlign = "center";
-                this.cell2.style.textAlign = "center";
-                this.cell3.style.textAlign = "center";
-                this.cell1.innerHTML = "请输入名称";
-                this.cell2.innerHTML = "请输入价格";
-                this.cell3.innerHTML = "请输入数量";
-                rows.appendChild(cell1_1);
-                rows.appendChild(cell1_2);
-                rows.appendChild(cell1_3);
-                outTbody.appendChild(rows);
-                outTbody.insertBefore(rows,addNew);
+                this.cell1 = tdI;
+                this.cell2 = tdII;
+                this.cell3 = tdIII;
+
+                this.cell1.className = "cellFir";
+                this.cell2.className = "cellSec";
+                this.cell3.className = "cellThr";
+
+                rows.appendChild(tdI);
+                rows.appendChild(tdII);
+                rows.appendChild(tdIII);
+
+                outTbody.insertBefore(rows, addNew);
+                onContextMenu();
+                controlTd();
             }
-            delTr(tr){
+
+            delTr(rows) {
                 let con = window.confirm("确认要删除么");
-                if (con === true){
-                    this.rowS.parentNode.removeChild(tr);
+                if (con === true) {
+                    rows.parentNode.remove();
                 }
             }
-        }
-        let test = new funcClass();
-        addNew.onclick = function () {
-            test.addTr();
-            let that = this;
-            test.rowS.oncontextmenu = function (ev){
 
-                console.log(this === test.rowS,that === addNew);
-                ev.preventDefault();
-                test.delTr(this);
+            show() {
+                this.addTr();
+                this.cell1.innerText = arguments[0][0];
+                this.cell2.innerText = arguments[0][1];
+                this.cell3.innerText = arguments[0][2];
             }
         }
 
+        //工具类写静态的也行
+        let test = new funcClass();
+
+        //正确
+        addNew.onclick = function () {
+            test.addTr();
+            test.cell1.innerText = "请输入名称";
+            test.cell2.innerText = "请输入价格";
+            test.cell3.innerText = "请输入数量";
+        }
+        let onContextMenu = function () {
+            //这里你的实现原理是：
+            //添加一个row的时候就把所有行的事件全部重写一遍，这么写不错，就是慢了点
+            //如果想改进的话可以把新创建的tr当成参数传过来
+            //之后直接注册传过来的那个tr就行了
+            //因为其他的已经存在的tr本身事件已经注册好了，不用重复注册了
+            test.rowS.oncontextmenu = function (ev) {
+                test.delTr(ev.target);
+                ev.preventDefault();
+            }
+        }
+        let controlTd = function () {
+            //这个跟上面的同理
+            //逻辑部分非常好
+            test.rowS.childNodes.forEach(td => {
+                td.ondblclick = function () {
+                    td.contentEditable = "true";
+                }
+                td.onkeydown = function (ev) {
+                    if (ev.key === "Enter") {
+                        ev.preventDefault();
+                        td.contentEditable = "false";
+                    }
+                }
+                td.onblur = function () {
+                    td.contentEditable = "false";
+                }
+            })
+        }
+        let idol = ["野兽前辈", 24, 114];
+        test.show(idol);
+        //homo特有的无意义且报错的调用
+        let P = new Model("P丸sama", 514, 1);
+        test.show(P);
 
     })
 </script>
