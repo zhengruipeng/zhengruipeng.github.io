@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        svg {
+            box-shadow: 0 0 15px #000;
+        }
+    </style>
+</head>
+<body>
+<svg width="1366" height="768" id="svg">
+</svg>
+<script type="module">
+    import {Invoker} from "./Invoker.js"
+    import {RectCommand} from "./RectCommand.js"
+    import {TriangleCommand} from "./TriangleCommand.js"
+    import {EllipseCommand} from "./EllipseCommand.js"
+    import {Console} from "./libs/Console.js"
+    import {Mapper} from "./libs/Mapper.js"
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        const con = new Console();
+        con.renderAsConsoleInline();
+
+        const svg = this.querySelector("svg");
+
+        let invoker = new Invoker(svg);
+        invoker.invoke(new RectCommand(svg, 100, 100, 100, 100));
+        invoker.invoke(new EllipseCommand(svg, 100, 100, 50, 60));
+        invoker.invoke(new TriangleCommand(svg, [50, 50], [100, 100], [0, 100]));
+        invoker.invoke(new TriangleCommand(svg, new DOMPoint(200, 200), new DOMPoint(250, 300), new DOMPoint(200, 300)));
+
+        let commandMapper = new Mapper();
+        commandMapper.map("rect", function (ev) {
+            let command = ev.customData[0];
+            if (command.length < 5) {
+                con.error("the params of rect command are invalid");
+                return false;
+            }
+            let [x, y, width, height] = command.slice(1);
+            invoker.invoke(new RectCommand(svg, x, y, width, height));
+        });
+        commandMapper.map("ellipse", function (ev) {
+            let command = ev.customData[0];
+            if (command.length < 5) {
+                con.error("the params of ellipse command are invalid");
+                return false;
+            }
+            let [cx, cy, rx, ry] = command.slice(1);
+            invoker.invoke(new EllipseCommand(svg, cx, cy, rx, ry));
+        });
+        commandMapper.map("triangle", function (ev) {
+            let command = ev.customData[0];
+            if (command.length < 7) {
+                con.error("the params of triangle command are invalid");
+                return false;
+            }
+
+            let [p1x, p1y, p2x, p2y, p3x, p3y] = command.slice(1);
+
+            invoker.invoke(new TriangleCommand(svg, [p1x, p1y], [p2x, p2y], [p3x, p3y]));
+        });
+
+        while (true) {
+            let command = await con.inputs();
+            commandMapper.target = command[0];
+            commandMapper.call(command);
+
+            if (command[0] === "exit") break;
+
+            con.output("OK")
+        }
+    });
+</script>
+</body>
+</html>

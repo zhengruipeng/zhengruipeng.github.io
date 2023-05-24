@@ -56,7 +56,7 @@ class Mapper extends Object {
         return this;
     }
 
-    default(callback): Mapper {
+    public default(callback): Mapper {
         if (!this.#map.get(this.#symbolDefault)) {
             this.#map.set(this.#symbolDefault, [callback]);
         } else {

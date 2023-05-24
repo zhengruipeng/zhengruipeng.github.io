@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .css:after {
+            content: " and CSS can visit"
+        }
+    </style>
+</head>
+<body>
+<p class="css js">this is an element</p>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const p = this.getElementsByClassName("js")[0];
+
+        p.innerHTML += " which JS "
+    });
+</script>
+</body>
+</html>
