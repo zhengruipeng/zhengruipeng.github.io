@@ -10,52 +10,22 @@
 <body>
 
 <script type="module">
-    import {Mapper, MapperObserveKey} from "./packages/Mapper.js";
-
     document.addEventListener("DOMContentLoaded", async function () {
-        let obj = {a: 123, b: {c: 3}};
+        let a, b;
+        a = b = 0;
+        for (let i = 0; i < 1e8; i++) {
+            let rand = Math.random();
+            if (rand < 0.5) {
+                // document.body.innerHTML += "回去<br />"
+                a++;
+            } else if (rand >= 0.5) {
+                // document.body.innerHTML += "不回去<br />"
+                b++
 
+            }
+        }
+        document.body.innerHTML += "回去" + (a / 1e8) + "不回去" + (b / 1e8);
 
-        let ok = new MapperObserveKey();
-        ok.addKey("b");
-        ok.addKey("c");
-
-
-        let mapper = new Mapper(obj, {observeKey: ok});
-        // mapper.target = obj;
-        // mapper.options.observeKey = ok;
-
-        let callback = function (ev) {
-            console.log(ev);
-            // console.log(ev.key)
-
-        };
-
-        mapper.map(1, callback);
-        mapper.map(2, callback);
-        mapper.map(3, callback);
-
-        mapper.call();
-
-        // let observer = new ConstantObserver(obj);
-        obj.b.c = 1;
-        mapper.call();
-        obj.b.c = 2;
-        mapper.call();
-
-
-        let mapper2 = new Mapper("123");
-        mapper2.map("123", callback);
-        mapper2.map("321", callback);
-        mapper2.map("222", callback);
-
-        mapper2.call();
-
-        mapper2.target = "321";
-        mapper2.call();
-
-        mapper2.target = "222";
-        mapper2.call();
     });
 </script>
 </body>
