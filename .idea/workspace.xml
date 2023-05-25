@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230524 2">
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/contenteditable.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/data-.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/dir.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/draggable.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/enterkeyhint.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/待测试.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230525" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -739,14 +730,7 @@
       <workItem from="1684930353199" duration="215000" />
       <workItem from="1684930577246" duration="3467000" />
       <workItem from="1684987748388" duration="1128000" />
-      <workItem from="1684990438441" duration="4155000" />
-    </task>
-    <task id="LOCAL-00052" summary="2022062656">
-      <created>1656601092158</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1656601092158</updated>
+      <workItem from="1684990438441" duration="4959000" />
     </task>
     <task id="LOCAL-00053" summary="20220701">
       <created>1656670861214</created>
@@ -1084,7 +1068,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684932529173</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="20230525">
+      <created>1684996865891</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1684996865891</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1151,7 +1142,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20221202" />
     <MESSAGE value="20221208" />
     <MESSAGE value="20221216" />
     <MESSAGE value="20221225" />
@@ -1176,7 +1166,8 @@
     <MESSAGE value="20230523" />
     <MESSAGE value="20230524" />
     <MESSAGE value="20230524 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230524 2" />
+    <MESSAGE value="20230525" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230525" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">
