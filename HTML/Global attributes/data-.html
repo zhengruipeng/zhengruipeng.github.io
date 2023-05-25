@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<p data-a="全局属性" data-b-eng="global attribute" data-c-attr-jap="グローバルアトリビュート">
+
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", function () {
+            const p = this.querySelector('p');
+
+            console.log(p.dataset);
+            console.log(p.dataset.a);
+            console.log(p.dataset.bEng);
+            console.log(p.dataset.cAttrJap);
+        });
+    </script>
+</body>
+</html>

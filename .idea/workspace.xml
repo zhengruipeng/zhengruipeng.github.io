@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230524">
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/autofocus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/class.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/Command.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/EllipseCommand.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/Invoker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/RectCommand.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/TriangleCommand.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/libs/Console.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/libs/Mapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/10Command/test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230524 2">
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/contenteditable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/data-.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/dir.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/draggable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/enterkeyhint.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/待测试.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/百度云盘.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/百度云盘.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Mapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Mapper.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +29,8 @@
         <option value="CSS File" />
         <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="TypeScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -74,7 +66,11 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../../../../php/bin" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="28dDivJAoD7UcS3fqB50bcSnuX4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -95,7 +91,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "19.4.0",
     "javascript.nodejs.core.library.typings.version": "18.15.11",
-    "last_opened_file_path": "D:/nodeJS/bin/node.exe",
+    "last_opened_file_path": "D:/php/bin/php.exe",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -104,7 +100,7 @@
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
     "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
+    "settings.editor.selected.configurable": "fileTemplates",
     "ts.external.directory.path": "D:\\apps\\apps\\PhpStorm\\ch-0\\231.9011.38\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
@@ -741,14 +737,9 @@
       <workItem from="1684885546666" duration="6374000" />
       <workItem from="1684896251662" duration="4421000" />
       <workItem from="1684930353199" duration="215000" />
-      <workItem from="1684930577246" duration="1616000" />
-    </task>
-    <task id="LOCAL-00051" summary="202206265">
-      <created>1656601067700</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1656601067700</updated>
+      <workItem from="1684930577246" duration="3467000" />
+      <workItem from="1684987748388" duration="1128000" />
+      <workItem from="1684990438441" duration="4155000" />
     </task>
     <task id="LOCAL-00052" summary="2022062656">
       <created>1656601092158</created>
@@ -1086,7 +1077,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684931688216</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="20230524 2">
+      <created>1684932529173</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1684932529173</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1153,7 +1151,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="202212016" />
     <MESSAGE value="20221202" />
     <MESSAGE value="20221208" />
     <MESSAGE value="20221216" />
@@ -1178,7 +1175,8 @@
     <MESSAGE value="20230516" />
     <MESSAGE value="20230523" />
     <MESSAGE value="20230524" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230524" />
+    <MESSAGE value="20230524 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230524 2" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">
