@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      form{
+        height:60vh;
+        display: grid;
+        grid-template-rows: 3fr 1fr;
+        grid-template-columns: repeat(5,1fr);
+        grid-row-gap: 20%;
+        grid-column-gap: 10%;
+        align-items: center;
+        justify-items: center;
+      }
+      #input{
+        height:2rem;
+        width:80%;
+        padding-left:20px;
+        border-radius: 1rem;
+        grid-row: 1/span 1;
+        grid-column: 2/span 3;
+      }
+      #reset{
+        grid-row: 2/span 1;
+        grid-column: 2/span 1;
+        height:50%;
+        width:50%;
+      }
+      #submit{
+        grid-row: 2/span 1;
+        grid-column: 3/span 1;
+        height:50%;
+        width:50%;
+      }
+      #excBtn{
+        grid-row: 2/span 1;
+        grid-column: 4/span 1;
+        height:50%;
+        width:50%;
+      }
+    </style>
+</head>
+<body>
+<form>
+  <input type="text" id="input" />
+  <input type="reset" id="reset" />
+  <input type="submit" id="submit" />
+  <input type="button" id="excBtn" value="手动报错" />
+</form>
+<script type="text/javascript">
+  document.getElementById("excBtn").onclick = function (){
+    throw new Error("错");
+  }
+</script>
+<script type="text/javascript">
+  window.onload = function (){//初始加载
+    console.log("页面初始加载事件");
+  };
+  window.onunload = function (){
+    console.log("你永远看不到我，因为当你看到我的一瞬间，页面已经关闭了");
+  };
+  document.getElementById("input").onfocus = function (){
+    console.log("文本框被集中焦点了");
+  };
+  document.getElementById("input").onblur = function (){
+    console.log("文本框失去焦点了");
+  };
+  document.getElementById("input").onchange = function (){
+    console.log("文本框内容被改了");
+  };
+  document.getElementById("input").oninput = function (){
+    console.log("文本框内容有新输入");
+  };
+  document.forms[0].onsubmit = function (ev){
+    ev.preventDefault();
+    console.log("提交");
+  };
+  document.forms[0].onreset = function (){
+    console.log("重置表单");
+  };
+  document.getElementById("input").onmousedown = function (){
+    console.log("在input上摁下了鼠标");
+  };
+  document.getElementById("input").onmouseup = function (){
+    console.log("在input上抬起了鼠标");
+  };
+  document.getElementById("input").onmouseover = function (){
+    console.log("鼠标划入了input");
+  };
+  document.getElementById("input").onmouseout = function (){
+    console.log("鼠标划出了input");
+  };
+  document.getElementById("input").onmousemove = function (){
+    console.log("在input上移动了鼠标");
+  };
+  document.getElementById("input").onclick = function (){
+    console.log("在input上点击了鼠标");
+  };
+  document.getElementById("input").ondblclick = function (){
+    console.log("在input上双击了鼠标");
+  };
+  window.onkeydown = function (){
+    console.log("点击了键盘");
+  };
+  window.onkeyup = function (){
+    console.log("抬起了键盘");
+  };
+  window.onresize = function (){
+    console.log("改变了大小");
+  };
+  window.onerror = function (){
+    console.log("发生了错误");
+  };
+</script>
+</body>
+</html>

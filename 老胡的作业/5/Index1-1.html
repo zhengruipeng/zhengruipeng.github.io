@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #outDiv{
+            margin-left: 100px;
+            width: 65em;
+            display: flex;
+            justify-content: space-between;
+        }
+        span{
+            width: 10em;
+            height: 10em;
+            border: 1px solid black;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div id="outDiv">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const span = document.getElementsByTagName("span");
+        let spanFrom = Array.from(span);
+        window.onmousemove = function (ev){
+            let mouseX = ev.x;
+            let mouseY = ev.y;
+            spanFrom.forEach(ele => {
+                let elePos = ele.getBoundingClientRect();
+                let eleCX = (elePos.right + elePos.left) / 2;
+                let eleCY = (elePos.bottom + elePos.top) / 2;
+                let distance = Math.sqrt(Math.pow(mouseX - eleCX, 2) + Math.pow(mouseY - eleCY, 2));
+                let tran = ((1 / -1000) * distance) + 1.3;
+                if (tran >= 1){
+                    ele.style.transform = `scale(${tran})`;
+                }else if (tran < 1){
+                    ele.style.transform = `scale(1)`;
+                }
+            })
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../packages/JSONParser.css"/>
+    <style>
+        ::backdrop {
+            backdrop-filter: blur(10px);
+            /*background: red;*/
+        }
+
+        :popover-open {
+            box-shadow: 0 0 20px #000;
+        }
+
+        #mypopover1{
+
+        }
+    </style>
+</head>
+<body>
+<button popovertarget="mypopover1" popovertargetaction="toggle">Toggle the popover</button>
+<div id="mypopover1" popover>Popover content1</div>
+<div id="mypopover2" popover>Popover content2</div>
+<div id="mypopover3" popover>Popover content3</div>
+
+<script type="module">
+    import {JSONParser} from "../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let button = this.querySelector("button");
+
+
+        let obj = {
+            popovertargetaction: ["show", "toggle", "hidden"],
+            popovertargets: ["mypopover1",
+                "mypopover2",
+                "mypopover3"],
+        };
+
+        let jsonParser = new JSONParser(obj);
+        let table = jsonParser.initTable();
+        this.body.appendChild(table);
+        jsonParser.onJsonChange = function () {
+            button.popoverTargetAction = this.toJSON().popovertargetaction;
+            button.popoverTargetElement = document.getElementById(this.toJSON().popovertargets);
+        };
+    });
+</script>
+</body>
+</html>

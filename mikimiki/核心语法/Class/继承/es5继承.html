@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", async function () {
+        let A = function () {
+            console.log("this is A");
+            this.a = 1;
+        };
+        A.prototype.b = 2
+
+        let B = function () {
+            if (this === globalThis) {
+                throw new TypeError("Class constructor B cannot be invoked without 'new'");
+            }
+
+            let superClass = Object.getPrototypeOf(B);
+            superClass.call(this, arguments);
+
+            this.c = 3;
+
+            console.log("this is B");
+        };
+
+        Object.setPrototypeOf(B, A);
+        Object.setPrototypeOf(B.prototype, A.prototype);
+
+        B.prototype.d = 4;
+        B.prototype.a = 5;
+        B.prototype.b = 6;
+
+        console.log(B);
+        let b = new B;
+        console.log(b.a, b.b, b.c, b.d)
+
+    });
+</script>
+</body>
+</html>

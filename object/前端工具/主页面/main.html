@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="<%=basePath %>" />
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/memorandum-page.css" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/information-page.css" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/table-style.css" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/vote-page.css" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/module-button.css" />
+	<link rel="stylesheet" type="text/css" href="./public/notification/notification-style.css" />
+</head>
+<body>
+<!--    <header>
+<nav id="student-table-nav">操作学生表</nav>
+	<nav id="manager-nav">批量管理</nav>
+	<nav id="income-nav">添加账单</nav>-->
+	<!-- <nav id="expend-nav">添加支出</nav>
+	<nav id="credit-nav">贷款</nav>
+	<nav id="debt-nav">客户欠款</nav>
+    <nav id="course-table-nav">选择课程
+        <ul>
+            <li>选择新课程</li>
+            <li>已选课成绩</li>
+        </ul>
+    </nav>
+</header> -->
+<main>
+    <div class="arrow" id="to-pre-page">></div>
+    <div class="arrow" id="to-next-page">></div>
+    <section class="page main-cur-page">
+        <div id="memorandum-page-container" class="container">
+            <h1>您好<span></span></h1>
+            <p>全部模块如下：</p>
+            <ul>
+                <li>金融模块</li>
+                <li>雇佣工模块</li>
+                <li>材料模块</li>
+                <li>油品模块</li>
+                <li>用户模块</li>
+                <li>反馈模块</li>
+            </ul>
+        </div>
+    </section>
+    <section class="page main-next-page">
+        <div id="vote-page-container" class="container">
+            <h1>全部模块</h1>
+			 <div class="module-button" id="finance-module">进入到金融页面</div>
+			 <div class="module-button" id="employee-module">进入到雇佣工页面</div>
+			 <div class="module-button" id="material-module">进入到材料页面</div>
+			 <div class="module-button" id="product-module">进入到油品页面</div>
+			 <div class="module-button" id="user-module">进入到用户页面</div>
+			 <div class="module-button" id="upload-module">进入到上传页面</div>
+        </div>
+    </section>
+    <section class="page main-next-page">
+        <div id="information-page-container" class="container">
+            <div id="picture-info">
+                <img src="./images/head.jpg"  alt=""/>
+                <div>
+                    <a id="change-personal-info-add" href="#">修改个人信息</a> |
+                    <a href="javascript:
+                        sessionStorage.setItem('username',undefined);
+                        location = './login.html'">退出登录</a>
+                </div>
+            </div>
+            <dl>
+                <dt>用户名</dt>
+                <dd>admin</dd>
+                <dt>职务</dt>
+                <dd>none</dd>
+                <!--<dt>生日</dt>
+                <dd>1950</dd>-->
+            </dl>
+
+        </div>
+    </section>
+
+	<section class="page main-next-page">
+        <div id="information-page-container" class="container">
+        </div>
+    </section>
+</main>
+<aside>
+
+</aside>
+<footer>
+
+</footer>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function(){
+        sessionStorage.setItem("username","admin");
+    })
+</script>
+<script type="module" src="modules/UI.js"></script>
+<script type="module" src="modules/nav-event.js"></script>
+<script type="module" src="modules/bg-flowers.js"></script>
+
+<script type="text/javascript">	
+    document.addEventListener("DOMContentLoaded",function(){
+    })
+</script>
+</body>
+</html>

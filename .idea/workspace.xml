@@ -4,7 +4,453 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230525" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230525 3">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/exportparts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/hidden.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/id.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/inert.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/inputmode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/is.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/itemprop,itemtype,itemref,itemscope,itemid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/lang.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/nonce.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/nonce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/part.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/popover.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/slot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/spellcheck.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/style.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/tabindex.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/title.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService/Peer2peerService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService/TwoPeers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/WSConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/message/MessageOutput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/message/SendMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/message/model/MessagePackage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/message/model/MessageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/nonce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/DOM/Popover API/01HTML,CSS接口.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/客户端/DOM/Popover API/02js方法及事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/核心语法/Class/继承/es5继承.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/.idea/前端工具.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/images/flowers/flower1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/images/flowers/flower2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/images/flowers/flower3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/images/flowers/flower4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/images/flowers/flower5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/images/head.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/libs/LocationMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/bg-flowers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/change-personal-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/checkup-grade.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/get-student-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/get-vote-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/grade-title-map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/helloWorld.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/keyword-title-map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/nav-event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/occupation-limit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/modules/pages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/public/checkLoginTimeout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/public/config-main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/public/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/public/indexedDB-curd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/public/notification/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/public/notification/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/stylesheets/information-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/stylesheets/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/stylesheets/memorandum-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/stylesheets/module-button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/stylesheets/table-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/主页面/stylesheets/vote-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/Identifying-code/Identifying-code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/Identifying-code/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/demo2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/control/get-info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/control/test.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/control/update-table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/css/aside-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/css/indexeddb-panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/css/lay-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/css/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/css/table-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/control/UI-and-network-processing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/control/fetch-remote-get-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/control/table-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/model/Student.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/monolog/dataUpdateMonolog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/monolog/dataUpdateMonologKeyMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/monolog/dataUpdateMonologWriter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/vendor/fetch2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/aside-UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/aside-logo-button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/editing-table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/file-import.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/lay-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/output-info-into-panel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/show-time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/table-resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/javascript/view/update-monolog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/form/view/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form-static/set-info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/demo2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/control/get-info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/control/test.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/control/update-table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/model/MysqlOperation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/model/SQLEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/public/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/public/favicon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/css/aside-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/css/indexeddb-panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/css/lay-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/css/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/css/table-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/control/UI-and-network-processing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/control/fetch-remote-get-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/control/table-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/model/Student.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/monolog/dataUpdateMonolog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/monolog/dataUpdateMonologKeyMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/monolog/dataUpdateMonologWriter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/vendor/fetch2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/aside-UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/aside-logo-button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/editing-table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/file-import.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/lay-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/output-info-into-panel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/show-time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/table-resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/javascript/view/update-monolog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/form/view/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/format-form/set-info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/gradient-form/demo1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/gradient-form/demo2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/gradient-form/form-UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/gradient-form/form-shadow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/gradient-form/form-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/gradient-form/form2-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/functions/ss1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/images/20220616_204001.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/modules/form-event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/modules/id-code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/modules/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/public/checkLoginTimeout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/public/config-main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/public/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/public/indexedDB-curd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/public/notification/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/public/notification/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/登录/stylesheets/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/花瓣特效/images/flowers/flower1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/花瓣特效/images/flowers/flower2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/花瓣特效/images/flowers/flower3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/花瓣特效/images/flowers/flower4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/花瓣特效/images/flowers/flower5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/花瓣特效/images/head.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/花瓣特效/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/花瓣特效/modules/bg-flowers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/libs/LocationMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/modules/editing-table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/modules/show-time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/modules/table-delete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/modules/table-modify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/modules/table-resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/modules/ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/commen-error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/commen-success.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/libs/LocationMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/modules/editing-table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/modules/show-time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/modules/table-delete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/modules/table-modify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/modules/table-resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/modules/ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/notification/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/notification/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/public/commen-error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/public/commen-success.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/public/notification/notification-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/public/notification/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/stylesheets/aside-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/stylesheets/information-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/stylesheets/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/stylesheets/memorandum-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/stylesheets/table-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/public/stylesheets/vote-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/stylesheets/aside-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/stylesheets/information-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/stylesheets/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/stylesheets/memorandum-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/stylesheets/table-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/前端工具/通用表格/stylesheets/vote-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/D盘.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/E盘.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/F盘.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/OS.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/google drive.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/Toast-useCase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/Toast.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/Toast.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/.idea/所有课程.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/.idea/配套代码.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/0.有趣的效果/环境反射.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/1.将JS引入网页/1、内部嵌入法 .html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/1.将JS引入网页/2、外部文件引入法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/1.将JS引入网页/helloWorld.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/10.函数Function/关于函数中的this指向.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/10.函数Function/定义简单函数.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/11.类/es5和es6的类的区别.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/11.类/es5的类.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/11.类/es6的类.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/12.案例：helloJS.html/document对象的一部分属性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/12.案例：helloJS.html/helloWorld.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/12.案例：helloJS.html/全部获取元素的方法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/12.案例：helloJS.html/动态生成连接.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/12.案例：helloJS.html/改变颜色.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/12.案例：helloJS.html/获取元素getElementById.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/13.弹窗示例/parseFloat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/13.弹窗示例/比较两个数字大小.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/14.Node详解/属性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/14.Node详解/文字节点.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/14.Node详解/文档碎片.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/15.CSS脚本化详解/访问修改内联样式.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/16事件/DOM0和DOM2事件注册方法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/16事件/HTML事件处理程序.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/16事件/冒泡.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/16事件/常见事件演示.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/17.动态生成表格/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/17.动态生成表格/更改奇数行颜色.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/18.猜数游戏/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/19.三个数中最大的数/封装函数写法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/2.JavaScript变量/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/20.点击色块，改变颜色/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/21.延时执行/clearInterval.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/21.延时执行/clearTimeout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/21.延时执行/requestAnimationFrame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/21.延时执行/setInterval.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/21.延时执行/setTimeout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/22.Animation API/animation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/23.Fetch API/fetch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/23.Fetch API/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/24.CanvasRendingContext2D API/CanvasRendingContext2D.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/25.Shadow DOM/shadow DOM.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/26.Storage API/Storage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/27.Worker/1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/27.Worker/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/28.Audio API/audioNode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/29.广告/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/3.typeof/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/30.随机抽号小程序/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/4.JavaScript语句/for...in,for...of实例.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/4.JavaScript语句/for.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/4.JavaScript语句/if.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/4.JavaScript语句/switch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/5.原生对象类型Object/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/6.数组对象Array/数组长度.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/6.数组对象Array/方法属性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/7.正则表达式/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/8.map/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/大二下web前端课/第五章配套代码/9.set/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/common-plugins/ConstantObserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/common-plugins/Network.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/common-plugins/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/common-plugins/notice/Notice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/common-plugins/notice/notice-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/common-plugins/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/document/后端网络接口文档.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/document/架构文档.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/document/用的设计模式.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/document/类图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/document/软件设计模式实践课大作业模板.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/css/game-container.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/css/slide-bar-shadow-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/css/slide-bar-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/action1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/action1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/action2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/action2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/action3.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/action3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/emotion1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/emotion2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/emotion3.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/emotion4.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/logo1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/logo2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/images/logo3.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/game-cat-action.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/game-cat-animation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/game-cat-emotion-status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/game-cat-emotion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/game-cat-score.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/game-cat-status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/game-cat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/slide-bar-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/slide-event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/slide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/index/js/slider-event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/resources/ITCKRIST.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/resources/dialog.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/resources/emotion2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/设计模式/project/逗猫游戏/resources/shaonvW5.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/软件工程小学期.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/TwoPeers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/WSConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/MessageOutput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/SendMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/model/MessagePackage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/model/MessageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/modelFrontEnd/CallingState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/modelFrontEnd/MessagePackage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/modelFrontEnd/MessageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/modelFrontEnd/ObserverCallBackType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/callpage-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/indexeddb-panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/friend-list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/message-box.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/message-page-header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/message-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/whole-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/主页面/主页面设计图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/front-end-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/image/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/image/logo2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/model/CallingState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/model/MessagePackage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/model/MessageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/model/ObserverCallBackType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/AppGlobal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/ConstantObserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/WSConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/call-operation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/output-info-into-panel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/创建通道.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/Object-prototype-toString2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/call-timer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/callpage-UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/aside-controller-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/friend-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/message/module/friend-join.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/p2p-calling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/5/Index1-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/js/call/module/call-operation.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/js/call/module/call-operation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/函数绘制工具.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/函数绘制工具.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/canOpenDir.php" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/canOpenDir.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/星井美希1T.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/星井美希1T.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/百度云盘.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/百度云盘.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/逗猫游戏/index/js/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/逗猫游戏/index/js/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/逗猫游戏/index/js/slide-bar-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/逗猫游戏/index/js/slide-bar-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/逗猫游戏/index/js/slide.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/逗猫游戏/index/js/slide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Console.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Console.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/JSONParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/JSONParser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordpress/test/wp-includes/js/dist/api-fetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/wordpress/test/wp-includes/js/dist/api-fetch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/04Builder/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/04Builder/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtil.php" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/DBUtil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtil.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/DBUtil.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtilModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/DBUtilModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/LoginForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/LoginForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/UserDao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserDao.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/UserDao.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/UserModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/notification-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/notification-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/pathMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/pathMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/use-case.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple2/use-case.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/LoginForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/public/LoginForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/notification-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/public/notification-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/public/notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/public/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/public/use-case.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/public/use-case.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/DBUtil.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/routes/DBUtil.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/DBUtilModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/routes/DBUtilModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/UserDao.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/routes/UserDao.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/routes/UserModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/pathMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/routes/pathMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/views/error.jade" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/views/error.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/views/index.jade" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/views/index.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/views/layout.jade" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple3/views/layout.jade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/DBUtil.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/DBUtil.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/DBUtilModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/DBUtilModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/UserDao.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/UserDao.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/UserModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/pathMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/pathMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/LoginForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/public/LoginForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/notification-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/public/notification-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/public/notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/use-case.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/05SingleResponsibilityPrinciple4/public/use-case.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/Adapter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/06Adapter/Adapter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/BinarySearch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/06Adapter/BinarySearch.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/DataOperation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/06Adapter/DataOperation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/QuickSort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/06Adapter/QuickSort.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/06Adapter/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/06Adapter/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/09Adapter/libs/Console.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/06Adapter/libs/Console.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/Command.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/EllipseCommand.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/EllipseCommand.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/Invoker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/Invoker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/RectCommand.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/RectCommand.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/TriangleCommand.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/TriangleCommand.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/libs/Console.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/libs/Console.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/libs/Mapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/libs/Mapper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/设计模式/10Command/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/设计模式/07Command/test.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,10 +463,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTTP Request" />
-        <option value="CSS File" />
         <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -56,7 +502,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/../../../../../php/bin" />
@@ -81,8 +526,8 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "19.4.0",
-    "javascript.nodejs.core.library.typings.version": "18.15.11",
-    "last_opened_file_path": "D:/php/bin/php.exe",
+    "javascript.nodejs.core.library.typings.version": "20.2.6",
+    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/所有课程/软件工程小学期",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -91,7 +536,7 @@
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
     "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "fileTemplates",
+    "settings.editor.selected.configurable": "configurable.group.build",
     "ts.external.directory.path": "D:\\apps\\apps\\PhpStorm\\ch-0\\231.9011.38\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
@@ -107,60 +552,46 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\10Command\libs" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\10Command" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\js\call\module" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\25RTCIceTransport" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\Global attributes" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\expressTest\views" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\4" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\DOM" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\3" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\2" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\1" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\08SingleResponsibilityPrinciple" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\设计模式\07SingleResponsibilityPrinciple\public" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.main.js">
-    <configuration name="UserDao.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/UserDao.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple">
+  <component name="RunManager" selected="Node.js.Peer2peerService.js (2)">
+    <configuration name="Peer2peerService.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService">
       <method v="2" />
     </configuration>
-    <configuration name="main.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$PROJECT_DIR$/../../../../../nodeJS/bin/node" nameIsGenerated="true" path-to-js-file="main.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/expressTest">
+    <configuration name="Peer2peerService.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService">
       <method v="2" />
     </configuration>
-    <configuration name="pathMap.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/pathMap.js" working-dir="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple">
+    <configuration name="Peer2peerService.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService">
+      <method v="2" />
+    </configuration>
+    <configuration name="front-end-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/front-end-server.js" working-dir="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd">
+      <method v="2" />
+    </configuration>
+    <configuration name="nonce.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/nonce.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport">
       <method v="2" />
     </configuration>
     <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
       <method v="2" />
     </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/所有课程/设计模式/expressTest/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/所有课程/设计模式/ts/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="test" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.main.js" />
-        <item itemvalue="Node.js.pathMap.js" />
-        <item itemvalue="Node.js.UserDao.js" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.test" />
+        <item itemvalue="Node.js.Peer2peerService.js (2)" />
+        <item itemvalue="Node.js.front-end-server.js" />
+        <item itemvalue="Node.js.nonce.js (1)" />
+        <item itemvalue="Node.js.Peer2peerService.js (1)" />
+        <item itemvalue="Node.js.Peer2peerService.js" />
       </list>
     </recent_temporary>
   </component>
@@ -730,14 +1161,49 @@
       <workItem from="1684930353199" duration="215000" />
       <workItem from="1684930577246" duration="3467000" />
       <workItem from="1684987748388" duration="1128000" />
-      <workItem from="1684990438441" duration="4959000" />
-    </task>
-    <task id="LOCAL-00053" summary="20220701">
-      <created>1656670861214</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1656670861215</updated>
+      <workItem from="1684990438441" duration="5745000" />
+      <workItem from="1685016415698" duration="453000" />
+      <workItem from="1685070389953" duration="2285000" />
+      <workItem from="1685081586447" duration="626000" />
+      <workItem from="1685101924192" duration="2310000" />
+      <workItem from="1685185390739" duration="1481000" />
+      <workItem from="1685268157903" duration="8349000" />
+      <workItem from="1685329851082" duration="8522000" />
+      <workItem from="1685351572705" duration="1663000" />
+      <workItem from="1685407878530" duration="226000" />
+      <workItem from="1685408152272" duration="1857000" />
+      <workItem from="1685418543080" duration="1317000" />
+      <workItem from="1685424097317" duration="5144000" />
+      <workItem from="1685439549763" duration="1183000" />
+      <workItem from="1685446641776" duration="9279000" />
+      <workItem from="1685490745520" duration="2204000" />
+      <workItem from="1685493007874" duration="1731000" />
+      <workItem from="1685519908854" duration="320000" />
+      <workItem from="1685527470960" duration="2481000" />
+      <workItem from="1685537443360" duration="3436000" />
+      <workItem from="1685573834775" duration="1246000" />
+      <workItem from="1685615603617" duration="362000" />
+      <workItem from="1685623303842" duration="2189000" />
+      <workItem from="1685774913027" duration="5081000" />
+      <workItem from="1685879840132" duration="268000" />
+      <workItem from="1685954542844" duration="7051000" />
+      <workItem from="1686009186888" duration="2101000" />
+      <workItem from="1686357758784" duration="5136000" />
+      <workItem from="1686377585880" duration="2536000" />
+      <workItem from="1686451479872" duration="501000" />
+      <workItem from="1686472911577" duration="2423000" />
+      <workItem from="1686562174233" duration="607000" />
+      <workItem from="1686622283159" duration="2822000" />
+      <workItem from="1686827088873" duration="9000" />
+      <workItem from="1686829646896" duration="66000" />
+      <workItem from="1686829777278" duration="971000" />
+      <workItem from="1686912768982" duration="2640000" />
+      <workItem from="1687083204802" duration="7000" />
+      <workItem from="1687165209367" duration="3950000" />
+      <workItem from="1687231768328" duration="9441000" />
+      <workItem from="1687316220785" duration="8495000" />
+      <workItem from="1687662010438" duration="1988000" />
+      <workItem from="1687759678983" duration="4917000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>
@@ -1075,57 +1541,45 @@
       <option name="project" value="LOCAL" />
       <updated>1684996865891</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="20230525 2">
+      <created>1684998352033</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1684998352034</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/react2/src/09状态.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/DataOperation.js" />
-        <option value="$PROJECT_DIR$/react2/src/09状态.jsx" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/10Command/RectCommand.js" />
-        <option value="$PROJECT_DIR$/react2/src/06函数组件.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtil.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/10Command/EllipseCommand.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/10Command/Command.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/10Command/TriangleCommand.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/DBUtilModel.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/13父子关系父组件.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/07SingleResponsibilityPrinciple/routes/pathMap.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserDao.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/config.js" />
-        <option value="$PROJECT_DIR$/react2/src/07类组件.js" />
-        <option value="$PROJECT_DIR$/react2/src/03多条件渲染.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/10Command/Invoker.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/main.js" />
-        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
         <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.js" />
-        <option value="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/04ExtendableCookieChangeEvent/service-worker.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/UserModel.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.jsx" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/LoginForm.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/QuickSort.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/06SingleResponsibilityPrinciple/pathMap.js" />
-        <option value="$PROJECT_DIR$/packages/Mapper.js" />
-        <option value="$PROJECT_DIR$/react2/src/13-5父子关系子组件.js" />
-        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.jsx" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/BinarySearch.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/09状态.jsx" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/13-5父子关系子组件.js" />
-        <option value="$PROJECT_DIR$/react2/src/05用className脚本化CSS.js" />
-        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.jsx" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/08SingleResponsibilityPrinciple/public/LoginForm.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/09Adapter/Adapter.js" />
-        <option value="$PROJECT_DIR$/react2/src/04脚本化inlineCSS.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.jsx" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/routes/ejs.js" />
         <option value="$PROJECT_DIR$/react2/src/02条件渲染.js" />
         <option value="$PROJECT_DIR$/react2/src/13父子关系父组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/07类组件.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/09状态.jsx" />
+        <option value="$PROJECT_DIR$/react2/src/05用className脚本化CSS.js" />
+        <option value="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/04ExtendableCookieChangeEvent/service-worker.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/13-5父子关系子组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/04脚本化inlineCSS.js" />
+        <option value="$PROJECT_DIR$/react2/src/09状态.jsx" />
+        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.jsx" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.jsx" />
+        <option value="$PROJECT_DIR$/react2/src/06函数组件.js" />
+        <option value="$PROJECT_DIR$/packages/Mapper.js" />
+        <option value="$PROJECT_DIR$/react2/src/03多条件渲染.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.jsx" />
         <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/10Command/libs/Mapper.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/10Command/test.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/13父子关系父组件.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/main.js" />
+        <option value="$PROJECT_DIR$/react2/src/09状态.js" />
+        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
+        <option value="$PROJECT_DIR$/react2/src/13-5父子关系子组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.jsx" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/routes/ejs.js" />
+        <option value="$PROJECT_DIR$/packages/Toast.js" />
       </list>
     </option>
   </component>
@@ -1142,7 +1596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20221208" />
     <MESSAGE value="20221216" />
     <MESSAGE value="20221225" />
     <MESSAGE value="20221228" />
@@ -1167,7 +1620,8 @@
     <MESSAGE value="20230524" />
     <MESSAGE value="20230524 2" />
     <MESSAGE value="20230525" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230525" />
+    <MESSAGE value="20230525 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230525 2" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="div1">dd1</div>
+<div id="div2">dd2</div>
+<div id="div3">dd3</div>
+<div id="div4">dd4</div>
+<div id="div5">dd5</div>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function () {
+    var obj1 = document.getElementById("div5");   //获取到id为div5的元素
+    console.log(obj1.innerHTML);   //弹出警告框，显示对象的innerHTML属性值（开始标签和结束标签之间的字符）
+  });
+</script>
+
+</body>
+</html>

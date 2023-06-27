@@ -1,0 +1,52 @@
+@charset "UTF-8";
+.module-button{
+            --first-color:rgba(255, 172, 17, .7);
+            --second-color:rgba(139, 185, 45, .7);
+            --third-color:#3369D699;
+            --fourth-color:rgba(247, 167, 153, .4);
+			--fifth-color:#725BC855;
+			--sixth-color:#FFFF0099;
+			
+            color:white;
+            font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif 微软雅黑;
+            font-size: 1.4em;
+            font-weight: lighter;
+
+            margin:1em;
+            padding:2em;
+            max-width:25vw;
+
+            border-radius: 25px;
+
+            float:left;
+
+            cursor: pointer;
+            
+            opacity:0;
+            transition:.3s;
+            transform:scale(1,1);
+        }
+        .module-button:nth-of-type(1){
+            background-color: var(--first-color);
+        }
+        .module-button:nth-of-type(2){
+            background-color: var(--second-color);
+        }
+        .module-button:nth-of-type(3){
+            background-color: var(--third-color);
+        }
+        .module-button:nth-of-type(4){
+            background-color: var(--fourth-color);
+        }
+        .module-button:nth-of-type(5){
+            background-color: var(--fifth-color);
+        }
+        .module-button:nth-of-type(6){
+            background-color: var(--sixth-color);
+        }
+        .module-button::selection{
+            user-select: none;
+        }
+        .module-button:hover{
+        	transform:scale(1.1,1.1);
+        }

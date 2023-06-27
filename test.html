@@ -10,22 +10,11 @@
 <body>
 
 <script type="module">
+    import {JSONParser} from "./packages/JSONParser.js";
+
     document.addEventListener("DOMContentLoaded", async function () {
-        let a, b;
-        a = b = 0;
-        for (let i = 0; i < 1e8; i++) {
-            let rand = Math.random();
-            if (rand < 0.5) {
-                // document.body.innerHTML += "回去<br />"
-                a++;
-            } else if (rand >= 0.5) {
-                // document.body.innerHTML += "不回去<br />"
-                b++
-
-            }
-        }
-        document.body.innerHTML += "回去" + (a / 1e8) + "不回去" + (b / 1e8);
-
+        let json = new JSONParser({a: 1, b: 3});
+        json.defaultInit();
     });
 </script>
 </body>

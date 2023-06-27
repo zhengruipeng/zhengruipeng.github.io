@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css"
+          href="./stylesheets/main.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="./stylesheets/memorandum-page.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="./stylesheets/information-page.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="./stylesheets/table-style.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="./stylesheets/vote-page.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="./stylesheets/aside-style.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="./public/notification/notification-style.css"/>
+    <meta charset="UTF-8"/>
+    <style>
+    </style>
+    <title></title>
+
+</head>
+<body>
+<main>
+    <table id="finance-data-table" style="opacity:1;">
+        <caption>员工管理一览</caption>
+        <colgroup>
+			<col></col>
+			<col></col>
+			<col></col>
+			<col></col>
+			<col></col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>字段1</th>
+            <th>字段2</th>
+            <th>字段3</th>
+            <th>操作</th>
+            <th>选中</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="em_id">字段1</td>
+            <td class="em_name">字段2</td>
+            <td class="em_sex">字段3</td>
+            <td class="modify-button">修改本行</td>
+            <td><span class="select-justify" onclick="this.classList.toggle('select-justify-ensure');"></span></td>
+        </tr>
+
+        </tbody>
+    </table>
+</main>
+<button id="aside-logo" class="aside-logo-open">>></button>
+
+<aside>
+    <div id="aside-container">
+        <ul class="menu">
+            <li class="menu-item">当前时间: <span id="datetime-display"></span></li>
+            <li class="menu-item" id="select-all">反选</li>
+            <li class="menu-item" id="delete-all">批量删除所有选中</li>
+            <li class="menu-item"><a href="./employee/employee_index">回到主页面</a></li>
+        </ul>
+        <ul class="information-form information-form-close">
+        </ul>
+    </div>
+    <div id="aside-display" class="aside-display-close"></div>
+</aside>
+
+
+<script type="module" src="./modules/show-time.js"></script>
+<script type="module" src="./modules/ui.js"></script>
+<script type="module" src="./modules/table-resize.js"></script>
+<script type="module" src="./modules/table-modify.js"></script>
+<script type="module" src="./modules/editing-table.js"></script>
+<script type="module" src="./modules/table-delete.js"></script>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+
+    })
+</script>
+</body>
+</html>

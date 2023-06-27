@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function (){    //初始加载
+        let arr = [1,2,3,4,5,6,7,8,9,0];
+      console.log(arr.length);    //10
+      arr.copyWithin(0,3,6);
+      console.log("把从第三位开始一直到第六位的所有元素全部复制到0开始的元素中，复制完之后的值是"+arr.join());
+      console.log("重置数组");
+      arr = [1,2,3,4,5,6,7,8,9,0];
+      arr.push(-1);
+      console.log("向数组尾部压入-1，压完了之后的数组是"+arr.join());
+      arr.unshift(-2);
+      console.log("向数组首部压入-2，压完了之后的数组是"+arr.join());
+      arr.pop();
+      console.log("删除数组尾部元素，删完后是"+arr.join());
+
+      arr.shift()
+      console.log("删除数组首部元素，删完后是"+arr.join());
+
+      arr.sort();
+      console.log("数组排列后是"+arr.join());
+
+      arr.sort(function (lv,//上一个元素
+                         rv,//当前元素
+                         i, //当前元素索引值
+                         arr//当前数组
+      ){
+        if(lv<rv){
+          return 1;    //如果上一位比当前位小，就放到后面
+        }else if(lv === rv){
+          return 0;     //如果相等就不变
+        }else{
+          return -1;    //如果上一位大，就放到前面
+        }
+      });
+      console.log("数组逆向排列后是"+arr.join());
+
+      console.log("元素5的索引值是"+arr.indexOf(5));
+      console.log("由于数组中没有元素11，所以查找元素11的索引时返回："+arr.indexOf(11));
+
+      console.log("现在数组里面有什么？");
+      let res = "";
+      arr.forEach(function (v,i,a){
+        res += v+"  ";
+      });
+      console.log("有"+res);
+
+      console.log("把所有元素乘2");
+      arr = arr.map(function (v,i,a){
+        return v*2;
+      });   //注意map不改变数组本身，他返回一个由参数的函数返回值的数组
+      console.log(arr);
+    }
+</script>
+</body>
+</html>

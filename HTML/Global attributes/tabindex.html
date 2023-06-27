@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div[tabindex]:after {
+            content: " with tabindex :" attr(tabindex);
+
+        }
+    </style>
+</head>
+<body>
+<p>Click anywhere in this pane, then try tabbing through the elements.</p>
+
+<label>First in tab order:<input type="text"></label>
+
+<div tabindex="0">Tabbable due to tabindex.</div>
+<div tabindex="3">Tabbable due to tabindex.</div>
+<div tabindex="0">Tabbable due to tabindex.</div>
+<div tabindex="1">Tabbable due to tabindex.</div>
+
+<div tabindex="2">Tabbable due to tabindex.</div>
+<div tabindex="1">Tabbable due to tabindex.</div>
+
+<div>Not tabbable: no tabindex.</div>
+
+<label>Third in tab order:<input type="text"></label>
+<label>Third in tab order:<input type="text" tabindex="2"></label>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+    });
+</script>
+</body>
+</html>

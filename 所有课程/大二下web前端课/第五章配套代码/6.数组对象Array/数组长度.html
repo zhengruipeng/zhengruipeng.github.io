@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  let arr = [1,2,,3];
+  arr.length = 3;
+  console.log(arr);        //[1,2,<empty slot>]
+  arr.length = 5;
+  console.log(arr);       //[1,2,<empty slot>,<empty slot>,<empty slot>]
+</script>
+</body>
+</html>

@@ -204,9 +204,27 @@ let Console = class extends Object {
                 } else if (ev.key === "ArrowUp") {
                     if (historyPointer >= that.#inputHistory.length) return false;
                     this.innerText = that.#inputHistory[that.#inputHistory.length - (++historyPointer)];
+
+                    const range = document.createRange();
+                    const selection = window.getSelection();
+
+                    range.selectNodeContents(that.#editingInput);
+                    range.collapse(false);
+
+                    selection.removeAllRanges();
+                    selection.addRange(range);
                 } else if (ev.key === "ArrowDown") {
                     if (historyPointer <= 1) return false;
                     this.innerText = that.#inputHistory[that.#inputHistory.length - (--historyPointer)];
+
+                    const range = document.createRange();
+                    const selection = window.getSelection();
+
+                    range.selectNodeContents(this);
+                    range.collapse(false);
+
+                    selection.removeAllRanges();
+                    selection.addRange(range);
                 }
             });
 

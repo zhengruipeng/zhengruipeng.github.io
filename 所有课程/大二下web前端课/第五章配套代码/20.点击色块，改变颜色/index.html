@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .color-block{
+            float:left;
+            margin:20px;
+            border:#000 solid 1px;
+            height:100px;
+            width:100px;
+        }
+        </style>
+</head>
+<body>
+<div class="color-block" style="background-color:red"></div>
+<div class="color-block" style="background-color:yellow"></div>
+<div class="color-block" style="background-color:skyblue"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let colorBlocks = document.getElementsByTagName("div");
+        for(let i = 0;i<colorBlocks.length;i++){
+            colorBlocks[i].onclick = function (){
+                document.body.style.backgroundColor = this.style.backgroundColor;
+            }
+        }
+    })
+    </script>
+</body>
+</html>

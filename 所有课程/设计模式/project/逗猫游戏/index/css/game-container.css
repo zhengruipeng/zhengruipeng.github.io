@@ -1,0 +1,127 @@
+/*猫咪在地面时候的来回晃动的动画*/
+@keyframes shake {
+    from {
+        --transform1: rotate(-15deg);
+    }
+    to {
+        --transform1: rotate(15deg);
+    }
+}
+
+/*猫咪来回走动时转身的动画*/
+@keyframes turnBack {
+    from {
+        --transform2: matrix(1, 0, 0, 1, 0, 0);
+    }
+    to {
+        --transform2: matrix(-1, 0, 0, 1, 0, 0);
+    }
+}
+
+/*走路动画*/
+@keyframes walk {
+    from {
+        --transform3: translateX(0px);
+        box-shadow: 0 0 0 #5F0000;
+    }
+    to {
+        --transform3: translateX(20vw);
+        box-shadow: 0 0 20px #5F0000;
+
+    }
+}
+
+/*被拎起来时的弹性球动画*/
+@keyframes bouncy {
+    from {
+        --transform4: scale(0.9, 1.2) translateY(-20px);
+    }
+    40% {
+        --transform4: scale(1.2, 0.8) translateY(20px);
+    }
+    70% {
+        --transform4: scale(1, 1.1) translateY(-10px);
+    }
+    90% {
+        --transform4: scale(1.1, 0.9) translateY(10px);
+    }
+    to {
+        --transform4: scale(1, 1) translateY(0);
+    }
+}
+
+#game-container {
+    --dialog-height: 20vw;
+    --dialog-width: 20vw;
+    --cat-height: 30vw;
+    --cat-width: 30vw;
+    --cat-transition: .2s;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background-image: url("../images/background.png");
+    background-size: 100vw 100vh;
+}
+
+#game-container > #game-cat-main {
+    /*    --cat-left: 0;
+        --cat-top: 0;*/
+
+    height: var(--cat-height);
+    width: var(--cat-width);
+
+    position: fixed;
+    top: var(--cat-top);
+    left: var(--cat-left);
+
+    cursor: pointer;
+
+    transition: var(--cat-transition);
+    transition-property: top;
+
+}
+
+#game-container > #game-cat-main > img {
+    height: 100%;
+    width: 100%;
+}
+
+#game-container #game-cat-emotion {
+    --dialog-top: 0;
+    --dialog-left: 0;
+
+    height: calc(var(--cat-height) / 2);
+    width: calc(var(--cat-width) / 2);
+
+    position: fixed;
+    top: calc(40% - var(--cat-height) / 2);
+    right: calc(40% - var(--cat-width) / 2);
+    /*    clip-path:ellipse(
+                calc(var(--cat-width) / 4)
+                calc(var(--cat-height) / 4) at
+                calc(var(--cat-width) / 4)
+                calc(var(--cat-height) / 4));*/
+    border-radius: 50%;
+    opacity: 0;
+    transition: var(--cat-transition);
+}
+
+#game-container #game-cat-emotion.open {
+    opacity: 1;
+}
+
+#game-score-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+
+    font-size: 2em;
+    font-family: "shaonv", serif;
+    font-weight: 900;
+
+    color: yellow;
+}

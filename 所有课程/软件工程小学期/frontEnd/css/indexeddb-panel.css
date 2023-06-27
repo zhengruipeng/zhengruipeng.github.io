@@ -1,0 +1,58 @@
+#indexeddb-panel {
+    background-color: #333;
+    color: rgb(100, 255, 100);
+    font-family: "Source Code Pro";
+    line-height: 1.2em;
+    position: fixed;
+    height: 40vh;
+    width: 35vw;
+    top: -35vh;
+    right: 0;
+    transition: .3s;
+    white-space: pre-wrap;
+    z-index: 3;
+    overflow-y: scroll;
+    overflow-x: paged-x-controls;
+}
+
+#indexeddb-panel::-webkit-scrollbar {
+    background-color: red;
+    width: 10px;
+    height: 10px;
+}
+
+#indexeddb-panel::-webkit-scrollbar-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #aaa7;
+}
+
+#indexeddb-panel::-webkit-scrollbar-track {
+    background-color: #333;
+    width: 10px;
+    height: 10px;
+}
+
+#indexeddb-panel:hover {
+    top: 0;
+}
+
+#indexeddb-panel.stay {
+    top: 0 !important;
+}
+
+#indexeddb-panel.fullscreen {
+    top: 0 !important;
+    right: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+}
+#indexeddb-panel.dark {
+    /*background: #333 !important;*/
+    filter: invert(0) !important;
+}
+#indexeddb-panel.light {
+    /*background-color: #eee !important;*/
+    filter: invert(1) !important;
+}

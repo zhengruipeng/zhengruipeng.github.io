@@ -1,0 +1,112 @@
+body{
+    padding:0;
+    margin:0;
+    --header-height:0em;
+    --transition-duration:.3s;
+    --main-color: rgba(75,58,126,1);
+    --max-header-height:16em;
+    --item-padding:2em;
+    --border-color:#725BC8;
+    overflow-y: hidden;
+}
+header{
+    height:var(--header-height);
+    width:100vw;
+    background-color:#4B3A7E;
+    display: flex;
+    flex-direction: row-reverse;
+    transition:.3s;
+}
+header:hover{
+    /*height:var(--max-header-height);*/
+    /*height: calc(attr(data-max-item-number) * 4em);*/
+}
+header>nav{
+    color:white;
+    text-align: center;
+    line-height:var(--header-height);
+    cursor: pointer;
+    transition:var(--transition-duration);
+    overflow: hidden;
+    padding:0 var(--item-padding);
+}
+header>nav:hover{
+    background-color:#725BC8;
+}
+header>nav>ul{
+    margin:0;
+    padding: 0 var(--item-padding) 0 0;
+    list-style-type: none;
+    transition: var(--transition-duration);
+    display: block;
+    height:100%;
+    width:100%;
+
+}
+header>nav>ul>li{
+    width:100%;
+}
+header>nav>ul>li:hover{
+    background-color:#725BC8;
+}
+
+main{
+    height:calc(100vh - var(--header-height));
+    /*border:red solid 4px;*/
+    width:100vw;
+    overflow: hidden;
+    transition:var(--transition-duration);
+    display: grid;
+}
+#to-next-page{
+    position:fixed;
+    transition: var(--transition-duration);
+    top:90%;
+    left:calc(50%);
+    font-size:4em;
+    color:rgba(200,200,200,.3);
+    transform: rotateZ(90deg) scale(1,3);
+    cursor:pointer;
+    z-index:1;
+    user-select: none;
+
+}
+#to-next-page:hover{
+    text-shadow: 0 0 10px var(--main-color);
+}
+#to-pre-page{
+    position:fixed;
+    transition: var(--transition-duration);
+    top:10%;
+    left:calc(50% - 0.58em);
+    font-size:4em;
+    color:rgba(200,200,200,.3);
+    transform: rotateZ(-90deg) scale(1,3);
+    cursor:pointer;
+    z-index: 1;
+    user-select: none;
+
+}
+#to-pre-page:hover{
+    text-shadow: 0 0 10px var(--main-color);
+}
+
+.page{
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    position:relative;
+    transition: var(--transition-duration);
+    /*text-align: center;*/
+}
+.main-pre-page{
+    top:-100%;
+
+}
+.main-cur-page{
+    top:0%;
+}
+.main-next-page{
+    top:100%;
+}
+
+

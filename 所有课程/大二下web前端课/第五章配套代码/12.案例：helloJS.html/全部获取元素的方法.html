@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="id" class="class-name" name="name" ></div>
+<script type="text/javascript">
+    window.onload = function (){//初始加载
+        let div;
+        div = document.getElementById("id");
+        div = document.getElementsByClassName("class-name")[0];
+        div = document.getElementsByTagName("div")[0];
+        div = document.getElementsByName("name")[0];
+        div = document.querySelector("div");
+        div = document.querySelector(".class-name");
+        div = document.querySelector("#id");
+        div = document.querySelector("div[name=name]");
+        div = document.querySelector("div")[0];
+        div = document.querySelector(".class-name")[0];
+        div = document.querySelector("#id")[0];
+        div = document.querySelector("div[name=name]")[0];
+    }
+</script>
+</body>
+</html>

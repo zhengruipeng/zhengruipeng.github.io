@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="button">开始</button>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const button = this.querySelector("button");
+        button.onclick = function () {
+            let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+            let oscillatorNode = audioCtx.createOscillator();
+            console.log(oscillatorNode);
+            oscillatorNode.type = 'sine';
+            oscillatorNode.frequency.setValueAtTime(500, audioCtx.currentTime);
+
+            let gainNode = audioCtx.createGain();
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+
+            oscillatorNode.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillatorNode.start();
+        }
+
+    })
+</script>
+</body>
+</html>

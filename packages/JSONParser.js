@@ -99,7 +99,7 @@ let JSONParseTimeController = class extends JSONParseCustomController {
 };
 
 //描述JSONChange事件的Event对象
-let JSONParserEvent = class extends Object {
+let JSONParserEvent = class extends Event {
     key;        //更改的键
     value;      //更改的值
     json;       //更改的对象
@@ -108,7 +108,7 @@ let JSONParserEvent = class extends Object {
 
     //构造函数为基本赋值操作
     constructor({key, value, json, jsonParser}) {
-        super();
+        super("jsonchange");
         this.key = key;
         this.value = value;
         this.json = json;
@@ -158,6 +158,15 @@ let defaultInputEvent = function (ev, that) {
         key: this.name,
         jsonParser: that
     }));
+
+    let event = new JSONParserEvent({
+        json: that.json,
+        value: temp,
+        key: this.name,
+        jsonParser: that
+    });
+
+    that.dispatchEvent(event);
 };
 
 //核心解析类
@@ -377,6 +386,7 @@ let JSONParser = class extends EventTarget {
         return container;
     };
 
+
     toJSON() {
 
         const that = this;
@@ -439,6 +449,7 @@ let JSONParser = class extends EventTarget {
         document.head.appendChild(linkEle);
     };
 
+
     //手动触发jsonChange事件
     jsonChange(ev) {
         this.onJsonChange(ev || new JSONParserEvent({json: this.json, jsonParse: this}));
@@ -446,6 +457,43 @@ let JSONParser = class extends EventTarget {
 
     //用于处理冒泡时存储用户设置的JsonChange事件处理函数时使用，占位
     [Symbol.for("customJsonChangeEvent")]() {
+    }
+
+    setDefaultStyle() {
+        let cssText = `
+            table{
+                border-collapse: collapse;
+            }
+            td{
+                border: #639 solid 3px;
+                padding:.5em 1em;
+            }
+            
+            body>section>table>thead>tr>th{
+                border: #639 solid 3px;
+            }
+            
+            td:nth-child(2)>input,
+            td:nth-child(2)>select{
+                padding:0 .5em;
+                min-width:100px;
+            }
+            
+            `;
+
+        let stylesheet = new CSSStyleSheet();
+
+        stylesheet.replaceSync(cssText);
+        document.adoptedStyleSheets = [stylesheet];
+    }
+
+    render(container = document.body) {
+        container.appendChild(this.initTable());
+    };
+
+    defaultInit() {
+        this.setDefaultStyle();
+        this.render();
     }
 };
 

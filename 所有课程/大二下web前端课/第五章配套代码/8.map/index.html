@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function (){
+    let map = new Map([
+            ["key1","value1"],
+      [Symbol("key2"),Symbol("value2")]
+    ]);
+    map.set(1,"123");
+    map.set(WebGLQuery,HTMLElement);
+    console.log(map.get(1)); //"123"
+    console.log(map.has(1)); //true
+
+  }
+</script>
+</body>
+</html>

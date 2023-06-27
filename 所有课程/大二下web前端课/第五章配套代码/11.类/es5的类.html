@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function () {//初始加载
+        let Con = function () {
+            this.property1 = 123;
+            this.func = function () {
+                console.log(`im func`);
+            }
+        };
+
+        Con.prototype = new Object();
+        Con.prototype.constructor = Con;
+        Con.prototype.proF = function () {
+            console.log(`im func in prototype`);
+        };
+        Con.staticP = "static property";
+        console.log(new Con());
+        console.log(Con.staticP);
+    }
+</script>
+</body>
+</html>

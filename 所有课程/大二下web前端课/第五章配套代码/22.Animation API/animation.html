@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="border-radius: 20px;"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        const div = this.querySelector("div");
+        let keyFrameEffect = new KeyframeEffect(div,[
+            {width:0,borderTop:"red solid 10px"},
+            {width:"1520px",borderTop:"blue solid 10px"},
+        ],{
+            duration:2000,
+            fill:"forwards",
+            composite:"accumulate",       //帧与帧过度方式
+            iterationComposite:"accumulate",
+            easing:"ease-in",
+        });
+
+        let timeline = new DocumentTimeline({originTime:0});
+        let animation = new Animation(keyFrameEffect,timeline);
+        animation.currentTime = 0;
+        animation.playbackRate = 2;
+
+        window.onclick = function (){
+            animation.play()
+        }
+    });
+</script>
+</body>
+</html>

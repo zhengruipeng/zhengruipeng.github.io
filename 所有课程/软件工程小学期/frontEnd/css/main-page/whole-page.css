@@ -1,0 +1,71 @@
+@font-face{
+    font-family: "default";
+    src: local("sans-serif"),
+           local("微软雅黑");
+}
+*{
+    /*border:#000 solid 1px;*/
+    font-family: "default", serif;
+    --app-height:100vh;
+    --app-width:100vw;
+    --transition-duration: .3s;
+    --main-color:#639;
+    --main-color-alpha1:#6393;
+    --main-color-alpha2:#6396;
+    --main-color-alpha3:#6399;
+    --main-color-alpha4:#639b;
+    --message-page-max-height:calc(0.66 * var(--app-height));
+    --font-color1:#fff;
+    --font-color2:var(--main-color);
+    --font-color3:#000;
+
+}
+html,body{
+    padding:0;
+    margin:0;
+}
+ul{
+    list-style:none;
+}
+#container{
+    transition: var(--transition-duration);
+
+    max-width:100vw;
+    max-height:100vh;
+
+    display: grid;
+    grid:
+        "friend message"    2fr
+        "friend textarea"   1fr/
+        1fr       3fr;
+
+    overflow: hidden;
+}
+aside{
+    grid-area:friend;
+}
+main{
+    grid-area:message;
+}
+#messagebox-container{
+    grid-area:textarea;
+}
+#aside-controller{
+    position:fixed;
+    /*top:calc(50% - 1em);*/
+    bottom:0;
+    left:25%;
+
+    color: var(--font-color1);
+    background-color:var(--main-color-alpha3);
+    padding:10px 20px;
+    border:none;
+
+    z-index: 1;
+    cursor: pointer;
+    transition: var(--transition-duration);
+}
+#aside-controller:hover {
+    background-color:var(--main-color);
+
+}

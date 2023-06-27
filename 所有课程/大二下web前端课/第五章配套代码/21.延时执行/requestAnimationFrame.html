@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="top:0;left:0;"></div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const div = this.querySelector("div");
+        let counter = 0;
+        let lTime = 0;
+        let renderer = function (nTime) {        //执行函数的时间
+            counter++;
+            if (nTime - lTime >= 1000) {
+                div.innerHTML = "屏幕刷新速度为：" + counter + "fps";
+                counter = 0;
+                lTime = parseInt(nTime / 1000) * 1000;
+            }
+            requestAnimationFrame(renderer);
+        }
+        renderer(lTime);
+    })
+</script>
+</body>
+</html>

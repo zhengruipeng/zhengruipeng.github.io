@@ -3,7 +3,7 @@ import {CompactMode} from "./CompactMode.js";
 import {ListMode} from "./ListMode.js";
 
 let config = {
-    mode: CompactMode,
+    mode: CompleteMode,
 };
 
 export {config}

@@ -1,0 +1,10 @@
+::backdrop {
+}
+
+:popover-open {
+    border-radius: 7px;
+    border: #222 solid 2px;
+    width: 20vw;
+    transform: translate(0, 30vh);
+    text-align: center;
+}

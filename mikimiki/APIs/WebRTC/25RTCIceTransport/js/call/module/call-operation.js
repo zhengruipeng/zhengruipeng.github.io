@@ -1,4 +1,4 @@
-import {WSConnection} from "../../../../WebSocket服务器/WSConnection.js"
+import {WSConnection} from "../../../WSConnection.js"
 import {MessageType} from "../model/MessageType.js";
 import {MessagePackage} from "../model/MessagePackage.js";
 import {ConstantObserver} from "./ConstantObserver.js";

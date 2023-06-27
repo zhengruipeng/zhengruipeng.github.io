@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function () {
+        localStorage.setItem("key1","value1");
+        localStorage.setItem("key2","value2");
+        console.log(localStorage.getItem("key1"));
+        localStorage.removeItem("key1");
+        console.log(localStorage.getItem("key1"));
+        localStorage.clear();
+        console.log(localStorage.getItem("key2"));
+    });
+</script>
+</body>
+</html>

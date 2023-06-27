@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function () {
+    let worker = new Worker("./1.js");
+    worker.postMessage("Im main thread");
+    worker.onmessage = function (ev){
+      console.log(ev.data)
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function (){        //初始加载
+        let regexp1 = /123/;
+        let str1 = "1112333";
+        console.log(`用${regexp1.toString()}匹配${str1}，匹配结果是：${regexp1.test(str1)}`);
+
+        let regexp2 = /1{2}23/;
+        let str2 = "123";
+        console.log(`用${regexp2.toString()}匹配${str2}，匹配结果是：${regexp2.test(str2)}，因为1后面量词是{2}需要两个1才能匹配`);
+
+        let regexp3 = /[0-9]{2}23/;     //[0-9]的意思是谓词包括从0到9所有数字
+        let str3 = "09123";
+        console.log(`用${regexp3.toString()}匹配${str3}，匹配结果是：${regexp3.test(str3)}，匹配了9123四个字符`);
+
+        let regexp4 = /\w{2,3}23/;     //\w的意思是[0-9a-zA-Z]也就是所有子母和数字
+        let str4 = "09123";
+        console.log(`用${regexp4.toString()}匹配${str4}，匹配结果是：${regexp4.test(str4)}，匹配了09123五3个字符，
+        因为正则表达式默认贪婪匹配模式，所以会从末尾匹配，尽可能按照量词匹配最长的字符串`);
+
+        let regexp5 = /(\w{8,12})@(.*)/;     //()的意思是把括号括起来的正则表达式匹配到的字符串分成一个小组，谓词.的意思是什么都匹配
+        let str5 = "HoshiMiki@yandex.ru";
+        console.log(`用${regexp5.toString()}匹配${str5}，匹配结果是：${regexp5.test(str5)}，得到两个分组，分别是${str5.match(regexp5).slice(1).join("和")}。
+        通过类似的功能就可以起到检测邮箱，并将其分割成账号和邮箱公司的功能`);
+        console.log("更多资料请参考JavaScript 权威指南第七版");
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<p is="word-count"></p>
+<p >123 </p>
+<p is="word-count"></p>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let counter = 3;
+
+        // Create a class for the element
+        class WordCount extends HTMLParagraphElement {
+            constructor() {
+                // Always call super first in constructor
+                super();
+
+                // Constructor contents omitted for brevity
+                // …
+                this.attachShadow({mode: "open"}).appendChild(document.createTextNode(++counter))
+            }
+        }
+
+// Define the new element
+        customElements.define("word-count", WordCount, {extends: "p"});
+
+    });
+</script>
+</body>
+</html>

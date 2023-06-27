@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  //注意一点，一下几种写法是等价的，全是全局变量的写法（不建议实用）：
+  var g  = 3;
+  console.log(g);
+
+  this.g = 4;
+  console.log(g);
+
+  window.g = 5;
+  console.log(g);
+
+  g = 6;
+  console.log(g);
+
+  window.onload = function (){    //初始加载
+    let foo = function (){
+      this.a = 123;
+    };
+    foo();
+    console.log(window.a);
+
+    let o = {
+      foo(){
+        this.a = 123;
+      }
+    };
+    o.foo();
+    console.log(o.a);
+
+    let Con = class {
+      constructor() {
+        this.a = 123;
+      }
+    }
+    let c = new Con();
+    console.log(c.a);
+
+
+  };
+</script>
+</body>
+</html>

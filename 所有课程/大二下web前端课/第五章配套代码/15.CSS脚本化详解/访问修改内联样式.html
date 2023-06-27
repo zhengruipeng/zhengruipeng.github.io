@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div style="position:fixed;top:0;left:10vw;height:10px;width: 100px;border: red solid 2px;"></div>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    let htmlDivElement = this.querySelector("div");
+    console.log(htmlDivElement.style);
+    htmlDivElement.style.height = "100px";
+    htmlDivElement.style.borderTop = "#000 solid 1px;";
+  })
+</script>
+
+</body>
+</html>

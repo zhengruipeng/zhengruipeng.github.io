@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let node1 = document.createCDATASection("CDATA");
+        let node2 = document.createTextNode("TextNode");
+        let node3 = document.createComment("Comment");
+        let node4 = document.createProcessingInstruction("target","data");
+        document.body.appendChild(node1);
+        document.body.appendChild(node2);
+        document.body.appendChild(node3);
+        document.body.appendChild(node4);
+    })
+</script>
+</body>
+</html>

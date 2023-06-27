@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let anyobj = {
+            a:1,
+            b:2
+        };
+        for(let name in anyobj){
+            console.log(anyobj[name]);
+        }
+        let iterableObj = [1,2,3];
+        for(let value of iterableObj){
+            console.log(value)
+        }
+    })
+</script>
+</body>
+</html>

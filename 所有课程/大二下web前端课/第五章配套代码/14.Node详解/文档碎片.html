@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function (){//初始加载
+    let fragment = document.createDocumentFragment();
+    for (let i = 0;i<10000;i++){
+      let ele = document.createElement("div");
+      fragment.appendChild(ele);
+    }
+    document.body.appendChild(fragment);
+
+  }
+</script>
+</body>
+</html>

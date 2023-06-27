@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "Kristen ITC";
+    src: url("../../resources/ITCKRIST.TTF");
+    font-weight: bold;
+    ascent-override: 80%;
+    descent-override: 15%;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: "shaonv";
+    src: url("../../resources/shaonvW5.ttc");
+    font-weight: bold;
+    /* ascent-override:80%;
+     descent-override:15%;*/
+    font-stretch: normal;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    --body-transition: .3s;
+    overflow: hidden;
+}
+

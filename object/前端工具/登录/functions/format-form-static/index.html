@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select{
+            border:#ccc solid 1px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: block;
+        }
+        input[type='submit']{
+            border:#ccc solid 1px;
+            border-radius: 20px;
+            overflow: hidden;
+            padding:15px 30px;
+            transition: .3s;
+            background-color: #fff;
+            margin:30px 15px;
+        }
+        select>option{
+            border-bottom: solid 1px #ccc;
+            padding:15px 30px;
+            transition: .3s;
+            /*background-color: #eee;*/
+        }
+        select>option:last-child{
+            border-bottom: solid 0px #ccc;
+        }
+        select>option:hover{
+            background-color: rgba(100,200,255,.3);
+            cursor: pointer;
+
+        }
+        input[type='submit']:hover{
+            background-color: rgba(100,200,255,.3);
+            cursor: pointer;
+
+        }
+        </style>
+</head>
+<body>
+<!--如果需要对于数据表的增删改查操作，则用get或者post请求跳转至form/view/form.jsp，
+参数需要两个，一个是table，值为想要操作的表的名字
+另一个是handlePage，值为处理增删改的jsp文件地址。
+-->
+<form action="form/view/form.jsp" method="get" enctype="application/x-www-form-urlencoded">
+    <select name="table" multiple>
+        <option value="student">student</option>
+        <option value="course">course</option>
+        <option value="exp_view">exp_view</option>
+        <option value="studentgrade">studentgrade</option>
+    </select>
+    <input type="hidden" name="handlePage" value="set-info.jsp" />
+    <input type="hidden" name="enablePlugins" value="aside-UI,file-import,update-monolog" />
+    <input type="hidden" name="insertPlugins" value="helloWorld.js" />
+
+    <input type="submit" />
+</form>
+</body>
+</html>

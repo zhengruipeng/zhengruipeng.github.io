@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+            text-align: center;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+<h1>登录</h1>
+<div id="container"></div>
+<script type="module">
+    //引入插件，注意路径的正确
+    import {Form2Init} from "./form2-init.js";
+    import {FormUI} from "./form-UI.js";
+    //初始加载
+    document.addEventListener("DOMContentLoaded",function (){
+        const container = this.querySelector("#container");
+        //FormInit构造函数接受两个参数，第一个参数是一个子元素的二元数组，
+        // 第二个参数是指定生成的表单空间应该被存放到哪里
+        // 第一个参数的二元数组中有四个元素，第一个是表单前面的显示文字，需要字符串形式
+        // 第二个参数是表单的控件，或者是任何想要输出在第二个页面的HTML元素，以字符串形式给出，
+        // 第三个和第四个参数表示元素的位置，由含有两个元素的数组表示，
+        // 第三个参数是[起始X,起始Y]，第四个参数是[终止X,终止Y]
+        let control1 = new Form2Init([
+            ["姓名",'<input type="text" />',[2,1],[5,2]],
+            ["性别",'<label>\n' +
+            '                男：<input type="radio"  />\n' +
+            '                女：<input type="radio"  />\n' +
+            '            </label>',[2,2],[5,3]],
+            ["年龄",'<input type="number" />',[2,3],[5,4]],
+            ["爱好",'<label>\n' +
+            '                跑步：<input type="checkbox"  />\n' +
+            '                音乐：<input type="checkbox"  />\n' +
+            '                写代码：<input type="checkbox"  />\n' +
+            '            </label>',[2,4],[5,5]],
+            ["提交",'<input type="submit" class="button" />',[2,5],[3,6]],
+            ["重置",'<input type="reset" class="button" />',[4,5],[5,6]],
+        ],container);
+        //返回对象的importStyleSheet方法用于动态引入CSS样式，
+        //initControls(width,height)是为了动态创建一个宽为width，高为height的栅格，
+        //runDefaultEffect()用于运行默认动画，
+        //全部写死就可以
+        control1
+            .importStyleSheet("./form-style.css")
+            .initControls(5,6,"./demo2.html","post",undefined,"main-form");
+        // .runDefaultEffect("./vendor/gradient-form/form-UI.js");
+        let formUI = new FormUI("main-form",container,true);
+        formUI.run();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+form{
+    --transition-duration:.3s;
+    display: grid;
+    grid-auto-rows: 5em;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+form label{
+    width:30vw;
+    text-align: center;
+}
+form input{
+    transition:var(--transition-duration);
+    /*border-bottom: red solid 0px;*/
+    border:#ccc solid 1px;
+    margin: 0 2em;
+}
+form fieldset{
+    border:#ccc solid 1px;
+    border-radius: 20px;
+    padding:1em 2em;
+}
+form label:after{
+    transition:var(--transition-duration);
+    border-bottom: pink solid 2px;
+    content:"  ";
+    display: block;
+    width:0%;
+    margin:auto;
+}
+form label:hover:after{
+    transition:var(--transition-duration);
+
+    content:" ";
+    display: block;
+    width:30vw;
+    border-bottom: pink solid 2px;
+}

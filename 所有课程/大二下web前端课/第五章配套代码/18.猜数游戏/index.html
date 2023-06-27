@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    let sum = 10;
+    let rand = Number.parseInt(Math.random()*9)+1;
+    for(let i = 0;i<sum;i++){
+      let input = parseInt(prompt("请输入你猜的数1-10之间的一个整数",""));
+      if(rand === input){
+        alert("恭喜你猜对了，结果是"+rand);
+        break;
+      }else if(rand > input){
+        alert("猜小了");
+      }else{
+        alert("猜大了");
+      }
+      if(i === sum-1){
+        alert("没机会了，结果是"+rand);
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  (function (){     //及时运行的匿名函数，这里先不讨论
+      if(true){
+          let a = 123;
+          var b = 123;
+      }
+      a;      //ReferenceError: a is not defined(a 没有定义)
+      console.log(b);      //123
+
+  })();
+  const a = 123;
+  a = 321;
+</script>
+</body>
+</html>

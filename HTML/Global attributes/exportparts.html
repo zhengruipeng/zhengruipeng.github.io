@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Shadow parts example</title>
+    <style>
+        #container::part(tab) {
+            color: #0c0c0dcc;
+            border-bottom: transparent solid 2px;
+            cursor: pointer;
+        }
+
+        #container::part(tab):hover {
+            background-color: #0c0c0d19;
+            border-color: #0c0c0d33;
+        }
+
+        #container::part(tab):hover:active {
+            background-color: #0c0c0d33;
+            transform: scale(1.2);
+        }
+
+        #container::part(tab):focus {
+            box-shadow: 0 0 0 1px #0a84ff inset,
+            0 0 0 1px #0a84ff,
+            0 0 0 4px rgba(10, 132, 255, 0.3);
+        }
+
+        #container::part(active) {
+            color: #0060df;
+            border-color: #0a84ff !important;
+        }
+    </style>
+</head>
+<body>
+<h1>Shadow part styling for tabbed custom element</h1>
+
+<template id="tabbed-custom-element">
+    <style>
+        *, ::before, ::after {
+            box-sizing: border-box;
+            padding: 1rem;
+        }
+
+        :host {
+            display: flex;
+        }
+    </style>
+    <div part="tab active">Tab 1</div>
+    <div part="tab">Tab 2</div>
+    <div part="tab">Tab 3</div>
+</template>
+
+<div id="container">
+    <!--shadow root:
+    <tabbed-custom-element exportparts="tab: tab, active: active"></tabbed-custom-element>
+    -->
+
+</div>
+
+
+</body>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        let container = document.getElementById("container");
+        const containerShadowRoot = container.attachShadow({mode: "open"});
+
+        let template = document.getElementById("tabbed-custom-element");
+
+        //tabbed-custom-element register
+        globalThis.customElements.define(template.id, class extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({mode: "open"});
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+                let tabs = [];
+                let children = this.shadowRoot.children;
+
+                for (let elem of children) {
+                    if (elem.getAttribute('part')) {
+                        tabs.push(elem);
+                    }
+                }
+
+                tabs.forEach((tab) => {
+                    tab.addEventListener('click', (e) => {
+                        tabs.forEach((tab) => {
+                            tab.part = 'tab';
+                        })
+                        e.target.part = 'tab active';
+                    })
+
+                    console.log(tab.part);
+                })
+            }
+        });
+
+        let tabbedCustomElementUseCase1 = document.createElement("tabbed-custom-element");
+        containerShadowRoot.appendChild(tabbedCustomElementUseCase1);
+        tabbedCustomElementUseCase1.setAttribute("exportparts", "tab: tab, active: active");
+    });
+</script>
+
+</html>

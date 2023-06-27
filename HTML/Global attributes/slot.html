@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<template>
+    <h1>
+        <slot name="title"></slot>
+    </h1>
+    <section>
+        <slot name="sec1"></slot>
+    </section>
+    <section>
+        <slot name="sec2"></slot>
+    </section>
+    <section>
+        <slot name="sec3"></slot>
+    </section>
+</template>
+
+<div id="article1">
+    <span slot="title">title1</span>
+    <span slot="sec1">sec11</span>
+    <span slot="sec2">sec12</span>
+    <span slot="sec3">sec13</span>
+</div>
+<div id="article2">
+    <span slot="title">title2</span>
+    <span slot="sec1">sec21</span>
+    <span slot="sec2">sec22</span>
+    <span slot="sec3">sec23</span>
+</div>
+<div id="article3">
+    <span slot="title">title3</span>
+    <span slot="sec1">sec31</span>
+    <span slot="sec2">sec32</span>
+    <span slot="sec3">sec33</span>
+</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const template = this.querySelector("template");
+        const articleTemp = template.content;
+
+        const article1 = this.getElementById("article1");
+        const article2 = this.getElementById("article2");
+        const article3 = this.getElementById("article3");
+
+        let shadowRoot1 = article1.attachShadow({mode:"open"});
+        let shadowRoot2 = article2.attachShadow({mode:"open"});
+        let shadowRoot3 = article3.attachShadow({mode:"open"});
+
+        shadowRoot1.appendChild(articleTemp.cloneNode(true));
+        shadowRoot2.appendChild(articleTemp.cloneNode(true));
+        shadowRoot3.appendChild(articleTemp.cloneNode(true));
+
+    });
+</script>
+</body>
+</html>

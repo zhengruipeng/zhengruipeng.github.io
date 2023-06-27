@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../packages/JSONParser.css" />
+    <style>
+
+    </style>
+</head>
+<body>
+<label>
+    入力：（此属性用于设置手机显示的虚拟键盘）
+    <input type="text"/>
+</label>
+<script type="module">
+    import {JSONParser} from "../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const input = this.querySelector("input");
+
+        let jsonParser = new JSONParser({
+            inputMode: ["text", "none", "decimal", "numeric", "tel", "search", "email", "url"]
+        });
+        this.body.appendChild(jsonParser.initTable());
+
+        jsonParser.addEventListener("jsonchange",function (ev){
+            input.inputMode = this.toJSON().inputMode;
+        });
+    });
+</script>
+</body>
+</html>

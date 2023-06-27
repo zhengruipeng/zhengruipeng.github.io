@@ -1,0 +1,13 @@
+nav{
+    width:100%;
+}
+nav>img{
+    width:100%;
+    border-radius: 20px;
+    opacity: 0.85;
+    cursor: pointer;
+    transition: var(--header-transition);
+}
+nav>img:hover{
+    opacity: 1;
+}

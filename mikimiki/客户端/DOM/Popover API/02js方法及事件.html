@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ::backdrop {
+            /*backdrop-filter: blur(10px);*/
+            /*background: red;*/
+        }
+
+        :popover-open {
+            box-shadow: 0 0 20px #000;
+        }
+    </style>
+</head>
+<body>
+<div id="mypopover1" popover>Popover content1</div>
+<div id="mypopover2" popover>Popover content2</div>
+<div id="mypopover3" popover>Popover content3</div>
+<script type="module">
+    import {Console} from "../../../../packages/Console.js";
+    import {Mapper} from "../../../../packages/Mapper.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        const target1 = this.getElementById("mypopover1");
+
+        const con = new Console();
+        con.renderAsConsoleInline();
+
+        const mapper = new Mapper();
+        mapper.map("show", function (ev) {
+            target1.showPopover();
+        });
+        mapper.map("toggle", function (ev) {
+            target1.togglePopover();
+        });
+        mapper.map("hide", function (ev) {
+            target1.hidePopover();
+        });
+
+        target1.onbeforetoggle = function () {
+            con.output("beforetoggle事件触发");
+        };
+
+        target1.ontoggle = function () {
+            con.output("toggle事件触发");
+        };
+
+        while (true) {
+            con.output(`输入：show,toggle,hide分别对应三种不同操作`)
+
+            mapper.target = await con.input();
+            mapper.call();
+
+            con.output("OK");
+        }
+
+
+
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+nonce用于标记一个值，当服务器将这个值放在http响应的请求头上时，
+页面只会执行拥有nonce且值跟服务器传过来的一样的script标签的内容，
+打开此页面需要提前打开nonce.js中的服务器，
+比如此服务器中响应请求的时候设置了：
+res.append("Content-Security-Policy", "script-src 'nonce-8IBTHwOdqNKAWeKl7plt8g=='");
+故script上需要设置nonce="8IBTHwOdqNKAWeKl7plt8g=="，之后方可执行代码
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("我是脚本1，如果你看见我了就说明nonce属性没起作用");
+    });
+</script>
+<script type="module" nonce="8IBTHwOdqNKAWeKl7plt8g==">
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("我是脚本2");
+        console.log("当前nonce为: " + document.scripts[1].nonce);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #div1{
+      border-radius: 50%;
+      height:100px;
+      width:100px;
+      border:blue 1px solid ;
+      position:absolute;
+      top:100px;
+      left: 100px;
+      display: grid;
+      justify-content: center;
+      align-content: center;
+    }
+
+  </style>
+</head>
+<body>
+<div id="div1">我是div</div>
+
+<script type="text/javascript">
+  window.onload = function (){//初始加载
+    let div = document.getElementsByTagName("div")[0];
+    div.addEventListener("click",function (){console.log(123)});
+    div.addEventListener("click",function (){console.log(321)});
+    div.onclick = function (){console.log(111);};
+    div.onclick = function (){console.log(222);};
+
+  }
+</script>
+</body>
+</html>

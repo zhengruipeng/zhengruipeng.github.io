@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #until-found-ele:after {
+            content: "the element will participate in page layout and the margin, borders, padding, and background for the element will be rendered.";
+            color: #aaa;
+
+        }
+    </style>
+</head>
+<body>
+<a href="#until-found-ele">navigate to until found element.</a>
+<p>This content should be read right now, as it is important. I am so glad you are able to find it!</p>
+
+<p hidden>This content is not relevant to this page right now, so should not be seen. Nothing to see here. Nada.</p>
+<p>This content should be read right now, as it is important. I am so glad you are able to find it!</p>
+<p>This content should be read right now, as it is important. I am so glad you are able to find it!</p>
+<p hidden="until-found" id="until-found-ele">This content is not relevant to this page right now, so should not be seen.
+    Nothing to see here.
+    Nada.</p>
+<p>如何看到处于until-found属性的元素呢？可以使用ctrl+f查找，查找hidden里面有的，他就会自动执行：<br/>
+<ol>
+    <li> 在那个元素上触发beforematch事件</li>
+    <li> 去除掉他的隐藏属性</li>
+    <li> 滚动到相应元素</li>
+</ol>
+</p>
+<section>
+    <p>如果一个元素的display属性被设置为none，inline,contents的话，则不会影响布局</p>
+    <p style="display: contents;outline: blue solid 2px;border: red solid 2px;" hidden="until-found"></p>
+    <p>上面有一个display=contents的元素</p>
+</section>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        const untilFound = document.querySelector("#until-found-ele");
+        untilFound.addEventListener(
+            "beforematch",
+            () => (alert("beforematch event invoked"), untilFound.textContent = "I've been revealed!")
+        );
+
+    });
+</script>
+</body>
+</html>

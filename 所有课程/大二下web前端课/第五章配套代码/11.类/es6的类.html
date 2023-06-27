@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function () {//初始加载
+        let Con = class extends Object {
+            proF() {
+                console.log(`im func in prototype`);
+            };
+
+            constructor() {
+                super();
+                this.property1 = 123;
+                this.func = function () {
+                    console.log(`im func`);
+                }
+            }
+        };
+        Con.staticP = "static property";
+        console.log(new Con());
+        console.log(Con.staticP);
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/callpage-style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="./css/main-page/whole-page.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/main-page/friend-list.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/main-page/message-box.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/main-page/message-page-header.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/main-page/message-page.css"/>
+</head>
+<body>
+<div id="container">
+    <!--应用边栏-->
+    <aside>
+        <!--个人信息栏-->
+        <header>
+            <img src="./image/logo.jpg" alt="no image" id="head-pic"/>
+            <p id="nickname">你的昵称</p>
+        </header>
+
+        <!--好友列表-->
+        <ul id="friend-list">
+            <!--默认好友样式-->
+            <!--<li class="friend">好友1</li>
+            <li class="friend">好友1</li>
+            <li class="friend">好友1</li>-->
+        </ul>
+    </aside>
+    <!--应用主页面-->
+    <main>
+        <!--首部信息展示-->
+        <header>
+            <!--好友信息栏-->
+            <img src="./image/logo2.jpg" alt="no image" id="friend-pic"/>
+            <p id="friend-nickname">这是联系人标题</p>
+        </header>
+        <!--对话窗口-->
+        <section>
+            <ul id="chatbox">
+                <!--默认聊天样式，一个头像一个信息-->
+                <!--<li class="friends-message">
+                    <img src="./image/logo2.jpg" alt="no image"/>
+                    <p>消息1</p>
+                </li>-->
+                <!--<li class="my-message">
+                    <img src="./image/logo.jpg" alt="no image" />
+                    <p>消息1</p>
+                </li>
+                <li class="friends-message">
+                    <img src="./image/logo2.jpg" alt="no image" />
+                    <p>消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1消息1</p>
+                </li>
+                <li class="friends-message">
+                    <img src="./image/logo2.jpg" alt="no image" />
+                    <p>消息1</p>
+                </li>
+                <li class="my-message">
+                    <img src="./image/logo.jpg" alt="no image" />
+                    <p>消息1</p>
+                </li>
+                <li class="friends-message">
+                    <img src="./image/logo2.jpg" alt="no image" />
+                    <p>消息1</p>
+                </li>-->
+            </ul>
+        </section>
+
+    </main>
+    <!--发送信息栏-->
+    <footer id="messagebox-container">
+        <!--工具箱-->
+        <div id="tools-container">
+            <ul>
+                <!--工具-->
+                <li id="call">呼叫视频电话</li>
+                <!--<li>工具2</li>
+                <li>工具2</li>
+                <li>工具2</li>
+                <li>工具2</li>-->
+            </ul>
+        </div>
+        <!--文本框-->
+        <label>
+            <textarea id="messagebox">
+
+            </textarea>
+        </label>
+    </footer>
+</div>
+<!--折叠按钮-->
+<button id="aside-controller"><<</button>
+<!--发送消息按钮-->
+<button id="send-message">发送消息</button>
+<!--控制板-->
+<div id="indexeddb-panel" class="dark" style="display: none"></div>
+
+<!--视频通话弹窗-->
+<main id="videophone-container" class="end">
+    <img src="image/logo.jpg" id="caller-logo"/>
+    <time id="caller-timer"><span>--</span> : <span>--</span></time>
+    <button id="receive">接听</button>
+    <button id="hidden"></button>
+    <button id="finish">挂断</button>
+</main>
+
+
+<script type="text/javascript" src="./js/mainPage/ui/aside-controller-ui.js"></script>
+<script type="text/javascript" src="./js/call/script/Object-prototype-toString2.js"></script>
+<script type="text/javascript" src="./js/call/script/callpage-UI.js"></script>
+<script type="module" src="./js/call/script/call-timer.js"></script>
+<script type="module" src="./js/call/module/call-operation.js"></script>
+<script type="module" src="js/call/module/创建通道.js"></script>
+<script type="module" src="./js/mainPage/ui/friend-list.js"></script>
+<script type="module" src="./js/mainPage/ui/send-message.js"></script>
+
+
+</body>
+</html>

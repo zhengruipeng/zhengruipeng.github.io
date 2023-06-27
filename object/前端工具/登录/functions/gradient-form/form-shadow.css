@@ -1,0 +1,8 @@
+input>fieldset:before{
+    content: " ";
+    display: block;
+    position:absolute;
+    box-shadow: 0 0 10px red;
+    height:100px;width:100px;
+    /*z-index: -1;*/
+}

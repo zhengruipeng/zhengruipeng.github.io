@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+          let max = function (a,b){
+            return a>b?a:b;
+          };
+          let a = prompt("输入第1个数")-0;
+          let b = prompt("输入第2个数")-0;
+          let c = prompt("输入第3个数")-0;
+          let max1 = max(a,b);
+          let max2 = max(max1,c);
+          console.log(max2);
+    })
+</script>
+
+</body>
+</html>

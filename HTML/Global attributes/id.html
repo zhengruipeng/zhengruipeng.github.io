@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #\35 44-383-3388 {
+            border: silver solid 3px;
+        }
+
+        #\2D \33 Pi {
+            border: #639 solid 3px;
+        }
+
+        #544-383-3388 {
+            border-color: red;
+
+        }
+
+        #-3Pi {
+            border-color: blue;
+
+        }
+
+        div[div='544-383-3388'] {
+            border-color: yellow;
+        }
+
+        div[div='\35 44-383-3388'] {
+            border-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="544-383-3388">id: 544-383-3388</div>
+<div id="-3Pi">id: -3Pi</div>
+<div id="div">id: div</div>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log(this.getElementById("544-383-3388"));
+        try {
+            console.log(this.querySelector("#544-383-3388"));
+        } catch (e) {
+            console.error(e);
+        }
+
+        console.log(window['544-383-3388']);
+        console.log(window['div']);
+    });
+</script>
+</body>
+</html>

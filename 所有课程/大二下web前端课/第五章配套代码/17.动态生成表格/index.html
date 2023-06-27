@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    let col=0,row=0;
+    row = parseInt(prompt("请输入表格的行","0"));
+    col = parseInt(prompt("请输入表格的列","0"));
+    let fragment = document.createDocumentFragment();
+    let table = document.createElement("table");
+    table.border = "1";
+    fragment.appendChild(table);
+    for(let i = 0;i<row-0;i++){
+      let tr = document.createElement("tr");
+      for(let j = 0;j<col-0;j++){
+        let td = document.createElement("td");
+        let textNode = document.createTextNode(`第${i+1}行第${j+1}列`);
+        td.appendChild(textNode);
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+    document.body.appendChild(fragment);
+  })
+</script>
+
+</body>
+</html>

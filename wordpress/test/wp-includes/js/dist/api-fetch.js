@@ -31,7 +31,7 @@ __webpack_require__.d(__webpack_exports__, {
 
 ;// CONCATENATED MODULE: external ["wp","i18n"]
 var external_wp_i18n_namespaceObject = window["wp"]["i18n"];
-;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/nonce.js
+;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/front-end-server.js
 /**
  * @param {string} nonce
  * @return {import('../types').APIFetchMiddleware & { nonce: string }} A middleware to enhance a request with a nonce.

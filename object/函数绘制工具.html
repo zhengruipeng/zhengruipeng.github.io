@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        span{
-            color:white
+        span {
+            color: white
         }
     </style>
 </head>
@@ -15,12 +15,12 @@
     <g id="group"></g>
     <path d="M" id="path" style="fill:none;stroke:#00ff00"></path>
 </svg>
-<input type="range" id="scale" max="300" min="1" value="1" />
+<input type="range" id="scale" max="300" min="1" value="1"/>
 <span>scale:<span id="scaleValue">1</span></span>
-<input type="text" id="getValue" style="display: inline" />
-<input type="button" style="display: inline" id="getData" value="获取数据" />
+<input type="text" id="getValue" style="display: inline"/>
+<input type="button" style="display: inline" id="getData" value="获取数据"/>
 <script>
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         let svg = this.getElementById("svg");
         let path = this.getElementById("path");
         let scale = this.getElementById("scale");
@@ -32,81 +32,79 @@
         let height = svg.getAttribute("height");
         let offsetX = 0;
         let offsetY = 0;
-        let A = function (a,b){
+        let A = function (a, b) {
             let res = 1;
-            for(let i=a;i>a-b;i--){
-                res*=i;
+            for (let i = a; i > a - b; i--) {
+                res *= i;
             }
             return res;
         };
-        let C = function (n,m){
-            if(m>n)return Number.NaN;
-            else if(n<0 || m<0)return Number.NaN;
-            else return A(n,m)/A(m,m);
+        let C = function (n, m) {
+            if (m > n) return Number.NaN;
+            else if (n < 0 || m < 0) return Number.NaN;
+            else return A(n, m) / A(m, m);
         };
-        let math = function (x){
-            return  x - Math.log10(x**2 +1) / Math.log10(Math.E);
+        let math = function (x) {
+            return ((1 / -1000) * x) + 1.3;
         };
-        let initPoints = function (){
-            path.setAttribute("d","M");
-		if(scale.value >=150){
-			for(let i=width/2-2;i<=width/2+2;i+=0.005){
-                    	let y = -math(i-width/2);
+        let initPoints = function () {
+            path.setAttribute("d", "M");
+            if (scale.value >= 150) {
+                for (let i = width / 2 - 2; i <= width / 2 + 2; i += 0.005) {
+                    let y = -math(i - width / 2);
 
-                    	if(Number.isNaN(y))continue;
-                    	if(!Number.isFinite(y))continue;
-                    	path.setAttribute("d",path.getAttribute("d")+"  "+((i-0-width/2)*scale.value+width/2)+" "+  ((y-0)*scale.value+height/2)+" ");
-                	}
-		}
-	    else if(scale.value >=50 && scale.value <=150){
-               		for(let i=width/2-6;i<=width/2+6;i+=0.02){
-                    	let y = -math(i-width/2);
-                    	if(Number.isNaN(y))continue;
-                    	if(!Number.isFinite(y))continue;
-                    	path.setAttribute("d",path.getAttribute("d")+"  "+((i-0-width/2)*scale.value+width/2)+" "+  ((y-0)*scale.value+height/2)+" ");
-                	}
-            	}
-            else if(scale.value >=15 && scale.value <=50){
-                for(let i=width/2-20;i<=width/2+20;i+=0.1){
-                    let y = -math(i-width/2);
-                    if(Number.isNaN(y))continue;
-                    if(!Number.isFinite(y))continue;
-                    path.setAttribute("d",path.getAttribute("d")+"  "+((i-0-width/2)*scale.value+width/2)+" "+  ((y-0)*scale.value+height/2)+" ");
+                    if (Number.isNaN(y)) continue;
+                    if (!Number.isFinite(y)) continue;
+                    path.setAttribute("d", path.getAttribute("d") + "  " + ((i - 0 - width / 2) * scale.value + width / 2) + " " + ((y - 0) * scale.value + height / 2) + " ");
                 }
-            }else{
-                for(let i=-width/2;i<=width/2;i++){
+            } else if (scale.value >= 50 && scale.value <= 150) {
+                for (let i = width / 2 - 6; i <= width / 2 + 6; i += 0.02) {
+                    let y = -math(i - width / 2);
+                    if (Number.isNaN(y)) continue;
+                    if (!Number.isFinite(y)) continue;
+                    path.setAttribute("d", path.getAttribute("d") + "  " + ((i - 0 - width / 2) * scale.value + width / 2) + " " + ((y - 0) * scale.value + height / 2) + " ");
+                }
+            } else if (scale.value >= 15 && scale.value <= 50) {
+                for (let i = width / 2 - 20; i <= width / 2 + 20; i += 0.1) {
+                    let y = -math(i - width / 2);
+                    if (Number.isNaN(y)) continue;
+                    if (!Number.isFinite(y)) continue;
+                    path.setAttribute("d", path.getAttribute("d") + "  " + ((i - 0 - width / 2) * scale.value + width / 2) + " " + ((y - 0) * scale.value + height / 2) + " ");
+                }
+            } else {
+                for (let i = -width / 2; i <= width / 2; i++) {
                     let y = -math(i);
-                    if(Number.isNaN(y))continue;
-                    if(!Number.isFinite(y))continue;
-                    path.setAttribute("d",path.getAttribute("d")+"  "+((i-0)*scale.value+width/2)+" "+((y-0)*scale.value+height/2)+" ");
+                    if (Number.isNaN(y)) continue;
+                    if (!Number.isFinite(y)) continue;
+                    path.setAttribute("d", path.getAttribute("d") + "  " + ((i - 0) * scale.value + width / 2) + " " + ((y - 0) * scale.value + height / 2) + " ");
                 }
             }
         };
-        let initXLines = function (start,end,sugment){
-            for(let i=start;i<=end;i+=sugment){
-                let path = document.createElementNS("http://www.w3.org/2000/svg","path");
-                path.setAttribute("d","M "+((i-width/2)*scale.value+width/2)+" 0 "+ ((i-width/2)*scale.value+width/2) + " "+ height);
+        let initXLines = function (start, end, sugment) {
+            for (let i = start; i <= end; i += sugment) {
+                let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", "M " + ((i - width / 2) * scale.value + width / 2) + " 0 " + ((i - width / 2) * scale.value + width / 2) + " " + height);
                 path.style.stroke = "#00aaff";
                 path.style.fill = "none";
                 group.appendChild(path);
-                if(scale.value >2){
-                    let text = document.createElementNS("http://www.w3.org/2000/svg","text");
-                    text.appendChild(document.createTextNode(i-width/2));
-                    text.setAttribute("x",(i-width/2)*scale.value+width/2);
-                    text.setAttribute("y",height/2);
+                if (scale.value > 2) {
+                    let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    text.appendChild(document.createTextNode(i - width / 2));
+                    text.setAttribute("x", (i - width / 2) * scale.value + width / 2);
+                    text.setAttribute("y", height / 2);
                     text.style.fill = "white";
                     group.appendChild(text);
                 }
             }
         };
-        let initYLines = function (start,end,sugment){
-            for(let i=start;i<=end;i+=sugment){
-                let path = document.createElementNS("http://www.w3.org/2000/svg","path");
-                path.setAttribute("d", "M 0 " + ((i-height/2) * scale.value + height / 2) + " " + width + " " + ((i-height/2) * scale.value + height / 2));
+        let initYLines = function (start, end, sugment) {
+            for (let i = start; i <= end; i += sugment) {
+                let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", "M 0 " + ((i - height / 2) * scale.value + height / 2) + " " + width + " " + ((i - height / 2) * scale.value + height / 2));
                 path.style.stroke = "#0000aa";
                 path.style.fill = "none";
                 group.appendChild(path);
-                if(scale.value >2) {
+                if (scale.value > 2) {
                     let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
                     text.appendChild(document.createTextNode(height / 2 - i));
                     text.setAttribute("x", width / 2);
@@ -116,53 +114,53 @@
                 }
             }
         };
-        let initNet = function (){
+        let initNet = function () {
             group.innerHTML = "";
-            if(scale.value >=15){
-                initXLines(width/2-20+offsetX,width/2+20+offsetX,1);
-            }else if(scale.value < 20&&scale.value > 2){
-                initXLines(width/4+offsetX,width*3/4+offsetX,5);
-            }else{
-                initXLines(0+offsetX,width+offsetX,20)
+            if (scale.value >= 15) {
+                initXLines(width / 2 - 20 + offsetX, width / 2 + 20 + offsetX, 1);
+            } else if (scale.value < 20 && scale.value > 2) {
+                initXLines(width / 4 + offsetX, width * 3 / 4 + offsetX, 5);
+            } else {
+                initXLines(0 + offsetX, width + offsetX, 20)
             }
-            if(scale.value >=15){
-                initYLines(height/2-20+offsetY,height/2+20+offsetY,1);
-            }else if(scale.value < 20&&scale.value > 2){
-                initYLines(height/4+offsetY,height*3/4+offsetY,5);
-            }else {
-                initYLines(0+offsetY,height+offsetY,20);
+            if (scale.value >= 15) {
+                initYLines(height / 2 - 20 + offsetY, height / 2 + 20 + offsetY, 1);
+            } else if (scale.value < 20 && scale.value > 2) {
+                initYLines(height / 4 + offsetY, height * 3 / 4 + offsetY, 5);
+            } else {
+                initYLines(0 + offsetY, height + offsetY, 20);
             }
         };
         initNet();
         initPoints();
-        scale.oninput = function (){
+        scale.oninput = function () {
             initNet();
             initPoints();
             scaleValue.innerText = scale.value;
         };
-        getData.onclick = function (){
+        getData.onclick = function () {
             getValue.value = math(getValue.value);
         };
-        getValue.onchange = function (){
+        getValue.onchange = function () {
             getValue.value = math(eval(getValue.value));
         };
-        svg.onwheel = function (e){
-            scale.value = e.deltaY>0?(scale.value-0)+2:(scale.value-0)+-2;
+        svg.onwheel = function (e) {
+            scale.value = e.deltaY > 0 ? (scale.value - 0) + 2 : (scale.value - 0) + -2;
             initNet();
             initPoints();
             scaleValue.innerText = scale.value;
         };
-        svg.onmousedown = function (e){
+        svg.onmousedown = function (e) {
             let ox = e.clientX;
             let oy = e.clientY;
-            this.onmousemove = function (e){
+            this.onmousemove = function (e) {
                 let x = e.clientX;
                 let y = e.clientY;
-                offsetX += x-ox;
-                offsetY += y-oy;
-                console.log(offsetX,offsetY)
+                offsetX += x - ox;
+                offsetY += y - oy;
+                console.log(offsetX, offsetY)
             };
-            this.onmouseup = function (){
+            this.onmouseup = function () {
                 this.onmousemove = null;
             };
         }

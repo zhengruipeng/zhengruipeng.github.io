@@ -1,0 +1,10 @@
+App.js使用了适配器模式
+slide.js使用了建造者模式
+
+game-cat.js 状态模式（主要体现在gameCatAction属性中）MVC模式（主要体现在图像变换中，动作和心情）
+
+game-cat-action.js 建造者模式（主要体现在动画创建上），简单工厂模式（主要体现在switch判断上）
+game-cat-emotion.js简单工厂模式（主要体现在switch判断上）
+
+ConstantObserver.js 观察者模式（主要体现在game-cat.js的status属性中）
+
