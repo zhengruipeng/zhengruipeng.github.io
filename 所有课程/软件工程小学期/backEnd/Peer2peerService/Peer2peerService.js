@@ -4,26 +4,32 @@
 // 3: 用nodeJS运行此代码从而开启服务器
 // 4: 用websocket API访问相应接口
 // 5: 注意：index.html别用3000端口打开，而是用一个能够进行正常读取文件的服务器进行打开，比如phpstorm自带服务器
+
 const http = require("http");
 const ws = require("nodejs-websocket");
-const SendMessage = require("../message/SendMessage")
-const MessageOutput = require("../message/MessageOutput")
+
 const MessageType = require("../message/model/MessageType");
 const MessagePackage = require("../message/model/MessagePackage");
+const SendMessage = require("../message/SendMessage")
+
+const MessageOutput = require("../package/MessageOutput")
+const {MapperObserveKey, MapperEvent, Mapper} = require("../package/Mapper");
+
 const TwoPeers = require("./TwoPeers");
 const PeerManager = require("./PeerManager");
-const {MapperObserveKey, MapperEvent, Mapper} = require("../package/Mapper");
 const {CallingManager} = require("./CallingManager");
+const fs = require("fs");
+const https = require("https");
 
-var httpserver = new http.Server();
-httpserver.on("request", function (req, res) {
-    if (req.url === "/") {
-        res.writeHead(200, {"Content-type": "text/html"});
-        res.end();
-    }
-});
+const serverConfig = {
+    key: fs.readFileSync('../../certificate/server.key'),
+    cert: fs.readFileSync('../../certificate/server.crt')
+};
+const httpserver = http.createServer();
 
 let callingManager = new CallingManager();
+const peerManager = new PeerManager();
+
 let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/) {
     //con为当前连接对象
     con.on("text", function (str) {
@@ -38,11 +44,13 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
         ok.addKey("messageType");
 
         let mapper = new Mapper(messageObj, {observeKey: ok});
+
         mapper.map(MessageType.ANOTHER_ID, function () {
             con.twoPeer = new TwoPeers();
             con.twoPeer.peer2 = peerManager.peers[messageObj.data];
             con.twoPeer.peer1 = con;
         });
+
         mapper.map(MessageType.MESSAGE, function () {
             if (!con.twoPeer) return;
 
@@ -53,8 +61,9 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
 
             SendMessage.sendMsg(con.twoPeer.getAnotherPeer(con), JSON.stringify(obj));
             console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(con.twoPeer.getAnotherPeer(con))}`,
-                str.substring(50))
+                str.substring(0, 20))
         });
+
         mapper.default(function () {
             //当前用户没有对等端
             if (!con.twoPeer) {
@@ -73,15 +82,18 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
                 console.log("当前端有一个通信端");
                 con.twoPeer = peers[0];
             }
+
             let peers = callingManager.getPeerAssociatedWith(con);
             if (peers.length === 0) {
                 console.log("检测到没有通信端，于是加了一个")
                 callingManager.addPeer(con.twoPeer);
             }
+
             console.log("有通信端，正常执行")
             SendMessage.sendMsg(con.twoPeer.getAnotherPeer(con), str);
+
             console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(con.twoPeer.getAnotherPeer(con))}`,
-                str.substring(20))
+                str.substring(0, 20))
         });
         mapper.call();
     })
@@ -90,6 +102,7 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
     })
     con.on("close", function () {
         peerManager.removePeer(this);
+        callingManager.removePeerAssociatedWith(this);
 
         let allPeers = [];
         peerManager.peers.forEach(peer => {
@@ -116,8 +129,6 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
         MessageOutput.output("onmessage :" + m);
     });
 });
-
-const peerManager = new PeerManager();
 
 wsserver.on("connection", function (newPeer) {
     /*
@@ -152,11 +163,8 @@ wsserver.on("connection", function (newPeer) {
             peerManager.peerToInfo.get(newPeer).getInfo(),
             MessageType.SELF_INFO
         )));
-
-    // console.log(s.connections)
-    // s.on("message", function (m) {
-    // console.log("onmessage :"+m);
-    // });
-
 });
+
+//监听3000端口
 wsserver.listen(3000);
+console.log("websocket server listened in 3000");

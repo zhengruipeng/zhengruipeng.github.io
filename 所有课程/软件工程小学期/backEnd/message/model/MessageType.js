@@ -1,7 +1,7 @@
 /*
 * 消息类型的枚举类
 * */
-let MessageType = class{
+let MessageType = class {
     static DESCRIPTION = 1;
     static CANDIDATE = 2;
     static CLOSE = 3;

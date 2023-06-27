@@ -5,7 +5,6 @@ import {ConstantObserver} from "./ConstantObserver.js";
 import {ObserverCallBackType} from "../model/ObserverCallBackType.js";
 import {CallingState} from "../model/CallingState.js";
 import {AppGlobal} from "./AppGlobal.js";
-import {PanelOutput} from "./output-info-into-panel.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     //通过接口创建一个ws协议，连接的是ICE中转服务器
@@ -276,7 +275,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //当通话状态发生改变的时候触发
     callingState.addEventListener(ObserverCallBackType.change, function () {
-        PanelOutput.println("<h4 style='color:#fff;'>" + this.value + "</h4>")
         console.log("通话状态发生改变", this.value)
         //当通话状态变成正在通话的时候开始计时
         if (this.value === CallingState.CALLING) {

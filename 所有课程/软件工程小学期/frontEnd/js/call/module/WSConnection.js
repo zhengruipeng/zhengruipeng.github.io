@@ -1,15 +1,18 @@
 let eventListener = new Map();
 
-//目前没实现，没啥头绪
+/*
+* 一个消息映射类，用于给WS协议的消息分组*/
 let MessageMap = class extends Object{
-    connection = null;
-    messageMap = new Map();
+    connection = null;      //WS连接
+    messageMap = new Map();     //映射表
 
     constructor(connection) {
         super();
         this.connection =  connection;
     }
 
+    /*
+    * 收到消息默认触发的事件，此处为结构+派发*/
     defaultEvent(ev){
         let message = JSON.parse(ev.data);
         let {messageType,data} = message;
@@ -17,10 +20,15 @@ let MessageMap = class extends Object{
         this.invoke(messageType,message)
     }
 
+    /*
+    * 更新触发事件
+    * */
     refreshEvent(eventFun = this.defaultEvent){
         this.connection.addEventListener("message",this.defaultEvent.bind(this));
     }
 
+    /*
+    * 添加一个类型和回调函数的映射*/
     addMap(type,callback){
         if(!this.messageMap.has(type)){
             this.messageMap.set(type,[callback])
@@ -28,14 +36,19 @@ let MessageMap = class extends Object{
             this.messageMap.get(type).push(callback)
         }
     }
+
+    /*删除一个类型下的所有回调函数*/
     removeMap(type){
         this.messageMap.delete(type);
     }
+
+    /*调用一个类型下的所有回调函数*/
     invoke(type,messageData){
         this.messageMap.get(type).forEach(cb => cb(messageData));
     }
 }
 
+/*一个WebSocket封装接口*/
 class WSConnection extends Object{
     wsConnection = null;
     messageMap;

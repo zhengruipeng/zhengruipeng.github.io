@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let interval = null;
 
     AppGlobal.callTimer.start = function () {
+        if (interval) return;
+
         interval = setInterval(function () {
             timer++;
             modifyTime(Math.floor(timer / 60), timer % 60);
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     AppGlobal.callTimer.stop = function () {
         clearInterval(interval);
+        interval = null;
     };
 
     AppGlobal.callTimer.reset = function () {

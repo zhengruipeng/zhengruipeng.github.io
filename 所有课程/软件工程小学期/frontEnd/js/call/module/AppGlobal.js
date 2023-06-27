@@ -28,6 +28,7 @@ let AppGlobal = {
 
     beforeAddTrack: null,
 
+    /*当前用户选定的对等端和自己的ID*/
     friendListExport: {
         anotherPeer: new ConstantObserver(),
         myPeer: null

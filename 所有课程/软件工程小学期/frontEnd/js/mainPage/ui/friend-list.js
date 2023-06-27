@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const nickname = this.querySelector("#nickname");
 
 
+    //当服务器推送新好友加入时
     AppGlobal.wsConnection.messageMap.addMap(MessageType.NEW_FRIEND, async function (messagePackage) {
+        /*
+        * 执行操作：
+        * 1：清空好友列表
+        * 2：依次添加好友
+        * 3：给新加进来的好友注册前端事件
+        * */
         friendList.innerHTML = "";
         console.log("新的好友加入信息", messagePackage);
 
@@ -35,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     });
 
+    //服务器给当前用户推送服务器派发给当前用户的信息
     AppGlobal.wsConnection.messageMap.addMap(MessageType.SELF_INFO, async function (messagePackage) {
         console.log("服务器推送自己信息", messagePackage);
         nickname.innerText = messagePackage.data;
