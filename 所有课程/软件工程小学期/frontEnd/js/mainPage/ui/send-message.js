@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // let content = messagebox.value.replaceAll(String.fromCharCode(160), String.fromCharCode(32));
         let content = messagebox.value;
+        if(content === "")return ;
+
         messagebox.value = "";
 
         AppGlobal.wsConnection.sendMessage(JSON.stringify(

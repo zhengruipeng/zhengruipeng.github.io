@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230525 3">
-      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/certificate/server.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/certificate/server.csr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/certificate/server.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/CallingManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/CallingManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/TwoPeers.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/TwoPeers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/WSConnection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/MessageOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/package/MessageOutput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/SendMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/SendMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/model/MessageType.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/model/MessageType.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/modelFrontEnd/CallingState.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/modelFrontEnd/MessagePackage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/modelFrontEnd/MessageType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/modelFrontEnd/ObserverCallBackType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/front-end-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/front-end-server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/model/MessageType.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/model/MessageType.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/AppGlobal.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/AppGlobal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/WSConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/WSConnection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/call-operation.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/call-operation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/call-timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/call-timer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/friend-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/friend-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/send-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/send-message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/message/model/Message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/message/model/Message.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/message/module/MessageManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/message/module/MessageManager.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +84,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "19.4.0",
     "javascript.nodejs.core.library.typings.version": "20.2.6",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io",
+    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/所有课程/软件工程小学期",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -786,7 +761,8 @@
       <workItem from="1687316220785" duration="8495000" />
       <workItem from="1687662010438" duration="1988000" />
       <workItem from="1687759678983" duration="4917000" />
-      <workItem from="1687831790050" duration="2130000" />
+      <workItem from="1687831790050" duration="2505000" />
+      <workItem from="1687843160325" duration="119000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>

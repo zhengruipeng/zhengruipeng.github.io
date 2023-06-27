@@ -4,34 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e95f742-c559-487f-a74c-0a2981f53564" name="Changes" comment="20230627">
-      <change afterPath="$PROJECT_DIR$/certificate/server.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/certificate/server.csr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/certificate/server.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontEnd/favicon.ico" afterDir="false" />
+    <list default="true" id="6e95f742-c559-487f-a74c-0a2981f53564" name="Changes" comment="20230627(3)">
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Peer2peerService/CallingManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Peer2peerService/CallingManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Peer2peerService/Peer2peerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Peer2peerService/Peer2peerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Peer2peerService/TwoPeers.js" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Peer2peerService/TwoPeers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/WSConnection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/message/MessageOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/package/MessageOutput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/message/SendMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/message/SendMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/message/model/MessageType.js" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/message/model/MessageType.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/message/modelFrontEnd/CallingState.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/message/modelFrontEnd/MessagePackage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/message/modelFrontEnd/MessageType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/message/modelFrontEnd/ObserverCallBackType.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/front-end-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/front-end-server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/js/call/model/MessageType.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/call/model/MessageType.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/js/call/module/AppGlobal.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/call/module/AppGlobal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/js/call/module/WSConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/call/module/WSConnection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/js/call/module/call-operation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/call/module/call-operation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/js/call/script/call-timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/call/script/call-timer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/js/mainPage/ui/friend-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/mainPage/ui/friend-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/js/mainPage/ui/send-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/mainPage/ui/send-message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/js/message/model/Message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/message/model/Message.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/js/message/module/MessageManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/js/message/module/MessageManager.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,25 +36,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "19.4.0",
-    "javascript.nodejs.core.library.typings.version": "20.3.1",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/所有课程/软件工程小学期",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "D:\\apps\\apps\\PhpStorm\\ch-0\\231.9161.47\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.3.1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/所有课程/软件工程小学期&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\apps\\apps\\PhpStorm\\ch-0\\231.9161.47\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期" />
@@ -90,7 +67,7 @@
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd\package" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.front-end-server.js">
+  <component name="RunManager" selected="Node.js.Peer2peerService.js">
     <configuration name="Peer2peerService.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/backEnd/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/backEnd/Peer2peerService">
       <method v="2" />
     </configuration>
@@ -117,7 +94,8 @@
       <workItem from="1687827124845" duration="12000" />
       <workItem from="1687827143283" duration="9000" />
       <workItem from="1687827159014" duration="29000" />
-      <workItem from="1687827194392" duration="7624000" />
+      <workItem from="1687827194392" duration="8599000" />
+      <workItem from="1687843281051" duration="918000" />
     </task>
     <task id="LOCAL-00001" summary="20230627">
       <option name="closed" value="true" />
@@ -127,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687824176408</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="20230627(2）">
+      <option name="closed" value="true" />
+      <created>1687835610837</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687835610837</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,9 +133,22 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="package.json" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="20230627" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230627" />
+    <MESSAGE value="20230627(2）" />
+    <MESSAGE value="20230627(3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230627(3)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
