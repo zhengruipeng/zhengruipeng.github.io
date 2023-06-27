@@ -63,7 +63,17 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
             console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(con.twoPeer.getAnotherPeer(con))}`,
                 str.substring(0, 20))
         });
+        mapper.map(MessageType.CLOSE, function () {
+            let peers = callingManager.getPeerAssociatedWith(con);
 
+            callingManager.removePeerAssociatedWith(peers[0].peer1);
+            callingManager.removePeerAssociatedWith(peers[0].peer2);
+
+            SendMessage.sendMsg(peers[0].getAnotherPeer(con), str);
+
+            console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(peers[0].getAnotherPeer(con))}`,
+                str.substring(0, 20))
+        });
         mapper.default(function () {
             //当前用户没有对等端
             if (!con.twoPeer) {
@@ -87,12 +97,15 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
             if (peers.length === 0) {
                 console.log("检测到没有通信端，于是加了一个")
                 callingManager.addPeer(con.twoPeer);
+
+                peers = callingManager.getPeerAssociatedWith(con);
+
             }
 
             console.log("有通信端，正常执行")
-            SendMessage.sendMsg(con.twoPeer.getAnotherPeer(con), str);
+            SendMessage.sendMsg(peers[0].getAnotherPeer(con), str);
 
-            console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(con.twoPeer.getAnotherPeer(con))}`,
+            console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(peers[0].getAnotherPeer(con))}`,
                 str.substring(0, 20))
         });
         mapper.call();
