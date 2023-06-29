@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e95f742-c559-487f-a74c-0a2981f53564" name="Changes" comment="20230627(3)">
+    <list default="true" id="6e95f742-c559-487f-a74c-0a2981f53564" name="Changes" comment="20230627(4)">
+      <change afterPath="$PROJECT_DIR$/frontEnd/design-drawing/视频通话/Screenshot 2023-06-27 190336.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontEnd/design-drawing/视频通话/通话流程图.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontEnd/design-drawing/视频通话/通话流程图.vsdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backEnd/Peer2peerService/Peer2peerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Peer2peerService/Peer2peerService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/message/model/MessagePackage.js" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/message/model/MessagePackage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/package/MessageOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/package/MessageOutput.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,38 +40,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.3.1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/所有课程/软件工程小学期&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\apps\\apps\\PhpStorm\\ch-0\\231.9161.47\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "19.4.0",
+    "javascript.nodejs.core.library.typings.version": "20.3.1",
+    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "D:\\apps\\apps\\PhpStorm\\ch-0\\231.9161.47\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\design-drawing\视频通话" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd\certificate" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\image" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\js\mainPage\ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd\message" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd\Peer2peerService" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd\package" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Peer2peerService.js">
+  <component name="RunManager" selected="Node.js.front-end-server.js">
     <configuration name="Peer2peerService.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/backEnd/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/backEnd/Peer2peerService">
       <method v="2" />
     </configuration>
@@ -74,8 +82,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.Peer2peerService.js" />
         <item itemvalue="Node.js.front-end-server.js" />
+        <item itemvalue="Node.js.Peer2peerService.js" />
       </list>
     </recent_temporary>
   </component>
@@ -93,7 +101,10 @@
       <workItem from="1687827143283" duration="9000" />
       <workItem from="1687827159014" duration="29000" />
       <workItem from="1687827194392" duration="8599000" />
-      <workItem from="1687843281051" duration="4602000" />
+      <workItem from="1687843281051" duration="11730000" />
+      <workItem from="1687920080364" duration="7358000" />
+      <workItem from="1687936938381" duration="5248000" />
+      <workItem from="1688016849201" duration="361000" />
     </task>
     <task id="LOCAL-00001" summary="20230627">
       <option name="closed" value="true" />
@@ -119,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687844227238</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="20230627(4)">
+      <option name="closed" value="true" />
+      <created>1687853306558</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687853306558</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +152,7 @@
         <option value="$PROJECT_DIR$/frontEnd/js/message/model/Message.js" />
         <option value="$PROJECT_DIR$/backEnd/Peer2peerService/CallingManager.js" />
         <option value="$PROJECT_DIR$/backEnd/Peer2peerService/TwoPeers.js" />
+        <option value="$PROJECT_DIR$/backEnd/message/model/MessagePackage.js" />
       </list>
     </option>
   </component>
@@ -154,7 +174,8 @@
     <MESSAGE value="20230627" />
     <MESSAGE value="20230627(2）" />
     <MESSAGE value="20230627(3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230627(3)" />
+    <MESSAGE value="20230627(4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230627(4)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

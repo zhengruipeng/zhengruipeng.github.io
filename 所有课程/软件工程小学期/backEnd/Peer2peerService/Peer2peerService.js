@@ -61,7 +61,7 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
 
             SendMessage.sendMsg(con.twoPeer.getAnotherPeer(con), JSON.stringify(obj));
             console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(con.twoPeer.getAnotherPeer(con))}`,
-                str.substring(0, 20))
+                str.substring(0, 40))
         });
         mapper.map(MessageType.CLOSE, function () {
             let peers = callingManager.getPeerAssociatedWith(con);
@@ -72,7 +72,7 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
             SendMessage.sendMsg(peers[0].getAnotherPeer(con), str);
 
             console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(peers[0].getAnotherPeer(con))}`,
-                str.substring(0, 20))
+                str.substring(0, 40))
         });
         mapper.default(function () {
             //当前用户没有对等端
@@ -106,7 +106,7 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
             SendMessage.sendMsg(peers[0].getAnotherPeer(con), str);
 
             console.log(`${peerManager.getIdByPeer(con)}发送给${peerManager.getIdByPeer(peers[0].getAnotherPeer(con))}`,
-                str.substring(0, 20))
+                str.substring(0, 40), `类型为${JSON.parse(str).messageType}`)
         });
         mapper.call();
     })

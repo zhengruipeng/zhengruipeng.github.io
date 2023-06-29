@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../packages/JSONParser.css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+<p translate="yes" lang="zh-CN" id="chinese">上喻自古帝王之有天下莫不由怀保万民恩加四海应上天之眷命协亿兆之劝心</p>
+<p translate="yes" lang="ja-JP" id="japanese">おはようございます</p>
+<p translate="yes" lang="en-US" id="english">good morning</p>
+
+<script type="module">
+    import {JSONParser} from "../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const chinese = this.querySelector("#chinese");
+        const japanese = this.querySelector("#japanese");
+        const english = this.querySelector("#english");
+
+        let obj = {
+            translate: ["yes", "no", ""]
+        };
+
+        let jsonparser = new JSONParser(obj);
+        jsonparser.defaultInit();
+        jsonparser.onJsonChange = function () {
+            chinese.translate = this.toJSON().translate;
+            japanese.translate = this.toJSON().translate;
+            english.translate = this.toJSON().translate;
+        };
+    });
+</script>
+</body>
+</html>

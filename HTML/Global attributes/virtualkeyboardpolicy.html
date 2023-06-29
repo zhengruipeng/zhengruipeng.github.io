@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<textarea rows="100" cols="100" id="textarea">
+</textarea>
+<script type="module">
+    import {JSONParser} from "../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const textarea = this.querySelector("#textarea");
+
+        let obj = {
+            virtualkeyboardpolicy: ["auto", "manual"],
+        };
+
+        const jsonparser = new JSONParser(obj);
+        jsonparser.defaultInit();
+        jsonparser.onjsonchange = function (){
+            textarea.virtualkeyboardpolicy = this.toJSON().virtualkeyboardpolicy;
+        }
+
+    });
+</script>
+</body>
+</html>

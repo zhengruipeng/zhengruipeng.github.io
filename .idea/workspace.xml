@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230525 3">
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/translate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/virtualkeyboardpolicy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/主页面/~$$主页面设计图.~vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/Screenshot 2023-06-27 190336.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/通话流程图.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/通话流程图.vsdx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/JSONParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/JSONParser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/model/MessagePackage.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/model/MessagePackage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/package/MessageOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/package/MessageOutput.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +95,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "19.4.0",
     "javascript.nodejs.core.library.typings.version": "20.2.6",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/所有课程/软件工程小学期",
+    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -763,6 +774,7 @@
       <workItem from="1687759678983" duration="4917000" />
       <workItem from="1687831790050" duration="2505000" />
       <workItem from="1687843160325" duration="119000" />
+      <workItem from="1688017213964" duration="2083000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>

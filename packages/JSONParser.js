@@ -414,7 +414,7 @@ let JSONParser = class extends EventTarget {
 
                 //当当前值不是一个表格的时候
                 if (tr.cells[1].querySelector("table") === null) {
-                    value = tr.cells[1].children[0].value || tr.cells[1].querySelector('.provider').value;
+                    value = tr.cells[1].children[0].value ?? tr.cells[1].querySelector('.provider').value;
                     value = stringToPrimary(value);
                 }
 
@@ -494,6 +494,14 @@ let JSONParser = class extends EventTarget {
     defaultInit() {
         this.setDefaultStyle();
         this.render();
+    }
+
+    set onjsonchange(func) {
+        this.onJsonChange = func;
+    }
+
+    get onjsonchange() {
+        return this.onJsonChange;
     }
 };
 
