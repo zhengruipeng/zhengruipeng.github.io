@@ -2,19 +2,19 @@
 const PeerInfo = require("./model/PeerInfo")
 
 class PeerManager extends Object {
-    peers: Array<Object> = [];
+    public peers: Array<Object> = [];
     // @ts-ignore
-    peerToInfo: Map<Object, PeerInfo> = new Map();
+    public peerToInfo: Map<Object, PeerInfo> = new Map();
 
-    getIdByPeer(peer: Object): number {
+    public getIdByPeer(peer: Object): number {
         return this.peers.indexOf(peer);
     }
 
-    getPeerById(id: number): Object {
+    public getPeerById(id: number): Object {
         return this.peers[id];
     }
 
-    addPeer(peer: Object): void {
+    public addPeer(peer: Object): void {
         this.peers.push(peer);
         this.peerToInfo.set(peer,
             new PeerInfo(
@@ -23,7 +23,7 @@ class PeerManager extends Object {
             ));
     }
 
-    removePeer(peer: Object): void {
+    public removePeer(peer: Object): void {
         delete this.peers[this.peers.indexOf(peer)];
         this.peerToInfo.delete(peer);
     }

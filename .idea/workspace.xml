@@ -4,20 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230525 3">
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/translate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HTML/Global attributes/virtualkeyboardpolicy.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/主页面/~$$主页面设计图.~vsdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/Screenshot 2023-06-27 190336.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/通话流程图.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/通话流程图.vsdx" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230629">
+      <change afterPath="$PROJECT_DIR$/HTML/a标签/download.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/a标签/filename.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/a标签/href.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/a标签/image/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/a标签/libs/Console.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/a标签/libs/Mapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/a标签/rel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/a标签/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/图像/莉可莉丝1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/类图1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/类图2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/JSONParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/JSONParser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/model/MessagePackage.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/message/model/MessagePackage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/package/MessageOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/package/MessageOutput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/a标签/Object-prototype-toString2.js" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/a标签/libs/Object-prototype-toString2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/a标签/download属性.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/a标签/hreflang.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/a标签/hreflang.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/a标签/ping属性.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/a标签/ping.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/a标签/referrerpolicy属性.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/a标签/referrerpolicy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/a标签/target属性.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/a标签/target.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/a标签/type属性.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/a标签/type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/图像/莉可莉丝1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/PeerManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/PeerManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/package/Mapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/package/Mapper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/主页面/~$$主页面设计图.~vsdx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +107,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "19.4.0",
     "javascript.nodejs.core.library.typings.version": "20.2.6",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io",
+    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/HTML/a标签/libs",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -105,7 +117,7 @@
     "nodejs_package_manager_path": "npm",
     "php.override.implement.member.chooser.php.doc": "NONE",
     "settings.editor.selected.configurable": "configurable.group.build",
-    "ts.external.directory.path": "D:\\apps\\apps\\PhpStorm\\ch-0\\231.9011.38\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "D:\\apps\\apps\\PhpStorm\\ch-0\\231.9161.47\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -120,28 +132,25 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\js\call\module" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\APIs\WebRTC\25RTCIceTransport" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\Global attributes" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\a标签\libs" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\design-drawing\视频通话" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\a标签\image" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\a标签" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\图像" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\a标签\libs" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\mikimiki\客户端\DOM" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\3" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Peer2peerService.js (2)">
+  <component name="RunManager" selected="Node.js.server.js">
     <configuration name="Peer2peerService.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService">
       <method v="2" />
     </configuration>
     <configuration name="Peer2peerService.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService">
-      <method v="2" />
-    </configuration>
-    <configuration name="Peer2peerService.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/WebSocket服务器/Peer2peerService">
       <method v="2" />
     </configuration>
     <configuration name="front-end-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/front-end-server.js" working-dir="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd">
@@ -150,16 +159,19 @@
     <configuration name="nonce.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/nonce.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport">
       <method v="2" />
     </configuration>
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/HTML/a标签/server.js" working-dir="$PROJECT_DIR$/HTML/a标签">
+      <method v="2" />
+    </configuration>
     <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.server.js" />
         <item itemvalue="Node.js.Peer2peerService.js (2)" />
         <item itemvalue="Node.js.front-end-server.js" />
         <item itemvalue="Node.js.nonce.js (1)" />
         <item itemvalue="Node.js.Peer2peerService.js (1)" />
-        <item itemvalue="Node.js.Peer2peerService.js" />
       </list>
     </recent_temporary>
   </component>
@@ -774,7 +786,8 @@
       <workItem from="1687759678983" duration="4917000" />
       <workItem from="1687831790050" duration="2505000" />
       <workItem from="1687843160325" duration="119000" />
-      <workItem from="1688017213964" duration="2083000" />
+      <workItem from="1688017213964" duration="10292000" />
+      <workItem from="1688102695189" duration="10526000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>
@@ -1119,7 +1132,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684998352034</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1167,7 +1180,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20221216" />
     <MESSAGE value="20221225" />
     <MESSAGE value="20221228" />
     <MESSAGE value="20230106" />
@@ -1192,7 +1204,8 @@
     <MESSAGE value="20230524 2" />
     <MESSAGE value="20230525" />
     <MESSAGE value="20230525 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230525 2" />
+    <MESSAGE value="20230629" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230629" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">
