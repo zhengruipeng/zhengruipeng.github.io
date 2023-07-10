@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
             certificates: [rtcCertificate]
         };
         generatingCertificate.value = true;
-        // console.log(rtcCertificate);
     });
 
     //ice处理的事件
@@ -110,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
         finishBtn.classList.add("calling");
 
         //开始添加本地麦克风到待传输媒体流中
-
         AppGlobal.beforeAddTrack.value = true;
         for (let v of mediaStream.getTracks()) {
             peerConnA.addTrack(v, mediaStream);

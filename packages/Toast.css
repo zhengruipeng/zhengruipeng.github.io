@@ -1,10 +1,21 @@
-::backdrop {
+#toast-container {
+    position: fixed;
+    left: 30vw;
+    top: 10vh;
+
+    z-index: 1;
+    display: none;
+    grid-template-columns: 40vw;
+    grid-auto-rows: min-content;
 }
 
-:popover-open {
-    border-radius: 7px;
-    border: #222 solid 2px;
-    width: 20vw;
-    transform: translate(0, 30vh);
+#toast-container > .pop-over {
+    border-radius: 15px;
+    border: #aaffdd solid 2px;
+    background-color: #aaffdd77;
+    width: calc(100% - 20px);
+    padding: 10px;
     text-align: center;
+    line-break: strict;
+    word-break: break-all;
 }

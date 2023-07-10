@@ -5,7 +5,6 @@ const https = require('https');
 const fs = require('fs');
 
 const app = express();
-
 /*
 const options = {
     key: fs.readFileSync('../certificate/server.key'),

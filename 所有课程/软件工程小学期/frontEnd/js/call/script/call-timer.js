@@ -33,12 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
     };
-
     AppGlobal.callTimer.stop = function () {
         clearInterval(interval);
         interval = null;
     };
-
     AppGlobal.callTimer.reset = function () {
         timer = 0;
         modifyTime(0, 0)

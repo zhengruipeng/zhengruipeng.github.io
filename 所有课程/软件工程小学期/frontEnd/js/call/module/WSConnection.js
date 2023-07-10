@@ -52,54 +52,40 @@ let MessageMap = class extends Object{
 class WSConnection extends Object{
     wsConnection = null;
     messageMap;
-
     // onopen(){};
     // onclose(){};
     // onerror(){};
     // onmessage(){};
-
-
     get onopen() {
         return this.wsConnection.onopen;
     }
-
     set onopen(fun) {
         this.wsConnection.onopen = fun;
     }
-
     get onclose() {
         return this.wsConnection.onclose;
     }
-
     set onclose(fun) {
         this.wsConnection.onclose = fun;
     }
-
     get onerror() {
         return this.wsConnection.onerror;
     }
-
     set onerror(fun) {
         this.wsConnection.onerror = fun;
     }
-
     get onmessage() {
         return this.wsConnection.onmessage;
     }
-
     set onmessage(fun) {
         this.wsConnection.onmessage = fun;
     }
-
     sendMessage(...text){
         this.wsConnection.send(text.join());
     };
-
-
     getEventListener(){
         return eventListener;
     }
-
     addEventListener(event/*String*/,cb/*Function*/){
         this.wsConnection.addEventListener(event,cb);
 
@@ -110,7 +96,6 @@ class WSConnection extends Object{
             eventListener.set(event,[cb]);
 
     };
-
     removeEventListener(event/*String*/,cb/*Function*/){
         this.wsConnection.removeEventListener(event,cb);
 
@@ -123,8 +108,6 @@ class WSConnection extends Object{
             arr.splice(index,1)
         }
     }
-
-
     constructor(url) {
         super();
         this.wsConnection = new WebSocket(url);
@@ -135,8 +118,6 @@ class WSConnection extends Object{
         this.messageMap = new MessageMap(this.wsConnection);
 
     }
-
-
 }
 
 export {WSConnection}

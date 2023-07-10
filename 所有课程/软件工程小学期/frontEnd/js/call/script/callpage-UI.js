@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
     modifyCenterPoint();
     window.addEventListener("resize", modifyCenterPoint);
 
-
     receiveBtn.addEventListener("click", function () {
         receiveBtn.className = "calling";
         finishBtn.className = "calling";

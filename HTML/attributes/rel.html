@@ -8,9 +8,335 @@
     </style>
 </head>
 <body>
+<h1 id="section-1"></h1>
+由来：
+<ul>
+    <li>&lt;a rel=""&gt;</li>
+</ul>
+<template>
+    <style>
+        code {
+            background-color: #333;
+            padding: 15px;
+            color: white;
+            font-family: "Source Code Pro";
+        }
+    </style>
+    <p>中文：
+        <slot name="chinese"></slot>
+    </p>
+    <p>英语原文：
+        <slot name="english"></slot>
+    </p>
+    <code>
+        <slot name="code"></slot>
+    </code>
+</template>
 
+<div id="alternate" class="info-provider">
+    <span slot="chinese">alternate：指定当前文档的备用版本。</span>
+    <span slot="english">alternate: This attribute specifies an alternate version of the current document. For example,
+        if the current page is
+        available in multiple languages, you can use the alternate attribute to link to the alternate version of the
+        page.
+    </span>
+    <span slot="code">
+        &lt;link rel="alternate" hreflang="es" href="https://example.com/es/page.html" />
+    </span>
+</div>
+<!--<div>
+    alternate: This attribute specifies an alternate version of the current document. For example, if the current page
+    is
+    available in multiple languages, you can use the alternate attribute to link to the alternate version of the page.
+    Example:
+    <link rel="alternate" hreflang="fr" href="https://example.com/fr/page.html">
+
+    author: This attribute specifies the author of the current document.
+    Example:
+    <link rel="author" href="https://example.com/about.html">
+
+    bookmark: This attribute specifies a bookmark to the current document.
+    Example: <a href="#section-1" rel="bookmark">Jump to section 1</a>
+
+    canonical: This attribute specifies the canonical URL of the current document. This is useful when you have multiple
+    pages with similar content and you want to tell search engines which page is the original one.
+    Example:
+    <link rel="canonical" href="https://example.com/page.html">
+
+    dns-prefetch: This attribute specifies a DNS prefetch for the current document. This is useful for speeding up the
+    loading of external resources.
+    Example:
+    <link rel="dns-prefetch" href="//example.com">
+
+    external: This attribute specifies that the link points to an external resource.
+    Example: <a href="https://example.com" rel="external">Visit example.com</a>
+
+    help: This attribute specifies a link to a help document.
+    Example: <a href="https://example.com/help.html" rel="help">Help</a>
+
+    icon: This attribute specifies a link to an icon for the current document.
+    Example:
+    <link rel="icon" href="https://example.com/favicon.ico">
+
+    license: This attribute specifies a link to the license of the current document.
+    Example: <a href="https://example.com/license.html" rel="license">License</a>
+
+    manifest: This attribute specifies a link to the web application manifest for the current document.
+    Example:
+    <link rel="manifest" href="/manifest.json">
+
+    me: This attribute specifies a link to the author's profile page.
+    Example: <a href="https://example.com/profile.html" rel="me">My profile</a>
+
+    modulepreload: This attribute specifies a link to a module that should be preloaded.
+    Example:
+    <link rel="modulepreload" href="https://example.com/script.js">
+
+    next: This attribute specifies a link to the next document in a sequence.
+    Example:
+    <link rel="next" href="https://example.com/page2.html">
+
+    nofollow: This attribute specifies that search engines should not follow the link.
+    Example: <a href="https://example.com" rel="nofollow">Visit example.com</a>
+
+    noopener: This attribute specifies that the link should not be able to modify the opener window.
+    Example: <a href="https://example.com" rel="noopener">Visit example.com</a>
+
+    noreferrer: This attribute specifies that the browser should not send a referrer header when following the link.
+    Example: <a href="https://example.com" rel="noreferrer">Visit example.com</a>
+
+    opener: This attribute specifies that the link should be able to modify the opener window.
+    Example: <a href="https://example.com" rel="opener">Visit example.com</a>
+
+    pingback: This attribute specifies a link to the pingback endpoint for the current document.
+    Example:
+    <link rel="pingback" href="https://example.com/pingback.php">
+
+    preconnect: This attribute specifies a resource that should be preconnected.
+    Example:
+    <link rel="preconnect" href="https://example.com">
+
+    prefetch: This attribute specifies a resource that should be prefetched.
+    Example:
+    <link rel="prefetch" href="https://example.com/image.jpg">
+
+    preload: This attribute specifies a resource that should be preloaded.
+    Example:
+    <link rel="preload" href="https://example.com/script.js" as="script">
+
+    prerender: This attribute specifies a resource that should be prerendered.
+    Example:
+    <link rel="prerender" href="https://example.com/page2.html">
+
+    prev: This attribute specifies a link to the previous document in a sequence.
+    Example:
+    <link rel="prev" href="https://example.com/page1.html">
+
+    search: This attribute specifies a link to a search form.
+    Example: <a href="https://example.com/search.html" rel="search">Search</a>
+
+    stylesheet: This attribute specifies a link to a stylesheet for the current document.
+    Example:
+    <link rel="stylesheet" href="https://example.com/style.css">
+
+    Note: The examples provided in my previous answer are for demonstration purposes only and may not be valid or
+    functional
+    URLs. Please use valid URLs in your real-world applications.
+
+    alternate: This attribute specifies an alternate version of the current document.
+    Example:
+    <link rel="alternate" hreflang="es" href="https://example.com/es/page.html">
+
+    author: This attribute specifies the author of the current document.
+    Example:
+    <link rel="author" href="https://example.com/about-the-author.html">
+
+    bookmark: This attribute specifies a bookmark to the current document.
+    Example: <a href="#section-2" rel="bookmark">Jump to section 2</a>
+
+    canonical: This attribute specifies the canonical URL of the current document.
+    Example:
+    <link rel="canonical" href="https://example.com/canonical-page.html">
+
+    dns-prefetch: This attribute specifies a DNS prefetch for the current document.
+    Example:
+    <link rel="dns-prefetch" href="//example.com">
+
+    external: This attribute specifies that the link points to an external resource.
+    Example: <a href="https://example.com" rel="external">Visit example.com</a>
+
+    help: This attribute specifies a link to a help document.
+    Example: <a href="https://example.com/help.html" rel="help">Help</a>
+
+    icon: This attribute specifies a link to an icon for the current document.
+    Example:
+    <link rel="icon" href="https://example.com/favicon.ico">
+
+    license: This attribute specifies a link to the license of the current document.
+    Example: <a href="https://example.com/license.html" rel="license">License</a>
+
+    manifest: This attribute specifies a link to the web application manifest for the current document.
+    Example:
+    <link rel="manifest" href="/manifest.json">
+
+    me: This attribute specifies a link to the author's profile page.
+    Example: <a href="https://example.com/profile.html" rel="me">My profile</a>
+
+    modulepreload: This attribute specifies a link to a module that should be preloaded.
+    Example:
+    <link rel="modulepreload" href="https://example.com/script.js">
+
+    next: This attribute specifies a link to the next document in a sequence.
+    Example:
+    <link rel="next" href="https://example.com/page3.html">
+
+    nofollow: This attribute specifies that search engines should not follow the link.
+    Example: <a href="https://example.com" rel="nofollow">Visit example.com</a>
+
+    noopener: This attribute specifies that the link should not be able to modify the opener window.
+    Example: <a href="https://example.com" rel="noopener">Visit example.com</a>
+
+    noreferrer: This attribute specifies that the browser should not send a referrer header when following the link.
+    Example: <a href="https://example.com" rel="noreferrer">Visit example.com</a>
+
+    opener: This attribute specifies that the link should be able to modify the opener window.
+    Example: <a href="https://example.com" rel="opener">Visit example.com</a>
+
+    pingback: This attribute specifies a link to the pingback endpoint for the current document.
+    Example:
+    <link rel="pingback" href="https://example.com/pingback.php">
+
+    preconnect: This attribute specifies a resource that should be preconnected.
+    Example:
+    <link rel="preconnect" href="https://example.com">
+
+    prefetch: This attribute specifies a resource that should be prefetched.
+    Example:
+    <link rel="prefetch" href="https://example.com/image2.jpg">
+
+    preload: This attribute specifies a resource that should be preloaded.
+    Example:
+    <link rel="preload" href="https://example.com/script2.js" as="script">
+
+    prerender: This attribute specifies a resource that should be prerendered.
+    Example:
+    <link rel="prerender" href="https://example.com/page3.html">
+
+    prev: This attribute specifies a link to the previous document in a sequence.
+    Example:
+    <link rel="prev" href="https://example.com/page1.html">
+
+    search: This attribute specifies a link to a search form.
+    Example: <a href="https://example.com/search.html" rel="search">Search</a>
+
+    stylesheet: This attribute specifies a link to a stylesheet for the current document.
+    Example:
+    <link rel="stylesheet" href="https://example.com/style2.css">
+</div>
+<div is="mdn-example">
+
+    示例：
+
+
+    author：指定当前文档的作者。
+    示例：
+    <link rel="author" href="https://example.com/about-the-author.html">
+
+    bookmark：指定当前文档的书签。
+    示例：<a href="#section-2" rel="bookmark">跳转到第二部分</a>
+
+    canonical：指定当前文档的规范 URL。
+    示例：
+    <link rel="canonical" href="https://example.com/canonical-page.html">
+
+    dns-prefetch：指定当前文档的 DNS 预取。
+    示例：
+    <link rel="dns-prefetch" href="//example.com">
+
+    external：指定链接指向外部资源。
+    示例：<a href="https://example.com" rel="external">访问 example.com</a>
+
+    help：指定到帮助文档的链接。
+    示例：<a href="https://example.com/help.html" rel="help">帮助</a>
+
+    icon：指定当前文档的图标链接。
+    示例：
+    <link rel="icon" href="https://example.com/favicon.ico">
+
+    license：指定当前文档的许可证链接。
+    示例：<a href="https://example.com/license.html" rel="license">许可证</a>
+
+    manifest：指定当前文档的 Web 应用程序清单链接。
+    示例：
+    <link rel="manifest" href="/manifest.json">
+
+    me：指定到作者个人资料页面的链接。
+    示例：<a href="https://example.com/profile.html" rel="me">我的个人资料</a>
+
+    modulepreload：指定应预加载的模块链接。
+    示例：
+    <link rel="modulepreload" href="https://example.com/script.js">
+
+    next：指定序列中的下一个文档链接。
+    示例：
+    <link rel="next" href="https://example.com/page3.html">
+
+    nofollow：指定搜索引擎不应跟随链接。
+    示例：<a href="https://example.com" rel="nofollow">访问 example.com</a>
+
+    noopener：指定链接不应能够修改打开链接的窗口。
+    示例：<a href="https://example.com" rel="noopener">访问 example.com</a>
+
+    noreferrer：指定浏览器在跟随链接时不应发送 referrer 标头。
+    示例：<a href="https://example.com" rel="noreferrer">访问 example.com</a>
+
+    opener：指定链接应能够修改打开链接的窗口。
+    示例：<a href="https://example.com" rel="opener">访问 example.com</a>
+
+    pingback：指定当前文档的 pingback 端点链接。
+    示例：
+    <link rel="pingback" href="https://example.com/pingback.php">
+
+    preconnect：指定应预连接的资源链接。
+    示例：
+    <link rel="preconnect" href="https://example.com">
+
+    prefetch：指定应预取的资源链接。
+    示例：
+    <link rel="prefetch" href="https://example.com/image2.jpg">
+
+    preload：指定应预加载的资源链接。
+    示例：
+    <link rel="preload" href="https://example.com/script2.js" as="script">
+
+    prerender：指定应预渲染的资源链接。
+    示例：
+    <link rel="prerender" href="https://example.com/page3.html">
+
+    prev：指定序列中的上一个文档链接。
+    示例：
+    <link rel="prev" href="https://example.com/page1.html">
+
+    search：指定到搜索表单的链接。
+    示例：<a href="https://example.com/search" rel="search">搜索</a>
+
+    stylesheet：指定当前文档的样式表链接。
+    示例：
+    <link rel="stylesheet" href="https://example.com/styles.css">
+</div>-->
 <script type="module">
+    import {
+        MDNExample
+    } from "../../packages/MDNExample.js";
+
     document.addEventListener("DOMContentLoaded", function () {
+        const providers = Array.from(this.getElementsByClassName("info-provider"));
+        const template = this.querySelector("template");
+
+        providers.forEach(provider => {
+            provider.attachShadow({mode: "open"}).appendChild(template.content.cloneNode(true));
+        });
+
     });
 </script>
 </body>

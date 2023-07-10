@@ -15,6 +15,17 @@
 <a href="http://localhost:4000/download/image">准备下载</a>
 <!--URL 路径的最后一段。-->
 <a href="http://localhost:4000/download/1234567890123456789012345678901234567890" download="bocchi">准备下载</a>
+
+<script type="module">
+    import {Toast} from "./libs/Toast2.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if(location.port.indexOf("4000") === -1){
+            Toast.showMessage("此应用需要打开server.js服务器，并从server.js服务器中打开");
+        }
+    })
+
+</script>
 <script type="module">
     document.addEventListener("DOMContentLoaded", function () {
         //媒体类型。来自 Content-Type 标头，data: URL 的开头，或 blob: URL 的 Blob.type

@@ -1,38 +1,57 @@
 class Toast extends Object {
+    #__version__:number = 1.0;
     //窗口持续时间
-    static #duration: number = 2000;
+    static #duration: number = 3000;
     //窗口是否已经初始化
     static #isInitialize: boolean = false;
-    //窗口元素
-    static #element: HTMLElement = (function (): HTMLElement {
+
+    static #container: HTMLElement = (function (): HTMLElement {
         const div = document.createElement("div");
         // @ts-ignore
-        div.popover = "manual";
-        div.tabIndex = -1;
+        div.id = "toast-container";
+        div.style.display = "none";
 
         document.body.appendChild(div);
         return div;
     })();
 
+    //窗口元素
+    static #createElement = function (content): HTMLElement {
+        const div = document.createElement("div");
+        // @ts-ignore
+        div.innerHTML = content;
+        div.className = "pop-over";
+
+        this.#container.appendChild(div);
+        return div;
+    };
+
     //检查是否初始化
     static async #checkInit(): Promise<void> {
         if (!this.#isInitialize) {
             let cssText: string = `
-            ::backdrop {
+            #toast-container {
+                position: fixed;
+                left: 30vw;
+                top: 10vh;
+            
+                z-index: 1;
+                display: none;
+                grid-template-columns: 40vw;
+                grid-auto-rows: min-content;
             }
             
-            :popover-open {
+            #toast-container > .pop-over {
                 border-radius: 15px;
-                border: #ccc solid 1px;
-                background-color: #fff8;
-                width: 20vw;
-                padding:10px;
-                transform: translate(0, 30vh);
+                border: #aaffdd solid 2px;
+                background-color: #aaffdd77;
+                width: calc(100% - 20px);
+                padding: 10px;
                 text-align: center;
                 line-break: strict;
                 word-break: break-all;
-                
-            }`;
+            }
+            `;
 
             let stylesheet: CSSStyleSheet = new CSSStyleSheet();
 
@@ -61,25 +80,31 @@ class Toast extends Object {
 
         let that = this;
 
-        this.#element.innerHTML = this.#msgList[0];
+        const element: HTMLElement = this.#createElement(that.#msgList[that.#msgList.length - 1]);
 
         // @ts-ignore
-        document.startViewTransition(() => this.#element.showPopover());
+        document.startViewTransition(() => {
+            that.#container.style.display = "grid";
+        });
 
 
         let prm: Promise<void> = new Promise(resolve => {
             setTimeout(function () {
                 // @ts-ignore
-                document.startViewTransition(() => that.#element.hidePopover());
-                that.#msgList.shift();
+                const transition = document.startViewTransition(() => {
+                    element.parentElement.removeChild(element);
+                    that.#msgList.shift();
+
+                    if (!that.#msgList.length)
+                        that.#container.style.display = "none";
+
+                });
                 resolve();
 
             }, that.#duration);
         });
 
-        await prm;
-
-        await this.#render();
+        // this.#render();
     }
 
 
@@ -88,7 +113,7 @@ class Toast extends Object {
             if (msg.length > 200) msg = msg.substring(0, 200);
 
             this.#msgList.push(msg);
-            if (this.#msgList.length === 1) this.#render();
+            this.#render();
         });
 
     }
