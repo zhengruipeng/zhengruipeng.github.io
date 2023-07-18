@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="receiveRequest.php">normal link</a><br />
+<a href="receiveRequest.php" referrerpolicy="no-referrer">no-referrer</a><br />
+<a href="receiveRequest.php" referrerpolicy="no-referrer-when-downgrade">no-referrer-when-downgrade</a><br />
+<a href="receiveRequest.php" referrerpolicy="origin">origin</a><br />
+<a href="http://localhost:3000/" referrerpolicy="origin-when-cross-origin">origin-when-cross-origin</a><br />
+<a href="receiveRequest.php" referrerpolicy="same-origin">same-origin(send to same origin)</a><br />
+<a href="http://localhost:3000/" referrerpolicy="same-origin">same-origin(send to different origin)</a><br />
+<a href="https://localhost:63342/User.php/HTML/a%E6%A0%87%E7%AD%BE/receiveRequest.php" referrerpolicy="strict-origin">strict-origin(send to same protocol)</a><br />
+<a href="http://localhost:63342/User.php/HTML/a%E6%A0%87%E7%AD%BE/receiveRequest.php" referrerpolicy="strict-origin">strict-origin(send to different protocol)</a><br />
+<a href="receiveRequest.php" referrerpolicy="strict-origin-when-cross-origin">strict-origin-when-cross-origin(send to same origin)</a><br />
+<a href="https://localhost:63342/User.php/HTML/a%E6%A0%87%E7%AD%BE/receiveRequest.php" referrerpolicy="same-origin">same-origin(send to same protocol)</a><br />
+<a href="http://localhost:3000/" referrerpolicy="same-origin">same-origin(send to different protocol)</a><br />
+<a href="receiveRequest.php" referrerpolicy="unsafe-url">unsafe-url</a><br />
+
+
+</body>
+</html>

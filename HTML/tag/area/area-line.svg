@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="500" width="500">
+    <path d="M 129,0,260,95,129,138" style="fill:none;stroke:#000"/>
+    <path d="M 260,96,209,249,130,138" style="fill:none;stroke:#000"/>
+    <path d="M 209,249,49,249,130,139" style="fill:none;stroke:#000"/>
+    <path d="M 48,249,0,96,129,138" style="fill:none;stroke:#000"/>
+    <path d="M 0,95,128,0,128,137" style="fill:none;stroke:#000"/>
+    <circle cx="50" cy="400" r="50" style="fill:none;stroke:#000" />
+    <text x="50" y="400" text-anchor="middle">CSS</text>
+    <rect x="400" y="400" height="100" width="100" style="fill:none;stroke:#000" />
+    <text x="450" y="450" text-anchor="middle">JS</text>
+</svg>

@@ -34,7 +34,9 @@
         mapper.map(1, callback);
         mapper.map(2, callback);
         mapper.map(3, callback);
-
+        mapper.finally(function (ev) {
+            console.log("finally", ev)
+        })
         mapper.call();
 
         // let observer = new ConstantObserver(obj);

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.193.0/",
+    "fmt/": "https://deno.land/std@0.193.0/fmt/"
+  },
+  "tasks": {
+    "dev": "deno run --watch 01test.ts"
+  },
+  "lock": "./lock.file"
+}

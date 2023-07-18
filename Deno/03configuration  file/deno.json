@@ -4,5 +4,42 @@
   },
   "tasks": {
     "dev": "deno run --watch 01test.ts"
+  },
+
+  "lint": {
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/testdata/",
+      "data/fixtures/**/*.ts"
+    ],
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "include": [
+        "ban-untagged-todo"
+      ],
+      "exclude": [
+        "no-unused-vars"
+      ]
+    }
+  },
+
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 20,
+    "indentWidth": 6,
+    "semiColons": false,
+    "singleQuote": false,
+    "proseWrap": "preserve",
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/testdata/",
+      "data/fixtures/**/*.ts"
+    ]
   }
 }

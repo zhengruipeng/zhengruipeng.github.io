@@ -4,55 +4,94 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230630">
-      <change afterPath="$PROJECT_DIR$/.idea/deno.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/.idea/Deno.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/.idea/deno.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/01First Step/.idea/01First Step.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/01First Step/01hello-world.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/01First Step/02fetchAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/01First Step/02fetchAPI.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/01First Step/03stdio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/01First Step/03stdio.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/01First Step/04http-server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/02Commandline interface/01获取子命令行.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/02Commandline interface/02watch-mode.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/03configuration  file/01test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/03configuration  file/deno.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/deno.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HTML/tag/a标签/libs/Toast2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/读书程序.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/Toast2-useCase.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/Toast2.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/zh-converse.ts" afterDir="false" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230718">
+      <change afterPath="$PROJECT_DIR$/Deno/03configuration  file/02fmt.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/03configuration  file/src/deployed.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/04Modules/01local-import.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/04Modules/02remote-import.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/04Modules/03reload-module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/04Modules/04import-maps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/04Modules/deno.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/04Modules/lock.file" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/04Modules/module/arithmetic.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/deno.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/abbr/title.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/acronym/title.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/alt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/area-line.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/area.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/area2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/coords.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/download.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/href.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/hreflang.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/ping.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/referrerpolicy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/rel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/area/target.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/article/article.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/aside/aside.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/audio/audio.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/audio/autoplay.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/audio/controls.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/tag/audio/controlslist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTML/图像/area.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/原批道具转换器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/去除图片背景/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/01. 星の海の記憶.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/WebRTC流程.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/WebRTC网络原理.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/信令服务器工作描述.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/前端类图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/后端类图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/通信流程图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/message/model/Message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/message/module/MessageManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f70407c3-1c07-4375-9717-02ad606bcfd0/storage_v2/_src_/schema/database_essential.6UqJzQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f70407c3-1c07-4375-9717-02ad606bcfd0/storage_v2/_src_/schema/database_essential.6UqJzQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f70407c3-1c07-4375-9717-02ad606bcfd0/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f70407c3-1c07-4375-9717-02ad606bcfd0/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f70407c3-1c07-4375-9717-02ad606bcfd0/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/文本属性/text-combine-upright.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/文本属性/text-combine-upright.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/文本属性/text-decoration.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS The Definitive Guide Edition 4th/文本属性/text-decoration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/03configuration  file/deno.json" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/03configuration  file/deno.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/abbr.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/address.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/address/address.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HTML/attributes/rel.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/attributes/rel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/download.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a标签/download.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/ping.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a标签/ping.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/rel.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a标签/rel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Toast.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Toast.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Toast.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Toast.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/download.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/download.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/filename.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/filename.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/href.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/href.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/hreflang.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/hreflang.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/image/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/image/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/libs/Console.js" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/libs/Console.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/libs/Mapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/libs/Mapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/libs/Object-prototype-toString2.js" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/libs/Object-prototype-toString2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/libs/Toast2.js" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/libs/Toast2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/ping.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/ping.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/receiveRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/receiveRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/referrerpolicy.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/referrerpolicy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/rel.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/rel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/reveiveRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/reveiveRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/target.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/target.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/tag/a标签/type.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/tag/a/type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/去除图片背景/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片背景/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Console.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Console.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Mapper-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Mapper-test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Mapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Mapper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Toast2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Toast2.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordpress/test/wp-includes/js/dist/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/wordpress/test/wp-includes/js/dist/url.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/callpage-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/callpage-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/friend-list.css" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/friend-list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/message-page-header.css" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/message-page-header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/message-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/css/main-page/message-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/主页面/主页面设计图.vsdx" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/主页面/主页面设计图.vsdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/front-end-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/front-end-server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/类图1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/类图2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/通话流程图.vsdx" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/design-drawing/视频通话/通话流程图.vsdx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/WSConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/WSConnection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/call-operation.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/module/call-operation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/call-timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/call-timer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/callpage-UI.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/call/script/callpage-UI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/p2p-calling.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/p2p-calling.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/aside-controller-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/aside-controller-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/send-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/js/mainPage/ui/send-message.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,9 +107,9 @@
         <option value="HTTP Request" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -118,71 +157,72 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "19.4.0",
-    "javascript.nodejs.core.library.typings.version": "20.3.3",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "D:\\apps\\apps\\PhpStorm\\ch-0\\231.9161.47\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.3.3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/HTML/attributes&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\apps\\apps\\PhpStorm\\ch-0\\231.9161.47\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;,
+      &quot;mongo&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "XHTML",
-      "PLAIN_TEXT"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;XHTML&quot;,
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\a标签\libs" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\packages" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\a标签\libs" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\design-drawing\视频通话" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\a标签\image" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\attributes" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\audio" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\resources" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\area" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\area" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\address" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\a标签\libs" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Peer2peerService.js (2)">
+  <component name="RunManager" selected="Deno.Deno: crossorigin.ts">
+    <configuration name="Deno: crossorigin.ts" type="DenoConfigurationType" temporary="true" nameIsGenerated="true" inputPath="$PROJECT_DIR$/HTML/attributes/crossorigin.ts" programParameters="run" workingDirectory="$PROJECT_DIR$/HTML/attributes">
+      <method v="2" />
+    </configuration>
     <configuration name="Peer2peerService.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService">
       <method v="2" />
     </configuration>
     <configuration name="Peer2peerService.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService">
       <method v="2" />
     </configuration>
-    <configuration name="front-end-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd/front-end-server.js" working-dir="$PROJECT_DIR$/所有课程/软件工程小学期/frontEnd">
-      <method v="2" />
-    </configuration>
     <configuration name="nonce.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/nonce.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport">
       <method v="2" />
     </configuration>
-    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/HTML/tag/a标签/server.js" working-dir="$PROJECT_DIR$/HTML/tag/a标签">
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/HTML/tag/a/server.js" working-dir="$PROJECT_DIR$/HTML/tag/a">
       <method v="2" />
     </configuration>
     <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
@@ -190,11 +230,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.Peer2peerService.js (2)" />
-        <item itemvalue="Node.js.server.js" />
-        <item itemvalue="Node.js.front-end-server.js" />
-        <item itemvalue="Node.js.nonce.js (1)" />
-        <item itemvalue="Node.js.Peer2peerService.js (1)" />
+        <item itemvalue="Deno.Deno: crossorigin.ts" />
       </list>
     </recent_temporary>
   </component>
@@ -825,6 +861,15 @@
       <workItem from="1688730292398" duration="28000" />
       <workItem from="1688730343924" duration="1694000" />
       <workItem from="1688957258096" duration="508000" />
+      <workItem from="1688966825598" duration="1265000" />
+      <workItem from="1689053066854" duration="3000" />
+      <workItem from="1689074061799" duration="4089000" />
+      <workItem from="1689126065106" duration="5224000" />
+      <workItem from="1689131400931" duration="15105000" />
+      <workItem from="1689489163050" duration="3779000" />
+      <workItem from="1689647711522" duration="4368000" />
+      <workItem from="1689653841246" duration="62000" />
+      <workItem from="1689653928660" duration="2808000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>
@@ -1169,7 +1214,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684998352034</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1204,6 +1249,7 @@
         <option value="$PROJECT_DIR$/packages/Toast2.js" />
         <option value="$PROJECT_DIR$/packages/zh-converse.js" />
         <option value="$PROJECT_DIR$/Deno/01First Step/04http-server.js" />
+        <option value="$PROJECT_DIR$/HTML/attributes/crossorigin.js" />
       </list>
     </option>
   </component>
@@ -1220,8 +1266,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="20221228" />
-    <MESSAGE value="20230106" />
     <MESSAGE value="20230116" />
     <MESSAGE value="20230123" />
     <MESSAGE value="20230207" />
@@ -1245,7 +1289,9 @@
     <MESSAGE value="20230525 2" />
     <MESSAGE value="20230629" />
     <MESSAGE value="20230630" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230630" />
+    <MESSAGE value="20230710" />
+    <MESSAGE value="20230718" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230718" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">

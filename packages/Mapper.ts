@@ -46,21 +46,34 @@ class Mapper extends Object {
     public options: MapperOptions;
     #map: Map<any, Array<Function>> = new Map();
     #symbolDefault: Symbol = Symbol("default");
+    #symbolFinally: Symbol = Symbol("finally");
 
     public map(key: any, callback: Function): Mapper {
         if (!this.#map.get(key)) {
             this.#map.set(key, [callback]);
         } else {
+            //@ts-ignore:
             this.#map.get(key).push(callback);
         }
         return this;
     }
 
-    default(callback): Mapper {
+    default(callback: CallableFunction): Mapper {
         if (!this.#map.get(this.#symbolDefault)) {
             this.#map.set(this.#symbolDefault, [callback]);
         } else {
+            //@ts-ignore:
             this.#map.get(this.#symbolDefault).push(callback);
+        }
+        return this;
+    }
+
+    public finally(callback: CallableFunction): Mapper {
+        if (!this.#map.get(this.#symbolFinally)) {
+            this.#map.set(this.#symbolFinally, [callback]);
+        } else {
+            //@ts-ignore:
+            this.#map.get(this.#symbolFinally).push(callback);
         }
         return this;
     }
@@ -74,18 +87,42 @@ class Mapper extends Object {
             target = this.target;
         }
 
-        let callbacks: Array<Function> = this.#map.get(target);
+        let callbacks: Function[] | undefined = this.#map.get(target);
         if (!callbacks) callbacks = this.#map.get(this.#symbolDefault);
         if (!callbacks) return;
+        let finallyCBs: Function[] | undefined = this.#map.get(this.#symbolFinally);
 
         let mapperEvent: MapperEvent = new MapperEvent(target, this, params);
 
-        callbacks.forEach((cb: Function) => {
+        callbacks?.forEach((cb: Function) => {
+            cb(mapperEvent);
+        });
+        finallyCBs?.forEach((cb: Function) => {
             cb(mapperEvent);
         });
     }
 
-    constructor(target: any, options: MapperOptions) {
+    public async callSync(...params: Array<any>): Promise<void> {
+        let target: any;
+        if (typeof this.target === "object" &&
+            this.options.observeKey) {
+            target = this.options.observeKey.getValue(this.target);
+        } else {
+            target = this.target;
+        }
+
+        let callbacks: Function[] | undefined = this.#map.get(target);
+        if (!callbacks) callbacks = this.#map.get(this.#symbolDefault);
+        if (!callbacks) return;
+
+        const mapperEvent: MapperEvent = new MapperEvent(target, this, params);
+
+        for (const callback of callbacks) {
+            await callback(mapperEvent);
+        }
+    }
+
+    constructor(target: any, options: MapperOptions | null) {
         super();
         this.target = target;
         this.options = options;

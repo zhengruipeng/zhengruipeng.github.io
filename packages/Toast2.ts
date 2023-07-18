@@ -1,5 +1,5 @@
 class Toast extends Object {
-    #__version__:number = 1.0;
+    #__version__: number = 1.0;
     //窗口持续时间
     static #duration: number = 3000;
     //窗口是否已经初始化
@@ -29,7 +29,7 @@ class Toast extends Object {
     //检查是否初始化
     static async #checkInit(): Promise<void> {
         if (!this.#isInitialize) {
-            let cssText: string = `
+            let cssText = `
             #toast-container {
                 position: fixed;
                 left: 30vw;
@@ -42,14 +42,24 @@ class Toast extends Object {
             }
             
             #toast-container > .pop-over {
-                border-radius: 15px;
-                border: #aaffdd solid 2px;
-                background-color: #aaffdd77;
+                border-radius: 20px;
+                // border: #aaffdd solid 2px;
                 width: calc(100% - 20px);
-                padding: 10px;
+                padding: 22px 15px;
                 text-align: center;
                 line-break: strict;
                 word-break: break-all;
+                margin:10px;
+                font-size:1.1em;
+            }
+            .log{
+                background-color: #aaffaa77;
+            }
+            .error{
+                background-color: #f007;
+            }
+            .warn{
+                background-color: #ff07;
             }
             `;
 
@@ -75,12 +85,13 @@ class Toast extends Object {
     static #msgList: Array<string> = [];
 
     //渲染消息栏
-    static async #render(): Promise<void> {
+    static async #render(type): Promise<void> {
         if (!this.#msgList.length) return null;
 
         let that = this;
 
         const element: HTMLElement = this.#createElement(that.#msgList[that.#msgList.length - 1]);
+        element.classList.add(type)
 
         // @ts-ignore
         document.startViewTransition(() => {
@@ -113,11 +124,28 @@ class Toast extends Object {
             if (msg.length > 200) msg = msg.substring(0, 200);
 
             this.#msgList.push(msg);
-            this.#render();
+            this.#render("log");
         });
 
     }
 
+    static showWarning(msg: string): void {
+        this.#checkInit().then(_ => {
+            if (msg.length > 200)
+                msg = msg.substring(0, 200);
+            this.#msgList.push(msg);
+            this.#render("warn");
+        });
+    }
+
+    static showError(msg: string): void {
+        this.#checkInit().then(_ => {
+            if (msg.length > 200)
+                msg = msg.substring(0, 200);
+            this.#msgList.push(msg);
+            this.#render("error");
+        });
+    }
 }
 
 export {Toast}

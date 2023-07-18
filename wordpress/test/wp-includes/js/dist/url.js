@@ -733,7 +733,7 @@ function safeDecodeURIComponent(uriComponent) {
  * @example
  * ```js
  * const displayUrl = filterURLForDisplay( 'https://www.wordpress.org/gutenberg/' ); // wordpress.org/gutenberg
- * const imageUrl = filterURLForDisplay( 'https://www.wordpress.org/wp-content/uploads/img.png', 20 ); // …ent/uploads/img.png
+ * const imageUrl = filterURLForDisplay( 'https://www.wordpress.org/wp-content/uploads/img.png', 20 ); // …ent/uploads/area.png
  * ```
  *
  * @return {string} Displayed URL.

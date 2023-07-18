@@ -60,20 +60,20 @@ document.addEventListener("DOMContentLoaded", function () {
     //当远程媒体流传过来的时候触发的事件
     let gotRemoteStream = function (e) {
         // console.log("接收到媒体流")
-        currentAudio.remote = new Audio();
-        currentAudio.remote.srcObject = e.streams[0];
-        currentAudio.remote.autoplay = true;
-        currentAudio.remote.muted = false;
+            currentAudio.remote = new Audio();
+            currentAudio.remote.srcObject = e.streams[0];
+            currentAudio.remote.autoplay = true;
+            currentAudio.remote.muted = false;
 
-        //电话已经接通，设置为通话中
-        // callingState.value = CallingState.CALLING
+            //电话已经接通，设置为通话中
+            // callingState.value = CallingState.CALLING
 
-        AppGlobal.RTCConnection.value?.addEventListener("connectionstatechange", function () {
-            // console.log(this.iceConnectionState)
-            if (this.iceConnectionState === "connected") {
-                callingState.value = CallingState.CALLING
-            }
-        })
+            AppGlobal.RTCConnection.value?.addEventListener("connectionstatechange", function () {
+                // console.log(this.iceConnectionState)
+                if (this.iceConnectionState === "connected") {
+                    callingState.value = CallingState.CALLING
+                }
+            })
     };
 
     //拨打电话方拨打电话触发的事件
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let mediaStream = await navigator.mediaDevices.getUserMedia({audio: true/*, video: true*/});
         currentAudio.local.srcObject = mediaStream;
         currentAudio.local.autoplay = true;
-        currentAudio.local.muted = true;
+        currentAudio.local.muted = false;
 
         //打开对话页面并直接开启
         videophoneContainer.className = "start";
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let mediaStream = await navigator.mediaDevices.getUserMedia({audio: true/*, video: true*/});
             currentAudio.local.srcObject = mediaStream;
             currentAudio.local.autoplay = true;
-            currentAudio.local.muted = true;
+            currentAudio.local.muted = false;
 
             //初始化事件
             peerConnA.addEventListener("icecandidate", iceCandidateA);

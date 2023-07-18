@@ -225,6 +225,10 @@ let Console = class extends Object {
 
                     selection.removeAllRanges();
                     selection.addRange(range);
+                } else if (ev.key.toLowerCase() === "c" && ev.ctrlKey) {
+                    ev.preventDefault();
+                    this.innerText += "^C";
+                    resolve();
                 }
             });
 
@@ -348,10 +352,10 @@ let Console = class extends Object {
 
     output(...msgs) {
         let that = this;
-        msgs.forEach(msg => {
+        /*msgs.forEach(msg => {
             that.#initItem(msg);
-        });
-
+        });*/
+        this.#initItem(msgs.join(" "));
         this.updateTimer();
     }
 
@@ -418,7 +422,7 @@ let Console = class extends Object {
         return res;
     }
 
-    clear(){
+    clear() {
         this.#inputHistory = [];
         this.cancelTimer();
 

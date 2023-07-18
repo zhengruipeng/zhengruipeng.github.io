@@ -11,11 +11,11 @@
     document.addEventListener("DOMContentLoaded", function () {
         const canvas = document.getElementById("canvas");
 
-        const EPSILON = 2;
+        const EPSILON = 125;
 
         const image = new Image();
         image.src = "" +
-            "action3.jpg" +
+            "1.png" +
             "";
         image.onload = function () {
             canvas.width = this.width;
@@ -33,13 +33,23 @@
                 }*/
                 if (Math.hypot(
                     imageData.data[i + 0] - 255,
-                    imageData.data[i + 1] - 255,
-                    imageData.data[i + 2] - 255) < EPSILON) {
+                    imageData.data[i + 1] - 192,
+                    imageData.data[i + 2] - 0) < EPSILON) {
 
-                    imageData.data[i + 0] = 0;
-                    imageData.data[i + 1] = 0;
-                    imageData.data[i + 2] = 0;
-                    imageData.data[i + 3] = 0;
+                    imageData.data[i + 0] = 255;
+                    imageData.data[i + 1] = 255;
+                    imageData.data[i + 2] = 255;
+                    imageData.data[i + 3] = 255;
+                }
+                if (Math.hypot(
+                    imageData.data[i + 0] - 91,
+                    imageData.data[i + 1] - 155,
+                    imageData.data[i + 2] - 213) < EPSILON) {
+
+                    imageData.data[i + 0] = 255;
+                    imageData.data[i + 1] = 255;
+                    imageData.data[i + 2] = 255;
+                    imageData.data[i + 3] = 255;
                 }
                 /*if(Math.hypot(imageData.data[i + 0]-106,imageData.data[i + 1]-79,imageData.data[i + 2]-70)<EPSILON){
                     imageData.data[i + 0] = 255;

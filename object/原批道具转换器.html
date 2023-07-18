@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<script type="module">
+
+    window.datas = {
+        心海: {
+            requires: {
+                水晶: [1, 9, 9, 6],
+                浮世: [9, 63, 44],
+                飘浮灵: [36, 96, 74],
+            },
+            getted: {
+                水晶: [60, 49, 1, 1],
+                浮世: [17, 7, 6],
+                飘浮灵: [107, 40, 5],
+            },
+        }
+    };
+</script>
+<script type="module">
+    window.Transform = class extends Object {
+        unit = 3;
+        requires = [2, 3, 4];
+        getted = [3, 5, 2];
+
+        transform() {
+            let res = [];
+
+            for (let i = 0; i < this.requires.length; i++) {
+                let least = res[i] ?? 0;
+                res[i] = Math.max(0, this.requires[i] - this.getted[i] - least);
+
+                if (i < this.requires.length - 1 &&
+                    res[i] === 0) {
+                    res[i + 1] = Math.floor((this.getted[i] + least - this.requires[i]) / this.unit)
+                }
+            }
+            return res;
+
+        }
+    }
+</script>
+<script type="module">
+    import {Console} from "../packages/Console.js";
+    import {Mapper} from "../packages/Mapper.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        window.con = new Console();
+        con.renderAsConsoleApp();
+
+
+        const transform = new Transform();
+
+        const mapper = new Mapper();
+        mapper.map(1, function (ev) {
+            transform.unit = ev.customData[1] - 0;
+            con.output("转换单位已设置为: " + transform.unit)
+        });
+        mapper.map(2, function (ev) {
+            transform.requires = ev.customData.slice(1).map(v => v - 0);
+            con.output("所需用量已设置为: " + transform.requires.join())
+        });
+        mapper.map(3, function (ev) {
+            transform.getted = ev.customData.slice(1).map(v => v - 0);
+            con.output("已有材料已设置为: " + transform.getted.join())
+        });
+        mapper.map(4, function () {
+            con.output("还需要材料: " + transform.transform().join());
+        });
+        mapper.map(5, async function () {
+            con.output("选择一组数据导入：" + Object.keys(datas).join());
+            let key = await con.input();
+            let {requires, getted} = datas[key];
+            let k = Object.keys(requires);
+
+            con.output("导入数据为：");
+
+            for (let i = 0; i < k.length; i++) {
+                con.output(k[i], `需求量为：${requires[k[i]].join()}`, `已拥有：${getted[k[i]].join()}`)
+            }
+
+            for (let i = 0; i < k.length; i++) {
+                transform.requires = requires[k[i]];
+                transform.getted = getted[k[i]];
+
+                con.output(k[i], `差值为：${transform.transform().join()}`)
+            }
+
+        });
+
+        let inputs = [];
+        while (inputs[0] !== "exit") {
+            con.output("功能：");
+            con.output("1：设置转换数量，默认是3");
+            con.output("2：设置需要数量（从小到大），会一并规定长度");
+            con.output("3：设置目前各项道具数量，请与需求项数一致（从小到大）");
+            con.output("4：换算");
+            con.output("5：自动导入");
+
+            inputs = await con.inputs();
+            mapper.target = inputs[0] - 0;
+            await mapper.callSync(...inputs);
+        }
+
+    });
+</script>
+</body>
+</html>

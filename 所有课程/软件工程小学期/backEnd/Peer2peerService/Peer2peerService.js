@@ -133,7 +133,7 @@ let wsserver = ws.createServer({server: httpserver}, function (con/*Connection*/
                     arr,
                     MessageType.NEW_FRIEND
                 )));
-        })
+        });
 
         MessageOutput.output("目前有：" + JSON.stringify(allPeers));
 

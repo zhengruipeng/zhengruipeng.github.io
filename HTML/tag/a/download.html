@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    当没有指定filename属性时，浏览器会从多个来源决定文件名和扩展名：
+        Content-Disposition HTTP 标头。
+        URL 路径的最后一段。
+        媒体类型。来自 Content-Type 标头，data: URL 的开头，或 blob: URL 的 Blob.type。
+-->
+<!--server.js中的download/image路由中定义了Content-Disposition HTTP 标头-->
+<a href="http://localhost:4000/download/image">准备下载</a>
+<!--URL 路径的最后一段。-->
+<a href="http://localhost:4000/download/1234567890123456789012345678901234567890" download="bocchi">准备下载</a>
+
+<script type="module">
+    import {Toast} from "./libs/Toast2.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if(location.port.indexOf("4000") === -1){
+            Toast.showMessage("此应用需要打开server.js服务器，并从server.js服务器中打开");
+        }
+    })
+
+</script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+        //媒体类型。来自 Content-Type 标头，data: URL 的开头，或 blob: URL 的 Blob.type
+        fetch("http://localhost:4000/download/image3", {
+            // mode: 'no-cors'
+        })
+            .then(response => response.blob())
+            .then(blob => URL.createObjectURL(blob))
+            .then(url => {
+                const a = document.createElement("a");
+                a.innerText = "准备下载";
+                a.href = url;
+                a.download = "1234"
+                document.body.appendChild(a);
+            })
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 300vh;
+        }
+
+        #text {
+            position: absolute;
+            top: 150vh;
+        }
+
+        video {
+            position: absolute;
+            top: 200vh;
+            height: 300px;
+        }
+        img {
+            display: block;
+            margin: 500px auto;
+            width: 260px;
+            height: 260px;
+
+        }
+    </style>
+</head>
+<body>
+<h1 id="title">Title</h1>
+<p id="text">Hello,world</p>
+<map name="infographic">
+    <area shape="poly" coords="129,0,260,95,129,138"
+          href="#title"
+          target="_blank" alt="HTTP">
+    <area shape="poly" coords="260,96,209,249,130,138"
+          href="#:~:text=Hello,world"
+          target="_blank" alt="HTML">
+    <area shape="poly" coords="209,249,49,249,130,139"
+          href="../../../resources/1.mp4#t=10,20"
+          target="_blank" alt="JavaScript">
+    <area shape="poly" coords="48,249,0,96,129,138"
+          href="tel:+1234567890"
+          target="_blank" alt="Web APIs">
+    <area shape="poly" coords="0,95,128,0,128,137"
+          href="javascript:alert('Hello')"
+          target="_blank" alt="CSS">
+</map>
+<img usemap="#infographic" src="../../图像/area.png" alt="MDN infographic">
+
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", async function () {
+        navigator.registerProtocolHandler("web+bing", "http://localhost:4000/bing/redirect?q=%s");
+
+        let aStr = `<a href="web+bing://hello">用bing搜索</a>`
+        let parser = new DOMParser();
+        let aEle = parser.parseFromString(aStr, "text/html").querySelector("a");
+        document.body.appendChild(aEle);
+    });
+</script>
+<script type="module">
+    import {Console} from "./libs/Console.js";
+    import {Mapper} from "./libs/Mapper.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        const a1 = this.getElementById("a1");
+        const a2 = this.getElementById("a2");
+        const a3 = this.getElementById("a3");
+
+        let con = new Console();
+        con.renderAsConsoleInline();
+
+        const mapper = new Mapper();
+        mapper.map(1, function () {
+            a1.click();
+        });
+        mapper.map(2, function () {
+            a2.click();
+        });
+        mapper.map(3, function () {
+            a3.click();
+        });
+
+
+        while (true) {
+            const input = await con.input() - 0;
+            mapper.target = input;
+            mapper.call();
+        }
+    });
+</script>
+</body>
+</html>

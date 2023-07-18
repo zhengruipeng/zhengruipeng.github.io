@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="./href.html" ping="http://localhost:4000/ping/index http://localhost:4000/ping/index2">click</a>
+
+<script type="module">
+    import {Toast} from "./libs/Toast2.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if(location.port.indexOf("4000") === -1){
+            Toast.showMessage("此应用需要打开server.js服务器，并从server.js服务器中打开");
+        }
+    })
+
+</script>
+</body>
+</html>
