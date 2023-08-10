@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<audio autoplay src="../../../../resources/01.%20星の海の記憶.mp3" controls></audio>
+<script type="module">
+    import {JSONParser} from "../../../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = this.querySelector("audio");
+
+        const jsonParser = new JSONParser({
+            disableremoteplayback: false
+        });
+        jsonParser.defaultInit();
+        jsonParser.onjsonchange = function (ev) {
+            console.log(ev, this.toJSON());
+            audio.setAttribute("disableremoteplayback", !!this.toJSON()?.disableremoteplayback);
+        }
+
+    });
+</script>
+</body>
+</html>

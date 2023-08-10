@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				追加练习：深入理解v-model的流程
+			</h4>
+			<div>
+				<h6>从外向内传参数的案例</h6>
+				<!-- 
+					可以通过在控制台改变vm.title来测试
+				  title的变化能改变input的值，但是input在
+					页面输入不能改变title的值
+				 -->
+				<my-input :zhi="title"></my-input>
+				输出值：{{title}}
+			</div>
+			<div>
+				<h6>通过绑定自定义的input事件来实现改变外部的title值</h6>
+				<my-input :zhi="title" 
+					@input="handleInput1"></my-input>
+				输出值：{{title}}
+			</div>
+			<div>
+				<h6>结合上面两个例子将双向绑定变成v-model</h6>
+				<my-input v-model="title"></my-input>
+			</div>
+			
+			
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('my-input',{
+				props:{
+					zhi:{
+						required:false,
+						type:String,
+						default(){
+							return ''
+						}
+					}
+				},
+				//v-model的功能对象，他必须依赖一个参数
+				//才能找到v-model传递的值，并且与这个参数
+				//产生持续的关联
+				model:{
+					prop:'zhi',
+					//event是v-model自带的功能
+					//他的功能就是在调用的时候会自动将
+					//对他传递的参数绑定到prop设置的这个值上
+					event:'change-value'
+				},
+				template:`
+					<input 
+						:value="zhi"
+						@input="handleInput"
+					/>
+				`,
+				watch:{
+					zhi(v){
+						console.log('值的参数发生变化')
+						console.log(v)
+					}
+				},
+				methods:{
+					handleInput(e){
+						//这里就相当于，直接的将e.target.value
+						//设置到了zhi绑定的title上，他就会触发title的变化
+						//从而实现了对使用了title变量的组件都进行重新渲染
+						//从而达到在文本框中只要输入就能改变外部的title的效果
+						this.$emit('change-value',e.target.value)
+						this.$emit('input',e.target.value)
+					}
+				}
+			})
+			let vm = new Vue({
+				data(){
+					return {
+						title:'我是data中的值'
+					}
+				},
+				methods:{
+					handleInput1(value){
+						console.log(value)
+						this.title = value
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

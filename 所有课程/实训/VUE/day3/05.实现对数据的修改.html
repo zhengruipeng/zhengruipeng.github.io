@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h4>
+            1.通过点击删除按钮来实现对对应数据的删除
+        </h4>
+        <!-- 当当前不是新增状态的时候才展示新增按钮 -->
+        <button v-show="isInsert==false" @click="handleClick">新增</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>电话</th>
+                    <th>邮箱</th>
+                    <th>生日</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--  -->
+                <tr v-for="(item,index) in list" :key="item.id">
+                    <td>
+                        <div>
+                            {{index+1}}
+                        </div>
+                    </td>
+                    <td>
+                        <!--5 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+                        <div v-if="isInsert&&index==list.length-1">
+                            <!-- 输入的数据需要绑定到 -->
+                            <input type="text" v-model="item.name">
+                        </div>
+                        <div v-else-if="item.isUpdate">
+                            <!-- 输入的数据需要绑定到 -->
+                            <input type="text" v-model="item.name">
+                        </div>
+                        <div v-else>
+                            {{item.name}}
+                        </div>
+                    </td>
+                    <td>
+                        <!-- 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+                        <div v-if="isInsert&&index==list.length-1">
+                            <input type="text" v-model="item.phone">
+                        </div>
+                        <div v-else-if="item.isUpdate">
+                            <!-- 输入的数据需要绑定到 -->
+                            <input type="text" v-model="item.phone">
+                        </div>
+                        <div v-else>
+                            <!-- 提示：计算属性已经创建完毕通过在计算属性中的函数处理 -->
+                            {{formatPhone(item.phone)}}
+                        </div>
+                    </td>
+                    <td>
+                        <!-- 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+                        <div v-if="isInsert&&index==list.length-1">
+                            <input type="text" v-model="item.email">
+                        </div>
+                        <div v-else-if="item.isUpdate">
+                            <!-- 输入的数据需要绑定到 -->
+                            <input type="text" v-model="item.email">
+                        </div>
+                        <div v-else>
+                            {{item.email}}
+                        </div>
+                    </td>
+                    <td>
+                        <!-- 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+                        <div v-if="isInsert&&index==list.length-1">
+                            <input type="text" v-model="item.birthday">
+                        </div>
+                        <div v-else-if="item.isUpdate">
+                            <!-- 输入的数据需要绑定到 -->
+                            <input type="text" v-model="item.birthday">
+                        </div>
+                        <div v-else>
+                            {{item.birthday}}
+                        </div>
+                    </td>
+                    <td>
+                        <!--4 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+                        <div v-if="isInsert&&index==list.length-1">
+                            <button @click="handleSave">保存</button>
+                            <button @click="handleCancel">取消</button>
+                        </div>
+                        <!-- 修改的保存和取消 -->
+                        <div v-else-if="item.isUpdate">
+                            <button @click="handleUpdateSave(item)">保存1</button>
+                            <button @click="handleUpdateCancel(item)">取消1</button>
+                        </div>
+                        <div v-else>
+                            <button @click="handleUpdate(item)">修改</button>
+                            <button @click="handleRemove(index)">删除</button>
+                        </div>
+                    </td>
+                </tr>
+                <!-- {{list}} -->
+
+                {{temp}}
+            </tbody>
+        </table>
+    </div>
+     <script src="js/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            data() {
+                return {
+                    isInsert: false,//用来判断当前是否正在新增数据的标识
+                    temp: '',
+                    list: [
+                        {
+                            id: 'a001',
+                            name: '阳顶天',
+                            phone: '17388889887',
+                            email: 'xxx@xxx.com',
+                            birthday: '20xx-0x-0x'
+                        },
+                        {
+                            id: 'a002',
+                            name: '杨逍',
+                            phone: '17388889888',
+                            email: 'xxx@xxx.com',
+                            birthday: '20xx-0x-0x'
+                        },
+                        {
+                            id: 'a003',
+                            name: '张无忌',
+                            phone: '17388889889',
+                            email: 'xxx@xxx.com',
+                            birthday: '20xx-0x-0x'
+                        },
+                        {
+                            id: 'a004',
+                            name: '张三丰',
+                            phone: '17388889880',
+                            email: 'xxx@xxx.com',
+                            birthday: '20xx-0x-0x'
+                            
+                        }
+                    ]
+                }
+            },
+            computed: {
+                //格式化手机号码的函数
+                formatPhone() {
+                    //当前formatPhone在使用中传入了参数，参数是每条数据的手机号码
+                    //所以我们可以在当前函数中处理原始手机号码
+                    return function (phone) {
+                        //将手机号码中间四位通过字符串处理替换并返回实现在页面中展示1xx****xxxx
+                       
+                        let newPhoneStr = phone.substring(0, 3) + '****' + phone.substring(7)
+                        return newPhoneStr
+                    }
+                }
+            },
+            //2. Created生命周期，重写list数据对每行数据追加isUpdate属性
+            created() {
+                console.log('created');
+              
+                // es6的快速写法           参数展开
+                this.list = this.list.map(item => ({ ...item, isUpdate: false }))
+                // console.log(this.list);
+                //以上写法相当于
+                // this.list = this.list.map(item => {
+                //  let obj = {
+                //      id:item.id,
+                //      name:item.name,
+                //      phone:item.phone,
+                //      email:item.email,
+                //      birthday:item.birthday,
+                   
+                //  }
+                //  return obj
+                // })
+            },
+            methods: {
+                handleClick() {
+                    //获得数组的长度
+                    let length = this.list.length
+                    //创建一个与每行相同的空数据
+                    let newRow = {
+                        id: 'a00' + (length + 1),//设置唯一的标识
+                        name: '',
+                        phone: '',
+                        email: '',
+                        birthday: '',
+                        isUpdate:false
+                    }
+                    this.list.push(newRow)
+                    //将状态变更为新增
+                    this.isInsert = true
+                },
+                handleSave() {
+                    //当保存事件触发时我们发现list中的最后一行数据已经动态的变更了，说明v-model绑定生效了
+                    console.log(this.list)
+                    //下一步操作就是将新增状态变成普通状态
+                    this.isInsert = false;
+                },
+                handleCancel() {
+                    //使用pop方法可以快速的移除数组的最后一个数据
+                    this.list.pop();
+                    this.isInsert = false;
+                },
+                handleUpdate(item) {
+                    //将当前行的初始数据复制给temp中间变量
+                      console.log(item);
+                    // this.temp = item
+                    this.temp = { ...item }
+                   
+                    //   console.log(this.temp);
+                    //将当前行的数据变更为可编辑状态
+                    item.isUpdate = true;
+                },
+                handleUpdateSave(item) {
+                    //6将当前行的数据变更为不可编辑状态
+                    item.isUpdate = false;
+                },
+                handleUpdateCancel(item) {
+                    item.name = this.temp.name;
+                    item.phone = this.temp.phone;
+                    item.email = this.temp.email;
+                    item.birthday = this.temp.birthday;
+                    //将当前行的数据变更为不可编辑状态
+                    item.isUpdate = false;
+                },
+                handleRemove(index) {
+                       console.log(index);
+                    let res = window.confirm('正在删除当前数据，点击确定继续')
+                     console.log(res);
+                     if(res) {
+                        this.list.splice(index,1)
+                     }
+                }
+            }
+        }).$mount('#app')
+    </script>
+
+</body>
+
+</html>

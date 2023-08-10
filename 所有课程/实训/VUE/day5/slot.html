@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				自定义组件的嵌套试验
+			</h4>
+			<my-component :value="value">
+				<!-- 
+					我们在标签内部新建一个html标签 
+					运行本页面并查看网页以及控制台的查看器，我们发现在my-component中间写的内容是无法在网页中渲染的
+				-->
+				<div>我是写在my-component中间的标签</div>
+			</my-component>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('my-component',{
+				props:{
+					value:{
+						type:String,
+						required:false,
+						default(){
+							return ''
+						}
+					}
+				},
+				template:'<div>{{value}}</div>'
+			})
+			new Vue({
+				data(){
+					return {
+						value:'我是参数'
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

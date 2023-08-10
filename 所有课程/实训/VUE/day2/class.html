@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.p-card{
+				color: #444;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				padding: 10px 15px;
+				display: inline-block;
+				cursor: pointer;
+				background: #fff;
+				transition:all .3s ;
+			}
+			.p-card .p-card-title{
+				font-weight: bold;
+			}
+			.p-card .p-card-content ul{
+				padding: 0px;
+				list-style: none;
+				font-size: 14px;
+				color: #888;
+			}
+			.p-card.active{
+				transform: translate(0px,-3px);
+				box-shadow: 0px 2px 10px 2px rgba(100,100,100,0.3);
+			}
+			.p-logo{
+				display: block;
+				width: 100px;
+			}
+			/* 动态插入旋转动画 */
+			.p-logo-rotate{
+				animation: rotate;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				animation-duration: 2s;
+			}
+			/* 3d旋转动画 */
+			@keyframes rotate{
+				from{
+					transform: perspective(200px) rotateY(0deg);
+				}
+				to{
+					transform:perspective(200px) rotateY(360deg);
+				}
+			}
+			/* 动态插入心跳动画 */
+			.p-logo-scale{
+				animation: scale;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				animation-duration: 1s;
+			}
+			/* 心跳动画 */
+			@keyframes scale{
+				0%{
+					transform: scale(1);
+				}
+				10%{
+					transform: scale(1.3);
+				}
+				20%{
+					transform: scale(1.2);
+				}
+				30%{
+					transform: scale(1.1);
+				}
+				40%{
+					transform: scale(1);
+				}
+				50%{
+					transform: scale(1);
+				}
+				60%{
+					transform: scale(1.3);
+				}
+				70%{
+					transform: scale(1.2);
+				}
+				80%{
+					transform: scale(1.1);
+				}
+				90%{
+					transform: scale(1);
+				}
+				100%{
+					transform: scale(1);
+				}
+			}
+			/* 动态插入跳跃动画 */
+			.p-logo-jump{
+				animation: jump;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				animation-duration: 3s;
+			}
+			/* 跳跃动画 */
+			@keyframes jump{
+				0%{transform: translate(0px,0px);}
+				7%{transform: translate(0px,-20px);}
+				15%{transform: translate(0px,-40px);}
+				20%{transform: translate(0px,-50px);}
+				37%{transform: translate(0px,-40px);}
+				45%{transform: translate(0px,-20px);}
+				50%{transform: translate(0px,0px);}
+				60%{transform: translate(0px,-20px);}
+				70%{transform: translate(0px,0px);}
+				75%{transform: translate(0px,-15px);}
+				80%{transform: translate(0px,0px);}
+				95%{transform: translate(0px,0px);}
+				100%{transform: translate(0px,0px);}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				1.对象方式绑定class
+			</h4>
+			<!-- 
+				直接写入方式：尝试更改active的值来观察网页中卡片1的样式是否变更
+				当active为true的时候会对div.p-card追加一个active样式
+				当active为false的时候不会追加样式
+				具体效果可以打开浏览器的查看器观察
+			-->
+			<div class="p-card" :class="{active:false}">
+				<div class="p-card-title">
+					我是卡片1
+				</div>
+				<div class="p-card-content">
+					<ul>
+						<li>我是卡片内容1</li>
+						<li>我是卡片内容2</li>
+						<li>我是卡片内容3</li>
+						<li>我是卡片内容4</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 
+				绑定data中属性的方式，在data中定义cardClass对象，对象必须是json
+				格式仍然是className:boolean的方式
+				通过data绑定的变量我们可以通过Vue的事件进行动态的改变html元素的样式
+			-->
+			<div class="p-card" :class="cardClass"
+				@mouseover="handleMouseover"
+				@mouseout="handleMouseout">
+				<div class="p-card-title">
+					我是卡片2
+				</div>
+				<div class="p-card-content">
+					<ul>
+						<li>我是卡片内容1</li>
+						<li>我是卡片内容2</li>
+						<li>我是卡片内容3</li>
+						<li>我是卡片内容4</li>
+					</ul>
+				</div>
+			</div>
+			<h4>
+				练习：实现点击按钮展示不同的动画
+				步骤：1.对动按钮绑定点击事件
+						2.在data中创建animateClass对象并绑定到img标签上
+						3.在不同的点击事件中切换当前应该使用的动画为true
+			</h4>
+			<div>
+				<button @click="handleRotateClick">3d旋转</button>
+				<button @click="handleScaleClick">心跳</button>
+				<button @click="handleJumpClick">跳跃</button>
+				<button @click="handleCancelClick">取消</button>
+				<img class="p-logo" :class="animateClass" src="assets/logo.png" alt="">
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new Vue({
+				data(){
+					return {
+						cardClass:{
+							active:false
+						},
+						// 当class名称带-时需要用引号将key引用
+						animateClass:{
+							'p-logo-rotate':false,
+							'p-logo-scale':false,
+							'p-logo-jump':false
+						}
+					}
+				},
+				methods:{
+					// 鼠标移入事件
+					handleMouseover(){
+						this.cardClass.active = true
+					},
+					// 鼠标移出事件
+					handleMouseout(){
+						this.cardClass.active = false
+					},
+					// 触发旋转动画
+					handleRotateClick(){
+					},
+					// 触发心跳动画
+					handleScaleClick(){
+					},
+					// 触发跳跃动画
+					handleJumpClick(){
+					},
+					// 取消所有动画
+					handleCancelClick(){
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

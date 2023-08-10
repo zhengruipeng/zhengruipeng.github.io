@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h3>
+				slot基础用法
+			</h3>
+			<h4>
+				1.在组件中直接使用
+			</h4>
+			<!-- 
+				结合查看器我们可以看到写在my-component标签中间的所有内容都会被渲染到
+				template中写slot的位置并且slot标签本身不会展示到网页代码中
+			 -->
+			<my-component :value="value">
+				我是内容,我们会被展示在“我是参数后面”
+				<div>我也是内容</div>
+				<button>按钮</button>
+			</my-component>
+			<h4>
+				2.自定义组件的嵌套
+			</h4>
+			<!-- 
+				我们观察以下代码结果，得到的结论就是slot可以实现让自定义组件具有一个基本的双标签功能
+				并且可以让自定义组件的子元素在我们自己设计的位置展示只要标签实现了slot插槽写法就可以无限的
+				嵌套下去
+			 -->
+			<my-component value="我是父标签的参数">
+				<div>我是嵌套的div</div>
+				<my-component value="我是子标签的参数">
+					<div>我是子标签嵌套的div</div>
+					<button>我是子标签嵌套的button</button>
+					<my-component value="我是孙子标签的参数"></my-component>
+				</my-component>
+			</my-component>
+			<h4>
+				课堂练习：参考上述案例自己随意定义组件并实现自定义组件的嵌套
+			</h4>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('my-component',{
+				props:{
+					value:{
+						type:String,
+						required:false,
+						default(){
+							return ''
+						}
+					}
+				},
+				//slot标签会自动解析
+				template:`
+					<div class="my-component">
+						{{value}}
+						<br/>
+						<slot></slot>
+					</div>
+				`
+			})
+			new Vue({
+				data(){
+					return {
+						value:'我是参数'
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

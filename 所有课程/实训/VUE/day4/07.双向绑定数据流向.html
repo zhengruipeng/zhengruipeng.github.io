@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				追加练习：深入理解v-model的流程
+			</h4>
+			<div>
+				<h6>从外向内传参数的案例</h6>
+				<!-- 
+					4/可以通过在控制台改变vm.title来测试
+				  title的变化能改变input的值，但是input在
+					页面输入不能改变title的值，是因为:zhi="title"是在组件内部绑定数据，这就叫由外向内传参，这是一个单项。
+				 -->
+				<my-input :zhi="title"></my-input>
+				输出值：{{title}}  
+			</div>
+			<div> 
+				<!-- 6 这个功能可以从文本框向外返值，如果不加这句话title不会变，因为这个title是在外面绑定的，不写就跟这个文本框的行为没关系了一定要通过这个事件
+-->
+				<h6>通过绑定自定义的input事件来实现改变外部的title值</h6>
+				<my-input :zhi="title" 
+					@input="handleInput1"></my-input>
+				输出值：{{title}}
+			</div>
+			<div> 
+				<!-- 8 这个v-model传入的title,将要给zhi赋值-->
+				<h6>结合上面两个例子将双向绑定变成v-model</h6>
+				<my-input v-model="title"></my-input>
+			</div>
+			
+			
+		</div>
+		<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('my-input',{ //2
+				props:{
+					zhi:{
+						required:false,
+						type:String,
+						default(){
+							return ''
+						}
+					}
+				},
+				//8、v-model的功能对象，他必须依赖一个参数
+				//才能找到v-model传递的值，并且与这个参数
+				//产生持续的关联
+				model:{//8
+					prop:'zhi',
+					//event是v-model自带的功能
+					//他的功能就是在调用的时候会自动将
+					//对他传递的参数绑定到prop设置的这个值上，就是只要调用event就往里传一个参数，会把这个参数设置到这个zhi上，这个zhi就是我们绑定的v-model="title"，所以想实现一输入这个zhi就会变，就需要每次输入调用change-value这个方法。这个方法就是把我要调用的值传进去，传进去之后就会帮我们把这个值设置在title上，就相当于实现了handleInput1(value)这个方法。
+					event:'input'
+				},
+				// 3/:value="zhi"  //6先不用写@input="handleInput"
+				template:`
+					<input 
+						:value="zhi"
+						@input="handleInput"
+                        @change="handleChange"
+					/>
+				`,
+				watch:{ //7监听这个值，值中传的参数就是:zhi="title"，只要这个title的值发生变化，才能触发这个监听去打印，在控制台输入vm.title = '123'是能监听到这个值发生变化。这时在第二个文本框输入值，第一个文本框 的值也会发生变化。这说明返回的是this.$emit('input',e.target.value)是文本框的新值，通过新值再给this.title = value 重新赋值。这就是双向绑定的一个流程。这个流程是通过参数和函数实现的
+					zhi(v){
+						console.log('值的参数发生变化')
+						console.log(v)
+					}
+				},
+				methods:{
+					handleInput(e){ //6 只写input
+						this.$emit('input',e.target.value)
+						//9、这里就相当于，直接的将e.target.value
+						//设置到了zhi绑定的title上，他就会触发title的变化
+						//从而实现了对使用了title变量的组件都进行重新渲染
+						//从而达到在文本框中只要输入就能改变外部的title的效果
+						 //9
+						
+					},
+                    handleChange(e) {
+                        this.$emit('change-value',e.target.value) 
+                    }
+				}
+			})
+			let vm = new Vue({ //5 在控制台输入vm.title = '123' ,是不是可以通过这个title改变数据
+				data(){ //1
+					return {
+						title:'我是data中的值'
+					}
+				},
+				methods:{//6
+					handleInput1(value){ 
+						console.log(value)  
+						this.title = value  
+						//在次输入时把title给改了，和v-model很像，如果不加这句话title不会变，因为这个title是在外面绑定的，不写就跟这个文本框的行为没关系了，要用过这个新值，让外面的title变
+
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>
+<!-- 总结：vm.title = "123",相当于这个流程图的右半程，在input里输入相当于流程图的左半程  ，通过自定义v-model的案例我们可以推导Vue自带的v-model的运行方式，和自定义是一样的，深刻的理解这个环形的流程有助于我们更好的理解vue中数据绑定的本质
+
+__重点：基于这个环形的流程的理解，我们要对Vue中数据双向绑定做一个重新的定义，也就是说Vue实际上是通过一个单向的环形数据流实现的双向绑定。这里是面试加分项__-->
+
+<!-- 作业1.深刻理解双向绑定数据流向，结合07案例和笔记
+作业2.单向父传子
+给按钮增加一个type属性来改变按钮的颜色，
+模仿bootstrap的样式分别实现
+
+        primary:#409EFF,warning:#E6A23C,success:#67C23A,danger:#F56C6C
+        步骤：
+            1.在button中增加type属性，类型String，默认值为''
+            2.在style中已经定义好了四种按钮的样式
+            3.在button组件中将type的值绑定到p-btn的class上
+                这里由于我们传入的字符串直接就是className所以这里的class绑定可以采用数组的方式
+    
+ 作业3. 单向子传父
+ 对my-input定义一个名为get-value的事件，该事件要求文本框内只要有值的变更便会触发，并且get-value中的参数为文本框的值
+  步骤：
+             1.根据题目要求我们仍然需要利用input标签中的input事件
+             2.与input不同的是返回值不要事件对象而是要求使用文本框的值
+             3.所以我们的操作时找到my-input内部绑定的handleInput事件在内部追加一个执行组件自定义事件的操作
+             4.在代码内追加this.$emit('get-value',参数)
+             5.分析参数如何获得，我们在handleInput中能拿到这个元素的事件对象，所以可以通过e.target.value的方式得到文本框的值
+             6.完整代码是this.$emit('get-value',e.target.value)
+             7.将@get-value="handleGetValue"添加到my-input标签上并在Vue对象中添加该事件并打印参数
+             8.在页面中输入新的值验证结果 -->
+    

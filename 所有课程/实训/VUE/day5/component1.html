@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#app{
+				border: 1px solid black;
+			}
+			#my{
+				border: 2px solid orange;
+				margin: 20px;
+			}
+			.test{
+				color:yellow;
+				text-shadow: 0  1px 10px black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				自定义组件component的id和class特性以及生命周期
+			</h4>
+			<!--
+				知识点1：自定义组件自身可以识别外部传入的id和class
+				也可以在组件内部的template上定义id和class
+				如果里外同时定义了id那么外部传入的id会覆盖template上定义的id
+				如果里外同时定义了class那么class会合并到一起
+			 -->
+			<my-component id="my" class="test"></my-component>
+			<!-- 
+				知识点2:
+				打开控制台查看组件的生命周期打印信息
+				我们可以直观的看见vue的生命周期和组件的生命周期是有完整先后顺序的
+				Vue的渲染生命周期为以下流程
+				beforeCreate->created->beforeMount->
+					关键步骤：检测渲染部分是否有组件，如果有
+					进行组件的beforeCreate->created->beforeMount-> 。。。重复关键步骤
+					知道子组件不在有子组件
+					然后执行组件的mounted
+				->mounted
+				这是一次渲染
+			-->
+			 <!-- 
+				知识点3:
+				在页面中修改input的值，同时观察console的生命周期打印信息
+				我们发现当修改最后一个input的值时触发的时Vue实例中的update函数
+				而修改第一个input的值时触发的时组件内部的update函数
+				这说明了当我们通过组件拆分代码之后，每一次修改数据只会触发各个组件各自的生命周期
+				这种写法可以减少页面更新成本达到操作哪里页面重新渲染哪里的效果
+			-->
+			<input type="text" v-model="inputValue">
+			
+			
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			Vue.component('my-component',{
+				data(){
+					return {
+						title:'我的第一个自定义组件'
+					}
+				},
+				// 在组件中template相当于html部分的标签，引用组件时会将该部分的内容渲染到网页上，
+				// 并且template内部除了类型是字符串以外其他都和html无差别
+				template:`
+					<div id="b" class="p-base">
+						{{title}}
+						<br/>
+						<input v-model="title"/>
+					</div>
+				`,
+				//data内容初始化之前
+				beforeCreate() {
+					console.log('组件的beforCreate')
+				},
+				//data初始化完成
+				created() {
+					console.log('组件的created')
+				},
+				//页面容器渲染前
+				beforeMount() {
+					console.log('组件的beforeMount')
+				},
+				//页面渲染完成
+				mounted() {
+					console.log('组件的mounted')
+				},
+				//页面变更前
+				beforeUpdate() {
+					console.log('组件的beforeUpdate')
+				},
+				//页面变更完成
+				updated() {
+					console.log('组件的updated')
+				}
+			})
+			new Vue({
+				data(){
+					return {
+						inputValue:'我是vue最顶层数据'
+					}
+				},
+				//data内容初始化之前
+				beforeCreate() {
+					console.log('beforCreate')
+				},
+				//data初始化完成
+				created() {
+					console.log('created')
+				},
+				//页面容器渲染前
+				beforeMount() {
+					console.log('beforeMount')
+				},
+				//页面渲染完成
+				mounted() {
+					console.log('mounted')
+				},
+				//页面变更前
+				beforeUpdate() {
+					console.log('beforeUpdate')
+				},
+				//页面变更完成
+				updated() {
+					console.log('updated')
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

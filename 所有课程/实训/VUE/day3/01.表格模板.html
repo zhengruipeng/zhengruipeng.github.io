@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+        <h4>
+            1.将list中的用户数据通过v-for渲染到table中
+        </h4>
+        <button>新增</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        姓名
+                    </th>
+                    <th>
+                        电话
+                    </th>
+                    <th>
+                        邮箱
+                    </th>
+                    <th>
+                        生日
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 
+						通过v-for完成将list中的数据渲染到tbody中
+						提示思路：
+							1.list中每个对象就是每一行所以v-for应该修饰tr
+							2.不要忘记使用唯一的标识来设置key属性
+							3.序号可以采用v-for中的index来实现
+					 -->
+
+            </tbody>
+        </table>
+    </div>
+    <script src="js/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            data() {
+                return {
+                    list: [
+                        {
+                            id: 'a001',
+                            name: '阳顶天',
+                            phone: '17388889887',
+                            email: 'xxx@xxx.com',
+                            birthday: '20xx-0x-0x'
+                        },
+                        {
+                            id: 'a002',
+                            name: '杨逍',
+                            phone: '17388889888',
+                            email: 'xxx@xxx.com',
+                            birthday: '20xx-0x-0x'
+                        },
+                        {
+                            id: 'a003',
+                            name: '张无忌',
+                            phone: '17388889889',
+                            email: 'xxx@xxx.com',
+                            birthday: '20xx-0x-0x'
+                        },
+                        {
+                            id: 'a004',
+                            name: '张三丰',
+                            phone: '17388889880',
+                            email: 'xxx@xxx.com',
+                            birthday: '20xx-0x-0x'
+                        }
+                    ]
+                }
+            }
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>

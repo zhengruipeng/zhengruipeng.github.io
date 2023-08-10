@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        #app {
+            border: 5px dashed cadetblue;
+        }
+
+        .p-btn {
+            padding: 5px 10px;
+            background: #eee;
+            outline: none;
+            border: 1px solid #ddd;
+            color: #555;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .p-btn:hover:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(100, 100, 100, .2);
+        }
+
+        .p-btn:active:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(100, 100, 100, .3);
+        }
+
+        .p-btn.primary {
+            color: #fff;
+            background: #409EFF;
+        }
+
+        .p-btn.success {
+            color: #fff;
+            background: #67C23A;
+        }
+
+        .p-btn.danger {
+            color: #fff;
+            background: #F56C6C;
+        }
+
+        .p-btn.warning {
+            color: #fff;
+            background: #E6A23C;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <h1>
+        1.自定义组件的props属性，自定义按钮组件，做一套就相当于自已做一套UI的框架
+    </h1>
+    <div>
+        <!-- 自定义的组件是无法直接绑定click等常规事件
+        roperty or method "helod" is not defined on the instance but referenced during render
+        -->
+        <my-button></my-button>
+        <my-button @click="helod"></my-button>
+        <!-- 只有在组件中定义了value属性才能生效 -->
+        <my-button value="我是直接写入的参数"></my-button>
+        <!-- 注意这里有两个引号,,因为v-bind只能传入变量 -->
+        <my-button :value="num"></my-button>
+        <my-button :value="title"></my-button>
+        <br/>
+        <!--
+      知识点：绑定在组件上的值如果是外层data中定义的属性
+      当属性更改时会触发组件的重新渲染，值会同步变更我们可以通过在组件中监听value属性
+      监听到组件内部value属性的变化
+     -->
+        <input type="text" v-model="title">
+    </div>
+    <h1>
+        2.一些容易犯的错误
+    </h1>
+
+</div>
+<script src="./vue.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //定义一个自定义按钮
+    Vue.component('my-button', { //2
+
+        props: { //props中定义参数名称key:{required:boolean,type:Type,default:function}
+            value: { //参数名
+                required: false, //我当前的参数是否为必传参数
+                // type: String,    //定义参数的类型
+                // 当学习到“一些容易犯的错误”时使用当前的注释内的代码
+                type: [Number],//当想让参数支持多种类型可以通过数组的方式来进行配置
+
+            },
+        },
+        watch: {
+            //通过watch函数可以监听到组件的props的变化，在data的文本框输入值，这个input中的title和my-button中的title使用的是一个变量，输入相当于把这个title给改了，这个值发生变化，就会触发自定义组件的重新渲染，这时在组件中监听value就能监听到。这说明自定义组件参数不是传完一次就结束了，如果把这个参数绑定在别的元素上，这个参数发生变化，这个组件也会跟着发生变化。
+            value(v) {
+                console.log(v)
+            }
+        },
+        template: `
+          <div>
+          <button class="p-btn">{{ value }}</button>
+
+          </div>
+        `,
+        methods: {
+            helod() {
+                console.log('我是自定义组件的点击事件');
+            }
+        }
+
+    })
+    // 1
+    new Vue({
+        data() {
+            return {
+                title: '我是data中的值',
+                num: 123
+            }
+        },
+
+    }).$mount('#app')
+</script>
+</body>
+
+</html>
+<!-- 组件实例的作用域是孤立的。这意味着不能 (也不应该) 在子组件的模板内直接引用父组件的数据。父组件的数据需要通过 prop 才能下发到子组件中.
+
+也就是props是子组件访问父组件数据的唯一接口。
+详细一点解释就是：
+一个组件可以直接在模板里面渲染data里面的数据（双大括号）。
+子组件不能直接在模板里面渲染父元素的数据。
+如果子组件想要引用父元素的数据，那么就在prop里面声明一个变量（比如a），这个变量就可以引用父元素的数据。然后在模板里渲染这个变量（前面的a），这时候渲染出来的就是父元素里面的数据。 -->
+<!--父组件-->
+<!-- <template>
+  <div>
+      <hello-world2 :good = "good"></hello-world2> //向子组件传值
+  </div>
+</template>
+
+<script>
+  import helloWorld2 from "./HelloWorld2"  //引用子组件页面
+
+  export default {
+    name: "HelloWorld3",
+    data() {
+      return {
+        good: "我是从hello word3传递过来的"
+      }
+    },
+    components: {
+      'hello-world2': helloWorld2   //注册子组件
+    },
+  }
+</script>-->
+<!--子组件-->
+<!-- <template>
+    <div>{{good}}</div>
+</template>
+
+<script>
+  export default {
+    props: ['good'], //通过props获取父组件传递过来的值
+    data: function () {
+      return {}
+    },
+    methods: {}
+  }
+</script>  -->

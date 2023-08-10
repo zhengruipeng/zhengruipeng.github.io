@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				作用域插槽
+			</h4>
+			1.普通使用方式
+			<p-list :list="list"></p-list>
+			2.作用域插槽
+			<p-list :list="list">
+				<template v-slot:item="{item}">
+					{{item.name}}-{{item.phone}}-{{item.email}}-{{item.birthday}}
+				</template>
+			</p-list>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('p-list',{
+				props:{
+					list:{
+						type:Array,
+						required:false,
+						default(){
+							return []
+						}
+					}
+				},
+				//当传入的数据展示通过slot标签修饰之后如果组件正常使用slot内部的内容会正常按照组件设计的内容去渲染
+				//当组件外部嵌套了template并且使用了与自定义组件中name相同的插槽slot中的内容便不会被渲染
+				//我们可以通过对slot绑定自定义属性的方式将值传到template中我们就可以通过template来实现让组件内部的数据可以
+				//被开发者更自由的使用
+				template:`
+					<div class="p-list">
+						<div v-for="item in list" :key="item.id">
+							<slot name="item" :item="item">
+								{{item.name}}{{item.phone}}
+							</slot>
+						</div>
+					</div>
+				`
+			})
+			new Vue({
+				data(){
+					return {
+						list:[
+							{
+								id:'a001',
+								name:'阳顶天',
+								phone:'17388889887',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a002',
+								name:'杨逍',
+								phone:'17388889888',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a003',
+								name:'张无忌',
+								phone:'17388889889',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a004',
+								name:'张三丰',
+								phone:'17388889880',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+						]
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

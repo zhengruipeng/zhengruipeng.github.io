@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				实现全选和反选功能
+			</h4>
+			<div>
+				Jquery版本
+				<div>
+					<label for="allchecked">
+						<input id="allchecked" type="checkbox" onchange="handleAllcheckedChange(this)">全选
+					</label>
+					<label for="backchecked">
+						<input id="backchecked" type="checkbox" onchange="handleBackcheckedChange()">反选
+					</label>
+					
+					<label for="c1">
+						<input id="c1" name="check" type="checkbox">1
+					</label>
+					<label for="c2">
+						<input id="c2" name="check" type="checkbox">2
+					</label>
+					<label for="c3">
+						<input id="c3" name="check" type="checkbox">3
+					</label>
+				</div>
+			</div>
+			<div>
+				Vue版本
+				<!-- 简要说明 -->
+				<div>
+					<label for="vallchecked">
+						<!-- 将data中的allChecked绑定到当前input标签上 -->
+						<input id="vallchecked" type="checkbox" v-model="allChecked">全选
+					</label>
+					<label for="vbackchecked">
+						<!-- 将data中的backChecked绑定到当前input标签上 -->
+						<input id="vbackchecked" type="checkbox" v-model="backChecked">反选
+					</label>
+					<!-- 
+						循环data中checkList数组并输出到网页上 
+						此处与jQuery的区别在于Vue可以直接在标签上进行循环操作
+					-->
+					<label v-for="(item,index) in checkList" :for="'vc'+index" >
+						<!-- 将数组checkList中的每一个值绑定到当前的input标签上 -->
+						<input :id="'vc'+index" name="vcheck" v-model="checkList[index]" type="checkbox">{{index+1}}
+					</label>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/**
+			 * 由此示例对比发现，Jquery和Vue在运行上有本质的差别
+			 * JQuery更新网页需要获取dom对象并对其进行更改，
+			 * 而Vue仅对定义的数据进行操作就会触发网页的变更
+			 */
+			//handleClick,handle:执行 
+			//JQuery实现代码
+			function handleAllcheckedChange(_this){
+				console.log(_this)
+				//获取要选中的所有节点
+				$('input[name="check"]').each(function(index,item){
+					$(item).prop('checked',_this.checked)
+				})
+			}
+			function handleBackcheckedChange(){
+				$('input[name="check"]').each(function(index,item){
+					$(item).prop('checked',!$(item).prop('checked'))
+				})
+			}
+			//实例化Vue对象,mount:渲染的意思
+			let vm = new Vue({
+				//定义可以绑定到html标签上的属性
+				data(){
+					return {
+						allChecked:false,
+						backChecked:false,
+						checkList:[false,false,false]
+					}
+				},
+				//监听data中定义的allChecked和backChecked
+				watch:{
+					//Vue实现代码
+					//当allChecked变化时会触发当前事件执行，参数为allChecked的新值
+					allChecked(v){
+						console.log(v)
+						//通过es6的map循环将checkList中每个元素的值变更为allChecked的新值
+						this.checkList = this.checkList.map(item => v)
+						console.log(this.checkList)
+					},
+					//当backChecked变化时会触发当前事件执行
+					backChecked(){
+						//通过es6的map循环将checkList中每个元素的值变更为他本身取反，也就是原本为true的会变成false
+						this.checkList = this.checkList.map(item => !item)
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

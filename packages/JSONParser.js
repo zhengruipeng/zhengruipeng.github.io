@@ -152,20 +152,15 @@ let defaultInputEvent = function (ev, that) {
 
     that.json[this.name] = temp;
 
-    that.onJsonChange && that.onJsonChange(new JSONParserEvent({
+    const event = new JSONParserEvent({
         json: that.json,
         value: temp,
         key: this.name,
-        jsonParser: that
-    }));
+        jsonParser: that,
+        isTrusted: true
+    })
 
-    let event = new JSONParserEvent({
-        json: that.json,
-        value: temp,
-        key: this.name,
-        jsonParser: that
-    });
-
+    that.onJsonChange && that.onJsonChange(event);
     that.dispatchEvent(event);
 };
 
@@ -220,7 +215,7 @@ let JSONParser = class extends EventTarget {
             //并且创建两个单元格
             let tdName = document.createElement("td");
             //创建的第一个单元格中县创建一个多选框，用来表示此属性是否使用
-            tdName.innerHTML = `<input type='checkbox' id='${name}Using' checked >`;
+            tdName.innerHTML = `<input type='checkbox' id='${name}-using' checked >`;
             //属性名
             tdName.innerHTML += name;
             //设置cellToKey的映射
@@ -248,7 +243,7 @@ let JSONParser = class extends EventTarget {
             //当当前值为Array的时候则创建一个下拉菜单
             else if (this.json[name] instanceof Array) {
                 tdValue.innerHTML = `
-                        <select name="${name}" class="json-input">
+                        <select name="${name}" class="json-input" id="jsonparse-${name}">
                             ${(function (data) {
 
                     let res = "";
@@ -327,7 +322,7 @@ let JSONParser = class extends EventTarget {
                 if (typeof this.json[name] === "number") {
                     tdValue.innerHTML = `
                          <input type="number" value="${this.json[name]}" name="${name}"
-                          class="json-input" id="${this.json[name]}" />
+                          class="json-input" id="jsonparse-${name}" />
                      `;
                 }
                 //如果是布尔值的话生成一个多选框
@@ -335,19 +330,21 @@ let JSONParser = class extends EventTarget {
                     tdValue.innerHTML = `
                            <label>
                              <input type="checkbox" value="${this.json[name]}" name="${name}"
-                              class="json-input provider" id="${this.json[name]}1" />
+                              class="json-input provider" id="jsonparse-${name}" />
                              <span>${this.json[name]}</span>
                           </label>
                      `;
+                    let label = tdValue.children[0];
                     let checkbox = tdValue.children[0].querySelector("input");
                     let display = tdValue.children[0].querySelector("span");
                     //把初始的布尔值设定成选中情况
                     if (this.json[name]) checkbox.checked = true;
 
                     //多选时并不会自动更改元素的value值，所以需要监听事件手动修改
-                    checkbox.addEventListener("change", function () {
+                    checkbox.addEventListener("input", function () {
                         //当更改时值会相反
-                        this.value = !this.checked;
+                        this.value = this.checked;
+                        label.setAttribute("value", this.checked);
                         display.innerText = this.checked;
                     })
                 }
@@ -355,7 +352,7 @@ let JSONParser = class extends EventTarget {
                 else if (typeof this.json[name] === "string") {
                     tdValue.innerHTML = `
                          <input type="text" value="${this.json[name]}" name="${name}"
-                          class="json-input" id="${this.json[name]}" />
+                          class="json-input" id="jsonparse-${name}" />
                      `;
                 }
 

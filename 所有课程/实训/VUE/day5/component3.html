@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				自定义组件的事件案例，对input绑定change事件和input事件
+			</h4>
+			<div>
+				<!-- 
+					由于my-input最终在网页中渲染的是template中编写的input标签，所以我们的操作更改的是input的dom值
+				  所以我们像绑定change和input事件需要在input中先绑定事件
+				 -->
+				<my-input :value="title" @change="handleChange"  @input="handleInput" ></my-input>
+			</div>
+			<h4>
+				练习：对my-input定义一个名为get-value的事件，该事件要求文本框内只要有值的变更便会触发，并且get-value中的参数为文本框的值
+				<!-- 步骤：
+						1.根据题目要求我们仍然需要利用input标签中的input事件
+						2.与input不同的是返回值不要事件对象而是要求使用文本框的值
+						3.所以我们的操作时找到my-input内部绑定的handleInput事件在内部追加一个执行组件自定义事件的操作
+						4.在代码内追加this.$emit('get-value',参数)
+						5.分析参数如何获得，我们在handleInput中能拿到这个元素的事件对象，所以可以通过e.target.value的方式得到文本框的值
+						6.完整代码是this.$emit('get-value',e.target.value)
+						7.将@get-value="handleGetValue"添加到my-input标签上并在Vue对象中添加该事件并打印参数
+						8.在页面中输入新的值验证结果
+				 -->
+			</h4>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('my-button',{
+				template:`
+					<button>我是按钮</button>
+				`
+			})
+			//定义一个自定义按钮
+			Vue.component('my-input',{
+				props:{
+					value:{
+						required:false,
+						type:String,
+						default(){
+							return ''
+						}
+					}
+				},
+				watch:{
+					// 通过watch函数可以监听到组件的props的变化
+					//为什么操作input的值不会触发监听函数执行是因为在页面更改input的值并不是修改了vue中定义的title属性
+					value(v){
+						console.log(v)
+					}
+				},
+				//v-model中不可以直接使用props定义的变量，会造成Vue的数据流紊乱，
+				//所以这里使用:value来绑定值
+				template:`
+					<input class="my-input" @change="handleChange" @input="handleInput" :value="value"/>
+				`,
+				methods:{
+					handleChange(e){
+						//想要让my-input上绑定的change事件执行需要使用this.$emit('change',参数,参数...)
+						//该写法相当于执行my-input上绑定的change事件并将当前事件的event对象以参数的形式传入了事件中
+						this.$emit('change',e)
+					},
+					handleInput(e){
+						this.$emit('input',e)
+					}
+				}
+			})
+			new Vue({
+				data(){
+					return {
+						title:'我是data中的值'
+					}
+				},
+				methods:{
+					handleChange(e){
+						// 当我们在页面编辑input标签触发了change事件中的$emit()之后会执行这个事件并能得到$emit()传入的参数
+						console.log(e)
+					},
+					handleInput(e){
+						console.log(e)
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

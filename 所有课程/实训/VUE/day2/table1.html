@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				1.将数据中的手机号码中间4位变成****
+				2.练习：完成手机号码的格式化之后将生日转化为xxxx年xx月xx日的形式输出到表格中
+			</h4>
+			<button>新增</button>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>
+							序号
+						</th>
+						<th>
+							姓名
+						</th>
+						<th>
+							电话
+						</th>
+						<th>
+							邮箱
+						</th>
+						<th>
+							生日
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--  -->
+					<tr v-for="(item,index) in list" :key="item.id">
+						<td>
+							{{index+1}}
+						</td>
+						<td>
+							{{item.name}}
+						</td>
+						<td>
+							<!-- 提示：计算属性已经创建完毕通过在计算属性中的函数处理 -->
+							{{formatPhone(item.phone)}}
+						</td>
+						<td>
+							{{item.email}}
+						</td>
+						<td>
+							{{item.birthday}}
+						</td>
+						<td>
+							<button >修改</button>
+							<button >删除</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new Vue({
+				data(){
+					return {
+						list:[
+							{
+								id:'a001',
+								name:'阳顶天',
+								phone:'17388889887',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a002',
+								name:'杨逍',
+								phone:'17388889888',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a003',
+								name:'张无忌',
+								phone:'17388889889',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a004',
+								name:'张三丰',
+								phone:'17388889880',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							}
+						]
+					}
+				},
+				computed:{
+					//格式化手机号码的函数
+					formatPhone(){
+						//当前formatPhone在使用中传入了参数，参数是每条数据的手机号码
+						//所以我们可以在当前函数中处理原始手机号码
+						return function(phone){
+							//将手机号码中间四位通过字符串处理替换并返回实现在页面中展示1xx****xxxx
+							console.log(phone)
+							return phone
+						}
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

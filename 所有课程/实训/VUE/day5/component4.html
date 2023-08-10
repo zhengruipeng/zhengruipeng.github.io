@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				自定义组件中的v-model
+			</h4>
+			<div>
+				<!-- 对自定义标签绑定v-model指令并绑定data中的inputValue变量 -->
+				<p-input v-model="inputValue"></p-input>{{inputValue}}
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('p-input',{
+				props:{
+					value:{
+						required:false,
+						type:String,
+						default(){
+							return ''
+						}
+					}
+				},
+				// v-model必须定义model属性，model本身是一个监听器，他并不是props中的属性所以使用v-model
+				// 的时候必须在prop属性中关联一个参数来保证在组件内部可以通过这个参数引用v-model中绑定的值
+				model:{
+					//event为v-model在组件中对外改变值的时候需要执行的事件名，他通过this.$emit()执行
+					//被event指定的事件与普通的自定义事件不同this.$emit('change-value',value)执行时
+					//会自动的将值绑定到v-model关联的变量中不执行v-on定义的事件
+					event:'change-value',
+					//prop表示v-model代表的参数名称，由于v-model并不是props参数，所以他必须通过关联来实现在组件内部能找到v-model绑定的值
+					prop:'value'
+				},
+				//由于v-model默认行为就是当输入发生变化时让v-model绑定的值同时发生变化，
+				//这个行为通过input事件实现最为符合
+				template:`
+					<input :value="value" @input="handleInput"/>
+				`,
+				methods:{
+					handleInput(e){
+						//当文本框的输入事件触发时我们调用model中关联的change-value事件，直接传入当前文本框的值，就会将
+						//该值直接传到外部v-model绑定的inputValue中
+						this.$emit('change-value',e.target.value)
+					}
+				}
+			})
+			new Vue({
+				data(){
+					return {
+						inputValue:'我是vue最顶层数据'
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

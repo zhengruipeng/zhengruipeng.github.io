@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.p-card{
+				color: #444;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				padding: 10px 15px;
+				display: inline-block;
+				cursor: pointer;
+				background: #fff;
+				transition:all .3s ;
+			}
+			.p-card .p-card-title{
+				font-weight: bold;
+			}
+			.p-card .p-card-content ul{
+				padding: 0px;
+				list-style: none;
+				font-size: 14px;
+				color: #888;
+			}
+			.p-card.active{
+				transform: translate(0px,-3px);
+				box-shadow: 0px 2px 10px 2px rgba(100,100,100,0.3);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				ref的使用案例
+			</h4>
+			1.获取html标签对象<br/>
+			<div ref="card" class="p-card" :class="{active:false}">
+				<div class="p-card-title">
+					我是卡片1
+				</div>
+				<div class="p-card-content">
+					<ul>
+						<li>我是卡片内容1</li>
+						<li>我是卡片内容2</li>
+						<li>我是卡片内容3</li>
+						<li>我是卡片内容4</li>
+					</ul>
+				</div>
+			</div>
+			{{getCardWidth}}<br/>
+			2.获取自定义组件的对象
+			<!-- 
+				观察：p-button在组件内部定义了click事件但是并没有通过$emit绑定到自定义组件的标签上所以
+				我们在Vue大对象中是无法直接调用p-button中的click事件的，所以我们在普通的button按钮中
+				定义了一个点击事件，在他的点击事件中通过ref获取了p-button的Vue对象，通过ref就可以实现跨组件
+				进行事件的调用，并且还可以实现更多的功能，涉及到扩展功能在项目实战中会进行介绍
+			 -->
+			<!-- 对p-button组件绑定ref -->
+			<p-button ref="p-button"></p-button>
+			
+			<button @click="handleClick">我是普通按钮</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('p-button',{
+				props:{
+					value:{
+						type:String,
+						default(){
+							return '我是自定义按钮'
+						},
+						required:false
+					}
+				},
+				template:`
+					<button @click="handleClick">
+						<slot :value="value">{{value}}</slot>
+					</button>
+				`,
+				methods:{
+					handleClick(){
+						alert(this.value)
+					}
+				}
+			})
+		
+			new Vue({
+				data(){
+					return {
+						cardWidth:0
+					}
+				},
+				computed:{
+					getCardWidth(){
+						return '卡片的宽度为'+this.cardWidth
+					}
+				},
+				// 必须在Vue的模版渲染完成之后才能使用ref去操作
+				mounted(){
+					// 通过this.$refs.ref的值的方式获取html文档对象
+					let card = this.$refs.card
+					// 以json对象的形式输出html标签
+					console.dir(card)
+					// 将得到的card的宽度设置到cardWidth中
+					this.cardWidth = card.offsetWidth;
+				},
+				methods:{
+					handleClick(){
+						//得到自定义组件的Vue对象，当ref绑定的name带特殊字符时可以使用[]的形式取值
+						let pbtn = this.$refs['p-button'];
+						console.log(pbtn)
+						//得到自定义组件内部的html文档对象
+						let pbtnDom = pbtn.$el
+						console.log(pbtnDom)
+						// //执行自定义组件内部的事件
+						pbtn.handleClick()
+						
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

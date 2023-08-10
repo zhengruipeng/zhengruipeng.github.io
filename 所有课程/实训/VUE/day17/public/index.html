@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div.test,
+        div.o-test {
+            height: 30vh;
+            width: 100px;
+            border: red solid 1px;
+        }
+
+        div div {
+            border: inherit;
+        }
+    </style>
+</head>
+<body>
+<div class="test">
+    <div>content</div>
+</div>
+
+<div class="o-test">
+    <div class="o-item">content</div>
+    <div class="o-item">content1</div>
+</div>
+</body>
+</html>

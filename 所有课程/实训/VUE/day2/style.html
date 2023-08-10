@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.p-ball{
+				width: 100px;
+				height: 100px;
+				background: radial-gradient(circle,#9fb8ad 0%,#1fc8db 51%,#2cb5e8 75%);
+				border-radius: 100%;
+			}
+			.container{
+				width: 200px;
+				height: 200px;
+				border: 1px solid;
+				position: relative;
+			}
+			.container .rect{
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				1.对象方式绑定style
+			</h4>
+			<div>
+				基本实现方式
+			</div>
+			<input  type="range" v-model="rangeValue" start="1" min="1" step="0.1" max="10">缩放
+			<div class="p-ball" :style="ballStyle"></div>
+			<div>
+				计算属性实现方式
+			</div>
+			<input  type="range" v-model="rangeValue1" start="1" min="1" step="0.1" max="10">缩放
+			<!-- 
+				style上同样可以使用直接写入并配合data属性或computed属性的方式设置值并且随着值的变化
+				style会自动更新
+			 -->
+			<div class="p-ball" :style="{width:getWidth,height:getHeight}"></div>
+			<h4>
+				课堂练习：当鼠标移入方框内部时让红色方框随着鼠标移动并不出边界
+				<!-- 
+				 实现步骤：
+					1.为container方框绑定鼠标移动事件
+					2.在事件中获取鼠标相对container的x，y坐标数值
+					3.由于container和rect使用了定位可以通过left相当于x和top相当于y来设置位置
+					4.在data中声明left和top两个属性默认值为0
+					5.在computed中声明getLeft和getTop两个计算属性来将left和top转换成带px单位的字符串
+					6.将getLeft和getTop绑定到rect的style中
+					7.在鼠标移动事件中将获取的x，y坐标附给left和top属性，至此变实现了方块跟着鼠标走
+					8.在getLeft和getTop中判断当前的值加上rect自身的宽高是否会超过边界并做边界限制
+				 -->
+				 <!-- 被绑定的事件默认不传参数时默认存在Vue的event参数可以在函数中使用 -->
+				<div class="container" @mousemove="handleMouseMove">
+					<!-- 将getLeft和getTop绑定到rect的style上 -->
+					<div class="rect" ></div>
+				</div>
+			</h4>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new Vue({
+				data(){
+					return {
+						rangeValue:1,
+						rangeValue1:1,
+						ballStyle:{
+							width:'100px',
+							height:'100px'
+						},
+						left:0,
+						top:0
+					}
+				},
+				computed:{
+					// 通过计算属性绑定range的值转化成要渲染到style上的像素值
+					getWidth(){
+						return (100*this.rangeValue1)+'px'
+					},
+					getHeight(){
+						return (100*this.rangeValue1)+'px'
+					},
+					getLeft(){
+						let left = this.left
+						//进行边界计算
+						return left +'px'
+					},
+					getTop(){
+						let top = this.top
+						//进行边界计算
+						return top +'px'
+					}
+				},
+				watch:{
+					// 通过监听rangeValue的变化来设置ball的样式
+					rangeValue(v){
+						this.ballStyle = {
+							width:(100*v)+'px',
+							height:(100*v)+'px',
+						}
+						// this.ballStyle.width = (100*v)+'px'
+						// this.ballStyle.height = (100*v)+'px'
+					}
+				},
+				methods:{
+					// 当事件不传入参数时默认存在event对象，
+					// Vue对event对象进行了整理可以在event对象中获取大量事件信息
+					handleMouseMove(e){
+						// 过滤掉rect上触发的鼠标移入事件
+						if(e.target.className!='rect'){
+							//获取鼠标相对container元素的x坐标
+								let x = e.offsetX;
+								//获取鼠标相对container元素的y坐标
+								let y = e.offsetY;
+								//将x和y设置到left和top上
+							}
+						}
+						
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

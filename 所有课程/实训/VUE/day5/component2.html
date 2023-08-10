@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		#app{
+			border:5px dashed cadetblue;
+		}
+			.p-btn{
+				padding: 5px 10px;
+				background: #eee;
+				outline: none;
+				border:1px solid #ddd;
+				color:#555;
+				border-radius: 5px;
+				cursor: pointer;
+				position: relative;
+			}
+			.p-btn:hover:after{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(100,100,100,.2);
+			}
+			.p-btn:active:after{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(100,100,100,.3);
+			}
+			.p-btn.primary{
+				color: #fff;
+				background: #409EFF;
+			}
+			.p-btn.success{
+				color: #fff;
+				background: #67C23A;
+			}
+			.p-btn.danger{
+				color: #fff;
+				background: #F56C6C;
+			}
+			.p-btn.warning{
+				color: #fff;
+				background: #E6A23C;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h1>
+				1.自定义组件的props属性，自定义按钮组件
+			</h1>
+			<div>
+				<!-- 只有在组件中定义了value属性才能生效 -->
+				<my-button value="我是直接写入的参数"></my-button>
+				<my-button :value="'我是直接绑定的值'"></my-button>
+				<my-button :value="title"></my-button>
+				<br/>
+				<!-- 
+					知识点：绑定在组件上的值如果是外层data中定义的属性
+					当属性更改时会触发组件的重新渲染，值会同步变更我们可以通过在组件中监听value属性
+					监听到组件内部value属性的变化
+				 -->
+				<input type="text" v-model="title">
+			</div>
+			<h1>
+				2.一些容易犯的错误
+			</h1>
+			<!-- 只有v-bind方式传入的参数才能保持数据类型，直接对属性赋值全都会以字符串方式传入 -->
+			<!-- 我们现在打开下面的注释，传入一个错误类型查看效果，参考控制台的错误信息 -->
+			<!-- <my-button :value="123"></my-button> -->
+			<!-- 当前的自定义组件不是html标签，所以组件本身并没有onclick事件，所以当前点击事件并不会执行 -->
+			<my-button @click="handleClick" value="错误的绑定绑定事件"></my-button>
+			<h1>
+				3.练习：给按钮增加一个type属性来改变按钮的颜色，
+				模仿bootstrap的样式分别实现
+				<!-- 
+					primary:#409EFF,warning:#E6A23C,success:#67C23A,danger:#F56C6C
+					步骤：
+						1.在button中增加type属性，类型String，默认值为''
+						2.在style中已经定义好了四种按钮的样式
+						3.在button组件中将type的值绑定到p-btn的class上
+							这里由于我们传入的字符串直接就是className所以这里的class绑定可以采用数组的方式
+				 -->
+			</h1>
+			<my-button type="success"  value="按钮1"></my-button>
+			<my-button type="warning"  value="按钮2"></my-button>
+			<my-button type="danger"   value="按钮3"></my-button>
+			<my-button type="primary"  value="按钮4"></my-button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//定义一个自定义按钮
+			Vue.component('my-button',{
+				props:{
+					value:{
+						required:false,
+						type:String,
+						// 当学习到“一些容易犯的错误”时使用当前的注释内的代码
+						// type:[String,Number],//当想让参数支持多种类型可以通过数组的方式来进行配置
+						default(){
+							return '默认按钮的值'
+						}
+					}
+				},
+				watch:{
+					// 通过watch函数可以监听到组件的props的变化
+					value(v){
+						console.log(v)
+					}
+				},
+				template:`
+					<button class="p-btn">{{value}}</button>
+				`
+			})
+			new Vue({
+				data(){
+					return {
+						title:'我是data中的值'
+					}
+				},
+				methods:{
+					handleClick(){
+						console.log('click')
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<audio src="../../../../resources/01.%20星の海の記憶.mp3" controls preload="metadata"></audio>
+<script type="module">
+    import {Console} from "../../../../packages/Console.js";
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        const audio = this.querySelector("audio");
+        const con = new Console();
+        con.renderAsConsoleInline();
+
+        let cb = function (ev) {
+            // con.output(ev.type+"触发");
+            console.log(ev.type + "触发")
+        };
+        audio.oncanplay = cb;
+        audio.oncanplaythrough = cb;
+        audio.ondurationchange = cb;
+        audio.onemptied = cb;
+        audio.onended = cb;
+        audio.onloadeddata = cb;
+        audio.onloadedmetadata = cb;
+        audio.onpause = cb;
+        audio.onplay = cb;
+        audio.onratechange = cb;
+        audio.onseeked = cb;
+        audio.onseeking = cb;
+        audio.onstalled = cb;
+        audio.onsuspend = cb;
+        audio.ontimeupdate = cb;
+        audio.onvolumechange = cb;
+        audio.onwaiting = cb;
+
+        let command = "";
+        while (command !== "exit") {
+            command = await con.input();
+            if (command === "reload") {
+                audio.load();
+            }
+
+        }
+    });
+</script>
+</body>
+</html>

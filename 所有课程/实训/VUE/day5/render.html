@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				函数式组件示例
+			</h4>
+			<func-component></func-component>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 这是一个普通的组件
+			let PButton = Vue.component('p-button',{
+				template:`
+					<button>我是一个按钮组件</button>
+				`
+			})
+			Vue.component('func-component',{
+				// 这个是组件中的render函数，当时用了render函数之后，就不需要使用template模版去描述组件的展示内容
+				render(h){
+					// render函数中会提供一个参数h（h的原名为createElement）
+					//h函数有两种用法一种是渲染原生html标签，一种是渲染自定义组件
+					//h(标签名，{标签选项},[标签的内容（内容中可以无限嵌套h函数）])
+					//h(自定义组件)
+					return h(
+						'div',//要创建的标签名
+						{//标签的详细描述
+							class:'p-div',//定义class样式
+							attrs:{//定义html原生属性
+								id:'d',
+								'data-name':'name'
+							},
+							on:{//定义事件
+								click:function(){
+									alert('点击事件')
+								}
+							},
+							style:{//定义行内样式
+								background:'red'
+							}
+						},
+						[//标签中的内容
+							'我是div的内容',//直接写文本的方式
+							h('br'),//继续用h创建html标签
+							h(PButton)//通过自定义组件的方式进行渲染
+						],
+					)
+				}
+			})
+			new Vue({}).$mount('#app')
+		</script>
+	</body>
+</html>

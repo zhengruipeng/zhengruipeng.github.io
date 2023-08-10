@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<script type="module" src="index.js"></script>
+<script type="module">
+    import {Console} from "../../../packages/Console.js";
+    import {Mapper} from "../../../packages/Mapper.js";
+    import {Peer} from "./index.js"
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        const con = new Console();
+        con.renderAsConsoleApp();
+
+        const peers = new Array(5);
+        for (let i = 0; i < peers.length; i++) {
+            peers[i] = new Peer();
+            peers[i].channel.addEventListener("message", function (ev) {
+                con.output("第" + i + "个端收到信息：" + ev.data);
+            })
+        }
+
+        const mapper = new Mapper();
+        mapper.default(function (ev) {
+            peers[ev.key - 0].send(ev.customData[1]);
+        });
+
+        let command = [];
+        while (command[0] !== "exit") {
+            con.output("输入指令发送信息：发送信息端号 信息");
+            command = await con.inputs();
+
+            mapper.target = command[0];
+            mapper.call(...command);
+        }
+
+
+    });
+</script>
+</body>
+</html>

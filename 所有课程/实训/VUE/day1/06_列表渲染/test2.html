@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06_列表渲染_过滤与排序</title>
+</head>
+<body>
+<!--
+1. 列表过滤
+2. 列表排序
+-->
+<input type="text"/>
+<div id="demo">
+    <ul>
+        <li v-for=" (person,index) in persons" :key="index">{{ index }}
+            {{ person.name }}-{{ person.age }}
+        </li>
+    </ul>
+    <div>
+        <button type="button">年龄升序</button>
+        <button type="button">年龄降序</button>
+        <button type="button">原来顺序</button>
+    </div>
+</div>
+<script type="text/javascript" src="../js/vue.js">
+
+</script>
+<script type="text/javascript">
+    new Vue({
+        el: '#demo',
+        data() {
+            return {
+                persons: [
+                    {name: 'tom', age: 81},
+                    {name: 'jack', age: 12},
+                    {name: 'rose', age: 43},
+                    {name: 'kook', age: 9},
+                ]
+            }
+        },
+        methods: {}
+    })
+</script>
+
+</body>
+</html>

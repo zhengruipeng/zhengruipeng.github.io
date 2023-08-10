@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<my-component1></my-component1>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.component('my-component1',{
+				data(){
+					return {
+						list111:1
+					}
+				},
+				template:`
+					<div>
+						<button @click="handleClick">+</button>
+					</div>
+				`,
+				watch:{
+					list111(v){
+						// console.log(v)
+					}
+				},
+				computed:{
+					handleClick(){
+						
+						this.list111 =vm.list++
+						console.log(this.list111);
+					},
+				}
+			})
+			let vm = new Vue({
+				data(){
+					return {
+						list:''
+
+					}
+				},
+				watch:{
+					list(v){
+						// console.log(vm.list)
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

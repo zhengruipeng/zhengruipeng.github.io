@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				1.通过点击修改按钮来实现对对应数据的修改
+			</h4>
+			<!-- 当当前不是新增状态的时候才展示新增按钮 -->
+			<button v-show="isInsert==false" @click="handleClick">新增</button>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>
+							序号
+						</th>
+						<th>
+							姓名
+						</th>
+						<th>
+							电话
+						</th>
+						<th>
+							邮箱
+						</th>
+						<th>
+							生日
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--  -->
+					<tr v-for="(item,index) in list" :key="item.id">
+						<td>
+							<div>
+								{{index+1}}
+							</div>
+						</td>
+						<td>
+							<!-- 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+							<div v-if="isInsert&&index==list.length-1">
+								<!-- 输入的数据需要绑定到 -->
+								<input type="text" v-model="item.name">
+							</div>
+							<div v-else>
+								{{item.name}}
+							</div>
+						</td>
+						<td>
+							<!-- 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+							<div v-if="isInsert&&index==list.length-1">
+								<input type="text" v-model="item.phone">
+							</div>
+							<div v-else>
+								<!-- 提示：计算属性已经创建完毕通过在计算属性中的函数处理 -->
+								{{formatPhone(item.phone)}}
+							</div>
+						</td>
+						<td>
+							<!-- 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+							<div v-if="isInsert&&index==list.length-1">
+								<input type="text" v-model="item.email">
+							</div>
+							<div v-else>
+								{{item.email}}
+							</div>
+						</td>
+						<td>
+							<!-- 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+							<div v-if="isInsert&&index==list.length-1">
+								<input type="text" v-model="item.birthday">
+							</div>
+							<div v-else>
+								{{item.birthday}}
+							</div>
+						</td>
+						<td>
+							<!-- 当新增按钮触发并且当前是最后一行时时展示文本框 -->
+							<div v-if="isInsert&&index==list.length-1">
+								<button @click="handleSave">保存</button>
+								<button @click="handleCancel">取消</button>
+							</div>
+							<div v-else>
+								<button >修改</button>
+								<button >删除</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new Vue({
+				data(){
+					return {
+						isInsert:false,//用来判断当前是否正在新增数据的标识
+						list:[
+							{
+								id:'a001',
+								name:'阳顶天',
+								phone:'17388889887',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a002',
+								name:'杨逍',
+								phone:'17388889888',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a003',
+								name:'张无忌',
+								phone:'17388889889',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a004',
+								name:'张三丰',
+								phone:'17388889880',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							}
+						]
+					}
+				},
+				computed:{
+					//格式化手机号码的函数
+					formatPhone(){
+						//当前formatPhone在使用中传入了参数，参数是每条数据的手机号码
+						//所以我们可以在当前函数中处理原始手机号码
+						return function(phone){
+							//将手机号码中间四位通过字符串处理替换并返回实现在页面中展示1xx****xxxx
+							console.log(phone)
+							let newPhoneStr = phone.substring(0,3)+'****'+phone.substring(7)
+							return newPhoneStr
+						}
+					}
+				},
+				methods:{
+					handleClick(){
+						//获得数组的长度
+						let length = this.list.length
+						//创建一个与每行相同的空数据
+						let newRow = {
+							id:'a00'+(length+1),//设置唯一的标识
+							name:'',
+							phone:'',
+							email:'',
+							birthday:''
+						}
+						this.list.push(newRow)
+						//将状态变更为新增
+						this.isInsert = true
+					},
+					handleSave(){
+						//当保存事件触发时我们发现list中的最后一行数据已经动态的变更了，说明v-model绑定生效了
+						console.log(this.list)
+						//下一步操作就是将新增状态变成普通状态
+						this.isInsert = false;
+					},
+					handleCancel(){
+						//使用pop方法可以快速的移除数组的最后一个数据
+						this.list.pop();
+						this.isInsert = false;
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div id="app">
+        <input class="my-input"  @change="handleChange" @input="handleInput"/>
+     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        new Vue({
+            data() {
+                return {
+                    title: '我是data中的值'
+                }
+            },
+            methods: {
+                handleChange(e) { 
+                    // 当我们在页面编辑input标签触发了change事件中的$emit()之后会执行这个事件并能得到$emit()传入的参数                   
+                    console.log('change')                
+                    
+                },
+                handleInput(e) {                   
+                    console.log('input')
+                },
+              
+            }
+        }).$mount('#app')
+    </script>
+</body>
+</html>
