@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img>
+<script>
+    window.onload = function (){
+        let img = document.querySelector("img");
+        for (let obj = img; obj; obj = Object.getPrototypeOf(obj)) {
+            console.log(obj.constructor);
+        }
+    }
+</script>
+</body>
+</html>
