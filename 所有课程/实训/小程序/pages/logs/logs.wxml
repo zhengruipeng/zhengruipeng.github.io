@@ -1,0 +1,8 @@
+<!--logs.wxml-->
+<scroll-view scroll-y type="list" style="height: 100vh; padding-top: env(safe-area-inset-top); box-sizing: border-box;">
+  <view class="log-list">
+    <block wx:for="{{logs}}" wx:key="timeStamp" wx:for-item="log">
+      <text class="log-item">{{index + 1}}. {{log.date}}</text>
+    </block>
+  </view>
+</scroll-view>

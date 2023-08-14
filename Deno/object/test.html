@@ -8,10 +8,12 @@
 <img>
 <script>
     window.onload = function (){
-        let img = document.querySelector("img");
-        for (let obj = img; obj; obj = Object.getPrototypeOf(obj)) {
-            console.log(obj.constructor);
-        }
+        let str = "董其昌仿宋元人缩本画及跋册(2)";
+        let regexp = /^([^\(]+)(?:\(\d+\))?/
+        console.log(str.match(regexp))
+        let title = str.match(regexp)[1];
+        console.log(`${"-".repeat(10)}${title}第${1}页${"-".repeat(10)}`);
+
     }
 </script>
 </body>

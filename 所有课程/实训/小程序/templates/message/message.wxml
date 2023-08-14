@@ -1,0 +1,7 @@
+<!-- myTemplate.wxml -->
+<template name="myTemplate">
+  <view>
+    <text>{{title}}</text>
+    <button bindtap="{{buttonTap}}">点击</button>
+  </view>
+</template>

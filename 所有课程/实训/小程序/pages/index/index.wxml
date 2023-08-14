@@ -1,0 +1,30 @@
+    <view>{{username}}</view>
+    <view>{{person.username}}</view>
+    <view>{{person.age}}</view>
+    <view>{{books}}</view>
+    <view>{{books[1]}}</view>
+
+    <!--判断（条件渲染）-->
+    <view wx:if="{{person.age>=18}}">大于18岁</view>
+    <view wx:elif="{{person.age<18 && person.age>14}}">小于18岁大于14</view>
+    <view wx:else>小于14</view>
+
+    <block>
+        <view>block是一个容器</view>
+    </block>
+
+    <view wx:for="{{[1,2,3]}}">{{item}}{{index}}</view>
+
+    <!-- <view>{{person.age+=10}}</view> -->
+
+    <view wx:for="{{data}}" wx:for-item="n">
+        <view wx:if="{{n<5}}">{{n}}</view>
+    </view>
+
+    <view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="row" class="rows">
+        <view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="col" class="cols">
+            <text wx:if="{{col <= row}}">
+                {{row}}*{{col}}={{row*col}}
+            </text>
+        </view>
+    </view>

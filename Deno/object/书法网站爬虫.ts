@@ -1,15 +1,29 @@
-import {DOMParser} from 'https://deno.land/x/deno_dom/deno-dom-wasm.ts';
+import {DOMParser, HTMLDocument} from 'https://deno.land/x/deno_dom/deno-dom-wasm.ts';
 import {
     Document,
 } from "https://deno.land/x/deno_dom@v0.1.38/src/dom/document.ts";
 
+
 let nameCounter = 0;
+let downloadDir: string | URL | null | undefined = "./明代董其昌仿古六则册/"
+let assertDir: string = downloadDir ?? "";
+
+const coreUrl = `http://www.yac8.com/news/17849`;
+const pageNum = 4;
+
+const urls: string[] = [];
+
+for (let i = 1; i <= pageNum; i++) {
+    urls.push(`${coreUrl}${i !== 1 ? `_${i}` : ""}.html`);
+}
 
 async function downloadImage(url: string, filename: string) {
     const response = await fetch(url);
     const imageBuffer = await response.arrayBuffer();
-    await Deno.mkdir("download", {recursive: true})
-    await Deno.writeFile("./download/" + filename, new Uint8Array(imageBuffer));
+    // @ts-ignore
+    await Deno.mkdir(assertDir, {recursive: true})
+    // @ts-ignore
+    await Deno.writeFile(assertDir + filename, new Uint8Array(imageBuffer));
 }
 
 async function scrapeImages(url: string) {
@@ -30,15 +44,23 @@ async function scrapeImages(url: string) {
         method: "get"
     });
     const html = await response.text();
+
     console.log("爬取" + url + "完毕，解析中");
 
     //@ts-ignore
     const document: Document = new DOMParser().parseFromString(html, 'text/html');
     //@ts-ignore
     const imageElements: NodeList<HTMLImageElement> = document.querySelectorAll('img');
+    const titleElement = document.querySelector("title");
+    const h1 = document.querySelector("#mainBody h1");
+
+    console.log(h1?.outerHTML);
+    //如果下载地址为空的话就赋值
+    downloadDir === null &&
+    (downloadDir = "./" + titleElement?.innerText + "/",
+        assertDir = downloadDir);
 
     console.log("找到图片" + imageElements.length + "个");
-
 
     for (const img of imageElements) {
         const src = img.getAttribute('src');
@@ -50,21 +72,16 @@ async function scrapeImages(url: string) {
     }
 }
 
-const urls = [
-    "http://www.yac8.com/news/16024.html",
-    "http://www.yac8.com/news/16024_2.html",
-    "http://www.yac8.com/news/16024_3.html",
-    "http://www.yac8.com/news/16024_4.html",
-    "http://www.yac8.com/news/16024_5.html",
-    "http://www.yac8.com/news/16024_6.html",
-]
 
-for (const url of urls) {
-    scrapeImages(url)
-        .then(() => console.log('Scraping completed.'))
-        .catch((error) => console.error(`Error occurred: ${error.message}`));
-}
-
+console.log(urls);
+(async function () {
+    for await (const url of urls) {
+        await scrapeImages(url)
+            .then(() => console.log('Scraping completed.'))
+            .catch((error) => console.error(`Error occurred: ${error.message}`));
+    }
+})();
 /*
+* 切记再打开此软件时必须关闭vpn
 * deno run --allow-net --allow-write 书法网站爬虫.ts
 * */

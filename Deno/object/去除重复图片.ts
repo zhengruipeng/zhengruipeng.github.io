@@ -47,7 +47,7 @@ async function deduplicateImages(folderPath: string) {
 }
 
 // 选择文件夹路径
-const folderPath: string | null = prompt("请输入文件夹路径：");
+const folderPath: string | null = "C:\\Users\\Miki\\Desktop\\New folder";
 
 if (folderPath && existsSync(folderPath)) {
     deduplicateImages(folderPath);
@@ -56,3 +56,6 @@ if (folderPath && existsSync(folderPath)) {
 }
 
 
+/*
+* deno run --allow-read --allow-write 去除重复图片.ts
+* */

@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/hello/hello"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+      "list": [{
+          "pagePath": "pages/index/index",
+          "text": "index",
+          "iconPath": "images/1.jpg",
+          "selectedIconPath": "images/2.jpg"
+      },{
+        "pagePath": "pages/logs/logs",
+        "text": "logs",
+        "iconPath": "images/3.jpg",
+        "selectedIconPath": "images/4.jpg"
+      },{
+        "pagePath": "pages/hello/hello",
+        "text": "hello",
+        "iconPath": "images/5.jpg",
+        "selectedIconPath": "images/6.jpg"
+      }]
+  },
+  "style": "v2",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
