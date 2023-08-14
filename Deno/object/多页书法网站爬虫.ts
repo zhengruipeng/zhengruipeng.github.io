@@ -11,6 +11,12 @@ function logOperation(msg: string): void {
     Deno.writeTextFileSync(LOG_FILE_PATH, `${msg}\n`, {append: true});
 }
 
+function errorOperation(msg: string): void {
+    console.warn(msg)
+    // @ts-ignore
+    Deno.writeTextFileSync(LOG_FILE_PATH, `error: ${msg}\n`, {append: true});
+}
+
 class ArtPage extends Object {
     public baseUrl: string = "http://www.yac8.com/news/";
     public pageNum: number = 0;
@@ -102,9 +108,9 @@ class ArtPage extends Object {
         const document: Document = new DOMParser().parseFromString(html, 'text/html');
         const divs: Element[] = Array.from(document.querySelectorAll("table.pageNavBox td div"));
 
-        this.pageNum = divs.length - 2;
+        this.pageNum = divs.length - 2 > 0 ? divs.length - 2 : 1;
 
-        return this.pageNum || 1;
+        return this.pageNum;
     }
 
     public initUrls(): string[] {
@@ -173,11 +179,11 @@ logOperation(searchPage.urls.join(",\n"));
 
 (async function () {
     //索引值，例如第五页为PAGE_START=4
-    const PAGE_START = 4;
-    const PAGE_END = 5;
+    const PAGE_START = 16;
+    const PAGE_END = 20;
 
 
-    for await (let url of searchPage.urls.slice(PAGE_START, PAGE_END)) {
+    for await (let url of searchPage.urls.slice(PAGE_START - 1, PAGE_END - 1)) {
         searchPage.links.push(await searchPage.getAllLinks(url));
         logOperation(`获取到了${url}的所有连接`);
     }
@@ -191,7 +197,6 @@ logOperation(searchPage.urls.join(",\n"));
 
         logOperation(`${"-".repeat(10)}第${searchPageNum + PAGE_START}搜索页面${"-".repeat(10)}`)
         for await (let artPageId of artInOnePages) {
-            // console.log(artPageId);
             logOperation(`${"-".repeat(10)}pageId=${artPageId}${"-".repeat(10)}`);
             const artPage: ArtPage = new ArtPage(artPageId);
             await artPage.getPageNum();
@@ -206,7 +211,7 @@ logOperation(searchPage.urls.join(",\n"));
 
                 await artPage.scrapeImages(urlForEachPage, pageNum)
                     .then(() => logOperation(`${artPageId}页面的第${pageNum}页爬取完毕`))
-                    // .catch((error) => logOperation(`${artPageId}页面的第${pageNum}页爬取失败: ${error.message}`));
+                    .catch((error) => errorOperation(`${artPageId}页面的第${pageNum}页爬取失败: ${error.message}`));
 
                 ++pageNum;
             }
