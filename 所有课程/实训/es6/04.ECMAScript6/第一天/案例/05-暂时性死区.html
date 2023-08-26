@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 问题1:声明提前问题
+        var a = '张三'
+        function test() {
+            console.log(a) //undefined
+            var a = '李四'
+            console.log(a) //李四
+        }
+        test()
+        console.log(a) //张三
+
+        // 问题2:作用域问题
+        var b = '张三1'
+        function test1() {
+            console.log(b) //张三1
+            b = '李四1'
+            console.log(b) //李四1
+        }
+        test1()
+        console.log(b) //李四1
+
+        // 问题3:暂时性死区问题
+        let c = '张三2'
+        function test2() {
+            console.log(c)  //Cannot access 'c' before initialization
+            let c = '李四2'
+            console.log(c) //李四2
+        }
+        test2()
+        console.log(c) //张三2
+    </script>
+</body>
+
+</html>

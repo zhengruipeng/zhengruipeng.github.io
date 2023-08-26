@@ -2,6 +2,6 @@
 <project version="4">
   <component name="TypeScriptCompiler">
     <option name="recompileOnChanges" value="true" />
-    <option name="typeScriptCompilerParams" value="--target es2020" />
+    <option name="typeScriptCompilerParams" value="--target es2020 --jsx" />
   </component>
 </project>

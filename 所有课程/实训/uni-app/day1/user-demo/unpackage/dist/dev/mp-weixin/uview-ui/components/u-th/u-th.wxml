@@ -1,0 +1,1 @@
+<view class="u-th data-v-070b0340" style="{{$root.s0}}"><slot></slot></view>

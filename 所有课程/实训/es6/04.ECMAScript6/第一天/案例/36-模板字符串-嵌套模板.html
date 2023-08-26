@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var item = {
+            isCollapsed: Math.round(Math.random())
+        }
+        // 在ES5中需要使用下文案例的方式编写代码
+        var classes = 'header'
+        classes += (isLargeScreen() ?
+            '' : item.isCollapsed ?
+                ' icon-expander' : ' icon-collapser');
+
+        console.log(classes);
+        // 在 ES6 中使用模板文字而没有嵌套
+        // const classes = `header ${isLargeScreen() ? '' : (item.isCollapsed ? 'icon-expander' : 'icon-collapser')}`;
+        // 在 ES6 的嵌套模板字面量中，代码如下：
+        // const classes = `header ${isLargeScreen() ? '' : `icon-${item.isCollapsed ? 'expander' : 'collapser'}`}`;
+
+        function isLargeScreen() {
+            return Math.round(Math.random());
+        }
+    </script>
+</body>
+
+</html>

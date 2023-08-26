@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //同步的回调函数案例
+        function test(fn) {
+            fn()  //2
+        }
+        console.log(1)  //1
+        test(function () {
+            console.log(2)
+        })
+        console.log(3) //3
+        //这段代码的输出顺序应该是1、2、3，因为他属于直接进入执行栈的程序，会按照正常程序解析的流程输出
+
+        //异步的回调函数案例
+        function test(fn) {
+            setTimeout(fn, 0)  //-----挂起 --- 进入执行栈  执行  3.
+        }
+        console.log(1)  //1
+        test(function () {
+            console.log(2)
+        })
+        console.log(3)  // 2.
+        //这段代码会输出1、3、2，因为在调用test()时,settimeout()将fn放到异步任务队列挂起，等待主程序执行完毕之后才会执行
+    </script>
+</body>
+
+</html>

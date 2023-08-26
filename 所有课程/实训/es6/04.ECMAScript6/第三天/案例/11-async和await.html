@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // 1. async 函数执行特点
+        // async function test() {
+        //     return 1
+        // }
+        // let res = test()
+        // console.log(res)
+        /*
+            输出结果如下：
+            Promise {<fulfilled>: 1}
+            [[Prototype]]: Promise
+            [[PromiseState]]: "fulfilled"
+            [[PromiseResult]]: 1
+        */
+
+        // // 2. async 同步异步特性
+        // async function test() {
+        //     console.log(3)  
+           
+        // }
+        // console.log(1) //同步
+        // test()  //同步
+        // console.log(2)//同步
+
+        // // 3. 一个完整的输出顺序案例
+        // async function test() {
+        //     console.log(3) //同步
+        //     var a = await 4 
+        //     console.log(a)  //异步
+        //     return 1
+        // }
+        // console.log(1) //同步
+        // test()
+        // console.log(2)//同步
+
+        // // // 4. 将案例代码翻译成Promise对象结构
+        // console.log(1)
+        // new Promise(function (resolve) {
+        //     console.log(3)
+        //     resolve(4)
+        // }).then(function (a) {
+        //     console.log(a) //异步
+        // })
+        // console.log(2)
+
+        // // 5. setimeout 案例
+        async function test() {
+            var res1 = await new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve('第一秒运行')
+                }, 1000)
+            })
+            console.log(res1)
+            var res2 = await new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve('第二秒运行')
+                }, 1000)
+            })
+            console.log(res2)
+            var res3 = await new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve('第三秒运行')
+                }, 1000)
+            })
+            console.log(res3)
+        }
+        test()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let person = 'Mike';
+        let age = 28;
+
+        function myTag(strings, personExp, ageExp, demo) {
+            let str0 = strings[0]; // "That "
+            let str1 = strings[1]; // " is a "
+            let str2 = strings[2]; // "."
+            let str3 = strings[3];
+            console.log(strings);
+            let ageStr;
+            if (ageExp > 99) {
+                ageStr = 'centenarian';
+            } else {
+                ageStr = 'youngster';
+            }
+
+            // We can even return a string built using a template literal
+            // 模板 变量分割字符串
+            return `${str0}${personExp}${str1}${ageStr}${str2}`;
+        }
+
+        let output = myTag`That ${person} is a ${age}. 哈哈`;
+
+        console.log(output);
+        // That Mike is a youngster.
+    </script>
+</body>
+
+</html>

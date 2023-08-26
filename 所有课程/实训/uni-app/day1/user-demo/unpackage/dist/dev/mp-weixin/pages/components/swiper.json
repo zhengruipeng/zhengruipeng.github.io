@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "轮播",
+  "usingComponents": {
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper"
+  }
+}

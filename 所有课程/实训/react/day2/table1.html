@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            list:[
+							{
+								id:'a001',
+								name:'阳顶天',
+								phone:'17388889887',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a002',
+								name:'杨逍',
+								phone:'17388889888',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a003',
+								name:'张无忌',
+								phone:'17388889889',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a004',
+								name:'张三丰',
+								phone:'17388889880',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							}
+            ]
+          };
+        }
+        
+        // render相当于vue中的template模版部分在这里通过return返回一个jsx模版
+        //模版要求有且只有一个根结点
+        render() {
+          return (
+            <div>
+              <h4>table练习</h4>
+              
+              <button >新增</button>
+                
+              
+              <table border="1">
+                <thead>
+                  <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>电话</th>
+                    <th>邮箱</th>
+                    <th>生日</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+              
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(
+        <div>
+          <App />
+        </div>,
+        document.querySelector("#app")
+      );
+    </script>
+  </body>
+</html>

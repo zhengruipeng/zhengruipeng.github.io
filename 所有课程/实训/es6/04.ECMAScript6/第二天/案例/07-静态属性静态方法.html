@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Ren {
+            static age = 18
+            name = '张三'
+            constructor(name) {
+                if (name) {
+                    this.name = name
+                }
+                console.log(this.age)//undefined
+            }
+            sayHi() {
+                console.log(this.name + ' say hi')
+            }
+            static getName() {
+                console.log(this.name)
+            }
+        }
+        let r = new Ren('李四')
+        console.log(r)//Ren {name: '李四'}
+        console.log(this.getName) //undefined
+        let r1 = new Ren()
+        console.log(r1)//Ren {name: '张三'}
+
+        console.dir(Ren)
+        //访问静态对象
+        console.log(Ren.age)//18
+        let name = Ren.getName()
+        //getName函数为function函数，该函数执行时，调用者为Ren，所以getName中的this.name访问的实际上是Ren对象上自有的name属性
+        console.log(name) //Ren
+    </script>
+</body>
+
+</html>

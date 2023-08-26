@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+        img{
+            height:20vh;
+
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                url: "https://www.baidu.com",
+                title: "点我去百度",
+                src: "./1.jpg"
+            };
+        }
+
+        // render相当于vue中的template模版部分在这里通过return返回一个jsx模版
+        //模版要求有且只有一个根结点
+        render() {
+            return (
+                <div>
+                    <h4>属性绑定案例</h4>
+                    <a href={this.state.url} title={this.state.title}>
+                        点我去百度
+                    </a>
+                    <h4>
+                        仿写练习，仿照当前的a标签在创建一个a标签嵌套img标签跳转到百度，要求
+                        a标签以及img的所有属性都使用数据绑定的方式
+
+                    </h4>
+                    <a href={this.state.url} title={this.state.title}>
+                        <img src={this.state.src}/>
+                    </a>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            <App/>
+        </div>,
+        document.querySelector("#app")
+    );
+</script>
+</body>
+</html>

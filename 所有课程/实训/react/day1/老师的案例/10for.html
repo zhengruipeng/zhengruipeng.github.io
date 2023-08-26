@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            list: [
+              {
+                id: 1,
+                name: "乔峰",
+              },
+              {
+                id: 2,
+                name: "张无忌",
+              },
+              {
+                id: 3,
+                name: "谢逊",
+              },
+              {
+                id: 4,
+                name: "赵云",
+              },
+              {
+                id: 5,
+                name: "安琪拉",
+              },
+            ],
+          };
+        }
+        handleAdd(id,name) {
+           let obj = {id,name}
+           obj.id = obj.id+ Math.random()
+           obj.name = obj.name +Math.random()
+            console.log(obj);
+            this.setState({
+                list:[...this.state.list,obj]
+            })
+           
+
+        }
+        handleDelete(index) {
+          console.log(index);
+          this.setState({
+            ...this.state.list.splice(index,1)
+              
+            })
+        }
+        render() {
+          return (
+            <div>
+              <h4>列表渲染</h4>
+              <div>
+                <ul>
+                  {/* 
+										jsx列表渲染同样是通过表达式执行数组循环并且返回jsx结构的数据来实现
+									  列表渲染，并且在这里要给循环的标签绑定一个key这个和vue的原理相同
+									 */}
+                  {this.state.list.map((item,index) => {
+                    return (
+                      <li key={item.id}>
+                        {item.id},{item.name}
+                        <button onClick={() => {this.handleAdd(item.id,item.name)}}>增加</button>
+                        <button onClick={() => {this.handleDelete(index)}}>删除</button>
+                      </li>
+                    );
+                  })}
+                  {
+                    
+                  }
+                </ul>
+              </div>
+              <h4>
+                课堂练习，通过按钮让列表实现随机增加数据，以及指定删除数据
+              </h4>
+             
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<App />, document.querySelector("#app"));
+    </script>
+  </body>
+</html>

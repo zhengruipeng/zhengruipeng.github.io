@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Ren {
+             age1 = 19
+            static age = 18
+            #count = 0
+            constructor() {
+            }
+            set count(c) {
+                console.log('对count设置新的值')
+                this.#count = c
+            }
+            get count() {
+                console.log('获取count的值')
+                return this.#count
+            }
+        }
+        let r = new Ren()
+        console.log(r.count)//0
+        r.count++
+        r.count++
+        r.count++
+      
+        console.log(r.count)//2
+        console.log(r)//Ren {#count: 2}
+    </script>
+</body>
+
+</html>

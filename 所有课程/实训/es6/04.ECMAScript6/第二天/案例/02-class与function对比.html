@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Ren(name, age) {
+            this.name = name
+            this.age = age
+            this.fn  = function() {}
+        }
+        //这里使用function函数，否则内部的this永远是window
+        Ren.prototype.sayHi = function () {
+            console.log(this.name + ' say Hi')
+        }
+        let r = new Ren('张三', 18)
+        console.log(r)//Ren {name: '张三', age: 18}
+        r.sayHi() //张三 say Hi
+        console.dir(Ren)//ƒ Ren(name,age)
+
+        class Ren1 {
+            //相当于function Ren(){}函数体本身
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+            //相当于function函数，该函数会自动绑定在Ren1的prototype上
+            sayHi() {
+                console.log(this.name + ' say Hi')
+            }
+        }
+        let r1 = new Ren1('李四', 19)//Ren {name: '李四', age: 19}
+        r1.sayHi()//李四 say Hi
+        console.dir(Ren1)//class Ren1
+    // Ren1()//该注释打开后会抛出异常：onstructor Ren1 cannot be invoked without 'new'
+    </script>
+</body>
+
+</html>

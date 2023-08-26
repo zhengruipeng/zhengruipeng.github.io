@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 通过class创建父类
+        class Father {
+            //class对象的内置属性可以直接初始化在对象内部，无需声明符号
+            money = 1000
+            
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+            sayHi() {
+                console.log(this.name + ' say hi')
+            }
+        }
+        // 通过Child类通过关键字extends 继承父类Father
+        class Child extends Father {
+            // Child 他的构造函数
+            constructor(name, age) {
+                // super代表Father的constructor
+                super(name, age) //超类，父类 Father(name,age)
+            }
+        }
+        let f = new Father('张三', 35)
+        let c = new Child('张小三', 10)
+        console.log(c)//Child {money: 1000, name: '张小三', age: 18}
+        c.sayHi()//张小三 say hi
+        console.log(c.money)//1000
+    </script>
+</body>
+
+</html>

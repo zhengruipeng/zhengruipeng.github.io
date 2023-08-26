@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let myArray = ["value1", "value2", "value3"];
+
+        // 用 Set 构造器将 Array 转换为 Set
+        let mySet = new Set(myArray);
+
+        mySet.has("value1"); // returns true
+
+        // 用...(展开操作符) 操作符将 Set 转换为 Array
+        console.log([...mySet]); // 与 myArray 完全一致
+    </script>
+</body>
+
+</html>

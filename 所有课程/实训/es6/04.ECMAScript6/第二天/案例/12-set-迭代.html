@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let mySet = new Set();
+
+        mySet.add(1); // Set [ 1 ]
+        mySet.add(5); // Set [ 1, 5 ]
+        mySet.add("some text"); // Set [ 1, 5, "some text" ]
+        let o = { a: 1, b: 2 };
+        mySet.add(o);
+        mySet.add({ a: 1, b: 2 });
+        // 迭代整个 set
+        // 按顺序输出：1, "some text", {"a": 1, "b": 2}, {"a": 1, "b": 2}
+        for (let item of mySet) console.log(item);
+
+        // 按顺序输出：1, "some text", {"a": 1, "b": 2}, {"a": 1, "b": 2}
+        for (let item of mySet.keys()) console.log(item);
+
+        // 按顺序输出：1, "some text", {"a": 1, "b": 2}, {"a": 1, "b": 2}
+        for (let item of mySet.values()) console.log(item);
+
+        // 按顺序输出：1, "some text", {"a": 1, "b": 2}, {"a": 1, "b": 2}
+        //(键与值相等)
+        for (let [key, value] of mySet.entries()) console.log(key);
+
+        // 使用 Array.from 转换 Set 为 Array
+        var myArr = Array.from(mySet); // [1, "some text", {"a": 1, "b": 2}, {"a": 1, "b": 2}]
+
+        // 如果在 HTML 文档中工作，也可以：
+        mySet.add(document.body);
+        mySet.has(document.querySelector("body")); // true
+
+        // Set 和 Array 互换
+        mySet2 = new Set([1, 2, 3, 4]);
+        mySet2.size;               // 4
+        [...mySet2];               // [1,2,3,4]
+
+        var set1 = new Set([1, 2, 3, 4, 5]);
+        var set2 = new Set([3, 4, 5, 6, 7]);
+        // 可以通过如下代码模拟求交集
+        let intersection = new Set([...set1].filter(x => set2.has(x)));
+
+        console.log(intersection);
+        // 可以通过如下代码模拟求差集
+        let difference = new Set([...set1].filter(x => !set2.has(x)));
+        console.log(difference);
+        // 用 forEach 迭代
+        mySet.forEach(function (value) {
+            console.log(value);
+        });
+
+        // 1
+        // 2
+        // 3
+        // 4
+    </script>
+</body>
+
+</html>

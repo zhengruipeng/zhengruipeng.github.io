@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function test() {
+        //     let a = arguments[0]
+        //     let b = arguments[1]
+        //     let c = arguments[2]
+        //     console.log(a, b, c)
+        //     console.log(arguments instanceof Array)//false
+        // }
+        // test(1, 2)//1,2,undefined
+        // test(1, 2, 3)//1,2,3
+        //    剩余参数，参数展开
+        let test1 = (...args) => {
+            // console.log(arguments) //打开注释后抛出异常：arguments is not defined
+            console.log(args)//数组对象
+            console.log(args instanceof Array)//true 是一个真的数组
+            args.forEach(item => {
+                console.log(item)
+            })
+        }
+        test1(1, 2, 3)
+        /*
+            1
+            2
+            3
+        */
+    </script>
+</body>
+
+</html>

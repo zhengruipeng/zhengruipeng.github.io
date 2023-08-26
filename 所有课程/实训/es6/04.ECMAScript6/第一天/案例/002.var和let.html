@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function () {
+                console.log(i)
+            }); //异步
+        }
+        // console.log(i) //同步  5
+        
+
+        for (let j = 0; j < 3; j++) {
+            setTimeout(function () {
+                console.log(j)
+            });
+        }
+        // console.log(j)
+      
+    </script>
+</body>
+</html>

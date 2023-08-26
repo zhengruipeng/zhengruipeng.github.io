@@ -4,7 +4,7 @@
 const {readDir, rename} = Deno;
 
 // 定义需要修改的文件夹路径和修改的文件名后缀
-const folderPath = "C:\\Users\\Miki\\Desktop\\aa";
+const folderPath = "J:\\检查备份";
 const newSuffix = "_new";
 
 // 读取文件夹中的所有文件
@@ -15,12 +15,12 @@ for await (const dir of await readDir(folderPath)) {
         // 如果是文件而不是文件夹，则进行文件名修改操作
         if (file.isFile) {
             // 获取原始文件名和扩展名
-            let [name, ext] = file.name.split(".");
+            let [name,no, ext] = file.name.split(".");
 
-            // ext = "mp4";
+            ext = "zip";
 
             // 构建新的文件名
-            const newName = `${name}${newSuffix}.${ext}`;
+            const newName = `${name}.${ext}.${no}`;
             // 执行文件名修改
             await rename(`${folderPath + "\\" + dir.name}/${file.name}`,
                 `${folderPath + "\\" + dir.name}/${newName}`);

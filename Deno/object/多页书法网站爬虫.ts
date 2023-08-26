@@ -2,6 +2,7 @@ import {DOMParser, HTMLDocument} from 'https://deno.land/x/deno_dom/deno-dom-was
 import {
     Document,
 } from "https://deno.land/x/deno_dom@v0.1.38/src/dom/document.ts";
+import {ProgressPrinter} from "../package/ProgressPrinter.ts";
 
 const LOG_FILE_PATH = "./download/log.txt"; // 日志文件路径
 
@@ -29,6 +30,7 @@ class ArtPage extends Object {
         const imageBuffer = await response.arrayBuffer();
         // @ts-ignore
         await Deno.mkdir(this.downloadDir, {recursive: true})
+
         // @ts-ignore
         await Deno.writeFile(this.downloadDir + filename, new Uint8Array(imageBuffer));
     }
@@ -79,6 +81,8 @@ class ArtPage extends Object {
 
         // console.log(titleElement.innerHTML)
         let title = h1.innerHTML.match(/^([^\(]+)(?:\(\d+\))?/)[1];
+
+        title.replace(/[\.:\-,\?\\\/]?/, " - ");
 
         //如果下载地址为空的话就赋值
         this.downloadDir = `./download/${title}/`;
@@ -172,15 +176,15 @@ class SearchPage extends Object {
     }
 }
 
-const searchPage: SearchPage = new SearchPage(`http://www.yac8.com/news/?list_refer-theme-%B6%AD%C6%E4%B2%FD`, 19);
+const searchPage: SearchPage = new SearchPage(`http://www.yac8.com/news/?list_refer-theme-%C1%F5%DC%AD`, 2);
 logOperation(`${"-".repeat(10)}所有搜索页面的url${"-".repeat(10)}`)
 logOperation(searchPage.urls.join(",\n"));
 
 
 (async function () {
     //索引值，例如第五页为PAGE_START=4
-    const PAGE_START = 16;
-    const PAGE_END = 20;
+    const PAGE_START = 1;
+    const PAGE_END = 3;
 
 
     for await (let url of searchPage.urls.slice(PAGE_START - 1, PAGE_END - 1)) {
@@ -190,6 +194,12 @@ logOperation(searchPage.urls.join(",\n"));
 
     logOperation(`${"-".repeat(10)}所有页面链接${"-".repeat(10)}`)
     logOperation(searchPage.links.join(",\n"))
+
+    // @ts-ignore
+    let allLinkLength = searchPage.links.reduce((lv, rv, i, a) => {
+        return lv + rv.length;
+    }, 0);
+    let visitedLink = 0;
 
     let searchPageNum = 0;
     for await (let artInOnePages of searchPage.links) {
@@ -213,39 +223,16 @@ logOperation(searchPage.urls.join(",\n"));
                     .then(() => logOperation(`${artPageId}页面的第${pageNum}页爬取完毕`))
                     .catch((error) => errorOperation(`${artPageId}页面的第${pageNum}页爬取失败: ${error.message}`));
 
+                ProgressPrinter.printProgress(visitedLink / allLinkLength)
                 ++pageNum;
             }
+            itemNum++;
+            visitedLink++;
+
+            ProgressPrinter.printProgress(visitedLink / allLinkLength)
         }
         searchPageNum++;
     }
-
-    // searchPage.links.push(await searchPage.getAllLinks(searchPage.urls[5]));
-    // console.log(searchPage.links[0]);
-    //
-    // for await (let artInOnePages of searchPage.links) {
-    //     let itemNum = 1;
-    //
-    //     for await (let artPageId of artInOnePages) {
-    //         if (itemNum > 5) break;
-    //         const artPage: ArtPage = new ArtPage(artPageId);
-    //         await artPage.getPageNum();
-    //         artPage.initUrls();
-    //
-    //         let pageNum = 1;
-    //         for await (let urlForEachPage of artPage.urls) {
-    //             if (pageNum > 6) break;
-    //
-    //             // console.log(`${artPageId}页面的第${pageNum}页爬取完毕`)
-    //             // await artPage.scrapeTest(urlForEachPage);
-    //             await artPage.scrapeImages(urlForEachPage, pageNum)
-    //                 .then(() => console.log(`${artPageId}页面的第${pageNum}页爬取完毕`))
-    //             // .catch((error) => console.error(`${artPageId}页面的第${pageNum}页爬取失败: ${error.message}`));
-    //
-    //             pageNum++;
-    //         }
-    //         itemNum++;
-    //     }
-    // }
 
 })();
 

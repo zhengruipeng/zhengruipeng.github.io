@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+		<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+		<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+		<script type="text/babel" >
+      		class App extends React.Component{
+				constructor(props) {
+					super(props)
+					this.state = {
+						title:'我是title',
+						name:'我是初始值',
+						num:0
+
+					}  
+				}
+				handleClick(){
+					//先尝试这种方式改变state中的title
+					//我们发现虽然不报错但是页面不会更新
+					// this.state.title = '我尝试改变你'
+					//尝试打开下面的注释，props是只读对象，我们无法改变只读对象的值
+					// this.props.name = '外部参数是无法被改变的'
+					//下面打开下面注释
+					//react与vue不同，不会因为值的改变去更新页面，他会通过setState调用函数的方式重新的执行一次render函数来实现页面的更新
+					this.setState({
+						name:'我尝试更新你',
+						
+					})
+				}
+				handleClick1(){
+					
+					this.setState({
+						num:Math.random()
+						
+					})
+				}
+				
+				// render相当于vue中的template模版部分在这里通过return返回一个jsx模版
+				//模版要求有且只有一个根结点
+				render(){
+					return (
+						<div>
+							<h4>
+								state取值练习
+							</h4>
+							当前的title值为：{this.state.title}
+							当前name的值为：{this.state.name}
+							当前num的值为：{this.state.num}
+							{/*在jsx中标签必须严格编写结束符号，尤其是单标签否则会报错*/}
+							<br/>
+							{/*
+								在react中绑定事件使用
+								on事件名，事件名首字母大写
+								on事件名={(原生事件对象) => {this.事件名(参数)}}
+								这种形式定义事件，暂时作为了解
+							*/}
+							<button onClick={()=>{this.handleClick()}}>点我改变name</button>
+							<button onClick={()=>{this.handleClick1()}}>点我改变num</button>
+							<br/>
+							<h4>练习：增加一个num属性定义个随机数，每次点击按钮让随机数变化</h4>
+							
+						</div>
+					)
+				}
+			}
+			ReactDOM.render(
+				<div>
+          			<App/>
+				</div>,
+				document.querySelector('#app')
+			)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    //定义根组件app
+    class App extends React.Component {
+        constructor(props) {
+            super(props);
+            // 声明了一个inputStr
+            this.state = {
+                inputStr: "我是input的值",
+            };
+        }
+
+        //Input组件的onChange触发时又执行了props中的onChange这样App组件中定义的handleChange
+        //就能执行并且得到了Input组件中返回的数据
+        handleChangeParent = (inputStr) => {
+            console.log(inputStr);
+            //将返回的数据设置到state.inputStr中
+            this.setState({
+                inputStr: inputStr,
+            });
+        };
+
+        // 渲染全局的内容
+        render() {
+            // react中的组件规范与vue的template一样每一个组件必须有一个根元素包裹不可以一次
+            //return 两个平级的html元素
+            return (
+                <div>
+                    <h4>嵌套组件双向数据流练习</h4>
+                    <div>
+                        {/* 输出state中的inputStr */}
+                        传入的数据:{this.state.inputStr}
+                        <br/>
+                        {/* 对Input组件传入参数value和placeholder，其中value是app中声明的变量 */}
+                        <Input
+                            value={this.state.inputStr}
+                            placeholder="请输入"
+                            onChange={this.handleChangeParent}
+                        ></Input>
+                    </div>
+                </div>
+            );
+        }
+    }
+
+    // 定义input子组件
+    class Input extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                value: props.value,
+            };
+        }
+
+        //看完render中的说明看这里，onChange事件默认会有event参数，可以在e.target中获取到input的html对象
+        handleChange = (e) => {
+            this.setState({value: e.target.value});
+            //react中的组件中的props中的数据虽然是只读数据，但是我们可以通过调用props中定义的函数
+            //然后将要返回的数据通过参数通知到父级组件中，这里的this.props.onChange相当于执行了
+            //在Input上绑定的onChange事件handleChangeParent并且将文本框的值放到了参数中
+            this.props.onChange(e.target.value);
+        };
+
+        render() {
+            // console.log(this.props.value);
+            /*
+                          react中的组件中如果对input的value绑定了值，就必须对其绑定onChange事件
+                          否则在绑定了value的组件是无法实现更改的因为每次触发渲染都会渲染this.state.value
+                          只有触发了this.state.value的值改变，input在网页里才能改变值
+
+                      */
+            return (
+                <input
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    placeholder={this.props.placeholder}
+                />
+            );
+        }
+    }
+
+    ReactDOM.render(<App/>, document.querySelector("#app"));
+</script>
+</body>
+</html>

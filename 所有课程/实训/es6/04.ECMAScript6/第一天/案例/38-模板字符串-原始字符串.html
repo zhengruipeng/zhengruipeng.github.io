@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function tag(strings) {
+            console.log(strings);
+            console.log(strings.raw[0]);
+        }
+
+        tag`string text line 1 \n string text line 2`;
+        // logs "string text line 1 \n string text line 2" ,
+        // including the two characters '\' and 'n'
+
+        let str = String.raw`Hi\n${2 + 3}!`;
+
+        // 非原始
+        console.log(`Hi\n${2 + 3}!`);
+        // 原始
+        console.log(str);
+        // "Hi\\n5!"
+
+        console.log(str.length);
+        // 6
+
+        console.log(str.split('').join(','));
+        // "H,i,\\,n,5,!"
+        
+    </script>
+</body>
+
+</html>

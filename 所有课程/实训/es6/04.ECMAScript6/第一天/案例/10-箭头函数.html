@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+     function fn() {
+          console.log(1111);
+     }
+     fn()
+     let fn1 =  ()=> {
+          console.log(1111);
+      }
+      fn1()
+
+        // 回顾function的显示声明方式
+        function test(arg1, arg2) {
+            return arg1 + arg2
+        }
+        // //函数调用
+        let sum = test(1, 2)
+        console.log(sum)//3
+        // // 回顾funciton函数的匿名创建方式
+        let test1 = function (arg) {
+            console.log(arg)//111
+        }
+        test1(111)
+
+        // // 箭头函数的结构
+        let test2 = (arg1, arg2) => {
+            return arg1 + arg2
+        }
+        let sum2 = test2(3, 4)
+        console.log(sum2)//7
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "ui组件学习"
+			}
+		},
+		{
+			"path": "pages/components/button",
+			"style": {
+				"navigationBarTitleText": "按钮"
+			}
+		},
+		{
+			"path": "pages/components/select",
+			"style": {
+				"navigationBarTitleText": "选择器"
+			}
+		},
+		{
+			"path": "pages/components/picker-select",
+			"style": {
+				"navigationBarTitleText": "picker选择器"
+			}
+		},
+		{
+			"path": "pages/components/input",
+			"style": {
+				"navigationBarTitleText": "输入框"
+			}
+		},
+		{
+			"path": "pages/components/upload",
+			"style": {
+				"navigationBarTitleText": "文件上传"
+			}
+		},
+		{
+			"path": "pages/components/swiper",
+			"style": {
+				"navigationBarTitleText": "轮播"
+			}
+		},
+		{
+			"path": "pages/components/api",
+			"style": {
+				"navigationBarTitleText": "接口调用"
+			}
+		},
+		{
+			"path": "pages/components/vuex",
+			"style": {
+				"navigationBarTitleText": "结合vuex调用接口"
+			}
+		},
+		{
+			"path": "pages/shop/index",
+			"style": {
+				"navigationBarTitleText": "商城"
+			}
+		},
+		{
+			"path": "pages/news/index",
+			"style": {
+				"navigationBarTitleText": "新闻"
+			}
+		},
+		{
+			"path": "pages/me/index",
+			"style": {
+				"navigationBarTitleText": "网络组件"
+			}
+		}
+		,{
+					"path" : "pages/me/login",
+					"style" :                                                                                    
+					{
+							"navigationBarTitleText": "登陆",
+							"enablePullDownRefresh": false
+					}
+					
+			}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"selectedColor":"#2B85E4",
+		"backgroundColor":"#DCDFE6",
+		"borderStyle":"white",
+		"list":[
+			{
+				"text":"组件",
+				"pagePath":"pages/index/index",
+				"iconPath":"static/home.png",
+				"selectedIconPath":"static/home-a.png"
+			},
+			{
+				"text":"网络组件",
+				"pagePath":"pages/me/index",
+				"iconPath":"static/me.png",
+				"selectedIconPath":"static/me-a.png"
+			}
+		]
+	}
+}

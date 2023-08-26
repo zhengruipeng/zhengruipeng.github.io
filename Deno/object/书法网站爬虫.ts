@@ -5,11 +5,11 @@ import {
 
 
 let nameCounter = 0;
-let downloadDir: string | URL | null | undefined = "./明代董其昌仿古六则册/"
+let downloadDir: string | URL | null | undefined = "./字帖分享：《王羲之圣教序及其笔法》/"
 let assertDir: string = downloadDir ?? "";
 
-const coreUrl = `http://www.yac8.com/news/17849`;
-const pageNum = 4;
+const coreUrl = `http://www.yac8.com/news/10243`;
+const pageNum = 8;
 
 const urls: string[] = [];
 
@@ -43,7 +43,13 @@ async function scrapeImages(url: string) {
         headers,
         method: "get"
     });
-    const html = await response.text();
+    const arrayBuffer = await response.arrayBuffer();
+
+    const gb2312Bytes = new Uint8Array(arrayBuffer);
+
+    // 将GB2312字节转换为UTF-8字符串
+    const decoder = new TextDecoder('gb2312');
+    const html = decoder.decode(gb2312Bytes);
 
     console.log("爬取" + url + "完毕，解析中");
 

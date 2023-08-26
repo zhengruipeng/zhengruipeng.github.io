@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    // react的根组件相当于app.vue,react的组件必须是一个Class对象或者是一个Function
+    // 以下是class方式的组件基本写法
+    class App extends React.Component {
+        // 组件的构造函数，当组件初始化时就会执行当前的函数
+        //props参数是从组件外部传入的，react的props不需要在组件中定义，他是参数形式的
+        constructor(props) {
+            super(props)
+            // 在构造函数中可以初始化state属性，this.state是react每个组件都存在的一个通用属性
+            //他的作用相当于vue中的data，在state中声明的属性可以在render中的jsx模版中通过{this.state.key}获取
+            this.state = {
+                title: '我是标题'
+            }
+        }
+
+        handleClick() {
+            //react与vue不同，不会因为值的改变去更新页面，他会通过setState调用函数的方式重新的执行一次render函数来实现页面的更新
+            this.setState({
+                // name：
+                title: '我尝试更新你'
+            })
+        }
+
+        render() {
+            //在jsx中class是关键字所以要绑定class需要编写成className
+            return (
+                <div className="root">
+                    <h4>这是一个React组件的演示</h4>
+                    <div>
+                        {/*
+									jsx中的注释这么写
+									jsx中的取值表达式是{}
+								*/}
+                        props:{this.props.name}
+                        <br/>
+                        state:{this.state.title}
+                    </div>
+                    <button onClick={(event) => {
+                        this.handleClick(event)
+                    }}>点我
+                    </button>
+                </div>
+
+            )
+        }
+    }
+
+    //渲染组件，react的组件不需要命名，对象名就是组件的名称
+    //这里对app传入了name属性相当于vue的props参数，在组件内部就可以通过props获取name的值
+    ReactDOM.render(
+        <App name="我是根组件传入的name"/>,
+        document.querySelector('#app')
+    )
+</script>
+</body>
+</html>

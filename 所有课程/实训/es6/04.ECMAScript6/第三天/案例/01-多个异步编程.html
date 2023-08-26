@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setTimeout(function () {
+            //第一秒后执行的逻辑
+            console.log('第一秒之后发生的事情')
+            setTimeout(function () {
+                //第二秒后执行的逻辑
+                console.log('第二秒之后发生的事情')
+                setTimeout(function () {
+                    //第三秒后执行的逻辑
+                    console.log('第三秒之后发生的事情')
+                }, 1000)
+            }, 1000)
+        }, 1000)
+
+    </script>
+</body>
+
+</html>

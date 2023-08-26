@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father(name, age) {
+            this.name = name
+            this.age = age
+            this.money = 10000
+        }
+        Father.prototype.sayHi = function () {
+            console.log(this.name + '说hi')
+        }
+        function Son(name, age) {
+            this.name = name
+            this.age = age
+        }
+        //自动继承函数
+        Object.prototype.extend = function (Parent) {
+            //保存子类对象默认属性名称的数组
+            var argNameArr = []
+            //按顺序保存子类默认属性名称所对应的值的数组
+            var argValueArr = []
+            //排除后绑定的extend属性并将子类自有属性的名称与对应的值分别放到两个数组中
+            for (var key in this) {
+                if (key != 'extend') {
+                    argNameArr.push(key)
+                    argValueArr.push(this[key])
+                }
+            }
+            /*
+                通过new Function生成该结构函数对象来动态控制参数的传递
+                ƒ anonymous(name,age) {
+                (function Father(name,age){
+                        this.name = name
+                        this.age = age
+                        this.money = 10000
+                    }).apply(this,arguments)
+                }
+            */
+            var f = new Function(argNameArr, '(' + Parent.toString() + ').apply(this,arguments)')
+            //调用父类的构造函数并传入子类的默认属性，最终将父类的自有属性绑定在子类的this上
+            f.apply(this, argValueArr)
+            //实例化后的子类的__proto__属性指向子类本身的prototype对象，则this.__proto__.__proto__代表将其原型链降级到父类之后
+            this.__proto__.__proto__ = Parent.prototype
+            //返回调整后的子类对象
+            return this
+        }
+        var f = new Father('张三', 35)
+        var s = new Son('张小三', 18).extend(Father)
+        console.log(f)
+        console.log(s)
+
+    </script>
+</body>
+
+</html>

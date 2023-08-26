@@ -1,0 +1,161 @@
+/*和header相关*/
+#header {
+    --header-padding: .8em;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*width: max(100%, 1900px);*/
+    /*height: 7.4vh;*/
+    width: var(--component-width);
+    /*height: 7.4vh;*/
+    background-color: #212529;
+    padding: var(--header-padding) 0;
+    font-size: 1rem;
+    text-wrap: none;
+    /*header的本体*/
+}
+
+.navFlexbox {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    /*position: relative;*/
+    /*height: 60%;*/
+    /*width: 60%;*/
+    /*top: 20%;*/
+    /*bottom: 20%;*/
+    /*margin: 0 auto;*/
+    justify-content: center;
+    /*作为导航栏的弹性盒的盒子*/
+}
+
+#logo {
+    /*height: auto;*/
+    /*logo*/
+}
+
+.navFlexbox > nav {
+    color: white;
+    display: flex;
+    align-items: center;
+    /*nav的字体颜色*/
+}
+
+#nav-content {
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*控制包含5个a的nav*/
+    display: flex;
+    margin: 0 1em;
+    margin-right: 200px;
+}
+
+#nav-content > a {
+    --selected-color: red;
+
+    display: block;
+
+    margin: 0 1em;
+    line-height: 3em;
+    transition: .3s;
+    cursor: pointer;
+    /*a标签之间的距离*/
+}
+
+#nav-content > a:hover {
+    color: var(--selected-color);
+}
+
+#nav-content > a:nth-child(5):before {
+    font-family: bootstrap-icons;
+    content: "\F30A";
+    margin-right: .3em;
+
+    vertical-align: center;
+}
+
+#nav-content > a.selected {
+    color: var(--selected-color);
+
+}
+
+#nav-content > a.selected:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--selected-color);
+    transform: translateY(var(--header-padding));
+}
+
+
+#nav-content:last-child {
+    /*margin-right: 20vh;*/
+    /*留的空隙*/
+}
+
+#header-search-form {
+    --padding: .6em;
+    --border-radius: 3px;
+
+    margin-right: 2vw;
+}
+
+#header-search-form input {
+    display: block;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    padding: var(--padding);
+    border: 0;
+
+    float: left;
+    /*margin-right: 9.2vh;*/
+    /*input的样式*/
+}
+
+#header-search-form input:focus {
+    outline: none;
+}
+
+#header-search-form button[type='submit'] {
+    --button-color: #aaa;
+    --selected-color: #888;
+    color: var(--button-color);
+    border: var(--button-color) solid 1px;
+    background-color: transparent;
+    margin: 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: var(--padding);
+
+    float: left;
+
+    transition: .3s;
+    cursor: pointer;
+
+    font-family: bootstrap-icons;
+
+}
+
+#header-search-form button[type='submit']:hover {
+    background-color: var(--selected-color);
+    color: white;
+
+}
+
+#btn {
+    --selected-color: #a00;
+}
+
+#btn > button {
+    border-radius: 5px;
+    padding: 8px 8px;
+    background-color: #DC3545;
+    border: 0;
+    color: white;
+    transition: .3s;
+    cursor: pointer;
+    /*按钮样式*/
+}
+
+#btn > button:hover {
+    background-color: var(--selected-color);
+}

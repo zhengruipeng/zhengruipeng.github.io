@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+       
+        // if (true) {
+        //     var a = 1
+        // }
+        // console.log(a) // 由于a会提升到if判断的范围外，所以可被全局访问，结果为1
+        // if (true) {
+        //     let b = 2
+        //     {
+        //         console.log(b) //2
+        //         let c = 3
+        //         {
+        //             let b = 4
+        //             console.log(4, c) //2,3
+        //         }
+        //     }
+        // }
+        // console.log(b) // Error: b is not defined
+
+        // var  函数级别作用域     没有块级作用域 {}
+        //  function fn() {
+        // //    var  a = 10; //局部变量，只在函数内好用
+        //        a = 10;  //全局变量
+        //  }
+        //  fn()
+        //  console.log(a); //10
+
+           
+           console.log(a);
+           var a = 10;
+        //    以上的写法，相当于系统自动变成以下的写法。
+           var a;
+           console.log(a); //undefind
+           a = 10;
+        
+    </script>
+</body>
+
+</html>

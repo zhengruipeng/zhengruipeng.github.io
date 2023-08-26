@@ -1,0 +1,1 @@
+<view><text>轮播</text><u-swiper vue-id="1b10481e-1" list="{{list}}" bind:__l="__l"></u-swiper></view>

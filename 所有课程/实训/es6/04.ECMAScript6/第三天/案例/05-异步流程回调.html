@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var a = 0
+        // setTimeout(function () {
+        //     a = 1
+        // })
+        // console.log(a)
+
+        // 该代码块输出结果一定为0，由JavaScript单线程异步模型得知，当前代码块中setTimeout()的回调函数是一个宏任务，会在本次的同步代码执行完毕后执行，所以声明a=0和输出a的值这两行代码会优先执行。这时对a赋值1的事件还没有发生，所以输出的结果就一定为0。
+
+        // var a = 0
+        // //依然使用setTimeout设置1秒的延迟设置a的值
+        // setTimeout(function () {
+        //     a = 1
+        // }, 1000)
+        // var d = new Date().getTime()
+        // var d1 = new Date().getTime()
+        // //采用while循环配合时间差来阻塞同步代码2秒
+        // while (d1 - d < 2000) {
+        //     d1 = new Date().getTime()
+        // }
+        // console.log(a)
+        // 本案例的同步代码会在while循环中阻塞2秒，所以console.log(a)这行代码会在2秒后，才能获得执行资源。但最终输出的结果仍然是0，原因很简单：由 JavaScript的运行模型进行理解，单线程异步模型的规则是严格的同步在前异步靠后顺序，虽然本案例的同步代码阻塞2秒，已经超过了setTimeout()的等待时间，但setTimeout()中的宏任务到时间后，仅仅会被从工作线程移动到任务队列中进行等待。在时间到达1秒时，while循环没有执行结束，所以函数执行栈会被继续占用，直到循环释放并输出a后，函数执行栈才被清空，任务队列中的宏任务才能被执行。所以这里就算setTimeout()时间到了，也必须等待同步代码执行完毕。那么输出a时，a=1的行为仍然没有发生。所以，默认的上下结构永远拿不到异步回调中的结果，这也是为什么异步流程都是回调函数结构的原因。
+
+        var a = 0
+        setTimeout(function () {
+            a = 1
+        }, 1000)
+        //注册一个新的宏任务，让他在上一个宏任务后执行
+        setTimeout(function () {
+            console.log(a)
+        }, 2000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 基本使用
+        // class Father { }
+
+        // class Son extends Father {
+        //     constructor() {
+        //         super();
+        //     }
+        // }
+
+        // 子类调用 super 后返回子类 this
+        // class Father {
+        //     constructor() {
+        //         console.log(new.target.name);
+        //     }
+        // }
+        // class Son extends Father {
+        //     constructor() {
+        //         super();
+        //     }
+        // }
+        // const f = new Father() // Father
+        // const s = new Son() // Son
+
+        // 子类无自己构造函数 父类中构造函数this指向父类属性
+        // class Father {
+        //     name = 'Father';
+        //     constructor() {
+
+        //         console.log('My name is ' + this.name);
+        //     }
+        //     say1() {
+        //           return 11111
+        //     }
+        // }
+
+        // class Son extends Father {
+
+        //     name = 'Son';
+        //     constructor() {
+        //           super()
+        //           console.log(super.say1());
+        //           console.log(super.name);
+        //     }
+
+        // }
+
+
+        // const son = new Son(); // My name is A
+
+        // super方法不能用在其他地方
+        // class Father { }
+
+        // class Son extends Father {
+        //     m() {
+        //         super(); // 报错
+        //     }
+        // }
+
+        // super 作为对象在普通方法中，指向父类的原型对象；在静态方法中，指向父类
+        // class Father {
+        //     say() {
+        //         return 2;
+        //     }
+        // }
+
+        // class Son extends Father {
+        //     constructor() {
+        //         super(); //当前函数来用
+        //         console.log(super.say()); // 2  //当成对象来用，say()函数的super对象指向父类
+        //     }
+        // }
+
+      
+
+        // let  = new Son();
+
+        // super 无法拿到实例属性
+        // class Father {
+        //     constructor() {
+        //         this.num = 2;
+        //     }
+        // }
+
+        // class Son extends Father {
+        //     get m() {
+        //         return super.num;
+        //     }
+        // }
+
+        // let s = new Son();
+        // console.log(s.m); // undefined
+    </script>
+</body>
+
+</html>

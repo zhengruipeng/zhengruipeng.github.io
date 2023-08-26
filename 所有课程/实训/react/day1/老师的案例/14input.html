@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+
+    class App extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                title: '我是标题'
+            }
+        }
+
+        handleChange(e) {
+            console.log(e)
+            // 获取到当前文本框本次输入的值
+            let val = e.target.value
+            //将本次的值设置到state的title中并更新页面
+            this.setState({
+                title: val
+            })
+        }
+
+        render() {
+            //在jsx中class是关键字所以要绑定class需要编写成className
+            return (
+                <div className="root">
+                    <h4>input组件的特性</h4>
+                    普通的input:<input type="text"/>
+                    <br/>
+                    绑定过value的input:
+                    {/*这个input标签将不能输入内容，并且控制台会报错*/}
+                    <input type="text" value="绑定值"/>
+                    <br/>
+                    {/*
+                        这个input标签虽然采用state的数据绑定仍然也不能输入
+                      */}
+
+                    使用state中变量绑定过value的input:
+                    <input type="text" value={this.state.title}/>
+                    <br/>
+                    {/*
+                        这种写法为react对input等表单控件的固定写法
+                        因为react是依赖每次render渲染时读取变量的值直接渲染结果
+                        到页面上，所以如果对文本框绑定了值，我们虽然对文本框进行输入
+                        但是会触发render重新渲染，重新渲染绑定的值还是原来的值
+                        比如在使用最后一个文本框输入之前，state中的title的值不会变
+                        所以每次重新渲染文本框中渲染的title的值都是原来的值。
+                        这就会出现无法更改的假象，为了避免这个问题，react采用固定套路
+                        他的input的onChange就相当于input事件，每次输入都会触发
+                        我们在每次输入时动态修改绑定的title的结果这样每次重新渲染
+                        文本库都能读取title最新的值实现页面能操作的效果
+                      */}
+                    使用了react的固定写法后:
+                    <input type="text"
+                           value={this.state.title}
+                           onChange={(e) => this.handleChange(e)}
+                    />
+                    <br/>
+                    state的值：{this.state.title}
+                    <br/>
+                </div>
+
+            )
+        }
+    }
+
+
+    ReactDOM.render(
+        <App name="我是根组件传入的name"/>,
+        document.querySelector('#app')
+    )
+</script>
+</body>
+</html>

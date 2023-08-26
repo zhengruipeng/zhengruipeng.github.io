@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // // 1. 链式调用
+        // 链式调用的本质是：在调用任意的函数的执行到最后时，它又返回了一个调用对象或与调用对象相同的新实例对象
+        // function MyPromise() {
+        //     return this
+        // }
+        // MyPromise.prototype.then = function () {
+        //     console.log('触发了then')
+        //     return this//new MyPromise()
+        // }
+        // new MyPromise().then().then().then()
+
+        // // 2. promise 对象的结构
+        // var p = new Promise(function (resolve, reject) {
+        //     resolve('我是Promise的值')
+        // })
+        // console.log(p)
+
+        // // 3. 链式调用注意事项
+        // var p = new Promise(function (resolve, reject) {
+        //     resolve('我是Promise的值')
+        // })
+        // console.log(p)
+        // p.then(function (res) {
+        //     //该res的结果是resolve传递的参数
+        //     console.log(res)            
+        // }).then(function (res) {
+        //     //该res的结果是undefined
+        //     console.log(res)
+        //     return '123'
+        // }).then(function (res) {
+        //     //该res的结果是123
+        //     console.log(res)
+        //     return new Promise(function (resolve) {
+        //         resolve(456)
+        //     })
+        // }).then(function (res) {
+        //     //该res的结果是456
+        //     console.log(res)
+        //     return '我是直接返回的结果'
+        // }).then().then('我是字符串').then(function (res) {
+        //         //该res的结果是“我是直接返回的结果”
+        //         console.log(res)
+        //     })
+        // /*
+        //     该案例的输出结果
+        //     Promise {<fulfilled>: '我是Promise的值'}
+        //     ttt.html:16 我是Promise的值
+        //     ttt.html:18 undefined
+        //     ttt.html:21 123
+        //     ttt.html:26 456
+        //     ttt.html:31 我是直接返回的结果
+        // */
+//         (1) 只要有then()且触发了resolve()，整个链条就会执行到结尾，这个过程中的第一个回调函数的参数是resolve()传入的值。
+
+// (2) Promise对象的每一个回调函数，都可以使用return返回一个结果，如果没有返回结果，则下一个then()中回调函数的参数就是undefined。
+
+// (3) Promise的任意回调函数的返回结果，如果是普通类型的数据，则该值为下一个then()中回调函数的参数。
+
+// (4) 若Promise某个回调函数返回的内容，是一个Promise对象，那这个Promise对象resolve()的参数，会成为下一个then()中回调的函数的参数可以暂时当作：返回Promise对象时，下一个then()就是该对象的then()，但内部代码并不是这样执行的）。
+
+// (5) 如果then()中传入的不是函数或未传入任何内容，Promise链条并不会中断then的链式调用，并且在这之前最后一次then()中回调函数的返回结果，会直接进入离它最近的正确的then()中的回调函数作为参数。
+
+        // // 4. 中断链式
+        var p = new Promise(function (resolve, reject) {
+            resolve('我是Promise的值')
+        })
+        console.log(p)
+        p.then(function (res) {
+            console.log(res)
+        }).then(function (res) {
+            //有两种方式中断Promise
+            // throw('我是中断的原因')
+            return Promise.reject('我是中断的原因')
+        }).then(function (res) {
+            console.log(res+'1')
+
+        }).then(function (res) {
+            console.log(res+'2')
+
+        }).catch(function (err) {
+            console.log(err+'3')
+        })
+        /*结果如下:
+            Promise {<fulfilled>: '我是Promise的值'}
+            ttt.html:16 我是Promise的值
+            ttt.html:26 我是中断的原因
+        */
+
+
+        // // 5. 是否违背promise
+        var p = new Promise(function (resolve, reject) {
+            resolve('我是Promise的值')
+        })
+        var p1 = p.then(function (res) {
+            return '111'
+        })
+        p1.then(function(res){
+              console.log(res);
+        })
+        console.log(p)
+        console.log(p1)
+        console.log(p1 === p)
+        /*
+            运行结果：
+            Promise {<fulfilled>: '我是Promise的值'}
+            ttt.html:18 Promise {<pending>}
+            ttt.html:19 false
+        */
+    </script>
+</body>
+
+</html>

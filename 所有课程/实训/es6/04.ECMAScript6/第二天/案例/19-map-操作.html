@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 复制
+        const original = new Map([
+            [1, 'one'],
+        ]);
+
+        const clone = new Map(original);
+
+        console.log(clone.get(1)); // one
+        console.log(original === clone); // false. 浅比较 不为同一个对象的引用
+
+        // 合并
+        // const first = new Map([
+        //     [1, 'one'],
+        //     [2, 'two'],
+        //     [3, 'three'],
+        // ]);
+
+        // const second = new Map([
+        //     [1, 'uno'],
+        //     [2, 'dos']
+        // ]);
+
+        // // 合并两个 Map 对象时，如果有重复的键值，则后面的会覆盖前面的。
+        // // 展开语法本质上是将 Map 对象转换成数组。
+        // const merged = new Map([...first, ...second]);
+
+        // console.log(merged.get(1)); // uno
+        // console.log(merged.get(2)); // dos
+        // console.log(merged.get(3)); // three
+
+        // 与数组合并
+        // const first = new Map([
+        //     [1, 'one'],
+        //     [2, 'two'],
+        //     [3, 'three'],
+        // ]);
+
+        // const second = new Map([
+        //     [1, 'uno'],
+        //     [2, 'dos']
+        // ]);
+
+        // // Map 对象同数组进行合并时，如果有重复的键值，则后面的会覆盖前面的。
+        // const merged = new Map([...first, ...second, [1, 'eins']]);
+
+        // console.log(merged.get(1)); // eins
+        // console.log(merged.get(2)); // dos
+        // console.log(merged.get(3)); // three
+    </script>
+</body>
+
+</html>

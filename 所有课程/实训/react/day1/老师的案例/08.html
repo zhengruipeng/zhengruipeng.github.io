@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        .container {
+            height: 100px;
+            position: relative;
+        }
+
+        .rect {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                style: {
+                    left: '0px',
+
+                },
+                value: "1"//拉杆的初始值
+            }
+        }
+
+        handleClick() {
+            let left = Number(this.state.style.left.replace('px', ''))
+            this.setState({
+                style: {
+
+                    left: (100) + 'px'
+                },
+
+            })
+        }
+
+        //给拉杆绑定change事件用来让拉杆的值和展示同步
+        handleChange(event) {
+            console.log(event);
+            let left = Number(this.state.style.left.replace('px', ''))
+            //将每次change的值重新设置给value来实现页面更新
+            this.setState({
+                value: event.target.value,
+                style: {
+                    left: (event.target.value * 10) + 'px'
+                },
+            })
+            //在这里编写逻辑染rect的left的值为当前拉杆值的10倍
+
+        }
+
+        render() {
+            return (
+                <div>
+                    <h4>样式绑定案例</h4>
+                    <div className="container">
+                        <div className="rect" style={this.state.style}></div>
+                    </div>
+                    <button onClick={event => {
+                        this.handleClick(event)
+                    }}>点我向右移动100px
+                    </button>
+                    <h5>课堂练习：样式绑定练习</h5>
+                    <div className="container">
+                        <div className="rect" style={this.state.style}></div>
+                    </div>
+                    <input type="range" step="1" min="1" max="10"
+                           value={this.state.value}
+                           onChange={event => {
+                               this.handleChange(event)
+                           }}/>
+                    <div>{this.state.value}</div>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <App/>,
+        document.querySelector('#app')
+    )
+</script>
+</body>
+</html>

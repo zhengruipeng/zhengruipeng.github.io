@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "考勤",
+  "usingComponents": {
+    "time-run": "/components/time-run"
+  }
+}

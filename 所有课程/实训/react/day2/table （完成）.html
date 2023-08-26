@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                list: [
+                    {
+                        id: 'a001',
+                        name: '阳顶天',
+                        phone: '17388889887',
+                        email: 'xxx@xxx.com',
+                        birthday: '20xx-0x-0x'
+                    },
+                    {
+                        id: 'a002',
+                        name: '杨逍',
+                        phone: '17388889888',
+                        email: 'xxx@xxx.com',
+                        birthday: '20xx-0x-0x'
+                    },
+                    {
+                        id: 'a003',
+                        name: '张无忌',
+                        phone: '17388889889',
+                        email: 'xxx@xxx.com',
+                        birthday: '20xx-0x-0x'
+                    },
+                    {
+                        id: 'a004',
+                        name: '张三丰',
+                        phone: '17388889880',
+                        email: 'xxx@xxx.com',
+                        birthday: '20xx-0x-0x'
+                    }
+                ],
+                isInsert: false,
+                temp: {}
+            };
+        }
+
+        makePhone(phone) {
+            console.log(phone)
+            let str = phone.substring(0, 2) + '****' + phone.substring(7)
+            return str
+        }
+
+        handleAdd() {
+            let list = this.state.list
+            list.push({
+                id: 'a' + new Date().getTime(),
+                name: '',
+                phone: '',
+                email: '',
+                birthday: ''
+            })
+            this.setState({
+                isInsert: true,
+                list: list
+            })
+        }
+
+        handleNameChange(e, index) {
+            console.log(e, index)
+            let list = this.state.list
+            list[index].name = e.target.value
+            this.setState({
+                list
+            })
+        }
+
+        handlePhoneChange(e, index) {
+            console.log(e, index)
+            let list = this.state.list
+            list[index].phone = e.target.value
+            this.setState({
+                list
+            })
+        }
+
+        handleEmailChange(e, index) {
+            console.log(e, index)
+            let list = this.state.list
+            list[index].email = e.target.value
+            this.setState({
+                list
+            })
+        }
+
+        handleBirthdayChange(e, index) {
+            console.log(e, index)
+            let list = this.state.list
+            list[index].birthday = e.target.value
+            this.setState({
+                list
+            })
+        }
+
+        handleAddConfirm() {
+            this.setState({
+                isInsert: false
+            })
+        }
+
+        handleAddCancel() {
+            let list = this.state.list
+            list.pop()
+
+            this.setState({
+                isInsert: false,
+                list
+            })
+        }
+
+        componentWillMount() {
+            console.log(123)
+            let list = this.state.list;
+            this.setState({
+                list: list.map(item => {
+                    item.isUpdate = false
+                    return item
+                })
+            })
+        }
+
+        handleEdit(index) {
+            let list = this.state.list;
+            list[index].isUpdate = true
+            //存储当前的原始数据
+
+            this.setState({
+                list,
+                temp: {...list[index]}
+            })
+        }
+
+        handleEditConfirm(index) {
+            console.log(index)
+            let list = this.state.list
+            list[index].isUpdate = false
+            this.setState({
+                list
+            })
+        }
+
+        handleEditCancel(index) {
+            console.log(index)
+            //获取当前的list
+            let list = this.state.list
+            //将原始数据temp复制给list[index]
+            list[index] = {...this.state.temp}
+            //将状态设置成不修改
+            list[index].isUpdate = false
+            this.setState({
+                list
+            })
+        }
+
+        handleRemove(index) {
+            let res = window.confirm('确认删除吗？')
+            if (res) {
+                //得到当前的list
+                let list = this.state.list
+                //删除一个
+                list.splice(index, 1)
+                //更新页面
+                this.setState({
+                    list
+                })
+            }
+        }
+
+        // render相当于vue中的template模版部分在这里通过return返回一个jsx模版
+        //模版要求有且只有一个根结点
+        render() {
+            return (
+                <div>
+                    <h4>table练习</h4>
+                    {
+                        this.state.isInsert == false ?
+                            <button onClick={(event) => {
+                                this.handleAdd(event)
+                            }}>新增</button>
+                            :
+                            ''
+                    }
+
+                    <table border="1">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>姓名</th>
+                            <th>电话</th>
+                            <th>邮箱</th>
+                            <th>生日</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            this.state.list.map((item, index) => {
+                                return (
+                                    <tr key={item.id}>
+                                        <td>{index}</td>
+                                        <td>
+                                            {
+                                                this.state.isInsert == true && index == this.state.list.length - 1 ?
+                                                    <input
+                                                        value={item.name}
+                                                        onChange={(e) => {
+                                                            this.handleNameChange(e, index)
+                                                        }}
+                                                    />
+                                                    :
+                                                    (
+                                                        item.isUpdate == true ?
+                                                            <input
+                                                                value={item.name}
+                                                                onChange={(e) => {
+                                                                    this.handleNameChange(e, index)
+                                                                }}
+                                                            />
+                                                            :
+                                                            item.name
+                                                    )
+
+                                            }
+                                        </td>
+                                        <td>
+                                            {
+                                                this.state.isInsert == true && index == this.state.list.length - 1 ?
+                                                    <input
+                                                        value={item.phone}
+                                                        onChange={(e) => {
+                                                            this.handlePhoneChange(e, index)
+                                                        }}
+                                                    />
+                                                    :
+                                                    (
+                                                        item.isUpdate == true ?
+                                                            <input
+                                                                value={item.phone}
+                                                                onChange={(e) => {
+                                                                    this.handlePhoneChange(e, index)
+                                                                }}
+                                                            />
+                                                            :
+                                                            this.makePhone(item.phone)
+                                                    )
+
+                                            }
+                                        </td>
+                                        <td>
+                                            {
+                                                this.state.isInsert == true && index == this.state.list.length - 1 ?
+                                                    <input
+                                                        value={item.email}
+                                                        onChange={(e) => {
+                                                            this.handleEmailChange(e, index)
+                                                        }}
+                                                    />
+                                                    :
+                                                    (
+                                                        item.isUpdate == true ?
+                                                            <input
+                                                                value={item.email}
+                                                                onChange={(e) => {
+                                                                    this.handleEmailChange(e, index)
+                                                                }}
+                                                            />
+                                                            :
+                                                            item.email
+                                                    )
+                                            }
+                                        </td>
+                                        <td>
+                                            {
+                                                this.state.isInsert == true && index == this.state.list.length - 1 ?
+                                                    <input
+                                                        value={item.birthday}
+                                                        onChange={(e) => {
+                                                            this.handleBirthdayChange(e, index)
+                                                        }}
+                                                    />
+                                                    :
+                                                    (
+                                                        item.isUpdate == true ?
+                                                            <input
+                                                                value={item.birthday}
+                                                                onChange={(e) => {
+                                                                    this.handleBirthdayChange(e, index)
+                                                                }}
+                                                            />
+                                                            :
+                                                            item.birthday
+                                                    )
+                                            }
+                                        </td>
+                                        <td>
+                                            {
+                                                this.state.isInsert == true
+                                                && index == this.state.list.length - 1 ?
+                                                    <div>
+                                                        <button onClick={() => {
+                                                            this.handleAddConfirm()
+                                                        }}>
+                                                            确认
+                                                        </button>
+                                                        <button onClick={() => {
+                                                            this.handleAddCancel()
+                                                        }}>
+                                                            取消
+                                                        </button>
+                                                    </div>
+                                                    :
+                                                    (
+                                                        item.isUpdate == true ?
+                                                            <div>
+                                                                <button onClick={() => {
+                                                                    this.handleEditConfirm(index)
+                                                                }}>
+                                                                    确认
+                                                                </button>
+                                                                <button onClick={() => {
+                                                                    this.handleEditCancel(index)
+                                                                }}>
+                                                                    取消
+                                                                </button>
+                                                            </div>
+                                                            :
+                                                            <div>
+                                                                <button onClick={() => this.handleEdit(index)}>
+                                                                    修改
+                                                                </button>
+                                                                <button onClick={() => this.handleRemove(index)}>
+                                                                    删除
+                                                                </button>
+                                                            </div>
+                                                    )
+
+                                            }
+
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                        </tbody>
+                    </table>
+                    <pre dangerouslySetInnerHTML={{__html: JSON.stringify(this.state.list).replaceAll(",", ",<br />")}}
+                    >
+                    </pre>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            <App/>
+        </div>,
+        document.querySelector("#app")
+    );
+</script>
+</body>
+</html>

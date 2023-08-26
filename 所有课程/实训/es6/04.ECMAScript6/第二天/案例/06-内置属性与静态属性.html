@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Ren {
+            static age = 18
+            name = '张三'
+            constructor(name) {
+                if (name) {
+                    this.name = name
+                }
+                console.log(this.age+'age')//undefined
+            }
+            sayHi() {
+                // return this.name
+                console.log(this.name + ' say hi')
+            }
+            static getName() {
+                console.log(this.name+'----name')
+            }
+        }
+        console.dir(Ren);
+     
+        let r = new Ren('李四')
+
+        // console.log(r)//Ren {name: '李四'}
+        // console.log(this.getName) //undefined
+      
+        // console.log();
+        r.sayHi()  //李四 say hi
+       
+        // let r1 = new Ren()
+        // console.log(r1)//Ren {name: '张三'}
+
+        // console.dir(Ren)
+// console.log(Ren.age);
+//    Ren.getName()
+       
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/components/button",
+    "pages/components/select",
+    "pages/components/picker-select",
+    "pages/components/input",
+    "pages/components/upload",
+    "pages/components/swiper",
+    "pages/components/api",
+    "pages/components/vuex",
+    "pages/shop/index",
+    "pages/news/index",
+    "pages/me/index",
+    "pages/me/login"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "selectedColor": "#2B85E4",
+    "backgroundColor": "#DCDFE6",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "组件",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home-a.png"
+      },
+      {
+        "text": "网络组件",
+        "pagePath": "pages/me/index",
+        "iconPath": "static/me.png",
+        "selectedIconPath": "static/me-a.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "我们将要获取您的位置用来帮助您精确搜集你周边的店铺信息"
+    }
+  },
+  "usingComponents": {}
+}

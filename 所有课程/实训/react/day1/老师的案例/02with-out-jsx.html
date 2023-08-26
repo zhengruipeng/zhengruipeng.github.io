@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+		<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+		<!-- 生产环境中不建议使用 -->
+		<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+		
+		<script type="text/babel" >
+			//React的渲染本质就是通过h函数与vue类似，所以如果不使用模版化开发起来的语法会很难读取
+			const h = React.createElement
+			ReactDOM.render(
+				h('div',{
+					className:'hello'
+				},'hello'),
+				document.querySelector('#app')
+			)
+		</script>
+	</body>
+</html>

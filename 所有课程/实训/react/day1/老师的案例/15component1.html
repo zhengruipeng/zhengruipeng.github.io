@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    //定义根组件app
+    class App extends React.Component {
+        constructor(props) {
+            super(props)
+            // 声明了一个inputStr
+            this.state = {
+                inputStr: '我是input的值(父)'
+            }
+        }
+
+        // 渲染全局的内容
+        render() {
+            return (
+                <div>
+                    <h4>嵌套组件练习</h4>
+                    <div>
+                        {/* 输出state中的inputStr */}
+                        传入的数据:{this.state.inputStr}<br/>
+                        {/* 对Input组件传入参数value和placeholder，其中value是app中声明的变量 */}
+                        <Input value={this.state.inputStr} placeholder="请输入"></Input>
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    // 定义input子组件
+    class Input extends React.Component {
+        constructor(props) {
+            super(props)
+
+            //这里由于props是只读属性，绑定了value之后便不可以更改，所以我们需要将props中的value放到
+            //本对象的state中以便于更改
+            this.state = {
+                value: props.value
+            }
+        }
+
+        //看完render中的说明看这里，onChange事件默认会有event参数，可以在e.target中获取到input的html对象
+        //通过将e.target.value的值设置到state.value中来实现每次输入时触发state改变并重新渲染页面
+        handleChange = (e) => {
+            console.log(e.target.value)
+            this.setState({value: e.target.value})
+        }
+
+        render() {
+            /*
+                react中的组件中如果对input的value绑定了值，就必须对其绑定onChange事件
+                否则在绑定了value的组件是无法实现更改的因为每次触发渲染都会渲染this.state.value
+                只有触发了this.state.value的值改变，input在网页里才能改变值
+
+            */
+            return (
+
+                <input value={this.state.value}
+                       onChange={this.handleChange}
+                       placeholder={this.props.placeholder}/>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <App/>,
+        document.querySelector('#app')
+    )
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>        
+        //使用Promise拆解的setTimeout流程控制
+        let p = new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve()
+            }, 1000)
+        })
+        // then  然后
+        // console.log(p);
+        
+        p.then(function () {  
+            //第一秒后执行的逻辑
+            console.log('第一秒之后发生的事情')  //1.
+            return new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve()
+                }, 1000)
+            })
+        }).then(function () {
+            //第二秒后执行的逻辑
+            console.log('第二秒之后发生的事情')  //2.
+            return new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve()
+                }, 1000)
+            })
+        }).then(function () {
+            //第三秒后执行的逻辑
+            console.log('第三秒之后发生的事情')  //3.
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+/*
+@font-face {
+    font-family: "bootstrap-icons";
+    src: url("../release/bootstrap-logo/font/fonts/bootstrap-icons.woff");
+    unicode-range: U+4E00-9FFF, U+FF00-FF9F, U+30??;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+*/
+body {
+    --container-width: 100vw;
+    --component-width: max(var(--container-width), 1300px);
+    --page-width: 1140px;
+
+    /*大背景body*/
+    background-color: #555;
+
+    width: var(--container-width);
+    margin: 0;
+    overflow-x: hidden;
+}

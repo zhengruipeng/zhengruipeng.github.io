@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // es5用构造函数代替类
+          function  Ren(name,sex) {
+             this.name = name
+             this.sex = sex
+          }
+           var ren = new Ren('小明','男')
+           console.log(ren);
+        //   var ren =  () => {} //不是构造函数，所以不能new 
+    </script>
+</body>
+</html>

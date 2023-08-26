@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .btn {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    class NewButton extends React.Component {
+        constructor(props) {
+            super(props)
+        }
+
+        render() {
+            return (
+                <button
+                    style={this.props.style}
+                    id={this.props.id}
+                    className={this.props.className}
+                >
+                    {/*自定义组件的默认值需要使用三元表达式来设置*/}
+                    {this.props.label ? this.props.label : '默认值'}</button>
+            )
+        }
+    }
+
+    class App extends React.Component {
+        // 组件的构造函数，当组件初始化时就会执行当前的函数
+        //props参数是从组件外部传入的，react的props不需要在组件中定义，他是参数形式的
+        constructor(props) {
+            super(props)
+
+            // 在构造函数中可以初始化state属性，this.state是react每个组件都存在的一个通用属性
+            //他的作用相当于vue中的data，在state中声明的属性可以在render中的jsx模版中通过{this.state.key}获取
+            this.state = {
+                title: '我是标题'
+            }
+        }
+
+        handleClick() {
+            /*
+            由于调用了setState会触发父组件的render重新渲染
+            所以子组件也会重新渲染，就实现了label的值变更组件也会自动
+            重新渲染，这个原理和vue的props自动监听是稍有差别的
+            */
+            this.setState({
+                title: '我改变了'
+            })
+        }
+
+        render() {
+            //在jsx中class是关键字所以要绑定class需要编写成className
+            return (
+                <div className="root">
+                    <h4>这是一个React组件的演示</h4>
+                    <div>
+                        App组件的参数:{this.props.name}
+                    </div>
+                    <button onClick={() => {
+                        this.handleClick()
+                    }}>点我
+                    </button>
+                    {/*默认值*/}
+                    <NewButton/>
+                    {/*传递参数*/}
+                    <NewButton label="我是传入的参数"/>
+                    {/*绑定变量的形式传递参数*/}
+                    <NewButton label={this.state.title}/>
+                    <br/>
+                    对自定义组件绑定id class 和style等
+                    {/*对自定义组件绑定style*/}
+                    <br/>
+                    {/*
+                react这里与vue的差别比较大
+                他的自定义组件的所有属性都是需要自己在组件中处理的
+                所以id style class都需要在组件中自行处理
+                这里还有一点差别就是在react中使用
+                style只能使用数据绑定的形式
+                class需要命名为className
+              */}
+                    <NewButton style={{width: '300px'}}/>
+                    <NewButton className="btn"/>
+                    <NewButton id="btn"/>
+                    <h4>
+                        仿照上面的组件自己定义一个可以传递参数的组件
+                    </h4>
+                </div>
+
+            )
+        }
+    }
+
+    //渲染组件，react的组件不需要命名，对象名就是组件的名称
+    //这里对app传入了name属性相当于vue的props参数，在组件内部就可以通过props获取name的值
+    ReactDOM.render(
+        <App name="我是根组件传入的name"/>,
+        document.querySelector('#app')
+    )
+</script>
+</body>
+</html>

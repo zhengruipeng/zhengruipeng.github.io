@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+		<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+		<!-- 生产环境中不建议使用 -->
+		<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+		<script type="text/babel" >
+			class App extends React.Component{
+				constructor(props){
+					super(props)
+					this.state = {
+						name:"我是name"
+					}
+				}
+				handleClick(){
+					// 这里由于handleClick不是箭头函数默认绑定不到this对象，所以这里的逻辑会报错
+					console.log(this)
+					this.setState({name:'aaa'})
+				}
+				handleClick1(arg1){
+					// 这里因为定义onClick时通过bind(this)绑定了上下文对象，所以可以使用this
+					console.log(this)
+					// 当没有参数传入时arg1默认是event对象，可以通过event.target来拿到绑定的元素
+					//当有参数传入时arg1就是.bind(this,arg1...)this之后的第一个参数,如果传入多个参数可以在函数上接多个参数
+					console.log(arg1)
+					this.setState({name:'bbb'})
+				}
+				render(){
+					return (
+						<div>
+							<h4>绑定this(未绑定this对象)</h4>
+							<button onClick={this.handleClick}>点我</button><br/>
+							<h4>绑定this(绑定this对象)</h4>
+							<button onClick={this.handleClick1.bind(this)}>点我</button><br/>
+							<h4>传递参数</h4>
+							<button onClick={this.handleClick1.bind(this,'我是参数')}>点我</button><br/>
+						</div>
+					)
+				}
+			}
+			ReactDOM.render(
+				<App/>,
+				document.querySelector('#app')
+			)
+		</script>
+	</body>
+</html>

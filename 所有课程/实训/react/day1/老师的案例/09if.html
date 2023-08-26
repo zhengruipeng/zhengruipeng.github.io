@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script type="text/babel">
+
+      "use strick";
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            flag: true,
+          };
+        }
+        handleChangeFlag = () => {
+          this.setState({
+            flag: !this.state.flag,
+          });
+        };
+        render() {
+          return (
+            <div>
+              <h4>条件渲染1(相当于v-if的方式)</h4>
+              <div>
+                {/*jsx表达式可以使用三目表达式来进行简单的if判断*/}
+                flag:{this.state.flag ? "true" : "false"}
+                <button
+                  onClick={(event) => {
+                    this.handleChangeFlag(event);
+                  }}
+                >
+                  切换flag
+                </button>
+                <br />
+                {/*在三目表达式中可以返回jsx语法也就是可以在这里编写页面组件，这种切换当flag的结果不同只会根据不同结果展示一个div，另一个不会被插入到html文档中*/}
+                {this.state.flag ? (
+                  <div>如果flag为true会显示我</div>
+                ) : (
+                  <div>如果flag为false会显示我</div>
+                )}
+                {
+                  //自执行函数方式可以编写ifelse流程结构,但是这种方式无法通过state更新页面
+                  (() => {
+                    if (this.state.flag) {
+                      return <div>如果flag为true会显示我</div>;
+                    } else {
+                      return <div>如果flag为flase会显示我</div>;
+                    }
+                  })()
+                }
+              </div>
+              <h4>条件渲染2(相当于v-show的方式)</h4>
+              <div>
+                {/*这种方式是通过style样式来切换元素展示状态的也就是元素首先都会写到html文档中通过变量切换css显示*/}
+                <div
+                  style={
+                    this.state.flag ? { display: "block" } : { display: "none" }
+                  }
+                >
+                  如果flag为true会显示我
+                </div>
+                <div
+                  style={
+                    this.state.flag ? { display: "none" } : { display: "block" }
+                  }
+                >
+                  如果flag为false会显示我
+                </div>
+              </div>
+              
+              
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.querySelector("#app"));
+    </script>
+  </body>
+</html>

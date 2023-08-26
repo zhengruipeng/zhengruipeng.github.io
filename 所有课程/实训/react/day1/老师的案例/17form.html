@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                formData: {
+                    username: 'amdin',
+                    password: '',
+                    sex: '1',
+                    roleId: ''
+                },
+                roleList: [
+                    {id: '1', name: '系统管理员'},
+                    {id: '2', name: '业务管理员'},
+                    {id: '3', name: '普通用户'}
+                ]
+            }
+        }
+
+        handleUsernameChange(event) {
+            let formData = this.state.formData;
+            formData.username = event.target.value
+            this.setState({formData})
+        }
+
+        handlePasswordChange(event) {
+            let formData = this.state.formData;
+            formData.password = event.target.value
+            this.setState({formData})
+        }
+
+        //当事件中既想传入参数又想使用event对象时可以采用如下方式操作，结合下面的代码查看
+        handleSexChange(event, sex) {
+            console.log(event, sex)
+            let formData = this.state.formData;
+            formData.sex = sex;
+            this.setState({formData})
+        }
+
+        handleRoleChange(event) {
+            let formData = this.state.formData;
+            formData.roleId = event.target.value
+            this.setState({formData})
+        }
+
+        render() {
+            /**
+             * 注意：所有的表单对象只要绑定了value属性之后必须通过onChange来关联一个事件，
+             * 为的就是当表单的视图发生变化时用来获取视图中得到的新值，并设置到state中这样来实现视图变化和
+             * state的数据变化同步
+             */
+            return (
+                <div>
+                    <h4>
+                        表单对象与react对象绑定案例
+                    </h4>
+                    {JSON.stringify(this.state.formData)}
+                    <form>
+                        <div>
+                            用户名:<input onChange={
+                                (e) => this.handleUsernameChange(e)
+                            }
+                            value={this.state.formData.username}/>
+                        </div>
+                        <div>
+                            密码:<input onChange={
+                            (e) => this.handlePasswordChange(e)
+                            }
+                            value={this.state.formData.password}/>
+                        </div>
+                        <div>
+                            {/*通过bind绑定参数时如果需要event对象，可以通过bind(this,event,arg...)的方式传入*/}
+                            性别:<input type="radio" name="sex"
+                                    onChange={
+                                        (e) => this.handleSexChange(e, '1')
+                                    }
+                                    checked={this.state.formData.sex == '1' ? true : false}
+                                    value="1"/>男
+
+                            <input type="radio" name="sex"
+                                   onChange={
+                                       (e) => this.handleSexChange(e, '2')
+                                   }
+                                   checked={this.state.formData.sex == '2' ? true : false}
+                                   value="2"/>女
+                        </div>
+                        <div>
+                            角色:
+                            <select value={this.state.formData.roleId}
+                                    onChange={
+                                        (e) =>
+                                            this.handleRoleChange(e, '1')
+                                    }>
+                                {/*循环option并且输出*/}
+                                {this.state.roleList.map(item => {
+                                    return (
+                                        <option key={item.id} value={item.id}>{item.name}</option>
+                                    )
+                                })}
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <App/>,
+        document.querySelector('#app')
+    )
+</script>
+</body>
+</html>

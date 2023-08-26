@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3]
+        arr[0] = 4
+        console.log(arr)//[4,2,3]
+        const obj = { name: '张三' }
+        obj.name = '李四'
+        console.log(obj) // { name:'李四' }
+
+        arr = [0, 0, 0] //Error:Assignment to constant variable
+        obj = {} //Error:Assignment to constant variable
+    </script>
+    
+     <!-- 相对于var来说，  let块级作用域，有暂时性死区不能先执行再声明 -->
+     <!-- const  常量，不能改变   const 定义接口 -->
+   <!-- 以后，尽量多用let少用var ,var面试时会经常问 
+       1.变量提升
+       2.没有块级作用域，只有函数级别作用域
+       3.在函数里如果没用var的变量，视为全局变量
+-->
+</body>
+
+</html>

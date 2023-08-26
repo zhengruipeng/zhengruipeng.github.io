@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout(function () { //异步
+        //         console.log(i+'异步')
+        //     });
+        // }
+        // console.log(i) //同步在前，异步在后
+        /*
+            输出结果：
+            5 -> 16行
+            5 -> 14行
+            5 -> 14行
+            5 -> 14行
+            5 -> 14行
+            5 -> 14行
+        */
+
+        for (let j = 0; j < 5; j++) {
+            setTimeout(function () {
+                console.log(j)
+            });
+        }
+        console.log(j)
+        /*
+            输出结果：
+            j is not defined -> 33行
+            0 -> 30行
+            1 -> 30行
+            2 -> 30行
+            3 -> 30行
+            4 -> 30行
+        */
+    </script>
+</body>
+
+</html>

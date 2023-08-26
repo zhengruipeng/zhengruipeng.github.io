@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        class Ren {
+            count = 0
+            #count = 0
+            constructor() {
+            }
+            sayHi() {
+                console.log('say hi')
+                // 记录sayHi()的调用次数
+                this.count++
+                this.#count++
+            }
+            getCount() {
+                return this.#count
+            }
+        }
+        let r = new Ren()
+        r.sayHi()
+        r.sayHi()
+        console.log(r.count)//2
+        r.count = 100
+        // r.#count = 100 //无法直接对#count进行赋值操作
+        r.sayHi()
+        console.log(r.count)//101
+        let count = r.getCount()
+        console.log(count)//3
+    </script>
+</body>
+
+</html>

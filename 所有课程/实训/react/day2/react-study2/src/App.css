@@ -1,0 +1,32 @@
+.App .top{
+	height: 60px;
+	background-color: #eee;
+}
+.App .left{
+	width: 300px;
+	float: left;
+	background-color: #aaa;
+	height: 500px;
+	position: relative;
+	z-index: 10;
+}
+.App .right{
+	margin-left: -300px;
+	width: 100%;
+	padding-left: 300px;
+	box-sizing: border-box;
+	float: left;
+	height: 500px;
+	background-color: #ddd;
+	position: relative;
+	z-index: 9;
+}
+.App::after{
+	content: '.';
+	opacity: 0;
+	height: 0;
+	width: 0;
+	clear: both;
+	display: block;
+	visibility: hidden;
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "结合vuex调用接口",
+  "usingComponents": {
+    "u-table": "/uview-ui/components/u-table/u-table",
+    "u-tr": "/uview-ui/components/u-tr/u-tr",
+    "u-th": "/uview-ui/components/u-th/u-th",
+    "u-td": "/uview-ui/components/u-td/u-td"
+  }
+}

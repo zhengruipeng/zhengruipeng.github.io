@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        // console.log(a) //1. 打开此注释会报错：Cannot access 'a' before initialization
+        // let   a = 123
+        //同一个script作用域
+        // let a = 456 //2. 打开此注释会报错：Identifier 'a' has already been declared 
+        console.log(a);
+    </script>
+    <script>
+        
+        // console.log(window.a)//3. 值: undefined
+        console.log(a)//4. 值: 123
+        //不同script作用域
+        let a = 456 //5. 打开此注释会报错：Identifier 'a' has already been declared 
+    </script>
+</body>
+
+</html>

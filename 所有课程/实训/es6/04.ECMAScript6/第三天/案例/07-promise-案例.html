@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        new Promise(function (resolve, reject) {
+            resolve()  //成功 .then
+            reject()  //失败  .catch
+        }).then(function () {
+            console.log('then执行')
+        }).catch(function () {
+            console.log('catch执行')
+        }).finally(function () {
+            console.log('finally执行')
+        })
+        //结果顺序：then执行->finally执行
+
+        //案例2
+        // new Promise(function (resolve, reject) {
+        //     reject()
+        //     resolve()
+        // }).then(function () {
+        //     console.log('then执行')
+        // }).catch(function () {
+        //     console.log('catch执行')
+        // }).finally(function () {
+        //     console.log('finally执行')
+        // })
+        // //结果顺序：catch执行->finally执行
+
+        // //案例3
+        new Promise(function (resolve, reject) {
+              
+        }).then(function () {
+            console.log('then执行')
+        }).catch(function () {
+            console.log('catch执行')
+        }).finally(function () {
+            console.log('finally执行')
+        })
+        //不会产生任何结果
+    </script>
+</body>
+
+</html>

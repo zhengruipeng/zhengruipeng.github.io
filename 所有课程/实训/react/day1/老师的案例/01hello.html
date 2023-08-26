@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+		<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+		<!-- 生产环境中不建议使用 -->
+		<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+		<script type="text/babel" >
+			//ReactDOM为react操作dom元素的全局对象，render是渲染函数
+			//render(jsxComponent,element)
+			//第一个参数是jsx对象，第二个参数是要渲染的容器的对象
+			ReactDOM.render(
+				<div class="hello">
+					hello world
+				</div>,
+				document.querySelector('#app')
+			)
+		</script>
+	</body>
+</html>

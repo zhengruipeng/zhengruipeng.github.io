@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // es5用函数当对象
+        //   function Ren() {
+
+        //   }
+        //   var ren = new Ren()
+        // //   es6 类
+        //   class Ren {
+
+        //   }
+        let Ren = (name) => {
+            console.log(name)
+        }
+        let Ren1 = function (name) {
+            console.log(name)
+        }
+        console.dir(Ren)
+        console.dir(Ren1)
+        let r1 = new Ren1('张三')
+        console.log(r1)
+        let r = new Ren('李四')
+        console.log(r) //Error:Ren is not a constructor
+        // 箭头函数无法通过 new 关键字进行实例化
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+</div>
+
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    let html = `
+    <em>em text</em>`
+
+    ReactDOM.render(
+        <div>
+            <div>
+                {html}
+            </div>
+            <div dangerouslySetInnerHTML={{__html:html}}></div>
+        </div>,
+        document.querySelector("#app")
+    )
+</script>
+</body>
+</html>

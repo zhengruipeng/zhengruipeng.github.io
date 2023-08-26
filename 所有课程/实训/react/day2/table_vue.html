@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>
+				1.将list中的用户数据通过v-for渲染到table中
+			</h4>
+			<button v-show="isInsert == false" @click="handleAdd">新增</button>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>
+							序号
+						</th>
+						<th>
+							姓名
+						</th>
+						<th>
+							电话
+						</th>
+						<th>
+							邮箱
+						</th>
+						<th>
+							生日
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 
+						通过v-for完成将list中的数据渲染到tbody中
+						提示思路：
+							1.list中每个对象就是每一行所以v-for应该修饰tr
+							2.不要忘记使用唯一的标识来设置key属性
+							3.序号可以采用v-for中的index来实现
+					 -->
+					 <tr v-for="(item,index) in list" :key="item.id">
+						 <td>
+							 
+								 {{index+1}}
+							 
+						 </td>
+						 <td>
+							 <div v-if="isInsert == true && index == list.length - 1">
+							 		<input type="text" v-model="item.name">
+							 </div>
+							 <div v-else-if="item.isUpdate == true">
+							 		<input type="text" v-model="item.name">
+							 </div>
+							 <div v-else>
+									{{item.name}}
+								</div>
+						 </td>
+						 <td>
+							 <div v-if="isInsert == true && index == list.length - 1">
+							 		<input type="text" v-model="item.phone">
+							 </div>
+							 <div v-else-if="item.isUpdate == true">
+							 		<input type="text" v-model="item.phone">
+							 </div>
+							 <div v-else>
+							   {{format(item.phone)}}
+							 </div>
+						 </td>
+						 <td>
+							 <div v-if="isInsert == true && index == list.length - 1">
+							 		<input type="text" v-model="item.email">
+							 </div>
+							 <div v-else-if="item.isUpdate == true">
+							 		<input type="text" v-model="item.email">
+							 </div>
+							 <div v-else>
+							   {{item.email}}
+							 </div>
+						 </td>
+						 <td>
+							 <div v-if="isInsert == true && index == list.length - 1">
+							 		<input type="text"  v-model="item.birthday">
+							 </div>
+							 <div v-else-if="item.isUpdate == true">
+							 		<input type="text" v-model="item.birthday">
+							 </div>
+							 <div v-else>
+							   {{item.birthday}}
+							 </div>
+						 </td>
+						 <td>
+							 <div v-if="isInsert == true && index == list.length - 1">
+								 <button @click="handleSave">保存</button>
+								 <button @click="handleCancel">取消</button>
+							 </div>
+							 <div v-else-if="item.isUpdate == true">
+									 <button @click="handleUpdateSave(item,index)">保存</button>
+									 <button @click="handleUpdateCancel(item)">取消</button>
+							 </div>
+							 <div v-else>
+								 <button @click="handleUpdate(item)">修改</button>
+								 <button @click="handleDelete(index)">删除</button>
+							 </div>
+							 
+							 
+						 </td>
+					 </tr>
+				</tbody>
+			</table>
+			{{list}}
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				data(){
+					return {
+						list:[
+							{
+								id:'a001',
+								name:'阳顶天',
+								phone:'17388889887',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a002',
+								name:'杨逍',
+								phone:'17388889888',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a003',
+								name:'张无忌',
+								phone:'17388889889',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							},
+							{
+								id:'a004',
+								name:'张三丰',
+								phone:'17388889880',
+								email:'xxx@xxx.com',
+								birthday:'20xx-0x-0x'
+							}
+						],
+						isInsert:false,
+						tempItem:{}
+					}
+				},
+				//data数据加载完成执行的生命周期
+				created(){
+					//循环这个list将他们的每一个对象中都追加一个isUpdate
+					this.list = this.list.map(item => {
+						item.isUpdate = false
+						return item
+					})
+				},
+				computed:{
+					format(){
+						return function(arg){
+							console.log(arg)
+							arg = arg.substring(0,3)+'****'+arg.substring(7)
+							return arg
+						}
+					}
+				},
+				methods:{
+					handleAdd(){
+						console.log(1)
+						//给list追加一条空数据
+						let obj = {
+							id:'a'+new Date().getTime(),
+							name:'',
+							phone:'',
+							email:'',
+							birthday:'',
+							isUpdate:false
+						}
+						// 为什么追加数据使用push能实现更新，使用下标不能追加长度
+						//因为vue本身只能监听到data中写好的数据的变化，比如list中只有4个元素
+						//vue就监听不到第五个，但是vue为了避免这个不好的体验做了一些补救
+						//因为push是一个函数，我们可以拦截函数中的内容，所以vue对数组的api都进行了重写
+						//一旦调用push unshift等改变数组长度的api，vue能在这个函数内部后追加监听
+						this.list.push(obj)
+						// this.list[this.list.length] = obj
+						// console.log(this.list)
+						//将状态变成正在新增
+						this.isInsert = true
+					},
+					handleSave(){
+						console.log('save')
+						this.isInsert = false
+					},
+					handleCancel(){
+						this.list.pop()
+						this.isInsert = false
+						console.log('cancel')
+					},
+					handleUpdate(item){
+						console.log('update')
+						console.log(item)
+						//将要修改的行的isUpdate设置为true
+						item.isUpdate = true
+						this.tempItem = {...item}
+						// 元数组和他的内容都是引用类型，我们直接更改他内部超过两层深度的数据
+						//由于vue匹配数据变更是按照引用地址匹配的，所以我们之前直接更改对象的内容
+						//vue察觉不到我们对数组做了改变
+						//所以我们采用将当前的数组拷贝一份之后再赋值的形式来实现让页面进行更新
+						this.list = [...this.list]
+					},
+					handleUpdateSave(item,index){
+						console.log('update save')
+						item.isUpdate = false
+						// this.$set是vue专门为数组或者对象提供的一个更新数据的api
+						//他可以严格的保证我们对指定数组或者json对象的某一个index或者key的值修改一定生效
+						//this.$set(本模块的data中的属性,数组index或者是json的key,要修改的值)
+						this.$set(this.list,index,item)
+						// this.list = [...this.list]
+						// 强制重新渲染一次
+						// this.$forceUpdate()
+					},
+					handleUpdateCancel(item){
+						console.log('update cancel')
+						item.isUpdate = false
+						// item本身是因为引用地址和list中的这个item一样
+						//所以我是用item更改他内部的属性是能实现和数组联动的
+						//如果我把这个参数中的item整个对象换了就失去了和数组的联系所以就无法更新数据
+						// item = this.tempItem
+						item.id = this.tempItem.id
+						item.name = this.tempItem.name
+						item.phone = this.tempItem.phone
+						item.email = this.tempItem.email
+						item.birthday = this.tempItem.birthday
+						console.log(item)
+						this.$forceUpdate()
+					},
+					handleDelete(index){
+						console.log(index)
+						//开启询问框
+						let res = window.confirm('确定要删除吗')
+						if(res){
+							console.log('删除')
+							//从数组中删除当前的元素
+							this.list.splice(index,1)
+						}
+					}
+				}
+			}).$mount('#app')
+		</script>
+	</body>
+</html>

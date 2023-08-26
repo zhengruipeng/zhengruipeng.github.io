@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "选择器",
+  "usingComponents": {
+    "u-select": "/uview-ui/components/u-select/u-select",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

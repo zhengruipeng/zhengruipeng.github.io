@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+      
+        //把fn当作函数对象那么就可以在test函数中使用()执行他
+        function test(fn) {
+            console.log('test中的内容'); //1.
+            fn()  //2.
+        }
+        //那么运行test的时候fn也会随着执行，所以test()中传入的匿名函数会运行
+        // test(function () {
+        //     console.log('fn中的内容');
+        // });
+
+        test(function(){});
+        // 1.fn
+        // 2.test
+    </script>
+</body>
+
+</html>

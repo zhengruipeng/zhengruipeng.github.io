@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        该函数和普通函数不同，在调用函数体时，函数主体代码并不执行，只会返回一个分步执行对象，该对象存在next方法用来让程序继续执行，当程序遇到yield关键字时会停顿。next()返回的对象中包含value和done两个属性，value代表上一个yield返回的结果，done代表程序是否执行完毕。
+        */
+        // // 1. generator 函数基本使用
+        // function* test() {
+        //     var a = yield 1
+        //     console.log(a, 'a')
+        //     var b = yield 2
+        //     console.log(b, 'b')
+        //     var c = a + b
+        //     console.log(c, 'c')  
+        // }
+        // //获取分步执行对象
+        // var generator = test()
+        // //输出
+        // console.log(generator, 'generator')
+        // //步骤1 该程序从起点执行到第一个yield关键字后，step1的value是yield右侧的结果1
+        // var step1 = generator.next()
+        // console.log(step1)  //{value: 1, done: false}
+        // // //步骤2 该程序从var a开始执行到第2个yield后，step2的value是yield右侧的结果2
+        // var step2 = generator.next()  
+        // console.log(step2)
+        // //由于没有yield该程序从var b开始执行到结束
+        // var step3 = generator.next()  //{value: undefined, done: true}
+        // console.log(step3)
+
+        // // 2. 改造 yield 返回结果
+        // function* test() {
+        //     var a = yield 1
+        //     console.log(a + 'a')
+        //     var b = yield 2
+        //     console.log(b+ 'b')
+        //     var c = a + b
+        //     console.log(c)
+        // }
+        // var generator = test()
+        // console.log(generator)
+        // var step1 = generator.next()
+        // console.log(step1)
+        // var step2 = generator.next(step1.value)
+        // console.log(step2)
+        // var step3 = generator.next(step2.value)
+        // console.log(step3)
+
+        // // 3. 不同的同步异步流程
+        // function* test() {
+        //     var a = yield 1
+        //     console.log(a)
+        //     var res = yield setTimeout(function () {
+        //         return 123
+        //     }, 1000)
+        //     console.log(res)
+        //     var res1 = yield new Promise(function (resolve) {
+        //         setTimeout(function () {
+        //             resolve(456)
+        //         }, 1000)
+        //     })
+        //     console.log(res1)
+        // }
+        // var generator = test()
+        // console.log(generator)
+        // var step1 = generator.next()
+        // console.log(step1)
+        // var step2 = generator.next()
+        // console.log(step2)
+        // var step3 = generator.next()
+        // console.log(step3)
+        // var step4 = generator.next()
+        // console.log(step4)
+
+        // 4. 自动执行
+        /**
+        * fn:Generator函数对象
+        */
+        function generatorFunctionRunner(fn) {
+            //定义分步对象
+            let generator = fn()
+            //执行到第一个yield
+            let step = generator.next()
+            //定义递归函数
+            function loop(stepArg, generator) {
+                //获取本次的yield右侧的结果
+                let value = stepArg.value
+                //判断结果是不是Promise对象
+                if (value instanceof Promise) {
+                    //如果是Promise对象就在then函数的回调中获取本次程序结果
+                    //并且等待回调执行的时候进入下一次递归
+                    value.then(function (promiseValue) {
+                        if (stepArg.done == false) {
+                            loop(generator.next(promiseValue), generator)
+                        }
+                    })
+                } else {
+                    //判断程序没有执行完就将本次的结果传入下一步进入下一次递归
+                    if (stepArg.done == false) {
+                        loop(generator.next(stepArg.value), generator)
+                    }
+                }
+            }
+            //执行动态调用
+            loop(step, generator)
+        }
+
+        // 5. 使用方式
+        function* test() {
+            var res1 = yield new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve('第一秒运行')
+                }, 1000)
+            })
+            console.log(res1)
+            var res2 = yield new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve('第二秒运行')
+                }, 1000)
+            })
+            console.log(res2)
+            var res3 = yield new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve('第三秒运行')
+                }, 1000)
+            })
+            console.log(res3)
+        }
+        generatorFunctionRunner(test)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+</div>
+
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    //在react中需要定义一个类，对象要求包含【构造函数】和【render函数】
+    //才能具备vue中的一些基本能力
+    class App extends React.Component {
+        //构造函数，在react对象中定义数据的地方
+        //这里的props是当App作为组件时传入的参数对象
+        constructor(props) {
+            //super代表父类对象
+            super(props)
+            //this.state组件的状态，存储值。
+            //相当于vue中的data选项，在这里
+            //设置的属性可以具备更新页面的能力
+            this.state = {
+                name: 'hello'
+            }
+        }
+
+        handleClick(event) {
+            console.log(event)
+        }
+
+        //render函数相当于vue中的模版语法部分
+        //通过return返回一个jsx对象所有的state中的数据以及
+        //当前作用域的js数据都可以通过{}在本部分渲染
+        render() {
+            return (
+                <button onClick={event => {
+                    this.handleClick(event)
+                }}>123</button>)
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            <App></App>
+        </div>,
+        document.querySelector("#app")
+    )
+</script>
+</body>
+</html>

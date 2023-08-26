@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>      
+
+        var year = 2021
+        function getDate(month, day) {
+            return this.year + '-' + month + '-' + day
+        }
+
+        let obj = { year: 2022 }
+        
+        console.log(getDate.call(null, 3, 8));
+        console.log(getDate.call(obj, 3, 8));
+       console.log(getDate.apply(obj, [6, 8]));
+       console.log(getDate.bind(obj)(3, 8));
+            
+
+    </script>
+</body>
+
+</html>

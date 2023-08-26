@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        // function test() {
+        //     console.log(this)
+        // }
+        // test()//window
+        // test.apply([])//[]
+        // function 函数可以通过 bind()、apply() 以及 bind() 来改变函数调用时的 this 指向，而箭头函数中的 this 对象不具备该功能，这更加体现了箭头函数体的 this 指向是恒定的。
+        // let test1 = () => {
+        //     console.log(this)
+        // }
+        // // //箭头函数内部的this无法被call()、bind()以及apply()改变
+        // test1()//window
+        // test1.apply([])//window
+
+        let obj = {
+            //fn(){}相当于fn:function(){}
+            fn() {
+                //obj.fn()时结果为obj{}
+                //fn()时结果为window
+                console.log(this+'fn')
+                let test2 = () => {
+                    //obj.fn()时结果为obj{}
+                    //fn()时结果为window
+                    console.log(this+'test2')
+                    // 箭头函数的指向,指向的是这个函数所处的环境
+                }
+                test2()
+                function test3() {
+                    //  function  如果没有人调用,那么就是指向window
+                    //结果恒为window
+                    console.log(this+'test3')
+                }
+                test3()
+            },
+            fn1: () => {
+                //结果恒为window
+                console.log(this+'箭头')
+            }
+        }
+        // //此时相当于fn的调用者为obj对象本身
+        // obj.fn()
+// [object Object]fn
+//  [object Object]test2
+//  [object Window]test3
+        // let fn = obj.fn
+        // //此时相当于fn的调用者为window
+        // fn()
+// [object Window]fn
+//  [object Window]test2
+//  [object Window]test3
+
+        // //此时相当于fn1的调用者为obj对象本身
+        obj.fn1()
+        let fn1 = obj.fn1
+        // //此时相当于fn1的调用者为window
+        fn1()
+        // [object Window]箭头
+// 9 [object Window]箭头
+
+//  总结箭头函数和function函数的区别
+//     1.箭头函数可以简写,如果函数体只有一条可以省略return和{}
+//     2.箭头函数不能new
+//     3.箭头函数不能通用bind call apply之类的改变
+    </script>
+</body>
+
+</html>

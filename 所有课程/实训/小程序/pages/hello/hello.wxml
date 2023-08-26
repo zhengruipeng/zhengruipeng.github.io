@@ -1,0 +1,23 @@
+<!--pages/hello/hello.wxml-->
+<view>
+    <text>你好</text>
+    <text>こんにちは</text>
+</view>
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imageUrl}}" wx:key="*this">
+        <swiper-item>
+            <image src="{{item}}"></image>
+        </swiper-item>
+    </block>
+</swiper>   
+
+<!-- index.wxml -->
+<import src="../../templates/message/message.wxml"/>
+
+<view>
+  <template is="myTemplate" data="{{title: 'Hello', buttonTap: 'buttonClick'}}"/>
+</view>
+
+<view wx:for="{{users}}" data-id="{{item.id}}" bind:tap="click2">
+    {{item.name}}
+</view>

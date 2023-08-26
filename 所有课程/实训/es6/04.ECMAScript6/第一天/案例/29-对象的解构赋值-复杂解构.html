@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const metadata = {
+            title: 'Scratchpad',
+            translations: [
+                {
+                    locale: 'de',
+                    localization_tags: [],
+                    last_edit: '2014-04-14T08:43:37',
+                    url: '/de/docs/Tools/Scratchpad',
+                    title: 'JavaScript-Umgebung'
+                }
+            ],
+            url: '/en-US/docs/Tools/Scratchpad'
+        };
+
+        let {
+            title: englishTitle, // rename 新定义变量名
+            translations: [
+                {
+                    title: localeTitle, // rename 新定义变量名
+                },
+            ],
+        } = metadata;
+
+        console.log(englishTitle); // "Scratchpad"
+        console.log(localeTitle);  // "JavaScript-Umgebung"
+    </script>
+</body>
+
+</html>

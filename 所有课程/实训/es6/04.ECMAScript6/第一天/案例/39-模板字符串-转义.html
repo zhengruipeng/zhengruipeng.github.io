@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(`\u00A9`);
+        console.log(`\u{2F804}`);
+        console.log(`\xA9`);
+        // function latex(str) {
+        //     return { "cooked": str[0], "raw": str.raw[0] }
+        // }
+
+        // console.log(latex`\unicode`);
+
+        // { cooked: undefined, raw: "\\unicode" }
+
+        // 不带标签模板字符串报错
+        // let bad = `bad escape sequence: \unicode`;
+        // console.log(bad);
+// 总结： 1.模板字符串，原样输出
+    //   2. `${}`  语法
+        // 3.{}可以运行表达式
+        //  4.``可以嵌套
+
+    </script>
+</body>
+
+</html>

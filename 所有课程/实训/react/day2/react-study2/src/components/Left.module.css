@@ -1,0 +1,11 @@
+.font{
+  color:#fff;
+  font-size: 20px;
+}
+.font-red{
+  color:red;
+}
+.yellow{
+  color: yellow;
+  font-weight: bold;
+}

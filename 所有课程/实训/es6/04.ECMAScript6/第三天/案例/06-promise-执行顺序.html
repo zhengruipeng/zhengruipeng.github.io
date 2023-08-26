@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // 1. 定义promise
+        // var p = new Promise(function (resolve, reject) {
+           
+        // })
+        // //通过链式调用控制流程
+        // p.then(function () {
+        //     console.log('then执行')
+        // }).catch(function () {
+        //     console.log('catch执行')
+        // }).finally(function () {
+        //     console.log('finally执行')
+        // })
+
+        // // 2. 执行resolve
+        // console.log('起步')
+        // var p = new Promise(function (resolve, reject) {
+        //     console.log('调用resolve')
+        //     resolve('执行了resolve')
+        // })
+        // p.then(function (res) {
+        //     console.log(res+'我是res')
+        //     console.log('then执行')
+        // }).catch(function () {
+        //     console.log('catch执行')
+        // }).finally(function () {
+        //     console.log('finally执行')
+        // })
+        // console.log('结束')
+
+        // 3. 执行reject
+        console.log('起步')
+        var p = new Promise(function (resolve, reject) {
+            console.log('调用reject')            
+            reject('执行了reject')          
+        })
+        p.then(function (res) {
+            console.log(res)
+            console.log('then执行')
+        }).catch(function (res) {
+            console.log(res)
+            console.log('catch执行')
+        }).finally(function () {
+            console.log('finally执行')
+        })
+        console.log('结束')
+    </script>
+</body>
+
+</html>

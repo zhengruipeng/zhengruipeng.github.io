@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/index",
+    "pages/login/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "selectedColor": "#2B85E4",
+    "backgroundColor": "#DCDFE6",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "考勤",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home-a.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/index",
+        "iconPath": "static/me.png",
+        "selectedIconPath": "static/me-a.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "我们需要使用你的位置来确保精确定位考勤范围"
+    }
+  },
+  "usingComponents": {}
+}

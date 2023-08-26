@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //不编写大括号时箭头右侧的表达式即箭头函数的返回值
+        /*
+            相当于
+            let test = (arg1,arg2) => {
+                return arg1+arg2
+            }
+        */
+        let test = (arg1, arg2) => arg1 + arg2
+        let sum = test(1, 2)
+        console.log(sum)
+        
+        let test1 = function (a) {
+              return  a
+        }
+        a=>a
+        //当箭头函数的参数有且只有一个时，可省略小括号
+        /*
+            相当于
+            let toBoolean = (val) => {
+                //!!val相当于强制将变量转换成其对应的truthy或falsy值
+                return !!val
+            }
+        */
+        let toBoolean = val => !!val
+        let a = toBoolean(1)
+        console.log(a) // true
+        let b = toBoolean(0)
+        console.log(b) // false
+    </script>
+</body>
+
+</html>

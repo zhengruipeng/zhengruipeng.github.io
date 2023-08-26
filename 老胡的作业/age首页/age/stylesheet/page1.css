@@ -1,0 +1,62 @@
+/*分界线*/
+#notice {
+    height: auto;
+    width: var(--component-width);
+    /*text-align: center;*/
+    /*padding: 10px 0;*/
+    /*color: white;*/
+    /*position: absolute;*/
+    /*height: 5.7vh;*/
+    /*left: 0;*/
+    /*top: 7.4vh;*/
+    /*width: max(100%, 1900px);*/
+}
+
+#notice .red {
+    color: red;
+
+}
+
+#notice > div {
+    /*position: relative;*/
+    /*width: 60%;*/
+    /*top: 15%;*/
+    /*bottom: 15%;*/
+    /*height: 70%;*/
+    margin: 10px auto;
+    padding: .5rem;
+    width: var(--page-width);
+    height: 90%;
+
+    color: white;
+
+    border: 1px solid black;
+
+    background-color: #202020;
+    border-radius: 5px;
+    font-size: 14px;
+
+    text-align: center;
+}
+
+#page {
+    /*position: absolute;*/
+    width: var(--component-width);
+    height: 170vh;
+    /*left: 0;*/
+    /*top: 13.1vh;*/
+}
+
+#main-page {
+    /*position: relative;*/
+    /*top: 0;*/
+    /*left: 20%;*/
+    /*right: 20%;*/
+    margin: 0 auto;
+    width: var(--page-width);
+    padding: .5rem;
+
+    height: 100%;
+    background-color: #212529;
+    border-radius: 5px;
+}

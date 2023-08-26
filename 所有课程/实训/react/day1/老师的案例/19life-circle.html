@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<!-- 生产环境中不建议使用 -->
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    class NewButton extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        componentWillMount() {
+            console.log("组件将要渲染");
+        }
+
+        componentDidMount() {
+            console.log("组件渲染完成");
+        }
+
+        componentWillReceiveProps(newProps, newState) {
+            console.log("组件将要接受参数");
+            console.log('参数是', newProps, newState)
+
+        }
+
+        shouldComponentUpdate(newProps, newState) {
+            console.log("是否让组件更新");
+            console.log('新的参数是', newProps, newState)
+            //切换flag的值来查看组件的更新结果
+            let flag = true
+            if (flag) {
+                console.log('组件同意更新')
+            } else {
+                console.log('组件拒绝更新')
+            }
+            // 这里返回true组件就会自动更新，返回false组件就不更新
+            return flag;
+        }
+
+        componentWillUpdate(nextProps, nextState) {
+            console.log("组件将要更新");
+            console.log('更新后的参数为', nextProps, nextState)
+
+        }
+
+        componentDidUpdate(prevProps, prevState) {
+            console.log("组件已经更新完毕");
+            console.log('更新前的参数为', prevProps, prevState)
+
+        }
+
+        componentWillUnmount() {
+            console.log("组件将要销毁");
+        }
+
+        render() {
+            return (
+                <button
+                    style={this.props.style}
+                    id={this.props.id}
+                    className={this.props.className}
+                >
+                    {/*自定义组件的默认值需要使用三元表达式来设置*/}
+                    {this.props.label ? this.props.label : "默认值"}
+                </button>
+            );
+        }
+    }
+
+    class App extends React.Component {
+        // 组件的构造函数，当组件初始化时就会执行当前的函数
+        //props参数是从组件外部传入的，react的props不需要在组件中定义，他是参数形式的
+        constructor(props) {
+            super(props);
+
+            // 在构造函数中可以初始化state属性，this.state是react每个组件都存在的一个通用属性
+            //他的作用相当于vue中的data，在state中声明的属性可以在render中的jsx模版中通过{this.state.key}获取
+            this.state = {
+                title: "我是标题",
+                flag: true
+            };
+        }
+
+        handleClick() {
+            /*
+            由于调用了setState会触发父组件的render重新渲染
+            所以子组件也会重新渲染，就实现了label的值变更组件也会自动
+            重新渲染，这个原理和vue的props自动监听是稍有差别的
+            */
+            this.setState({
+                title: "我改变了" + new Date().getTime(),
+            });
+        }
+
+        handleClick1() {
+            this.setState({
+                flag: !this.state.flag
+            });
+        }
+
+        render() {
+            //在jsx中class是关键字所以要绑定class需要编写成className
+            return (
+                <div className="root">
+                    <h4>这是一个React组件的演示</h4>
+                    <div>App组件的参数:{this.props.name}</div>
+                    <button
+                        onClick={() => {
+                            this.handleClick();
+                        }}
+                    >
+                        更新值
+                    </button>
+                    <button
+                        onClick={() => {
+                            this.handleClick1();
+                        }}
+                    >
+                        展示/销毁
+                    </button>
+
+                    {/*绑定变量的形式传递参数*/}
+                    {
+                        this.state.flag == true ?
+                            <NewButton label={this.state.title}/>
+                            :
+                            ''
+                    }
+
+                </div>
+            );
+        }
+    }
+
+    //渲染组件，react的组件不需要命名，对象名就是组件的名称
+    //这里对app传入了name属性相当于vue的props参数，在组件内部就可以通过props获取name的值
+    ReactDOM.render(
+        <App name="我是根组件传入的name"/>,
+        document.querySelector("#app")
+    );
+</script>
+</body>
+</html>
