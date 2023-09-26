@@ -6,7 +6,7 @@
 </head>
 <body>
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         /*
         * 可读流通过start存入数据块，如果没有消费者的话会一直暂存，
         * 如果没到最高水位线（highWaterMark）的情况下，会一直触发pull，
@@ -19,30 +19,42 @@
         *
         * */
         const stream = new ReadableStream({
-            start(controller){
-                let render = function (timer){
-                    if(timer>1000)return;
+            start(controller) {
+                let render = function (timer) {
+                    if (timer > 1000) return;
                     controller.enqueue(123)
                     requestAnimationFrame(render);
                 };
                 render(0);
             },
-            pull(controller){
+            pull(controller) {
                 console.log(controller);
                 return Promise.resolve();
             }
-        },{
-            highWaterMark:999
+        }, {
+            highWaterMark: 999
         });
 
         let readerCB;
         let defaultReader = stream.getReader();
-        defaultReader.read().then(readerCB = ({done,value}) => {
-            if(done){
+
+        /*    (async function () {
+                for await(let {done, value} of await defaultReader.read()) {
+                    if (done) {
+                        return;
+                    }
+
+                    console.log(value);
+
+                }
+            })();*/
+
+        defaultReader.read().then(readerCB = ({done, value}) => {
+            if (done) {
                 return;
             }
 
-            console.log(value);
+            console.log(done, value);
             defaultReader.read().then(readerCB);
         })
     })

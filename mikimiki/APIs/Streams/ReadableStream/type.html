@@ -5,8 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+<img id="image" />
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         /*
         * 可读流通过start存入数据块，如果没有消费者的话会一直暂存，
         * 如果没到最高水位线（highWaterMark）的情况下，会一直触发pull，
@@ -18,51 +19,59 @@
         *
         *
         * */
-        const stream = new ReadableStream({
-            start(controller){
-                fetch("../1.png").then(response => response.arrayBuffer())
-                .then(ab => {
-                    let chunkSize = Math.floor(ab.byteLength/100);
-                    let offset = 0;
-                    let render = function (timer){
-                        if(offset>=ab.byteLength)return;
-                        let block = new Uint8Array(ab.slice(offset,offset+=chunkSize));
-                        // console.log(block);
+        const image = document.getElementById("image");
 
-                        controller.enqueue(block);
-                        requestAnimationFrame(render);
-                    };
-                    render(0);
-                })
+        const stream = new ReadableStream({
+            start(controller) {
+                fetch("../1.png").then(response => response.arrayBuffer())
+                    .then(ab => {
+                        let chunkSize = Math.floor(ab.byteLength / 100);
+                        let offset = 0;
+                        let render = function (timer) {
+                            if (offset >= ab.byteLength) return;
+                            let block = new Uint8Array(ab.slice(offset, offset += chunkSize));
+                            // console.log(block);
+
+                            controller.enqueue(block);
+                            requestAnimationFrame(render);
+                        };
+                        render(0);
+                    })
 
             },
-            pull(controller){
-                console.log(controller);
+            pull(controller) {
+                // console.log(controller);
                 return Promise.resolve();
             },
-            type:"bytes"
-        },{
-            highWaterMark:999
+            type: "bytes"
+        }, {
+            highWaterMark: 999
         });
 
         let readerCB;
         let defaultReader = stream.getReader();
         let imageBuffer = [];
-        defaultReader.read().then(readerCB = ({done,value}) => {
+        defaultReader.read().then(readerCB = async ({done, value}) => {
             console.log(done);
 
-            if(done){
-                imageBuffer = imageBuffer.reduce((lv,rv,i,a) => {
+            if (done) {
+                imageBuffer = imageBuffer.reduce((lv, rv, i, a) => {
                     return lv.concat(rv);
                 });
                 console.log(imageBuffer);
-                alert();
+
+                // alert();
                 return;
             }
 
-            console.log(value);
+            // console.log(value);
             imageBuffer.push(value);
             defaultReader.read().then(readerCB);
+            let url = URL.createObjectURL(new Blob(imageBuffer));
+            image.src = url;
+            // console.log()
+            // let url = URL.createObjectURL(imageBuffer);
+            // image.src = url;
         })
     })
 </script>

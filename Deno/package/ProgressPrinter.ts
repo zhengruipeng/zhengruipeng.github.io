@@ -18,10 +18,25 @@ class ProgressPrinter extends Object {
         Deno.stdout.writeSync(new TextEncoder().encode("\r"));
 
         this.progressLine++;
+
+        // ANSI 转义序列：将光标移动到行首
+        const moveToBeginningOfLine = "\x1b[0G";
+
+        // 输出 ANSI 转义序列
+        // Deno.stdout.writeSync(new TextEncoder().encode(moveToBeginningOfLine));
+
         // 输出进度信息
         //@ts-ignore
         Deno.stdout.writeSync(new TextEncoder().encode(green(`[${progressBar}]${this.progressSymbol[this.progressLine % 4]} ${Math.round(progress * 100)}%\n`)));
+
     }
 }
+
+// console.log(ProgressPrinter)
+// let c = 0;
+// let t = setInterval(() => {
+//     if (c >= 1) clearInterval(t);
+//     ProgressPrinter.printProgress(c += 0.1);
+// }, 100);
 
 export {ProgressPrinter};

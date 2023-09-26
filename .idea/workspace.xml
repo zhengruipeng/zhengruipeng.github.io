@@ -4,7 +4,1153 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230814" />
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230926">
+      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/CompressionStream/demo1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Fetch/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Fetch/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Fetch/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Fetch/test2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Fetch/test2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/file-struct.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/CheckFilesEvent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/ParseMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/UnionMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/accessSuffix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/autoMatchAllBackUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/checkFiles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/contextMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/dataMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/file-struct.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/menu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/searchBackUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/记录文件夹结构.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/静态页面发布.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/类图/stream.drawio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/类图/test.drawio" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/类图/类图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/data-driver/DataDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/data-driver/DataDriver.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/data/ExceptionTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/data/ExceptionTable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/data/GalgameTable1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/data/Test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/data/WarningTable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/exception/Exception.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/exception/RuntimeException.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/exception/UnzipException.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/http-server.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/http-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameItem.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameTable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H1Component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H2Component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/modules/TableComponent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/package/Mapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/stylesheet/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/warning/DirWarning.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/warning/NeedEnvWarning.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/warning/Warning.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/图/工作流程图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/galgame文档/异常文档/图/类图·.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/CheckFilesEvent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/ParseMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/UnionMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/accessSuffix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/autoMatchAllBackUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/checkFiles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/contextMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/dataMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/file-struct.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/menu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/searchBackUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/json文件目录读取器/如月千早5T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/bgi/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/bgi/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/bgi/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/bgi/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/bgi/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/bgi/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/images/flowers/flower1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/images/flowers/flower2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/images/flowers/flower3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/images/flowers/flower4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/images/flowers/flower5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/images/head.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/modules/SlideShow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/modules/bg-flowers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/modules/day-calc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/modules/image-move.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃壁纸/modules/image-show.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/bgi/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/bgi/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/bgi/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/bgi/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/bgi/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/bgi/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/bgi/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/images/flowers/flower1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/images/flowers/flower2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/images/flowers/flower3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/images/flowers/flower4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/images/flowers/flower5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/images/head.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/modules/SlideShow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/modules/bg-flowers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/modules/day-calc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/modules/image-move.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/樱木真乃手机壁纸/modules/image-show.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/如月千早acgn6切片.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/结构备份/如月千早5T.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/结构备份/如月千早acgn6切片.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/nest-cli.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/010ldk1604371942678.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/01ezqt1690941798998.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/09h7161605670168742.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/0gyikh1602137097754.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/0mns2k1605247641497.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/0njt1r1611639303094.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/0oqccp1608617422291.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/0sv6ln1604284202348.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/0xsxvd1602724196998.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/14a5t11602738545557.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/169w8q1614219845106.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/17fn6i1611631136809.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/18x7jd1608606275097.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/1dw1fi1604459816152.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/1vf8m41611538544753.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/208xwf1602737541303.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/24n1sr1604366933350.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/2b6dvn1602738115163.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/2jtmvr1604369863107.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/2nv5w61602137334308.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/2op2h31614220010905.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/2unasl1611631501106.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/2y2dg41604285489584.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/2z48591604283256504.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/336e7f1604366690274.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/3d361m1691118332378.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/3izd0k1604366664790.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/3lfit61605669365909.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/3pt3ae1604285574764.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/3rfxic1608607476875.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/3zvcpi1604458785217.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/48dwu71604368996708.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/4clslm1608606016989.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/4kb58a1604366678425.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/5297ft1604537510613.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/5taru61605572326797.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/65r6bi1611639318451.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/6gtaac1602737956259.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/6tx3jg1611631153890.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/6zk56n1604369549272.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/740ayo1604458604855.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/77z5on1611631737638.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/7aav9h1617354012490.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/7j91yc1611638809496.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/7plu381611543215729.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/83hndc1605572330800.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/83w1bu1605669382531.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/8b1d4g1611631454426.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/8frlzz1611731474032.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/8n2h1r1611546265396.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/8n8ki91611544508827.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/8nnw6a1611544717581.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/8qt7bc1611546270790.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/8wst291691119719532.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/91c4xc1617502957091.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/945a881608616880924.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/954eyh1608607776986.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/9aa7ty1608607658600.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/9gxk7n1611544460092.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/9j6ey61602634797961.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/9jwnvd1691119822695.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/9sbgwt1608607482553.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/ajkq361604366511880.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/amxdss1690941758652.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/amzinc1608606060530.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/aq626l1604284444884.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/b6rnn41691115081957.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/bk0ynj1602645667635.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/bnf21j1608606316024.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/brcdrx1604366508772.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/bvduwx1608605925994.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/bwlqey1602740524803.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/caqewd1604369273785.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/cggonb1605572320312.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/cjgava1611539209078.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/crtya81604283212905.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/dhl2rb1611631495215.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/dm3qy71604285513942.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/dns85v1611795814819.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/dpityj1608606396872.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/dt4msr1604366680965.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/e4z97g1604286041722.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/e5w7pl1614216851818.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/emvsro1611652556264.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/eowht81608606214752.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/eqcuik1617502649948.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/er3kv41611542695735.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/esthls1604369428202.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/exe9861611538865585.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/f0n20j1604369553554.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/fdukgm1611795275058.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/fis4br1608617425550.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/fkui1j1611631157569.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/g7s3kp1602738449709.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/g7ys3y1611728752807.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/g8dmyn1602137084230.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/g9qun71605669202189.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/gajj491611710847724.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/gemrgh1608607510369.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/ghdwgc1614220388605.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/giuj5h1611638945145.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/gkkfaf1690941202306.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/gla5wf1604369556439.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/gp47c81605670234872.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/grsdii1602724186310.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/gxn99e1691118435117.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/h04khu1611638950972.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/h1m9c81602737949545.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/h34ws31602738063427.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/h3n9zk1608607479649.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/h84mur1611546267987.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/he3ywi1604366662428.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/hnz7sc1604458637599.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/hug5qh1602740373355.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/i20lj81611631916875.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/insbuf1604475361753.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/ip1k9e1608607464722.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/iszuzo1602737466038.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/iuz50p1611797124584.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/jiq3rm1604450004786.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/jqfick1606187774074.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/k70ipt1611547382616.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/kclams1608606029572.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/kq7l1j1608606275058.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/krro0f1617502037656.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/kxlxmv1690941636256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/kyuvd81604284291861.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/l68j9f1611796544691.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/lfrrqh1611633249209.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/lq8rcj1611632904958.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/lsk7xv1611631726695.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/mcd01i1611632982279.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/mytsre1611631461617.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/o0aymd1611625073915.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/o431vc1604369425765.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/o97g4k1604284110259.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/ojcl2g1691119052404.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/owx4k81608606365454.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pcg3lp1604369350771.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pd05nm1617506169685.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pg8lmc1611632907777.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pigurx1605572323755.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/plu3rj1608607416045.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pmffmn1602724201179.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pmxuzv1604536038892.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/poinah1602136978867.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pouxsy1602137218676.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pu5zyo1604366683934.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/pv0r8j1611631171646.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/q74u7e1605669669138.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/q926yn1608616887312.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/qaue2q1608606396821.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/qelh4c1604283992845.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/qflro91617506157899.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/qv4gb71604369154899.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/r3se6f1604452133909.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/r9hqmh1608606214797.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/re5x8u1611631914252.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/rgt02m1608606388233.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/rhcy081611633268571.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/ry77fm1611631379267.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/ry9l8h1611709237759.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/s48g5b1611631451361.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/s4akc91611795600941.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/sffvy21614216810878.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/sheg1u1611731364786.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/sjh6md1608607783206.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/sl0qbs1604366939270.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/sp7z7l1608607319178.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/st2jcf1608607189120.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/t4n3cg1604369354856.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/tvzlig1617946687039.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/uazwdb1608607729632.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/udabs91611728625533.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/urwceq1604368999681.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/uveqhr1604283940028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/uweicy1611546284073.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/v5yplj1691119155599.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/ve632d1602137352796.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/veec5t1611639306080.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/vhorvi1617502118049.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/vmbj6f1604475358743.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/vnqr9q1602737884840.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/vofhrh1611731617011.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/vtkv1f1614216631081.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/w4967e1604369116993.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/w6ij7l1602137203866.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/w7n15t1608616887250.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/w8gnfq1611546137012.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/w9un4v1602137241223.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/wcpylb1604452752381.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/wfc32t1610499461802.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/whfnxa1604536635558.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/whveb71611631714936.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/wmu22e1605668901490.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/wnu8rv1611796678816.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/wry54p1602737519632.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/x22o6b1604285007409.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/xj48p11605668918151.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/xkgusu1608607468188.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/xqq3mo1611631509813.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/xx5esm1608607540926.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/y1i6dm1602724192804.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/y6b26n1608607277369.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/ydu2ya1604366935961.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/yk23je1602136997670.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/z81bnc1611545189719.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/face/zp2gsc1602740458239.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/images/ecz89p1610499862472.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/00mxa21605668147986.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/14gh1i1610500866884.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/3leh2r1604279968368.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/8c9end1611538039333.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/aoskhd1604277512042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/bhb4ue1604278276134.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/cu1z4i1604283425657.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/faci2q1604278267239.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/ghmk2i1610500813033.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/gjuoqs1604278260584.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/ibjuyi1610500833140.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/jm6lal1604277534258.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/mceqim1604280055485.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/n9wf1o1610500862960.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/ohbw8h1604279971595.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/p6dm3m1604277443375.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/tfzs1n1611537367564.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/tmekkg1610500726540.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/test/y5jy591604279282186.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/public/wenjian/ygfbxq1611536089742.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/app.controller.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/address.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/apitest.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/app.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/card-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/card.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/check-out.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/coupon-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/coupon.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/dept.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/dist/check-out.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/file.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/goods-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/goods.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/menu.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/news-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/news.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/order.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/role.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/shop-user.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/user-status.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/user-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/controllers/user.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/address.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/assets.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/card-multiple.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/card-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/card.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/check-out-position.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/coupon-multiple.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/coupon-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/coupon.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/dept.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/dist/check-out-position.entity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/file.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/goods-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/goods.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/ids.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/menu-role.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/menu-top.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/news-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/news.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/order.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/role.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/shop-user.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/user-param.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/user-status.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/user-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/entity/user.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/exception/http-exception.filter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/interceptor/request.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/address.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/apitest.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/auth.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/card-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/card.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/check-out.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/coupon-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/coupon.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/dept.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/file.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/goods-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/goods.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/menu.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/news-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/news.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/order.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/role.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/shop-user.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/user-status.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/user-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/modules/user.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/address.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/apitest.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/app.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/base.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/card-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/card.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/check-out.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/coupon-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/coupon.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/dept.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/dist/check-out.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/file.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/goods-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/goods.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/menu.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/news-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/news.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/order.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/role.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/shop-user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/user-status.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/user-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/services/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/strategy/jwt.strategy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/address.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/assets.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/card-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/card.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/check-out-position.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/check-out-record.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/coupon-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/coupon.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/dept.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/goods-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/goods.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/menu-test.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/menu.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/news-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/news.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/order.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/role-menu.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/role.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/shop-user-like.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/shop-user.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/user-status.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/user-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/tables/user.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/utils/ResultData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/src/utils/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/test/app.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/test/jest-e2e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/tsconfig.build.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/.umirc.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/mock/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/data/position.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/button.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/date-picker.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/input.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/list.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/marker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/modal-toast.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/picker.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/segment.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/tabs.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/src/pages/textarea.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/react-demo/typings.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/.umirc.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/mock/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/src/pages/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/src/pages/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day4/umi-app/typings.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/.umirc.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/api/news-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/api/news-type-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/api/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/api/user-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/components/p-page-helper.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/components/p-tabbar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/components/p-tabbar.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/data/position.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/http/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/login/login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/login/register.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/login/register.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/me.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/models/news/news.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/news.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/news.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/pages/shop.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/static/imgs/che-a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/static/imgs/che.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/static/imgs/home-a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/static/imgs/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/static/imgs/me-a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/static/imgs/me.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/static/imgs/men-a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/src/static/imgs/men.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/react-shop/typings.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/nest-cli.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/010ldk1604371942678.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/01ezqt1690941798998.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/09h7161605670168742.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/0gyikh1602137097754.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/0mns2k1605247641497.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/0njt1r1611639303094.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/0oqccp1608617422291.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/0sv6ln1604284202348.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/0xsxvd1602724196998.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/14a5t11602738545557.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/169w8q1614219845106.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/17fn6i1611631136809.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/18x7jd1608606275097.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/1dw1fi1604459816152.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/1vf8m41611538544753.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/208xwf1602737541303.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/24n1sr1604366933350.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/2b6dvn1602738115163.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/2jtmvr1604369863107.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/2nv5w61602137334308.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/2op2h31614220010905.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/2unasl1611631501106.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/2y2dg41604285489584.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/2z48591604283256504.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/336e7f1604366690274.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/3izd0k1604366664790.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/3lfit61605669365909.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/3pt3ae1604285574764.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/3rfxic1608607476875.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/3zvcpi1604458785217.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/48dwu71604368996708.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/4clslm1608606016989.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/4kb58a1604366678425.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/5297ft1604537510613.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/5taru61605572326797.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/65r6bi1611639318451.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/6gtaac1602737956259.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/6tx3jg1611631153890.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/6zk56n1604369549272.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/740ayo1604458604855.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/77z5on1611631737638.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/7aav9h1617354012490.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/7j91yc1611638809496.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/7plu381611543215729.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/83hndc1605572330800.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/83w1bu1605669382531.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/8b1d4g1611631454426.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/8frlzz1611731474032.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/8n2h1r1611546265396.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/8n8ki91611544508827.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/8nnw6a1611544717581.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/8qt7bc1611546270790.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/91c4xc1617502957091.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/945a881608616880924.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/954eyh1608607776986.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/9aa7ty1608607658600.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/9gxk7n1611544460092.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/9j6ey61602634797961.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/9sbgwt1608607482553.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/ajkq361604366511880.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/amxdss1690941758652.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/amzinc1608606060530.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/aq626l1604284444884.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/bk0ynj1602645667635.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/bnf21j1608606316024.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/brcdrx1604366508772.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/bvduwx1608605925994.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/bwlqey1602740524803.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/caqewd1604369273785.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/cggonb1605572320312.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/cjgava1611539209078.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/crtya81604283212905.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/dhl2rb1611631495215.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/dm3qy71604285513942.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/dns85v1611795814819.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/dpityj1608606396872.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/dt4msr1604366680965.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/e4z97g1604286041722.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/e5w7pl1614216851818.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/emvsro1611652556264.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/eowht81608606214752.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/eqcuik1617502649948.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/er3kv41611542695735.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/esthls1604369428202.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/exe9861611538865585.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/f0n20j1604369553554.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/fdukgm1611795275058.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/fis4br1608617425550.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/fkui1j1611631157569.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/g7s3kp1602738449709.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/g7ys3y1611728752807.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/g8dmyn1602137084230.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/g9qun71605669202189.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/gajj491611710847724.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/gemrgh1608607510369.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/ghdwgc1614220388605.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/giuj5h1611638945145.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/gkkfaf1690941202306.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/gla5wf1604369556439.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/gp47c81605670234872.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/grsdii1602724186310.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/h04khu1611638950972.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/h1m9c81602737949545.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/h34ws31602738063427.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/h3n9zk1608607479649.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/h84mur1611546267987.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/he3ywi1604366662428.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/hnz7sc1604458637599.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/hug5qh1602740373355.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/i20lj81611631916875.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/insbuf1604475361753.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/ip1k9e1608607464722.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/iszuzo1602737466038.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/iuz50p1611797124584.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/jiq3rm1604450004786.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/jqfick1606187774074.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/k70ipt1611547382616.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/kclams1608606029572.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/kq7l1j1608606275058.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/krro0f1617502037656.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/kxlxmv1690941636256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/kyuvd81604284291861.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/l68j9f1611796544691.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/lfrrqh1611633249209.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/lq8rcj1611632904958.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/lsk7xv1611631726695.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/mcd01i1611632982279.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/mytsre1611631461617.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/o0aymd1611625073915.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/o431vc1604369425765.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/o97g4k1604284110259.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/owx4k81608606365454.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pcg3lp1604369350771.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pd05nm1617506169685.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pg8lmc1611632907777.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pigurx1605572323755.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/plu3rj1608607416045.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pmffmn1602724201179.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pmxuzv1604536038892.11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/poinah1602136978867.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pouxsy1602137218676.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pu5zyo1604366683934.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/pv0r8j1611631171646.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/q74u7e1605669669138.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/q926yn1608616887312.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/qaue2q1608606396821.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/qelh4c1604283992845.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/qflro91617506157899.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/qv4gb71604369154899.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/r3se6f1604452133909.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/r9hqmh1608606214797.o6zAJs_w4WLaHCCutZ08FCAw5DVs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/re5x8u1611631914252.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/rgt02m1608606388233.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/rhcy081611633268571.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/ry77fm1611631379267.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/ry9l8h1611709237759.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/s48g5b1611631451361.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/s4akc91611795600941.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/sffvy21614216810878.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/sheg1u1611731364786.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/sjh6md1608607783206.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/sl0qbs1604366939270.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/sp7z7l1608607319178.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/st2jcf1608607189120.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/t4n3cg1604369354856.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/tvzlig1617946687039.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/uazwdb1608607729632.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/udabs91611728625533.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/urwceq1604368999681.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/uveqhr1604283940028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/uweicy1611546284073.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/ve632d1602137352796.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/veec5t1611639306080.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/vhorvi1617502118049.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/vmbj6f1604475358743.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/vnqr9q1602737884840.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/vofhrh1611731617011.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/vtkv1f1614216631081.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/w4967e1604369116993.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/w6ij7l1602137203866.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/w7n15t1608616887250.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/w8gnfq1611546137012.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/w9un4v1602137241223.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/wcpylb1604452752381.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/wfc32t1610499461802.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/whfnxa1604536635558.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/whveb71611631714936.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/wmu22e1605668901490.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/wnu8rv1611796678816.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/wry54p1602737519632.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/x22o6b1604285007409.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/xj48p11605668918151.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/xkgusu1608607468188.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/xqq3mo1611631509813.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/xx5esm1608607540926.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/y1i6dm1602724192804.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/y6b26n1608607277369.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/ydu2ya1604366935961.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/yk23je1602136997670.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/z81bnc1611545189719.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/face/zp2gsc1602740458239.41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/images/ecz89p1610499862472.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/00mxa21605668147986.12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/14gh1i1610500866884.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/3leh2r1604279968368.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/8c9end1611538039333.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/aoskhd1604277512042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/bhb4ue1604278276134.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/cu1z4i1604283425657.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/faci2q1604278267239.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/ghmk2i1610500813033.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/gjuoqs1604278260584.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/ibjuyi1610500833140.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/jm6lal1604277534258.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/mceqim1604280055485.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/n9wf1o1610500862960.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/ohbw8h1604279971595.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/p6dm3m1604277443375.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/tfzs1n1611537367564.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/tmekkg1610500726540.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/test/y5jy591604279282186.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/public/wenjian/ygfbxq1611536089742.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/app.controller.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/address.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/apitest.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/app.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/card-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/card.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/check-out.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/coupon-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/coupon.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/dept.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/dist/check-out.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/file.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/goods-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/goods.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/menu.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/news-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/news.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/order.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/role.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/shop-user.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/user-status.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/user-type.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/controllers/user.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/address.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/assets.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/card-multiple.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/card-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/card.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/check-out-position.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/coupon-multiple.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/coupon-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/coupon.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/dept.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/dist/check-out-position.entity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/file.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/goods-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/goods.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/ids.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/menu-role.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/menu-top.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/news-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/news.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/order.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/role.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/shop-user.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/user-param.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/user-status.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/user-type.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/entity/user.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/exception/http-exception.filter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/interceptor/request.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/address.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/apitest.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/auth.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/card-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/card.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/check-out.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/coupon-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/coupon.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/dept.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/file.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/goods-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/goods.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/menu.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/news-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/news.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/order.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/role.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/shop-user.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/user-status.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/user-type.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/modules/user.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/address.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/apitest.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/app.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/base.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/card-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/card.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/check-out.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/coupon-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/coupon.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/dept.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/dist/check-out.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/file.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/goods-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/goods.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/menu.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/news-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/news.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/order.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/role.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/shop-user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/user-status.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/user-type.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/services/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/strategy/jwt.strategy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/address.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/assets.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/card-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/card.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/check-out-position.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/check-out-record.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/coupon-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/coupon.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/dept.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/goods-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/goods.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/menu-test.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/menu.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/news-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/news.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/order.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/role-menu.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/role.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/shop-user-like.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/shop-user.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/user-status.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/user-type.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/tables/user.table.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/utils/ResultData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/src/utils/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/test/app.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/test/jest-e2e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/tsconfig.build.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/react/day5/shop-service/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/.fleet/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/component/h1-component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/component/h2-component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/component/table-component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data-driver/DataDriver.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/ExceptionTable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/GalgameTable1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/Test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/WarningTable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/deno run --allow-read --allow-run --allow-net http-server.ts.运行指令" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/Exception.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/RuntimeException.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/UnzipException.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/http-server.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/http-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameItem.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameTable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H1Component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H2Component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/LoadTemplate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/TableComponent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/package/Mapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/stylesheet/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/DirWarning.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/NeedEnvWarning.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/Warning.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/图/工作流程图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/图/类图·.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/Command.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/EllipseCommand.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/Invoker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/RectCommand.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/TriangleCommand.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/libs/Console.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/libs/Mapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/指令绘图/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/.idea/软件工程小学期.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/CallingManager.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/PeerManager.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/TwoPeers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/model/PeerInfo.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/message/SendMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/message/model/MessagePackage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/message/model/MessageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/package/Mapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/package/MessageOutput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/certificate/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/certificate/server.csr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/certificate/server.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/css/callpage-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/css/indexeddb-panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/css/main-page/friend-list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/css/main-page/message-box.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/css/main-page/message-page-header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/css/main-page/message-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/css/main-page/whole-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/主页面/主页面设计图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/主页面/用例图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/Screenshot 2023-06-27 190336.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/WebRTC流程.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/WebRTC网络原理.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/信令服务器工作描述.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/前端类图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/后端类图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/类图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/通信流程图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/通话流程图.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/design-drawing/视频通话/通话流程图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/front-end-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/image/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/image/logo2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/model/CallingState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/model/MessagePackage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/model/MessageType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/model/ObserverCallBackType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/module/AppGlobal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/module/ConstantObserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/module/WSConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/module/call-operation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/module/output-info-into-panel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/module/创建通道.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/script/Object-prototype-toString2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/script/call-timer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/call/script/callpage-UI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/mainPage/ui/aside-controller-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/mainPage/ui/friend-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/mainPage/ui/send-message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/model/Message.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/module/MessageManager.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/p2p-calling.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/common-plugins/ConstantObserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/common-plugins/Network.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/common-plugins/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/common-plugins/notice/Notice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/common-plugins/notice/notice-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/common-plugins/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/document/后端网络接口文档.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/document/架构文档.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/document/类图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/css/game-container.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/css/slide-bar-shadow-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/css/slide-bar-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/action1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/action1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/action2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/action2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/action3.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/action3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/emotion1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/emotion2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/emotion3.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/emotion4.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/logo1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/logo2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/images/logo3.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/game-cat-action.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/game-cat-animation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/game-cat-emotion-status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/game-cat-emotion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/game-cat-score.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/game-cat-status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/game-cat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/slide-bar-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/slide-event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/slide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/index/js/slider-event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/resources/ITCKRIST.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/resources/dialog.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/resources/emotion2.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/逗猫游戏/resources/shaonvW5.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/css/css.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/css/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/fonts/PingFangSCRegular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/fonts/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/fonts/iconfont.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/fonts/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/fonts/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/fonts/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/fonts/iconfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/banner1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/banner2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/banner3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/banner4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/banner5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/ddwl1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/ddwl2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/ddwl3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/ddwl4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/ddwl5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/ddwl6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/gt1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/gt2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/gt3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/gt4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/gt5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/gt6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/jjzyx1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/jjzyx2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/jjzyx3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/jjzyx4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/jjzyx5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/jjzyx6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/small01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/small02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/small03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/small04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/tsddty1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/tsddty2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/tsddty3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/tsddty4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/xxsw1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/xxsw2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/xxsw3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/xxsw4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/xxsw5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/xxsw6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/xxsw7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/xxsw8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/yh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/zsj1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/zsj2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/zsj3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/zsj4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/zsj5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/images/zsj6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/js/backtotop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/js/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我找的/云游项目动态开发/js/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/去除重复图片.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/去除重复图片.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/批量修改文件名.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/批量修改文件名.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/package/ProgressPrinter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/package/ProgressPrinter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTML/Global attributes/part.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML/Global attributes/part.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/05将流进行分支.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/05将流进行分支.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/cancel.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/cancel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pipeThrough.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pipeThrough.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pipeTo.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pipeTo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pull.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/pull.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/tee.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/tee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/type.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/以流的形式读取图片.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/以流的形式读取图片.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/可读流基础语法.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/ReadableStream/可读流基础语法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/View Transitions API/01基础示例.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/View Transitions API/01基础示例.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/View Transitions API/02运行时.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/View Transitions API/02运行时.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/View Transitions API/03利用view-transition-name分开动画.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/View Transitions API/03利用view-transition-name分开动画.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/View Transitions API/04自定义CSS动画.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/View Transitions API/04自定义CSS动画.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/E盘.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/E盘.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/handleFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/handleFiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/selectdir.php" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/selectdir.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/实训/VUE/day13/shop-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/实训/VUE/day13/shop-service/package-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +1164,9 @@
       <list>
         <option value="HTTP Request" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
         <option value="TypeScript File" />
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -49,6 +1195,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/PhpStorm2023.2/javascript/deno/deno.d.ts" root0="SKIP_INSPECTION" />
+  </component>
   <component name="JsBowerSettings">
     <bower-package value="" />
     <bower.json value="" />
@@ -73,78 +1222,122 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "14.17.3",
-    "javascript.nodejs.core.library.typings.version": "14.17.3",
-    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "D:\\XAMPP\\htdocs\\usr\\JavaScript\\zhengruipeng.github.io\\所有课程\\实训\\VUE\\day9\\shop-service\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;14.17.3&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;14.17.3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/zhengruipeng.github.io/object/樱木真乃手机壁纸/bgi&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\zheng\\AppData\\Local\\Programs\\PhpStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo",
-      "h2",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;,
+      &quot;h2&quot;,
+      &quot;mariadb&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "XHTML",
-      "PLAIN_TEXT"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;XHTML&quot;,
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\age首页\age\zip" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\age首页" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\audio" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\attributes" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\resources" />
+      <recent name="D:\zhengruipeng.github.io\object\樱木真乃手机壁纸\bgi" />
+      <recent name="D:\zhengruipeng.github.io\object" />
+      <recent name="D:\zhengruipeng.github.io\object\樱木真乃壁纸\modules" />
+      <recent name="D:\zhengruipeng.github.io\object\樱木真乃壁纸\bgi" />
+      <recent name="D:\zhengruipeng.github.io\object\樱木真乃壁纸" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\zhengruipeng.github.io\object\樱木真乃壁纸" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\230901给胡裕枞的项目\我写的" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\age首页\age\image" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\audio\属性" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\area" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\address" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.nonce.js (1)">
-    <configuration name="Deno: crossorigin.ts" type="DenoConfigurationType" temporary="true" nameIsGenerated="true" inputPath="$PROJECT_DIR$/HTML/attributes/crossorigin.ts" programParameters="run" workingDirectory="$PROJECT_DIR$/HTML/attributes">
-      <method v="2" />
-    </configuration>
-    <configuration name="Peer2peerService.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/Peer2peerService">
-      <method v="2" />
-    </configuration>
-    <configuration name="Peer2peerService.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/所有课程/软件工程小学期/backEnd/Peer2peerService">
-      <method v="2" />
-    </configuration>
-    <configuration name="nonce.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport/nonce.js" working-dir="$PROJECT_DIR$/mikimiki/APIs/WebRTC/25RTCIceTransport">
-      <method v="2" />
-    </configuration>
-    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/HTML/tag/a/server.js" working-dir="$PROJECT_DIR$/HTML/tag/a">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.run">
     <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
       <method v="2" />
     </configuration>
+    <configuration name="run" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="run" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/所有课程/实训/VUE/day15/shop-service/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:dev (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/所有课程/实训/VUE/day13/shop-service/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start:dev" />
+        <item itemvalue="npm.start:dev (2)" />
+        <item itemvalue="npm.start:dev (1)" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.run" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -821,6 +2014,36 @@
       <workItem from="1692926263680" duration="796000" />
       <workItem from="1693015990900" duration="649000" />
       <workItem from="1693022682939" duration="122000" />
+      <workItem from="1693022835427" duration="279000" />
+      <workItem from="1693457550092" duration="21808000" />
+      <workItem from="1693529287192" duration="2870000" />
+      <workItem from="1693534294969" duration="1397000" />
+      <workItem from="1693561250187" duration="5851000" />
+      <workItem from="1693571391832" duration="24000" />
+      <workItem from="1693571542623" duration="25000" />
+      <workItem from="1693629338823" duration="570000" />
+      <workItem from="1693634347104" duration="25000" />
+      <workItem from="1693635827408" duration="1197000" />
+      <workItem from="1693639439323" duration="1332000" />
+      <workItem from="1693710568213" duration="151000" />
+      <workItem from="1693963486801" duration="1034000" />
+      <workItem from="1694156743887" duration="15000" />
+      <workItem from="1694167191617" duration="2427000" />
+      <workItem from="1694409586847" duration="3189000" />
+      <workItem from="1694489070819" duration="2596000" />
+      <workItem from="1694603045324" duration="1033000" />
+      <workItem from="1694660160436" duration="5077000" />
+      <workItem from="1694682265497" duration="2145000" />
+      <workItem from="1695011892352" duration="1642000" />
+      <workItem from="1695025279182" duration="5000" />
+      <workItem from="1695025570020" duration="713000" />
+      <workItem from="1695026770710" duration="1167000" />
+      <workItem from="1695114157258" duration="3345000" />
+      <workItem from="1695525029927" duration="8310000" />
+      <workItem from="1695534049197" duration="5263000" />
+      <workItem from="1695624852213" duration="1215000" />
+      <workItem from="1695649025779" duration="1710000" />
+      <workItem from="1695715652379" duration="3113000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>
@@ -1165,7 +2388,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684998352034</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1214,6 +2437,89 @@
         <option value="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.js" />
         <option value="$PROJECT_DIR$/Deno/package/ProgressPrinter.js" />
         <option value="$PROJECT_DIR$/Deno/04Modules/04import-maps.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/RuntimeException.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/Exception.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/UnzipException.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/Warning.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/NeedEnvWarning.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/DirWarning.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameItem.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameTable.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/Test.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/TableComponent.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H1Component.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H2Component.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/WarningTable.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/GalgameTable1.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/WarningTable.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/GalgameTable1.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/ExceptionTable.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameItem.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameTable.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H1Component.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H2Component.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/TableComponent.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/Warning.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/DirWarning.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/NeedEnvWarning.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/Exception.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/UnzipException.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/RuntimeException.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data-driver/DataDriver.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/http-server.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data/Test.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data/WarningTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data/GalgameTable1.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data/ExceptionTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/model/GameItem.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/model/GameTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/modules/H1Component.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/modules/H2Component.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/modules/TableComponent.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/warning/Warning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/warning/DirWarning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/warning/NeedEnvWarning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/exception/Exception.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/exception/UnzipException.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/exception/RuntimeException.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data-driver/DataDriver.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/http-server.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/libs/Mapper.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/test.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/Command.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/Invoker.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/RectCommand.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/EllipseCommand.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/TriangleCommand.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/message/model/MessagePackage.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/model/PeerInfo.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/TwoPeers.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/PeerManager.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/CallingManager.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/model/Message.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/module/MessageManager.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/LoadTemplate.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/Test.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/WarningTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/GalgameTable1.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/ExceptionTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameItem.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H1Component.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H2Component.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/TableComponent.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/Warning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/DirWarning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/NeedEnvWarning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/Exception.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/UnzipException.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/RuntimeException.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data-driver/DataDriver.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/http-server.js" />
       </list>
     </option>
   </component>
@@ -1243,8 +2549,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="202302072" />
-    <MESSAGE value="20230210" />
     <MESSAGE value="202302102" />
     <MESSAGE value="20230214" />
     <MESSAGE value="202302142" />
@@ -1268,7 +2572,9 @@
     <MESSAGE value="20230802" />
     <MESSAGE value="20230811" />
     <MESSAGE value="20230814" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230814" />
+    <MESSAGE value="20230826" />
+    <MESSAGE value="20230926" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230926" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">

@@ -9,25 +9,25 @@
 </head>
 <body>
 <script type="module">
-    document.addEventListener("DOMContentLoaded",function (){
-        let init = async function *(){
-            for(let i = 1;i<=5;i++){
-                yield await new Promise(resolve => setTimeout(resolve,1000,i));
+    document.addEventListener("DOMContentLoaded", function () {
+        let init = async function* () {
+            for (let i = 1; i <= 5; i++) {
+                yield await new Promise(resolve => setTimeout(resolve, 1000, i));
             }
         };
         let readableStream = new ReadableStream({
-            async start(controller){
-                for await(let value of init()){
+            async start(controller) {
+                for await(let value of init()) {
                     controller.enqueue(value);
                 }
                 controller.close();
             }
         });
 
-        (async function (){
-            for(let readableStreamDefaultReader = readableStream.getReader(),
-                    {done,value} = await readableStreamDefaultReader.read();
-                !done;{done,value} = await readableStreamDefaultReader.read()){
+        (async function () {
+            for (let readableStreamDefaultReader = readableStream.getReader(),
+                     {done, value} = await readableStreamDefaultReader.read();
+                 !done; {done, value} = await readableStreamDefaultReader.read()) {
                 console.log(value);
             }
         })();

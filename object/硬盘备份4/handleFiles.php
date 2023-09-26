@@ -144,7 +144,8 @@ function handleFiles($online = [], $offline = [], $cantVisit = [])
             array_push($online, "{$add}");
 
 
-        } else if (!is_dir($add)) {
+        }
+        else if (!is_dir($add)) {
             if (file_exists("./" . $name . ".data")) {
                 //读取文件，分别输出
 
@@ -160,7 +161,8 @@ function handleFiles($online = [], $offline = [], $cantVisit = [])
             } else {
                 array_push($cantVisit, $name);
             }
-        } else {
+        }
+        else {
             $json_str = json_encode(selectdir($name, $add));
             echo $json_str . ",";
 

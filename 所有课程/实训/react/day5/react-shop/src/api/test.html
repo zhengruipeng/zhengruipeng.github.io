@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    :root::-webkit-scrollbar {
+      width: 5px;
+      height: 8px;
+      background-color: #ddd; /* or add it to the track */
+    }
+
+    :root::-webkit-scrollbar-thumb {
+      width: 4px;
+      height: 4px;
+      background: red;
+
+    }
+
+    body::-webkit-scrollbar {
+      width: 5px;
+      height: 8px;
+      background-color: #ddd; /* or add it to the track */
+    }
+
+    body::-webkit-scrollbar-thumb {
+      width: 4px;
+      height: 4px;
+      background: #639;
+
+    }
+
+    div::-webkit-scrollbar {
+      width: 5px;
+      height: 8px;
+      background-color: #ddd; /* or add it to the track */
+    }
+
+    div::-webkit-scrollbar-thumb {
+      width: 4px;
+      height: 4px;
+      background: #00ff00;
+
+    }
+  </style>
+</head>
+<body style="height: 100vh">
+<div style="height: 300vh;overflow: scroll" id="div">
+  <div style="height: 500px"></div>
+</div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function() {
+    const div = this.querySelector("#div");
+
+    document.body.onscroll = function(e) {
+      let target = e.srcElement || e.target;
+      console.log(this, target);
+    };
+
+    div.onscroll = function(e) {
+      let target = e.srcElement || e.target;
+      // console.log(this, target);
+    };
+  });
+</script>
+</body>
+</html>

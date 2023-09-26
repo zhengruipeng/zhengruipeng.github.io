@@ -176,7 +176,7 @@ class SearchPage extends Object {
     }
 }
 
-const searchPage: SearchPage = new SearchPage(`http://www.yac8.com/news/?list_refer-theme-%C1%F5%DC%AD`, 2);
+const searchPage: SearchPage = new SearchPage(`http://www.yac8.com/news/?list_refer-theme-%u8463%u9999%u5149`, 1);
 logOperation(`${"-".repeat(10)}所有搜索页面的url${"-".repeat(10)}`)
 logOperation(searchPage.urls.join(",\n"));
 
@@ -184,7 +184,7 @@ logOperation(searchPage.urls.join(",\n"));
 (async function () {
     //索引值，例如第五页为PAGE_START=4
     const PAGE_START = 1;
-    const PAGE_END = 3;
+    const PAGE_END = 2
 
 
     for await (let url of searchPage.urls.slice(PAGE_START - 1, PAGE_END - 1)) {
@@ -237,6 +237,6 @@ logOperation(searchPage.urls.join(",\n"));
 })();
 
 /*
-* 切记再打开此软件时必须关闭vpn
-* deno run --allow-net --allow-write 多页书法网站爬虫.ts
+切记再打开此软件时必须关闭vpn
+deno run --allow-net --allow-write 多页书法网站爬虫.ts
 * */

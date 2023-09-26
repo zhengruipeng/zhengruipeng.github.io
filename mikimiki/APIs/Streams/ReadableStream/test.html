@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<body>
+<pre id="opt"></pre>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const output = this.querySelector("#opt");
+
+        fetch("tee.html")
+            .then(response => response.body)
+            .then(readableStream => {
+                const rsdr = readableStream.getReader();
+
+                return new ReadableStream({
+                    start(controller) {
+                        let readCB;
+                        rsdr.read()
+                            .then(readCB = u8a => {
+                                console.log(u8a)
+                                // let text = (new TextDecoder()).decode(u8a.value.buffer);
+                                // output.innerText = text;
+                                controller.enqueue(u8a.value.buffer);
+                                rsdr.read().then(readCB)
+                            });
+                    },
+                    cancel(reason) {
+                        console.log(reason);
+                    },
+                    pull(controller) {
+
+                    }
+                });
+            })
+    })
+</script>
+</body>
+</html>

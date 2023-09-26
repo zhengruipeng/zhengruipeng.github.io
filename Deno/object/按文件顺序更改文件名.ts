@@ -41,7 +41,7 @@ async function renameFilesInFolder(folderPath: string): Promise<void> {
 
 }
 
-const folderPath = "E:\\书画作品\\雍正";
+const folderPath = "D:\\zhengruipeng.github.io\\object\\樱木真乃壁纸\\bgi\\";
 for await(const entry: DirEntry of await Deno.readDir(folderPath)) {
     if (entry.isFile) continue;
 
@@ -52,5 +52,5 @@ for await(const entry: DirEntry of await Deno.readDir(folderPath)) {
 
 
 /*
-* deno run --allow-write --allow-read 按文件顺序更改文件名.ts
+deno run --allow-write --allow-read 按文件顺序更改文件名.ts
 * */

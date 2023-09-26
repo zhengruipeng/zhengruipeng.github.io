@@ -1,0 +1,4 @@
+{
+    "nodejs.typescript.node.options": "14.17.3",
+    "nodejs.typescript.rebuildOnChanges": true
+}

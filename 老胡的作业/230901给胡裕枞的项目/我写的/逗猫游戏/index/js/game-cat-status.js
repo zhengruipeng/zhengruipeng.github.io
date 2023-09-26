@@ -1,0 +1,14 @@
+let CAT_STATUS_CAN_GENERATED = {
+    WALK: "WALK",
+    SIT: "SIT",
+};
+
+//猫咪全部状态
+//使其继承于GameCat.CAT_STATUS_CAN_GENERATED对象
+let CAT_STATUS = Object.assign({
+    FLY: "FLY",
+    TOUCH:"TOUCH",
+
+}, CAT_STATUS_CAN_GENERATED);
+
+export {CAT_STATUS_CAN_GENERATED, CAT_STATUS}

@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
 
-  </style>
+    </style>
 </head>
 <body>
 <script type="module">
-  document.addEventListener("DOMContentLoaded",function (){
-    let init = async function *(){
-      for(let i = 1;i<=5;i++){
-        yield await new Promise(resolve => setTimeout(resolve,1000,i));
-      }
-    };
+    document.addEventListener("DOMContentLoaded", function () {
+        let init = async function* () {
+            for (let i = 1; i <= 5; i++) {
+                yield await new Promise(resolve => setTimeout(resolve, 1000, i));
+            }
+        };
 
-    let integerStream = new ReadableStream({
-      async start(controller){
-        for await(let chunk of init()){
-          controller.enqueue(chunk);
-        }
-        controller.close();
-      }
+        let integerStream = new ReadableStream({
+            async start(controller) {
+                for await(let chunk of init()) {
+                    controller.enqueue(chunk);
+                }
+                controller.close();
+            }
+        });
+        let doublingStream = new WritableStream({
+            write(chunk) {
+                console.log(chunk)
+            }
+        });
+
+        let pipedStream = integerStream.pipeTo(doublingStream);
+        console.log(doublingStream);
+        /* let pipedStreamDefaultReader = pipedStream.getReader();
+
+         (async function (){
+           for(let {value,done} = await pipedStreamDefaultReader.read();!done;{value,done} = await pipedStreamDefaultReader.read()){
+             console.log(value);
+           }
+         })()
+     */
     });
-    let doublingStream = new WritableStream({
-      write(chunk){
-        console.log(chunk)
-      }
-    });
-
-    let pipedStream = integerStream.pipeTo(doublingStream);
-    console.log(doublingStream);
-   /* let pipedStreamDefaultReader = pipedStream.getReader();
-
-    (async function (){
-      for(let {value,done} = await pipedStreamDefaultReader.read();!done;{value,done} = await pipedStreamDefaultReader.read()){
-        console.log(value);
-      }
-    })()
-*/
-  });
 </script>
 </body>
 </html>

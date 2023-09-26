@@ -4,5 +4,6 @@
     <option name="nodeInterpreterTextField" value="C:/Program Files/nodejs/node" />
     <option name="recompileOnChanges" value="true" />
     <option name="typeScriptCompilerParams" value="--target esnext --experimentalDecorators" />
+    <option name="versionType" value="EMBEDDED" />
   </component>
 </project>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e95f742-c559-487f-a74c-0a2981f53564" name="Changes" comment="20230627(4)">
+      <change afterPath="$PROJECT_DIR$/../../HTML/tag/audio/JS接口/与播放进度有关的事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../HTML/tag/audio/属性/disableremoteplayback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../HTML/tag/audio/属性/loop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../HTML/tag/audio/属性/muted.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../HTML/tag/audio/属性/preload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../HTML/tag/audio/属性/src.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HTML/tag/audio/autoplay.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../HTML/tag/audio/属性/autoplay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HTML/tag/audio/controls.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../HTML/tag/audio/属性/controls.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HTML/tag/audio/controlslist.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../HTML/tag/audio/属性/controlslist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../packages/JSONParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../packages/JSONParser.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="2RjTqXNCkbiFNFIv3tDHOQLO0Qr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "19.4.0",
+    "javascript.nodejs.core.library.typings.version": "20.4.1",
+    "last_opened_file_path": "D:/XAMPP/htdocs/usr/JavaScript/zhengruipeng.github.io/Deno",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\apps\\apps\\WebStorm\\ch-0\\231.9225.18\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\design-drawing\视频通话" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\js\message\module" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\js\message" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\frontEnd\js" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd\message" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd\Peer2peerService" />
+      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\所有课程\软件工程小学期\backEnd\package" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.front-end-server.js">
+    <configuration name="Peer2peerService.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/backEnd/Peer2peerService/Peer2peerService.js" working-dir="$PROJECT_DIR$/backEnd/Peer2peerService">
+      <method v="2" />
+    </configuration>
+    <configuration name="front-end-server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontEnd/front-end-server.js" working-dir="$PROJECT_DIR$/frontEnd">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.front-end-server.js" />
+        <item itemvalue="Node.js.Peer2peerService.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e95f742-c559-487f-a74c-0a2981f53564" name="Changes" comment="" />
+      <created>1687762681971</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687762681971</updated>
+      <workItem from="1687762682994" duration="15556000" />
+      <workItem from="1687817794979" duration="9173000" />
+      <workItem from="1687827124845" duration="12000" />
+      <workItem from="1687827143283" duration="9000" />
+      <workItem from="1687827159014" duration="29000" />
+      <workItem from="1687827194392" duration="8599000" />
+      <workItem from="1687843281051" duration="11730000" />
+      <workItem from="1687920080364" duration="7358000" />
+      <workItem from="1687936938381" duration="5248000" />
+      <workItem from="1688016849201" duration="361000" />
+      <workItem from="1688452396681" duration="7962000" />
+      <workItem from="1688534593551" duration="11628000" />
+      <workItem from="1688557374147" duration="49000" />
+      <workItem from="1688708114290" duration="9469000" />
+      <workItem from="1688725300108" duration="786000" />
+      <workItem from="1688729645070" duration="672000" />
+      <workItem from="1688730333516" duration="604000" />
+      <workItem from="1688794910293" duration="181000" />
+      <workItem from="1688802131757" duration="2308000" />
+      <workItem from="1688889855543" duration="2327000" />
+      <workItem from="1688957209487" duration="681000" />
+      <workItem from="1688966787404" duration="11980000" />
+      <workItem from="1689053071518" duration="11495000" />
+      <workItem from="1689303129151" duration="5910000" />
+      <workItem from="1689313718440" duration="4295000" />
+      <workItem from="1689331721067" duration="2390000" />
+      <workItem from="1689383458090" duration="3175000" />
+      <workItem from="1689472472484" duration="846000" />
+      <workItem from="1689653935611" duration="843000" />
+      <workItem from="1689663200372" duration="22000" />
+    </task>
+    <task id="LOCAL-00001" summary="20230627">
+      <option name="closed" value="true" />
+      <created>1687824176408</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687824176408</updated>
+    </task>
+    <task id="LOCAL-00002" summary="20230627(2）">
+      <option name="closed" value="true" />
+      <created>1687835610837</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687835610837</updated>
+    </task>
+    <task id="LOCAL-00003" summary="20230627(3)">
+      <option name="closed" value="true" />
+      <created>1687844227238</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687844227238</updated>
+    </task>
+    <task id="LOCAL-00004" summary="20230627(4)">
+      <option name="closed" value="true" />
+      <created>1687853306558</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687853306558</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/backEnd/Peer2peerService/PeerManager.js" />
+        <option value="$PROJECT_DIR$/backEnd/Peer2peerService/model/PeerInfo.js" />
+        <option value="$PROJECT_DIR$/backEnd/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/frontEnd/js/message/module/MessageManager.js" />
+        <option value="$PROJECT_DIR$/frontEnd/js/message/model/Message.js" />
+        <option value="$PROJECT_DIR$/backEnd/Peer2peerService/CallingManager.js" />
+        <option value="$PROJECT_DIR$/backEnd/Peer2peerService/TwoPeers.js" />
+        <option value="$PROJECT_DIR$/backEnd/message/model/MessagePackage.js" />
+      </list>
+    </option>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="package.json" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="20230627" />
+    <MESSAGE value="20230627(2）" />
+    <MESSAGE value="20230627(3)" />
+    <MESSAGE value="20230627(4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230627(4)" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

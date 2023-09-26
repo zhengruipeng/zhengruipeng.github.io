@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <button id="cancel">stop insert</button>
 <script type="text/javascript">
-  document.addEventListener("DOMContentLoaded",function (){
-    const cancelBtn = this.querySelector("#cancel");
+    document.addEventListener("DOMContentLoaded", function () {
+        const cancelBtn = this.querySelector("#cancel");
 
-    /*
-    * 当流正在传入的时候随时可以取消，但是当流被锁定的时候不能被取消，
-    * */
-    const stream = new ReadableStream({
-      start(controller){
-        let render = function (timer){
-          // if(timer>1000)return;
-          controller.enqueue(123)
-          requestAnimationFrame(render);
+        /*
+        * 当流正在传入的时候随时可以取消，但是当流被锁定的时候不能被取消，
+        * */
+        const stream = new ReadableStream({
+            start(controller) {
+                let render = function (timer) {
+                    // if(timer>1000)return;
+                    controller.enqueue(123)
+                    requestAnimationFrame(render);
+                };
+                render(0);
+            },
+            pull(controller) {
+                console.log(controller);
+            },
+            cancel(reason) {
+                console.log(reason);
+            }
+        }, {
+            highWaterMark: 9999
+        });
+
+        /*let readerCB;
+        let defaultReader = stream.getReader();
+        defaultReader.read().then(readerCB = ({done,value}) => {
+          if(done){
+            return;
+          }
+
+          console.log(value);
+          defaultReader.read().then(readerCB);
+        });*/
+
+        cancelBtn.onclick = function () {
+            // stream.releaseLock();
+            stream.cancel("customer cancel");
         };
-        render(0);
-      },
-      pull(controller){
-        console.log(controller);
-      },
-      cancel(reason){
-        console.log(reason);
-      }
-    },{
-      highWaterMark:9999
-    });
-
-    /*let readerCB;
-    let defaultReader = stream.getReader();
-    defaultReader.read().then(readerCB = ({done,value}) => {
-      if(done){
-        return;
-      }
-
-      console.log(value);
-      defaultReader.read().then(readerCB);
-    });*/
-
-    cancelBtn.onclick = function (){
-      // stream.releaseLock();
-      stream.cancel("customer cancel");
-    };
-  })
+    })
 </script>
 </body>
 </html>

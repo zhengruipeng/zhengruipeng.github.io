@@ -47,7 +47,7 @@ async function deduplicateImages(folderPath: string) {
 }
 
 // 选择文件夹路径
-const folderPath: string | null = "E:\\书画作品\\雍正";
+const folderPath: string | null = "D:\\zhengruipeng.github.io\\Deno\\object\\download";
 
 if (folderPath && existsSync(folderPath)) {
     deduplicateImages(folderPath);
