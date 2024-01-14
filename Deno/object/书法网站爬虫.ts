@@ -5,11 +5,11 @@ import {
 
 
 let nameCounter = 0;
-let downloadDir: string | URL | null | undefined = "./字帖分享：《王羲之圣教序及其笔法》/"
+let downloadDir: string | URL | null | undefined = "./董其昌行楷书作欣赏《勤政励学箴》/"
 let assertDir: string = downloadDir ?? "";
 
-const coreUrl = `http://www.yac8.com/news/10243`;
-const pageNum = 8;
+const coreUrl = `http://www.yac8.com/news/17328`;
+const pageNum = 13;
 
 const urls: string[] = [];
 
@@ -29,15 +29,14 @@ async function downloadImage(url: string, filename: string) {
 async function scrapeImages(url: string) {
     const headers: Headers = new Headers();
     headers.append("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.188")
-    headers.append("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7");
-    headers.append("Accept-Encoding", "gzip, deflate, br");
-    headers.append("Accept-Language", "en-US,en;q=0.9");
-    headers.append("Cache-Control", "max-age=0");
-    headers.append("Connection", "keep-alive");
-    headers.append("Cookie", "ASPSESSIONIDQWQRTBCS=GAKECIPBOFGLGEHBOCOEHDJG; ASPSESSIONIDSSVQSBDT=HGKECIPBNIEIEHHHGNGHECNC; ASPSESSIONIDQWTRSADS=DNCFCIPBGPLCOILIBAMIIFBA; ASPSESSIONIDSWSRTBCS=EKNCDIPBOHHNDGCNEGCNDDCJ; ASPSESSIONIDQWRQTACT=EBLECIPBLKKMFADPACDEDBDN; ASPSESSIONIDQSVTQACT=FCLECIPBJGNOJDGHKELJGLDH");
-    headers.append("Connection", "keep-alive");
-    headers.append("Host", "www.yac8.com");
-    headers.append("Referer", "https://www.yac8.com/news/?list_refer-theme-%u8463%u5176%u660C.html");
+    // headers.append("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7");
+    // headers.append("Accept-Encoding", "gzip, deflate, br");
+    // headers.append("Accept-Language", "en-US,en;q=0.9");
+    // headers.append("Cache-Control", "max-age=0");
+    // headers.append("Connection", "keep-alive");
+    // headers.append("Cookie", "ASPSESSIONIDQWQRTBCS=GAKECIPBOFGLGEHBOCOEHDJG; ASPSESSIONIDSSVQSBDT=HGKECIPBNIEIEHHHGNGHECNC; ASPSESSIONIDQWTRSADS=DNCFCIPBGPLCOILIBAMIIFBA; ASPSESSIONIDSWSRTBCS=EKNCDIPBOHHNDGCNEGCNDDCJ; ASPSESSIONIDQWRQTACT=EBLECIPBLKKMFADPACDEDBDN; ASPSESSIONIDQSVTQACT=FCLECIPBJGNOJDGHKELJGLDH");
+    // headers.append("Connection", "keep-alive");
+    // headers.append("Host", "www.yac8.com");
 
     const response = await fetch(url, {
         headers,
@@ -89,5 +88,5 @@ console.log(urls);
 })();
 /*
 * 切记再打开此软件时必须关闭vpn
-* deno run --allow-net --allow-write 书法网站爬虫.ts
+deno run --allow-net --allow-write 书法网站爬虫.ts
 * */

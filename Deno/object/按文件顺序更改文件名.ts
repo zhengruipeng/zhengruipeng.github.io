@@ -41,7 +41,7 @@ async function renameFilesInFolder(folderPath: string): Promise<void> {
 
 }
 
-const folderPath = "D:\\zhengruipeng.github.io\\object\\樱木真乃壁纸\\bgi\\";
+const folderPath = "D:\\zhengruipeng.github.io\\Deno\\object\\download";
 for await(const entry: DirEntry of await Deno.readDir(folderPath)) {
     if (entry.isFile) continue;
 

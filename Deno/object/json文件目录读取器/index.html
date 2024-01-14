@@ -29,12 +29,18 @@
     document.addEventListener("DOMContentLoaded", async function () {
         const main = this.querySelector("main");
 
-        fetch("./file-struct.json")
+        fetch("./20240113维护galgame目录结构快照.json")
             .then(res => res.json())
             .then(json => {
                 parseMap.parse(json, main);
 
             })
+
+     /*   fetch("./20240106还未维护galgame目录结构快照.json")
+            .then(res => res.json())
+            .then(json => {
+                parseMap.parse(json, main);
+            })*/
     })
 </script>
 <script type="module" src="./checkFiles.js"></script>

@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
 
-  </style>
+    </style>
 </head>
 <body>
 <script type="module">
-  document.addEventListener("DOMContentLoaded",function (){
-    let init = async function *(){
-      for(let i = 1;i<=5;i++){
-        yield await new Promise(resolve => setTimeout(resolve,1000,i));
-      }
-    };
-    let writableStream = new WritableStream({
-      write(value){
-        console.log(value);
-      }
+    document.addEventListener("DOMContentLoaded", function () {
+        let init = async function* () {
+            for (let i = 1; i <= 5; i++) {
+                yield await new Promise(resolve => setTimeout(resolve, 1000, i));
+            }
+        };
+        let writableStream = new WritableStream({
+            write(value) {
+                console.log(value);
+            }
+        });
+
+        let writableStreamDefaultWriter = writableStream.getWriter();
+        (async function () {
+            for await(let value of init()) {
+                await writableStreamDefaultWriter.ready;
+                await writableStreamDefaultWriter.write(value);
+            }
+            await writableStreamDefaultWriter.close();
+        })();
+
     });
-
-    let writableStreamDefaultWriter = writableStream.getWriter();
-    (async function (){
-      for await(let value of init()){
-        await writableStreamDefaultWriter.ready;
-        writableStreamDefaultWriter.write(value);
-      }
-      writableStreamDefaultWriter.close();
-    })();
-
-  });
 </script>
 </body>
 </html>

@@ -31,7 +31,7 @@ let getDirStructure = async function (dir: string, isLoop?: boolean = false): Ob
     return data;
 };
 
-let writeFile = async function (content, dir: string = "./file-struct.json") {
+let writeFile = async function (content, dir: string = "./20240113维护galgame目录结构快照.json") {
     const encoder = new TextEncoder();
     const data = encoder.encode(content);
     await Deno.writeFile(dir, data);

@@ -3,60 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        body {
-            min-width: 900px;
-            border: red solid 1px;
-            height: 100px;
-        }
-    </style>
 </head>
 <body>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", async function () {
-        let removeRepeatItems = function (arr) {
-            let set = new Set(arr);
-            return [...set];
-        };
-
-        console.log(removeRepeatItems([1, 1, 2, 3]));
-
-
-        let bubbleSort = function (arr) {
-            for (let i = arr.length - 1; i > 0; i--) {
-                let ordered = true;
-                for (let j = 0; j < i; j++) {
-                    if (arr[j] > arr[j + 1]) {
-                        let temp = arr[j];
-                        arr[j] = arr[j + 1];
-                        arr[j + 1] = temp;
-                        ordered = false;
-                    }
+        let arr = [0,1];
+        let o = {
+            a: 1,
+            b: 2
+        }
+        let objPrototypeProxy = new Proxy(Object.prototype, {
+            get(target, propKey, receiver) {     //target监听的对象，propKey所引用的属性，receiver相应的proxy对象
+                if (propKey === "valueOf") {
+                    console.warn("read valueOf")
                 }
-                if(ordered)break;
+                return target[propKey];
+            },
+        });
+
+        let arrProxy = new Proxy(arr, {
+            get(target, propKey, receiver) {     //target监听的对象，propKey所引用的属性，receiver相应的proxy对象
+                console.warn("read arr elements " + (propKey.toString()))
+                return target[propKey];
             }
-            return arr;
-        };
+        })
+        Object.setPrototypeOf(Object.getPrototypeOf(arrProxy), objPrototypeProxy);
 
-        console.log(bubbleSort([2,3,5,4,1]));
-
-
-        let binarySearch = function (arr, val) {
-            let min = 0;
-            let max = arr.length;
-
-            while (min < max) {
-                let index = Math.floor((min + max) / 2);
-                let c = arr[index]
-
-                if (c === val) return index;
-                else if (c < val) min = index;
-                else max = index;
-            }
-            return -1;
-        };
-        console.log(binarySearch(bubbleSort([2,3,5,4,1]),3));
+        console.log(arrProxy == 1)
+        console.log([1,2,3].toString())
     });
-</script>
+</>
 </body>
 </html>

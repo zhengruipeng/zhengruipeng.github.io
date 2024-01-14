@@ -5,8 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230926">
-      <change afterPath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.data" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.cache/jb/UpdateWork.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.cache/jb/version.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/DecompressionStream/demo2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/DecompressionStream/demo2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/output.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/file-struct2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/去除图片背景/签名.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/object/去除图片背景/签名.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/实训/小考试/第二次大题.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/test/Idd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/test/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/老胡的作业/test/sg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/API/Compression Streams API/CompressionStream/demo1.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/CompressionStream/demo1.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/file-struct.json" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/file-struct.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/json文件目录读取器/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/书法网站爬虫.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/书法网站爬虫.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/去除重复图片.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/去除重复图片.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/记录文件夹结构.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/记录文件夹结构.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/WritableStream/可写流基础语法.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/WritableStream/可写流基础语法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/proxy/apply,construct.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/proxy/apply,construct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/3d函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/3d函数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/json文件目录读取器/ParseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/json文件目录读取器/ParseMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/json文件目录读取器/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/json文件目录读取器/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/去除图片背景/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片背景/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/D盘.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/D盘.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/E盘.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/E盘.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.json" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/待测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/待测试.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +55,9 @@
         <option value="HTTP Request" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="TypeScript File" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -80,91 +113,73 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "14.17.3",
-    "javascript.nodejs.core.library.typings.version": "14.17.3",
-    "last_opened_file_path": "D:/zhengruipeng.github.io/object/樱木真乃手机壁纸/bgi",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "ts.external.directory.path": "C:\\Users\\zheng\\AppData\\Local\\Programs\\PhpStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Deno.Deno: 3 Equality narrowing.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Deno.Deno: 8 Using type predicates.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Deno.Deno: 9 Enums.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;14.17.3&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;14.17.34&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/zhengruipeng.github.io&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\zheng\\AppData\\Local\\Programs\\PhpStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo",
-      "h2",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;,
+      &quot;h2&quot;,
+      &quot;mariadb&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "XHTML",
-      "PLAIN_TEXT"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;XHTML&quot;,
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\zhengruipeng.github.io\object\樱木真乃手机壁纸\bgi" />
+      <recent name="D:\zhengruipeng.github.io\Deno\object" />
+      <recent name="D:\zhengruipeng.github.io\Deno\object\json文件目录读取器" />
+      <recent name="D:\zhengruipeng.github.io\typescript\document demo\EveryDay Types" />
+      <recent name="D:\zhengruipeng.github.io\CSS The Definitive Guide Edition 4th\选择器\嵌套选择器" />
       <recent name="D:\zhengruipeng.github.io\object" />
-      <recent name="D:\zhengruipeng.github.io\object\樱木真乃壁纸\modules" />
-      <recent name="D:\zhengruipeng.github.io\object\樱木真乃壁纸\bgi" />
-      <recent name="D:\zhengruipeng.github.io\object\樱木真乃壁纸" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\zhengruipeng.github.io\Deno\object\json文件目录读取器" />
       <recent name="D:\zhengruipeng.github.io\object\樱木真乃壁纸" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\230901给胡裕枞的项目\我写的" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\老胡的作业\age首页\age\image" />
       <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\audio\属性" />
-      <recent name="D:\XAMPP\htdocs\usr\JavaScript\zhengruipeng.github.io\HTML\tag\area" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.run">
+  <component name="RunManager" selected="npm.start:dev">
+    <configuration name="Deno: 3 Equality narrowing.ts" type="DenoConfigurationType" temporary="true" nameIsGenerated="true" inputPath="$PROJECT_DIR$/typescript/document demo/Narrowing/3 Equality narrowing.ts" programParameters="run" workingDirectory="$PROJECT_DIR$/typescript/document demo/Narrowing">
+      <method v="2" />
+    </configuration>
+    <configuration name="Deno: 8 Using type predicates.ts" type="DenoConfigurationType" temporary="true" nameIsGenerated="true" inputPath="$PROJECT_DIR$/typescript/document demo/Narrowing/8 Using type predicates.ts" programParameters="run" workingDirectory="$PROJECT_DIR$/typescript/document demo/Narrowing">
+      <method v="2" />
+    </configuration>
+    <configuration name="Deno: 9 Enums.ts" type="DenoConfigurationType" temporary="true" nameIsGenerated="true" inputPath="$PROJECT_DIR$/typescript/document demo/EveryDay Types/9 Enums.ts" programParameters="run" workingDirectory="$PROJECT_DIR$/typescript/document demo/EveryDay Types">
+      <method v="2" />
+    </configuration>
     <configuration name="miki" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="81">
-      <method v="2" />
-    </configuration>
-    <configuration name="run" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="run" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/所有课程/实训/VUE/day20/shop-service/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start:dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/所有课程/实训/VUE/day15/shop-service/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start:dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
       <method v="2" />
     </configuration>
     <configuration name="start:dev (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -191,11 +206,15 @@
       <list>
         <item itemvalue="npm.start:dev" />
         <item itemvalue="npm.start:dev (2)" />
-        <item itemvalue="npm.start:dev (1)" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.run" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -901,7 +920,48 @@
       <workItem from="1695534049197" duration="5263000" />
       <workItem from="1695624852213" duration="1215000" />
       <workItem from="1695649025779" duration="1710000" />
-      <workItem from="1695715652379" duration="3555000" />
+      <workItem from="1695715652379" duration="4551000" />
+      <workItem from="1695735964814" duration="347000" />
+      <workItem from="1695886992225" duration="126000" />
+      <workItem from="1695897528378" duration="3691000" />
+      <workItem from="1696332016334" duration="1701000" />
+      <workItem from="1699322523460" duration="1370000" />
+      <workItem from="1699574508215" duration="734000" />
+      <workItem from="1699855514182" duration="4158000" />
+      <workItem from="1700120949930" duration="329000" />
+      <workItem from="1700275539137" duration="100000" />
+      <workItem from="1700626173684" duration="755000" />
+      <workItem from="1700809808050" duration="199000" />
+      <workItem from="1702191375132" duration="650000" />
+      <workItem from="1702532248383" duration="2227000" />
+      <workItem from="1702636372071" duration="634000" />
+      <workItem from="1702902326712" duration="262000" />
+      <workItem from="1703428529975" duration="518000" />
+      <workItem from="1703489448168" duration="1057000" />
+      <workItem from="1703500678072" duration="512000" />
+      <workItem from="1703503742853" duration="1224000" />
+      <workItem from="1703563119313" duration="1411000" />
+      <workItem from="1704020100888" duration="436000" />
+      <workItem from="1704073892196" duration="942000" />
+      <workItem from="1704191469999" duration="720000" />
+      <workItem from="1704244251777" duration="821000" />
+      <workItem from="1704249000481" duration="7117000" />
+      <workItem from="1704264040454" duration="1083000" />
+      <workItem from="1704289367748" duration="1094000" />
+      <workItem from="1704335967585" duration="5581000" />
+      <workItem from="1704434356141" duration="6745000" />
+      <workItem from="1704465399256" duration="843000" />
+      <workItem from="1704513483719" duration="2368000" />
+      <workItem from="1704540107226" duration="2276000" />
+      <workItem from="1704597442273" duration="5779000" />
+      <workItem from="1704605918987" duration="660000" />
+      <workItem from="1704624687074" duration="674000" />
+      <workItem from="1704626286021" duration="1404000" />
+      <workItem from="1704684687620" duration="8439000" />
+      <workItem from="1704726631055" duration="353000" />
+      <workItem from="1704772237735" duration="6146000" />
+      <workItem from="1704780534999" duration="14000" />
+      <workItem from="1704881021249" duration="2617000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>
@@ -1246,138 +1306,110 @@
       <option name="project" value="LOCAL" />
       <updated>1684998352034</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.js" />
-        <option value="$PROJECT_DIR$/react2/src/02条件渲染.js" />
-        <option value="$PROJECT_DIR$/react2/src/13父子关系父组件.js" />
-        <option value="$PROJECT_DIR$/react2/src/07类组件.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/09状态.jsx" />
-        <option value="$PROJECT_DIR$/react2/src/05用className脚本化CSS.js" />
-        <option value="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/04ExtendableCookieChangeEvent/service-worker.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/13-5父子关系子组件.js" />
-        <option value="$PROJECT_DIR$/react2/src/04脚本化inlineCSS.js" />
-        <option value="$PROJECT_DIR$/react2/src/09状态.jsx" />
-        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.jsx" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.jsx" />
         <option value="$PROJECT_DIR$/react2/src/06函数组件.js" />
-        <option value="$PROJECT_DIR$/packages/Mapper.js" />
-        <option value="$PROJECT_DIR$/react2/src/03多条件渲染.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.jsx" />
-        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/13父子关系父组件.js" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/main.js" />
-        <option value="$PROJECT_DIR$/react2/src/09状态.js" />
-        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
-        <option value="$PROJECT_DIR$/react2/src/13-5父子关系子组件.js" />
-        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.jsx" />
-        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/routes/ejs.js" />
-        <option value="$PROJECT_DIR$/packages/Toast.js" />
-        <option value="$PROJECT_DIR$/packages/Toast2.js" />
-        <option value="$PROJECT_DIR$/packages/zh-converse.js" />
         <option value="$PROJECT_DIR$/Deno/01First Step/04http-server.js" />
-        <option value="$PROJECT_DIR$/HTML/attributes/crossorigin.js" />
         <option value="$PROJECT_DIR$/Deno/06DataBase/02MongoDB.js" />
-        <option value="$PROJECT_DIR$/Deno/06DataBase/01MySQL-MariaDB.js" />
-        <option value="$PROJECT_DIR$/Deno/06DataBase/test.js" />
-        <option value="$PROJECT_DIR$/所有课程/实训/VUE/day11/admin-demo/src/views/test/goods/goods-model.js" />
-        <option value="$PROJECT_DIR$/所有课程/实训/VUE/day11/admin-demo/src/api/goods-api.js" />
-        <option value="$PROJECT_DIR$/Deno/object/批量修改文件名.js" />
-        <option value="$PROJECT_DIR$/Deno/object/书法网站爬虫.js" />
-        <option value="$PROJECT_DIR$/Deno/package/Mapper.js" />
-        <option value="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.js" />
-        <option value="$PROJECT_DIR$/Deno/object/日志软件.js" />
-        <option value="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.js" />
-        <option value="$PROJECT_DIR$/Deno/package/ProgressPrinter.js" />
-        <option value="$PROJECT_DIR$/Deno/04Modules/04import-maps.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/RuntimeException.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/Exception.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/UnzipException.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/Warning.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/NeedEnvWarning.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/DirWarning.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameItem.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameTable.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/Test.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/TableComponent.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H1Component.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H2Component.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/WarningTable.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/GalgameTable1.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/WarningTable.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/GalgameTable1.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/ExceptionTable.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameItem.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameTable.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H1Component.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H2Component.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/TableComponent.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/package/Mapper.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/Warning.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/DirWarning.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/NeedEnvWarning.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/Exception.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/UnzipException.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/RuntimeException.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data-driver/DataDriver.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/GalgameTable1.js" />
+        <option value="$PROJECT_DIR$/packages/Mapper.js" />
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/http-server.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data/Test.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data/WarningTable.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data/GalgameTable1.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data/ExceptionTable.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/model/GameItem.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/model/GameTable.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/modules/H1Component.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/modules/H2Component.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/modules/TableComponent.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/package/Mapper.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/warning/Warning.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/warning/DirWarning.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/warning/NeedEnvWarning.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/exception/Exception.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/exception/UnzipException.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/exception/RuntimeException.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/data-driver/DataDriver.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/异常文档/http-server.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/libs/Mapper.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/test.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/Command.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/Invoker.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/RectCommand.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/EllipseCommand.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/07Command/TriangleCommand.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/message/model/MessagePackage.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/package/Mapper.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/model/PeerInfo.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/TwoPeers.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/PeerManager.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/CallingManager.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/model/Message.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/ExceptionTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/http-server.js" />
+        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.jsx" />
+        <option value="$PROJECT_DIR$/Deno/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/Deno/04Modules/04import-maps.js" />
+        <option value="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/04ExtendableCookieChangeEvent/service-worker.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/react2/src/07类组件.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/DirWarning.js" />
+        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.js" />
+        <option value="$PROJECT_DIR$/react2/src/04脚本化inlineCSS.js" />
+        <option value="$PROJECT_DIR$/Deno/package/ProgressPrinter.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/WarningTable.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/UnzipException.js" />
+        <option value="$PROJECT_DIR$/react2/src/13-5父子关系子组件.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/Warning.js" />
+        <option value="$PROJECT_DIR$/所有课程/实训/VUE/day11/admin-demo/src/views/test/goods/goods-model.js" />
+        <option value="$PROJECT_DIR$/HTML/attributes/crossorigin.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H1Component.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/GalgameTable1.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/module/MessageManager.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/PeerManager.js" />
+        <option value="$PROJECT_DIR$/react2/src/09状态.js" />
+        <option value="$PROJECT_DIR$/所有课程/实训/VUE/day11/admin-demo/src/api/goods-api.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H2Component.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/13父子关系父组件.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.jsx" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/CallingManager.js" />
+        <option value="$PROJECT_DIR$/Deno/object/批量修改文件名.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/NeedEnvWarning.js" />
+        <option value="$PROJECT_DIR$/react2/src/09状态.jsx" />
+        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.jsx" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameTable.js" />
+        <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.js" />
+        <option value="$PROJECT_DIR$/packages/Toast.js" />
+        <option value="$PROJECT_DIR$/react2/src/03多条件渲染.js" />
+        <option value="$PROJECT_DIR$/Deno/API/Compression Streams API/CompressionStream/demo1.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/model/PeerInfo.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameItem.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data-driver/DataDriver.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/075构造函数类组件.jsx" />
+        <option value="$PROJECT_DIR$/Deno/object/日志软件.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/Exception.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/Test.js" />
+        <option value="$PROJECT_DIR$/react2/src/05用className脚本化CSS.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/routes/ejs.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/TableComponent.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/LoadTemplate.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/Test.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/WarningTable.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/GalgameTable1.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/ExceptionTable.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameItem.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameTable.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H1Component.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H2Component.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/TableComponent.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/package/Mapper.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/Warning.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/DirWarning.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/NeedEnvWarning.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/Exception.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/UnzipException.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/ExceptionTable.js" />
+        <option value="$PROJECT_DIR$/react2/src/13父子关系父组件.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/RuntimeException.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/RuntimeException.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/model/Message.js" />
+        <option value="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/09状态.jsx" />
+        <option value="$PROJECT_DIR$/Deno/object/书法网站爬虫.js" />
+        <option value="$PROJECT_DIR$/react2/src/02条件渲染.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/13-5父子关系子组件.js" />
+        <option value="$PROJECT_DIR$/所有课程/设计模式/expressTest/main.js" />
+        <option value="$PROJECT_DIR$/Deno/06DataBase/test.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/WarningTable.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H2Component.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H1Component.js" />
+        <option value="$PROJECT_DIR$/packages/zh-converse.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/TableComponent.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/DirWarning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameItem.js" />
+        <option value="$PROJECT_DIR$/packages/Toast2.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/message/model/MessagePackage.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/TwoPeers.js" />
+        <option value="$PROJECT_DIR$/Deno/06DataBase/01MySQL-MariaDB.js" />
+        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/Exception.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/Warning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data-driver/DataDriver.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/http-server.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/UnzipException.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/12 Exhaustiveness checking.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/11 never type.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/3 Equality narrowing.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/2 Truthiness narrowing.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/4 in operator.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/1 typeof.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/8 Using type predicates.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/10 Discriminated unions.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/9 Assertion functions.js" />
       </list>
     </option>
   </component>

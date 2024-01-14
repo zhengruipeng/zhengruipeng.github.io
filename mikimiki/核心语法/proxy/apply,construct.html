@@ -6,28 +6,28 @@
 </head>
 <body>
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function () {
-        let func = function (a,b){
-            return a+b;
+    document.addEventListener("DOMContentLoaded", function () {
+        let func = function (a, b) {
+            return a + b;
         };
-        let c = function (a){
+        let c = function (a) {
             this.a = a;
         };
         let handler = {
-            apply:function (target,context,argumentsList){//context上下文对象，argumentsList是参数列表类型是数组对象
-                console.log("apply",target,context,argumentsList);
+            apply: function (target, context, argumentsList) {//context上下文对象，argumentsList是参数列表类型是数组对象
+                console.log("apply", target, context, argumentsList);
                 return target(...argumentsList);
             },
-            construct:function (target,args){
-                console.log("Construct",target,args);
+            construct: function (target, args) {
+                console.log("Construct", target, args);
                 return new target(...args);
             },
         };
-        let p = new Proxy(func,handler);
-        console.log(p.call(document,1,2));
-        let p2 =  new Proxy(c,handler);
+        let p = new Proxy(func, handler);
+        console.log(p.call(document, 1, 2));
+        let p2 = new Proxy(c, handler);
         console.log(new p2(31).a);
     })
-    </script>
+</script>
 </body>
 </html>

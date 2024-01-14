@@ -46,7 +46,7 @@ class ArtPage extends Object {
         headers.append("Cookie", "ASPSESSIONIDQWQRTBCS=GAKECIPBOFGLGEHBOCOEHDJG; ASPSESSIONIDSSVQSBDT=HGKECIPBNIEIEHHHGNGHECNC; ASPSESSIONIDQWTRSADS=DNCFCIPBGPLCOILIBAMIIFBA; ASPSESSIONIDSWSRTBCS=EKNCDIPBOHHNDGCNEGCNDDCJ; ASPSESSIONIDQWRQTACT=EBLECIPBLKKMFADPACDEDBDN; ASPSESSIONIDQSVTQACT=FCLECIPBJGNOJDGHKELJGLDH");
         headers.append("Connection", "keep-alive");
         headers.append("Host", "www.yac8.com");
-        headers.append("Referer", "https://www.yac8.com/news/?list_refer-theme-%u8463%u5176%u660C.html");
+        // headers.append("Referer", "https://www.yac8.com/news/?list_refer-theme-%u8463%u5176%u660C.html");
 
         return headers;
     }
@@ -112,8 +112,16 @@ class ArtPage extends Object {
         const document: Document = new DOMParser().parseFromString(html, 'text/html');
         const divs: Element[] = Array.from(document.querySelectorAll("table.pageNavBox td div"));
 
-        this.pageNum = divs.length - 2 > 0 ? divs.length - 2 : 1;
+        // this.pageNum = divs.length - 2 > 0 ? divs.length - 2 : 1;
 
+        divs.forEach(div => {
+            let pageNum = div.innerText - 0;
+            if(pageNum !== pageNum)return false;
+
+            this.pageNum = Math.max(this.pageNum,pageNum);
+        })
+
+        console.log(this.pageNum);
         return this.pageNum;
     }
 
@@ -176,7 +184,7 @@ class SearchPage extends Object {
     }
 }
 
-const searchPage: SearchPage = new SearchPage(`http://www.yac8.com/news/?list_refer-theme-%u8463%u9999%u5149`, 1);
+const searchPage: SearchPage = new SearchPage(`http://www.yac8.com/news/?list_refer-theme-%B6%AD%C6%E4%B2%FD`, 2);
 logOperation(`${"-".repeat(10)}所有搜索页面的url${"-".repeat(10)}`)
 logOperation(searchPage.urls.join(",\n"));
 
@@ -210,6 +218,7 @@ logOperation(searchPage.urls.join(",\n"));
             logOperation(`${"-".repeat(10)}pageId=${artPageId}${"-".repeat(10)}`);
             const artPage: ArtPage = new ArtPage(artPageId);
             await artPage.getPageNum();
+            debugger;
             artPage.initUrls();
 
             logOperation(`共${artPage.pageNum}页`);
@@ -237,6 +246,8 @@ logOperation(searchPage.urls.join(",\n"));
 })();
 
 /*
+bug1：
+在获取文章页数的时候如果多于10篇会只获取10片，不应该按照元素数量计算
 切记再打开此软件时必须关闭vpn
 deno run --allow-net --allow-write 多页书法网站爬虫.ts
 * */

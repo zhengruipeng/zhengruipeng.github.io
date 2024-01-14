@@ -41,7 +41,8 @@
         out vec4 v_ambient;
         out mat4 v_trans;
     float getY(float x,float z){
-        return sqrt(1.0-x*x-z*z);
+
+        return z*x;
     }
     void main(){
         vec4 position = vec4(a_position.x,getY(a_position.x,a_position.z),a_position.z,1);

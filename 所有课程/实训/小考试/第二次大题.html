@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            min-width: 900px;
+            border: red solid 1px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", async function () {
+        let removeRepeatItems = function (arr) {
+            let set = new Set(arr);
+            return [...set];
+        };
+
+        console.log(removeRepeatItems([1, 1, 2, 3]));
+
+
+        let bubbleSort = function (arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                let ordered = true;
+                for (let j = 0; j < i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                        ordered = false;
+                    }
+                }
+                if (ordered) break;
+            }
+            return arr;
+        };
+
+        console.log(bubbleSort([2, 3, 5, 4, 1]));
+
+
+        let binarySearch = function (arr, val) {
+            let min = 0;
+            let max = arr.length;
+
+            while (min < max) {
+                let index = Math.floor((min + max) / 2);
+                let c = arr[index]
+
+                if (c === val) return index;
+                else if (c < val) min = index;
+                else max = index;
+            }
+            return -1;
+        };
+        console.log(binarySearch(bubbleSort([2, 3, 5, 4, 1]), 3));
+
+        window.onclick = function () {
+            console.log(window)
+        }
+    });
+</script>
+</body>
+</html>

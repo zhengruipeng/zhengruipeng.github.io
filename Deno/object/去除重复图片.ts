@@ -47,7 +47,7 @@ async function deduplicateImages(folderPath: string) {
 }
 
 // 选择文件夹路径
-const folderPath: string | null = "D:\\zhengruipeng.github.io\\Deno\\object\\download";
+const folderPath: string | null = "D:\\zhengruipeng.github.io\\Deno\\object\\董其昌行楷书作欣赏《勤政励学箴》";
 
 if (folderPath && existsSync(folderPath)) {
     deduplicateImages(folderPath);
@@ -57,5 +57,5 @@ if (folderPath && existsSync(folderPath)) {
 
 
 /*
-* deno run --allow-read --allow-write 去除重复图片.ts
+deno run --allow-read --allow-write 去除重复图片.ts
 * */
