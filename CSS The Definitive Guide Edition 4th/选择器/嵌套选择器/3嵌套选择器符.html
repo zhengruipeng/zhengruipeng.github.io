@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .parentRule {
+            /* parent rule style properties */
+
+            .childRule & &{
+                /* child rule style properties */
+                color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="parentRule">12
+    <div class="childRule">34
+        <div class="parentRule">56
+            <span class="parentRule">78</span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+    })
+</script>
+</body>
+</html>

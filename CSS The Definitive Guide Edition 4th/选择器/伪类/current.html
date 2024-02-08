@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        video {
+            height: 400px;
+        }
+
+        :current(trace, p, span) {
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<video controls preload="metadata">
+    <!--    <source src="../../shining%20future.mp4" type="video/mp4"/>-->
+    <source src="../../shining%20future.mp4" type="video/mp4"/>
+    <track
+            label="English"
+            kind="subtitles"
+            srclang="en"
+            src="current-titles.vtt"
+            default/>
+</video>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+    })
+</script>
+</body>
+</html>

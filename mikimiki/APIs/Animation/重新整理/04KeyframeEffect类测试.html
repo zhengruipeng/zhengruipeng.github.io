@@ -34,14 +34,13 @@
             duration: 5000,
             direction: ["normal", "reverse", "alternate", "alternate-reverse"],
             easing: ["linear", "ease-in", "step-end", "cubic-bezier(0.42, 0, 0.58, 1)", "custom-cubic-bezier"],
-            composite: ['replace', "add", "accumulate"],
+            composite: ["replace", "add", "accumulate"],
             iterationComposite: ["accumulate", "replace"],
         };
 
 
         let parser = new JSONParser(options);
-        parser.import("../../../../packages/table-default-style.css")
-        parser.initTable();
+        parser.defaultInit();
         parser.onJsonChange = function (ev) {
             options = this.toJSON();
             console.log(options);

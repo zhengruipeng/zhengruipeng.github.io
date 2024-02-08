@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20230926">
+    <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20240208">
       <change afterPath="$PROJECT_DIR$/.cache/jb/UpdateWork.dat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.cache/jb/version.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/DecompressionStream/demo2.js" afterDir="false" />
@@ -128,6 +128,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;14.17.3&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;14.17.34&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/zhengruipeng.github.io&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -212,7 +213,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14015.96" />
       </set>
     </attachedChunks>
   </component>
@@ -962,6 +963,12 @@
       <workItem from="1704772237735" duration="6146000" />
       <workItem from="1704780534999" duration="14000" />
       <workItem from="1704881021249" duration="2617000" />
+      <workItem from="1705213805569" duration="4435000" />
+      <workItem from="1707135345691" duration="2539000" />
+      <workItem from="1707140908711" duration="627000" />
+      <workItem from="1707371107419" duration="9000" />
+      <workItem from="1707380064149" duration="629000" />
+      <workItem from="1707391300150" duration="686000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>
@@ -1306,26 +1313,44 @@
       <option name="project" value="LOCAL" />
       <updated>1684998352034</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/message/model/MessagePackage.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameTable.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/TwoPeers.js" />
+        <option value="$PROJECT_DIR$/Deno/06DataBase/01MySQL-MariaDB.js" />
+        <option value="$PROJECT_DIR$/所有课程/实训/VUE/day11/admin-demo/src/views/test/goods/goods-model.js" />
+        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/Exception.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/Warning.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/GalgameTable1.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/package/Mapper.js" />
+        <option value="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.js" />
+        <option value="$PROJECT_DIR$/react2/src/09状态.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data-driver/DataDriver.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/UnzipException.js" />
+        <option value="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.jsx" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/CallingManager.js" />
+        <option value="$PROJECT_DIR$/Deno/object/批量修改文件名.js" />
+        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/NeedEnvWarning.js" />
+        <option value="$PROJECT_DIR$/react2/src/09状态.jsx" />
+        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.jsx" />
         <option value="$PROJECT_DIR$/react2/src/06函数组件.js" />
         <option value="$PROJECT_DIR$/Deno/01First Step/04http-server.js" />
         <option value="$PROJECT_DIR$/Deno/06DataBase/02MongoDB.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/GalgameTable1.js" />
-        <option value="$PROJECT_DIR$/packages/Mapper.js" />
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/http-server.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/ExceptionTable.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/http-server.js" />
         <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.jsx" />
-        <option value="$PROJECT_DIR$/Deno/package/Mapper.js" />
         <option value="$PROJECT_DIR$/Deno/04Modules/04import-maps.js" />
         <option value="$PROJECT_DIR$/mikimiki/APIs/Cookie Store API/04ExtendableCookieChangeEvent/service-worker.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/package/Mapper.js" />
         <option value="$PROJECT_DIR$/react2/src/07类组件.js" />
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/DirWarning.js" />
         <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.js" />
@@ -1335,22 +1360,13 @@
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/UnzipException.js" />
         <option value="$PROJECT_DIR$/react2/src/13-5父子关系子组件.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/Warning.js" />
-        <option value="$PROJECT_DIR$/所有课程/实训/VUE/day11/admin-demo/src/views/test/goods/goods-model.js" />
         <option value="$PROJECT_DIR$/HTML/attributes/crossorigin.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H1Component.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/GalgameTable1.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/module/MessageManager.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/PeerManager.js" />
-        <option value="$PROJECT_DIR$/react2/src/09状态.js" />
         <option value="$PROJECT_DIR$/所有课程/实训/VUE/day11/admin-demo/src/api/goods-api.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/H2Component.js" />
         <option value="$PROJECT_DIR$/react/test/react-test/src/13父子关系父组件.js" />
-        <option value="$PROJECT_DIR$/react/test/react-test/src/08组件事件绑定.jsx" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/CallingManager.js" />
-        <option value="$PROJECT_DIR$/Deno/object/批量修改文件名.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/NeedEnvWarning.js" />
-        <option value="$PROJECT_DIR$/react2/src/09状态.jsx" />
-        <option value="$PROJECT_DIR$/react2/src/075构造函数类组件.jsx" />
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/model/GameTable.js" />
         <option value="$PROJECT_DIR$/react2/src/08组件事件绑定.js" />
         <option value="$PROJECT_DIR$/packages/Toast.js" />
@@ -1371,7 +1387,9 @@
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/NeedEnvWarning.js" />
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/data/ExceptionTable.js" />
         <option value="$PROJECT_DIR$/react2/src/13父子关系父组件.js" />
+        <option value="$PROJECT_DIR$/packages/Mapper.js" />
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/exception/RuntimeException.js" />
+        <option value="$PROJECT_DIR$/Deno/package/Mapper.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/RuntimeException.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/frontEnd/js/message/model/Message.js" />
         <option value="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.js" />
@@ -1384,32 +1402,12 @@
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data/WarningTable.js" />
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H2Component.js" />
         <option value="$PROJECT_DIR$/object/galgame文档/异常文档/modules/H1Component.js" />
+        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/package/Mapper.js" />
         <option value="$PROJECT_DIR$/packages/zh-converse.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/modules/TableComponent.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/DirWarning.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameItem.js" />
         <option value="$PROJECT_DIR$/packages/Toast2.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/message/model/MessagePackage.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameTable.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/Peer2peerService/TwoPeers.js" />
-        <option value="$PROJECT_DIR$/Deno/06DataBase/01MySQL-MariaDB.js" />
-        <option value="$PROJECT_DIR$/mikimiki/核心语法/Generator相关/async function/2.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/Exception.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/warning/Warning.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/软件工程小学期/backEnd/package/Mapper.js" />
-        <option value="$PROJECT_DIR$/object/galgame文档/异常文档/package/Mapper.js" />
-        <option value="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/data-driver/DataDriver.js" />
-        <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/exception/UnzipException.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/12 Exhaustiveness checking.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/11 never type.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/3 Equality narrowing.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/2 Truthiness narrowing.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/4 in operator.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/1 typeof.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/8 Using type predicates.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/10 Discriminated unions.js" />
-        <option value="$PROJECT_DIR$/typescript/document demo/Narrowing/9 Assertion functions.js" />
       </list>
     </option>
   </component>
@@ -1425,8 +1423,18 @@
     <option featureType="dependencySupport" implementationName="javascript:npm:postcss" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="9a5597ff-5749-473c-8d4f-999d3b3d2092" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="9a5597ff-5749-473c-8d4f-999d3b3d2092">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -1439,8 +1447,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="202302102" />
-    <MESSAGE value="20230214" />
     <MESSAGE value="202302142" />
     <MESSAGE value="202302143" />
     <MESSAGE value="20230223" />
@@ -1464,7 +1470,9 @@
     <MESSAGE value="20230814" />
     <MESSAGE value="20230826" />
     <MESSAGE value="20230926" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230926" />
+    <MESSAGE value="20240114" />
+    <MESSAGE value="20240208" />
+    <option name="LAST_COMMIT_MESSAGE" value="20240208" />
   </component>
   <component name="WordPressConfiguration" doNotAskAgain="true" />
   <component name="XSLT-Support.FileAssociations.UIState">

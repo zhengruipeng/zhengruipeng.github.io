@@ -9,14 +9,15 @@
         :defined {
             font-style: italic;
         }
+
         simple-custom:not(:defined),
-        p:not(:defined){
-            color:purple !important;
+        p:not(:defined) {
+            color: purple !important;
         }
 
         simple-custom:defined {
             display: block;
-            color:blue !important;
+            color: blue !important;
         }
 
     </style>
@@ -24,23 +25,26 @@
 <body>
 <simple-custom text="test1">1234</simple-custom>
 <p>test1</p>
+<simple-unregister>unregister</simple-unregister>
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function (){
-        customElements.define("simple-custom",class extends HTMLElement{
+    document.addEventListener("DOMContentLoaded", function () {
+        customElements.define("simple-custom", class extends HTMLElement {
             htmlStyle = {
-                color:"red",
-                "font-size":CSS.em(2),
+                color: "red",
+                "font-size": CSS.em(2),
             };
-            setStyle(ele){
-                for(let name in this.htmlStyle){
-                    if(!this.htmlStyle.hasOwnProperty(name))continue;
-                    ele.attributeStyleMap.set(name,this.htmlStyle[name]);
+
+            setStyle(ele) {
+                for (let name in this.htmlStyle) {
+                    if (!this.htmlStyle.hasOwnProperty(name)) continue;
+                    ele.attributeStyleMap.set(name, this.htmlStyle[name]);
                 }
             }
-            constructor(){
+
+            constructor() {
                 super();
                 const div = document.createElement("div");
-                const shadowRoot = div.attachShadow({mode:"open"});
+                const shadowRoot = div.attachShadow({mode: "open"});
 
                 const text = document.createTextNode(this.getAttribute("text"));
                 const p = document.createElement("p");

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        :is(h1, input:-moz-placeholder, h3) {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<!--
+解决无效选择器列表问题的一种方法是使用:is ()或:where ()伪类，
+它们接受一个宽容的选择器列表。
+宽容选择器列表中的每个选择器都是单独解析的。
+所以列表中的任何无效选择器都会被忽略，
+而有效的选择器会被使用。
+-->
+<h1>title</h1>
+<h3>title</h3>
+<label>
+    <input type="text" placeholder="123123" />
+</label>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+    })
+</script>
+</body>
+</html>

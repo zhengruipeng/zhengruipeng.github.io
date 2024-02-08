@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 1em;
+        }
+
+        *:disabled {
+            background-color: dimgrey;
+            color: linen;
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text"/>
+
+    <label for="emp">Employed:</label>
+    <select id="emp" name="emp" disabled>
+        <option>No</option>
+        <option>Yes</option>
+    </select>
+
+    <label for="empDate">Employment Date:</label>
+    <input id="empDate" name="empDate" type="date" disabled/>
+
+    <label for="resume">Resume:</label>
+    <input id="resume" name="resume" type="file"/>
+</form>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+    })
+</script>
+</body>
+</html>

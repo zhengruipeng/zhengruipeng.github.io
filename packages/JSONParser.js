@@ -478,10 +478,15 @@ let JSONParser = class extends EventTarget {
             
             `;
 
-        let stylesheet = new CSSStyleSheet();
+        // let stylesheet = new CSSStyleSheet();
+        //
+        // stylesheet.replaceSync(cssText);
+        // document.adoptedStyleSheets = [...document.adoptedStyleSheets, stylesheet];
+        // console.log(document.adoptedStyleSheets)
+        let stylesheet = document.createElement("style");
+        stylesheet.innerHTML = cssText;
+        document.head.appendChild(stylesheet);
 
-        stylesheet.replaceSync(cssText);
-        document.adoptedStyleSheets = [stylesheet];
     }
 
     render(container = document.body) {

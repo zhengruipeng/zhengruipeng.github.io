@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 
 <button id="camera">打开屏幕共享</button>
+<button id="screen-shortcut">截图</button>
+<canvas height="650" width="1250" id="pic-container"></canvas>
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         const openCamera = this.getElementById("camera");
-        openCamera.onclick = function (){
-            navigator.mediaDevices.getDisplayMedia({audio:true,video:true}).then(mediaStream => {
+        const canvas = this.getElementById("pic-container");
+        const screen = this.getElementById("screen-shortcut");
+        openCamera.onclick = function () {
+            navigator.mediaDevices.getDisplayMedia({audio: true, video: true}).then(mediaStream => {
                 const video = document.createElement("video");
+                video.id = "video";
                 video.srcObject = mediaStream;
                 video.autoplay = true;
                 video.playsInline = true;
 
                 document.body.appendChild(video);
             })
+        };
+
+        screen.onclick = function () {
+            let camera = document.getElementById("video");
+            let c = canvas.getContext("2d");
+            c.drawImage(camera, 0, 0, 650, 1250);
         }
     })
 </script>

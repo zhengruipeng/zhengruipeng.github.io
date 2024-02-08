@@ -20,11 +20,30 @@
     </style>
 </head>
 <body>
+<!--
+:focus 伪类表示当前获得焦点的元素，
+而 :focus-visible 伪类表示当前获得焦点的元素，
+但只有在用户需要知道焦点位置时才匹配。
+
+如下案例，如果您依次单击每个元素，
+您会发现当使用 :focus 伪类来设置焦点环时，
+当用户单击按钮时，UA(用户代理) 会绘制焦点环。
+但是，当使用 :focus-visible 来设置焦点环时，
+UA 不会在用户单击按钮时绘制焦点环，就像默认情况下一样。
+
+然后，如果您通过键盘遍历每个元素，
+您会发现在所有三种情况下（默认、:focus 和 :focus-visible），
+当用户使用键盘导航到按钮时，UA 会在按钮周围绘制焦点环。
+
+这说明了 :focus-visible 如何使设计师能够遵循浏览器的逻辑，确定何时应该显示焦点环。
+-->
 <button>可以尝试用tab聚焦</button>
 <input value="Default styles"><br>
-<button>Default styles</button><br>
+<button>Default styles</button>
+<br>
 <input class="focus-only" value=":focus only"><br>
-<button class="focus-only">:focus only</button><br>
+<button class="focus-only">:focus only</button>
+<br>
 <input class="focus-visible-only" value=":focus-visible only"><br>
 <button class="focus-visible-only">:focus-visible only</button>
 

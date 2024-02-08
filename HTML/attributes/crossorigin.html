@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+由来：
+<ul>
+    <li>&lt;audio crossorigin="" &gt;</li>
+</ul>
+声明此属性服务器会额外收到一个cookieHTTP请求头
+<audio src="http://localhost:8000/crossorigin/index" controls crossorigin="use-credentials" id="audio"></audio>
+<script type="module">
+    import {JSONParser} from "../../packages/JSONParser.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const ul = this.querySelector("ul");
+
+        const jsonParser = new JSONParser({
+            crossorigin: ["anonymous", "use-credentials"],
+        });
+        jsonParser.defaultInit();
+        jsonParser.onjsonchange = function (){
+            const audio = document.getElementById("audio");
+            audio.parentElement.removeChild(audio);
+
+            let {crossorigin} = this.toJSON();
+
+            ul.insertAdjacentHTML("afterend",
+                `<audio src="http://localhost:8000/crossorigin/index" controls crossorigin="${crossorigin}" id='audio'></audio>
+            `);
+        };
+    });
+</script>
+</body>
+</html>

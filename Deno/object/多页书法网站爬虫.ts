@@ -115,7 +115,7 @@ class ArtPage extends Object {
         // this.pageNum = divs.length - 2 > 0 ? divs.length - 2 : 1;
 
         divs.forEach(div => {
-            let pageNum = div.innerText - 0;
+            let pageNum = Number.parseFloat((div as HTMLElement).innerText);
             if(pageNum !== pageNum)return false;
 
             this.pageNum = Math.max(this.pageNum,pageNum);
@@ -184,7 +184,7 @@ class SearchPage extends Object {
     }
 }
 
-const searchPage: SearchPage = new SearchPage(`http://www.yac8.com/news/?list_refer-theme-%B6%AD%C6%E4%B2%FD`, 2);
+const searchPage: SearchPage = new SearchPage(`http://www.yac8.com/news/?list_refer-theme-%D5%D4%C3%CF%EE%5C`, 2);
 logOperation(`${"-".repeat(10)}所有搜索页面的url${"-".repeat(10)}`)
 logOperation(searchPage.urls.join(",\n"));
 

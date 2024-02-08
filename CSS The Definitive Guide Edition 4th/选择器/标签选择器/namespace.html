@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @namespace svg url(http://www.w3.org/2000/svg);
+        svg|text {
+            fill: blue;
+        }
+    </style>
+</head>
+<body>
+<svg height="170" width="200" xmlns="http://www.w3.org/2000/svg">
+    <title>cat</title>
+    <circle cx="70" cy="90" r="50" style="stroke:#000;fill:none" />
+    <circle cx="55" cy="80" r="5" style="stroke:#000;fill:#9933cc" />
+    <circle cx="85" cy="80" r="5" style="stroke:#000;fill:#9933cc" />
+    <g id="group1">
+        <line x1="75" y1="95" x2="135" y2="85" style="stroke:black"/>
+        <line x1="75" y1="95" x2="135" y2="105" style="stroke:black"/>
+    </g>
+    <g id="group2">
+        <line x1="65" y1="95" x2="5" y2="85" style="stroke:black"/>
+        <line x1="65" y1="95" x2="5" y2="105" style="stroke:black"/>
+    </g>
+    <polyline points="108 62,90 10,70 45,50,10,32,62" style="stroke:#000;fill:none"/>
+    <polyline points="35 110,45 120,95 120,105,110" style="stroke:#000;fill:none"/>
+
+    <path d="M 75 90 L 65 90 A 5 10 0 0 0 75 90" style="fill:#9933cc;"/>
+    <text x="60" y="165">cat</text>
+
+</svg>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+    })
+</script>
+</body>
+</html>

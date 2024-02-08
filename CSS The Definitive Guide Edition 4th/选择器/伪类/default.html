@@ -3,32 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <style>
-    label,
-    input[type='submit'] {
-      display: block;
-      margin-top: 1em;
-    }
+    <style>
+        label,
+        input,p
+        select {
+            display: block;
+            margin-top: 1em;
+        }
 
-    input:default {
-      border: none;
-      outline: 2px solid deeppink;
-    }
+        input:default,
+        option:default {
+            border: none;
+            outline: 2px solid deeppink;
+        }
 
-  </style>
+    </style>
 </head>
 <body>
 <form>
-  <p>How did you find out about us?</p>
-  <label><input name="origin" type="radio" value="google" checked> Google</label>
-  <label><input name="origin" type="radio" value="facebook"> Facebook</label>
-  <p>Please agree to our terms:</p>
+    <p>How did you find out about us?</p>
+    <label><input name="origin" type="radio" value="google" checked> Google</label>
+    <label><input name="origin" type="radio" value="facebook"> Facebook</label>
 
-  <label><input name="newsletter" type="checkbox" checked> I want to subscribe to a personalized newsletter.</label>
+    <p>Please agree to our terms:</p>
+    <label><input name="newsletter" type="checkbox" checked> I want to subscribe to a personalized newsletter.</label>
+    <label><input name="privacy" type="checkbox"> I have read and I agree to the Privacy Policy.</label>
 
-  <label><input name="privacy" type="checkbox"> I have read and I agree to the Privacy Policy.</label>
+    <p>The method of contact you:</p>
+    <label>
+        <select name="method">
+            <option selected>email</option>
+            <option>tel</option>
+        </select>
+    </label>
 
-  <input type="submit" value="Submit form">
+    <p>Other question:</p>
+    <label>
+        <select name="question" multiple>
+            <option selected>good</option>
+            <option selected>perfect</option>
+        </select>
+    </label>
+
+    <input type="button" value="Submit form">
+    <input type="submit" value="Submit form">
+    <input type="submit" value="Submit form2">
 </form>
 
 </body>

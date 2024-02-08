@@ -4,37 +4,54 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        div{
-            --main-color:#639;
-            padding:10px 20px;
+        div {
+            --main-color: #639;
+            padding: 10px 20px;
             border-radius: 10px;
-            border:#fff solid 1px;
-            box-shadow:
-                    -2px -2px 2px #daf,
-                    2px 2px 2px var(--main-color),
-                    2px -2px 2px #96b,
-                    -2px 2px 2px #96b;
-            color:var(--main-color);
-            float:left;
-            margin:20px;
+            border: #fff solid 1px;
+            box-shadow: -2px -2px 2px #daf,
+            2px 2px 2px var(--main-color),
+            2px -2px 2px #96b,
+            -2px 2px 2px #96b;
+            color: var(--main-color);
+            float: left;
+            margin: 20px;
             transition: all .3s;
         }
-        </style>
+    </style>
     <style>
-        div:nth-of-type(1):active{
+        div:nth-of-type(1):active {
             background-color: #853;
         }
-        :any-link{
-            color:red;
+
+        :any-link {
+            color: red;
         }
-        input:-webkit-autofill{
-            background-color: red;
+
+        input:-webkit-autofill {
+            border: 3px solid darkorange;
         }
+
+        /*input::placeholder {*/
+        /*    color: red;*/
+        /*}*/
+
     </style>
 </head>
 <body>
 <div>active</div>
 <div>any-link<a href="active,any-link,autofill.html">link</a></div>
-<div>autofill<input type="text" autocomplete="123" /></div>
+<div>autofill↓</div>
+<!--
+autocomplete只有特定的属性值的时候才好使，例如name,username,email
+用户一次输入过后，再输入时会出现下拉列表，
+选择即可触发autofill
+-->
+<form action="./active,any-link,autofill.html">
+    <input type="text" autocomplete="name" name="name" />
+    <input type="email" autocomplete="email" name="email" />
+
+    <input type="submit"/>
+</form>
 </body>
 </html>

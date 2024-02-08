@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    a {
+        color: blue;
+    }
+
+    /* Internal links, beginning with "#" */
+    a[href^="#"] {
+        background-color: gold;
+    }
+
+    /* Links with "example" anywhere in the URL */
+    a[href*="example"] {
+        background-color: silver;
+    }
+
+    /* Links with "insensitive" anywhere in the URL,
+       regardless of capitalization */
+    a[href*="insensitive" i] {
+        color: cyan;
+    }
+
+    /* Links with "cAsE" anywhere in the URL,
+    with matching capitalization */
+    a[href*="cAsE" s]  {
+        color: purple;
+    }
+
+    /* Links that end in ".org" */
+    a[href$=".org"] {
+        color: red;
+    }
+
+    /* Links that start with "https://" and end in ".org" */
+    a[href^="https://"][href$=".org"] {
+        color: green;
+    }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#internal">Internal link</a></li>
+    <li><a href="http://example.com">Example link</a></li>
+    <li><a href="#InSensitive">Insensitive internal link</a></li>
+    <li><a href="#case">Case link</a></li>
+    <li><a href="http://example.org">Example org link</a></li>
+    <li><a href="https://example.org">Example https org link</a></li>
+</ul>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+    })
+</script>
+</body>
+</html>

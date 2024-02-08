@@ -1,0 +1,10 @@
+import { GameTable } from "../model/GameTable.js";
+import { GameItem } from "../model/GameItem.js";
+import { NeedEnvWarning } from "../warning/NeedEnvWarning.js";
+import { DirWarning } from "../warning/DirWarning.js";
+let tableItems = [];
+tableItems.push(new GameItem(new NeedEnvWarning.NeedInstall().info, new NeedEnvWarning.NeedInstall()));
+tableItems.push(new GameItem(new NeedEnvWarning.NeedSimulator().info, new NeedEnvWarning.NeedSimulator()));
+tableItems.push(new GameItem(new DirWarning.EngDir().info, new DirWarning.EngDir()));
+let warningTable = new GameTable("警告", tableItems);
+export { warningTable };

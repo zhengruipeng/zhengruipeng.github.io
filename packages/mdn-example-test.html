@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div is="mdn-example" id="fir">
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+    <p>1234</p>
+    <script type="text/jsx">
+        (function () {
+            const fir = document.querySelector("#fir");
+            const p = fir.querySelector("p");
+            p.onclick = function () {
+                console.log(123);
+            }
+        })();
+    </script>
+</div>
+<script type="module">
+    import {MDNExample} from "./MDNExample.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+    });
+</script>
+</body>
+</html>

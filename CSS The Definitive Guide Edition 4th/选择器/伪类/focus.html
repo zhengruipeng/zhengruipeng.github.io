@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 1em;
+        }
+
+        input:focus {
+            background-color: lightblue;
+        }
+
+        select:focus {
+            background-color: ivory;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    <p>Which flavor would you like to order?</p>
+    <label>Full Name: <input name="firstName" type="text"/></label>
+    <label
+    >Flavor:
+        <select name="flavor">
+            <option>Cherry</option>
+            <option>Green Tea</option>
+            <option>Moose Tracks</option>
+            <option>Mint Chip</option>
+        </select>
+    </label>
+</form>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+    })
+</script>
+</body>
+</html>

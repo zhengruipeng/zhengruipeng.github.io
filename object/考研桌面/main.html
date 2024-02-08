@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+
+            transition: .1s;
+            transform-origin: center center;
+
+            user-select: none;
+        }
+
+        time {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+
+            font-family: 微软雅黑, "Kristen ITC", serif;
+            font-weight: 300;
+            font-size: 1.3em;
+
+            transition: .3s;
+            z-index: 2;
+            cursor: pointer;
+            color: #F1AAD8;
+            user-select: none;
+        }
+
+        time:hover {
+        }
+    </style>
+</head>
+<body>
+<time>距离<span id="year-last">24</span>年考研还有 <span id="day-last">1</span> 天</time>
+<script type="text/javascript" src="modules/SlideShow.js"></script>
+<script type="text/javascript" src="modules/image-show.js"></script>
+<script type="text/javascript" src="modules/bg-flowers.js"></script>
+<script type="text/javascript" src="modules/image-move.js"></script>
+<script type="text/javascript" src="modules/day-calc.js"></script>
+</body>
+</html>
