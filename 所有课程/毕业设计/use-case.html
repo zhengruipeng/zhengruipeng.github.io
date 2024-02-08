@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<body>
+
+<script type="text/javascript">
+    import {Lynette} from "./libs/Lynette.js"
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let canvas = new Lynette.Canvas();
+
+        let rect = new Lynette.Rect();
+        rect.x = 0;
+        rect.y = 0;
+        rect.height = 100;
+        rect.width = 100;
+
+        rect.transform = new DOMMatrix();
+        rect.fillType = Lynette.GRAPHIC_FILL;
+        rect.content = "content";
+        rect.backgroundColor = Lynette.Color.RED;
+        new Lynette.Color.Rgb();
+        rect.color = Lynette.Gradient.Linear()
+        canvas.append(rect);
+
+        let imageData = new Lynette.ImageData();
+
+        rect.onclick = function () {};
+        rect.addEventListener("click", function () {});
+
+        canvas.onbeforerender = function (){};
+        canvas.onafterrender = function (){};
+        canvas.onredraw = function (){};
+        rect.onbeforedraw = function (){};
+        rect.onafterdraw = function (){};
+        rect.ondraw = function (){};
+
+
+    })
+</script>
+</body>
+</html>
