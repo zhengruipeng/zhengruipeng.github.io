@@ -31,14 +31,14 @@ let getDirStructure = async function (dir: string, isLoop?: boolean = false): Ob
     return data;
 };
 
-let writeFile = async function (content, dir: string = "./20240113维护galgame目录结构快照.json") {
+let writeFile = async function (content, dir: string = "./杜野凛世动漫快照.json") {
     const encoder = new TextEncoder();
     const data = encoder.encode(content);
     await Deno.writeFile(dir, data);
 };
 
 (async function main(): void {
-    let data: Object = await getDirStructure("J:\\所有新的游戏")
+    let data: Object = await getDirStructure("H:\\アニメ")
 
     writeFile(JSON.stringify(data));
 })();

@@ -29,7 +29,11 @@ const handler = async (req: Request): Promise<Response> => {
     const paths: string = urlPattern.pathname;
     console.log(paths)
 
-    const path = `${Deno.cwd()}${paths}`; // 获取请求的文件路径
+    // const path = `${Deno.cwd()}${paths}`; // 获取请求的文件路径
+    // Copilot: decode the paths before reading the file
+    const decodedPaths = decodeURIComponent(paths);
+
+    const path = `${Deno.cwd()}${decodedPaths}`; // 获取请求的文件路径
 
     let file = null;
     try {
@@ -66,4 +70,5 @@ const command = new Deno.Command("start", {
 console.log("你可以通过http://localhost:8083/index.html访问文档");
 /*
 * deno run --allow-net --allow-run --allow-read http-server.ts
+* deno compile --allow-net --allow-run --allow-read http-server.ts
 * */

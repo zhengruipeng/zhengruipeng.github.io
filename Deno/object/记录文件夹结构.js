@@ -24,7 +24,7 @@ let getDirStructure = async function (dir, isLoop = false) {
     }
     return data;
 };
-let writeFile = async function (content, dir = "./20240113维护galgame目录结构快照.json") {
+let writeFile = async function (content, dir = "./樱木真乃动漫快照.json") {
     const encoder = new TextEncoder();
     const data = encoder.encode(content);
     await Deno.writeFile(dir, data);

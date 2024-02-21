@@ -1,0 +1,18 @@
+{
+  "name": "2-reference",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "reflect-metadata": "^0.2.1",
+    "tsc": "^2.0.4",
+    "typescript": "^5.3.3",
+    "yarn": "^1.22.21"
+  }
+}
