@@ -1,0 +1,2 @@
+// ---cut---
+const a = expr;
