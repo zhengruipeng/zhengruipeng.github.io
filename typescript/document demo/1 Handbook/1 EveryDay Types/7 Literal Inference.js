@@ -1,4 +1,5 @@
 let req = { url: "https://example.com", method: "GET" };
+//@ts-expect-error
 handleRequest(req.url, req.method);
 /*
 * 在上面的例子中req.method被推断为string，不是"GET"。
@@ -20,4 +21,5 @@ handleRequest(req.url, req.method);
 * */
 //您可以使用as const将整个对象转换为类型文字：
 req = { url: "https://example.com", method: "GET" };
+//@ts-expect-error
 handleRequest(req.url, req.method);

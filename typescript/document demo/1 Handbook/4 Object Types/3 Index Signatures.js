@@ -1,2 +1,2 @@
-var myArray = getReadOnlyStringArray();
+let myArray = getReadOnlyStringArray();
 //myArray[2] = "Mallory";

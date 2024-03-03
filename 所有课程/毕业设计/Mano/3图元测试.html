@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<body>
+
+<script type="module">
+    import {Mano} from "./Mano.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let mano = new Mano();
+
+        let graphics = new Mano.Graphic;
+        let rect = new Mano.Graphic.Rect(0, 0, 100, 100);
+        // graphics.appendChild(rect);
+
+        let roundrect = new Mano.Graphic.RoundRect(50, 50, 100, 100, 14);
+        roundrect.backgroundColor = new Mano.Color.RGBA(255, 0, 0);
+        // graphics.appendChild(roundrect);
+
+        let ellipse = new Mano.Graphic.Ellipse(100, 100, 50, 75, Math.PI / 4, 0, 2 * Math.PI);
+        ellipse.backgroundColor = new Mano.Color.RGBA(0, 255, 0);
+        // graphics.appendChild(ellipse);
+
+        let line = new Mano.Graphic.Line(100, 100, 50, 75);
+        line.backgroundColor = new Mano.Color.RGBA(0, 0, 255);
+        line.fillType = Mano.FILL_TYPE.GRAPHIC_STROKE;
+        // graphics.appendChild(line);
+
+        let arc = new Mano.Graphic.Arc(100, 75, 50, 0, 2 * Math.PI);
+        arc.backgroundColor = new Mano.Color.RGBA(255, 255, 0);
+        // graphics.appendChild(arc);
+
+        let arc2 = new Mano.Graphic.Arc2(200, 20, 200, 130, 50, 20, 40);
+        arc2.backgroundColor = new Mano.Color.RGBA(255, 0, 255);
+        arc2.fillType = Mano.FILL_TYPE.GRAPHIC_STROKE;
+        // graphics.appendChild(arc2);
+
+        let bezierCurve = new Mano.Graphic.BezierCurve(50, 20, 230, 30, 150, 80, 250, 100);
+        bezierCurve.backgroundColor = new Mano.Color.RGBA(0, 255, 255);
+        bezierCurve.fillType = Mano.FILL_TYPE.GRAPHIC_STROKE;
+        // graphics.appendChild(bezierCurve);
+
+        let text = new Mano.Graphic.Text("hello world", 20, 50, 100);
+        text.backgroundColor = new Mano.Color.RGBA(125, 255, 255);
+        // graphics.appendChild(text);
+
+        let g = new Mano.Graphic.Group();
+        g.appendChild(rect);
+        g.appendChild(ellipse);
+        graphics.appendChild(g);
+
+        mano.appendChild(graphics);
+
+        let canvas = new Mano.Canvas({
+            width: 500,
+            height: 500,
+            // clearColor:new Mano.Color.RGBA(),
+        });
+        mano.appendChild(canvas);
+        this.body.appendChild(mano);
+
+        // canvas.render();
+
+    })
+</script>
+</body>
+</html>

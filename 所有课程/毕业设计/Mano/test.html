@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<body>
+<script type="module">
+    import {Mano} from "./Mano.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let mano = new Mano();
+
+        let canvas = new Mano.Canvas({
+            width: 500,
+            height: 500,
+            clearColor: new Mano.Color.RGBA(255, 0, 0, .1)
+        });
+        mano.appendChild(canvas);
+
+        //GraphicBase调用方法触发事件令Canvas重绘
+        //触发事件还在思考如何通过graphic寻找Canvas
+
+        let graphics = new Mano.GraphicBase();
+        mano.appendChild(graphics)
+
+        let rect = new Mano.Graphic.Rect();
+        rect.x = 0;
+        rect.y = 0;
+        rect.height = 100;
+        rect.width = 100;
+        // rect.backgroundColor = new Mano.Color.RGBA(255, 0, 0,.1);
+        rect.fillType = Mano.FILL_TYPE.GRAPHIC_STROKE;
+
+        canvas.addEventListener("beforerender", function () {
+            console.log("beforerender");
+        });
+        canvas.addEventListener("render", function () {
+            console.log("render");
+        });
+        canvas.addEventListener("afterrender", function () {
+            console.log("afterrender");
+        });
+        rect.addEventListener("render", function () {
+            console.log("rect.render");
+        });
+        rect.addEventListener("afterrender", function () {
+            console.log("rect.afterrender");
+        });
+        graphics.appendChild(rect);
+        document.body.appendChild(mano);
+
+       /* setTimeout(function () {
+            graphics.removeChild(rect);
+        }, 1000);*/
+
+    })
+</script>
+</body>
+</html>

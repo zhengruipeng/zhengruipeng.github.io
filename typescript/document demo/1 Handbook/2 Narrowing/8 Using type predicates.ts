@@ -1,5 +1,6 @@
-type Fish = { swim: () => void };
-type Bird = { fly: () => void };
+type Animal = { name: string };
+type Fish = { swim: () => void } & Animal;
+type Bird = { fly: () => void } & Animal;
 
 function isFish(pet: Fish | Bird): pet is Fish {
     return (pet as Fish).swim !== undefined;

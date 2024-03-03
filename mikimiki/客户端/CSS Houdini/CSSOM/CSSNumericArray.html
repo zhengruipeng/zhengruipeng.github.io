@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-
+        div {
+            border: red solid 1px;
+        }
     </style>
 </head>
 <body>
-<div style="height:100px;z-index:1;width:max(100px,200px)"></div>
+<div style="height:100px;z-index:1;width:max(100px,200px);border-radius:10px 20px 30px 10px;"></div>
 <script type="module">
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         const div = this.querySelector("div");
         console.log(div.attributeStyleMap.get("height"));
         console.log(div.attributeStyleMap.get("width"));
         console.log(div.attributeStyleMap.get("z-index"));
+        console.log(div.attributeStyleMap.get("border-radius"));
     });
 </script>
 </body>

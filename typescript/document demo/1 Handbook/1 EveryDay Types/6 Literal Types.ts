@@ -5,6 +5,7 @@ function printText(s: string, alignment: "left" | "right" | "center") {
     // ...
 }
 printText("Hello, world", "left");
+//@ts-expect-error
 printText("G'day, mate", "centre");
 
 function compare(a: string, b: string): -1 | 0 | 1 {
@@ -19,4 +20,5 @@ function configure(x: Options | "auto") {
 }
 configure({ width: 100 });
 configure("auto");
+//@ts-expect-error
 configure("automatic");

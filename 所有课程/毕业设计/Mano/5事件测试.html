@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<body>
+
+<script type="module">
+    import {Mano} from "./Mano.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let mano = new Mano();
+        let canvas = new Mano.Canvas({
+            height: 500,
+            width: 500
+        });
+        mano.appendChild(canvas);
+
+        let graphics = new Mano.Graphic();
+        mano.appendChild(graphics);
+
+        this.body.appendChild(mano);
+
+        let rect = new Mano.Graphic.Rect(0, 0, 100, 100);
+        rect.fillType = Mano.FILL_TYPE.GRAPHIC_STROKE;
+        rect.textFormat = new Mano.TextFormat({
+            textAlign: "left",
+            textRendering: "optimizeLegibility",
+            wordSpacing: CSS.px(20),
+            letterSpacing: CSS.px(10),
+            direction: "rtl",
+            // textBaseline:"hanging"
+        })
+        rect.textShadow = new Mano.Shadow({
+            blur: 3,
+            color: new Mano.Color.RGBA(255, 0, 0),
+            offsetX: 10,
+            offsetY: 10,
+        });
+
+        rect.font = new Mano.Font({
+            fontKerning: "normal",
+            fontStretch: "ultra-expanded",
+            fontVariantCaps: "small-caps",
+            font: "1em Fira Sans"
+        });
+
+        let trans = new DOMMatrix();
+        trans = trans.translate(20, 20);
+        rect.textTransform = trans;
+
+        rect.content = "HI !";
+
+        graphics.appendChild(rect);
+
+
+        let rect2 = new Mano.Graphic.Rect(50, 50, 100, 100);
+        rect2.content = "ellipse";
+        rect2.fillType = Mano.FILL_TYPE.GRAPHIC_STROKE;
+        rect2.boxShadow = new Mano.Shadow({
+            blur: 4,
+            color: new Mano.Color.RGBA(0, 255, 0),
+            offsetX: 3
+        })
+        graphics.appendChild(rect2);
+
+        let rect3 = new Mano.Graphic.Rect(120, 120, 120, 120);
+        rect3.content = "arc";
+        rect3.backgroundColor = new Mano.Color.RGBA(255, 0, 100, .1);
+        graphics.appendChild(rect3);
+
+        //bug1: 属性更改不会实事刷新
+        //bug3：FontInit没封装完
+    })
+</script>
+</body>
+</html>

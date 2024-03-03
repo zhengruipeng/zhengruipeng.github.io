@@ -26,8 +26,8 @@ void main(){
 <script type="text/javascript">
     // document.addEventListener("DOMContentLoaded",function (){
         let webgl = document.getElementById("webgl");
-        webgl.height = document.documentElement.clientHeight;
-        webgl.width = document.documentElement.clientWidth;
+        webgl.height = 400;
+        webgl.width = 400;
         let gl = webgl.getContext("webgl2");
         let vertex = document.getElementById("vertex");
         let fragment = document.getElementById("fragment");
@@ -93,7 +93,7 @@ void main(){
             gl.drawArrays(gl.LINE_LOOP,0,3);
             requestAnimationFrame(render);
         };
-        gl.clearColor(0,0,0,1);
+        gl.clearColor(0,0,0,0);
         gl.enable(gl.DEPTH_TEST);
         initShader(vertex.innerText,fragment.innerText);
         initBuffer2("a_position",new Float32Array(vertices));

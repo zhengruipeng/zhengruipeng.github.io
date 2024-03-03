@@ -29,6 +29,7 @@ class Derived extends Base {
     }
 }
 class AnimalHouse {
+    resident;
     constructor(animal) {
         this.resident = animal;
     }
@@ -48,16 +49,13 @@ class DogHouse extends AnimalHouse {
 * 这意味着基类构造函数name在其自己的构造函数期间看到了自己的值，因为派生类字段初始化尚未运行。
 * */
 class Base2 {
+    name = "base";
     constructor() {
-        this.name = "base";
         console.log("My name is " + this.name);
     }
 }
 class Derived2 extends Base2 {
-    constructor() {
-        super(...arguments);
-        this.name = "derived";
-    }
+    name = "derived";
 }
 // Prints "base", not "derived"
 const d2 = new Derived2();

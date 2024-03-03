@@ -1,4 +1,5 @@
 class Box {
+    contents;
     constructor(value) {
         this.contents = value;
     }

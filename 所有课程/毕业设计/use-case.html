@@ -8,33 +8,33 @@
 <body>
 
 <script type="text/javascript">
-    import {Lynette} from "./libs/Lynette.js"
+    import {Mano} from "./Mano/Mano.js"
 
     document.addEventListener("DOMContentLoaded", function () {
-        let canvas = new Lynette.Canvas();
+        let canvas = new Mano.Canvas();
 
-        let rect = new Lynette.Rect();
+        let rect = new Mano.Rect();
         rect.x = 0;
         rect.y = 0;
         rect.height = 100;
         rect.width = 100;
 
         rect.transform = new DOMMatrix();
-        rect.fillType = Lynette.GRAPHIC_FILL;
+        rect.fillType = Mano.GRAPHIC_FILL;
         rect.content = "content";
-        rect.backgroundColor = Lynette.Color.RED;
-        new Lynette.Color.Rgb();
-        rect.color = Lynette.Gradient.Linear()
+        rect.backgroundColor = Mano.Color.RED;
+        new Mano.Color.Rgb();
+        rect.color = Mano.Gradient.Linear()
         canvas.append(rect);
 
-        let imageData = new Lynette.ImageData();
+        let imageData = new Mano.ImageData();
 
         rect.onclick = function () {};
         rect.addEventListener("click", function () {});
 
         canvas.onbeforerender = function (){};
         canvas.onafterrender = function (){};
-        canvas.onredraw = function (){};
+        canvas.onrender = function (){};
         rect.onbeforedraw = function (){};
         rect.onafterdraw = function (){};
         rect.ondraw = function (){};

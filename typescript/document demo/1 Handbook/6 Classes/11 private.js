@@ -1,7 +1,5 @@
 class A {
-    constructor() {
-        this.x = 10;
-    }
+    x = 10;
     sameAs(other) {
         // No error
         return other.x === this.x;
@@ -10,9 +8,7 @@ class A {
 let a = new A();
 console.log((new A()).sameAs(a));
 class MySafe {
-    constructor() {
-        this.secretKey = 12345;
-    }
+    secretKey = 12345;
 }
 const s = new MySafe();
 // Not allowed during type checking

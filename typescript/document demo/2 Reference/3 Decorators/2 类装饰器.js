@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 function reportableClassDecorator(constructor) {
+    console.log(constructor);
     return class extends constructor {
         constructor() {
             super(...arguments);
@@ -26,9 +27,10 @@ BugReport = __decorate([
     reportableClassDecorator,
     __metadata("design:paramtypes", [String])
 ], BugReport);
-const bug = new BugReport("Needs dark mode");
+const bug = (new BugReport("Needs dark mode"));
 console.log(bug.title); // Prints "Needs dark mode"
 console.log(bug.type); // Prints "report"
+console.log(bug.reportingURL);
 // Note that the decorator _does not_ change the TypeScript type
 // and so the new property `reportingURL` is not known
 // to the type system:

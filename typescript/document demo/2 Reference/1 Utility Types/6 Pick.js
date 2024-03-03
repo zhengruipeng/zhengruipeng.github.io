@@ -1,5 +1,4 @@
-"use strict";
-var todo = {
+const todo = {
     title: "Clean room",
     completed: false,
 };

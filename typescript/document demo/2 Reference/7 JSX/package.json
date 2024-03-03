@@ -1,0 +1,17 @@
+{
+  "name": "7-jsx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1 内部元素.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^18.2.55",
+    "jsx": "^0.9.89",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

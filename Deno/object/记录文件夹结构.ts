@@ -1,6 +1,23 @@
+/// <reference lib="Deno">
+//@ts-ignore
 import {ProgressPrinter} from "../package/ProgressPrinter.ts";
 
-let getDirFileNumber = async function (dir: string): number {
+interface AllowStringPropVisit {
+    [prop: string]: any;
+}
+
+declare interface DirEntry {
+    name: string;
+    isFile: boolean;
+    isDirectory: boolean;
+}
+
+declare class Deno {
+    static readDir(dir: string): Iterable<DirEntry>;
+    static writeFile(dir: string, data: Uint8Array): void;
+}
+
+let getDirFileNumber = async function (dir: string) {
     let counter = 0;
 
     for await (let _ of Deno.readDir(dir)) {
@@ -9,14 +26,15 @@ let getDirFileNumber = async function (dir: string): number {
 
     return counter;
 };
-let getDirStructure = async function (dir: string, isLoop?: boolean = false): Object {
-    let data = {};
+
+let getDirStructure = async function (dir: string, isLoop: boolean = false) {
+    let data: AllowStringPropVisit = {};
 
     let fileNumber: number = await getDirFileNumber(dir);
     let fileCounter: number = 0;
 
     // console.log("searching: " + dir)
-    for await (let dirEntry: DirEntry of Deno.readDir(dir)) {
+    for await (let dirEntry of Deno.readDir(dir)) {
         if (dirEntry.isFile) {
             data[dirEntry.name] = null;
         } else if (dirEntry.isDirectory) {
@@ -31,16 +49,18 @@ let getDirStructure = async function (dir: string, isLoop?: boolean = false): Ob
     return data;
 };
 
-let writeFile = async function (content, dir: string = "./杜野凛世动漫快照.json") {
+let writeFile = async function (content: string, dir: string = "./杜野凛世动漫快照.json") {
     const encoder = new TextEncoder();
     const data = encoder.encode(content);
     await Deno.writeFile(dir, data);
 };
 
-(async function main(): void {
-    let data: Object = await getDirStructure("H:\\アニメ")
+(async function main() {
+    let dir = prompt("输入盘符，即为?:\\アニメ");
+    const name = prompt("输入保存文件名，例如xxxx.json");
 
-    writeFile(JSON.stringify(data));
+    let data: Object = await getDirStructure(dir + ":\\アニメ")
+    writeFile(JSON.stringify(data), `./${name}.json`);
 })();
 
 

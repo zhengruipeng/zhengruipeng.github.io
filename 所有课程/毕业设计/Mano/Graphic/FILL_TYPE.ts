@@ -1,0 +1,6 @@
+enum FILL_TYPE {
+    GRAPHIC_FILL,
+    GRAPHIC_STROKE
+}
+
+export {FILL_TYPE}

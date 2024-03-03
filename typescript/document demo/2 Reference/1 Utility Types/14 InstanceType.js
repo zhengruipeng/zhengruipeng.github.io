@@ -1,12 +1,8 @@
-"use strict";
 // 构造一个由Type中的构造函数类型的实例类型组成的类型。例如：
-var C = /** @class */ (function () {
-    function C() {
-        this.x = 0;
-        this.y = 0;
-    }
-    return C;
-}());
+class C {
+    x = 0;
+    y = 0;
+}
 // type T2 = never
 // type T3 = InstanceType<string>;
 /*Type 'string' does not satisfy the constraint 'abstract new (...args: any) => any'.

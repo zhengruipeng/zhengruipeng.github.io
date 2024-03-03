@@ -14,5 +14,6 @@ class Greeter {
         // this.name = "not ok";
     }
 }
+
 const g = new Greeter();
 // g.name = "also not ok";

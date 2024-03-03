@@ -1,4 +1,7 @@
 class Point {
+    createdAt;
+    x;
+    y;
     constructor(x, y) {
         this.createdAt = Date.now();
         this.x = x;

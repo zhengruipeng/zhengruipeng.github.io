@@ -10,12 +10,12 @@
             border: #000;
             border-radius: 0;
             background-color: lightpink;
-            transform: translate(0,0);
+            transform: translate(0, 0);
         }
     </style>
 </head>
 <body>
-<div id="div"></div>
+<div id="div" style="height: 100px;width: 100px; border-radius: 0;background-color: lightpink"></div>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
         let div = document.getElementById("div");
@@ -40,6 +40,11 @@
         //监听动画状态
         anime.ready.then(anime => console.log(anime, "动画准备结束"));
         anime.finished.then(anime => console.log(anime, "动画已经结束"));
+
+        window.ondblclick = function () {
+            console.log(div.style.height, div.style.width, div.style.borderRadius, div.style.backgroundColor);
+            console.log(div.attributeStyleMap.get("height"))
+        }
 
     });
 </script>

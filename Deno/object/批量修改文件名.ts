@@ -4,7 +4,7 @@
 const {readDir, rename} = Deno;
 
 // 定义需要修改的文件夹路径和修改的文件名后缀
-const folderPath = "D:\\download";
+const folderPath = "C:\\Users\\zheng\\OneDrive\\Desktop\\总之就是非常可爱2";
 const newSuffix = "_new";
 
 // 读取文件夹中的所有文件
@@ -21,11 +21,6 @@ for await (const file of readDir(folderPath)) {
 
         if (name.indexOf("y2mate.com - ") !== -1) {
             name = name.replace("y2mate.com - ", "");
-        }
-        let regexp = /(_\d+p)/;
-        console.log(name, regexp.test(name))
-        if (regexp.test(name)) {
-            name = name.replace(regexp, "");
         }
 
         if (name.indexOf("mp4") === -1) {

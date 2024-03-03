@@ -9,4 +9,4 @@ const _myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
 * 与以下代码等价
 * */
 
-const _myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
+const _myCanvas2 = <HTMLCanvasElement>document.getElementById("main_canvas");

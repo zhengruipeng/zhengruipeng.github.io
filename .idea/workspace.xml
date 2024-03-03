@@ -5,41 +5,824 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="987def00-4f82-4812-9ebb-532bb3db2fa4" name="Default Changelist" comment="20240208">
-      <change afterPath="$PROJECT_DIR$/.cache/jb/UpdateWork.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.cache/jb/version.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/DecompressionStream/demo2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/DecompressionStream/demo2.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/output.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/output.txt.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/file-struct2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/去除图片背景/签名.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/object/去除图片背景/签名.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/所有课程/实训/小考试/第二次大题.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/老胡的作业/test/Idd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/老胡的作业/test/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/老胡的作业/test/sg.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deno/object/记录文件夹结构.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/.idea/deno.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/10 readonly Tuple Types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/7 Generic Object Types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/8 The ReadonlyArray Type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/9 Tuple Types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/1 Hello World of Generics.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/2 Working with Generic Type Variables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/3 Generic Types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/4 Generic Classes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/5 Generic Constraints.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/6 Using Type Parameters in Generic Constraints.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/7 Using Class Types in Generics.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/8 Generic Parameter Defaults.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/2 Keyof/1 The keyof type operator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/3 Typeof/2 The typeof type operator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/4 Indexed Access Types/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/4 Indexed Access Types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/5 Conditional Types/0 before ahead.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/5 Conditional Types/1 Conditional Type Constraints.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/5 Conditional Types/2 Inferring Within Conditional Types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/0 前言.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/1 类型中的字符串联合.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/2 使用模板文字进行推理.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/3 内部字符串操作类型.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/1 Field.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/2 readonly.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/3 构造函数.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/4 方法.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/10 Namespaces and Modules/1 reference标签/myOtherModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/10 Namespaces and Modules/2 不使用非匿名的命名空间/shapeConsumer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/10 Namespaces and Modules/2 不使用非匿名的命名空间/shapes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/11 Symbols/1 reference标签/myOtherModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/11 Symbols/2 不使用非匿名的命名空间/shapeConsumer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/11 Symbols/2 不使用非匿名的命名空间/shapes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/tsserver" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/tsserver.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/tsserver.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/yarn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/yarn.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/yarn.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/yarnpkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/yarnpkg.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.bin/yarnpkg.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/.yarn-integrity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/.github/workflows/ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/AUTHORS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/CopyrightNotice.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/Reflect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/ReflectLite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/ReflectNoConflict.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/no-conflict.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/reflect-metadata/standalone.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/SECURITY.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/ThirdPartyNoticeText.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/bin/tsc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/bin/tsserver" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/cancellationToken.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/cs/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/de/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/es/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/fr/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/it/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/ja/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/ko/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.decorators.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.decorators.legacy.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.dom.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.dom.iterable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.collection.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.core.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.generator.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.iterable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.proxy.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.reflect.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.symbol.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2016.array.include.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2016.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2016.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2017.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2017.date.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2017.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2017.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2017.object.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2017.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2018.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2018.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2018.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2018.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2018.regexp.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2019.array.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2019.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2019.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2019.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2019.object.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2019.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2019.symbol.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.bigint.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.date.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.number.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2021.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2021.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2021.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2021.promise.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2021.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2021.weakref.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.array.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.error.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.object.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.regexp.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.sharedmemory.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2022.string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2023.array.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2023.collection.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2023.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es2023.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es5.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.es6.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.esnext.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.esnext.decorators.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.esnext.disposable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.esnext.full.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.esnext.intl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.scripthost.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.webworker.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.webworker.importscripts.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/lib.webworker.iterable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/pl/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/pt-br/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/ru/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/tr/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/tsc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/tsserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/tsserverlibrary.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/tsserverlibrary.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/typesMap.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/typescript.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/typescript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/typingsInstaller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/watchGuard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/zh-cn/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/lib/zh-tw/diagnosticMessages.generated.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/typescript/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/bin/yarn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/bin/yarn.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/bin/yarn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/bin/yarnpkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/bin/yarnpkg.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/lib/cli.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/lib/v8-compile-cache.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/node_modules/yarn/preinstall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/4 Declaration Merging/4 模块增强/consumer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/4 Declaration Merging/4 模块增强/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/4 Declaration Merging/4 模块增强/observable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/6 Iterators and Generators/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/escodegen" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/escodegen.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/escodegen.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esgenerate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esgenerate.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esgenerate.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esmangle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esmangle.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esmangle.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esparse" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esparse.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esparse.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esvalidate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esvalidate.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/esvalidate.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx-profile-server" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx-profile-server.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx-profile-server.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx-with-server" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx-with-server.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx-with-server.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/jsx.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/loose-envify" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/loose-envify.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.bin/loose-envify.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/.yarn-integrity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/prop-types/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/prop-types/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/prop-types/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/prop-types/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/canary.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/experimental.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/global.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/jsx-dev-runtime.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/jsx-runtime.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/ts5.0/canary.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/ts5.0/experimental.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/ts5.0/global.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/ts5.0/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/ts5.0/jsx-dev-runtime.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/react/ts5.0/jsx-runtime.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/scheduler/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/scheduler/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/scheduler/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/scheduler/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/@types/scheduler/tracing.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/amdefine/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/amdefine/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/amdefine/amdefine.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/amdefine/intercept.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/amdefine/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/csstype/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/csstype/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/csstype/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/csstype/index.js.flow" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/csstype/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/Gruntfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/LICENSE.BSD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/LICENSE.source-map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/bin/escodegen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/bin/esgenerate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/escodegen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/node_modules/.bin/esparse" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/node_modules/.bin/esparse.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/node_modules/.bin/esvalidate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/node_modules/.bin/esvalidate.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escodegen/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/LICENSE.BSD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/escope.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/gulpfile.coffee" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/node_modules/estraverse/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/node_modules/estraverse/LICENSE.BSD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/node_modules/estraverse/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/node_modules/estraverse/estraverse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/node_modules/estraverse/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/node_modules/estraverse/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/escope/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/Gruntfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/LICENSE.BSD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/bin/esmangle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/annotate-directive.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/esmangle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/evaluator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/concatenate-variable-definition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/dead-code-elimination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/drop-variable-definition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/eliminate-duplicate-function-declarations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/hoist-variable-to-arguments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/reduce-branch-jump.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/reduce-multiple-if-statements.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/reduce-sequence-expression.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/remove-context-sensitive-expressions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/remove-empty-statement.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/remove-side-effect-free-expressions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/remove-unreachable-branch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/remove-unused-label.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/remove-wasted-blocks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/reordering-function-declarations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/transform-branch-to-expression.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/transform-dynamic-to-static-property-access.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/transform-dynamic-to-static-property-definition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/transform-immediate-function-call.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/transform-logical-association.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/transform-to-compound-assignment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/transform-to-sequence-expression.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/transform-typeof-undefined.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/pass/tree-based-constant-folding.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/post/omit-parens-in-void-context-iife.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/post/rewrite-boolean.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/post/rewrite-conditional-expression.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/post/transform-infinity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/post/transform-static-to-dynamic-property-access.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/query.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/lib/set.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/node_modules/.bin/escodegen" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/node_modules/.bin/escodegen.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/node_modules/.bin/esgenerate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/node_modules/.bin/esgenerate.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/node_modules/.bin/esparse" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/node_modules/.bin/esparse.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/node_modules/.bin/esvalidate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/node_modules/.bin/esvalidate.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esmangle/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/bin/esparse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/bin/esvalidate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/esprima.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/test/compat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/test/reflect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/test/run.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/test/runner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esprima/test/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/Gruntfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/lib/esshorten.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/lib/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/lib/utility.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/node_modules/estraverse/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/node_modules/estraverse/LICENSE.BSD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/node_modules/estraverse/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/node_modules/estraverse/estraverse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/node_modules/estraverse/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/esshorten/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/estraverse/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/estraverse/LICENSE.BSD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/estraverse/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/estraverse/estraverse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/estraverse/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/js-tokens/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/js-tokens/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/js-tokens/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/js-tokens/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/js-tokens/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/Changes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/HACKING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/bin/jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/bin/jsx-profile-server" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/bin/jsx-with-server" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/_jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/doc-template/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/doc-template/template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/jsx-command-completion.bash" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/assets/css/jquery.treeTable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/assets/img/jquery-treetable/toggle-collapse-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/assets/img/jquery-treetable/toggle-collapse-light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/assets/img/jquery-treetable/toggle-expand-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/assets/img/jquery-treetable/toggle-expand-light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/assets/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/assets/js/jquery.treeTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/assets/js/jsx-profiler-result.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/etc/profiler/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/built-in.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/common/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/common/test-case.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/console.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/js.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/js/nodejs.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/js/phantomjs.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/js/phantomjs/test-case.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/js/web.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/rt/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/rt/launcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/rt/profiler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/rt/web-launcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/lib/js/timer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/escodegen" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/escodegen.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/esgenerate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/esgenerate.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/esmangle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/esmangle.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/esparse" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/esparse.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/esvalidate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/node_modules/.bin/esvalidate.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/jsx/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/loose-envify/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/loose-envify/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/loose-envify/cli.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/loose-envify/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/loose-envify/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/loose-envify/loose-envify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/loose-envify/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/loose-envify/replace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/example/parse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/readme.markdown" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/bool.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/dash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/default_bool.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/dotted.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/long.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/num.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/parse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/parse_modified.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/short.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/minimist/test/whitespace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/bool.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/boolean_double.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/boolean_single.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/default_hash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/default_singles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/divide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/line_count.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/line_count_options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/line_count_wrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/nonopt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/reflect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/short.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/string.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/usage-options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/example/xup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/readme.markdown" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/_.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/_/argv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/_/bin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/dash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/parse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/parse_modified.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/short.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/usage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/optimist/test/whitespace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-server-legacy.browser.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-server-legacy.node.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-server.browser.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-server.node.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-server.node.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-test-utils.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom-test-utils.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/cjs/react-dom.profiling.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/node_modules/.bin/loose-envify" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/node_modules/.bin/loose-envify.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/profiling.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/server.browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/server.node.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/test-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom-server-legacy.browser.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom-server-legacy.browser.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom-server.browser.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom-server.browser.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom-test-utils.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom-test-utils.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react-dom/umd/react-dom.profiling.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react-jsx-dev-runtime.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react-jsx-dev-runtime.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react-jsx-dev-runtime.profiling.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react-jsx-runtime.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react-jsx-runtime.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react-jsx-runtime.profiling.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react.shared-subset.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/cjs/react.shared-subset.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/jsx-dev-runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/jsx-runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/node_modules/.bin/loose-envify" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/node_modules/.bin/loose-envify.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/react.shared-subset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/umd/react.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/umd/react.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/react/umd/react.profiling.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/cjs/scheduler-unstable_mock.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/cjs/scheduler-unstable_mock.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/cjs/scheduler-unstable_post_task.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/cjs/scheduler-unstable_post_task.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/cjs/scheduler.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/cjs/scheduler.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/node_modules/.bin/loose-envify" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/node_modules/.bin/loose-envify.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/umd/scheduler-unstable_mock.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/umd/scheduler-unstable_mock.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/umd/scheduler.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/umd/scheduler.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/umd/scheduler.profiling.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/unstable_mock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/scheduler/unstable_post_task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/amd-test/browser-source-map-support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/amd-test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/amd-test/require.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/amd-test/script.coffee" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/amd-test/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/amd-test/script.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/browser-source-map-support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/browser-test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/browser-test/script.coffee" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/browser-test/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/browser-test/script.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/header-test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/header-test/script.coffee" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/header-test/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/header-test/script.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/header-test/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/Makefile.dryice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/assert-shim.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/mini-require.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/prefix-source-map.jsm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/prefix-utils.jsm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/suffix-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/suffix-source-map.jsm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/suffix-utils.jsm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/test-prefix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/build/test-suffix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map/array-set.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map/base64-vlq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map/base64.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map/binary-search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map/source-map-consumer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map/source-map-generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map/source-node.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/lib/source-map/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/run-tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-array-set.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-base64-vlq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-base64.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-binary-search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-dog-fooding.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-source-map-consumer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-source-map-generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/test-source-node.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/node_modules/source-map/test/source-map/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/source-map-support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map-support/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/Makefile.dryice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/assert-shim.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/mini-require.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/prefix-source-map.jsm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/prefix-utils.jsm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/suffix-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/suffix-source-map.jsm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/suffix-utils.jsm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/test-prefix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/build/test-suffix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/array-set.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/base64-vlq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/base64.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/binary-search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/mapping-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/source-map-consumer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/source-map-generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/source-node.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/lib/source-map/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/run-tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-array-set.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-base64-vlq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-base64.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-binary-search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-dog-fooding.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-source-map-consumer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-source-map-generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-source-node.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/test-util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/source-map/test/source-map/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/README.markdown" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/example/center.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/example/meat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/test/break.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/test/idleness.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/node_modules/wordwrap/test/wrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/7 JSX/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/9 Namespaces/2 验证器demo多文件分割版/LettersOnlyValidator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/9 Namespaces/2 验证器demo多文件分割版/Test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/9 Namespaces/2 验证器demo多文件分割版/Validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/9 Namespaces/2 验证器demo多文件分割版/ZipCodeValidator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/3图元测试.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/4内容测试.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Animation/Animation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Animation/Keyframe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Animation/KeyframeEffect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Animation/KeyframeEffectOptionsWithoutPseudo.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Event/AftereRenderEvent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Event/BeforeRenderEvent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Event/ContextChangeEvent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Event/RenderEvent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Exception/MultipleInstancesError.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/COLOR_NAME.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/Color.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ColorBase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ColorFormat/HSLA.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ColorFormat/HWBA.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ColorFormat/LABA.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ColorFormat/LCHA.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ColorFormat/OKLABA.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ColorFormat/OKLCHA.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ColorFormat/RGBA.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ConicGradient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/Fillable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/Gradient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/GradientBase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/ImageObject.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/LinearGradient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/Parttern.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Fillable/RadialGradient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Global/Canvas.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Global/CanvasOptions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Border.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/BorderInit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/BorderInit.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/FILL_TYPE.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Font.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/FontInit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/FontInit.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Graphic.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/GraphicBase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shadow.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/ShadowInit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/ShadowInit.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/Arc.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/Arc2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/BezierCurve.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/CustomGraphic.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/Ellipse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/Group.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/Line.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/Rect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/RoundRect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/Text.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/Shapes/Text.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/TextFormat.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/TextFormatInit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Graphic/TextFormatInit.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Mano.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Pixel/ImageData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Test/Test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Test/Test2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Test/Test4.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Test/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Unit/CSSUnit.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Unit/ConstantObserver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Unit/ConstantObserver.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Unit/NonNegativeNumber.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Unit/NonNegativeNumber.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Unit/NumberInRange.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/Unit/test5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/Mano/test2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/libs/JSONParser.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/libs/JSONParser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/文档/2024年杜老师组选题摸底2023.11.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/文档/功能模块图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分 郑瑞蓬-意见.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分 郑瑞蓬.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）/2023-参考资料-第一部分/0论文1-五子棋游戏开发.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）/2023-参考资料-第一部分/1论文2-基于dubbo分布式服务框架的电商平台开发.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）/2023-参考资料-第一部分/2论文3-音视频播放系统的设计与实现.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）/2023-参考资料-第一部分/3论文4-基于深度学习的小车自动行驶控制研究.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）/2023-参考资料-第一部分/杜老师组撰写论文注意问题必看.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）/4目录参考.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）/5目录参考1.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/2024-参考资料-第一部分（1月23日完成）/6基于JS WebRTC的P2P通话系统论文.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/~$24-参考资料-第一部分 郑瑞蓬-意见.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第一阶段 目录编写/我自己写的.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第三阶段 前三章编写/要求概述.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/第二阶段 总体设计/2024第二部分 郑瑞蓬.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/类图.vsdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/所有课程/毕业设计/毕业设计文档/老师发的任务要点.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deno/API/Compression Streams API/CompressionStream/demo1.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/API/Compression Streams API/CompressionStream/demo1.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deno/object/file-struct.json" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/file-struct.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deno/object/json文件目录读取器/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/json文件目录读取器/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deno/object/书法网站爬虫.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/书法网站爬虫.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deno/object/去除重复图片.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/去除重复图片.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/多页书法网站爬虫.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/按文件顺序更改文件名.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/批量修改文件名.js" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/批量修改文件名.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/批量修改文件名.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/批量修改文件名.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deno/object/记录文件夹结构.js" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/记录文件夹结构.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Deno/object/记录文件夹结构.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Deno/object/记录文件夹结构.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Streams/WritableStream/可写流基础语法.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Streams/WritableStream/可写流基础语法.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mikimiki/核心语法/proxy/apply,construct.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/核心语法/proxy/apply,construct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/3d函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/3d函数.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/json文件目录读取器/ParseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/object/json文件目录读取器/ParseMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/json文件目录读取器/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/json文件目录读取器/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/去除图片背景/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/去除图片背景/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/D盘.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/D盘.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/E盘.data" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/E盘.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.json" beforeDir="false" afterPath="$PROJECT_DIR$/object/硬盘备份4/如月千早5T.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/待测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/待测试.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interactive Computer Graphics/画三角.html" beforeDir="false" afterPath="$PROJECT_DIR$/Interactive Computer Graphics/画三角.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/APIs/Animation/重新整理/03Animation类测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/APIs/Animation/重新整理/03Animation类测试.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSOM/CSSNumericArray.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSOM/CSSNumericArray.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSOM/CSSSkewX,CSSSkewY.html" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSOM/CSSSkewX,CSSSkewY.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/mikimiki/客户端/CSS Houdini/CSSStyleValue/parse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/4 Type Assertions.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/4 Type Assertions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/4 Type Assertions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/4 Type Assertions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/6 Literal Types.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/6 Literal Types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/6 Literal Types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/6 Literal Types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/7 Literal Inference.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/7 Literal Inference.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/7 Literal Inference.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/7 Literal Inference.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/10 Discriminated unions.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/10 Discriminated unions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/12 Exhaustiveness checking.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/12 Exhaustiveness checking.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/12 Exhaustiveness checking.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/12 Exhaustiveness checking.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/8 Using type predicates.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/8 Using type predicates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/8 Using type predicates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/8 Using type predicates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/9 Assertion functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/9 Assertion functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/16 Assignability of Functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/16 Assignability of Functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/3 Index Signatures.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/3 Index Signatures.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/8 The ReadonlyArray Type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/8 The ReadonlyArray Type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/3 Typeof/2 The typeof type operator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/3 Typeof/2 The typeof type operator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/5 Conditional Types/2 Inferring Within Conditional Types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/5 Conditional Types/2 Inferring Within Conditional Types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/10 protected.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/10 protected.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/10 protected.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/10 protected.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/11 private.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/11 private.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/12 静态成员.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/12 静态成员.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/13 静态块.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/13 静态块.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/14 泛型类.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/14 泛型类.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/15 this关键字.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/15 this关键字.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/16 this类型.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/16 this类型.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/17 this类型保护.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/17 this类型保护.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/18 参数属性.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/18 参数属性.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/19 类表达式.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/19 类表达式.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/2 readonly.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/2 readonly.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/20 构造函数签名.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/20 构造函数签名.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/22 类的关系.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/22 类的关系.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/5 Getter Setter.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/5 Getter Setter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/7 implements.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/7 implements.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/8 extends.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/8 extends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/1 Awaited.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/1 Awaited.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/14 InstanceType.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/14 InstanceType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/15 ThisParameterType.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/15 ThisParameterType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/16 OmitThisParameter.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/16 OmitThisParameter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/17 ThisType.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/17 ThisType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/2 Partial.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/2 Partial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/3 Required.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/3 Required.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/4 Readonly.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/4 Readonly.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/5 Record.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/5 Record.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/6 Pick.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/6 Pick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/7 Omit.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/7 Omit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/8 Exclude.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/8 Exclude.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/9 Extract.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/1 Utility Types/9 Extract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/2 类装饰器.js" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/2 类装饰器.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/2 类装饰器.ts" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/2 类装饰器.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/typescript/document demo/2 Reference/3 Decorators/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/毕业设计/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/毕业设计/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/毕业设计/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/毕业设计/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/所有课程/毕业设计/use-case.html" beforeDir="false" afterPath="$PROJECT_DIR$/所有课程/毕业设计/use-case.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,47 +896,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Deno.Deno: 3 Equality narrowing.ts.executor": "Run",
-    "Deno.Deno: 8 Using type predicates.ts.executor": "Run",
-    "Deno.Deno: 9 Enums.ts.executor": "Run",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "14.17.3",
-    "javascript.nodejs.core.library.typings.version": "14.17.34",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/zhengruipeng.github.io/Deno/object",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "D:\\jetbrains\\PhpStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Deno.Deno: 3 Equality narrowing.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Deno.Deno: 8 Using type predicates.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Deno.Deno: 9 Enums.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;14.17.3&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;14.17.34&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/zhengruipeng.github.io&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\jetbrains\\WebStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo",
-      "h2",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;,
+      &quot;h2&quot;,
+      &quot;mariadb&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "XHTML",
-      "PLAIN_TEXT"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;XHTML&quot;,
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\zhengruipeng.github.io\Deno\object" />
@@ -209,13 +992,6 @@
         <item itemvalue="npm.start:dev (2)" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14475.35" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -973,6 +1749,13 @@
       <workItem from="1708044875484" duration="716000" />
       <workItem from="1708225629924" duration="1495000" />
       <workItem from="1708481545935" duration="134000" />
+      <workItem from="1708646381793" duration="28000" />
+      <workItem from="1708655164150" duration="11689000" />
+      <workItem from="1709089889817" duration="2995000" />
+      <workItem from="1709201298276" duration="1101000" />
+      <workItem from="1709271176643" duration="5577000" />
+      <workItem from="1709371029191" duration="2840000" />
+      <workItem from="1709428821076" duration="3530000" />
     </task>
     <task id="LOCAL-00054" summary="20220724">
       <created>1658635381641</created>
@@ -1412,6 +2195,73 @@
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/warning/DirWarning.js" />
         <option value="$PROJECT_DIR$/老胡的作业/230901给胡裕枞的项目/我写的/异常文档/model/GameItem.js" />
         <option value="$PROJECT_DIR$/packages/Toast2.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/6 Literal Types.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/4 Type Assertions.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/3 Index Signatures.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/16 Assignability of Functions.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/7 Literal Inference.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/6 Assignments.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/5 instanceof narrowing.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/2 Narrowing/7 Control flow analysis.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/6 Specifying Type Arguments.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/9 Optional Parameters in Callbacks.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/3 Construct Signatures.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/7 Guidelines for Writing Good Generic Functions.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/test.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/14 Rest Parameters and Arguments.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/12 Declaring this in a Function.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/4 Generic Functions.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/1 Function Type Expressions.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/2 Call Signatures.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/13 Other Types to Know About.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/11 Writing Good Overloads.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/10 Function Overloads.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/5 Constraints.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/8 Optional Parameters.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/3 More on Functions/15 Parameter Destructuring.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/6 Mapped Types /0 前言.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/6 Mapped Types /3 其它扩展.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/6 Mapped Types /1 映射修改.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/6 Mapped Types /2 利用as重映射key.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/10 readonly Tuple Types.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/4 Excess Property Checks.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/8 The ReadonlyArray Type.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/7 Generic Object Types.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/2 readonly Properties.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/6 Intersection Types.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/5 Extending Types.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/4 Object Types/9 Tuple Types.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/5 Conditional Types/1 Conditional Type Constraints.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/5 Conditional Types/0 before ahead.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/5 Conditional Types/2 Inferring Within Conditional Types.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/4 方法.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/2 readonly.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/1 Field.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/6 Classes/3 构造函数.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/3 Typeof/2 The typeof type operator.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/0 前言.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/test.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/2 使用模板文字进行推理.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/1 类型中的字符串联合.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/7 Template Literal Types/3 内部字符串操作类型.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/2 Keyof/1 The keyof type operator.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/4 Indexed Access Types/index.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/1 Optional Properties.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/2 Type Aliases.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/3 Interfaces.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/9 Enums.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/5 Type Assertions2.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/1 EveryDay Types/8 Non-null Assertion Operator.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/4 Generic Classes.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/1 Hello World of Generics.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/2 Working with Generic Type Variables.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/7 Using Class Types in Generics.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/3 Generic Types.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/6 Using Type Parameters in Generic Constraints.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/8 Generic Parameter Defaults.js" />
+        <option value="$PROJECT_DIR$/typescript/document demo/1 Handbook/5 Type Manipulation/1 Generics/5 Generic Constraints.js" />
+        <option value="$PROJECT_DIR$/Deno/object/静态页面发布.js" />
+        <option value="$PROJECT_DIR$/所有课程/毕业设计/Mano/Unit/NumberInRange.js" />
       </list>
     </option>
   </component>

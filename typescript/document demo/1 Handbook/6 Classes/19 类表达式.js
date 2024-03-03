@@ -1,4 +1,5 @@
 const someClass = class {
+    content;
     constructor(value) {
         this.content = value;
     }

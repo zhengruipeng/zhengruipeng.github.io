@@ -1,16 +1,11 @@
 class Box {
-    constructor() {
-        this.content = "";
-    }
+    content = "";
     sameAs(other) {
         return other.content === this.content;
     }
 }
 class DerivedBox extends Box {
-    constructor() {
-        super(...arguments);
-        this.otherContent = "?";
-    }
+    otherContent = "?";
 }
 // this类型与编写other:Box不同
 // 如果你有一个派生类，

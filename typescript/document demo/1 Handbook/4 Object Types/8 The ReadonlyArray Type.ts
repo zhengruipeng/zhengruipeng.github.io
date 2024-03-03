@@ -39,6 +39,7 @@ type ReadonlyCusArr2<Type> = readonly Type[];
 let c: number[] = [1, 2, 3];
 let d: ReadonlyCusArr2<number> = c;
 let temp2 = c;
+// @ts-expect-error
 c = d;
 d = temp2;
 

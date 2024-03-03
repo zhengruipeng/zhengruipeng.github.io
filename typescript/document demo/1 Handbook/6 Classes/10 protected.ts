@@ -16,7 +16,7 @@ class SpecialGreeter extends Greeter {
 }
 
 const g = new SpecialGreeter();
-g.greet(); // OK
+g.howdy(); // OK
 // g.getName();
 
 //可以修改修饰符

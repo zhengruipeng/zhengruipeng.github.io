@@ -1,4 +1,6 @@
 class FileSystemObject {
+    path;
+    networked;
     isFile() {
         return this instanceof FileRep;
     }
@@ -14,12 +16,14 @@ class FileSystemObject {
     }
 }
 class FileRep extends FileSystemObject {
+    content;
     constructor(path, content) {
         super(path, false);
         this.content = content;
     }
 }
 class Directory extends FileSystemObject {
+    children;
 }
 const fso = new FileRep("foo/bar.txt", "foo");
 if (fso.isFile()) {
@@ -36,6 +40,7 @@ else if (fso.isNetworked()) {
 * 例如，当hasValue被验证为true时，这种情况会从框内的值中删除未定义的值：
 * */
 class Box {
+    value;
     hasValue() {
         return this.value !== undefined;
     }

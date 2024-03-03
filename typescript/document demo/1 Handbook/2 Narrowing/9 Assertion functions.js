@@ -5,12 +5,13 @@ function yell(str) {
     // error: Property 'toUppercase' does not exist on type 'string'.
     //        Did you mean 'toUpperCase'?
 }
-var AssertionError = /** @class */ (function () {
-    function AssertionError(msg) {
+class AssertionError {
+    constructor(msg) {
         this.message = msg;
     }
-    return AssertionError;
-}());
+    message;
+    name;
+}
 function assert(condition, msg) {
     if (!condition) {
         throw new AssertionError(msg);

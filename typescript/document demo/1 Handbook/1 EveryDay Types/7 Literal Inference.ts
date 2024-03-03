@@ -1,6 +1,7 @@
 declare function handleRequest(url: string, method: "GET" | "POST"): void;
 
 let req = { url: "https://example.com", method: "GET" };
+//@ts-expect-error
 handleRequest(req.url, req.method);
 
 /*
@@ -28,4 +29,5 @@ handleRequest(req.url, req.method as "GET");
 
 //您可以使用as const将整个对象转换为类型文字：
 req = { url: "https://example.com", method: "GET" } as const;
+//@ts-expect-error
 handleRequest(req.url, req.method);

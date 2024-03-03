@@ -8,4 +8,4 @@ const _myCanvas = document.getElementById("main_canvas");
 * 在这种情况下，您可以使用类型断言来指定更具体的类型
 * 与以下代码等价
 * */
-const _myCanvas = document.getElementById("main_canvas");
+const _myCanvas2 = document.getElementById("main_canvas");

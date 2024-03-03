@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<body>
+<!--<script type="text/javascript" src="Test.js"></script>-->
+<!--<script type="text/javascript" src="Test4.js"></script>-->
+<!--<script type="text/javascript" src="Test2.js"></script>-->
+<script type="module">
+    import {NS} from "./Test4.js"
+    document.addEventListener("DOMContentLoaded", function () {
+        let c = new NS.C();
+        c.foo();
+
+        // new Test.B();
+    })
+</script>
+</body>
+</html>
