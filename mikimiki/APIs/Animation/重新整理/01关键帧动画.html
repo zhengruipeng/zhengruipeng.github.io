@@ -24,7 +24,8 @@
         });
         animationEffect.setKeyframes([
             {height: '100px', width: '100px', borderRadius: '0', backgroundColor: 'lightpink'},
-            {height: '200px', width: '200px', borderRadius: '50%', backgroundColor: 'skyblue'},
+            {offset:.8,height: '200px', width: '200px', borderRadius: '50%', backgroundColor: 'skyblue'},
+            {height: '1000px', width: '2000px', borderRadius: '50%', backgroundColor: 'skyblue'},
         ]);
 
         let anime = new Animation(animationEffect,document.timeline);

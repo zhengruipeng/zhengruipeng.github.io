@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #table-container {
+            width: 86%;
+            margin-left: 14%;
+        }
+
+        table, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            overflow: hidden;
+            top: 10px;
+            width: 14%;
+        }
+
+        li button {
+            padding: 16px 14px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="table-container">
+    <table id="table">
+        <tr>
+            <th>表头1</th>
+            <th>表头2</th>
+            <th>表头3</th>
+            <th>表头4</th>
+            <th>表头5</th>
+        </tr>
+    </table>
+</div>
+
+<ul>
+    <li>
+        <button id="addBtn">增加一行表格</button>
+    </li>
+    <li>
+        <button id="delBtn">删除一行表格</button>
+    </li>
+    <li>
+        <button id="colorBtn">奇数行变颜色</button>
+    </li>
+    <li>
+        <button id="content-Btn">设置为可编辑</button>
+    </li>
+    <li>
+        <button id="data-Btn">保存表格内容</button>
+    </li>
+    <li>
+        <button id="test">test</button>
+    </li>
+</ul>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const addButton = document.querySelector("#addBtn");
+        //获取增加表格的按钮
+        const delButton = document.querySelector("#delBtn");
+        //获取增加表格的按钮
+        const changeButton = document.querySelector("#content-Btn");
+
+        const colorButton = document.querySelector("#colorBtn");
+
+        const dataButton = document.querySelector("#data-Btn");
+
+        const table = document.querySelector("#table");
+
+        const test = document.querySelector("#test");
+
+        //实现点击按钮进行向下增加表格
+        addButton.addEventListener("click", () => {
+            let createTr = document.createElement("tr");
+            table.appendChild(createTr);
+
+            let createTd1 = document.createElement("td");
+            let createTd2 = document.createElement("td");
+            let createTd3 = document.createElement("td");
+            let createTd4 = document.createElement("td");
+            let createTd5 = document.createElement("td");
+
+            createTd1.addEventListener("click", function (ev) {
+                ev.stopPropagation();
+                ev.cancelBubble = true;
+            })
+
+            createTr.appendChild(createTd1);
+            createTr.appendChild(createTd2);
+            createTr.appendChild(createTd3);
+            createTr.appendChild(createTd4);
+            createTr.appendChild(createTd5);
+        })
+        //实现点击按钮删除最新添加的一行,实际上就是最后一个子节点
+        delButton.addEventListener("click", () => {
+            if (table.children.length > 1) {
+                table.removeChild(table.lastChild);
+            } else {
+                alert("不能再删了");
+            }
+        })
+        //实现单数行变色
+        colorButton.addEventListener("click", () => {
+            for (let i = 0; i < table.children.length; i++) {
+                if ((i + 1) % 2 !== 0 && i !== 0) {
+                    table.children[i].style.backgroundColor = "aqua";
+                }
+            }
+        })
+
+        //实现点击td的表格，让表格变成可编辑类型
+        //contenteditable让新生成的td元素的这个属性变成true
+        changeButton.addEventListener("click", () => {
+            for (let i = 0; i < table.children.length; i++) {
+                console.log(table.children[i])
+                table.children[i].addEventListener("click", function (ev) {\
+
+                    // console.log(table.children[i].parentElement);
+                    console.log(ev.target, this)
+                    // ev.target.contentEditable = true;
+                    this.contentEdiable = true;
+                }, false)
+
+            }
+        });
+
+        //  /\
+        //  ||
+        // bug是上面这个事件
+
+
+        /*
+        let map = new Map();
+
+        //判断哪行有内容:循环遍历有多少个动态生成的tr，然后找td子节点的文本节点内容
+        //使用map可以以键值对的形式存储，但是只能存最后一行
+
+        dataButton.addEventListener("click",()=>{
+            for (let i = 1;i < table.children.length;i++){
+                //遍历所有动态创建的tr节点,不包括表头
+                let td = table.children[i].children;
+                //HTMLCollection 获取了所有的td
+                for(let i = 0;i < td.length;i++){
+                    //遍历所有td
+                    console.log(td[i].textContent);
+                    map.set(i,td[i].textContent);
+                }
+            }
+        })
+
+        test.addEventListener("click",()=>{
+            console.log(map);
+        })
+        //原因可能是键值对的键重复了，导致只能存下最后一组
+        */
+
+
+    })
+</script>
+</body>
+</html>

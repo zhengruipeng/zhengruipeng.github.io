@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
-    div{
-      height:100px;
-      width:100px;
-      transition-duration:.3s;
-      border:red solid 1px;
-      position:fixed;
-      top:calc(50% - 50px);
-      left:calc(50% - 50px);
-      transition-timing-function: step-start;
-    }
-    div:hover{
-      transform: scale(2,2);
-    }
-    div:active{
-      width: 200px;
-      left:calc(50% - 100px);
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            transition-duration: 1s;
+            border: red solid 1px;
+            position: fixed;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+            transition-timing-function: step-start;
+        }
 
-    }
-  </style>
+        div:hover {
+            transform: scale(2, 2);
+        }
+
+        div:active {
+            width: 200px;
+            left: calc(50% - 100px);
+
+        }
+    </style>
 </head>
 <body>
 <div></div>

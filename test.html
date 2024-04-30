@@ -3,35 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .container {
+            display: flex; /* 使用Flex布局 */
+            width: 100%; /* 容器宽度占满全屏 */
+            height: 100vh; /* 这里假设容器高度也想占满全屏，可以根据需要调整 */
+        }
+
+        .left, .right {
+            flex: 1; /* 两个div平分容器空间 */
+            /* 下面的属性是为了演示效果，可选 */
+            /*text-align: center;*/
+            /*line-height: 100vh; !* 保证文本垂直居中显示 *!*/
+        }
+
+        /* 可以根据需要添加额外样式，比如背景色或边框 */
+        .left {
+            border: #ccc solid 2px;
+        }
+
+        .right {
+            border: #ccc solid 2px;
+
+        }
+
+        .left:before{
+            content: "输入代码";
+        }
+        .right:before{
+            content: "输入代码";
+        }
+
+        .full-size-textarea {
+            width: 100%; /* 文本区域宽度占满容器 */
+            height: 100%; /* 文本区域高度也占满容器 */
+            box-sizing: border-box; /* 确保边框和内边距被包含在设定的宽度和高度内 */
+            resize: none; /* 禁止用户调整文本区域大小 */
+            outline: none; /* 移除焦点时的轮廓 */
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <div class="left"><button id="submit">提交</button><textarea class="full-size-textarea" id="input"></textarea></div>
+    <div class="right"><textarea class="full-size-textarea" id="output"></textarea></div>
+</div>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", async function () {
-        let arr = [0,1];
-        let o = {
-            a: 1,
-            b: 2
+        const input = document.getElementById("input");
+        const output = document.getElementById("output");
+        const submit = document.getElementById("submit");
+
+        function removeComments(code) {
+            // 使用正则表达式匹配单行注释并替换为空字符串
+            code = code.replace(/\/\/.*$/gm, '');
+
+            // 使用正则表达式匹配多行注释并替换为空字符串
+            code = code.replace(/\/\*[\s\S]*?\*\/+/g, '');
+
+            return code;
         }
-        let objPrototypeProxy = new Proxy(Object.prototype, {
-            get(target, propKey, receiver) {     //target监听的对象，propKey所引用的属性，receiver相应的proxy对象
-                if (propKey === "valueOf") {
-                    console.warn("read valueOf")
-                }
-                return target[propKey];
-            },
+        let removeNewlinesAndSpaces = function (inputString) {
+            // 正则表达式匹配回车符(\r)、换行符(\n)及其后紧跟的任意数量空格(\s*)
+            const regex = /[\r\n]+\s*/g;
+            // 使用replace方法替换匹配到的字符为空字符串，从而删除它们
+            return inputString.replace(regex, '');
+        }
+
+        input.addEventListener("input", function () {
+            let code = removeComments(input.value);
+            output.value = removeNewlinesAndSpaces(code);
         });
-
-        let arrProxy = new Proxy(arr, {
-            get(target, propKey, receiver) {     //target监听的对象，propKey所引用的属性，receiver相应的proxy对象
-                console.warn("read arr elements " + (propKey.toString()))
-                return target[propKey];
-            }
-        })
-        Object.setPrototypeOf(Object.getPrototypeOf(arrProxy), objPrototypeProxy);
-
-        console.log(arrProxy == 1)
-        console.log([1,2,3].toString())
     });
-</>
+</script>
 </body>
 </html>
